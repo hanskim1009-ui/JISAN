@@ -249,7 +249,7 @@ export function SuccessCasesSection() {
             {/* 제목: 좌측 정렬 */}
             <div className="text-left mb-8">
               <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a2e] mb-3 tracking-tight">
-                사건사례
+                성공사례
               </h2>
               <p className="text-[13px] text-[#777] max-w-2xl leading-relaxed">
                 수십 건의 형사·민사·기업 사건 경험을 기반으로, 유사한 상황의 의뢰인에게 실질적인 도움이 되는 전략을 제시합니다.
