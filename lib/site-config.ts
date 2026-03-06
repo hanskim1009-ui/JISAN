@@ -20,7 +20,7 @@ export const siteConfig = {
   businessRegistration: "808-37-01374",
   advertisingAttorney: "김한솔",
   /** Formspree form ID - 상담 폼 제출 시 사용 (https://formspree.io 에서 생성) */
-  formspreeFormId: "YOUR_FORM_ID", // TODO: 실제 Form ID로 교체
+  formspreeFormId: "mdawozrb",
 }
 
 /** 변호사 프로필 이미지 - /public/images/lawyers/ 에 파일 추가 시 해당 경로 사용 */
