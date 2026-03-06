@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 230 35% 14%; /* #161b2e 다크 네이비 (진하게) */
+    --card: 0 0% 100%;
+    --card-foreground: 230 35% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 35% 14%;
+    --primary: 40 72% 48%; /* 밝은 골드 #d4a017 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 12% 97%; /* 따뜻한 연회색 #f7f7f5 */
+    --secondary-foreground: 230 35% 14%;
+    --muted: 40 10% 95%;
+    --muted-foreground: 230 12% 42%; /* 본문용 회색 (더 진하게) */
+    --accent: 40 72% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 80% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 16% 88%;
+    --input: 220 16% 88%;
+    --ring: 230 35% 16%;
+    --radius: 0rem;
+    --sidebar-background: 220 14% 96%;
+    --sidebar-foreground: 230 35% 16%;
+    --sidebar-primary: 40 72% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 230 35% 16%;
+    --sidebar-border: 220 16% 88%;
+    --sidebar-ring: 230 35% 16%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background-color: hsl(230 35% 16%);
+    color: hsl(0 0% 100%);
+  }
+}
+
+/* Safe area for mobile devices (notch, home indicator) */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 1.5rem);
+}
+
+/* Typography: 섹션 라벨 (12px 통일) */
+.section-label {
+  @apply text-xs tracking-[0.12em] text-muted-foreground mb-3;
+}
+
+/* Typography: 섹션 제목 H2 (통일) */
+.section-title {
+  @apply text-2xl md:text-3xl font-medium tracking-tight text-foreground font-serif;
+}
+
+/* Typography: 카드 제목 H3 (통일) */
+.card-title {
+  @apply text-lg md:text-xl font-medium tracking-tight text-foreground;
+}
+
+/* Typography: 본문 (16px) */
+.body-text {
+  @apply text-base leading-relaxed text-foreground;
+}
+
+/* 최대 너비 컨테이너 */
+.container-narrow {
+  @apply max-w-7xl mx-auto w-full;
+}
+
