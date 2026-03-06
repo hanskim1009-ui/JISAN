@@ -13,6 +13,7 @@ const CASE_TYPES = [
   { value: "civil", label: "민사" },
   { value: "construction", label: "건설·부동산" },
   { value: "bankruptcy", label: "회생·파산" },
+  { value: "family", label: "가사" },
   { value: "other", label: "기타" },
 ]
 
