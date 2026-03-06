@@ -94,7 +94,7 @@ export function Hero() {
               <p className="text-xs tracking-[0.12em] text-background/70 mb-5">
                 {slide.label}
               </p>
-              <h1 className="text-4xl md:text-5xl font-medium font-serif leading-[1.25] tracking-tight text-balance whitespace-pre-line">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.2] tracking-tight text-balance whitespace-pre-line">
                 {slide.title}
               </h1>
               <p className="mt-6 md:mt-8 max-w-xl text-base leading-relaxed text-background/85">

@@ -19,7 +19,6 @@ export function AboutSection() {
               headVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <p className="section-label">법률사무소 소개</p>
             <h2 className="section-title">
               형사 사건 변호를 핵심으로,
               <br className="hidden md:block" />

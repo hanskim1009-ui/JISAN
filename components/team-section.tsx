@@ -74,9 +74,9 @@ function LawyerCard({ lawyer, index }: { lawyer: Lawyer; index: number }) {
       >
         <div className="flex w-full items-start justify-between gap-4">
           <div>
-            <Avatar className="h-24 w-24 md:h-28 md:w-28 rounded-full mb-6 ring-2 ring-primary/20">
+            <Avatar className="h-24 w-24 md:h-28 md:w-28 rounded-full mb-6 ring-2 ring-foreground/20">
               <AvatarImage src={lawyer.image} alt={lawyer.name} />
-              <AvatarFallback className="bg-primary/10 text-primary text-lg font-medium">
+              <AvatarFallback className="bg-muted text-foreground text-lg font-medium">
                 {lawyer.initials.slice(0, 2)}
               </AvatarFallback>
             </Avatar>
@@ -90,14 +90,14 @@ function LawyerCard({ lawyer, index }: { lawyer: Lawyer; index: number }) {
           </div>
           <span
             className={`shrink-0 flex h-10 w-10 items-center justify-center rounded-full border border-border transition-transform duration-300 ${
-              open ? "rotate-180 bg-primary/10" : "bg-secondary"
+              open ? "rotate-180 bg-muted" : "bg-secondary"
             }`}
             aria-hidden
           >
             <ChevronDown className="h-5 w-5 text-foreground" />
           </span>
         </div>
-        <span className="mt-4 text-sm font-medium text-primary">
+        <span className="mt-4 text-sm font-medium text-foreground">
           {open ? "접기" : "펼쳐보기 +"}
         </span>
       </button>
@@ -112,7 +112,7 @@ function LawyerCard({ lawyer, index }: { lawyer: Lawyer; index: number }) {
             <ul className="space-y-2.5 text-base leading-relaxed text-foreground">
               {lawyer.highlights.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <span className="mt-[0.4rem] h-[3px] w-[10px] rounded-full bg-primary/60 shrink-0" />
+                  <span className="mt-[0.4rem] h-[3px] w-[10px] rounded-full bg-foreground/60 shrink-0" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -139,7 +139,6 @@ export function TeamSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="section-label">구성원</p>
           <h2 className="section-title">
             검사 출신 변호사가<br className="hidden md:block" />
             직접 함께합니다

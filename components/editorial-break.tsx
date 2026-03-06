@@ -33,7 +33,7 @@ export function EditorialBreak() {
           }`}
         >
           <div className="w-10 h-px bg-foreground/30 mb-8" />
-          <blockquote className="text-xl md:text-2xl font-serif font-medium leading-[1.5] tracking-tight text-foreground text-balance">
+          <blockquote className="text-xl md:text-2xl font-semibold leading-[1.5] tracking-tight text-foreground text-balance">
             “의뢰인의 하루가 다시 평온해질 수 있도록, 결과뿐 아니라 과정을 함께
             책임지는 것이 지산의 역할이라고 믿습니다.”
           </blockquote>

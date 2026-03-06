@@ -11,8 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', 'Noto Sans KR', 'system-ui', 'sans-serif'],
-        serif: ['var(--font-serif)', 'Noto Serif KR', 'Georgia', 'serif'],
+        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', '"Helvetica Neue"', '"Segoe UI"', '"Apple SD Gothic Neo"', '"Noto Sans KR"', '"Malgun Gothic"', 'sans-serif'],
+        serif: ['Pretendard', 'Georgia', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

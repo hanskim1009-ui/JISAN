@@ -28,8 +28,7 @@ export function ContactSection() {
               headVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <p className="section-label mb-4 text-background/70">상담문의</p>
-            <h2 className="text-2xl md:text-3xl font-medium font-serif leading-[1.3] tracking-tight text-balance">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-[1.3] tracking-tight text-balance">
               가장 힘든 순간,
               <br className="hidden md:block" />
               혼자가 아니어야 합니다.

@@ -18,7 +18,6 @@ export function MapSection() {
     >
       <div className="max-w-7xl mx-auto">
       <div className="mb-10">
-        <p className="section-label mb-2">오시는 길</p>
         <h2 className="section-title">
           법률사무소 지산
         </h2>
@@ -27,7 +26,7 @@ export function MapSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <div className="space-y-6">
           <div className="flex gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground">
               <MapPin className="h-5 w-5" />
             </div>
             <div>
@@ -36,19 +35,19 @@ export function MapSection() {
             </div>
           </div>
           <div className="flex gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground">
               <Phone className="h-5 w-5" />
             </div>
             <div>
               <p className="text-sm font-medium text-foreground">전화</p>
-              <a href={siteConfig.phoneHref} className="text-sm text-primary hover:underline mt-1 block">
+              <a href={siteConfig.phoneHref} className="text-sm text-foreground hover:underline mt-1 block">
                 {siteConfig.phone}
               </a>
               <p className="text-sm text-muted-foreground mt-1">주말/공휴일 24시간 상담가능</p>
             </div>
           </div>
           <div className="flex gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground">
               <Clock className="h-5 w-5" />
             </div>
             <div>
@@ -61,7 +60,7 @@ export function MapSection() {
               href={siteConfig.naverMapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-primary hover:underline"
+              className="text-sm font-medium text-foreground hover:underline"
             >
               네이버 지도에서 보기 →
             </a>
@@ -69,7 +68,7 @@ export function MapSection() {
               href={siteConfig.kakaoMapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-primary hover:underline"
+              className="text-sm font-medium text-foreground hover:underline"
             >
               카카오맵에서 보기 →
             </a>

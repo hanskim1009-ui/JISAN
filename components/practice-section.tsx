@@ -75,7 +75,6 @@ export function PracticeSection() {
           }`}
         >
           <div>
-            <p className="section-label">업무분야</p>
             <h2 className="section-title">
               사건의 시작부터 끝까지
               <br className="hidden md:block" />
@@ -111,7 +110,7 @@ export function PracticeSection() {
         {/* 선택된 분야 상세 */}
         <div className="bg-secondary p-8 md:p-12 rounded-lg border border-border">
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
+            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-muted text-foreground">
               <Icon className="h-6 w-6" />
             </div>
             <div>
@@ -123,13 +122,13 @@ export function PracticeSection() {
               </h3>
             </div>
           </div>
-          <div className="w-12 h-px bg-primary/50 mb-6" />
+          <div className="w-12 h-px bg-foreground/30 mb-6" />
           <p className="text-base md:text-lg leading-relaxed text-foreground max-w-2xl">
             {current.description}
           </p>
           <a
             href="#contact"
-            className="inline-flex mt-8 text-sm font-medium text-primary hover:underline"
+            className="inline-flex mt-8 text-sm font-medium text-foreground hover:underline"
           >
             상담 문의하기 →
           </a>

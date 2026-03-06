@@ -14,7 +14,7 @@ const keywords = [
 const TagItem = ({ tag, href }: { tag: string; href: string }) => (
   <a
     href={href}
-    className="inline-flex shrink-0 items-center px-4 py-2 rounded-full text-sm font-medium tracking-[0.06em] bg-background text-muted-foreground hover:text-primary hover:border-primary/50 border border-transparent transition-colors duration-300 mx-2"
+    className="inline-flex shrink-0 items-center px-4 py-2 rounded-full text-sm font-medium tracking-[0.06em] bg-background text-muted-foreground hover:text-foreground hover:border-foreground/50 border border-transparent transition-colors duration-300 mx-2"
   >
     #{tag}
   </a>

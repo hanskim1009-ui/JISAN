@@ -1,20 +1,7 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
-import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google"
 
 import "./globals.css"
-
-const notoSans = Noto_Sans_KR({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans",
-})
-
-const notoSerif = Noto_Serif_KR({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-serif",
-})
 
 const siteUrl = "https://www.jisanlaw.com"
 
@@ -65,7 +52,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#1a1f36",
+  themeColor: "#1e2a4a",
 }
 
 function JsonLdScript() {
@@ -129,7 +116,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ko" className={`${notoSans.variable} ${notoSerif.variable}`}>
+    <html lang="ko">
       <body className="font-sans antialiased">
         <JsonLdScript />
         {children}

@@ -47,12 +47,12 @@ function TestimonialCard({
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <Quote className="h-8 w-8 text-primary/40 mb-4" />
+      <Quote className="h-8 w-8 text-foreground/40 mb-4" />
       <p className="text-base leading-relaxed text-foreground mb-6">
         &ldquo;{item.quote}&rdquo;
       </p>
       <div className="flex items-center gap-3">
-        <span className="text-xs tracking-[0.08em] text-primary font-medium">
+        <span className="text-xs tracking-[0.08em] text-foreground font-medium">
           {item.category}
         </span>
         <span className="text-muted-foreground/60">·</span>
@@ -77,7 +77,6 @@ export function TestimonialsSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="section-label">의뢰인 후기</p>
           <h2 className="section-title">
             의뢰인이 전하는
             <br className="hidden md:block" />

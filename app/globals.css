@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,34 +12,35 @@
 
 @layer base {
   :root {
+    /* 로엘 스타일: 네이비/블루톤 강조 */
     --background: 0 0% 100%;
-    --foreground: 230 35% 14%; /* #161b2e 다크 네이비 (진하게) */
+    --foreground: 230 25% 14%; /* #161b2e 다크 네이비 */
     --card: 0 0% 100%;
-    --card-foreground: 230 35% 14%;
+    --card-foreground: 230 25% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 230 35% 14%;
-    --primary: 40 72% 48%; /* 밝은 골드 #d4a017 */
+    --popover-foreground: 230 25% 14%;
+    --primary: 230 35% 18%; /* #1e2a4a 다크 블루 (로엘 강조색) */
     --primary-foreground: 0 0% 100%;
-    --secondary: 40 12% 97%; /* 따뜻한 연회색 #f7f7f5 */
-    --secondary-foreground: 230 35% 14%;
-    --muted: 40 10% 95%;
-    --muted-foreground: 230 12% 42%; /* 본문용 회색 (더 진하게) */
-    --accent: 40 72% 48%;
+    --secondary: 230 12% 97%;
+    --secondary-foreground: 230 25% 14%;
+    --muted: 230 10% 96%;
+    --muted-foreground: 230 12% 45%;
+    --accent: 230 35% 18%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 80% 40%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 16% 88%;
-    --input: 220 16% 88%;
-    --ring: 230 35% 16%;
+    --border: 230 16% 90%;
+    --input: 230 16% 90%;
+    --ring: 230 35% 18%;
     --radius: 0rem;
-    --sidebar-background: 220 14% 96%;
-    --sidebar-foreground: 230 35% 16%;
-    --sidebar-primary: 40 72% 48%;
+    --sidebar-background: 230 12% 98%;
+    --sidebar-foreground: 230 25% 14%;
+    --sidebar-primary: 230 35% 18%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 230 35% 16%;
-    --sidebar-border: 220 16% 88%;
-    --sidebar-ring: 230 35% 16%;
+    --sidebar-accent: 230 10% 96%;
+    --sidebar-accent-foreground: 230 25% 14%;
+    --sidebar-border: 230 16% 90%;
+    --sidebar-ring: 230 35% 18%;
   }
 }
 
@@ -52,7 +55,7 @@
     @apply bg-background text-foreground;
   }
   ::selection {
-    background-color: hsl(230 35% 16%);
+    background-color: hsl(230 35% 18%);
     color: hsl(0 0% 100%);
   }
 }
@@ -62,19 +65,14 @@
   padding-bottom: env(safe-area-inset-bottom, 1.5rem);
 }
 
-/* Typography: 섹션 라벨 (12px 통일) */
-.section-label {
-  @apply text-xs tracking-[0.12em] text-muted-foreground mb-3;
-}
-
-/* Typography: 섹션 제목 H2 (통일) */
+/* Typography: 섹션 제목 H2 (로엘 스타일 - 더 크게) */
 .section-title {
-  @apply text-2xl md:text-3xl font-medium tracking-tight text-foreground font-serif;
+  @apply text-2xl md:text-4xl font-semibold tracking-tight text-foreground;
 }
 
-/* Typography: 카드 제목 H3 (통일) */
+/* Typography: 카드 제목 H3 (로엘 스타일) */
 .card-title {
-  @apply text-lg md:text-xl font-medium tracking-tight text-foreground;
+  @apply text-lg md:text-2xl font-semibold tracking-tight text-foreground;
 }
 
 /* Typography: 본문 (16px) */

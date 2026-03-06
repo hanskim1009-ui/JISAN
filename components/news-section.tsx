@@ -39,7 +39,7 @@ function NewsCard({ item, index }: { item: NewsItem; index: number }) {
   return (
     <article
       ref={ref}
-      className={`group border border-border bg-background p-6 md:p-8 rounded-lg transition-all duration-700 hover:border-primary/30 hover:shadow-md ${
+      className={`group border border-border bg-background p-6 md:p-8 rounded-lg transition-all duration-700 hover:border-foreground/30 hover:shadow-md ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
       style={{ transitionDelay: `${index * 80}ms` }}
@@ -49,7 +49,7 @@ function NewsCard({ item, index }: { item: NewsItem; index: number }) {
           <span
             className={`inline-block px-2.5 py-1 text-xs font-medium rounded mb-3 ${
               item.type === "언론보도"
-                ? "bg-primary/10 text-primary"
+                ? "bg-muted text-foreground"
                 : "bg-secondary text-muted-foreground"
             }`}
           >
@@ -63,7 +63,7 @@ function NewsCard({ item, index }: { item: NewsItem; index: number }) {
           </p>
         </div>
         {item.href && (
-          <ExternalLink className="h-4 w-4 text-muted-foreground shrink-0 group-hover:text-primary transition-colors" />
+          <ExternalLink className="h-4 w-4 text-muted-foreground shrink-0 group-hover:text-foreground transition-colors" />
         )}
       </div>
     </article>
@@ -94,7 +94,6 @@ export function NewsSection() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <p className="section-label">소식 및 자료</p>
               <h2 className="section-title">
                 새소식 &
                 <br className="hidden md:block" />

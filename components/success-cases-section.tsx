@@ -117,16 +117,16 @@ const cases: CaseItem[] = [
 
 const outcomeStyles: Record<string, string> = {
   criminal: "bg-foreground/90 text-background",
-  civil: "bg-primary/20 text-primary",
+  civil: "bg-muted text-foreground",
   corporate: "bg-foreground/80 text-background",
-  rehab: "bg-emerald-100 text-emerald-800",
+  rehab: "bg-muted text-foreground",
 }
 
 const CATEGORIES: CaseCategory[] = ["전체", "형사", "민사", "기업", "건설·부동산", "회생·파산"]
 
 function CaseCard({ item }: { item: CaseItem }) {
   return (
-    <article className="group border border-border bg-background rounded-lg overflow-hidden h-full transition-all duration-500 hover:shadow-lg hover:border-primary/20">
+    <article className="group border border-border bg-background rounded-lg overflow-hidden h-full transition-all duration-500 hover:shadow-lg hover:border-foreground/30">
       <div className="p-6 md:p-8">
         <span
           className={`inline-block px-3 py-1 text-xs font-medium rounded mb-4 ${outcomeStyles[item.outcomeVariant] || outcomeStyles.civil}`}
@@ -149,7 +149,7 @@ function CaseCard({ item }: { item: CaseItem }) {
             >
               <Avatar className="h-6 w-6 ring-1 ring-border">
                 <AvatarImage src={lawyer.image} alt={lawyer.name} />
-                <AvatarFallback className="bg-primary/10 text-primary text-[10px]">
+                <AvatarFallback className="bg-muted text-foreground text-[10px]">
                   {lawyer.initials}
                 </AvatarFallback>
               </Avatar>
@@ -200,7 +200,6 @@ export function SuccessCasesSection() {
           >
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
               <div>
-                <p className="section-label mb-2">성공 사례</p>
                 <h2 className="section-title mb-4">
                   의뢰인과 함께한
                   <br className="hidden md:block" />

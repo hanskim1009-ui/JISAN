@@ -6,6 +6,7 @@ const footerLinks = [
   { label: "구성원", href: "#team" },
   { label: "업무분야", href: "#practice" },
   { label: "성공 사례", href: "#cases" },
+  { label: "소식", href: "#news" },
   { label: "상담문의", href: "#contact" },
   { label: "오시는 길", href: "#map" },
 ]

@@ -69,15 +69,15 @@ function StatBlock({
         />
         <div className="absolute inset-0 bg-foreground/60" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-background px-6">
-          <p className="text-4xl md:text-5xl font-semibold tracking-tight font-serif">
+          <p className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
             {count}
-            <span className="text-2xl md:text-3xl text-primary ml-1">{suffix}</span>
+            <span className="text-2xl md:text-3xl text-foreground ml-1">{suffix}</span>
           </p>
           <p className="mt-1 text-sm font-medium tracking-[0.06em]">{label}</p>
         </div>
       </div>
       <div className="p-6 md:p-8">
-        <p className="text-xs tracking-[0.08em] text-primary font-medium mb-1">
+        <p className="text-xs tracking-[0.08em] text-foreground font-medium mb-1">
           {sub}
         </p>
         <p className="text-base leading-relaxed text-muted-foreground">
@@ -94,7 +94,7 @@ export function StatsSection() {
   return (
     <section
       id="stats"
-      className="px-6 py-16 md:py-24 bg-primary/5 border-y border-border"
+      className="px-6 py-16 md:py-24 bg-secondary border-y border-border"
     >
       <div className="max-w-7xl mx-auto">
         <div
@@ -103,7 +103,6 @@ export function StatsSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <p className="section-label mb-2">숫자로 보는 법률사무소 지산</p>
           <h2 className="section-title">경험과 신뢰</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
