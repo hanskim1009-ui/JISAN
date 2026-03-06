@@ -3,9 +3,6 @@
 import { useState, useMemo } from "react"
 import Autoplay from "embla-carousel-autoplay"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import { Search } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   Carousel,
   CarouselContent,
@@ -13,7 +10,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { lawyerImages } from "@/lib/site-config"
 
 type CaseCategory = "전체" | "형사" | "민사" | "기업" | "건설·부동산" | "회생·파산"
 
@@ -27,7 +23,6 @@ type CaseItem = {
   particle?: "을" | "를"
   outcomeTag: string
   outcomeVariant: "criminal" | "civil" | "corporate" | "rehab"
-  lawyers: { name: string; image: string; initials: string }[]
 }
 
 const cases: CaseItem[] = [
@@ -40,10 +35,6 @@ const cases: CaseItem[] = [
     particle: "를",
     outcomeTag: "불기소",
     outcomeVariant: "criminal",
-    lawyers: [
-      { name: "김한솔", image: lawyerImages.kim, initials: "김" },
-      { name: "구본우", image: lawyerImages.koo, initials: "구" },
-    ],
   },
   {
     id: "2",
@@ -54,9 +45,6 @@ const cases: CaseItem[] = [
     particle: "을",
     outcomeTag: "집행유예",
     outcomeVariant: "criminal",
-    lawyers: [
-      { name: "김한솔", image: lawyerImages.kim, initials: "김" },
-    ],
   },
   {
     id: "3",
@@ -67,10 +55,6 @@ const cases: CaseItem[] = [
     particle: "을",
     outcomeTag: "합의",
     outcomeVariant: "civil",
-    lawyers: [
-      { name: "구본우", image: lawyerImages.koo, initials: "구" },
-      { name: "박종진", image: lawyerImages.park, initials: "박" },
-    ],
   },
   {
     id: "4",
@@ -81,10 +65,6 @@ const cases: CaseItem[] = [
     particle: "를",
     outcomeTag: "사전 대응",
     outcomeVariant: "corporate",
-    lawyers: [
-      { name: "김한솔", image: lawyerImages.kim, initials: "김" },
-      { name: "박종진", image: lawyerImages.park, initials: "박" },
-    ],
   },
   {
     id: "5",
@@ -95,10 +75,6 @@ const cases: CaseItem[] = [
     particle: "을",
     outcomeTag: "인가결정",
     outcomeVariant: "rehab",
-    lawyers: [
-      { name: "구본우", image: lawyerImages.koo, initials: "구" },
-      { name: "박종진", image: lawyerImages.park, initials: "박" },
-    ],
   },
   {
     id: "6",
@@ -109,54 +85,135 @@ const cases: CaseItem[] = [
     particle: "를",
     outcomeTag: "합의",
     outcomeVariant: "civil",
-    lawyers: [
-      { name: "박종진", image: lawyerImages.park, initials: "박" },
-    ],
+  },
+  {
+    id: "7",
+    category: "형사",
+    title: "마약 투약 혐의 변호",
+    summary: "초범으로 마약 투약 혐의를 받은 의뢰인. 적극적인 치료 의지와 반성을 입증하여",
+    summaryBold: "기소유예 결정",
+    particle: "을",
+    outcomeTag: "기소유예",
+    outcomeVariant: "criminal",
+  },
+  {
+    id: "8",
+    category: "형사",
+    title: "폭행·상해 사건 변호",
+    summary: "우발적 폭행으로 기소된 의뢰인. 피해자와의 합의 및 양형 자료 제출을 통해",
+    summaryBold: "벌금형 처분",
+    particle: "을",
+    outcomeTag: "벌금형",
+    outcomeVariant: "criminal",
+  },
+  {
+    id: "9",
+    category: "민사",
+    title: "손해배상 청구 사건",
+    summary: "교통사고로 인한 후유장해 손해배상 청구. 적극적인 증거 수집 및 의견서 제출로",
+    summaryBold: "청구액 전액 인용",
+    particle: "을",
+    outcomeTag: "전액 인용",
+    outcomeVariant: "civil",
+  },
+  {
+    id: "10",
+    category: "기업",
+    title: "횡령 혐의 임직원 변호",
+    summary: "회사 자금 유용 혐의를 받은 임직원. 내부 자료 분석을 통해 혐의 부인에 성공,",
+    summaryBold: "무혐의 처분",
+    particle: "을",
+    outcomeTag: "무혐의",
+    outcomeVariant: "corporate",
+  },
+  {
+    id: "11",
+    category: "회생·파산",
+    title: "법인 파산 신청",
+    summary: "경영 악화로 채무 변제가 불가능해진 중소기업. 신속한 파산 절차 진행으로",
+    summaryBold: "면책 결정",
+    particle: "을",
+    outcomeTag: "면책결정",
+    outcomeVariant: "rehab",
+  },
+  {
+    id: "12",
+    category: "건설·부동산",
+    title: "임대차 보증금 반환 소송",
+    summary: "임대인이 보증금 반환을 거부한 사건. 명도 집행 절차와 병행하여",
+    summaryBold: "전액 반환 판결",
+    particle: "을",
+    outcomeTag: "전액 반환",
+    outcomeVariant: "civil",
+  },
+  {
+    id: "13",
+    category: "형사",
+    title: "성범죄 무고 사건 변호",
+    summary: "허위 고소로 인한 성범죄 혐의. 객관적 증거와 진술 모순을 분석하여",
+    summaryBold: "무죄 판결",
+    particle: "을",
+    outcomeTag: "무죄",
+    outcomeVariant: "criminal",
+  },
+  {
+    id: "14",
+    category: "민사",
+    title: "계약 해제 분쟁",
+    summary: "분양 계약 해제 및 위약금 반환 청구 소송. 계약 조건의 하자를 입증하여",
+    summaryBold: "위약금 전액 반환",
+    particle: "을",
+    outcomeTag: "전액 반환",
+    outcomeVariant: "civil",
+  },
+  {
+    id: "15",
+    category: "회생·파산",
+    title: "개인파산 면책",
+    summary: "사업 실패로 1억 원대 채무를 진 의뢰인. 성실한 면책 심문 준비를 통해",
+    summaryBold: "면책 인가",
+    particle: "을",
+    outcomeTag: "면책인가",
+    outcomeVariant: "rehab",
+  },
+  {
+    id: "16",
+    category: "기업",
+    title: "계약서 검토 및 분쟁 예방",
+    summary: "대규모 납품 계약 체결 전 리스크 분석. 불리한 조항 수정 및 협상을 통해",
+    summaryBold: "분쟁 사전 방지",
+    particle: "를",
+    outcomeTag: "사전 방지",
+    outcomeVariant: "corporate",
   },
 ]
 
 const outcomeStyles: Record<string, string> = {
-  criminal: "bg-foreground/90 text-background",
-  civil: "bg-muted text-foreground",
-  corporate: "bg-foreground/80 text-background",
-  rehab: "bg-muted text-foreground",
+  criminal: "bg-[#1e3a8a] text-white",
+  civil: "bg-[#1e3a8a] text-white",
+  corporate: "bg-[#1e3a8a] text-white",
+  rehab: "bg-[#1e3a8a] text-white",
 }
 
 const CATEGORIES: CaseCategory[] = ["전체", "형사", "민사", "기업", "건설·부동산", "회생·파산"]
 
 function CaseCard({ item }: { item: CaseItem }) {
   return (
-    <article className="group border border-border bg-background rounded-lg overflow-hidden h-full transition-all duration-500 hover:shadow-lg hover:border-foreground/30">
-      <div className="p-6 md:p-8">
+    <article className="group border border-[#e8ecf0] bg-white rounded-xl overflow-hidden h-full transition-all duration-300 hover:shadow-md">
+      <div className="p-6">
         <span
-          className={`inline-block px-3 py-1 text-xs font-medium rounded mb-4 ${outcomeStyles[item.outcomeVariant] || outcomeStyles.civil}`}
+          className={`inline-block px-3 py-1 text-xs font-semibold rounded-full mb-4 ${outcomeStyles[item.outcomeVariant]}`}
         >
           {item.outcomeTag}
         </span>
-        <h3 className="text-lg font-semibold text-foreground mb-3 leading-snug">
+        <h3 className="text-[15px] font-bold text-[#1a1a2e] mb-3 leading-snug">
           {item.title}
         </h3>
-        <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
+        <p className="text-[13px] leading-relaxed text-[#555]">
           {item.summary}{" "}
-          <span className="font-semibold text-foreground">{item.summaryBold}</span>
+          <span className="font-bold text-[#1e3a8a]">[{item.summaryBold}]</span>
           {item.particle || "를"} 이끌어냈습니다.
         </p>
-        <div className="mt-6 flex items-center gap-2 flex-wrap">
-          {item.lawyers.map((lawyer) => (
-            <div
-              key={lawyer.name}
-              className="flex items-center gap-2 text-xs text-muted-foreground"
-            >
-              <Avatar className="h-6 w-6 ring-1 ring-border">
-                <AvatarImage src={lawyer.image} alt={lawyer.name} />
-                <AvatarFallback className="bg-muted text-foreground text-[10px]">
-                  {lawyer.initials}
-                </AvatarFallback>
-              </Avatar>
-              <span>법률사무소 지산 {lawyer.name}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </article>
   )
@@ -164,33 +221,24 @@ function CaseCard({ item }: { item: CaseItem }) {
 
 export function SuccessCasesSection() {
   const [filter, setFilter] = useState<CaseCategory>("전체")
-  const [search, setSearch] = useState("")
   const { ref, isVisible } = useScrollReveal(0.05)
 
   const autoplay = useMemo(
-    () => Autoplay({ delay: 4000, stopOnInteraction: false }),
+    () => Autoplay({ delay: 2500, stopOnInteraction: false }),
     []
   )
 
   const filteredCases = useMemo(() => {
-    return cases.filter((c) => {
-      const matchCategory = filter === "전체" || c.category === filter
-      const matchSearch =
-        !search.trim() ||
-        c.title.toLowerCase().includes(search.toLowerCase()) ||
-        c.summary.toLowerCase().includes(search.toLowerCase()) ||
-        c.outcomeTag.toLowerCase().includes(search.toLowerCase())
-      return matchCategory && matchSearch
-    })
-  }, [filter, search])
+    return cases.filter((c) => filter === "전체" || c.category === filter)
+  }, [filter])
 
   return (
     <section
       id="cases"
-      className="py-20 md:py-28 bg-secondary overflow-x-hidden"
+      className="py-20 md:py-32 bg-white overflow-x-hidden"
     >
-      {/* 헤더 + 필터 (max-w 내부) */}
-      <div className="px-6 md:px-12 lg:px-20 mb-10 md:mb-12">
+      {/* 헤더 + 필터 */}
+      <div className="px-6 md:px-12 lg:px-20 mb-10 md:mb-16">
         <div className="max-w-7xl mx-auto">
           <div
             ref={ref}
@@ -198,39 +246,26 @@ export function SuccessCasesSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
-              <div>
-                <h2 className="section-title mb-4">
-                  의뢰인과 함께한
-                  <br className="hidden md:block" />
-                  사건 대응 경험
-                </h2>
-                <p className="text-base text-muted-foreground max-w-2xl">
-                  의뢰인과 함께한 경험을 바탕으로, 법률사무소 지산은 직접 소통하며
-                  전략적인 대응을 준비합니다.
-                </p>
-              </div>
-              <div className="relative w-full lg:w-80 shrink-0">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="검색어를 입력해주세요"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="pl-10 h-11"
-                />
-              </div>
+            {/* 제목: 좌측 정렬 */}
+            <div className="text-left mb-8">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a2e] mb-3 tracking-tight">
+                사건사례
+              </h2>
+              <p className="text-[13px] text-[#777] max-w-2xl leading-relaxed">
+                수십 건의 형사·민사·기업 사건 경험을 기반으로, 유사한 상황의 의뢰인에게 실질적인 도움이 되는 전략을 제시합니다.
+              </p>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            {/* 필터 버튼: 중앙 정렬, pill형 */}
+            <div className="flex flex-wrap justify-center gap-2">
               {CATEGORIES.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
                     filter === cat
-                      ? "bg-foreground text-background"
-                      : "bg-background border border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+                      ? "bg-[#1e3a8a] text-white"
+                      : "bg-white border border-[#d0d5dd] text-[#555] hover:border-[#1e3a8a] hover:text-[#1e3a8a]"
                   }`}
                 >
                   {cat}
@@ -241,14 +276,14 @@ export function SuccessCasesSection() {
         </div>
       </div>
 
-      {/* 캐러셀 full-bleed (뷰포트 전체 너비) */}
+      {/* 캐러셀 full-bleed */}
       {filteredCases.length > 0 ? (
         <div className="w-screen relative left-1/2 -translate-x-1/2 px-4 md:px-6 lg:px-8">
           <Carousel
             opts={{
               align: "start",
               loop: true,
-              dragFree: false,
+              dragFree: true,
             }}
             plugins={[autoplay]}
             className="w-full"
@@ -257,7 +292,7 @@ export function SuccessCasesSection() {
               {filteredCases.map((item) => (
                 <CarouselItem
                   key={item.id}
-                  className="pl-4 basis-[85%] sm:basis-[70%] md:basis-[calc(50%-0.5rem)] lg:basis-[calc(33.333%-0.67rem)]"
+                  className="pl-4 basis-[85%] sm:basis-[60%] md:basis-[calc(33.333%-0.67rem)] lg:basis-[calc(20%-0.8rem)]"
                 >
                   <div className="h-full">
                     <CaseCard item={item} />
@@ -265,23 +300,23 @@ export function SuccessCasesSection() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2 md:left-4 top-1/2 -translate-y-1/2 border border-border bg-background/95 hover:bg-secondary shadow-sm z-10" />
-            <CarouselNext className="right-2 md:right-4 top-1/2 -translate-y-1/2 border border-border bg-background/95 hover:bg-secondary shadow-sm z-10" />
+            <CarouselPrevious className="left-2 md:left-4 top-1/2 -translate-y-1/2 border border-[#d0d5dd] bg-white hover:bg-[#f5f7fa] shadow-sm z-10" />
+            <CarouselNext className="right-2 md:right-4 top-1/2 -translate-y-1/2 border border-[#d0d5dd] bg-white hover:bg-[#f5f7fa] shadow-sm z-10" />
           </Carousel>
         </div>
       ) : (
         <div className="px-6 md:px-12 lg:px-20">
           <div className="max-w-7xl mx-auto">
-            <p className="text-center py-16 text-muted-foreground">
+            <p className="text-center py-16 text-[#999]">
               해당 조건에 맞는 사례가 없습니다.
             </p>
           </div>
         </div>
       )}
 
-      <div className="px-6 md:px-12 lg:px-20 mt-8">
+      <div className="px-6 md:px-12 lg:px-20 mt-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs text-[#aaa] text-right">
             개인정보 보호를 위해 사건 유형과 결과 중심으로 요약하여 안내드립니다.
           </p>
         </div>

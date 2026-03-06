@@ -12,7 +12,7 @@ const navLinks = [
   { label: "구성원", href: "#team" },
   { label: "업무분야", href: "#practice" },
   { label: "성공 사례", href: "#cases" },
-  { label: "소식", href: "#news" },
+  { label: "감사인사", href: "#testimonials" },
   { label: "상담문의", href: "#contact" },
   { label: "오시는 길", href: "#map" },
 ]
@@ -43,9 +43,6 @@ export function Navigation() {
           >
             법률사무소 지산
           </Link>
-          <Badge variant="outline" className="hidden md:inline-flex text-xs tracking-[0.08em]">
-            주말/공휴일 24시간 상담가능
-          </Badge>
         </div>
 
         <div className="hidden md:flex items-center gap-10">
@@ -82,6 +79,9 @@ export function Navigation() {
               <Phone className="h-3.5 w-3.5" />
               02-6951-4907
             </a>
+            <div className="inline-flex items-center justify-center rounded-full border border-border px-3 py-2 text-xs font-medium text-muted-foreground leading-tight text-center">
+              주말/공휴일<br />24시간 상담
+            </div>
           </div>
         </div>
 

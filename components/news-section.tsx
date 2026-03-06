@@ -83,7 +83,7 @@ export function NewsSection() {
   return (
     <section
       id="news"
-      className="px-6 py-20 md:px-12 lg:px-20 md:py-28 bg-secondary"
+      className="px-6 py-24 md:px-12 lg:px-20 md:py-36 bg-secondary"
     >
       <div className="max-w-7xl mx-auto">
         <div
@@ -94,12 +94,10 @@ export function NewsSection() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
-              <h2 className="section-title">
-                새소식 &
-                <br className="hidden md:block" />
-                법률 지식
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a2e] mb-3 tracking-tight">
+                새소식 & 법률 지식
               </h2>
-              <p className="mt-4 max-w-xl text-base text-muted-foreground">
+              <p className="text-[13px] text-[#777] max-w-xl leading-relaxed">
                 법률사무소 지산의 새로운 소식과 법률 상식을 만나보세요.
               </p>
             </div>
@@ -112,10 +110,10 @@ export function NewsSection() {
                 <button
                   key={t.id}
                   onClick={() => setTab(t.id)}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
                     tab === t.id
-                      ? "bg-foreground text-background"
-                      : "bg-background border border-border text-muted-foreground hover:border-foreground/30 hover:text-foreground"
+                      ? "bg-[#1e3a8a] text-white"
+                      : "bg-white border border-[#d0d5dd] text-[#555] hover:border-[#1e3a8a] hover:text-[#1e3a8a]"
                   }`}
                 >
                   {t.label}

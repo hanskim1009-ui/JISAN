@@ -94,7 +94,7 @@ export function StatsSection() {
   return (
     <section
       id="stats"
-      className="px-6 py-16 md:py-24 bg-secondary border-y border-border"
+      className="px-6 py-20 md:py-32 bg-secondary border-y border-border"
     >
       <div className="max-w-7xl mx-auto">
         <div
@@ -103,7 +103,7 @@ export function StatsSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="section-title">경험과 신뢰</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a2e] tracking-tight">경험과 신뢰</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {stats.map((stat, index) => (

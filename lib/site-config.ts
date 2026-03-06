@@ -28,11 +28,6 @@ export const lawyerImages = {
   kim: "/images/lawyers/kim.jpg",
   koo: "/images/lawyers/koo.jpg",
   park: "/images/lawyers/park.jpg",
+  kimChungHyeon: "/images/lawyers/kim-chung-hyeon.jpg",
+  kang: "/images/lawyers/kang.jpg",
 } as const
-
-/** 프로필 사진 없을 때 사용할 placeholder (initials) */
-export const lawyerPlaceholderImages = {
-  kim: "https://ui-avatars.com/api/?name=Kim+Hansol&size=400&background=1a1f36&color=b8860b&bold=true",
-  koo: "https://ui-avatars.com/api/?name=Koo+Bonwoo&size=400&background=1a1f36&color=b8860b&bold=true",
-  park: "https://ui-avatars.com/api/?name=Park+Jongjin&size=400&background=1a1f36&color=b8860b&bold=true",
-}

@@ -4,7 +4,6 @@ import Image from "next/image"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import Autoplay from "embla-carousel-autoplay"
 import useEmblaCarousel from "embla-carousel-react"
-import { QuickConsultForm } from "./quick-consult-form"
 
 const slides = [
   {
@@ -12,7 +11,7 @@ const slides = [
     alt: "법정과 법전",
     label: "주말·공휴일 24시간 상담",
     title: "당신의 일상이 다시 평온해지도록,\n법률 그 이상의 마음으로 함께합니다.",
-    sub: "형사 사건을 핵심으로 기업·민사·건설·부동산·회생·파산까지, 의뢰인의 일상 회복을 최우선 가치로 삼습니다.",
+    sub: "형사·기업·민사·건설·부동산·회생·파산·가사까지, 의뢰인의 일상 회복을 최우선 가치로 삼습니다.",
   },
   {
     image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?w=1920&q=80",
@@ -81,8 +80,8 @@ export function Hero() {
       </div>
 
       {/* Content overlay - same for all, but we'll show based on selected */}
-      <div className="relative z-10 px-6 pb-16 md:px-12 lg:px-20 md:pb-24 text-background max-w-7xl mx-auto w-full">
-        <div className="max-w-4xl relative min-h-[180px] md:min-h-[200px]">
+      <div className="relative z-10 px-6 pb-16 md:px-12 lg:px-20 md:pb-24 text-background w-full">
+        <div className="max-w-5xl relative min-h-[260px] md:min-h-[280px] lg:min-h-[320px]">
           {slides.map((slide, i) => (
             <div
               key={i}
@@ -91,36 +90,14 @@ export function Hero() {
               }`}
               aria-hidden={selectedIndex !== i}
             >
-              <p className="text-xs tracking-[0.12em] text-background/70 mb-5">
-                {slide.label}
-              </p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.2] tracking-tight text-balance whitespace-pre-line">
                 {slide.title}
               </h1>
-              <p className="mt-6 md:mt-8 max-w-xl text-base leading-relaxed text-background/85">
+              <p className="mt-6 md:mt-8 text-base leading-relaxed text-background/85">
                 {slide.sub}
               </p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-10 md:mt-14 flex flex-col gap-6">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <a
-              href="tel:0269514907"
-              className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium tracking-[0.08em] hover:bg-primary/90 transition-colors duration-300 shrink-0"
-            >
-              지금 바로 전화 상담
-            </a>
-            <div className="flex items-center gap-4 text-xs text-background/70">
-              <div className="w-10 h-px bg-background/40" />
-              <p>검사 출신 변호사와의 1:1 밀착 대응</p>
-            </div>
-          </div>
-          <div className="max-w-xl p-4 rounded-lg bg-background/10 border border-background/20">
-            <p className="text-xs text-background/80 mb-3">빠른 상담 신청</p>
-            <QuickConsultForm />
-          </div>
         </div>
 
         {/* Dot indicators */}

@@ -37,9 +37,6 @@ export function EditorialBreak() {
             “의뢰인의 하루가 다시 평온해질 수 있도록, 결과뿐 아니라 과정을 함께
             책임지는 것이 지산의 역할이라고 믿습니다.”
           </blockquote>
-          <p className="mt-6 text-sm tracking-[0.08em] text-muted-foreground">
-            김한솔 대표변호사 · 법률사무소 지산
-          </p>
         </div>
       </div>
       </div>
