@@ -53,7 +53,12 @@ export function MapSection() {
         </div>
 
         {/* 지도 이미지 - 전체 너비 */}
-        <div className="relative w-full aspect-[3/1] rounded-xl overflow-hidden border border-border shadow-sm">
+        <a
+          href={siteConfig.naverMapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block relative w-full aspect-[3/1] rounded-xl overflow-hidden border border-border shadow-sm hover:opacity-90 transition-opacity cursor-pointer"
+        >
           <Image
             src="/images/map.png"
             alt="법률사무소 지산 위치"
@@ -61,7 +66,7 @@ export function MapSection() {
             className="object-cover"
             sizes="100vw"
           />
-        </div>
+        </a>
 
         {/* 지도 링크 */}
         <div className="flex gap-6 mt-4">
