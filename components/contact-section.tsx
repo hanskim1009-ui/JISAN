@@ -47,10 +47,10 @@ export function ContactSection() {
                       {/* 원 + 연결선 */}
                       <div className="relative flex items-center justify-center w-full h-10 mb-3">
                         {i > 0 && (
-                          <div className="absolute right-1/2 top-1/2 -translate-y-1/2 w-1/2 border-t border-dashed border-background/30" />
+                          <div className="absolute right-[calc(50%+20px)] top-1/2 -translate-y-1/2 left-0 border-t border-dashed border-background/30" />
                         )}
                         {i < consultSteps.length - 1 && (
-                          <div className="absolute left-1/2 top-1/2 -translate-y-1/2 w-1/2 border-t border-dashed border-background/30" />
+                          <div className="absolute left-[calc(50%+20px)] top-1/2 -translate-y-1/2 right-0 border-t border-dashed border-background/30" />
                         )}
                         <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background/20 ring-2 ring-background/40 text-background text-xs font-bold">
                           0{i + 1}

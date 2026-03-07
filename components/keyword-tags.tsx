@@ -51,11 +51,11 @@ const TagItem = ({ tag, href }: { tag: string; href: string }) => (
 )
 
 export function KeywordTags() {
-  const duplicatedTags = [...keywords, ...keywords, ...keywords]
+  const duplicatedTags = [...keywords, ...keywords]
 
   return (
     <section className="py-6 md:py-8 bg-secondary border-b border-border overflow-hidden">
-      <div className="flex animate-marquee hover:[animation-play-state:paused]">
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
         {duplicatedTags.map((k, i) => (
           <TagItem key={`${k.tag}-${i}`} tag={k.tag} href={k.href} />
         ))}

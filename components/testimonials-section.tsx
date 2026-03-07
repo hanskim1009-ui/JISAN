@@ -80,9 +80,12 @@ const testimonials: Testimonial[] = [
 function MaleAvatar() {
   return (
     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10">
+      <clipPath id="male-circle">
+        <circle cx="20" cy="20" r="20" />
+      </clipPath>
       <circle cx="20" cy="20" r="20" fill="#d1e3f8" />
-      <circle cx="20" cy="15" r="7" fill="#5b8fc9" />
-      <path d="M6 36c0-7.732 6.268-14 14-14s14 6.268 14 14" fill="#5b8fc9" />
+      <circle cx="20" cy="15" r="7" fill="#5b8fc9" clipPath="url(#male-circle)" />
+      <path d="M6 36c0-7.732 6.268-14 14-14s14 6.268 14 14" fill="#5b8fc9" clipPath="url(#male-circle)" />
     </svg>
   )
 }
@@ -90,9 +93,12 @@ function MaleAvatar() {
 function FemaleAvatar() {
   return (
     <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10">
+      <clipPath id="female-circle">
+        <circle cx="20" cy="20" r="20" />
+      </clipPath>
       <circle cx="20" cy="20" r="20" fill="#f8d1e3" />
-      <circle cx="20" cy="15" r="7" fill="#c95b8f" />
-      <path d="M6 36c0-7.732 6.268-14 14-14s14 6.268 14 14" fill="#c95b8f" />
+      <circle cx="20" cy="15" r="7" fill="#c95b8f" clipPath="url(#female-circle)" />
+      <path d="M6 36c0-7.732 6.268-14 14-14s14 6.268 14 14" fill="#c95b8f" clipPath="url(#female-circle)" />
     </svg>
   )
 }
