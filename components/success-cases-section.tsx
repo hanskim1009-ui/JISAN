@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 
-type CaseCategory = "전체" | "형사" | "민사" | "기업" | "건설·부동산" | "회생·파산"
+type CaseCategory = "전체" | "형사" | "민사" | "기업" | "건설·부동산" | "회생·파산" | "가사"
 
 type CaseItem = {
   id: string
@@ -195,7 +195,7 @@ const outcomeStyles: Record<string, string> = {
   rehab: "bg-[#1e3a8a] text-white",
 }
 
-const CATEGORIES: CaseCategory[] = ["전체", "형사", "민사", "기업", "건설·부동산", "회생·파산"]
+const CATEGORIES: CaseCategory[] = ["전체", "형사", "민사", "기업", "건설·부동산", "회생·파산", "가사"]
 
 function CaseCard({ item }: { item: CaseItem }) {
   return (
