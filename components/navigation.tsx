@@ -77,7 +77,7 @@ export function Navigation() {
               className="inline-flex items-center gap-1.5 rounded-full border border-primary/40 bg-primary text-primary-foreground px-4 py-2 text-xs font-medium tracking-[0.08em] hover:bg-primary/90 transition-colors"
             >
               <Phone className="h-3.5 w-3.5" />
-              02-6951-4907
+              02-6951-4097
             </a>
             <div className="inline-flex items-center justify-center rounded-full border border-border px-3 py-2 text-xs font-medium text-muted-foreground leading-tight text-center">
               주말/공휴일<br />24시간 상담
@@ -155,4 +155,3 @@ export function Navigation() {
     </header>
   )
 }
-
