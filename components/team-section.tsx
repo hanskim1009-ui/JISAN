@@ -36,6 +36,7 @@ type Lawyer = {
   title: string
   image: string
   summary: string
+  career?: string[]
   highlights: string[]
 }
 
@@ -45,7 +46,14 @@ const lawyers: Lawyer[] = [
     title: "대표 변호사",
     image: lawyerImages.kim,
     summary:
-      "약 10여 년간 검사로 재직하며 대전고등검찰청, 인천지방검찰청 등에서 수범검사로 선정된 형사 전문 변호사입니다. 검사 재직 시 쌓은 풍부한 수사·재판 경험을 바탕으로 의뢰인의 권익 보호에 최선을 다하고 있습니다.",
+      "오랜 기간 검사로 재직하며 고등검찰청에서 수범검사로까지 선정되었던던 형사 전문 변호사입니다. 검사 재직 시 쌓은 풍부한 수사·재판 경험을 바탕으로 의뢰인의 권익 보호에 최선을 다하고 있습니다.",
+    career: [
+      "현) 법률사무소 지산 대표변호사",
+      "전) 법무법인 온강 대표변호사",
+      "전) 인천지방검찰청 검사",
+      "전) 수원지방검찰청 안산지청 검사",
+      "전) 대전지방검찰청 홍성지청 검사",
+    ],
     highlights: [
       "대전고등검찰청 수범검사 선정",
       "인천지방검찰청 우수검사실 선정",
@@ -132,32 +140,46 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
 
         {/* 텍스트 영역 */}
         <div className="flex flex-col justify-center px-8 py-12 md:px-14 md:py-16 flex-1">
-          {/* 이름 */}
-          <div className="mb-2">
+          {/* 이름 + 직함 */}
+          <div className="flex items-baseline gap-3 mb-8 border-b border-border pb-8">
             <h3 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
               {lawyer.name}
             </h3>
+            <p className="text-sm tracking-[0.12em] text-primary font-medium">
+              {lawyer.title}
+            </p>
           </div>
-
-          {/* 직함 */}
-          <p className="text-sm tracking-[0.12em] text-primary font-medium mb-8 border-b border-border pb-8">
-            {lawyer.title}
-          </p>
 
           {/* 소개 텍스트 */}
           <p className="text-base leading-[1.9] text-foreground/80 mb-8">
             {lawyer.summary}
           </p>
 
-          {/* 경력 */}
-          <ul className="space-y-3 border-t border-border pt-6">
-            {lawyer.highlights.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
-                <span className="mt-[0.45rem] h-px w-4 bg-foreground/40 shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
+          {/* 주요 경력 */}
+          {lawyer.career && lawyer.career.length > 0 && (
+            <div className="border-t border-border pt-6 mb-6">
+              <ul className="space-y-3">
+                {lawyer.career.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
+                    <span className="mt-[0.45rem] h-px w-4 bg-foreground/40 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* 수상 및 학력 */}
+          <div className="border-t border-border pt-6">
+            <ul className="space-y-3">
+              {lawyer.highlights.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
+                  <span className="mt-[0.45rem] h-px w-4 bg-foreground/40 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </article>
