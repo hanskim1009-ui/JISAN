@@ -5,8 +5,8 @@
 export const siteConfig = {
   name: "법률사무소 지산",
   nameEn: "Jisan Law",
-  phone: "02-6951-4907",
-  phoneHref: "tel:02-6951-4907",
+  phone: "02-6951-4097",
+  phoneHref: "tel:02-6951-4097",
   /** 카카오톡 채널 URL - 본인 채널로 교체 필요 */
   kakaoTalkUrl: "https://pf.kakao.com/_xExample", // TODO: 실제 카카오톡 채널 URL로 교체
   address: "서울시 서초구 서초대로46길 109, 6층(지산빌딩)",

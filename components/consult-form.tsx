@@ -93,7 +93,7 @@ export function ConsultForm() {
       )}
       {status === "error" && (
         <p className="text-base text-destructive">
-          전송에 실패했습니다. 전화(02-6951-4907) 또는 카카오톡으로 문의해 주세요.
+          전송에 실패했습니다. 전화(02-6951-4097) 또는 카카오톡으로 문의해 주세요.
         </p>
       )}
       <Button type="submit" disabled={status === "submitting"} className="w-full sm:w-auto">
