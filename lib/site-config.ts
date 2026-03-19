@@ -26,7 +26,7 @@ export const siteConfig = {
 /** 변호사 프로필 이미지 - /public/images/lawyers/ 에 파일 추가 시 해당 경로 사용 */
 export const lawyerImages = {
   kim: "/images/lawyers/kim.jpg",
-  koo: "/images/lawyers/koo.jpg",
+  koo: "/images/lawyers/koo.png",
   park: "/images/lawyers/park.jpg",
   kimChungHyeon: "/images/lawyers/kim-chung-hyeon.jpg",
   kang: "/images/lawyers/kang.jpg",

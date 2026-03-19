@@ -1,11 +1,20 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useRef, useLayoutEffect } from "react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { lawyerImages } from "@/lib/site-config"
 
-function LawyerPhoto({ src, name }: { src: string; name: string }) {
+function LawyerPhoto({
+  src,
+  name,
+  imageClassName,
+}: {
+  src: string
+  name: string
+  /** 양옆 여백 축소 등: object-cover + scale + object-center */
+  imageClassName?: string
+}) {
   const [error, setError] = useState(false)
   const initials = name.slice(0, 1)
 
@@ -24,11 +33,20 @@ function LawyerPhoto({ src, name }: { src: string; name: string }) {
       src={src}
       alt={name}
       fill
-      className="object-cover object-top"
+      className={imageClassName ?? "object-cover object-top"}
       sizes="(max-width: 768px) 100vw, 38vw"
       onError={() => setError(true)}
     />
   )
+}
+
+type WorkCaseSection = { heading: string; items: string[] }
+
+/** 자격 / 경력 / 학력을 구분해 표시 (구본우 등) */
+type StructuredResume = {
+  qualifications: string[]
+  career: string[]
+  education: string[]
 }
 
 type Lawyer = {
@@ -38,6 +56,11 @@ type Lawyer = {
   summary: string
   career?: string[]
   highlights: string[]
+  /** Next/Image className (구본우: 정사각 원본의 좌우 여백 축소) */
+  photoImageClassName?: string
+  structuredResume?: StructuredResume
+  /** structuredResume과 함께 쓰면 이력 클릭 시 같은 영역에 주요 업무 사례 표시 */
+  workCaseSections?: WorkCaseSection[]
 }
 
 const lawyers: Lawyer[] = [
@@ -67,14 +90,62 @@ const lawyers: Lawyer[] = [
     title: "대표 변호사",
     image: lawyerImages.koo,
     summary:
-      "다양한 형사·민사 사건에서 실전 경험을 쌓아온 대표 변호사로서, 의뢰인의 상황에 맞는 맞춤형 법률 서비스를 제공합니다. 사건의 처음부터 끝까지 직접 담당하는 것을 원칙으로 합니다.",
-    highlights: [
-      "대전고등검찰청 수범검사 선정",
-      "인천지방검찰청 우수검사실 선정",
-      "대전지방검찰청 홍성지청 우수검사실 선정",
-      "성균관대학교 법학전문대학원 졸업",
-      "캐나다 토론토 대학교 생명과학과 최우등 졸업 (High Distinction)",
+      "로펌·금융사·VC 분야에서 기업법무와 준법감시 등을 경험한 대표 변호사입니다. 상장사 경영권 분쟁, 투자계약, 자본시장법 관련 형사·민사까지 아우르며 의뢰인의 거래와 분쟁 전반에 맞는 법률 서비스를 제공합니다.",
+    structuredResume: {
+      qualifications: ["변호사", "펀드투자상담사", "증권투자자문인력"],
+      career: [
+        "법무법인 이한",
+        "스마일게이트인베스트먼트 준법감시인",
+        "하나증권",
+        "법무법인 시공",
+        "IBK기업은행",
+      ],
+      education: ["성균관대학교 법학전문대학원", "연세대학교 법학과"],
+    },
+    workCaseSections: [
+      {
+        heading: "기업법무",
+        items: [
+          "중견업체 자회사 인수 및 매각을 위한 법률실사(L.D.D) 업무 수행",
+          "VC 투자전 법률실사 업무 수행",
+          "투자합자회사설립 관련 자문 수행",
+          "코스닥 상장사 등 다수 기업 경영권 분쟁 관련 법률 자문 업무 수행",
+          "금융감독원 보험 관련 법률 자문 업무 수행",
+          "언론사, 제조자, 건설사 및 협회 등 다수 기업 법률 자문 수행",
+        ],
+      },
+      {
+        heading: "VC, 사모펀드, 스타트업",
+        items: [
+          "상환전환우선주 인수계약, 전환사채인수계약, 조건부지분전환계약, 주주간계약 등 다수 투자 관련 계약",
+          "인도, 싱가폴, 미국 등 해외 소재 법인 투자 검토 수행",
+          "펀드 설립 및 운용 검토",
+          "주주총회 및 이사회 결의 자문",
+          "사규(임원보수규정, 취업규칙 등) 검토",
+          "신사업 적정성 법률 자문 업무 수행",
+        ],
+      },
+      {
+        heading: "형사",
+        items: [
+          "금융회사 관련 자본시장법 등에 관한 법률자문 업무 및 형사사건 업무 수행",
+          "유사투자자문업 관련 자본시장법 위반 등 형사사건 업무 수행",
+          "투자 사기, 자본시장법 상 사기적 부정거래 혐의 등에 관한 고소대리 업무 수행",
+          "횡령, 배임 등 재산범죄 관련 사건 다수 수행",
+        ],
+      },
+      {
+        heading: "민사",
+        items: [
+          "분양계약해제 사건",
+          "불법행위에 따른 손해배상청구 사건",
+          "공사대금지급 청구 사건",
+          "일조권 사건",
+          "투자금 반환 사건",
+        ],
+      },
     ],
+    highlights: [],
   },
   {
     name: "박종진",
@@ -124,9 +195,122 @@ const lawyers: Lawyer[] = [
   },
 ]
 
+function ResumeList({ items }: { items: string[] }) {
+  return (
+    <ul className="space-y-2">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
+          <span className="mt-[0.45rem] h-px w-4 bg-foreground/40 shrink-0" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+function WorkCasesBlock({ sections }: { sections: WorkCaseSection[] }) {
+  return (
+    <>
+      {sections.map((sec) => (
+        <div key={sec.heading} className="mb-6 last:mb-0">
+          <p className="text-sm font-medium text-foreground mb-2">{sec.heading}</p>
+          <ul className="space-y-2 text-sm leading-relaxed text-foreground/75 list-disc pl-5">
+            {sec.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </>
+  )
+}
+
+/** 이력 ↔ 주요 업무 사례 토글, 이력 높이에 맞춰 패널 세로 고정 */
+function StructuredResumeToggle({
+  resume,
+  sections,
+}: {
+  resume: StructuredResume
+  sections: WorkCaseSection[]
+}) {
+  const [showCases, setShowCases] = useState(false)
+  const resumeRootRef = useRef<HTMLDivElement>(null)
+  const [panelHeightPx, setPanelHeightPx] = useState<number | null>(null)
+
+  useLayoutEffect(() => {
+    if (showCases) return
+    const root = resumeRootRef.current
+    if (!root) return
+    const measure = () => {
+      setPanelHeightPx(Math.ceil(root.getBoundingClientRect().height))
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(root)
+    return () => ro.disconnect()
+  }, [showCases])
+
+  const btnClass =
+    "text-sm font-medium text-primary hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 rounded"
+
+  return (
+    <div
+      className="border-t border-border pt-6"
+      style={
+        panelHeightPx != null
+          ? { height: panelHeightPx, minHeight: panelHeightPx }
+          : undefined
+      }
+    >
+      {!showCases ? (
+        <div ref={resumeRootRef} className="flex flex-col">
+          <div className="mb-4 flex shrink-0 justify-end">
+            <button type="button" onClick={() => setShowCases(true)} className={btnClass}>
+              업무사례 보기 →
+            </button>
+          </div>
+          <div className="space-y-5">
+            <div>
+              <p className="text-xs font-semibold text-foreground/90 mb-2">자격</p>
+              <ResumeList items={resume.qualifications} />
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-foreground/90 mb-2">경력</p>
+              <ResumeList items={resume.career} />
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-foreground/90 mb-2">학력</p>
+              <ResumeList items={resume.education} />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="flex h-full min-h-0 flex-col overflow-hidden">
+          <div className="mb-3 flex shrink-0 items-center">
+            <button type="button" onClick={() => setShowCases(false)} className={btnClass}>
+              ← 이력보기
+            </button>
+          </div>
+          <h4 className="mb-2 shrink-0 text-sm font-semibold tracking-wide text-foreground">
+            주요 업무 사례
+          </h4>
+          <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 -mr-1">
+            <WorkCasesBlock sections={sections} />
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
   const { ref, isVisible } = useScrollReveal(0.1)
   const isEven = index % 2 === 0
+
+  const hasStructuredCases =
+    lawyer.structuredResume &&
+    lawyer.workCaseSections &&
+    lawyer.workCaseSections.length > 0
 
   return (
     <article
@@ -143,7 +327,11 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
       >
         {/* 사진 영역 */}
         <div className="relative w-full md:w-[38%] aspect-[3/4] md:aspect-auto md:min-h-[480px] shrink-0 overflow-hidden bg-muted">
-          <LawyerPhoto src={lawyer.image} name={lawyer.name} />
+          <LawyerPhoto
+            src={lawyer.image}
+            name={lawyer.name}
+            imageClassName={lawyer.photoImageClassName}
+          />
         </div>
 
         {/* 텍스트 영역 */}
@@ -163,31 +351,41 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
             {lawyer.summary}
           </p>
 
-          {/* 주요 경력 */}
-          {lawyer.career && lawyer.career.length > 0 && (
-            <div className="border-t border-border pt-6 mb-6">
-              <ul className="space-y-3">
-                {lawyer.career.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
-                    <span className="mt-[0.45rem] h-px w-4 bg-foreground/40 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {/* 구본우: 이력 ↔ 주요 업무 사례 같은 영역에서 토글 */}
+          {hasStructuredCases && lawyer.structuredResume ? (
+            <StructuredResumeToggle
+              resume={lawyer.structuredResume}
+              sections={lawyer.workCaseSections!}
+            />
+          ) : (
+            <>
+              {lawyer.career && lawyer.career.length > 0 && (
+                <div className="border-t border-border pt-6 mb-6">
+                  <ul className="space-y-3">
+                    {lawyer.career.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
+                        <span className="mt-[0.45rem] h-px w-4 bg-foreground/40 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-          {/* 수상 및 학력 */}
-          <div className="border-t border-border pt-6">
-            <ul className="space-y-3">
-              {lawyer.highlights.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
-                  <span className="mt-[0.45rem] h-px w-4 bg-foreground/40 shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+              {lawyer.highlights.length > 0 && (
+                <div className="border-t border-border pt-6">
+                  <ul className="space-y-3">
+                    {lawyer.highlights.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
+                        <span className="mt-[0.45rem] h-px w-4 bg-foreground/40 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
     </article>
