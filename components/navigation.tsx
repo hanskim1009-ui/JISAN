@@ -11,8 +11,8 @@ const navLinks = [
   { label: "소개", href: "#about" },
   { label: "구성원", href: "#team" },
   { label: "업무분야", href: "#practice" },
-  { label: "성공 사례", href: "#cases" },
-  { label: "감사인사", href: "#testimonials" },
+  // { label: "성공 사례", href: "#cases" },
+  // { label: "감사인사", href: "#testimonials" },
   { label: "상담문의", href: "#contact" },
   { label: "오시는 길", href: "#map" },
 ]

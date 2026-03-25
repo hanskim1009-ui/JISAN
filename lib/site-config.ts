@@ -8,7 +8,7 @@ export const siteConfig = {
   phone: "02-6951-4097",
   phoneHref: "tel:02-6951-4097",
   /** 카카오톡 채널 URL - 본인 채널로 교체 필요 */
-  kakaoTalkUrl: "https://pf.kakao.com/_xExample", // TODO: 실제 카카오톡 채널 URL로 교체
+  kakaoTalkUrl: "https://pf.kakao.com/_Mxlgyn/chat",
   address: "서울시 서초구 서초대로46길 109, 6층(지산빌딩)",
   addressShort: "서울시 서초구 서초대로46길 109",
   /** 지도 좌표 (지산빌딩 근사치) - 카카오맵/네이버맵용 */
@@ -28,6 +28,5 @@ export const lawyerImages = {
   kim: "/images/lawyers/kim.jpg",
   koo: "/images/lawyers/koo.png",
   park: "/images/lawyers/park.jpg",
-  kimChungHyeon: "/images/lawyers/kim-chung-hyeon.jpg",
   kang: "/images/lawyers/kang.jpg",
 } as const

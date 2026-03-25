@@ -49,6 +49,8 @@ type StructuredResume = {
   education: string[]
 }
 
+type ResumeSection = { heading: string; items: string[] }
+
 type Lawyer = {
   name: string
   title: string
@@ -56,6 +58,8 @@ type Lawyer = {
   summary: string
   career?: string[]
   highlights: string[]
+  /** 주요 경력 아래 자문·분야별 블록 (강현우 등) */
+  resumeSections?: ResumeSection[]
   /** Next/Image className (구본우: 정사각 원본의 좌우 여백 축소) */
   photoImageClassName?: string
   structuredResume?: StructuredResume
@@ -170,28 +174,40 @@ const lawyers: Lawyer[] = [
     ],
   },
   {
-    name: "김충현",
-    title: "파트너 변호사",
-    image: lawyerImages.kimChungHyeon,
-    summary:
-      "형사·민사 분야에서 오랜 경험을 보유한 파트너 변호사입니다. 의뢰인의 입장에서 사건을 바라보며, 최적의 법률적 해결책을 찾기 위해 항상 최선을 다합니다.",
-    highlights: [
-      "법학전문대학원 졸업",
-      "형사 전문 변호사",
-      "다수 형사사건 무죄·불기소 처분 획득",
-    ],
-  },
-  {
     name: "강현우",
     title: "파트너 변호사",
     image: lawyerImages.kang,
     summary:
-      "민사·형사 전반에 걸쳐 다양한 사건 경험을 보유한 파트너 변호사입니다. 복잡한 법률 문제를 명쾌하게 분석하고 의뢰인이 이해하기 쉽게 설명하는 것을 중요하게 생각합니다.",
-    highlights: [
-      "법학전문대학원 졸업",
-      "민사·형사 전문 변호사",
-      "다수 소송 승소 경험",
+      "다수의 민·형사 사건 승소와 기업 자문을 통해 증명된 전문성으로 의뢰인의 신뢰에 보답하고 있습니다. 치밀한 법리 검토와 노련한 대응을 통해 어떠한 난관 속에서도 의뢰인의 이익을 최우선으로 지켜냅니다.",
+    career: [
+      "현) 법률사무소 지산 파트너 변호사",
+      "전) 법무법인 공간 변호사",
     ],
+    resumeSections: [
+      {
+        heading: "의료·보건 분야 자문",
+        items: [
+          "대한병원협회 / 대한간호조무사협회 자문",
+          "경기도의료원 / 경기도약사회 자문",
+          "9988병원 / 예손병원 / 대정병원 / 밝은눈안과 / 이데아성형외과 등 다수 의료기관 전담 자문",
+        ],
+      },
+      {
+        heading: "공공·기관 자문",
+        items: [
+          "서울시 옴부즈만 자문 수행",
+          "경기복지재단 자문 수행",
+          "홍은 2-2구역 주민자치위원회 자문",
+        ],
+      },
+      {
+        heading: "기업 법률 리스크 관리",
+        items: [
+          "㈜프랭클린테크놀로지 / ㈜디엔엠 / ㈜당당 / ㈜맘스뷰티 등 다수 기업 자문",
+        ],
+      },
+    ],
+    highlights: ["건국대학교 자율전공학부", "전남대학교 법학전문대학원"],
   },
 ]
 
@@ -361,6 +377,9 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
             <>
               {lawyer.career && lawyer.career.length > 0 && (
                 <div className="border-t border-border pt-6 mb-6">
+                  {lawyer.resumeSections && lawyer.resumeSections.length > 0 && (
+                    <p className="text-xs font-semibold text-foreground/90 mb-2">이력</p>
+                  )}
                   <ul className="space-y-3">
                     {lawyer.career.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">
@@ -372,8 +391,18 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
                 </div>
               )}
 
+              {lawyer.resumeSections?.map((sec) => (
+                <div key={sec.heading} className="border-t border-border pt-6 mb-6">
+                  <p className="text-xs font-semibold text-foreground/90 mb-2">{sec.heading}</p>
+                  <ResumeList items={sec.items} />
+                </div>
+              ))}
+
               {lawyer.highlights.length > 0 && (
                 <div className="border-t border-border pt-6">
+                  {lawyer.resumeSections && lawyer.resumeSections.length > 0 && (
+                    <p className="text-xs font-semibold text-foreground/90 mb-2">학력</p>
+                  )}
                   <ul className="space-y-3">
                     {lawyer.highlights.map((item) => (
                       <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-foreground/75">

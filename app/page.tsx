@@ -6,8 +6,9 @@ import { KeywordTags } from "@/components/keyword-tags"
 import { AboutSection } from "@/components/about-section"
 import { PracticeSection } from "@/components/practice-section"
 import { TeamSection } from "@/components/team-section"
-import { SuccessCasesSection } from "@/components/success-cases-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
+// 재공개 시 아래 import·컴포넌트 주석 해제
+// import { SuccessCasesSection } from "@/components/success-cases-section"
+// import { TestimonialsSection } from "@/components/testimonials-section"
 import { EditorialBreak } from "@/components/editorial-break"
 import { ContactSection } from "@/components/contact-section"
 import { MapSection } from "@/components/map-section"
@@ -25,8 +26,8 @@ export default function Page() {
         <AboutSection />
         <TeamSection />
         <PracticeSection />
-        <SuccessCasesSection />
-        <TestimonialsSection />
+        {/* <SuccessCasesSection /> */}
+        {/* <TestimonialsSection /> */}
         <EditorialBreak />
         <ContactSection />
         <MapSection />
