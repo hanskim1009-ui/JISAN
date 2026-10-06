@@ -209,6 +209,24 @@ const lawyers: Lawyer[] = [
     ],
     highlights: ["건국대학교 자율전공학부", "전남대학교 법학전문대학원"],
   },
+  // TODO: 김미소 변호사 정보 수령 후 직함·소개·이력·학력 입력 (사진: public/images/lawyers/kim-miso.jpg)
+  {
+    name: "김미소",
+    title: "변호사",
+    image: lawyerImages.kimMiso,
+    summary: "프로필을 준비하고 있습니다.",
+    career: [],
+    highlights: [],
+  },
+  // TODO: 김충현 변호사 정보 수령 후 직함·소개·이력·학력 입력 (사진: public/images/lawyers/kim-chunghyeon.jpg)
+  {
+    name: "김충현",
+    title: "변호사",
+    image: lawyerImages.kimChungHyeon,
+    summary: "프로필을 준비하고 있습니다.",
+    career: [],
+    highlights: [],
+  },
 ]
 
 function ResumeList({ items }: { items: string[] }) {

@@ -29,4 +29,7 @@ export const lawyerImages = {
   koo: "/images/lawyers/koo.png",
   park: "/images/lawyers/park.jpg",
   kang: "/images/lawyers/kang.jpg",
+  /** 사진 파일 추가 전까지는 이니셜(김)로 표시됨 */
+  kimMiso: "/images/lawyers/kim-miso.jpg",
+  kimChungHyeon: "/images/lawyers/kim-chunghyeon.jpg",
 } as const
