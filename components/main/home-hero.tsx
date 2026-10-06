@@ -26,16 +26,18 @@ export function HomeHero() {
         <div className="min-w-0 pt-12 pb-12 md:pt-20 md:pb-16">
           <p className="text-sm text-white/65">서울 서초동 · 형사 · 가사 · 기업 · 민사</p>
           <h1 className="mt-4 text-[2.25rem] leading-[1.3] md:text-[3.25rem] md:leading-[1.28] font-bold tracking-[-0.04em]">
-            형사부터 기업 자문까지,
+            검찰, 금융회사, 로펌에서
             <br />
-            서초동 {siteConfig.name}
+            쌓은 경험으로
+            <br />
+            당신의 사건을 맡습니다
           </h1>
           <p className="mt-6 max-w-2xl text-base md:text-[17px] leading-[1.8] text-white/75">
-            검사, 벤처캐피탈 준법감시인, 로펌 파트너, 의료기관 자문 변호사를 지낸 변호사 {lawyers.length}명이 형사·가사·기업·민사
-            사건을 맡습니다. 상담 전화는 24시간, 주말·공휴일에도 받습니다.
+            {siteConfig.name}에는 형사·가사·기업·민사를 맡는 변호사 {lawyers.length}명이 있습니다. 사건 내용을 들은 담당 변호사가 직접
+            연락드리고, 상담 전화는 24시간 받습니다.
           </p>
 
-          <h2 className="mt-12 mb-3 text-[15px] font-bold">어떤 일로 찾아오셨나요?</h2>
+          <h2 className="mt-12 mb-3 text-[15px] font-bold">지금 어떤 상황이신가요?</h2>
           <div className="grid max-w-5xl grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-7">
             {fields.map((f) => (
               <div key={f.name} className="min-w-0">

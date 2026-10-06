@@ -9,7 +9,7 @@ export function CentersBand() {
   return (
     <section className="bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHead title="분야별 센터" />
+        <SectionHead title="분야별 센터" desc="형사·성범죄 사건은 센터에서 단계별 대응 방법까지 자세히 안내합니다." />
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {centers.map((c) => (
             <Link

@@ -6,7 +6,7 @@ export function SectionHead({
   title,
   desc,
   href,
-  linkLabel = "전체 보기",
+  linkLabel = "더보기",
   as: Tag = "h2",
 }: {
   title: string

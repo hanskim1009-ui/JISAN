@@ -24,11 +24,11 @@ export default async function ConsultPage({ searchParams }: { searchParams: Prom
   return (
     <div className="px-5 md:px-12 lg:px-14 py-12 md:py-16">
       <div className="max-w-7xl mx-auto">
-        <SectionHead title="상담 신청" as="h1" desc="남겨 주신 내용은 담당 변호사가 보고 연락드립니다." />
+        <SectionHead title="상담 신청" as="h1" desc="사건 내용을 남겨 주시면 담당 변호사가 직접 연락드립니다." />
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.4fr]">
           <div className="min-w-0">
             <p className="text-[15px] leading-[1.8] text-[#4A505A]">
-              체포·구속이나 다음 날 조사처럼 급한 일은 전화가 빠릅니다. 전화는 24시간 받습니다.
+              지금 고민되는 것을 편하게 적어 주세요. 체포나 다음 날 조사처럼 급한 일은 전화가 빠릅니다. 전화는 24시간 받습니다.
             </p>
             <dl className="mt-6 border-t border-jisan-ink text-[15px]">
               {ways.map((w) => (

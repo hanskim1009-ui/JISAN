@@ -24,6 +24,8 @@ export type Lawyer = {
   highlights: string[]
   /** 개인 블로그 (칼럼 끝과 변호사 소개에 링크) */
   blogUrl?: string
+  /** 이름 아래 한 줄 소개: "~하는 변호사" (경력에서 확인되는 것만) */
+  tagline?: string
   /** 주요 경력 아래 자문·분야별 블록 (강현우 등) */
   resumeSections?: ResumeSection[]
   /** Next/Image className (구본우: 정사각 원본의 좌우 여백 축소) */
@@ -38,6 +40,7 @@ export const lawyers: Lawyer[] = [
     slug: "kim-hansol",
     field: "형사",
     name: "김한솔",
+    tagline: "수사기관이 무엇을 보는지 알고, 조사 전에 대응 방향부터 잡는 변호사",
     title: "대표 변호사",
     image: lawyerImages.kim,
     blogUrl: "https://blog.naver.com/lawyerpassingby",
@@ -62,6 +65,7 @@ export const lawyers: Lawyer[] = [
     slug: "koo-bonwoo",
     field: "기업·금융",
     name: "구본우",
+    tagline: "투자계약과 지분 구조를 읽고 경영권 분쟁의 쟁점을 짚는 변호사",
     title: "대표 변호사",
     image: lawyerImages.koo,
     summary:
@@ -126,6 +130,7 @@ export const lawyers: Lawyer[] = [
     slug: "park-jongjin",
     field: "민사·기업 자문",
     name: "박종진",
+    tagline: "기업 자문 경험으로 분쟁이 되기 전에 계약의 위험을 살피는 변호사",
     title: "파트너 변호사",
     image: lawyerImages.park,
     summary:
@@ -150,6 +155,7 @@ export const lawyers: Lawyer[] = [
     slug: "kang-hyunwoo",
     field: "의료·기업 자문",
     name: "강현우",
+    tagline: "의료기관 자문을 맡아 병원 운영과 의료 분쟁을 함께 보는 변호사",
     title: "파트너 변호사",
     image: lawyerImages.kang,
     summary:

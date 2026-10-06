@@ -20,7 +20,7 @@ export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: Col
       <div className="max-w-7xl mx-auto space-y-14">
         {columns.length > 0 && (
           <div>
-            <SectionHead title="칼럼" href="/column" linkLabel="칼럼 전체" />
+            <SectionHead title="칼럼" desc="실무에서 겪은 일을 지산 변호사들이 직접 씁니다." href="/column" linkLabel="더보기" />
             <SampleNote show={columns.some((c) => c.sample)} className="mb-4" />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {columns.map((c) => (
@@ -31,7 +31,7 @@ export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: Col
         )}
         {main && (
           <div>
-            <SectionHead title="유튜브" href={youtubeUrl} linkLabel="채널 보기" />
+            <SectionHead title="유튜브" desc="법률 상담이 낯설지 않도록 변호사가 직접 설명합니다." href={youtubeUrl} linkLabel="채널 바로가기" />
             <SampleNote show={sampleVideos} className="mb-4" />
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-[2fr_1fr]">
               <figure className="min-w-0">

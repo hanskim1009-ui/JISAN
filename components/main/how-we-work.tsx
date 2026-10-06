@@ -3,10 +3,10 @@ import { siteConfig } from "@/lib/site-config"
 import { SectionHead } from "@/components/main/section-head"
 
 const steps = [
-  { title: "연락", body: `전화 ${siteConfig.phone}, 카카오톡, 상담 신청 페이지. 전화는 24시간 받습니다.` },
-  { title: "담당 변호사 연결", body: "사건 분야를 듣고 그 분야 담당 변호사가 연락드립니다." },
-  { title: "사무실 상담", body: "서초동 지산빌딩 6층에서 만납니다. 자료가 있으면 미리 보내 주셔도 됩니다." },
-  { title: "위임 여부 결정", body: "상담 후에 정하시면 됩니다. 위임하시면 위임계약서를 씁니다." },
+  { title: "상담 접수", body: `전화(${siteConfig.phone}), 카카오톡, 홈페이지로 사건 내용을 남겨 주세요. 전화는 24시간 받습니다.` },
+  { title: "사실관계 검토", body: "출석요구서, 계약서, 주고받은 문자처럼 가지고 계신 자료를 담당 변호사가 함께 확인합니다." },
+  { title: "대응 방향 안내", body: "할 수 있는 일과 어려운 일, 앞으로의 절차를 먼저 말씀드립니다. 선임 여부는 그다음에 정하시면 됩니다." },
+  { title: "사건 진행", body: "위임하시면 담당 변호사가 조사 입회, 서면 작성, 재판 출석까지 직접 맡습니다." },
 ]
 
 const documents = [
@@ -16,12 +16,12 @@ const documents = [
   { field: "민사", items: "계약서·차용증, 입금 내역, 내용증명, 받은 소장" },
 ]
 
-/** 상담 안내: 진행 순서 + 분야별로 챙겨 오면 좋은 자료 */
+/** 상담 안내: 상담 접수부터 사건 진행까지 + 분야별로 준비하면 좋은 자료 */
 export function HowWeWork() {
   return (
     <section className="px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHead title="상담 안내" href="/consult" linkLabel="상담 신청" />
+        <SectionHead title="상담 안내" desc="상담은 방문과 전화로 진행됩니다. 부담 갖지 마시고 편하게 연락 주세요." href="/consult" linkLabel="상담 신청하기" />
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr]">
           <ol className="border-t border-jisan-ink">
             {steps.map((s, i) => (
@@ -35,7 +35,7 @@ export function HowWeWork() {
             ))}
           </ol>
           <div className="bg-brand-paper p-6 md:p-7">
-            <h3 className="text-[17px] font-bold text-jisan-ink">상담 때 있으면 좋은 자료</h3>
+            <h3 className="text-[17px] font-bold text-jisan-ink">상담 전에 준비하시면 좋은 자료</h3>
             <dl className="mt-4 text-[15px]">
               {documents.map((d) => (
                 <div key={d.field} className="grid grid-cols-[3rem_1fr] gap-3 border-b border-[#D9D4CA] py-3 last:border-b-0">

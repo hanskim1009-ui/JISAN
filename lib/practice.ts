@@ -13,6 +13,8 @@ export type Situation = {
 
 export type Field = {
   name: string
+  /** 업무영역 칸의 한 줄 설명 */
+  desc: string
   caseType: string
   items: string[]
   lawyers: string[]
@@ -23,6 +25,7 @@ export type Field = {
 export const fields: Field[] = [
   {
     name: "형사",
+    desc: "경찰 조사부터 재판까지, 단계마다 의뢰인에게 가장 유리한 대응 방향을 준비합니다.",
     caseType: "형사",
     items: ["경찰 조사 동석, 체포·구속", "성범죄 · 마약", "사기·횡령·자본시장법", "음주·교통, 폭행"],
     lawyers: ["kim-hansol", "kim-chunghyeon", "koo-bonwoo"],
@@ -36,6 +39,7 @@ export const fields: Field[] = [
   },
   {
     name: "가사",
+    desc: "이혼, 상속, 양육 문제를 이혼 이후의 생활까지 생각하며 함께 정리합니다.",
     caseType: "가사",
     items: ["이혼, 재산분할", "상간 소송", "양육권·양육비", "상속, 유류분"],
     lawyers: ["kim-miso"],
@@ -49,6 +53,7 @@ export const fields: Field[] = [
   },
   {
     name: "기업",
+    desc: "투자계약, 주주 분쟁, 경영권 문제를 사업이 법에 막히기 전에 함께 살핍니다.",
     caseType: "기업",
     items: ["투자계약, 주주간계약", "주주총회·이사회", "경영권 분쟁", "의료기관·기업 자문"],
     lawyers: ["koo-bonwoo", "kang-hyunwoo", "park-jongjin"],
@@ -62,6 +67,7 @@ export const fields: Field[] = [
   },
   {
     name: "민사",
+    desc: "빌려준 돈, 공사대금, 보증금처럼 받아야 할 돈을 돌려받는 일과 회생·파산을 맡습니다.",
     caseType: "민사",
     items: ["대여금·투자금 반환", "공사대금, 하자", "임대차 보증금, 명도", "개인회생·파산"],
     lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon"],
