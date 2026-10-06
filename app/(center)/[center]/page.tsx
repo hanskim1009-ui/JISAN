@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { MessageCircle, Phone, Plus } from "lucide-react"
 import { centers, getCenter } from "@/lib/centers"
-import { getLawyer } from "@/lib/lawyers"
+import { getLawyer, lawyers as allLawyers } from "@/lib/lawyers"
 import { siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
 import { LawyerPhoto } from "@/components/lawyer-photo"
@@ -55,6 +55,10 @@ export default async function CenterPage({ params }: Props) {
     const l = getLawyer(cl.slug)
     return l ? [{ ...l, note: cl.note }] : []
   })
+  /** 주력 변호사가 아닌 나머지 구성원도 모두 보여 줍니다 (사건에 따라 함께 봄) */
+  const others = allLawyers
+    .filter((l) => !center.lawyers.some((cl) => cl.slug === l.slug))
+    .map((l) => ({ ...l, line: (l.career ?? l.structuredResume?.career ?? []).find((c) => !c.includes(siteConfig.name)) }))
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -227,7 +231,10 @@ export default async function CenterPage({ params }: Props) {
       {/* 담당 변호사 */}
       <section id="lawyers" className={`${sectionPad} ${center.penalties ? t.alt : "bg-white"}`}>
         <div className="max-w-7xl mx-auto">
-          <h2 className={h2}>{center.name} 담당 변호사</h2>
+          <h2 className={h2}>{center.name} 변호사</h2>
+          <p className="mt-2 text-[15px] text-jisan-ink/70">
+            {siteConfig.shortName} 변호사는 {lawyers.length + others.length}명입니다. {center.name} 사건은 주력 변호사가 맡고, 민사·가사 문제가 겹치면 해당 분야 변호사가 같이 봅니다.
+          </p>
           <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             {lawyers.map((l) => (
               <li key={l.slug} className="min-w-0 flex gap-5 bg-white border border-[#E2E6ED] p-4">
@@ -235,18 +242,40 @@ export default async function CenterPage({ params }: Props) {
                   <LawyerPhoto src={l.image} name={l.name} imageClassName={l.photoImageClassName} sizes="144px" />
                 </div>
                 <div className="min-w-0 py-1">
-                <p className="text-lg font-bold text-jisan-ink">
-                  {l.name} <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
-                </p>
-                <p className="mt-1 text-[13px] font-medium leading-snug text-jisan-ink/80">{l.note}</p>
-                <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70 line-clamp-4">{l.summary}</p>
-                <a href="#consult" className={`mt-3 inline-block text-sm font-semibold ${t.accent}`}>
-                  이 변호사에게 상담
-                </a>
+                  <span className="inline-block bg-jisan-ink px-2 py-0.5 text-xs font-bold text-white">주력</span>
+                  <p className="mt-2 text-lg font-bold text-jisan-ink">
+                    {l.name} <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
+                  </p>
+                  <p className="mt-1 text-[13px] font-medium leading-snug text-jisan-ink/80">{l.note}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70 line-clamp-4">{l.summary}</p>
+                  <a href="#consult" className={`mt-3 inline-block text-sm font-semibold ${t.accent}`}>
+                    이 변호사에게 상담
+                  </a>
                 </div>
               </li>
             ))}
           </ul>
+          {others.length > 0 && (
+            <>
+              <h3 className="mt-12 text-lg font-bold text-jisan-ink">함께 사건을 보는 변호사</h3>
+              <ul className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                {others.map((l) => (
+                  <li key={l.slug} className="min-w-0 bg-white border border-[#E2E6ED]">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#2a3348]">
+                      <LawyerPhoto src={l.image} name={l.name} imageClassName="object-cover object-top" sizes="(max-width: 640px) 50vw, 25vw" initialClassName="text-5xl" />
+                    </div>
+                    <div className="p-3.5">
+                      <p className="text-xs font-bold text-jisan-ink/60">{l.field}</p>
+                      <p className="mt-0.5 font-bold text-jisan-ink">
+                        {l.name} <span className="text-[13px] font-medium text-muted-foreground">{l.title}</span>
+                      </p>
+                      {l.line && <p className="mt-1 text-[13px] leading-snug text-jisan-ink/70">{l.line}</p>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </section>
 

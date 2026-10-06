@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { siteConfig } from "@/lib/site-config"
 import { fields } from "@/lib/practice"
+import { lawyers } from "@/lib/lawyers"
 import { LogoSvg } from "@/components/brand-logo"
 
 const itemClass = "block border-b border-white/20 py-2 text-[15px] text-white/90 hover:text-white"
@@ -25,13 +26,13 @@ export function HomeHero() {
         <div className="min-w-0 pt-12 pb-12 md:pt-20 md:pb-16">
           <p className="text-sm text-white/65">서울 서초동 · 형사 · 가사 · 기업 · 민사</p>
           <h1 className="mt-4 font-display text-[2.25rem] leading-[1.3] md:text-[3.25rem] md:leading-[1.28] font-light tracking-[-0.03em]">
-            사건마다,
-            <br />그 일을 해 본
-            <br />변호사가 맡습니다.
+            형사부터 기업 자문까지,
+            <br />
+            서초동 {siteConfig.name}
           </h1>
           <p className="mt-6 max-w-2xl text-base md:text-[17px] leading-[1.8] text-white/75">
-            검찰청, 금융회사·벤처캐피탈, 로펌, 의료기관 자문에서 일한 변호사들이 서초동 한 사무실에 있습니다.
-            상담 전화는 밤과 주말에도 변호사가 받습니다.
+            검사, 벤처캐피탈 준법감시인, 로펌 파트너, 의료기관 자문 변호사를 지낸 변호사 {lawyers.length}명이 형사·가사·기업·민사
+            사건을 맡습니다. 상담 전화는 24시간, 주말·공휴일에도 받습니다.
           </p>
 
           <h2 className="mt-12 mb-3 text-[15px] font-bold">어떤 일로 찾아오셨나요?</h2>

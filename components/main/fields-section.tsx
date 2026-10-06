@@ -5,17 +5,16 @@ import { centers } from "@/lib/centers"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { SectionHead } from "@/components/main/section-head"
 
-/** 업무영역: 형사·가사·기업·민사 같은 무게의 네 갈래. 분야마다 한 줄 설명, 세부 업무, 담당 변호사 */
+/** 업무영역: 형사·가사·기업·민사 같은 무게의 네 갈래. 세부 업무와 담당 변호사 */
 export function FieldsSection() {
   return (
     <section id="practice" className="scroll-mt-20 px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHead title="업무영역" desc="분야마다 담당 변호사가 정해져 있습니다." />
+        <SectionHead title="업무영역" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-jisan-ink">
           {fields.map((f) => (
             <div key={f.name} className="flex min-w-0 flex-col border-b border-[#E4E6E9] py-7 sm:pr-6 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:not(:first-child)]:pl-6">
               <h3 className="font-display text-[1.75rem] font-medium tracking-tight text-jisan-ink">{f.name}</h3>
-              <p className="mt-2 min-h-[3.25rem] text-[15px] leading-relaxed text-[#4A505A]">{f.desc}</p>
               <ul className="mt-4 text-[15px] text-jisan-ink">
                 {f.items.map((it) => (
                   <li key={it} className="border-b border-[#E4E6E9] py-2">

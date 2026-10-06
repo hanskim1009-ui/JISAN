@@ -15,7 +15,7 @@ export function PeopleSection() {
   return (
     <section id="team" className="scroll-mt-20 bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div className="max-w-7xl mx-auto">
-        <SectionHead title="구성원" desc="이름을 누르면 경력을 볼 수 있습니다." />
+        <SectionHead title="구성원" href="/lawyers" linkLabel="구성원 소개" />
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-5 gap-y-8">
           {lawyers.map((l) => (
             <li key={l.slug} className="min-w-0">
