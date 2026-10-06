@@ -50,10 +50,12 @@ export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: ke
     let last = 0
     let raf = 0
     let visible = true
+    let dpr = 1
 
     const size = () => {
       const r = cv.getBoundingClientRect()
       const d = Math.min(window.devicePixelRatio || 1, 2)
+      dpr = d
       cv.width = Math.max(1, Math.round(r.width * d))
       cv.height = Math.max(1, Math.round(r.height * d))
     }
@@ -64,7 +66,8 @@ export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: ke
       SHAPE.forEach((l, i) => {
         ctx.beginPath()
         ctx.moveTo(0, h)
-        for (let x = 0; x <= w; x += 4) ctx.lineTo(x, ridgeY(l, x / w, t) * h)
+        // 화면이 넓어도 봉우리 폭이 늘어나지 않게 1440px 기준으로 계산
+        for (let x = 0; x <= w; x += 4) ctx.lineTo(x, ridgeY(l, (x / dpr) / 1440, t) * h)
         ctx.lineTo(w, h)
         ctx.closePath()
         ctx.fillStyle = colors[i]
@@ -81,11 +84,12 @@ export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: ke
 
     size()
     draw()
-    const onResize = () => {
+    // 크기가 바뀔 때마다 다시 그림 (창 크기 변경, 시안 전환으로 숨겨졌다 보일 때 포함)
+    const ro = new ResizeObserver(() => {
       size()
       draw()
-    }
-    window.addEventListener("resize", onResize)
+    })
+    ro.observe(cv)
     const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting))
     io.observe(cv)
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -93,7 +97,7 @@ export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: ke
     return () => {
       cancelAnimationFrame(raf)
       io.disconnect()
-      window.removeEventListener("resize", onResize)
+      ro.disconnect()
     }
   }, [palette])
 
