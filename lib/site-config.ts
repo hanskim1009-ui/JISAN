@@ -10,6 +10,8 @@
  */
 const INCORPORATED = false
 
+export type Office = { name: string; address: string; phone: string; mapUrl: string; open: boolean }
+
 export const siteConfig = {
   incorporated: INCORPORATED,
   name: INCORPORATED ? "법무법인 지산앤파트너스" : "법률사무소 지산",
@@ -32,6 +34,17 @@ export const siteConfig = {
   naverMapUrl: "https://naver.me/FYrhnFqC",
   /** 카카오맵 검색 URL */
   kakaoMapUrl: "https://map.kakao.com/?q=서울시%20서초구%20서초대로46길%20109%20지산빌딩",
+  /**
+   * 사무소 목록. 주사무소 + 분사무소(인천·홍성·송파).
+   * 분사무소는 open을 true로 바꾸고 주소를 넣으면 맨 아래·오시는 길·법인 소개에 함께 보입니다.
+   * 문구에서는 특정 지역(서초동)을 내세우지 않고, 주소는 사무소 안내에서만 씁니다.
+   */
+  offices: [
+    { name: "서울 주사무소", address: "서울시 서초구 서초대로46길 109, 6층(지산빌딩)", phone: "02-6951-4097", mapUrl: "https://naver.me/FYrhnFqC", open: true },
+    { name: "인천 분사무소", address: "", phone: "", mapUrl: "", open: false },
+    { name: "홍성 분사무소", address: "", phone: "", mapUrl: "", open: false },
+    { name: "송파 분사무소", address: "", phone: "", mapUrl: "", open: false },
+  ] as Office[],
   businessRegistration: "808-37-01374",
   advertisingAttorney: "김한솔",
   /**
@@ -62,3 +75,6 @@ export const lawyerImages = {
   kimMiso: "",
   kimChungHyeon: "",
 } as const
+
+/** 지금 문을 연 사무소 (주사무소가 맨 앞) */
+export const openOffices = siteConfig.offices.filter((o) => o.open && o.address)

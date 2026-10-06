@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { siteConfig } from "@/lib/site-config"
+import { openOffices, siteConfig } from "@/lib/site-config"
 import { lawyers } from "@/lib/lawyers"
 import { SectionHead } from "@/components/main/section-head"
 
 export const metadata: Metadata = {
   title: "법인 소개",
-  description: `${siteConfig.name} 소개. 서울 서초동, 변호사 ${lawyers.length}명이 형사·가사·기업·민사 사건을 맡습니다.`,
+  description: `${siteConfig.name} 소개. 변호사 ${lawyers.length}명이 형사·가사·기업·민사 사건을 맡습니다.`,
   alternates: { canonical: "/about" },
 }
 
@@ -33,8 +33,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 max-w-2xl space-y-5 text-[17px] leading-[1.85] text-[#2D323A]">
             <p>
-              {siteConfig.nameTopic} 서울 서초동 지산빌딩 6층에 있는 사무실입니다. 변호사 {lawyers.length}명이 형사, 가사, 기업, 민사 사건을
-              맡고 있습니다.
+              {siteConfig.nameTopic} 변호사 {lawyers.length}명이 형사, 가사, 기업, 민사 사건을 맡고 있는 사무소입니다.
             </p>
             <p>
               저희 변호사들은 일해 온 곳이 서로 다릅니다. 검찰청에서 검사로 수사와 공판을 맡았던 변호사, 은행·증권사와 벤처캐피탈에서
@@ -71,8 +70,11 @@ export default function AboutPage() {
             ))}
           </ul>
           <p className="mt-6 text-[15px] text-[#4A505A]">
-            {siteConfig.address}
-            <br />
+            {openOffices.map((o) => (
+              <span key={o.name} className="block">
+                <b className="font-semibold text-jisan-ink">{o.name}</b> {o.address}
+              </span>
+            ))}
             전화 {siteConfig.phone} · 24시간, 주말·공휴일 포함
           </p>
         </aside>

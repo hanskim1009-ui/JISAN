@@ -1,12 +1,12 @@
 import Link from "next/link"
 import { lawyers } from "@/lib/lawyers"
-import { siteConfig } from "@/lib/site-config"
+import { openOffices, siteConfig } from "@/lib/site-config"
 import { LogoSvg } from "@/components/brand-logo"
 
 /** 법인 소개 띠: 인사말 짧게 + 사실만 적은 개요표 */
 export function AboutBand() {
   const rows = [
-    ["위치", siteConfig.address],
+    ["사무소", openOffices.map((o) => o.name).join(" · ")],
     ["구성원", `변호사 ${lawyers.length}명`],
     ["업무", "형사 · 가사 · 기업 · 민사"],
     ["상담", `${siteConfig.phone} · 24시간, 주말·공휴일 포함`],

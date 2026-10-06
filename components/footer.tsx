@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { siteConfig } from "@/lib/site-config"
+import { openOffices, siteConfig } from "@/lib/site-config"
 import { LogoSvg } from "@/components/brand-logo"
 
 const legalLinks = [
@@ -28,7 +28,13 @@ export function Footer() {
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-1.5 border-t border-white/15 pt-6 text-sm md:grid-cols-2">
-          <p>{siteConfig.address}</p>
+          <div className="space-y-1">
+            {openOffices.map((o) => (
+              <p key={o.name}>
+                <span className="text-white/90">{o.name}</span> {o.address}
+              </p>
+            ))}
+          </div>
           <p className="md:text-right">
             사업자등록번호 {siteConfig.businessRegistration} · 광고책임변호사 {siteConfig.advertisingAttorney}
           </p>
