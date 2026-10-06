@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { openOffices, siteConfig } from "@/lib/site-config"
+import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { LogoSvg } from "@/components/brand-logo"
 
 const legalLinks = [
@@ -31,7 +31,7 @@ export function Footer() {
           <div className="space-y-1">
             {openOffices.map((o) => (
               <p key={o.name}>
-                <span className="text-white/90">{o.name}</span> {o.address}
+                <span className="text-white/90">{o.name}</span> {officeAddress(o)}
               </p>
             ))}
           </div>

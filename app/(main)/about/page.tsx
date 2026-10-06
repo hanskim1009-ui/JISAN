@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { openOffices, siteConfig } from "@/lib/site-config"
+import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { lawyers } from "@/lib/lawyers"
 import { SectionHead } from "@/components/main/section-head"
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
           <p className="mt-6 text-[15px] text-[#4A505A]">
             {openOffices.map((o) => (
               <span key={o.name} className="block">
-                <b className="font-semibold text-jisan-ink">{o.name}</b> {o.address}
+                <b className="font-semibold text-jisan-ink">{o.name}</b> {officeAddress(o)}
               </span>
             ))}
             전화 {siteConfig.phone} · 24시간, 주말·공휴일 포함

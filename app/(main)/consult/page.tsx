@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { openOffices, siteConfig } from "@/lib/site-config"
+import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { CASE_TYPES } from "@/lib/practice"
 import { ConsultForm } from "@/components/consult-form"
 import { SectionHead } from "@/components/main/section-head"
@@ -18,7 +18,7 @@ export default async function ConsultPage({ searchParams }: { searchParams: Prom
   const ways = [
     { label: "전화", value: `${siteConfig.phone} · 24시간, 주말·공휴일 포함`, href: siteConfig.phoneHref },
     { label: "카카오톡", value: "채팅으로 상담 예약", href: siteConfig.kakaoTalkUrl, external: true },
-    ...openOffices.map((o) => ({ label: "방문", value: `${o.name} · ${o.address}`, href: o.mapUrl || siteConfig.naverMapUrl, external: true })),
+    { label: "방문", value: openOffices.map((o) => `${o.name} · ${officeAddress(o)}`).join("\n"), href: openOffices[0]?.mapUrl, external: true },
   ]
 
   return (
@@ -38,7 +38,7 @@ export default async function ConsultPage({ searchParams }: { searchParams: Prom
                     <a
                       href={w.href}
                       {...(w.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="text-[#4A505A] hover:text-brand-accent"
+                      className="whitespace-pre-line text-[#4A505A] hover:text-brand-accent"
                     >
                       {w.value}
                     </a>

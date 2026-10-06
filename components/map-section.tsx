@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { openOffices, siteConfig } from "@/lib/site-config"
+import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { SectionHead } from "@/components/main/section-head"
 
 /** 오시는 길: 문을 연 사무소마다 주소·전화 + 주사무소 지도 (분사무소가 열리면 목록에 더해집니다) */
@@ -24,10 +24,10 @@ export function MapSection() {
                 <dd className="mt-1 text-[#4A505A]">
                   {o.mapUrl ? (
                     <a href={o.mapUrl} target="_blank" rel="noopener noreferrer" className="hover:underline underline-offset-4">
-                      {o.address}
+                      {officeAddress(o)}
                     </a>
                   ) : (
-                    o.address
+                    officeAddress(o)
                   )}
                   {o.phone && <span className="block tabular-nums">전화 {o.phone}</span>}
                 </dd>

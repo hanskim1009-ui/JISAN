@@ -36,14 +36,14 @@ export const siteConfig = {
   kakaoMapUrl: "https://map.kakao.com/?q=서울시%20서초구%20서초대로46길%20109%20지산빌딩",
   /**
    * 사무소 목록. 주사무소 + 분사무소(인천·홍성·송파).
-   * 분사무소는 open을 true로 바꾸고 주소를 넣으면 맨 아래·오시는 길·법인 소개에 함께 보입니다.
+   * open이 true인 사무소는 맨 아래·오시는 길·법인 소개·상담 페이지에 보입니다. 주소가 비어 있으면 '주소 추후 안내'로 표시됩니다.
    * 문구에서는 특정 지역(서초동)을 내세우지 않고, 주소는 사무소 안내에서만 씁니다.
    */
   offices: [
     { name: "서울 주사무소", address: "서울시 서초구 서초대로46길 109, 6층(지산빌딩)", phone: "02-6951-4097", mapUrl: "https://naver.me/FYrhnFqC", open: true },
-    { name: "인천 분사무소", address: "", phone: "", mapUrl: "", open: false },
-    { name: "홍성 분사무소", address: "", phone: "", mapUrl: "", open: false },
-    { name: "송파 분사무소", address: "", phone: "", mapUrl: "", open: false },
+    { name: "인천 분사무소", address: "", phone: "", mapUrl: "", open: true },
+    { name: "홍성 분사무소", address: "", phone: "", mapUrl: "", open: true },
+    { name: "송파 분사무소", address: "", phone: "", mapUrl: "", open: true },
   ] as Office[],
   businessRegistration: "808-37-01374",
   advertisingAttorney: "김한솔",
@@ -76,5 +76,8 @@ export const lawyerImages = {
   kimChungHyeon: "",
 } as const
 
-/** 지금 문을 연 사무소 (주사무소가 맨 앞) */
-export const openOffices = siteConfig.offices.filter((o) => o.open && o.address)
+/** 사이트에 보이는 사무소 (주사무소가 맨 앞) */
+export const openOffices = siteConfig.offices.filter((o) => o.open)
+
+/** 주소가 아직 없으면 보여 줄 문구 */
+export const officeAddress = (o: Office) => o.address || "주소 추후 안내"
