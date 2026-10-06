@@ -3,6 +3,7 @@
 import { useState, useRef, useLayoutEffect } from "react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { LawyerPhoto } from "@/components/lawyer-photo"
+import { SectionHead } from "@/components/main/section-head"
 import { lawyers, type Lawyer, type StructuredResume, type WorkCaseSection } from "@/lib/lawyers"
 
 function ResumeList({ items }: { items: string[] }) {
@@ -158,6 +159,8 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
             </p>
           </div>
 
+          {lawyer.tagline && <p className="-mt-4 mb-6 text-[17px] font-semibold leading-snug text-jisan-ink">{lawyer.tagline}</p>}
+
           {/* 소개 텍스트 (줄바꿈은 \n + whitespace-pre-line) */}
           <p className="text-base leading-[1.9] text-foreground/80 mb-8 whitespace-pre-line">
             {lawyer.summary}
@@ -230,10 +233,10 @@ export function TeamSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="border-t-2 border-jisan-ink pt-4 text-3xl md:text-[2.25rem] font-bold text-jisan-ink tracking-tight">
-            구성원
-          </h1>
-          <p className="mt-2 text-[15px] text-[#4A505A]">변호사마다 일해 온 곳과 맡는 분야가 다릅니다. 사건이 들어오면 그 일을 해 본 변호사가 맡습니다.</p>
+          <SectionHead title="구성원 소개" as="h1" />
+          <p className="-mt-3 text-[17px] leading-relaxed text-[#2D323A]">
+            검찰, 금융회사, 로펌, 의료기관 자문에서 일해 온 변호사들이 사건을 직접 수행합니다.
+          </p>
         </div>
       </div>
 
