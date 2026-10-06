@@ -40,9 +40,9 @@ export function FieldsSection() {
                   )
                 })}
               </ul>
-              {f.centers.length > 0 && (
+              {f.centers.some((slug) => centers.some((c) => c.slug === slug)) && (
                 <p className="mt-auto flex flex-wrap gap-x-4 pt-5 text-sm font-semibold">
-                  {f.centers.map((slug) => (
+                  {f.centers.filter((slug) => centers.some((c) => c.slug === slug)).map((slug) => (
                     <Link key={slug} href={`/${slug}`} className="text-brand-accent underline decoration-1 underline-offset-[5px]">
                       {centers.find((c) => c.slug === slug)?.name} →
                     </Link>

@@ -27,14 +27,14 @@ export const fields: Field[] = [
     name: "형사",
     desc: "경찰 조사부터 재판까지, 단계마다 의뢰인에게 가장 유리한 대응 방향을 준비합니다.",
     caseType: "형사",
-    items: ["경찰 조사 동석, 체포·구속", "성범죄 · 마약", "사기·횡령·자본시장법", "음주·교통, 폭행"],
+    items: ["경찰 조사 동석, 체포·구속", "성범죄 · 마약", "사기·횡령·자본시장법", "학교폭력, 음주·교통"],
     lawyers: ["kim-hansol", "kim-chunghyeon", "koo-bonwoo"],
-    centers: ["crime", "sex-crime"],
+    centers: ["crime", "sex-crime", "drug", "school-violence"],
     situations: [
       { label: "경찰 출석 요구를 받았어요", center: "crime" },
       { label: "가족이 체포됐어요", center: "crime" },
       { label: "성범죄 사건이에요", center: "sex-crime" },
-      { label: "사기로 고소하려 해요", center: "crime" },
+      { label: "학교폭력 신고가 들어왔어요", center: "school-violence" },
     ],
   },
   {
@@ -43,11 +43,11 @@ export const fields: Field[] = [
     caseType: "가사",
     items: ["이혼, 재산분할", "상간 소송", "양육권·양육비", "상속, 유류분"],
     lawyers: ["kim-miso"],
-    centers: [],
+    centers: ["divorce", "adultery"],
     situations: [
-      { label: "이혼을 준비하고 있어요", caseType: "가사" },
-      { label: "상간 소장을 받았어요", caseType: "가사" },
-      { label: "양육비를 못 받고 있어요", caseType: "가사" },
+      { label: "이혼을 준비하고 있어요", center: "divorce" },
+      { label: "상간 소장을 받았어요", center: "adultery" },
+      { label: "양육비를 못 받고 있어요", center: "divorce" },
       { label: "상속 문제가 생겼어요", caseType: "가사" },
     ],
   },
@@ -57,11 +57,11 @@ export const fields: Field[] = [
     caseType: "기업",
     items: ["투자계약, 주주간계약", "주주총회·이사회", "경영권 분쟁", "의료기관·기업 자문"],
     lawyers: ["koo-bonwoo", "kang-hyunwoo", "park-jongjin"],
-    centers: [],
+    centers: ["corporate"],
     situations: [
-      { label: "투자계약을 검토해야 해요", caseType: "기업" },
-      { label: "주주 간 분쟁이 생겼어요", caseType: "기업" },
-      { label: "정기 자문이 필요해요", caseType: "기업" },
+      { label: "투자계약을 검토해야 해요", center: "corporate" },
+      { label: "주주 간 분쟁이 생겼어요", center: "corporate" },
+      { label: "정기 자문이 필요해요", center: "corporate" },
       { label: "병원 운영 문제예요", caseType: "기업" },
     ],
   },
@@ -71,15 +71,15 @@ export const fields: Field[] = [
     caseType: "민사",
     items: ["대여금·투자금 반환", "공사대금, 하자", "임대차 보증금, 명도", "개인회생·파산"],
     lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon"],
-    centers: [],
+    centers: ["civil", "insolvency"],
     situations: [
-      { label: "빌려준 돈을 못 받았어요", caseType: "민사" },
-      { label: "공사대금 문제예요", caseType: "건설·부동산" },
-      { label: "보증금을 못 받았어요", caseType: "민사" },
-      { label: "빚을 정리하고 싶어요", caseType: "회생·파산" },
+      { label: "빌려준 돈을 못 받았어요", center: "civil" },
+      { label: "공사대금 문제예요", center: "civil" },
+      { label: "보증금을 못 받았어요", center: "civil" },
+      { label: "빚을 정리하고 싶어요", center: "insolvency" },
     ],
   },
 ]
 
 /** 상담 폼의 '어떤 일인가요?' 선택지 */
-export const CASE_TYPES = ["형사", "성범죄", "가사", "기업", "민사", "건설·부동산", "회생·파산", "기타"]
+export const CASE_TYPES = ["형사", "성범죄", "마약", "학교폭력", "이혼", "상간", "가사", "기업", "민사", "건설·부동산", "회생·파산", "기타"]

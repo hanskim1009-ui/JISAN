@@ -18,27 +18,27 @@ export function CenterHeader({ name, tone, nav }: { name: string; tone: CenterTo
 
   return (
     <header className={`sticky top-0 z-50 border-b ${t.header}`}>
-      <nav className="max-w-7xl mx-auto flex items-center gap-7 px-6 md:px-12 lg:px-20 py-4" aria-label={`${name} 메뉴`}>
+      <nav className="max-w-7xl mx-auto flex items-center gap-7 px-6 md:px-12 xl:px-14 py-4" aria-label={`${name} 메뉴`}>
         <a href="#top" className="mr-auto leading-tight" onClick={() => setOpen(false)}>
           <span className="block text-lg md:text-xl tracking-tight">
             {siteConfig.shortName} <b className="font-extrabold">{name}</b>
           </span>
           <span className={`block text-[10.5px] ${t.logoSub}`}>{siteConfig.name}</span>
         </a>
-        <div className="hidden lg:flex items-center gap-7">
+        <div className="hidden xl:flex items-center gap-5">
           {nav.map((n) => (
-            <a key={n.href} href={n.href} className={`text-[15px] transition-colors ${t.headerLink}`}>
+            <a key={n.href} href={n.href} className={`whitespace-nowrap text-[14.5px] transition-colors ${t.headerLink}`}>
               {n.label}
             </a>
           ))}
-          <a href={siteConfig.phoneHref} className="text-[15px] font-bold">
+          <a href={siteConfig.phoneHref} className="hidden 2xl:inline whitespace-nowrap text-[15px] font-bold">
             24시간 {siteConfig.phone}
           </a>
-          <a href="#consult" className={`px-5 py-2.5 text-sm font-semibold ${t.headerCta}`}>
+          <a href="#consult" className={`whitespace-nowrap px-5 py-2.5 text-sm font-semibold ${t.headerCta}`}>
             상담 신청
           </a>
         </div>
-        <div className="flex items-center gap-1 lg:hidden">
+        <div className="flex items-center gap-1 xl:hidden">
           <a href={siteConfig.phoneHref} className="p-2" aria-label="전화 상담">
             <Phone className="h-5 w-5" />
           </a>
@@ -54,7 +54,7 @@ export function CenterHeader({ name, tone, nav }: { name: string; tone: CenterTo
         </div>
       </nav>
       {open && (
-        <div className={`lg:hidden border-t ${t.divider} px-6 pb-6 pt-2 flex flex-col`}>
+        <div className={`xl:hidden border-t ${t.divider} px-6 pb-6 pt-2 flex flex-col`}>
           {nav.map((n) => (
             <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-3 text-base">
               {n.label}

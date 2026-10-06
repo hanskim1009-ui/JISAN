@@ -10,10 +10,10 @@ const note = "예시 글입니다. 실제 사건이 아니며, 실제 업무사�
 export const sampleCases: CaseItem[] = [
   { id: "sample-embezzlement", sample: true, field: "형사", centers: ["crime"], decidedOn: "2025.12", situation: "회사 돈을 빼돌렸다는 고소를 당한 재무팀장", caseType: "업무상횡령", clientRole: "피의자", stage: "수사", result: "혐의없음", issue: note, work: note, lawyers: ["koo-bonwoo"] },
   { id: "sample-indecent", sample: true, field: "형사", centers: ["sex-crime"], decidedOn: "2025.11", situation: "회식 자리 신체 접촉으로 고소된 직장인", caseType: "강제추행", clientRole: "피의자", stage: "수사", result: "혐의없음", issue: note, work: note, lawyers: ["kim-hansol"] },
-  { id: "sample-divorce", sample: true, field: "가사", decidedOn: "2025.11", situation: "별거 3년, 재산분할 비율을 두고 다툰 50대 배우자", caseType: "이혼·재산분할", clientRole: "원고", stage: "1심", result: "조정 성립", issue: note, work: note, lawyers: ["kim-miso"] },
-  { id: "sample-construction", sample: true, field: "민사", decidedOn: "2025.10", situation: "공사를 마치고 대금 2억 원을 받지 못한 인테리어 업체", caseType: "공사대금", clientRole: "원고", stage: "1심", result: "전부 인용", issue: note, work: note, lawyers: ["park-jongjin"] },
-  { id: "sample-shareholder", sample: true, field: "기업", decidedOn: "2025.09", situation: "공동창업자와 지분 정리를 두고 갈등한 스타트업", caseType: "주주 간 분쟁", clientRole: "회사", stage: "협상", result: "합의 성립", issue: note, work: note, lawyers: ["koo-bonwoo"] },
-  { id: "sample-deposit", sample: true, field: "민사", decidedOn: "2025.09", situation: "계약이 끝났는데 보증금 1억 2천만 원을 돌려받지 못한 세입자", caseType: "임대차보증금", clientRole: "원고", stage: "조정", result: "조정 성립", issue: note, work: note, lawyers: ["kang-hyunwoo"] },
+  { id: "sample-divorce", sample: true, field: "가사", centers: ["divorce"], decidedOn: "2025.11", situation: "별거 3년, 재산분할 비율을 두고 다툰 50대 배우자", caseType: "이혼·재산분할", clientRole: "원고", stage: "1심", result: "조정 성립", issue: note, work: note, lawyers: ["kim-miso"] },
+  { id: "sample-construction", sample: true, field: "민사", centers: ["civil"], decidedOn: "2025.10", situation: "공사를 마치고 대금 2억 원을 받지 못한 인테리어 업체", caseType: "공사대금", clientRole: "원고", stage: "1심", result: "전부 인용", issue: note, work: note, lawyers: ["park-jongjin"] },
+  { id: "sample-shareholder", sample: true, field: "기업", centers: ["corporate"], decidedOn: "2025.09", situation: "공동창업자와 지분 정리를 두고 갈등한 스타트업", caseType: "주주 간 분쟁", clientRole: "회사", stage: "협상", result: "합의 성립", issue: note, work: note, lawyers: ["koo-bonwoo"] },
+  { id: "sample-deposit", sample: true, field: "민사", centers: ["civil"], decidedOn: "2025.09", situation: "계약이 끝났는데 보증금 1억 2천만 원을 돌려받지 못한 세입자", caseType: "임대차보증금", clientRole: "원고", stage: "조정", result: "조정 성립", issue: note, work: note, lawyers: ["kang-hyunwoo"] },
 ]
 
 const body = (title: string): ColumnItem["body"] => [
@@ -25,8 +25,8 @@ const body = (title: string): ColumnItem["body"] => [
 
 export const sampleColumns: ColumnItem[] = [
   { id: "sample-police-summons", sample: true, field: "형사", centers: ["crime"], date: "2026-09-28", title: "경찰 출석 요구를 받았을 때 먼저 할 일", summary: "출석 일정은 수사관과 협의해 조정할 수 있습니다. 조사 전에 사실관계와 자료를 정리해 두는 것이 중요합니다.", author: "kim-hansol", body: body("경찰 출석 요구를 받았을 때 먼저 할 일") },
-  { id: "sample-adultery-answer", sample: true, field: "가사", date: "2026-09-20", title: "상간 소장을 받았다면 답변서 기한부터 확인하세요", summary: "소장을 받은 날부터 30일 안에 답변서를 내야 합니다. 기한을 넘기면 원고 주장을 인정한 것으로 보고 판결이 날 수 있습니다.", author: "kim-miso", body: body("상간 소장을 받았다면 답변서 기한부터 확인하세요") },
-  { id: "sample-investment-terms", sample: true, field: "기업", date: "2026-09-12", title: "투자계약서에서 먼저 볼 조항 다섯 가지", summary: "상환 조건, 투자자 동의권, 우선매수권처럼 나중에 경영권에 영향을 주는 조항을 먼저 봅니다.", author: "koo-bonwoo", body: body("투자계약서에서 먼저 볼 조항 다섯 가지") },
+  { id: "sample-adultery-answer", sample: true, field: "가사", centers: ["adultery"], date: "2026-09-20", title: "상간 소장을 받았다면 답변서 기한부터 확인하세요", summary: "소장을 받은 날부터 30일 안에 답변서를 내야 합니다. 기한을 넘기면 원고 주장을 인정한 것으로 보고 판결이 날 수 있습니다.", author: "kim-miso", body: body("상간 소장을 받았다면 답변서 기한부터 확인하세요") },
+  { id: "sample-investment-terms", sample: true, field: "기업", centers: ["corporate"], date: "2026-09-12", title: "투자계약서에서 먼저 볼 조항 다섯 가지", summary: "상환 조건, 투자자 동의권, 우선매수권처럼 나중에 경영권에 영향을 주는 조항을 먼저 봅니다.", author: "koo-bonwoo", body: body("투자계약서에서 먼저 볼 조항 다섯 가지") },
 ]
 
 export const sampleDiary: DiaryEntry[] = [

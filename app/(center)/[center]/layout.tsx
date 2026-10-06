@@ -24,7 +24,7 @@ export default async function CenterLayout({
   const hasBlog = center.blog ? (await getNaverBlogPosts(center.blog.id, 6)).length > 0 : false
 
   const nav: CenterNavItem[] = [
-    { label: center.areasTitle, href: "#areas" },
+    { label: "업무분야", href: "#areas" },
     ...(center.table ? [{ label: center.table.nav ?? center.table.title, href: "#table" }] : []),
     { label: "진행 절차", href: "#process" },
     ...(getCases({ center: center.slug }).length > 0 ? [{ label: "업무사례", href: "#cases" }] : []),

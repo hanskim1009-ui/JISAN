@@ -114,9 +114,9 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
                         </li>
                       ))}
                     </ul>
-                    {f.centers.length > 0 && (
+                    {f.centers.some((slug) => centerOf(slug)) && (
                       <p className="mt-3 flex flex-wrap gap-x-3 text-sm font-semibold">
-                        {f.centers.map((slug) => (
+                        {f.centers.filter((slug) => centerOf(slug)).map((slug) => (
                           <Link key={slug} href={`/${slug}`} onClick={close} className="text-brand-accent underline underline-offset-4">
                             {centerOf(slug)?.name}
                           </Link>
