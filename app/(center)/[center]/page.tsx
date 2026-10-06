@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { MessageCircle, Phone, Plus } from "lucide-react"
+import { Check, MessageCircle, Phone, Plus } from "lucide-react"
 import { centers, getCenter } from "@/lib/centers"
 import { getLawyer, lawyers as allLawyers } from "@/lib/lawyers"
 import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
@@ -62,6 +62,22 @@ export default async function CenterPage({ params }: Props) {
   const others = allLawyers
     .filter((l) => !center.lawyers.some((cl) => cl.slug === l.slug))
     .map((l) => ({ ...l, line: (l.career ?? l.structuredResume?.career ?? []).find((c) => !c.includes(siteConfig.name)) }))
+
+  /** 섹션 바탕: 보이는 섹션 순서대로 흰색/옅은 색을 번갈아 */
+  const shown = [
+    center.intro && "intro",
+    center.situations && "situations",
+    "areas",
+    center.table && "table",
+    center.points && "points",
+    "process",
+    cases.length > 0 && "cases",
+    "lawyers",
+    columns.length > 0 && "column",
+    "faq",
+    "offices",
+  ].filter(Boolean) as string[]
+  const bg = (id: string) => (shown.indexOf(id) % 2 === 0 ? "bg-white" : t.alt)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -131,8 +147,39 @@ export default async function CenterPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 주요 업무 / 세부 사건 */}
-      <section id="areas" className={`${sectionPad} bg-white`}>
+      {/* 센터 소개 */}
+      {center.intro && (
+        <section id="intro" className={`${sectionPad} ${bg("intro")}`}>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.6fr]">
+            <h2 className={`${h2} whitespace-pre-line`}>{center.intro.title}</h2>
+            <div className="space-y-4 text-[16px] leading-[1.85] text-jisan-ink/80">
+              {center.intro.body.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 이런 분께 필요합니다 */}
+      {center.situations && (
+        <section id="situations" className={`${sectionPad} ${bg("situations")}`}>
+          <div className="max-w-7xl mx-auto">
+            <h2 className={h2}>{center.situations.title}</h2>
+            <ul className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
+              {center.situations.items.map((it) => (
+                <li key={it} className="flex items-start gap-3 border border-[#E2E6ED] bg-white px-4 py-3.5 text-[15px] text-jisan-ink">
+                  <Check className={`mt-0.5 h-4 w-4 shrink-0 ${t.accent}`} />
+                  {it}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {/* 업무분야 */}
+      <section id="areas" className={`${sectionPad} ${bg("areas")}`}>
         <div className="max-w-7xl mx-auto">
           <h2 className={h2}>{center.areasTitle}</h2>
           <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -146,7 +193,7 @@ export default async function CenterPage({ params }: Props) {
                 </>
               )
               return (
-                <li key={a.name} className="border border-[#E2E6ED] p-5">
+                <li key={a.name} className="border border-[#E2E6ED] bg-white p-5">
                   {a.href ? <a href={a.href} className="block">{body}</a> : body}
                 </li>
               )
@@ -155,40 +202,60 @@ export default async function CenterPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 처벌 기준 */}
-      {center.penalties && (
-        <section id="penalty" className={`${sectionPad} ${t.alt}`}>
+      {/* 기준표 (처벌 기준, 처분 종류, 요건 비교 등) */}
+      {center.table && (
+        <section id="table" className={`${sectionPad} ${bg("table")}`}>
           <div className="max-w-7xl mx-auto">
-            <h2 className={h2}>죄명별 처벌 기준</h2>
+            <h2 className={h2}>{center.table.title}</h2>
             <div className="mt-8 overflow-x-auto border border-[#E2E6ED] bg-white">
               <table className="w-full min-w-[560px] text-left text-sm">
                 <thead className="bg-jisan-mist/60 text-xs text-jisan-ink/60">
                   <tr>
-                    <th className="px-4 py-3 font-semibold">죄명</th>
-                    <th className="px-4 py-3 font-semibold">법정형</th>
-                    <th className="px-4 py-3 font-semibold">함께 내려질 수 있는 처분</th>
+                    {center.table.columns.map((c) => (
+                      <th key={c} className="px-4 py-3 font-semibold">
+                        {c}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#E2E6ED] text-jisan-ink">
-                  {center.penalties.map((p) => (
-                    <tr key={p.crime}>
-                      <td className="px-4 py-3.5 font-semibold whitespace-nowrap">{p.crime}</td>
-                      <td className="px-4 py-3.5">{p.penalty}</td>
-                      <td className="px-4 py-3.5 text-jisan-ink/70">{p.extra}</td>
+                  {center.table.rows.map((r) => (
+                    <tr key={r.join("|")}>
+                      {r.map((cell, i) => (
+                        <td key={i} className={`px-4 py-3.5 align-top ${i === 0 ? "font-semibold whitespace-nowrap" : i === r.length - 1 && r.length > 2 ? "text-jisan-ink/70" : ""}`}>
+                          {cell}
+                        </td>
+                      ))}
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <p className="mt-3 text-xs text-muted-foreground">
-              법정형 기준입니다. 실제 처분과 부수처분은 사건과 선고 결과에 따라 달라집니다.
-            </p>
+            {center.table.note && <p className="mt-3 text-xs text-muted-foreground">{center.table.note}</p>}
+          </div>
+        </section>
+      )}
+
+      {/* 대응 원칙 · 중요한 이유 */}
+      {center.points && (
+        <section id="points" className={`${sectionPad} ${bg("points")}`}>
+          <div className="max-w-7xl mx-auto">
+            <h2 className={h2}>{center.points.title}</h2>
+            <ol className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {center.points.items.map((p, i) => (
+                <li key={p.title} className="border-t-2 border-jisan-ink bg-white p-5">
+                  <span className={`text-sm font-bold tabular-nums ${t.accent}`}>{String(i + 1).padStart(2, "0")}</span>
+                  <p className="mt-2 text-lg font-bold text-jisan-ink">{p.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70">{p.desc}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
       )}
 
       {/* 대응 절차 */}
-      <section id="process" className={`${sectionPad} ${center.penalties ? "bg-white" : t.alt}`}>
+      <section id="process" className={`${sectionPad} ${bg("process")}`}>
         <div className="max-w-7xl mx-auto">
           <h2 className={h2}>사건 진행 절차</h2>
           <p className="mt-2 text-[15px] text-jisan-ink/70">{center.form.caseType} 사건, 단계별로 어떻게 대응하는지 알려드립니다.</p>
@@ -223,7 +290,7 @@ export default async function CenterPage({ params }: Props) {
 
       {/* 업무사례 (이 센터로 지정된 것만) */}
       {cases.length > 0 && (
-        <section id="cases" className={`${sectionPad} bg-white`}>
+        <section id="cases" className={`${sectionPad} ${bg("cases")}`}>
           <div className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.name} 업무사례</h2>
             <p className="mt-2 mb-6 text-[15px] text-jisan-ink/70">나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.</p>
@@ -235,7 +302,7 @@ export default async function CenterPage({ params }: Props) {
       )}
 
       {/* 담당 변호사 */}
-      <section id="lawyers" className={`${sectionPad} ${center.penalties ? t.alt : "bg-white"}`}>
+      <section id="lawyers" className={`${sectionPad} ${bg("lawyers")}`}>
         <div className="max-w-7xl mx-auto">
           <h2 className={h2}>{center.name} 변호사</h2>
           <p className="mt-2 text-[15px] text-jisan-ink/70">
@@ -307,7 +374,7 @@ export default async function CenterPage({ params }: Props) {
 
       {/* 이 센터 칼럼 (홈페이지 안 글) */}
       {columns.length > 0 && (
-        <section id="column" className={`${sectionPad} bg-white`}>
+        <section id="column" className={`${sectionPad} ${bg("column")}`}>
           <div className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.name} 칼럼</h2>
             <SampleNote show={columns.some((c) => c.sample)} className="mt-3" />
@@ -321,7 +388,7 @@ export default async function CenterPage({ params }: Props) {
       )}
 
       {/* 자주 묻는 질문 */}
-      <section id="faq" className={`${sectionPad} bg-white`}>
+      <section id="faq" className={`${sectionPad} ${bg("faq")}`}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-14">
           <div>
             <h2 className={h2}>자주 묻는 질문</h2>
@@ -346,7 +413,7 @@ export default async function CenterPage({ params }: Props) {
 
       {/* 상담 */}
       {/* 사무소 안내 (주사무소 + 분사무소) */}
-      <section id="offices" className={`${sectionPad} bg-white`}>
+      <section id="offices" className={`${sectionPad} ${bg("offices")}`}>
         <div className="max-w-7xl mx-auto">
           <h2 className={h2}>사무소 안내</h2>
           <p className="mt-2 text-[15px] text-jisan-ink/70">
@@ -354,7 +421,7 @@ export default async function CenterPage({ params }: Props) {
           </p>
           <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {openOffices.map((o) => (
-              <li key={o.name} className="border border-[#E2E6ED] p-5">
+              <li key={o.name} className="border border-[#E2E6ED] bg-white p-5">
                 <p className="text-lg font-bold text-jisan-ink">{o.name}</p>
                 <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70">{officeAddress(o)}</p>
                 <p className="mt-3 text-sm font-semibold tabular-nums text-jisan-ink">전화 {o.phone || siteConfig.phone}</p>

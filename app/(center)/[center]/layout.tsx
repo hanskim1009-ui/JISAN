@@ -25,7 +25,7 @@ export default async function CenterLayout({
 
   const nav: CenterNavItem[] = [
     { label: center.areasTitle, href: "#areas" },
-    ...(center.penalties ? [{ label: "처벌 기준", href: "#penalty" }] : []),
+    ...(center.table ? [{ label: center.table.nav ?? center.table.title, href: "#table" }] : []),
     { label: "진행 절차", href: "#process" },
     ...(getCases({ center: center.slug }).length > 0 ? [{ label: "업무사례", href: "#cases" }] : []),
     { label: "변호사", href: "#lawyers" },

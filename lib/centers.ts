@@ -23,7 +23,8 @@ export type CenterStage = {
 
 export type CenterArea = { name: string; law?: string; desc: string; href?: string }
 
-export type CenterPenalty = { crime: string; penalty: string; extra: string }
+/** 기준표 (처벌 기준, 처분 1~9호, 신청 요건 비교 등) */
+export type CenterTable = { title: string; nav?: string; columns: string[]; rows: string[][]; note?: string }
 
 export type CenterProcess = { title: string; steps: { title: string; desc: string }[] }
 
@@ -37,9 +38,15 @@ export type Center = {
   hero: { title: string; sub: string }
   stageTitle: string
   stages: CenterStage[]
+  /** 센터 소개 (인사말 형식) */
+  intro?: { title: string; body: string[] }
+  /** '이런 분께 필요합니다' 같은 상황 목록 */
+  situations?: { title: string; items: string[] }
   areasTitle: string
   areas: CenterArea[]
-  penalties?: CenterPenalty[]
+  table?: CenterTable
+  /** '초기 대응이 중요한 이유', '센터의 대응 원칙' 등 */
+  points?: { title: string; items: { title: string; desc: string }[] }
   processes: CenterProcess[]
   /** 담당 변호사 (lib/lawyers.ts의 slug) + 센터에서 보여 줄 경력 한 줄 */
   lawyers: { slug: string; note: string }[]
@@ -201,11 +208,17 @@ export const centers: Center[] = [
       { name: "아동·청소년 대상 성범죄", law: "청소년성보호법", desc: "처벌이 무겁고 신상정보 공개·고지 대상이 될 수 있어 초기 대응이 특히 중요합니다." },
       { name: "성매매", law: "성매매처벌법", desc: "구매·알선. 초범은 교육 조건부 기소유예 등 처분 가능성을 검토합니다." },
     ],
-    penalties: [
-      { crime: "강제추행", penalty: "10년 이하 징역 또는 1,500만원 이하 벌금", extra: "신상정보 등록, 취업제한, 이수명령" },
-      { crime: "카메라등이용촬영", penalty: "7년 이하 징역 또는 5,000만원 이하 벌금", extra: "신상정보 등록, 취업제한, 촬영물 몰수" },
-      { crime: "통신매체이용음란", penalty: "2년 이하 징역 또는 2,000만원 이하 벌금", extra: "선고 형에 따라 신상정보 등록" },
-    ],
+    table: {
+      title: "죄명별 처벌 기준",
+      nav: "처벌 기준",
+      columns: ["죄명", "법정형", "함께 내려질 수 있는 처분"],
+      rows: [
+        ["강제추행", "10년 이하 징역 또는 1,500만원 이하 벌금", "신상정보 등록, 취업제한, 이수명령"],
+        ["카메라등이용촬영", "7년 이하 징역 또는 5,000만원 이하 벌금", "신상정보 등록, 취업제한, 촬영물 몰수"],
+        ["통신매체이용음란", "2년 이하 징역 또는 2,000만원 이하 벌금", "선고 형에 따라 신상정보 등록"],
+      ],
+      note: "법정형 기준입니다. 실제 처분과 부수처분은 사건과 선고 결과에 따라 달라집니다.",
+    },
     processes: [suspectProcess, victimProcess],
     lawyers: [{ slug: "kim-hansol", note: "전) 인천지방검찰청 · 수원지방검찰청 안산지청 · 대전지방검찰청 홍성지청 검사" }],
     faqs: [
