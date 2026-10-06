@@ -4,14 +4,20 @@
  * 지금은 이 파일의 목록에서 읽습니다. 홈페이지용 Supabase 프로젝트를 만들면
  * 아래 get 함수들만 Supabase에서 읽도록 바꾸고, 직원은 관리 화면에서 입력합니다.
  * 목록이 비어 있으면 메인의 해당 섹션과 메뉴가 숨겨집니다.
+ * 단, 개발 미리보기에서는 예시 글(lib/samples.ts)로 채워 보여 줍니다 (lib/preview.ts).
  *
  * 광고 규정: 의뢰인 동의를 받은 것만, 누구인지 알 수 없게 고쳐서 싣습니다.
  * 결과는 처분·판결명만 적고 비율·누적 건수·결과 보장 표현은 쓰지 않습니다.
  */
 
+import { SHOW_SAMPLES } from "@/lib/preview"
+import { sampleCases, sampleColumns, sampleDiary } from "@/lib/samples"
+
 export type CaseField = "형사" | "가사" | "기업" | "민사"
 
 export type CaseItem = {
+  /** 개발 미리보기용 예시 글 */
+  sample?: boolean
   /** 주소에 쓰는 영문·숫자 (예: "2025-12-embezzlement") */
   id: string
   field: CaseField
@@ -38,6 +44,7 @@ export type CaseItem = {
 }
 
 export type DiaryEntry = {
+  sample?: boolean
   id: string
   /** "2025-12-03" */
   date: string
@@ -56,6 +63,7 @@ export type DiaryEntry = {
 export type ColumnBlock = { type: "h2"; text: string } | { type: "p"; text: string } | { type: "ul"; items: string[] }
 
 export type ColumnItem = {
+  sample?: boolean
   /** 주소에 쓰는 영문·숫자 (예: "police-summons-first-steps") */
   id: string
   field: CaseField
@@ -81,23 +89,23 @@ const diary: DiaryEntry[] = []
 const columns: ColumnItem[] = []
 
 export function getCases(opts: { field?: CaseField; center?: string; limit?: number } = {}) {
-  let list = [...cases].sort((a, b) => b.decidedOn.localeCompare(a.decidedOn))
+  let list = [...(cases.length > 0 || !SHOW_SAMPLES ? cases : sampleCases)].sort((a, b) => b.decidedOn.localeCompare(a.decidedOn))
   if (opts.field) list = list.filter((c) => c.field === opts.field)
   if (opts.center) list = list.filter((c) => c.centers?.includes(opts.center!))
   return opts.limit ? list.slice(0, opts.limit) : list
 }
 
 export function getCase(id: string) {
-  return cases.find((c) => c.id === id)
+  return getCases().find((c) => c.id === id)
 }
 
 export function getDiary(opts: { limit?: number } = {}) {
-  const list = [...diary].sort((a, b) => b.date.localeCompare(a.date))
+  const list = [...(diary.length > 0 || !SHOW_SAMPLES ? diary : sampleDiary)].sort((a, b) => b.date.localeCompare(a.date))
   return opts.limit ? list.slice(0, opts.limit) : list
 }
 
 export function getColumns(opts: { field?: CaseField; center?: string; author?: string; limit?: number } = {}) {
-  let list = [...columns].sort((a, b) => b.date.localeCompare(a.date))
+  let list = [...(columns.length > 0 || !SHOW_SAMPLES ? columns : sampleColumns)].sort((a, b) => b.date.localeCompare(a.date))
   if (opts.field) list = list.filter((c) => c.field === opts.field)
   if (opts.center) list = list.filter((c) => c.centers?.includes(opts.center!))
   if (opts.author) list = list.filter((c) => c.author === opts.author)
@@ -105,5 +113,5 @@ export function getColumns(opts: { field?: CaseField; center?: string; author?: 
 }
 
 export function getColumn(id: string) {
-  return columns.find((c) => c.id === id)
+  return getColumns().find((c) => c.id === id)
 }

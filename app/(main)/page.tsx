@@ -15,6 +15,9 @@ import { homeFaqs } from "@/lib/home-faq"
 import { getCases, getColumns, getDiary } from "@/lib/content"
 import { getYoutubeVideos } from "@/lib/feeds"
 import { siteConfig } from "@/lib/site-config"
+import { SHOW_SAMPLES } from "@/lib/preview"
+import { sampleVideos } from "@/lib/samples"
+import { SampleNote } from "@/components/sample-note"
 
 export const revalidate = 3600
 
@@ -37,7 +40,8 @@ export default async function Page() {
   const columns = getColumns({ limit: 3 })
   const diary = getDiary({ limit: 3 })
   const channelId = siteConfig.feeds.firmYoutubeChannelId
-  const videos = await getYoutubeVideos(channelId, 4)
+  const realVideos = await getYoutubeVideos(channelId, 4)
+  const videos = realVideos.length > 0 || !SHOW_SAMPLES ? realVideos : sampleVideos
 
   return (
     <>
@@ -49,6 +53,7 @@ export default async function Page() {
         <section className="px-5 md:px-12 lg:px-14 pb-14 md:pb-20">
           <div className="max-w-7xl mx-auto">
             <SectionHead title="업무사례" desc="의뢰인의 동의를 받은 사건만, 누구인지 알 수 없게 고쳐 싣습니다." href="/cases" />
+            <SampleNote show={cases.some((c) => c.sample)} className="mb-4" />
             <CasesTable items={cases} />
           </div>
         </section>
@@ -63,6 +68,7 @@ export default async function Page() {
         <section className="bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
           <div className="max-w-7xl mx-auto">
             <SectionHead title="감사일기" desc="사건이 끝난 뒤 의뢰인이 보내 주신 문자와 선물을 직원이 적어 둡니다." href="/diary" />
+            <SampleNote show={diary.some((d) => d.sample)} className="mb-4" />
             <DiaryGrid entries={diary} />
           </div>
         </section>

@@ -5,6 +5,7 @@ import { getCase, getCases } from "@/lib/content"
 import { lawyers } from "@/lib/lawyers"
 import { siteConfig } from "@/lib/site-config"
 import { centers } from "@/lib/centers"
+import { SampleNote } from "@/components/sample-note"
 
 type Props = { params: Promise<{ id: string }> }
 
@@ -42,6 +43,7 @@ export default async function CasePage({ params }: Props) {
         <Link href="/cases" className="text-sm text-[#4A505A] underline underline-offset-4">
           업무사례
         </Link>
+        <SampleNote show={Boolean(c.sample)} className="mt-3" />
         <h1 className="mt-3 text-[1.75rem] md:text-[2.125rem] font-bold leading-[1.35] tracking-tight text-jisan-ink text-balance">
           {c.situation}
         </h1>

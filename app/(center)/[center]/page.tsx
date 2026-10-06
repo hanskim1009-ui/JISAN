@@ -12,6 +12,7 @@ import { BlogList } from "@/components/blog-list"
 import { getCases, getColumns } from "@/lib/content"
 import { ColumnRow } from "@/components/column-parts"
 import { getNaverBlogPosts } from "@/lib/feeds"
+import { SampleNote } from "@/components/sample-note"
 
 type Props = { params: Promise<{ center: string }> }
 
@@ -225,6 +226,7 @@ export default async function CenterPage({ params }: Props) {
           <div className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.name} 업무사례</h2>
             <p className="mt-2 mb-6 text-sm text-jisan-ink/65">의뢰인의 동의를 받은 사건만, 누구인지 알 수 없게 고쳐 싣습니다.</p>
+            <SampleNote show={cases.some((c) => c.sample)} className="mb-4" />
             <CasesTable items={cases} tabs={false} />
           </div>
         </section>
@@ -306,6 +308,7 @@ export default async function CenterPage({ params }: Props) {
         <section id="column" className={`${sectionPad} bg-white`}>
           <div className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.name} 칼럼</h2>
+            <SampleNote show={columns.some((c) => c.sample)} className="mt-3" />
             <div className="mt-6 border-t border-jisan-ink">
               {columns.map((c) => (
                 <ColumnRow key={c.id} c={c} />

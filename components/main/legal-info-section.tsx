@@ -3,15 +3,17 @@ import type { FeedItem } from "@/lib/feeds"
 import { SectionHead } from "@/components/main/section-head"
 import { ColumnCard } from "@/components/column-parts"
 import { LiteYouTube } from "@/components/lite-youtube"
+import { SampleNote } from "@/components/sample-note"
+import { Play } from "lucide-react"
 
 /**
  * 법률 정보: 칼럼 3편(홈페이지 안 글) + 법인 유튜브(대표 영상 1 + 작은 영상 3)
  * 둘 다 없으면 통째로 숨깁니다. 네이버 블로그 글은 메인에 띄우지 않습니다.
  */
 export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: ColumnItem[]; videos: FeedItem[]; youtubeUrl?: string }) {
-  const playable = videos.filter((v) => v.videoId)
-  if (columns.length === 0 && playable.length === 0) return null
-  const [main, ...rest] = playable
+  if (columns.length === 0 && videos.length === 0) return null
+  const [main, ...rest] = videos
+  const sampleVideos = videos.length > 0 && videos.every((v) => !v.videoId)
 
   return (
     <section id="info" className="scroll-mt-20 px-5 md:px-12 lg:px-14 py-14 md:py-20">
@@ -19,6 +21,7 @@ export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: Col
         {columns.length > 0 && (
           <div>
             <SectionHead title="칼럼" href="/column" linkLabel="칼럼 전체" />
+            <SampleNote show={columns.some((c) => c.sample)} className="mb-4" />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {columns.map((c) => (
                 <ColumnCard key={c.id} c={c} />
@@ -29,18 +32,19 @@ export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: Col
         {main && (
           <div>
             <SectionHead title="유튜브" href={youtubeUrl} linkLabel="채널 보기" />
+            <SampleNote show={sampleVideos} className="mb-4" />
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-[2fr_1fr]">
               <figure className="min-w-0">
                 <div className="relative aspect-video overflow-hidden bg-jisan-ink">
-                  <LiteYouTube videoId={main.videoId!} title={main.title} thumbnail={main.thumbnail} />
+                  <Video v={main} />
                 </div>
                 <figcaption className="mt-2.5 text-[15px] font-semibold text-jisan-ink">{main.title}</figcaption>
               </figure>
-              <ul className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
+              <ul className="grid grid-cols-1 content-start gap-4 sm:grid-cols-3 lg:grid-cols-1">
                 {rest.map((v) => (
                   <li key={v.link} className="grid min-w-0 grid-cols-[9rem_1fr] gap-3 sm:grid-cols-1 lg:grid-cols-[9rem_1fr]">
                     <div className="relative aspect-video overflow-hidden bg-jisan-ink">
-                      <LiteYouTube videoId={v.videoId!} title={v.title} thumbnail={v.thumbnail} />
+                      <Video v={v} />
                     </div>
                     <p className="text-sm font-semibold leading-snug text-jisan-ink">
                       {v.title}
@@ -54,5 +58,17 @@ export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: Col
         )}
       </div>
     </section>
+  )
+}
+
+/** 실제 영상은 눌러서 재생, 예시 영상(영상 주소 없음)은 빈 자리만 */
+function Video({ v }: { v: FeedItem }) {
+  if (v.videoId) return <LiteYouTube videoId={v.videoId} title={v.title} thumbnail={v.thumbnail} />
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-brand-tone to-brand">
+      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white">
+        <Play className="h-5 w-5 translate-x-px fill-current" />
+      </span>
+    </div>
   )
 }

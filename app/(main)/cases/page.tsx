@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { getCases } from "@/lib/content"
 import { CasesTable } from "@/components/cases-table"
 import { SectionHead } from "@/components/main/section-head"
+import { SampleNote } from "@/components/sample-note"
 
 export const metadata: Metadata = {
   title: "업무사례",
@@ -19,6 +20,7 @@ export default function CasesPage() {
           as="h1"
           desc="의뢰인의 동의를 받은 사건만, 누구인지 알 수 없게 고쳐 싣습니다. 같은 결과를 약속하지 않습니다."
         />
+        <SampleNote show={cases.some((c) => c.sample)} className="mb-4" />
         {cases.length > 0 ? (
           <CasesTable items={cases} />
         ) : (

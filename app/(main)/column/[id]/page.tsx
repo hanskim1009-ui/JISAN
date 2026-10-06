@@ -5,6 +5,7 @@ import { getCases, getColumn, getColumns } from "@/lib/content"
 import { getLawyer } from "@/lib/lawyers"
 import { siteConfig } from "@/lib/site-config"
 import { ColumnBody, ColumnByline, ColumnCard } from "@/components/column-parts"
+import { SampleNote } from "@/components/sample-note"
 
 type Props = { params: Promise<{ id: string }> }
 
@@ -66,6 +67,7 @@ export default async function ColumnPage({ params }: Props) {
           <span className="mx-2 text-[#B0B5BC]">/</span>
           <span className="font-bold text-brand-accent">{c.field}</span>
         </p>
+        <SampleNote show={Boolean(c.sample)} className="mt-3" />
         <h1 className="mt-3 font-display text-[1.875rem] md:text-[2.375rem] font-medium leading-[1.35] tracking-tight text-jisan-ink text-balance">
           {c.title}
         </h1>

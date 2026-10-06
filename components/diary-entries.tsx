@@ -21,10 +21,12 @@ export function DiaryGrid({ entries }: { entries: DiaryEntry[] }) {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {entries.map((e) => (
         <article key={e.id} className="min-w-0">
-          {e.photos[0] && (
+          {e.photos[0] ? (
             <div className="relative aspect-[4/3] overflow-hidden bg-[#E4E6E9]">
               <Image src={e.photos[0]} alt={e.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
+          ) : (
+            e.sample && <div className="flex aspect-[4/3] items-center justify-center bg-[#E4E1DA] text-sm text-[#8A857B]">사진 자리</div>
           )}
           <p className="mt-3 text-[13px] text-[#8A9099] tabular-nums">{formatDate(e.date).full}</p>
           <h3 className="mt-0.5 text-[17px] font-bold text-jisan-ink">{e.title}</h3>

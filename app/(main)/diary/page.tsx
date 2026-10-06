@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { getDiary } from "@/lib/content"
 import { DiaryList } from "@/components/diary-entries"
 import { SectionHead } from "@/components/main/section-head"
+import { SampleNote } from "@/components/sample-note"
 
 export const metadata: Metadata = {
   title: "감사일기",
@@ -19,6 +20,7 @@ export default function DiaryPage() {
           as="h1"
           desc="사건이 끝난 뒤 의뢰인이 보내 주신 문자와 선물을 직원이 적어 둡니다. 보내 주신 분께 허락을 받고, 누구인지 알 수 없게 가립니다."
         />
+        <SampleNote show={entries.some((e) => e.sample)} className="mb-4" />
         {entries.length > 0 ? (
           <DiaryList entries={entries} />
         ) : (
