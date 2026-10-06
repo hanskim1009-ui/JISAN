@@ -260,6 +260,10 @@ export const civil: Center = {
     {
       "slug": "kim-chunghyeon",
       "note": ""
+    },
+    {
+      "slug": "park-hanmin",
+      "note": "부동산 사건 담당"
     }
   ],
   "faqs": [

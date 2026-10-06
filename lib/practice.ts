@@ -70,7 +70,7 @@ export const fields: Field[] = [
     desc: "빌려준 돈, 공사대금, 보증금처럼 받아야 할 돈을 돌려받는 일과 회생·파산을 맡습니다.",
     caseType: "민사",
     items: ["대여금·투자금 반환", "공사대금, 하자", "임대차 보증금, 명도", "개인회생·파산"],
-    lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon"],
+    lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon", "park-hanmin"],
     centers: ["civil", "insolvency"],
     situations: [
       { label: "빌려준 돈을 못 받았어요", center: "civil" },

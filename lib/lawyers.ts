@@ -212,10 +212,10 @@ export const lawyers: Lawyer[] = [
     career: [],
     highlights: [],
   },
-  // TODO: 박한민 변호사 정보 수령 후 분야·직함·소개·이력·학력 입력 (사진: public/images/lawyers/park-hanmin.jpg)
+  // TODO: 박한민 변호사 정보 수령 후 직함·소개·이력·학력 입력 (사진: public/images/lawyers/park-hanmin.jpg)
   {
     slug: "park-hanmin",
-    field: "",
+    field: "부동산",
     name: "박한민",
     title: "변호사",
     image: lawyerImages.parkHanmin,
