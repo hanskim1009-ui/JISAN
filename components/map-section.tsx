@@ -11,7 +11,7 @@ export function MapSection() {
   return (
     <section
       id="map"
-      className={`px-6 py-20 md:px-12 lg:px-20 md:py-32 bg-secondary transition-all duration-1000 ${
+      className={`scroll-mt-20 px-6 py-20 md:px-12 lg:px-20 md:py-32 bg-secondary transition-all duration-1000 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
       ref={ref}
@@ -19,7 +19,7 @@ export function MapSection() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-10">
           <h2 className="section-title">
-            법률사무소 지산으로 오시는 길
+            오시는 길
           </h2>
         </div>
 
@@ -61,7 +61,7 @@ export function MapSection() {
         >
           <Image
             src="/images/map.png"
-            alt="법률사무소 지산 위치"
+            alt={`${siteConfig.name} 위치`}
             fill
             className="object-cover"
             sizes="100vw"

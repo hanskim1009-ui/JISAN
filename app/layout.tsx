@@ -1,49 +1,37 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
+import { siteConfig } from "@/lib/site-config"
+import { lawyers } from "@/lib/lawyers"
 
 import "./globals.css"
 
-const siteUrl = "https://www.jisanlaw.com"
+const siteUrl = siteConfig.siteUrl
+const description =
+  "형사 사건을 중심으로 기업·민사·건설·부동산·회생·파산·가사 사건을 변호사가 상담부터 재판까지 직접 맡습니다. 주말·공휴일 24시간 상담. 서울 서초구."
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "법률사무소 지산 | Jisan Law | 형사·민사·기업 변호",
-    template: "%s | 법률사무소 지산",
+    default: `${siteConfig.name} | 서초 형사·기업·가사 변호사`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "형사 사건을 핵심으로 기업, 민사, 건설·부동산, 회생·파산 전반에 걸친 법률 서비스를 제공합니다. 검사 출신 변호사가 주말·공휴일 24시간 상담합니다. 서울 서초구.",
-  keywords: [
-    "형사 변호사",
-    "서초 변호사",
-    "법률사무소 지산",
-    "형사 사건",
-    "기업 변호",
-    "민사 소송",
-  ],
-  authors: [{ name: "법률사무소 지산" }],
-  creator: "법률사무소 지산",
+  description,
+  keywords: ["서초 변호사", "형사변호사", "서초 형사변호사", "기업자문 변호사", "이혼변호사", siteConfig.name],
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
   openGraph: {
     type: "website",
     locale: "ko_KR",
     url: siteUrl,
-    siteName: "법률사무소 지산",
-    title: "법률사무소 지산 | 형사·민사·기업 종합 법률 서비스",
-    description:
-      "당신의 일상이 다시 평온해지도록, 법률 그 이상의 마음으로 함께합니다. 형사 사건을 핵심으로 24시간 상담.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "법률사무소 지산",
-      },
-    ],
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} | 서초 형사·기업·가사 변호사`,
+    description,
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: siteConfig.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "법률사무소 지산 | Jisan Law",
-    description: "형사·민사·기업 종합 법률 서비스. 검사 출신 변호사 24시간 상담.",
+    title: siteConfig.name,
+    description,
   },
   robots: {
     index: true,
@@ -52,7 +40,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#1e2a4a",
+  themeColor: "#16213D",
 }
 
 function JsonLdScript() {
@@ -62,18 +50,24 @@ function JsonLdScript() {
       {
         "@type": "LegalService",
         "@id": `${siteUrl}/#organization`,
-        name: "법률사무소 지산",
-        alternateName: "Jisan Law",
+        name: siteConfig.name,
+        alternateName: siteConfig.nameEn,
         url: siteUrl,
-        telephone: "+82-2-6951-4097",
+        image: `${siteUrl}/og.jpg`,
+        telephone: siteConfig.phoneIntl,
         address: {
           "@type": "PostalAddress",
           streetAddress: "서초대로46길 109, 6층",
-          addressLocality: "서울시 서초구",
+          addressLocality: "서초구",
+          addressRegion: "서울특별시",
           addressCountry: "KR",
         },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: siteConfig.mapCoords.lat,
+          longitude: siteConfig.mapCoords.lng,
+        },
         areaServed: "KR",
-        priceRange: "$$",
         openingHoursSpecification: {
           "@type": "OpeningHoursSpecification",
           dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -81,24 +75,13 @@ function JsonLdScript() {
           closes: "23:59",
         },
       },
-      {
+      ...lawyers.map((l) => ({
         "@type": "Attorney",
-        name: "김한솔",
-        jobTitle: "검사출신 대표 변호사",
+        name: l.name,
+        jobTitle: l.title,
+        url: `${siteUrl}/lawyers#${l.slug}`,
         worksFor: { "@id": `${siteUrl}/#organization` },
-      },
-      {
-        "@type": "Attorney",
-        name: "구본우",
-        jobTitle: "대표 변호사",
-        worksFor: { "@id": `${siteUrl}/#organization` },
-      },
-      {
-        "@type": "Attorney",
-        name: "박종진",
-        jobTitle: "파트너 변호사",
-        worksFor: { "@id": `${siteUrl}/#organization` },
-      },
+      })),
     ],
   }
 

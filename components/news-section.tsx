@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { ExternalLink } from "lucide-react"
+import { siteConfig } from "@/lib/site-config"
 
 type NewsItem = {
   type: "언론보도" | "칼럼"
@@ -22,13 +23,13 @@ const newsItems: NewsItem[] = [
   {
     type: "칼럼",
     title: "개인회생 제도와 신청 절차 개요",
-    source: "법률사무소 지산",
+    source: siteConfig.name,
     date: "2024.02",
   },
   {
     type: "칼럼",
     title: "수사 단계 변호인 선임 시점과 효과",
-    source: "법률사무소 지산",
+    source: siteConfig.name,
     date: "2024.03",
   },
 ]
@@ -98,7 +99,7 @@ export function NewsSection() {
                 새소식 & 법률 지식
               </h2>
               <p className="text-[13px] text-[#777] max-w-xl leading-relaxed">
-                법률사무소 지산의 새로운 소식과 법률 상식을 만나보세요.
+                {siteConfig.name}의 새로운 소식과 법률 상식을 만나보세요.
               </p>
             </div>
             <div className="flex gap-2">

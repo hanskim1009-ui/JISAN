@@ -1,12 +1,27 @@
 /**
- * 법률사무소 지산 사이트 설정
+ * 사이트 설정
  * 전화번호, SNS, 주소 등 변경 시 이 파일만 수정하면 됩니다.
  */
+
+/**
+ * 법인 등기 완료 후 true로 바꾸면 사이트 전체 상호가
+ * "법무법인 지산앤파트너스"로 바뀌고, 메인 첫 화면에 출범 문구가 나옵니다.
+ * (사업자등록번호·광고책임변호사도 함께 확인)
+ */
+const INCORPORATED = false
+
 export const siteConfig = {
-  name: "법률사무소 지산",
-  nameEn: "Jisan Law",
+  incorporated: INCORPORATED,
+  name: INCORPORATED ? "법무법인 지산앤파트너스" : "법률사무소 지산",
+  /** 조사 붙은 상호 (문장 안에서 사용) */
+  nameTopic: INCORPORATED ? "법무법인 지산앤파트너스는" : "법률사무소 지산은",
+  /** 센터 로고 앞에 붙는 짧은 이름 (예: "지산 형사센터") */
+  shortName: "지산",
+  nameEn: INCORPORATED ? "JISAN & PARTNERS" : "JISAN LAW",
+  siteUrl: "https://www.jisanlaw.com",
   phone: "02-6951-4097",
   phoneHref: "tel:02-6951-4097",
+  phoneIntl: "+82-2-6951-4097",
   /** 카카오톡 채널 URL - 본인 채널로 교체 필요 */
   kakaoTalkUrl: "https://pf.kakao.com/_Mxlgyn/chat",
   address: "서울시 서초구 서초대로46길 109, 6층(지산빌딩)",
@@ -29,7 +44,7 @@ export const lawyerImages = {
   koo: "/images/lawyers/koo.png",
   park: "/images/lawyers/park.jpg",
   kang: "/images/lawyers/kang.jpg",
-  /** 사진 파일 추가 전까지는 이니셜(김)로 표시됨 */
-  kimMiso: "/images/lawyers/kim-miso.jpg",
-  kimChungHyeon: "/images/lawyers/kim-chunghyeon.jpg",
+  /** 사진 파일을 넣은 뒤 경로 입력 (예: "/images/lawyers/kim-miso.jpg"). 비어 있으면 이니셜로 표시 */
+  kimMiso: "",
+  kimChungHyeon: "",
 } as const

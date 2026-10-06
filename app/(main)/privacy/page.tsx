@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Navigation } from "@/components/navigation"
+import { siteConfig } from "@/lib/site-config"
 
 export const metadata = {
   title: "개인정보처리방침",
@@ -8,13 +8,12 @@ export const metadata = {
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen">
-      <Navigation />
-      <div className="pt-28 px-6 md:px-12 lg:px-20 pb-20">
+      <div className="pt-12 md:pt-16 px-6 md:px-12 lg:px-20 pb-20">
         <h1 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-8">
           개인정보처리방침
         </h1>
         <div className="max-w-2xl text-sm text-muted-foreground leading-relaxed space-y-6">
-          <p>법률사무소 지산은 개인정보 보호법에 따라 이용자의 개인정보 보호 및 권익을 보장하고 있습니다.</p>
+          <p>{siteConfig.nameTopic} 개인정보 보호법에 따라 이용자의 개인정보 보호 및 권익을 보장하고 있습니다.</p>
           <p>
             <strong className="text-foreground">1. 수집하는 개인정보 항목</strong>
             <br />

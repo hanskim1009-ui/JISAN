@@ -12,9 +12,19 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', '"Helvetica Neue"', '"Segoe UI"', '"Apple SD Gothic Neo"', '"Noto Sans KR"', '"Malgun Gothic"', 'sans-serif'],
-        serif: ['Pretendard', 'Georgia', 'serif'],
+        /* B안 톤: 제목용 세리프 (globals.css에서 Noto Serif KR 로드) */
+        serif: ['"Noto Serif KR"', '"Apple Myungjo"', 'Georgia', 'serif'],
       },
       colors: {
+        /* 지산 브랜드 색 */
+        jisan: {
+          navy: '#16213D',
+          blue: '#1E3A8A',
+          ink: '#1A1A2E',
+          ivory: '#FBFAF7',
+          mist: '#EEF2F8',
+          gold: '#B08A4A',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Navigation } from "@/components/navigation"
 
 export const metadata = {
   title: "이메일무단수집거부",
@@ -8,8 +7,7 @@ export const metadata = {
 export default function EmailRefusePage() {
   return (
     <main className="min-h-screen">
-      <Navigation />
-      <div className="pt-28 px-6 md:px-12 lg:px-20 pb-20">
+      <div className="pt-12 md:pt-16 px-6 md:px-12 lg:px-20 pb-20">
         <h1 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-8">
           이메일무단수집거부
         </h1>

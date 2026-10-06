@@ -18,7 +18,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="px-6 py-24 md:px-12 lg:px-20 md:py-36 bg-foreground text-background"
+      className="scroll-mt-20 px-6 py-20 md:px-12 lg:px-20 md:py-28 bg-jisan-navy text-white"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -28,7 +28,7 @@ export function ContactSection() {
               headVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-[1.3] tracking-tight text-balance">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold leading-[1.3] tracking-tight text-balance">
               가장 힘든 순간,
               <br className="hidden md:block" />
               혼자가 아니어야 합니다.
@@ -101,7 +101,7 @@ export function ContactSection() {
               <h3 className="text-base font-medium tracking-[0.08em] text-muted-foreground mb-6">
                 상담 신청
               </h3>
-              <ConsultForm />
+              <ConsultForm idPrefix="contact" source="메인 상담 섹션" />
             </div>
           </div>
         </div>

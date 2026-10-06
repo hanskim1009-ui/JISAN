@@ -13,11 +13,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-10 md:mb-14">
         <div className="md:col-span-5">
-          <Link
-            href="/"
-            className="text-sm font-semibold tracking-[0.08em] text-foreground"
-          >
-            법률사무소 지산
+          <Link href="/" className="font-serif text-lg font-semibold text-foreground">
+            {siteConfig.name}
           </Link>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground max-w-xs">
             {siteConfig.address}
@@ -53,7 +50,7 @@ export function Footer() {
 
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between pt-6 border-t border-border gap-3">
         <p className="text-sm tracking-[0.06em] text-muted-foreground/80">
-          © {new Date().getFullYear()} 법률사무소 지산. All rights reserved.
+          © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
         </p>
         <p className="text-sm tracking-[0.06em] text-muted-foreground/80">
           Seoul · Seocho
