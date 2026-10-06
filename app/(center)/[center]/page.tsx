@@ -159,7 +159,7 @@ export default async function CenterPage({ params }: Props) {
       {center.penalties && (
         <section id="penalty" className={`${sectionPad} ${t.alt}`}>
           <div className="max-w-7xl mx-auto">
-            <h2 className={h2}>처벌 기준과 부수처분</h2>
+            <h2 className={h2}>죄명별 처벌 기준</h2>
             <div className="mt-8 overflow-x-auto border border-[#E2E6ED] bg-white">
               <table className="w-full min-w-[560px] text-left text-sm">
                 <thead className="bg-jisan-mist/60 text-xs text-jisan-ink/60">
@@ -190,7 +190,8 @@ export default async function CenterPage({ params }: Props) {
       {/* 대응 절차 */}
       <section id="process" className={`${sectionPad} ${center.penalties ? "bg-white" : t.alt}`}>
         <div className="max-w-7xl mx-auto">
-          <h2 className={h2}>대응 절차</h2>
+          <h2 className={h2}>사건 진행 절차</h2>
+          <p className="mt-2 text-[15px] text-jisan-ink/70">{center.form.caseType} 사건, 단계별로 어떻게 대응하는지 알려드립니다.</p>
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
             {center.processes.map((proc) => (
               <div key={proc.title} className="min-w-0">
@@ -225,9 +226,10 @@ export default async function CenterPage({ params }: Props) {
         <section id="cases" className={`${sectionPad} bg-white`}>
           <div className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.name} 업무사례</h2>
-            <p className="mt-2 mb-6 text-sm text-jisan-ink/65">의뢰인의 동의를 받은 사건만, 누구인지 알 수 없게 고쳐 싣습니다.</p>
+            <p className="mt-2 mb-6 text-[15px] text-jisan-ink/70">나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.</p>
             <SampleNote show={cases.some((c) => c.sample)} className="mb-4" />
             <CasesTable items={cases} tabs={false} />
+            <p className="mt-4 text-[13px] text-jisan-ink/55">※ 의뢰인의 동의를 얻은 사건만, 누구인지 알 수 없게 고쳐 공개합니다.</p>
           </div>
         </section>
       )}
@@ -323,7 +325,7 @@ export default async function CenterPage({ params }: Props) {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-14">
           <div>
             <h2 className={h2}>자주 묻는 질문</h2>
-            <p className="mt-3 text-sm text-jisan-ink/65">답을 찾지 못하셨다면 바로 물어보세요.</p>
+            <p className="mt-3 text-sm text-jisan-ink/65">상담 전에 가장 많이 물어보시는 질문을 모았습니다.</p>
             <a href="#consult" className="mt-5 inline-block bg-jisan-blue px-5 py-2.5 text-sm font-semibold text-white">
               상담 신청
             </a>
