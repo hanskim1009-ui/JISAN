@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import { getCenter } from "@/lib/centers"
 import { getCases, getColumns } from "@/lib/content"
 import { getNaverBlogPosts } from "@/lib/feeds"
+import { getCenterPages } from "@/lib/center-pages"
 import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { CenterHeader, type CenterNavItem } from "@/components/center/center-header"
 import { centerTones } from "@/components/center/tone"
@@ -23,21 +24,24 @@ export default async function CenterLayout({
   // 페이지와 같은 요청이라 한 번만 가져옵니다. 불러오지 못하면 메뉴에서도 숨깁니다
   const hasBlog = center.blog ? (await getNaverBlogPosts(center.blog.id, 6)).length > 0 : false
 
+  const base = `/${center.slug}`
+  const hasGuides = (getCenterPages(center.slug)?.guides.length ?? 0) > 0
+  // 상세 페이지에서도 센터 메인의 각 구역으로 가도록 주소에 센터 경로를 붙입니다
   const nav: CenterNavItem[] = [
-    { label: "업무분야", href: "#areas" },
-    ...(center.table ? [{ label: center.table.nav ?? center.table.title, href: "#table" }] : []),
-    { label: "진행 절차", href: "#process" },
-    ...(getCases({ center: center.slug }).length > 0 ? [{ label: "업무사례", href: "#cases" }] : []),
-    { label: "변호사", href: "#lawyers" },
-    ...(hasBlog ? [{ label: "블로그", href: "#blog" }] : []),
-    ...(getColumns({ center: center.slug }).length > 0 ? [{ label: "칼럼", href: "#column" }] : []),
-    { label: "자주 묻는 질문", href: "#faq" },
-    { label: "사무소", href: "#offices" },
+    { label: "업무분야", href: `${base}#areas` },
+    ...(center.table ? [{ label: center.table.nav ?? center.table.title, href: `${base}#table` }] : []),
+    { label: "진행 절차", href: `${base}#process` },
+    ...(hasGuides ? [{ label: "상황별 안내", href: `${base}#guides` }] : []),
+    ...(getCases({ center: center.slug }).length > 0 ? [{ label: "업무사례", href: `${base}#cases` }] : []),
+    { label: "변호사", href: `${base}#lawyers` },
+    ...(hasBlog ? [{ label: "블로그", href: `${base}#blog` }] : []),
+    ...(getColumns({ center: center.slug }).length > 0 ? [{ label: "칼럼", href: `${base}#column` }] : []),
+    { label: "자주 묻는 질문", href: `${base}#faq` },
   ]
 
   return (
     <>
-      <CenterHeader name={center.name} tone={center.tone} nav={nav} />
+      <CenterHeader name={center.name} tone={center.tone} nav={nav} homeHref={base} />
       <FloatingCTA consultHref="#consult" />
       <BackToTop />
       <main id="top">

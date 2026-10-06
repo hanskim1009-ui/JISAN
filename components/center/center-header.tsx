@@ -12,14 +12,14 @@ export type CenterNavItem = { label: string; href: string }
  * 센터 전용 헤더: 로고는 "지산 ○○센터", 메뉴는 센터 안의 항목만.
  * 다른 분야 메뉴와 메인 사이트로 가는 큰 링크는 두지 않습니다.
  */
-export function CenterHeader({ name, tone, nav }: { name: string; tone: CenterTone; nav: CenterNavItem[] }) {
+export function CenterHeader({ name, tone, nav, homeHref }: { name: string; tone: CenterTone; nav: CenterNavItem[]; homeHref: string }) {
   const [open, setOpen] = useState(false)
   const t = centerTones[tone]
 
   return (
     <header className={`sticky top-0 z-50 border-b ${t.header}`}>
       <nav className="max-w-7xl mx-auto flex items-center gap-7 px-6 md:px-12 xl:px-14 py-4" aria-label={`${name} 메뉴`}>
-        <a href="#top" className="mr-auto leading-tight" onClick={() => setOpen(false)}>
+        <a href={homeHref} className="mr-auto leading-tight" onClick={() => setOpen(false)}>
           <span className="block text-lg md:text-xl tracking-tight">
             {siteConfig.shortName} <b className="font-extrabold">{name}</b>
           </span>

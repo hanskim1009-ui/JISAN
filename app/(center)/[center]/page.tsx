@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Check, MessageCircle, Phone, Plus } from "lucide-react"
 import { centers, getCenter } from "@/lib/centers"
@@ -6,6 +7,10 @@ import { getLawyer, lawyers as allLawyers } from "@/lib/lawyers"
 import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
 import { CenterHero } from "@/components/center/center-hero"
+import { ConsultBand } from "@/components/center/consult-band"
+import { FaqList } from "@/components/center/faq-list"
+import { DataTable } from "@/components/center/data-table"
+import { areaHref, getCenterPages } from "@/lib/center-pages"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { ConsultForm } from "@/components/consult-form"
 import { CasesTable } from "@/components/cases-table"
@@ -64,6 +69,16 @@ export default async function CenterPage({ params }: Props) {
     .filter((l) => !center.lawyers.some((cl) => cl.slug === l.slug))
     .map((l) => ({ ...l, line: (l.career ?? l.structuredResume?.career ?? []).find((c) => !c.includes(siteConfig.name)) }))
 
+  const pages = getCenterPages(center.slug)
+  const guides = pages?.guides ?? []
+  /** 추가 질문은 주제별로 묶어 기본 질문 아래에 */
+  const faqGroups = Object.entries(
+    (pages?.moreFaqs ?? []).reduce<Record<string, { q: string; a: string }[]>>((acc, f) => {
+      ;(acc[f.category] ??= []).push({ q: f.q, a: f.a })
+      return acc
+    }, {}),
+  )
+
   /** 섹션 바탕: 보이는 섹션 순서대로 흰색/옅은 색을 번갈아 */
   const shown = [
     center.intro && "intro",
@@ -72,6 +87,7 @@ export default async function CenterPage({ params }: Props) {
     center.table && "table",
     center.points && "points",
     "process",
+    guides.length > 0 && "guides",
     cases.length > 0 && "cases",
     "lawyers",
     columns.length > 0 && "column",
@@ -145,17 +161,24 @@ export default async function CenterPage({ params }: Props) {
           <h2 className={h2}>{center.areasTitle}</h2>
           <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {center.areas.map((a) => {
+              const href = areaHref(center.slug, a.name) ?? a.href
               const body = (
                 <>
                   <span className="block text-lg font-bold text-jisan-ink">{a.name}</span>
                   {a.law && <span className={`block mt-0.5 text-xs font-semibold ${t.accent}`}>{a.law}</span>}
                   <span className="block mt-2 text-sm leading-relaxed text-jisan-ink/65">{a.desc}</span>
-                  {a.href && <span className={`block mt-3 text-sm font-semibold ${t.accent}`}>자세히 보기 →</span>}
+                  {href && <span className={`mt-auto block pt-4 text-sm font-semibold ${t.accent}`}>자세히 보기 →</span>}
                 </>
               )
               return (
-                <li key={a.name} className="card-lift rounded-2xl border border-[#E2E6ED] bg-white p-5">
-                  {a.href ? <a href={a.href} className="block">{body}</a> : body}
+                <li key={a.name} className="card-lift flex rounded-2xl border border-[#E2E6ED] bg-white">
+                  {href ? (
+                    <Link href={href} className="flex w-full flex-col p-5">
+                      {body}
+                    </Link>
+                  ) : (
+                    <div className="flex w-full flex-col p-5">{body}</div>
+                  )}
                 </li>
               )
             })}
@@ -168,31 +191,7 @@ export default async function CenterPage({ params }: Props) {
         <section id="table" className={`${sectionPad} ${bg("table")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.table.title}</h2>
-            <div className="mt-8 overflow-x-auto border border-[#E2E6ED] bg-white">
-              <table className="w-full min-w-[560px] text-left text-sm">
-                <thead className="bg-jisan-mist/60 text-xs text-jisan-ink/60">
-                  <tr>
-                    {center.table.columns.map((c) => (
-                      <th key={c} className="px-4 py-3 font-semibold">
-                        {c}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#E2E6ED] text-jisan-ink">
-                  {center.table.rows.map((r) => (
-                    <tr key={r.join("|")}>
-                      {r.map((cell, i) => (
-                        <td key={i} className={`px-4 py-3.5 align-top ${i === 0 ? "font-semibold whitespace-nowrap" : i === r.length - 1 && r.length > 2 ? "text-jisan-ink/70" : ""}`}>
-                          {cell}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {center.table.note && <p className="mt-3 text-xs text-muted-foreground">{center.table.note}</p>}
+            <DataTable table={center.table} className="mt-8" />
           </div>
         </section>
       )}
@@ -248,6 +247,33 @@ export default async function CenterPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* 상황별 안내 글 */}
+      {guides.length > 0 && (
+        <section id="guides" className={`${sectionPad} ${bg("guides")}`}>
+          <div data-reveal className="max-w-7xl mx-auto">
+            <h2 className={h2}>상황별 안내</h2>
+            <p className="mt-2 text-[15px] text-jisan-ink/70">처음 겪는 일이라 막막할 때, 무엇부터 해야 하는지 정리했습니다.</p>
+            <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+              {guides.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={`/${center.slug}/guide/${g.slug}`}
+                    className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-6"
+                  >
+                    <span className={`text-xs font-bold ${t.accent}`}>{center.name} 안내</span>
+                    <span className="mt-2 text-xl font-bold tracking-tight text-jisan-ink">{g.title}</span>
+                    <span className="mt-2 text-sm leading-relaxed text-jisan-ink/65">{g.lead}</span>
+                    <span className={`mt-auto pt-5 text-sm font-semibold ${t.accent}`}>
+                      읽어 보기 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* 업무사례 (이 센터로 지정된 것만) */}
       {cases.length > 0 && (
@@ -358,15 +384,13 @@ export default async function CenterPage({ params }: Props) {
               상담 신청
             </a>
           </div>
-          <div className="min-w-0 divide-y divide-[#E2E6ED] border-y border-[#E2E6ED]">
-            {center.faqs.map((f) => (
-              <details key={f.q} className="group py-1">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-[15px] font-semibold text-jisan-ink [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <Plus className="h-4 w-4 shrink-0 transition-transform group-open:rotate-45" />
-                </summary>
-                <p className="pb-4 text-sm leading-relaxed text-jisan-ink/70">{f.a}</p>
-              </details>
+          <div className="min-w-0 space-y-10">
+            <FaqList items={center.faqs} />
+            {faqGroups.map(([cat, items]) => (
+              <div key={cat}>
+                <h3 className="mb-2 text-sm font-bold text-jisan-ink/60">{cat}</h3>
+                <FaqList items={items} />
+              </div>
             ))}
           </div>
         </div>
@@ -398,38 +422,7 @@ export default async function CenterPage({ params }: Props) {
         </div>
       </section>
 
-      <section id="consult" className={`${t.band} px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20`}>
-        <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-          <div>
-            <h2 className="text-2xl md:text-4xl font-bold tracking-tight leading-tight text-balance">{center.closing}</h2>
-            <p className="mt-4 max-w-md text-base leading-relaxed opacity-80">
-              주말·공휴일 포함 24시간 상담합니다. 남겨 주신 내용은 담당 변호사가 직접 확인하고 연락드립니다.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a href={siteConfig.phoneHref} className={`inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold ${t.bandBtn}`}>
-                <Phone className="h-4 w-4" /> 전화 {siteConfig.phone}
-              </a>
-              <a
-                href={siteConfig.kakaoTalkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#FEE500] px-6 py-3 text-sm font-semibold text-[#191919]"
-              >
-                <MessageCircle className="h-4 w-4" /> 카카오톡 상담
-              </a>
-            </div>
-          </div>
-          <div className="bg-white p-6 md:p-8 text-foreground">
-            <h3 className="mb-6 text-base font-semibold text-jisan-ink">{center.name} 상담 신청</h3>
-            <ConsultForm
-              idPrefix={center.slug}
-              fixedCaseType={center.form.caseType}
-              stageOptions={center.form.stageOptions}
-              source={center.name}
-            />
-          </div>
-        </div>
-      </section>
+      <ConsultBand center={center} />
     </>
   )
 }
