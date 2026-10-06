@@ -2,16 +2,16 @@ import { SHOW_SAMPLES } from "@/lib/preview"
 
 /**
  * 첫 화면 시안
- * photo: 능선 사진 (추천안) / ridge: 남색 바탕 + 움직이는 능선 그래픽 (B안)
- * 정식 사이트에는 LOOK 하나만 나갑니다. 개발 미리보기에서는 두 시안을 모두 넣고
- * 화면 왼쪽 아래 전환 버튼(또는 주소 끝 ?look=ridge)으로 바꿔 볼 수 있습니다.
+ * photo: 능선 사진 (추천안) / ridge: 남색 바탕 + 움직이는 능선 그래픽 (B안, 채택)
+ * LOOK 하나만 화면에 나갑니다. 두 시안을 다시 비교하려면 LOOK_SWITCH를 SHOW_SAMPLES로 바꾸면
+ * 미리보기 화면 아래에 전환 버튼(또는 주소 끝 ?look=photo)이 생깁니다.
  */
 export type Look = "photo" | "ridge"
 
-export const LOOK: Look = "photo"
+export const LOOK: Look = "ridge"
 
-/** 미리보기에서만 두 시안을 함께 렌더링 */
-export const LOOK_SWITCH = SHOW_SAMPLES
+/** 두 시안을 함께 넣고 전환 버튼을 보여 줄지 (B안 채택 후 끔. 다시 비교하려면 SHOW_SAMPLES) */
+export const LOOK_SWITCH: boolean = false && SHOW_SAMPLES
 
 /** 렌더링할 시안 목록 */
 export const looksToRender: Look[] = LOOK_SWITCH ? ["photo", "ridge"] : [LOOK]
