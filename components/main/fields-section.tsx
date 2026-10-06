@@ -14,7 +14,7 @@ export function FieldsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-jisan-ink">
           {fields.map((f) => (
             <div key={f.name} className="flex min-w-0 flex-col border-b border-[#E4E6E9] py-7 sm:pr-6 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:not(:first-child)]:pl-6">
-              <h3 className="font-display text-[1.75rem] font-medium tracking-tight text-jisan-ink">{f.name}</h3>
+              <h3 className="text-[1.75rem] font-bold tracking-[-0.03em] text-jisan-ink">{f.name}</h3>
               <ul className="mt-4 text-[15px] text-jisan-ink">
                 {f.items.map((it) => (
                   <li key={it} className="border-b border-[#E4E6E9] py-2">

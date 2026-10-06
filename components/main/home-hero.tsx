@@ -25,7 +25,7 @@ export function HomeHero() {
       <div className={`relative max-w-7xl mx-auto grid gap-10 ${photo ? "lg:grid-cols-[7fr_4fr]" : ""}`}>
         <div className="min-w-0 pt-12 pb-12 md:pt-20 md:pb-16">
           <p className="text-sm text-white/65">서울 서초동 · 형사 · 가사 · 기업 · 민사</p>
-          <h1 className="mt-4 font-display text-[2.25rem] leading-[1.3] md:text-[3.25rem] md:leading-[1.28] font-light tracking-[-0.03em]">
+          <h1 className="mt-4 text-[2.25rem] leading-[1.3] md:text-[3.25rem] md:leading-[1.28] font-bold tracking-[-0.04em]">
             형사부터 기업 자문까지,
             <br />
             서초동 {siteConfig.name}

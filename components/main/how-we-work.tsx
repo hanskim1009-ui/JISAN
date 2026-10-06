@@ -26,7 +26,7 @@ export function HowWeWork() {
           <ol className="border-t border-jisan-ink">
             {steps.map((s, i) => (
               <li key={s.title} className="grid grid-cols-[3.5rem_1fr] gap-3 border-b border-[#E4E6E9] py-5">
-                <span className="font-display text-3xl font-light text-brand-accent tabular-nums">{i + 1}</span>
+                <span className="text-3xl font-bold text-brand-accent tabular-nums">{i + 1}</span>
                 <div>
                   <h3 className="text-[17px] font-bold text-jisan-ink">{s.title}</h3>
                   <p className="mt-1 text-[15px] leading-relaxed text-[#4A505A]">{s.body}</p>

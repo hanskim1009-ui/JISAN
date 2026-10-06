@@ -17,7 +17,7 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-flex items-center gap-4 text-white">
               <LogoSvg variant="reverse" className="h-11 w-auto md:h-14" />
-              <span className="font-display text-2xl md:text-[2rem] font-medium tracking-tight">{siteConfig.name}</span>
+              <span className="text-2xl md:text-[2rem] font-bold tracking-[-0.03em]">{siteConfig.name}</span>
             </Link>
             <p className="mt-4 text-sm text-white/55">지산은 ‘지혜의 산’이라는 뜻입니다.</p>
           </div>
@@ -52,7 +52,7 @@ export function Footer() {
               </Link>
             ))}
           </div>
-          <p className="text-white/45">© {new Date().getFullYear()} {siteConfig.name}</p>
+          <p className="text-white/45">Copyright {new Date().getFullYear()}. {siteConfig.name}</p>
         </div>
       </div>
     </footer>

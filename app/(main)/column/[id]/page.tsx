@@ -68,7 +68,7 @@ export default async function ColumnPage({ params }: Props) {
           <span className="font-bold text-brand-accent">{c.field}</span>
         </p>
         <SampleNote show={Boolean(c.sample)} className="mt-3" />
-        <h1 className="mt-3 font-display text-[1.875rem] md:text-[2.375rem] font-medium leading-[1.35] tracking-tight text-jisan-ink text-balance">
+        <h1 className="mt-3 text-[1.875rem] md:text-[2.375rem] font-bold leading-[1.35] tracking-[-0.03em] text-jisan-ink text-balance">
           {c.title}
         </h1>
         <div className="mt-5 border-y border-[#E4E6E9] py-4">

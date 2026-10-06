@@ -1,20 +1,7 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@500;600;700&display=swap");
 
-/* 서체 (온강 법률사무소 사이트 참고): 제목 SB 어그로, 본문 넥슨 Lv2 고딕. 둘 다 상업적 무료 글꼴
-   웹용으로 자주 쓰는 한글 2,350자만 담아 용량을 줄였습니다. 빠진 글자는 Pretendard로 보입니다 */
-@font-face {
-  font-family: "SB Aggro";
-  src: url("/fonts/SBAggro-Light.woff2") format("woff2");
-  font-weight: 300 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "SB Aggro";
-  src: url("/fonts/SBAggro-Medium.woff2") format("woff2");
-  font-weight: 500 700;
-  font-display: swap;
-}
+/* 서체: 넥슨 Lv2 고딕 하나 (제목은 굵게, 본문은 보통). 상업적 무료 글꼴
+   웹용으로 자주 쓰는 한글 2,350자와 기호만 담아 용량을 줄였습니다. 빠진 글자는 Pretendard로 보입니다 */
 @font-face {
   font-family: "NEXON Lv2 Gothic";
   src: url("/fonts/NexonLv2Gothic-Regular.woff2") format("woff2");

@@ -19,7 +19,7 @@ export function CentersBand() {
             >
               <LogoSvg variant="tone" className="pointer-events-none absolute -bottom-10 -right-10 h-64 w-auto text-brand-tone" />
               <span className="relative text-sm font-bold text-white/70">{c.name}</span>
-              <h3 className="relative mt-3 whitespace-pre-line font-display text-[1.625rem] font-light leading-[1.35] tracking-[-0.02em] md:text-[2rem]">
+              <h3 className="relative mt-3 whitespace-pre-line text-[1.625rem] font-bold leading-[1.35] tracking-[-0.03em] md:text-[2rem]">
                 {c.hero.title}
               </h3>
               <p className="relative mt-4 max-w-md text-[15px] leading-relaxed text-white/75">{c.summary}</p>

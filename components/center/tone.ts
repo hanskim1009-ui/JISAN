@@ -50,7 +50,7 @@ export const centerTones: Record<
     logoSub: "text-[#8B8478]",
     headerCta: "bg-[#3F4E46] text-white hover:bg-[#3F4E46]/90",
     hero: "bg-[#F3EFE8] text-[#2B2925]",
-    heroTitle: "font-serif font-semibold tracking-tight",
+    heroTitle: "font-sans font-bold tracking-tight",
     heroSub: "text-[#5A554C]",
     badge: "bg-[#E4E8E1] text-[#3F4E46]",
     primaryBtn: "bg-[#3F4E46] text-white hover:bg-[#3F4E46]/90",

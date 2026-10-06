@@ -106,7 +106,7 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
               <div className="max-w-7xl mx-auto grid grid-cols-4 gap-10 py-8">
                 {fields.map((f) => (
                   <div key={f.name}>
-                    <p className="border-b border-jisan-ink pb-2 font-display text-lg font-medium text-jisan-ink">{f.name}</p>
+                    <p className="border-b border-jisan-ink pb-2 text-lg font-bold text-jisan-ink">{f.name}</p>
                     <ul className="mt-2 text-sm text-[#4A505A]">
                       {f.items.map((it) => (
                         <li key={it} className="py-1">

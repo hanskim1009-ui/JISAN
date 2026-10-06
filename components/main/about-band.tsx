@@ -17,7 +17,7 @@ export function AboutBand() {
       <LogoSvg variant="tone" className="pointer-events-none absolute -left-16 top-1/2 h-[30rem] w-auto -translate-y-1/2 text-brand-tone opacity-70" />
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end">
         <div>
-          <h2 className="font-display text-[2rem] font-light leading-[1.3] tracking-[-0.03em] md:text-[2.75rem]">{siteConfig.name}</h2>
+          <h2 className="text-[2rem] font-bold leading-[1.3] tracking-[-0.035em] md:text-[2.75rem]">{siteConfig.name}</h2>
           <Link href="/about" className="mt-6 inline-block border-b border-white/60 pb-0.5 font-semibold text-white hover:border-white">
             법인 소개 →
           </Link>
