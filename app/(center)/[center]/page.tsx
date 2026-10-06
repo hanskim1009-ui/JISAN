@@ -5,6 +5,7 @@ import { centers, getCenter } from "@/lib/centers"
 import { getLawyer, lawyers as allLawyers } from "@/lib/lawyers"
 import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
+import { CenterHero } from "@/components/center/center-hero"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { ConsultForm } from "@/components/consult-form"
 import { CasesTable } from "@/components/cases-table"
@@ -105,52 +106,12 @@ export default async function CenterPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* 첫 화면: 센터 소개 + 사건 단계 선택 */}
-      <section className={t.hero}>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 lg:gap-14 px-6 md:px-12 lg:px-20 py-14 md:py-20">
-          <div className="min-w-0">
-            <span className={`inline-block rounded px-2.5 py-1 text-xs font-bold ${t.badge}`}>{center.name}</span>
-            <h1 className={`mt-4 text-[2rem] leading-[1.25] md:text-5xl md:leading-[1.2] whitespace-pre-line text-balance ${t.heroTitle}`}>
-              {center.hero.title}
-            </h1>
-            <p className={`mt-5 max-w-xl text-base md:text-[17px] leading-relaxed ${t.heroSub}`}>{center.hero.sub}</p>
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              <a href="#consult" className={`px-6 py-3 text-[15px] font-semibold ${t.primaryBtn}`}>
-                상담 신청
-              </a>
-              <a href={siteConfig.phoneHref} className={`inline-flex items-center gap-2 px-6 py-3 text-[15px] font-semibold ${t.ghostBtn}`}>
-                <Phone className="h-4 w-4" /> {siteConfig.phone}
-              </a>
-            </div>
-          </div>
-          <div className="min-w-0 bg-white p-5 md:p-6 text-jisan-ink shadow-[0_8px_30px_rgba(10,15,30,0.12)]">
-            <h2 className="text-base font-bold">{center.stageTitle}</h2>
-            <ul className="mt-3 space-y-2">
-              {center.stages.map((s) => (
-                <li key={s.label}>
-                  <a
-                    href={s.href}
-                    className={`flex items-center justify-between gap-3 border px-4 py-3 text-[15px] font-semibold transition-colors ${
-                      s.urgent
-                        ? "border-[#E2620F] text-[#B4490A] hover:bg-[#E2620F]/5"
-                        : "border-[#E2E6ED] hover:border-jisan-blue"
-                    }`}
-                  >
-                    {s.label}
-                    <span className={`shrink-0 text-xs font-medium ${s.urgent ? "text-[#B4490A]" : "text-muted-foreground"}`}>
-                      {s.hint}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      <CenterHero center={center} />
 
       {/* 센터 소개 */}
       {center.intro && (
         <section id="intro" className={`${sectionPad} ${bg("intro")}`}>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.6fr]">
+          <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.6fr]">
             <h2 className={`${h2} whitespace-pre-line`}>{center.intro.title}</h2>
             <div className="space-y-4 text-[16px] leading-[1.85] text-jisan-ink/80">
               {center.intro.body.map((p) => (
@@ -164,11 +125,11 @@ export default async function CenterPage({ params }: Props) {
       {/* 이런 분께 필요합니다 */}
       {center.situations && (
         <section id="situations" className={`${sectionPad} ${bg("situations")}`}>
-          <div className="max-w-7xl mx-auto">
+          <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.situations.title}</h2>
             <ul className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
               {center.situations.items.map((it) => (
-                <li key={it} className="flex items-start gap-3 border border-[#E2E6ED] bg-white px-4 py-3.5 text-[15px] text-jisan-ink">
+                <li key={it} className="flex items-start gap-3 rounded-xl border border-[#E2E6ED] bg-white px-4 py-3.5 text-[15px] text-jisan-ink">
                   <Check className={`mt-0.5 h-4 w-4 shrink-0 ${t.accent}`} />
                   {it}
                 </li>
@@ -180,7 +141,7 @@ export default async function CenterPage({ params }: Props) {
 
       {/* 업무분야 */}
       <section id="areas" className={`${sectionPad} ${bg("areas")}`}>
-        <div className="max-w-7xl mx-auto">
+        <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>{center.areasTitle}</h2>
           <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {center.areas.map((a) => {
@@ -193,7 +154,7 @@ export default async function CenterPage({ params }: Props) {
                 </>
               )
               return (
-                <li key={a.name} className="border border-[#E2E6ED] bg-white p-5">
+                <li key={a.name} className="card-lift rounded-2xl border border-[#E2E6ED] bg-white p-5">
                   {a.href ? <a href={a.href} className="block">{body}</a> : body}
                 </li>
               )
@@ -205,7 +166,7 @@ export default async function CenterPage({ params }: Props) {
       {/* 기준표 (처벌 기준, 처분 종류, 요건 비교 등) */}
       {center.table && (
         <section id="table" className={`${sectionPad} ${bg("table")}`}>
-          <div className="max-w-7xl mx-auto">
+          <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.table.title}</h2>
             <div className="mt-8 overflow-x-auto border border-[#E2E6ED] bg-white">
               <table className="w-full min-w-[560px] text-left text-sm">
@@ -239,7 +200,7 @@ export default async function CenterPage({ params }: Props) {
       {/* 대응 원칙 · 중요한 이유 */}
       {center.points && (
         <section id="points" className={`${sectionPad} ${bg("points")}`}>
-          <div className="max-w-7xl mx-auto">
+          <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.points.title}</h2>
             <ol className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
               {center.points.items.map((p, i) => (
@@ -256,7 +217,7 @@ export default async function CenterPage({ params }: Props) {
 
       {/* 대응 절차 */}
       <section id="process" className={`${sectionPad} ${bg("process")}`}>
-        <div className="max-w-7xl mx-auto">
+        <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>사건 진행 절차</h2>
           <p className="mt-2 text-[15px] text-jisan-ink/70">{center.form.caseType} 사건, 단계별로 어떻게 대응하는지 알려드립니다.</p>
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -291,7 +252,7 @@ export default async function CenterPage({ params }: Props) {
       {/* 업무사례 (이 센터로 지정된 것만) */}
       {cases.length > 0 && (
         <section id="cases" className={`${sectionPad} ${bg("cases")}`}>
-          <div className="max-w-7xl mx-auto">
+          <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.name} 업무사례</h2>
             <p className="mt-2 mb-6 text-[15px] text-jisan-ink/70">나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.</p>
             <SampleNote show={cases.some((c) => c.sample)} className="mb-4" />
@@ -303,19 +264,19 @@ export default async function CenterPage({ params }: Props) {
 
       {/* 담당 변호사 */}
       <section id="lawyers" className={`${sectionPad} ${bg("lawyers")}`}>
-        <div className="max-w-7xl mx-auto">
+        <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>{center.name} 변호사</h2>
           <p className="mt-2 text-[15px] text-jisan-ink/70">
             {siteConfig.shortName} 변호사는 {lawyers.length + others.length}명입니다. {center.name} 사건은 주력 변호사가 맡고, 민사·가사 문제가 겹치면 해당 분야 변호사가 같이 봅니다.
           </p>
           <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             {lawyers.map((l) => (
-              <li key={l.slug} className="min-w-0 flex gap-5 bg-white border border-[#E2E6ED] p-4">
-                <div className="relative w-28 md:w-36 shrink-0 aspect-[3/4] overflow-hidden bg-[#2a3348]">
+              <li key={l.slug} className="card-lift min-w-0 flex gap-5 rounded-2xl bg-white border border-[#E2E6ED] p-4">
+                <div className="relative w-28 md:w-36 shrink-0 aspect-[3/4] overflow-hidden rounded-xl bg-[#2a3348]">
                   <LawyerPhoto src={l.image} name={l.name} imageClassName={l.photoImageClassName} sizes="144px" />
                 </div>
                 <div className="min-w-0 py-1">
-                  <span className="inline-block bg-jisan-ink px-2 py-0.5 text-xs font-bold text-white">주력</span>
+                  <span className="inline-block rounded-full bg-jisan-ink px-2.5 py-0.5 text-xs font-bold text-white">주력</span>
                   <p className="mt-2 text-lg font-bold text-jisan-ink">
                     {l.name} <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
                   </p>
@@ -333,7 +294,7 @@ export default async function CenterPage({ params }: Props) {
               <h3 className="mt-12 text-lg font-bold text-jisan-ink">함께 사건을 보는 변호사</h3>
               <ul className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                 {others.map((l) => (
-                  <li key={l.slug} className="min-w-0 bg-white border border-[#E2E6ED]">
+                  <li key={l.slug} className="card-lift min-w-0 overflow-hidden rounded-2xl bg-white border border-[#E2E6ED]">
                     <div className="relative aspect-[4/3] overflow-hidden bg-[#2a3348]">
                       <LawyerPhoto src={l.image} name={l.name} imageClassName="object-cover object-top" sizes="(max-width: 640px) 50vw, 25vw" initialClassName="text-5xl" />
                     </div>
@@ -355,7 +316,7 @@ export default async function CenterPage({ params }: Props) {
       {/* 담당 변호사 블로그 */}
       {posts.length > 0 && center.blog && (
         <section id="blog" className={`${sectionPad} ${t.band}`}>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-14">
+          <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-14">
             <div>
               <h2 className="text-2xl md:text-[2rem] font-bold tracking-tight leading-tight">{center.blog.title}</h2>
               <a
@@ -375,7 +336,7 @@ export default async function CenterPage({ params }: Props) {
       {/* 이 센터 칼럼 (홈페이지 안 글) */}
       {columns.length > 0 && (
         <section id="column" className={`${sectionPad} ${bg("column")}`}>
-          <div className="max-w-7xl mx-auto">
+          <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.name} 칼럼</h2>
             <SampleNote show={columns.some((c) => c.sample)} className="mt-3" />
             <div className="mt-6 border-t border-jisan-ink">
@@ -389,7 +350,7 @@ export default async function CenterPage({ params }: Props) {
 
       {/* 자주 묻는 질문 */}
       <section id="faq" className={`${sectionPad} ${bg("faq")}`}>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-14">
+        <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-14">
           <div>
             <h2 className={h2}>자주 묻는 질문</h2>
             <p className="mt-3 text-sm text-jisan-ink/65">상담 전에 가장 많이 물어보시는 질문을 모았습니다.</p>
@@ -414,7 +375,7 @@ export default async function CenterPage({ params }: Props) {
       {/* 상담 */}
       {/* 사무소 안내 (주사무소 + 분사무소) */}
       <section id="offices" className={`${sectionPad} ${bg("offices")}`}>
-        <div className="max-w-7xl mx-auto">
+        <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>사무소 안내</h2>
           <p className="mt-2 text-[15px] text-jisan-ink/70">
             {center.name} 사건은 {openOffices.length}곳 사무소 어디서나 상담받으실 수 있습니다. 가까운 곳으로 오세요.
@@ -438,7 +399,7 @@ export default async function CenterPage({ params }: Props) {
       </section>
 
       <section id="consult" className={`${t.band} px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20`}>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+        <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           <div>
             <h2 className="text-2xl md:text-4xl font-bold tracking-tight leading-tight text-balance">{center.closing}</h2>
             <p className="mt-4 max-w-md text-base leading-relaxed opacity-80">

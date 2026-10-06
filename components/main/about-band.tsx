@@ -15,7 +15,7 @@ export function AboutBand() {
   return (
     <section className="relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14 py-16 md:py-24">
       <LogoSvg variant="tone" className="pointer-events-none absolute -left-16 top-1/2 h-[30rem] w-auto -translate-y-1/2 text-brand-tone opacity-70" />
-      <div className="relative max-w-7xl mx-auto grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end">
+      <div data-reveal className="relative max-w-7xl mx-auto grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end">
         <div className="max-w-xl">
           <p className="text-sm font-semibold text-white/60">법인 소개</p>
           <h2 className="mt-3 text-[2rem] font-bold leading-[1.3] tracking-[-0.035em] md:text-[2.5rem]">

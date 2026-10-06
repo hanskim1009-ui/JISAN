@@ -9,7 +9,7 @@ export function MapSection() {
 
   return (
     <section id="map" className="scroll-mt-20 px-5 md:px-12 lg:px-14 py-14 md:py-20">
-      <div className="max-w-7xl mx-auto">
+      <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead
           title="오시는 길"
           desc={several ? `사무소 ${openOffices.length}곳 중 가까운 곳으로 오시면 됩니다.` : undefined}

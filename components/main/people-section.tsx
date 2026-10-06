@@ -14,13 +14,13 @@ function careerLines(l: Lawyer) {
 export function PeopleSection() {
   return (
     <section id="team" className="scroll-mt-20 bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
-      <div className="max-w-7xl mx-auto">
+      <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead title="구성원 소개" desc="분야마다 그 일을 해 온 변호사가 사건을 직접 수행합니다." href="/lawyers" linkLabel="프로필 보기" />
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-5 gap-y-8">
           {lawyers.map((l) => (
             <li key={l.slug} className="min-w-0">
               <Link href={`/lawyers#${l.slug}`} className="group block">
-                <div className="relative aspect-[3/4] overflow-hidden bg-[#C9CCD1]">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#C9CCD1] transition-transform duration-500 [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.04]">
                   <LawyerPhoto
                     src={l.image}
                     name={l.name}

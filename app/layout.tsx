@@ -3,6 +3,9 @@ import type { Metadata, Viewport } from "next"
 import { siteConfig } from "@/lib/site-config"
 import { lawyers } from "@/lib/lawyers"
 
+import { LOOK_SWITCH, lookInitScript } from "@/lib/look"
+import { LookSwitch } from "@/components/look/look-switch"
+import { ScrollReveal } from "@/components/look/scroll-reveal"
 import "./globals.css"
 
 const siteUrl = siteConfig.siteUrl
@@ -99,10 +102,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
+      {LOOK_SWITCH && (
+        <head>
+          <script dangerouslySetInnerHTML={{ __html: lookInitScript }} />
+        </head>
+      )}
       <body className="font-sans antialiased">
         <JsonLdScript />
         {children}
+        <ScrollReveal />
+        {LOOK_SWITCH && <LookSwitch />}
       </body>
     </html>
   )

@@ -109,3 +109,51 @@
   @apply max-w-7xl mx-auto w-full;
 }
 
+
+/* ───────── 첫 화면 시안 전환 (미리보기에서만 두 시안이 함께 들어 있음) ───────── */
+html[data-look="ridge"] .look-photo,
+html[data-look="photo"] .look-ridge {
+  display: none !important;
+}
+
+/* ───────── 움직임 ───────── */
+@keyframes kenburns {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to { transform: scale(1.1) translate3d(-1.5%, -1%, 0); }
+}
+@keyframes mist-drift {
+  from { transform: translate3d(-4%, 0, 0); }
+  to { transform: translate3d(5%, 0, 0); }
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes logo-draw {
+  from { stroke-dashoffset: 1200; fill-opacity: 0; }
+  70% { fill-opacity: 0; }
+  to { stroke-dashoffset: 0; fill-opacity: var(--fo, 1); }
+}
+@keyframes marquee {
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.anim-kenburns { animation: kenburns 26s ease-in-out infinite alternate; }
+.anim-mist { animation: mist-drift 18s ease-in-out infinite alternate; }
+.anim-rise { animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.anim-logo-draw path { stroke-dasharray: 1200; animation: logo-draw 2.4s ease both; }
+.anim-marquee { animation: marquee 40s linear infinite; }
+.anim-marquee:hover { animation-play-state: paused; }
+
+/* 스크롤 등장: 처음 화면 아래에 있던 구역만 숨겼다가 보일 때 올라옵니다 (스크립트가 없으면 그냥 보임) */
+[data-reveal].reveal-pending { opacity: 0; transform: translate3d(0, 18px, 0); }
+[data-reveal].reveal-in { animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* 카드에 마우스를 올리면 살짝 떠오름 */
+.card-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.card-lift:hover { transform: translateY(-4px); box-shadow: 0 16px 32px -18px rgb(8 22 40 / 0.45); }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-kenburns, .anim-mist, .anim-rise, .anim-logo-draw path, .anim-marquee, [data-reveal].reveal-in { animation: none !important; }
+  [data-reveal].reveal-pending { opacity: 1; transform: none; }
+  .card-lift, .card-lift:hover { transition: none; transform: none; }
+}

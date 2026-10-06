@@ -20,7 +20,7 @@ const documents = [
 export function HowWeWork() {
   return (
     <section className="px-5 md:px-12 lg:px-14 py-14 md:py-20">
-      <div className="max-w-7xl mx-auto">
+      <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead title="상담 안내" desc="상담은 방문과 전화로 진행됩니다. 부담 갖지 마시고 편하게 연락 주세요." href="/consult" linkLabel="상담 신청하기" />
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr]">
           <ol className="border-t border-jisan-ink">

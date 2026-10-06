@@ -17,7 +17,7 @@ export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: Col
 
   return (
     <section id="info" className="scroll-mt-20 px-5 md:px-12 lg:px-14 py-14 md:py-20">
-      <div className="max-w-7xl mx-auto space-y-14">
+      <div data-reveal className="max-w-7xl mx-auto space-y-14">
         {columns.length > 0 && (
           <div>
             <SectionHead title="칼럼" desc="실무에서 겪은 일을 지산 변호사들이 직접 씁니다." href="/column" linkLabel="더보기" />

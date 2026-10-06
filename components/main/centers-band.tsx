@@ -8,14 +8,14 @@ export function CentersBand() {
   if (centers.length === 0) return null
   return (
     <section className="bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
-      <div className="max-w-7xl mx-auto">
+      <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead title="분야별 센터" desc="분야마다 센터를 따로 두고, 단계별 대응 방법까지 자세히 안내합니다." />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {centers.map((c) => (
             <Link
               key={c.slug}
               href={`/${c.slug}`}
-              className="group relative flex min-h-[15rem] flex-col overflow-hidden bg-brand p-6 text-white md:p-7"
+              className="card-lift group relative flex min-h-[15rem] flex-col overflow-hidden rounded-2xl bg-brand p-6 text-white md:p-7"
             >
               <LogoSvg variant="tone" className="pointer-events-none absolute -bottom-8 -right-8 h-44 w-auto text-brand-tone" />
               <span className="relative text-sm font-bold text-white/70">{c.name}</span>
