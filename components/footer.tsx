@@ -36,6 +36,16 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col gap-3 text-[13px] md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {siteConfig.feeds.firmYoutubeChannelId && (
+              <a href={`https://www.youtube.com/channel/${siteConfig.feeds.firmYoutubeChannelId}`} target="_blank" rel="noopener noreferrer" className="text-white/85 hover:text-white">
+                유튜브
+              </a>
+            )}
+            {siteConfig.feeds.firmBlogId && (
+              <a href={`https://blog.naver.com/${siteConfig.feeds.firmBlogId}`} target="_blank" rel="noopener noreferrer" className="text-white/85 hover:text-white">
+                네이버 블로그
+              </a>
+            )}
             {legalLinks.map((link) => (
               <Link key={link.label} href={link.href} className="hover:text-white transition-colors">
                 {link.label}

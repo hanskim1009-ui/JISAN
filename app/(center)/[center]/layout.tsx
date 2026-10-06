@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 import { getCenter } from "@/lib/centers"
-import { getCases } from "@/lib/content"
+import { getCases, getColumns } from "@/lib/content"
 import { getNaverBlogPosts } from "@/lib/feeds"
 import { siteConfig } from "@/lib/site-config"
 import { CenterHeader, type CenterNavItem } from "@/components/center/center-header"
@@ -28,8 +28,9 @@ export default async function CenterLayout({
     ...(center.penalties ? [{ label: "처벌 기준", href: "#penalty" }] : []),
     { label: "대응 절차", href: "#process" },
     ...(getCases({ center: center.slug }).length > 0 ? [{ label: "업무사례", href: "#cases" }] : []),
-    { label: "담당 변호사", href: "#lawyers" },
+    { label: "변호사", href: "#lawyers" },
     ...(hasBlog ? [{ label: "블로그", href: "#blog" }] : []),
+    ...(getColumns({ center: center.slug }).length > 0 ? [{ label: "칼럼", href: "#column" }] : []),
     { label: "자주 묻는 질문", href: "#faq" },
   ]
 

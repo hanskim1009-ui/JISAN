@@ -1,5 +1,5 @@
 /**
- * 업무사례 · 감사일기
+ * 업무사례 · 감사일기 · 칼럼
  *
  * 지금은 이 파일의 목록에서 읽습니다. 홈페이지용 Supabase 프로젝트를 만들면
  * 아래 get 함수들만 Supabase에서 읽도록 바꾸고, 직원은 관리 화면에서 입력합니다.
@@ -52,9 +52,33 @@ export type DiaryEntry = {
   author: string
 }
 
+/** 칼럼 본문 한 덩어리: 소제목, 문단, 목록 */
+export type ColumnBlock = { type: "h2"; text: string } | { type: "p"; text: string } | { type: "ul"; items: string[] }
+
+export type ColumnItem = {
+  /** 주소에 쓰는 영문·숫자 (예: "police-summons-first-steps") */
+  id: string
+  field: CaseField
+  /** 이 칼럼을 함께 보여 줄 센터 slug */
+  centers?: string[]
+  /** "2026-10-06" */
+  date: string
+  /** 의뢰인이 검색하는 말로 (예: "경찰 출석 요구를 받았을 때 먼저 할 일") */
+  title: string
+  /** 목록·검색 결과에 보이는 두 문장 안팎 */
+  summary: string
+  body: ColumnBlock[]
+  /** 쓴 변호사 (lib/lawyers.ts slug). 직원이 초안을 써도 변호사 이름으로 나갑니다 */
+  author: string
+  /** 같은 글을 네이버 블로그에 요약해 올렸다면 그 주소 */
+  blogPost?: string
+}
+
 const cases: CaseItem[] = []
 
 const diary: DiaryEntry[] = []
+
+const columns: ColumnItem[] = []
 
 export function getCases(opts: { field?: CaseField; center?: string; limit?: number } = {}) {
   let list = [...cases].sort((a, b) => b.decidedOn.localeCompare(a.decidedOn))
@@ -70,4 +94,16 @@ export function getCase(id: string) {
 export function getDiary(opts: { limit?: number } = {}) {
   const list = [...diary].sort((a, b) => b.date.localeCompare(a.date))
   return opts.limit ? list.slice(0, opts.limit) : list
+}
+
+export function getColumns(opts: { field?: CaseField; center?: string; author?: string; limit?: number } = {}) {
+  let list = [...columns].sort((a, b) => b.date.localeCompare(a.date))
+  if (opts.field) list = list.filter((c) => c.field === opts.field)
+  if (opts.center) list = list.filter((c) => c.centers?.includes(opts.center!))
+  if (opts.author) list = list.filter((c) => c.author === opts.author)
+  return opts.limit ? list.slice(0, opts.limit) : list
+}
+
+export function getColumn(id: string) {
+  return columns.find((c) => c.id === id)
 }

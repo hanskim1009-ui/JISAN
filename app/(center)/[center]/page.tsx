@@ -9,7 +9,8 @@ import { LawyerPhoto } from "@/components/lawyer-photo"
 import { ConsultForm } from "@/components/consult-form"
 import { CasesTable } from "@/components/cases-table"
 import { BlogList } from "@/components/blog-list"
-import { getCases } from "@/lib/content"
+import { getCases, getColumns } from "@/lib/content"
+import { ColumnRow } from "@/components/column-parts"
 import { getNaverBlogPosts } from "@/lib/feeds"
 
 type Props = { params: Promise<{ center: string }> }
@@ -50,6 +51,7 @@ export default async function CenterPage({ params }: Props) {
   if (!center) notFound()
   const t = centerTones[center.tone]
   const cases = getCases({ center: center.slug })
+  const columns = getColumns({ center: center.slug, limit: 4 })
   const posts = center.blog ? await getNaverBlogPosts(center.blog.id, 6) : []
   const lawyers = center.lawyers.flatMap((cl) => {
     const l = getLawyer(cl.slug)
@@ -295,6 +297,20 @@ export default async function CenterPage({ params }: Props) {
               </a>
             </div>
             <BlogList posts={posts} dark={center.tone === "dark"} />
+          </div>
+        </section>
+      )}
+
+      {/* 이 센터 칼럼 (홈페이지 안 글) */}
+      {columns.length > 0 && (
+        <section id="column" className={`${sectionPad} bg-white`}>
+          <div className="max-w-7xl mx-auto">
+            <h2 className={h2}>{center.name} 칼럼</h2>
+            <div className="mt-6 border-t border-jisan-ink">
+              {columns.map((c) => (
+                <ColumnRow key={c.id} c={c} />
+              ))}
+            </div>
           </div>
         </section>
       )}

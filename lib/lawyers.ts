@@ -22,6 +22,8 @@ export type Lawyer = {
   summary: string
   career?: string[]
   highlights: string[]
+  /** 개인 블로그 (칼럼 끝과 변호사 소개에 링크) */
+  blogUrl?: string
   /** 주요 경력 아래 자문·분야별 블록 (강현우 등) */
   resumeSections?: ResumeSection[]
   /** Next/Image className (구본우: 정사각 원본의 좌우 여백 축소) */
@@ -38,6 +40,7 @@ export const lawyers: Lawyer[] = [
     name: "김한솔",
     title: "대표 변호사",
     image: lawyerImages.kim,
+    blogUrl: "https://blog.naver.com/lawyerpassingby",
     summary:
       "오랜 기간 검사로 재직하며 고등검찰청에서 수범검사로까지 선정되었던 형사 전문 변호사입니다. 검사 재직 시 쌓은 풍부한 수사·재판 경험을 바탕으로 의뢰인의 권익 보호에 최선을 다하고 있습니다.",
     career: [

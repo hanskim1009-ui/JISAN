@@ -9,13 +9,13 @@ import { fields } from "@/lib/practice"
 import { lawyers } from "@/lib/lawyers"
 import { LogoSvg } from "@/components/brand-logo"
 
-export type HeaderFlags = { showCases: boolean; showDiary: boolean; showMedia: boolean }
+export type HeaderFlags = { showCases: boolean; showDiary: boolean; showColumns: boolean }
 
 const lawyerName = (slug: string) => lawyers.find((l) => l.slug === slug)?.name ?? ""
 const centerOf = (slug: string) => centers.find((c) => c.slug === slug)
 
 /** 메인 사이트 헤더: 남색 바탕 + 흰 로고 + 메뉴 + '업무영역' 펼침 메뉴 */
-export function SiteHeader({ showCases, showDiary, showMedia }: HeaderFlags) {
+export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const megaRef = useRef<HTMLDivElement>(null)
@@ -40,8 +40,8 @@ export function SiteHeader({ showCases, showDiary, showMedia }: HeaderFlags) {
   ]
   const after = [
     ...(showCases ? [{ label: "업무사례", href: "/cases" }] : []),
+    ...(showColumns ? [{ label: "칼럼", href: "/column" }] : []),
     ...(showDiary ? [{ label: "감사일기", href: "/diary" }] : []),
-    ...(showMedia ? [{ label: "유튜브·블로그", href: "/#media" }] : []),
     { label: "오시는 길", href: "/#map" },
   ]
   const navLink = "text-[15px] text-white/75 hover:text-white transition-colors"

@@ -3,7 +3,7 @@
  * 한 시간마다 새로 읽고, 실패하면 빈 목록을 돌려줘 해당 영역만 숨겨집니다.
  */
 
-export type FeedItem = { title: string; link: string; date: string; category?: string; thumbnail?: string }
+export type FeedItem = { title: string; link: string; date: string; category?: string; thumbnail?: string; videoId?: string }
 
 const pick = (xml: string, tag: string) => {
   const m = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)</${tag}>`))
@@ -57,6 +57,7 @@ export async function getYoutubeVideos(channelId: string, limit = 3): Promise<Fe
         link: `https://www.youtube.com/watch?v=${videoId}`,
         date: pick(entry, "published").slice(0, 10),
         thumbnail: videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : undefined,
+        videoId: videoId || undefined,
       }
     })
     .filter((v) => v.title)
