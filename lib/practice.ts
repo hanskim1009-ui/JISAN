@@ -1,49 +1,76 @@
 /**
- * 메인 사이트 업무분야 (센터 사이트가 없는 분야)
- * 센터가 생기면 여기서 빼고 lib/centers.ts에 추가합니다.
+ * 메인 사이트 '맡는 일' — 형사·가사·기업·민사를 같은 무게로 보여 줍니다.
+ * centers: 이 분야의 센터 사이트(lib/centers.ts slug). 센터가 생기면 여기에 추가합니다.
+ * lawyers: 맡는 변호사(lib/lawyers.ts slug). 임시 배정이며 확정되면 고칩니다.
  */
-export type PracticeArea = {
-  name: string
-  tag: string
-  /** 상담 폼 사건 유형 (components/consult-form.tsx CASE_TYPES) */
-  caseType: string
-  description: string
+export type Situation = {
+  label: string
+  /** 센터가 있으면 센터로 이동 */
+  center?: string
+  /** 센터가 없으면 상담 칸의 분야를 미리 선택 */
+  caseType?: string
 }
 
-export const practiceAreas: PracticeArea[] = [
+export type Field = {
+  name: string
+  caseType: string
+  items: string[]
+  lawyers: string[]
+  centers: string[]
+  situations: Situation[]
+}
+
+export const fields: Field[] = [
   {
-    name: "기업",
-    tag: "Corporate",
-    caseType: "기업",
-    description:
-      "계약서 검토, 주주총회·이사회 운영 자문, 투자계약, 경영권 분쟁, 임직원 형사 리스크까지 지원합니다. 정기 법률 고문 계약으로 분쟁이 생기기 전에 리스크를 차단합니다.",
-  },
-  {
-    name: "민사",
-    tag: "Civil Litigation",
-    caseType: "민사",
-    description:
-      "대여금·투자금 반환, 손해배상 청구, 계약 해제·해지, 부당이득 반환 등 민사 분쟁 전반을 다룹니다. 판결에서 끝나지 않고 실제 채권 회수와 강제집행까지 고려합니다.",
-  },
-  {
-    name: "건설·부동산",
-    tag: "Construction & Real Estate",
-    caseType: "건설·부동산",
-    description:
-      "공사대금 미지급, 하자보수, 재개발·재건축 갈등, 임대차 보증금 반환, 명도 소송 등. 계약 단계 검토부터 소송·강제집행까지 함께합니다.",
-  },
-  {
-    name: "회생·파산",
-    tag: "Restructuring",
-    caseType: "회생·파산",
-    description:
-      "개인회생·파산 신청부터 면책 결정까지 경제적 재기를 위한 현실적인 로드맵을 설계합니다. 법인 회생·파산 절차도 대응합니다.",
+    name: "형사",
+    caseType: "형사",
+    items: ["경찰 조사 동석, 체포·구속", "성범죄 · 마약", "사기·횡령·자본시장법", "음주·교통, 폭행"],
+    lawyers: ["kim-hansol", "kim-chunghyeon", "koo-bonwoo"],
+    centers: ["crime", "sex-crime"],
+    situations: [
+      { label: "경찰 출석 요구를 받았어요", center: "crime" },
+      { label: "가족이 체포됐어요", center: "crime" },
+      { label: "성범죄 사건이에요", center: "sex-crime" },
+      { label: "사기로 고소하려 해요", center: "crime" },
+    ],
   },
   {
     name: "가사",
-    tag: "Family Law",
     caseType: "가사",
-    description:
-      "이혼 소송, 재산분할, 양육비, 면접교섭, 상간 소송, 상속 재산 분할과 유류분 청구까지. 첫 상담부터 조정·재판 종결까지 담당 변호사가 직접 대응합니다.",
+    items: ["이혼, 재산분할", "상간 소송", "양육권·양육비", "상속, 유류분"],
+    lawyers: ["kim-miso"],
+    centers: [],
+    situations: [
+      { label: "이혼을 준비하고 있어요", caseType: "가사" },
+      { label: "상간 소장을 받았어요", caseType: "가사" },
+      { label: "양육비를 못 받고 있어요", caseType: "가사" },
+      { label: "상속 문제가 생겼어요", caseType: "가사" },
+    ],
+  },
+  {
+    name: "기업",
+    caseType: "기업",
+    items: ["투자계약, 주주간계약", "주주총회·이사회", "경영권 분쟁", "의료기관·기업 자문"],
+    lawyers: ["koo-bonwoo", "kang-hyunwoo", "park-jongjin"],
+    centers: [],
+    situations: [
+      { label: "투자계약을 검토해야 해요", caseType: "기업" },
+      { label: "주주 간 분쟁이 생겼어요", caseType: "기업" },
+      { label: "정기 자문이 필요해요", caseType: "기업" },
+      { label: "병원 운영 문제예요", caseType: "기업" },
+    ],
+  },
+  {
+    name: "민사",
+    caseType: "민사",
+    items: ["대여금·투자금 반환", "공사대금, 하자", "임대차 보증금, 명도", "개인회생·파산"],
+    lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon"],
+    centers: [],
+    situations: [
+      { label: "빌려준 돈을 못 받았어요", caseType: "민사" },
+      { label: "공사대금 문제예요", caseType: "건설·부동산" },
+      { label: "보증금을 못 받았어요", caseType: "민사" },
+      { label: "빚을 정리하고 싶어요", caseType: "회생·파산" },
+    ],
   },
 ]

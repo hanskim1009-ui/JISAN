@@ -24,6 +24,9 @@ const config: Config = {
           ivory: '#FBFAF7',
           mist: '#EEF2F8',
           gold: '#B08A4A',
+          /* 로고 남청색: 메인 사이트 유일한 강조색 */
+          logo: '#0E4A73',
+          stone: '#F5F4F1',
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',

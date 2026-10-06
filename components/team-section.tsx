@@ -148,6 +148,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
         {/* 텍스트 영역 */}
         <div className="flex flex-col justify-center px-8 py-12 md:px-14 md:py-16 flex-1">
           {/* 이름 + 직함 */}
+          <p className="mb-1 text-xs font-bold text-jisan-logo">{lawyer.field}</p>
           <div className="flex items-baseline gap-3 mb-8 border-b border-border pb-8">
             <h3 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
               {lawyer.name}
@@ -222,20 +223,17 @@ export function TeamSection() {
   return (
     <section id="team" className="bg-background pb-16 md:pb-24">
       {/* 섹션 헤더 */}
-      <div className="px-6 pt-14 pb-12 md:px-12 lg:px-20 md:pt-20 md:pb-16 border-b border-border bg-jisan-ivory">
+      <div className="px-5 pt-12 pb-10 md:px-12 lg:px-14 md:pt-16 md:pb-12 border-b border-border">
         <div
           ref={ref}
           className={`max-w-7xl mx-auto transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-[11px] tracking-[0.2em] text-muted-foreground font-medium mb-4 uppercase">
-            Our Lawyers
-          </p>
-          <h1 className="font-serif text-4xl md:text-5xl font-semibold text-jisan-ink tracking-tight leading-tight">
-            의뢰인 곁에서,<br className="hidden md:block" />
-            직접 함께하는 변호사들
+          <h1 className="border-t-2 border-jisan-ink pt-4 text-3xl md:text-[2.25rem] font-bold text-jisan-ink tracking-tight">
+            구성원
           </h1>
+          <p className="mt-2 text-[15px] text-[#4A505A]">변호사마다 일해 온 곳과 맡는 분야가 다릅니다. 사건이 들어오면 그 일을 해 본 변호사가 맡습니다.</p>
         </div>
       </div>
 

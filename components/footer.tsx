@@ -9,11 +9,11 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="px-6 py-12 md:px-12 lg:px-20 border-t border-border bg-background">
+    <footer className="px-5 py-12 md:px-12 lg:px-14 border-t border-border bg-background">
       <div className="max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-10 md:mb-14">
         <div className="md:col-span-5">
-          <Link href="/" className="font-serif text-lg font-semibold text-foreground">
+          <Link href="/" className="text-lg font-bold tracking-tight text-foreground">
             {siteConfig.name}
           </Link>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground max-w-xs">

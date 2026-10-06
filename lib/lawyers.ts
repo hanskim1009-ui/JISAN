@@ -14,10 +14,8 @@ export type ResumeSection = { heading: string; items: string[] }
 export type Lawyer = {
   /** 주소용 영문 이름 (/lawyers#kim-hansol) */
   slug: string
-  /** 카드에 쓰는 한 줄 경력 (사실만, 광고 규정상 'OO 출신' 같은 강조 표현 대신) */
-  fact?: string
-  /** 카드에 쓰는 주요 업무 */
-  areas?: string
+  /** 이름 위에 붙는 맡는 분야 (광고 규정상 '전문' 표기 없이 분야만) */
+  field: string
   name: string
   title: string
   image: string
@@ -36,9 +34,8 @@ export type Lawyer = {
 export const lawyers: Lawyer[] = [
   {
     slug: "kim-hansol",
+    field: "형사",
     name: "김한솔",
-    fact: "전) 인천지방검찰청 검사",
-    areas: "형사",
     title: "대표 변호사",
     image: lawyerImages.kim,
     summary:
@@ -60,9 +57,8 @@ export const lawyers: Lawyer[] = [
   },
   {
     slug: "koo-bonwoo",
+    field: "기업·금융",
     name: "구본우",
-    fact: "전) 스마일게이트인베스트먼트 준법감시인",
-    areas: "기업·경제범죄",
     title: "대표 변호사",
     image: lawyerImages.koo,
     summary:
@@ -125,9 +121,8 @@ export const lawyers: Lawyer[] = [
   },
   {
     slug: "park-jongjin",
+    field: "민사·기업 자문",
     name: "박종진",
-    fact: "전) 법무법인(유)효성 파트너 변호사",
-    areas: "기업자문·민사",
     title: "파트너 변호사",
     image: lawyerImages.park,
     summary:
@@ -150,9 +145,8 @@ export const lawyers: Lawyer[] = [
   },
   {
     slug: "kang-hyunwoo",
+    field: "의료·기업 자문",
     name: "강현우",
-    fact: "대한병원협회 자문",
-    areas: "의료·민사",
     title: "파트너 변호사",
     image: lawyerImages.kang,
     summary:
@@ -190,6 +184,7 @@ export const lawyers: Lawyer[] = [
   // TODO: 김미소 변호사 정보 수령 후 직함·소개·이력·학력 입력 (사진: public/images/lawyers/kim-miso.jpg)
   {
     slug: "kim-miso",
+    field: "가사",
     name: "김미소",
     title: "변호사",
     image: lawyerImages.kimMiso,
@@ -200,6 +195,7 @@ export const lawyers: Lawyer[] = [
   // TODO: 김충현 변호사 정보 수령 후 직함·소개·이력·학력 입력 (사진: public/images/lawyers/kim-chunghyeon.jpg)
   {
     slug: "kim-chunghyeon",
+    field: "형사·민사",
     name: "김충현",
     title: "변호사",
     image: lawyerImages.kimChungHyeon,

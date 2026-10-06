@@ -46,6 +46,8 @@ export type Center = {
   faqs: { q: string; a: string }[]
   form: { caseType: string; stageOptions: string[] }
   closing: string
+  /** 담당 변호사 네이버 블로그 (최신 글이 센터 페이지에 자동으로 보입니다) */
+  blog?: { id: string; title: string }
 }
 
 const urgentCall: Pick<CenterStage, "href" | "hint" | "urgent"> = {
@@ -165,6 +167,7 @@ export const centers: Center[] = [
     ],
     form: { caseType: "형사", stageOptions: criminalStageOptions },
     closing: "조사 일정이 잡혔다면, 출석 전에 연락하세요.",
+    blog: { id: "lawyerpassingby", title: "김한솔 변호사 블로그" },
   },
   {
     slug: "sex-crime",
@@ -230,6 +233,7 @@ export const centers: Center[] = [
     ],
     form: { caseType: "성범죄", stageOptions: criminalStageOptions },
     closing: "혼자 조사받으러 가지 마세요.",
+    blog: { id: "lawyerpassingby", title: "김한솔 변호사 블로그" },
   },
 ]
 

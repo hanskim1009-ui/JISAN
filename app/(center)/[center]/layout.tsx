@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation"
 import { getCenter } from "@/lib/centers"
+import { getCases } from "@/lib/content"
+import { getNaverBlogPosts } from "@/lib/feeds"
 import { siteConfig } from "@/lib/site-config"
 import { CenterHeader, type CenterNavItem } from "@/components/center/center-header"
 import { centerTones } from "@/components/center/tone"
@@ -18,12 +20,16 @@ export default async function CenterLayout({
   const center = getCenter(slug)
   if (!center) notFound()
   const t = centerTones[center.tone]
+  // 페이지와 같은 요청이라 한 번만 가져옵니다. 불러오지 못하면 메뉴에서도 숨깁니다
+  const hasBlog = center.blog ? (await getNaverBlogPosts(center.blog.id, 6)).length > 0 : false
 
   const nav: CenterNavItem[] = [
     { label: center.areasTitle, href: "#areas" },
     ...(center.penalties ? [{ label: "처벌 기준", href: "#penalty" }] : []),
     { label: "대응 절차", href: "#process" },
+    ...(getCases({ center: center.slug }).length > 0 ? [{ label: "업무사례", href: "#cases" }] : []),
     { label: "담당 변호사", href: "#lawyers" },
+    ...(hasBlog ? [{ label: "블로그", href: "#blog" }] : []),
     { label: "자주 묻는 질문", href: "#faq" },
   ]
 

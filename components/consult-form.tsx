@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { siteConfig } from "@/lib/site-config"
 
-export const CASE_TYPES = ["형사", "성범죄", "기업", "민사", "건설·부동산", "회생·파산", "가사", "기타"]
+export const CASE_TYPES = ["형사", "성범죄", "가사", "기업", "민사", "건설·부동산", "회생·파산", "기타"]
 
 export const DEFAULT_STAGE_OPTIONS = ["상담만 먼저 받고 싶음", "고소·소송 준비 중", "수사·소송 진행 중", "재판 중"]
 
@@ -28,6 +28,8 @@ type ConsultFormProps = {
   stageOptions?: string[]
   /** 첫 화면용 짧은 폼: 상담 내용·걱정되는 점 생략 */
   compact?: boolean
+  /** strip: 이름·연락처·분야만 한 줄로 (메인 상담 띠) */
+  layout?: "stack" | "strip"
 }
 
 export function ConsultForm({
@@ -36,6 +38,7 @@ export function ConsultForm({
   source,
   stageOptions = DEFAULT_STAGE_OPTIONS,
   compact = false,
+  layout = "stack",
 }: ConsultFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
   const [caseType, setCaseType] = useState(fixedCaseType ?? "")
@@ -77,6 +80,54 @@ export function ConsultForm({
     } catch {
       setStatus("error")
     }
+  }
+
+  const statusLine =
+    status === "success" ? (
+      <p className="text-sm text-green-700" role="status">접수되었습니다. 확인 후 연락드리겠습니다.</p>
+    ) : status === "error" ? (
+      <p className="text-sm text-destructive" role="alert">
+        전송에 실패했습니다. 전화({siteConfig.phone}) 또는 카카오톡으로 문의해 주세요.
+      </p>
+    ) : null
+
+  if (layout === "strip") {
+    const field = "h-11 w-full border border-[#D7D9DD] bg-white px-3 text-sm placeholder:text-[#8A9099] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jisan-logo/40"
+    return (
+      <form onSubmit={handleSubmit} className="min-w-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_auto] gap-2">
+          <label htmlFor={id("name")} className="sr-only">이름</label>
+          <input id={id("name")} name="name" required placeholder="이름" autoComplete="name" className={field} />
+          <label htmlFor={id("phone")} className="sr-only">연락처</label>
+          <input id={id("phone")} name="phone" type="tel" required placeholder="연락처" autoComplete="tel" className={field} />
+          <label htmlFor={id("caseType")} className="sr-only">분야</label>
+          <select
+            id={id("caseType")}
+            name="caseType"
+            value={caseType}
+            onChange={(e) => setCaseType(e.target.value)}
+            className={`${field} ${caseType ? "text-foreground" : "text-[#8A9099]"}`}
+          >
+            <option value="">분야 선택</option>
+            {CASE_TYPES.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+          <button
+            type="submit"
+            disabled={status === "submitting"}
+            className="h-11 bg-jisan-ink px-7 text-[15px] font-semibold text-white hover:bg-jisan-ink/90 disabled:opacity-60"
+          >
+            {status === "submitting" ? "전송 중..." : "상담 신청"}
+          </button>
+        </div>
+        <div className="mt-2 text-xs text-[#8A9099]">
+          {statusLine ?? "변호사가 내용을 확인하고 연락드립니다. 상담 내용은 변호사의 비밀유지 의무로 보호됩니다."}
+        </div>
+      </form>
+    )
   }
 
   return (
@@ -149,16 +200,7 @@ export function ConsultForm({
         </>
       )}
 
-      {status === "success" && (
-        <p className="text-base text-green-700" role="status">
-          접수되었습니다. 확인 후 연락드리겠습니다.
-        </p>
-      )}
-      {status === "error" && (
-        <p className="text-base text-destructive" role="alert">
-          전송에 실패했습니다. 전화({siteConfig.phone}) 또는 카카오톡으로 문의해 주세요.
-        </p>
-      )}
+      {statusLine}
       <div className="space-y-3">
         <Button
           type="submit"

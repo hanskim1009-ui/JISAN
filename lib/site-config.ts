@@ -34,6 +34,20 @@ export const siteConfig = {
   kakaoMapUrl: "https://map.kakao.com/?q=서울시%20서초구%20서초대로46길%20109%20지산빌딩",
   businessRegistration: "808-37-01374",
   advertisingAttorney: "김한솔",
+  /**
+   * 자동으로 가져오는 채널. 주소가 비어 있으면 해당 영역이 숨겨집니다.
+   * firmBlogId: 법인 네이버 블로그 아이디 (blog.naver.com/아이디) → 메인 '블로그'
+   * firmYoutubeChannelId: 법인 유튜브 채널 ID (UC로 시작) → 메인 '유튜브'
+   */
+  feeds: {
+    firmBlogId: "",
+    firmYoutubeChannelId: "",
+  },
+  /** 촬영 사진 경로. 비어 있으면 사진 자리 없이 배치됩니다 */
+  photos: {
+    /** 메인 첫 화면 구성원 단체 사진 (가로) */
+    team: "",
+  },
   /** Formspree form ID - 상담 폼 제출 시 사용 (https://formspree.io 에서 생성) */
   formspreeFormId: "mdawozrb",
 }

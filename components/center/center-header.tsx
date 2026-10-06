@@ -34,7 +34,7 @@ export function CenterHeader({ name, tone, nav }: { name: string; tone: CenterTo
           <a href={siteConfig.phoneHref} className="text-[15px] font-bold">
             24시간 {siteConfig.phone}
           </a>
-          <a href="#consult" className={`rounded-md px-5 py-2.5 text-sm font-semibold ${t.headerCta}`}>
+          <a href="#consult" className={`px-5 py-2.5 text-sm font-semibold ${t.headerCta}`}>
             상담 신청
           </a>
         </div>
@@ -63,7 +63,7 @@ export function CenterHeader({ name, tone, nav }: { name: string; tone: CenterTo
           <a
             href="#consult"
             onClick={() => setOpen(false)}
-            className={`mt-3 rounded-md py-3 text-center text-sm font-semibold ${t.headerCta}`}
+            className={`mt-3 py-3 text-center text-sm font-semibold ${t.headerCta}`}
           >
             상담 신청
           </a>
