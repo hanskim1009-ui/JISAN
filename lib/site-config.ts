@@ -74,6 +74,7 @@ export const lawyerImages = {
   /** 사진 파일을 넣은 뒤 경로 입력 (예: "/images/lawyers/kim-miso.jpg"). 비어 있으면 이니셜로 표시 */
   kimMiso: "",
   kimChungHyeon: "",
+  parkHanmin: "",
 } as const
 
 /** 사이트에 보이는 사무소 (주사무소가 맨 앞) */

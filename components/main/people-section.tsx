@@ -16,7 +16,7 @@ export function PeopleSection() {
     <section id="team" className="scroll-mt-20 bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead title="구성원 소개" desc="분야마다 그 일을 해 온 변호사가 사건을 직접 수행합니다." href="/lawyers" linkLabel="프로필 보기" />
-        <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-5 gap-y-8">
+        <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-x-5 gap-y-8">
           {lawyers.map((l) => (
             <li key={l.slug} className="min-w-0">
               <Link href={`/lawyers#${l.slug}`} className="group block">
@@ -28,7 +28,7 @@ export function PeopleSection() {
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
                   />
                 </div>
-                <p className="mt-2.5 text-xs font-bold text-brand-accent">{l.field}</p>
+                <p className="mt-2.5 text-xs font-bold text-brand-accent">{l.field || "\u00a0"}</p>
                 <p className="text-base font-bold text-jisan-ink group-hover:underline underline-offset-4">{l.name}</p>
                 <p className="text-[13px] text-[#8A9099]">{l.title}</p>
                 {l.tagline && <p className="mt-2 text-[13px] leading-snug text-jisan-ink">{l.tagline}</p>}

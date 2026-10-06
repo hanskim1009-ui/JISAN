@@ -212,6 +212,17 @@ export const lawyers: Lawyer[] = [
     career: [],
     highlights: [],
   },
+  // TODO: 박한민 변호사 정보 수령 후 분야·직함·소개·이력·학력 입력 (사진: public/images/lawyers/park-hanmin.jpg)
+  {
+    slug: "park-hanmin",
+    field: "",
+    name: "박한민",
+    title: "변호사",
+    image: lawyerImages.parkHanmin,
+    summary: "프로필을 준비하고 있습니다.",
+    career: [],
+    highlights: [],
+  },
 ]
 
 export function getLawyer(slug: string) {
