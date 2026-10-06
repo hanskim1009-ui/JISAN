@@ -3,7 +3,7 @@ import { notFound } from "next/navigation"
 import { MessageCircle, Phone, Plus } from "lucide-react"
 import { centers, getCenter } from "@/lib/centers"
 import { getLawyer, lawyers as allLawyers } from "@/lib/lawyers"
-import { siteConfig } from "@/lib/site-config"
+import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { ConsultForm } from "@/components/consult-form"
@@ -345,6 +345,31 @@ export default async function CenterPage({ params }: Props) {
       </section>
 
       {/* 상담 */}
+      {/* 사무소 안내 (주사무소 + 분사무소) */}
+      <section id="offices" className={`${sectionPad} bg-white`}>
+        <div className="max-w-7xl mx-auto">
+          <h2 className={h2}>사무소 안내</h2>
+          <p className="mt-2 text-[15px] text-jisan-ink/70">
+            {center.name} 사건은 {openOffices.length}곳 사무소 어디서나 상담받으실 수 있습니다. 가까운 곳으로 오세요.
+          </p>
+          <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {openOffices.map((o) => (
+              <li key={o.name} className="border border-[#E2E6ED] p-5">
+                <p className="text-lg font-bold text-jisan-ink">{o.name}</p>
+                <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70">{officeAddress(o)}</p>
+                <p className="mt-3 text-sm font-semibold tabular-nums text-jisan-ink">전화 {o.phone || siteConfig.phone}</p>
+                {o.mapUrl && (
+                  <a href={o.mapUrl} target="_blank" rel="noopener noreferrer" className={`mt-3 inline-block text-sm font-semibold ${t.accent}`}>
+                    지도 보기 →
+                  </a>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-[13px] text-jisan-ink/55">상담 전화는 24시간, 주말·공휴일에도 받습니다.</p>
+        </div>
+      </section>
+
       <section id="consult" className={`${t.band} px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20`}>
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           <div>
