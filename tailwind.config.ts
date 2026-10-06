@@ -11,9 +11,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', '"Helvetica Neue"', '"Segoe UI"', '"Apple SD Gothic Neo"', '"Noto Sans KR"', '"Malgun Gothic"', 'sans-serif'],
-        /* 제목용 명조: 마루부리, 없는 글자는 Noto Serif KR (globals.css) */
-        serif: ['MaruBuri', '"Noto Serif KR"', '"Apple Myungjo"', 'Georgia', 'serif'],
+        sans: ['"NEXON Lv2 Gothic"', 'Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', '"Helvetica Neue"', '"Segoe UI"', '"Apple SD Gothic Neo"', '"Noto Sans KR"', '"Malgun Gothic"', 'sans-serif'],
+        /* 메인 사이트 제목: SB 어그로 (globals.css) */
+        display: ['"SB Aggro"', '"NEXON Lv2 Gothic"', 'Pretendard', 'sans-serif'],
+        /* 센터 사이트 제목용 명조 */
+        serif: ['"Noto Serif KR"', '"Apple Myungjo"', 'Georgia', 'serif'],
       },
       colors: {
         /* 지산 브랜드 색 */

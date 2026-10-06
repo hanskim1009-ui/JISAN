@@ -19,7 +19,7 @@ export function SectionHead({
     <div className="mb-7 flex flex-wrap items-center gap-x-5 gap-y-1">
       <div className="flex items-center gap-3">
         <WaveBar className={`${Tag === "h1" ? "h-9" : "h-8"} w-auto shrink-0 text-brand`} />
-        <Tag className={`${Tag === "h1" ? "text-3xl md:text-[2.375rem]" : "text-[1.625rem] md:text-[1.875rem]"} font-serif font-semibold tracking-tight text-jisan-ink`}>
+        <Tag className={`${Tag === "h1" ? "text-3xl md:text-[2.375rem]" : "text-[1.625rem] md:text-[1.875rem]"} font-display font-medium tracking-tight text-jisan-ink`}>
           {title}
         </Tag>
       </div>

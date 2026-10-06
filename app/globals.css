@@ -1,17 +1,30 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@500;600;700&display=swap");
 
-/* 제목 서체: 마루부리 (네이버 무료 글꼴, 자주 쓰는 한글 2,350자만 담아 용량을 줄였습니다) */
+/* 서체 (온강 법률사무소 사이트 참고): 제목 SB 어그로, 본문 넥슨 Lv2 고딕. 둘 다 상업적 무료 글꼴
+   웹용으로 자주 쓰는 한글 2,350자만 담아 용량을 줄였습니다. 빠진 글자는 Pretendard로 보입니다 */
 @font-face {
-  font-family: "MaruBuri";
-  src: url("/fonts/MaruBuri-Regular.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "SB Aggro";
+  src: url("/fonts/SBAggro-Light.woff2") format("woff2");
+  font-weight: 300 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "MaruBuri";
-  src: url("/fonts/MaruBuri-SemiBold.woff2") format("woff2");
-  font-weight: 600 700;
+  font-family: "SB Aggro";
+  src: url("/fonts/SBAggro-Medium.woff2") format("woff2");
+  font-weight: 500 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NEXON Lv2 Gothic";
+  src: url("/fonts/NexonLv2Gothic-Regular.woff2") format("woff2");
+  font-weight: 300 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NEXON Lv2 Gothic";
+  src: url("/fonts/NexonLv2Gothic-Bold.woff2") format("woff2");
+  font-weight: 600 800;
   font-display: swap;
 }
 
