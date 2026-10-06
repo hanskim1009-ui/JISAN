@@ -1,6 +1,11 @@
 import type { Metadata } from "next"
 import { HomeHero } from "@/components/main/home-hero"
 import { FieldsSection } from "@/components/main/fields-section"
+import { CentersBand } from "@/components/main/centers-band"
+import { AboutBand } from "@/components/main/about-band"
+import { HowWeWork } from "@/components/main/how-we-work"
+import { HomeFaq } from "@/components/main/home-faq"
+import { homeFaqs } from "@/lib/home-faq"
 import { SectionHead } from "@/components/main/section-head"
 import { CasesTable } from "@/components/cases-table"
 import { DiaryGrid } from "@/components/diary-entries"
@@ -17,6 +22,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 }
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+}
+
 export default async function Page() {
   const cases = getCases({ limit: 6 })
   const diary = getDiary({ limit: 3 })
@@ -25,8 +36,12 @@ export default async function Page() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <HomeHero />
       <FieldsSection />
+      <CentersBand />
+      <AboutBand />
+      <HowWeWork />
       {cases.length > 0 && (
         <section className="px-5 md:px-12 lg:px-14 pb-14 md:pb-20">
           <div className="max-w-7xl mx-auto">
@@ -50,6 +65,7 @@ export default async function Page() {
         blogUrl={firmBlogId ? `https://blog.naver.com/${firmBlogId}` : undefined}
       />
       <PeopleSection />
+      <HomeFaq />
       <MapSection />
     </>
   )

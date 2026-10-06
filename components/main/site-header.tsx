@@ -14,7 +14,7 @@ export type HeaderFlags = { showCases: boolean; showDiary: boolean; showMedia: b
 const lawyerName = (slug: string) => lawyers.find((l) => l.slug === slug)?.name ?? ""
 const centerOf = (slug: string) => centers.find((c) => c.slug === slug)
 
-/** 메인 사이트 헤더: 남색 바탕 + 흰 로고 + 메뉴 + '맡는 일' 펼침 메뉴 */
+/** 메인 사이트 헤더: 남색 바탕 + 흰 로고 + 메뉴 + '업무영역' 펼침 메뉴 */
 export function SiteHeader({ showCases, showDiary, showMedia }: HeaderFlags) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
@@ -73,7 +73,7 @@ export function SiteHeader({ showCases, showDiary, showMedia }: HeaderFlags) {
                 aria-controls="field-menu"
                 onClick={() => setMegaOpen((v) => !v)}
               >
-                맡는 일 <ChevronDown className={`h-4 w-4 transition-transform ${megaOpen ? "rotate-180" : ""}`} />
+                업무영역 <ChevronDown className={`h-4 w-4 transition-transform ${megaOpen ? "rotate-180" : ""}`} />
               </button>
               {after.map((l) => (
                 <Link key={l.href} href={l.href} className={navLink}>
@@ -123,7 +123,7 @@ export function SiteHeader({ showCases, showDiary, showMedia }: HeaderFlags) {
                         ))}
                       </p>
                     )}
-                    <p className="mt-3 text-xs text-[#8A9099]">맡는 변호사 {f.lawyers.map(lawyerName).join(" · ")}</p>
+                    <p className="mt-3 text-xs text-[#8A9099]">담당 변호사 {f.lawyers.map(lawyerName).join(" · ")}</p>
                   </div>
                 ))}
               </div>
