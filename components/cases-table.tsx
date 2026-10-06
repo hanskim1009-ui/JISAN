@@ -52,7 +52,7 @@ export function CasesTable({ items, tabs = true }: { items: CaseItem[]; tabs?: b
                     {c.situation}
                   </Link>
                 </td>
-                <td className="py-3 pr-3 font-bold text-jisan-logo whitespace-nowrap">{c.result}</td>
+                <td className="py-3 pr-3 font-bold text-brand-accent whitespace-nowrap">{c.result}</td>
                 <td className="py-3 whitespace-nowrap">{c.lawyers.map(name).join(", ")}</td>
               </tr>
             ))}

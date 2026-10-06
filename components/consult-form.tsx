@@ -1,22 +1,14 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { siteConfig } from "@/lib/site-config"
-
-export const CASE_TYPES = ["형사", "성범죄", "가사", "기업", "민사", "건설·부동산", "회생·파산", "기타"]
+import { CASE_TYPES } from "@/lib/practice"
 
 export const DEFAULT_STAGE_OPTIONS = ["상담만 먼저 받고 싶음", "고소·소송 준비 중", "수사·소송 진행 중", "재판 중"]
-
-/** 메인 사이트의 상황 버튼이 폼의 사건 유형을 미리 고를 때 쓰는 이벤트 */
-export const CONSULT_PRESET_EVENT = "consult:preset"
-
-export function presetConsult(caseType: string) {
-  window.dispatchEvent(new CustomEvent(CONSULT_PRESET_EVENT, { detail: caseType }))
-}
 
 type ConsultFormProps = {
   /** 한 페이지에 폼이 둘 이상일 때 id 충돌 방지 */
@@ -26,10 +18,10 @@ type ConsultFormProps = {
   /** 접수 메일 제목에 붙는 출처 (예: "형사센터") */
   source?: string
   stageOptions?: string[]
+  /** 메인 상담 페이지: 첫 화면에서 고른 분야를 미리 선택 (/consult?type=가사) */
+  defaultCaseType?: string
   /** 첫 화면용 짧은 폼: 상담 내용·걱정되는 점 생략 */
   compact?: boolean
-  /** strip: 이름·연락처·분야만 한 줄로 (메인 상담 띠) */
-  layout?: "stack" | "strip"
 }
 
 export function ConsultForm({
@@ -37,19 +29,12 @@ export function ConsultForm({
   fixedCaseType,
   source,
   stageOptions = DEFAULT_STAGE_OPTIONS,
+  defaultCaseType,
   compact = false,
-  layout = "stack",
 }: ConsultFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
-  const [caseType, setCaseType] = useState(fixedCaseType ?? "")
+  const [caseType, setCaseType] = useState(fixedCaseType ?? defaultCaseType ?? "")
   const id = (name: string) => `${idPrefix}-${name}`
-
-  useEffect(() => {
-    if (fixedCaseType) return
-    const onPreset = (e: Event) => setCaseType((e as CustomEvent<string>).detail)
-    window.addEventListener(CONSULT_PRESET_EVENT, onPreset)
-    return () => window.removeEventListener(CONSULT_PRESET_EVENT, onPreset)
-  }, [fixedCaseType])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -90,45 +75,6 @@ export function ConsultForm({
         전송에 실패했습니다. 전화({siteConfig.phone}) 또는 카카오톡으로 문의해 주세요.
       </p>
     ) : null
-
-  if (layout === "strip") {
-    const field = "h-11 w-full border border-[#D7D9DD] bg-white px-3 text-sm placeholder:text-[#8A9099] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jisan-logo/40"
-    return (
-      <form onSubmit={handleSubmit} className="min-w-0">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_auto] gap-2">
-          <label htmlFor={id("name")} className="sr-only">이름</label>
-          <input id={id("name")} name="name" required placeholder="이름" autoComplete="name" className={field} />
-          <label htmlFor={id("phone")} className="sr-only">연락처</label>
-          <input id={id("phone")} name="phone" type="tel" required placeholder="연락처" autoComplete="tel" className={field} />
-          <label htmlFor={id("caseType")} className="sr-only">분야</label>
-          <select
-            id={id("caseType")}
-            name="caseType"
-            value={caseType}
-            onChange={(e) => setCaseType(e.target.value)}
-            className={`${field} ${caseType ? "text-foreground" : "text-[#8A9099]"}`}
-          >
-            <option value="">분야 선택</option>
-            {CASE_TYPES.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-          <button
-            type="submit"
-            disabled={status === "submitting"}
-            className="h-11 bg-jisan-ink px-7 text-[15px] font-semibold text-white hover:bg-jisan-ink/90 disabled:opacity-60"
-          >
-            {status === "submitting" ? "전송 중..." : "상담 신청"}
-          </button>
-        </div>
-        <div className="mt-2 text-xs text-[#8A9099]">
-          {statusLine ?? "변호사가 내용을 확인하고 연락드립니다. 상담 내용은 변호사의 비밀유지 의무로 보호됩니다."}
-        </div>
-      </form>
-    )
-  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">

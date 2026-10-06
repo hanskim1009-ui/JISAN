@@ -15,7 +15,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   return (
     <>
       <SiteHeader {...flags} />
-      <FloatingCTA consultHref="/#consult" />
+      <FloatingCTA consultHref="/consult" />
       <BackToTop />
       <div className="pb-24 md:pb-0">
         <main id="main-content">{children}</main>

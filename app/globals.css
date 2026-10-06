@@ -1,6 +1,20 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Serif+KR:wght@500;600;700&display=swap");
 
+/* 제목 서체: 마루부리 (네이버 무료 글꼴, 자주 쓰는 한글 2,350자만 담아 용량을 줄였습니다) */
+@font-face {
+  font-family: "MaruBuri";
+  src: url("/fonts/MaruBuri-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MaruBuri";
+  src: url("/fonts/MaruBuri-SemiBold.woff2") format("woff2");
+  font-weight: 600 700;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -42,6 +56,13 @@
     --sidebar-accent-foreground: 230 25% 14%;
     --sidebar-border: 230 16% 90%;
     --sidebar-ring: 230 35% 18%;
+
+    /* 지산 브랜드 색 (메인 사이트). 색 조합을 바꿀 때는 이 다섯 줄만 고칩니다 */
+    --brand: 12 30 54; /* 첫 화면·헤더 바탕 #0C1E36 */
+    --brand-tone: 24 48 79; /* 바탕 위 큰 로고·무늬 #18304F */
+    --brand-deep: 8 22 40; /* 맨 아래 #081628 */
+    --brand-accent: 31 78 140; /* 흰 바탕 위 강조 글자 #1F4E8C */
+    --brand-paper: 243 239 231; /* 종이색 바탕, 남색 위 글자 #F3EFE7 */
   }
 }
 

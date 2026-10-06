@@ -29,7 +29,7 @@ export function DiaryGrid({ entries }: { entries: DiaryEntry[] }) {
           <p className="mt-3 text-[13px] text-[#8A9099] tabular-nums">{formatDate(e.date).full}</p>
           <h3 className="mt-0.5 text-[17px] font-bold text-jisan-ink">{e.title}</h3>
           <p className="mt-1.5 text-[15px] leading-[1.75] text-[#2D323A]">{e.body}</p>
-          <p className="mt-2 text-xs font-bold text-jisan-logo">{e.field}</p>
+          <p className="mt-2 text-xs font-bold text-brand-accent">{e.field}</p>
         </article>
       ))}
     </div>
@@ -59,7 +59,7 @@ export function DiaryList({ entries }: { entries: DiaryEntry[] }) {
               <h2 className="text-xl font-bold text-jisan-ink">{e.title}</h2>
               <p className="mt-2 text-[15px] leading-[1.85] text-[#2D323A] whitespace-pre-line">{e.body}</p>
               <p className="mt-3 text-[13px] text-[#8A9099]">
-                <b className="text-jisan-logo">{e.field}</b> · {e.author} · 보내 주신 분의 허락을 받았습니다
+                <b className="text-brand-accent">{e.field}</b> · {e.author} · 보내 주신 분의 허락을 받았습니다
               </p>
             </div>
           </article>

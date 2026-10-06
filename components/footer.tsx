@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { siteConfig } from "@/lib/site-config"
+import { LogoSvg } from "@/components/brand-logo"
 
 const legalLinks = [
   { label: "개인정보처리방침", href: "/privacy" },
@@ -7,57 +8,43 @@ const legalLinks = [
   { label: "이메일무단수집거부", href: "/email-refuse" },
 ]
 
+/** 맨 아래: 깊은 남색 바탕 + 큰 로고와 이름 + 주소·전화·사업자 정보 */
 export function Footer() {
   return (
-    <footer className="px-5 py-12 md:px-12 lg:px-14 border-t border-border bg-background">
+    <footer className="bg-brand-deep text-white/70 px-5 md:px-12 lg:px-14 pt-14 pb-10 md:pt-16">
       <div className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-10 md:mb-14">
-        <div className="md:col-span-5">
-          <Link href="/" className="text-lg font-bold tracking-tight text-foreground">
-            {siteConfig.name}
-          </Link>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground max-w-xs">
-            {siteConfig.address}
-            <br />
-            전화 {siteConfig.phone}
-            <br />
-            주말/공휴일 24시간 상담가능
-          </p>
-        </div>
-
-        <div className="md:col-span-3 md:col-start-10">
-          <p className="text-xs tracking-[0.08em] text-muted-foreground/80 mb-4">
-            사무소 정보
-          </p>
-          <div className="space-y-1.5 text-sm text-muted-foreground">
-            <p>사업자 등록 번호 : {siteConfig.businessRegistration}</p>
-            <p>광고책임 변호사 : {siteConfig.advertisingAttorney}</p>
+        <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+          <div>
+            <Link href="/" className="inline-flex items-center gap-4 text-white">
+              <LogoSvg variant="reverse" className="h-11 w-auto md:h-14" />
+              <span className="font-serif text-2xl md:text-[2rem] font-semibold tracking-tight">{siteConfig.name}</span>
+            </Link>
+            <p className="mt-4 text-sm text-white/55">지산은 ‘지혜의 산’이라는 뜻입니다.</p>
           </div>
+          <a href={siteConfig.phoneHref} className="md:text-right">
+            <span className="block text-[1.75rem] font-bold tabular-nums tracking-tight text-white">{siteConfig.phone}</span>
+            <span className="text-[13px] text-white/60">24시간 · 주말·공휴일 포함</span>
+          </a>
         </div>
-      </div>
 
-      <div className="flex flex-wrap gap-4 py-4 border-t border-border">
-        {legalLinks.map((link) => (
-          <Link
-            key={link.label}
-            href={link.href}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </div>
+        <div className="mt-10 grid grid-cols-1 gap-1.5 border-t border-white/15 pt-6 text-sm md:grid-cols-2">
+          <p>{siteConfig.address}</p>
+          <p className="md:text-right">
+            사업자등록번호 {siteConfig.businessRegistration} · 광고책임변호사 {siteConfig.advertisingAttorney}
+          </p>
+        </div>
 
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between pt-6 border-t border-border gap-3">
-        <p className="text-sm tracking-[0.06em] text-muted-foreground/80">
-          © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-        </p>
-        <p className="text-sm tracking-[0.06em] text-muted-foreground/80">
-          Seoul · Seocho
-        </p>
-      </div>
+        <div className="mt-6 flex flex-col gap-3 text-[13px] md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {legalLinks.map((link) => (
+              <Link key={link.label} href={link.href} className="hover:text-white transition-colors">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <p className="text-white/45">© {new Date().getFullYear()} {siteConfig.name}</p>
+        </div>
       </div>
     </footer>
   )
 }
-

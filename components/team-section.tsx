@@ -148,7 +148,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
         {/* 텍스트 영역 */}
         <div className="flex flex-col justify-center px-8 py-12 md:px-14 md:py-16 flex-1">
           {/* 이름 + 직함 */}
-          <p className="mb-1 text-xs font-bold text-jisan-logo">{lawyer.field}</p>
+          <p className="mb-1 text-xs font-bold text-brand-accent">{lawyer.field}</p>
           <div className="flex items-baseline gap-3 mb-8 border-b border-border pb-8">
             <h3 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground">
               {lawyer.name}

@@ -12,8 +12,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', '"Helvetica Neue"', '"Segoe UI"', '"Apple SD Gothic Neo"', '"Noto Sans KR"', '"Malgun Gothic"', 'sans-serif'],
-        /* B안 톤: 제목용 세리프 (globals.css에서 Noto Serif KR 로드) */
-        serif: ['"Noto Serif KR"', '"Apple Myungjo"', 'Georgia', 'serif'],
+        /* 제목용 명조: 마루부리, 없는 글자는 Noto Serif KR (globals.css) */
+        serif: ['MaruBuri', '"Noto Serif KR"', '"Apple Myungjo"', 'Georgia', 'serif'],
       },
       colors: {
         /* 지산 브랜드 색 */
@@ -27,6 +27,14 @@ const config: Config = {
           /* 로고 남청색: 메인 사이트 유일한 강조색 */
           logo: '#0E4A73',
           stone: '#F5F4F1',
+        },
+        /* 메인 사이트 브랜드 색: globals.css의 --brand* 값을 바꾸면 전체가 바뀝니다 */
+        brand: {
+          DEFAULT: 'rgb(var(--brand) / <alpha-value>)',
+          tone: 'rgb(var(--brand-tone) / <alpha-value>)',
+          deep: 'rgb(var(--brand-deep) / <alpha-value>)',
+          accent: 'rgb(var(--brand-accent) / <alpha-value>)',
+          paper: 'rgb(var(--brand-paper) / <alpha-value>)',
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
