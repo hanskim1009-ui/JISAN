@@ -65,7 +65,7 @@ function JsonLdScript() {
         name: "법률사무소 지산",
         alternateName: "Jisan Law",
         url: siteUrl,
-        telephone: "+82-2-6951-4907",
+        telephone: "+82-2-6951-4097",
         address: {
           "@type": "PostalAddress",
           streetAddress: "서초대로46길 109, 6층",
