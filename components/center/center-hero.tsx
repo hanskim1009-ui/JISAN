@@ -102,13 +102,14 @@ function Hero({ look, center }: { look: Look; center: Center }) {
                     s.urgent ? "border-[#E2620F] text-[#B4490A] hover:bg-[#E2620F]/5" : "border-[#E2E6ED] hover:border-jisan-blue"
                   }`}
                 >
-                  {s.label}
+                  <span className="min-w-0 flex-1">{s.label}</span>
+                  {/* 모바일은 화살표만, 넓은 화면은 짧은 설명 + 화살표 (설명이 길어도 제목을 밀어내지 않게) */}
                   <span
-                    className={`shrink-0 text-xs font-medium transition-transform group-hover:translate-x-0.5 ${
+                    className={`max-w-[45%] text-right text-xs font-medium leading-snug transition-transform group-hover:translate-x-0.5 ${
                       s.urgent ? "text-[#B4490A]" : "text-muted-foreground"
                     }`}
                   >
-                    {hint}
+                    <span className="hidden sm:inline">{hint?.replace(/\s*→\s*$/, "")} </span>→
                   </span>
                 </a>
               </li>

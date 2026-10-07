@@ -146,8 +146,11 @@ export default async function CenterPage({ params }: Props) {
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.situations.title}</h2>
             <ul className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
-              {center.situations.items.map((it) => (
-                <li key={it} className="flex items-start gap-3 rounded-xl border border-[#E2E6ED] bg-white px-4 py-3.5 text-[0.9375rem] text-jisan-ink">
+              {center.situations.items.map((it, i) => (
+                <li
+                  key={it}
+                  className={`${i >= 4 ? "hidden md:flex" : "flex"} items-start gap-3 rounded-xl border border-[#E2E6ED] bg-white px-4 py-3.5 text-[0.9375rem] text-jisan-ink`}
+                >
                   <Check className={`mt-0.5 h-4 w-4 shrink-0 ${t.accent}`} />
                   {it}
                 </li>
@@ -211,24 +214,24 @@ export default async function CenterPage({ params }: Props) {
             <h2 className={h2}>상황별 안내</h2>
             <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">처음 겪는 일이라 막막할 때, 무엇부터 해야 하는지 정리했습니다.</p>
             <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {guides.slice(0, 6).map((g) => (
-                <li key={g.slug}>
+              {guides.slice(0, 6).map((g, i) => (
+                <li key={g.slug} className={i >= 3 ? "hidden md:block" : undefined}>
                   <Link
                     href={g.href}
-                    className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-6"
+                    className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-5 md:p-6"
                   >
                     <span className={`text-xs font-bold ${t.accent}`}>{center.name} 안내</span>
-                    <span className="mt-2 text-xl font-bold tracking-tight text-jisan-ink">{g.title}</span>
-                    <span className="mt-2 text-sm leading-relaxed text-jisan-ink/65">{g.lead}</span>
-                    <span className={`mt-auto pt-5 text-sm font-semibold ${t.accent}`}>
+                    <span className="mt-2 text-lg font-bold tracking-tight text-jisan-ink md:text-xl">{g.title}</span>
+                    <span className="mt-2 line-clamp-3 text-sm leading-relaxed text-jisan-ink/65 md:line-clamp-none">{g.lead}</span>
+                    <span className={`mt-auto hidden pt-5 text-sm font-semibold md:block ${t.accent}`}>
                       읽어 보기 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                     </span>
                   </Link>
                 </li>
               ))}
             </ul>
-            {guideTotal > 6 && (
-              <Link href={`/${center.slug}/guide`} className={`mt-6 inline-block text-sm font-semibold ${t.accent}`}>
+            {guideTotal > 3 && (
+              <Link href={`/${center.slug}/guide`} className={`mt-6 inline-block text-sm font-semibold ${t.accent} ${guideTotal > 6 ? "" : "md:hidden"}`}>
                 안내 글 {guideTotal}편 모두 보기 →
               </Link>
             )}
@@ -268,7 +271,7 @@ export default async function CenterPage({ params }: Props) {
                     {l.name} <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
                   </p>
                   <p className="mt-1 text-[0.8125rem] font-medium leading-snug text-jisan-ink/80">{l.note}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70 line-clamp-4">{l.summary}</p>
+                  <p className="mt-2 hidden text-sm leading-relaxed text-jisan-ink/70 line-clamp-4 sm:[display:-webkit-box]">{l.summary}</p>
                   <a href="#consult" className={`mt-3 inline-block text-sm font-semibold ${t.accent}`}>
                     이 변호사에게 상담
                   </a>
@@ -279,9 +282,9 @@ export default async function CenterPage({ params }: Props) {
           {others.length > 0 && (
             <>
               <h3 className="mt-12 text-lg font-bold text-jisan-ink">함께 사건을 보는 변호사</h3>
-              <ul className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+              <ul className="no-scrollbar -mx-6 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-6 px-6 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 lg:grid-cols-4">
                 {others.map((l) => (
-                  <li key={l.slug} className="card-lift min-w-0 overflow-hidden rounded-2xl bg-white border border-[#E2E6ED]">
+                  <li key={l.slug} className="card-lift w-[42%] min-w-0 shrink-0 snap-start overflow-hidden rounded-2xl bg-white border border-[#E2E6ED] sm:w-auto">
                     <div className="relative aspect-[4/3] overflow-hidden bg-[#2a3348]">
                       <LawyerPhoto src={l.image} name={l.name} imageClassName="object-cover object-top" sizes="(max-width: 640px) 50vw, 25vw" initialClassName="text-5xl" />
                     </div>
@@ -327,8 +330,10 @@ export default async function CenterPage({ params }: Props) {
             <h2 className={h2}>{center.name} 칼럼</h2>
             <SampleNote show={columns.some((c) => c.sample)} className="mt-3" />
             <div className="mt-6 border-t border-jisan-ink">
-              {columns.map((c) => (
-                <ColumnRow key={c.id} c={c} />
+              {columns.map((c, i) => (
+                <div key={c.id} className={i >= 3 ? "hidden md:block" : undefined}>
+                  <ColumnRow c={c} />
+                </div>
               ))}
             </div>
             {columnTotal > columns.length && (
@@ -371,7 +376,7 @@ export default async function CenterPage({ params }: Props) {
           </p>
           <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {openOffices.map((o) => (
-              <li key={o.name} className="border border-[#E2E6ED] bg-white p-5">
+              <li key={o.name} className={`border border-[#E2E6ED] bg-white p-5 ${o.address ? "" : "hidden sm:block"}`}>
                 <p className="text-lg font-bold text-jisan-ink">{o.name}</p>
                 <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70">{officeAddress(o)}</p>
                 <p className="mt-3 text-sm font-semibold tabular-nums text-jisan-ink">전화 {o.phone || siteConfig.phone}</p>
@@ -383,6 +388,11 @@ export default async function CenterPage({ params }: Props) {
               </li>
             ))}
           </ul>
+          {openOffices.some((o) => !o.address) && (
+            <p className="mt-3 text-sm text-jisan-ink/70 sm:hidden">
+              {openOffices.filter((o) => !o.address).map((o) => o.name).join(" · ")}: 주소 추후 안내, 전화 {siteConfig.phone}
+            </p>
+          )}
           <p className="mt-4 text-[0.8125rem] text-jisan-ink/55">상담 전화는 24시간, 주말·공휴일에도 받습니다.</p>
         </div>
       </section>
