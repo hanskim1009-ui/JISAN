@@ -1475,15 +1475,15 @@
           ],
           "bullets": [
             "50대 50이면 어느 한쪽만으로는 보통결의도 특별결의도 통과되지 않습니다.",
-            "발행주식총수의 3% 이상이면 회계장부 열람과 임시주주총회 소집 청구를 할 수 있습니다(상법 제466조, 제366조).",
-            "1% 이상이면 총회 전 검사인 선임 청구와 대표소송을 할 수 있습니다(상법 제367조, 제403조)."
+            "발행주식총수의 100분의 3 이상이면 회계장부 열람과 임시주주총회 소집 청구를 할 수 있습니다(상법 제466조, 제366조).",
+            "100분의 1 이상이면 총회 전 검사인 선임 청구와 대표소송을 할 수 있습니다(상법 제367조, 제403조)."
           ]
         },
         {
           "title": "상대방이 회사 돈을 썼다는 의심이 있다면",
           "body": [
-            "정관, 주주총회 의사록, 주주명부는 지분과 상관없이 주주라면 열람을 청구할 수 있습니다(상법 제396조). 3% 이상 주주는 이유를 적은 서면으로 회계장부 열람을 청구하고, 회사가 거부하면 법원에 가처분을 신청합니다.",
-            "이사가 부정행위를 했는데 주주총회에서 해임안이 부결되면 3% 이상 주주가 결의일부터 1개월 안에 법원에 해임을 청구할 수 있습니다(상법 제385조 제2항). 소송을 내면서 직무집행정지 가처분을 함께 신청하는 경우가 많습니다(상법 제407조)."
+            "정관, 주주총회 의사록, 주주명부는 지분과 상관없이 주주라면 열람을 청구할 수 있습니다(상법 제396조). 100분의 3 이상 주주는 이유를 적은 서면으로 회계장부 열람을 청구하고, 회사가 거부하면 법원에 가처분을 신청합니다.",
+            "이사가 부정행위를 했는데 주주총회에서 해임안이 부결되면 100분의 3 이상 주주가 결의일부터 1개월 안에 법원에 해임을 청구할 수 있습니다(상법 제385조 제2항). 소송을 내면서 직무집행정지 가처분을 함께 신청하는 경우가 많습니다(상법 제407조)."
           ]
         },
         {
@@ -1682,7 +1682,7 @@
           ]
         },
         {
-          "title": "앞으로의 절차: 고소와 가압류를 함께",
+          "title": "고소와 가압류는 함께 진행합니다",
           "body": [
             "고소장은 거래표와 증거를 붙여 경찰 등 수사기관에 냅니다. 고소인 조사에서 거래 하나하나를 설명하게 되므로, 표에 적은 순서대로 증거 번호를 붙여 두면 조사가 수월합니다. 경찰이 수사를 마치고 송치하면 공소청 검사가 기소 여부를 정합니다.",
             "형사 처벌만으로 돈이 돌아오지는 않습니다. 직원 명의 예금, 부동산, 자동차에 가압류를 신청해 재산을 묶어 두고(민사집행법 제276조), 손해배상 소송을 냅니다. 가압류를 할 때 법원이 담보 제공을 명할 수 있으니 그 비용도 미리 생각해 두세요(민사집행법 제280조). 고소 사실이 알려지기 전에 가압류를 먼저 신청하는 것이 일반적입니다.",
@@ -1837,10 +1837,10 @@
     {
       "slug": "shareholder-meeting-request",
       "title": "임시주주총회를 열고 싶을 때",
-      "lead": "이사회가 총회를 열어 주지 않으면 소수주주는 손쓸 수 없다고 생각하기 쉽습니다. 상법은 3% 이상 주주가 법원 허가를 받아 직접 총회를 여는 길을 두고 있습니다. 청구서 한 장부터 총회 당일까지 순서대로 적었습니다.",
+      "lead": "이사회가 총회를 열어 주지 않으면 소수주주는 손쓸 수 없다고 생각하기 쉽습니다. 상법은 100분의 3 이상을 가진 주주가 법원 허가를 받아 직접 총회를 여는 길을 두고 있습니다. 청구서 한 장부터 총회 당일까지 순서대로 적었습니다.",
       "seo": {
         "title": "소수주주 임시주주총회 소집청구와 법원 허가 | 지산 기업센터",
-        "description": "발행주식 3% 이상 주주는 이사회에 임시주주총회 소집을 청구하고, 회사가 움직이지 않으면 법원 허가를 받아 직접 소집할 수 있습니다. 안건 정하는 법, 내용증명, 허가 신청, 의장 선임, 총회 뒤 기한까지 정리했습니다.",
+        "description": "발행주식총수의 100분의 3 이상을 가진 주주는 이사회에 임시주주총회 소집을 청구하고, 회사가 움직이지 않으면 법원 허가를 받아 직접 소집할 수 있습니다. 안건 정하는 법, 내용증명, 허가 신청, 의장 선임, 총회 뒤 기한까지 정리했습니다.",
         "keywords": [
           "임시주주총회 소집허가",
           "소수주주 소집청구",
@@ -1854,7 +1854,7 @@
         {
           "title": "지분과 안건부터 확인합니다",
           "body": [
-            "발행주식총수의 3% 이상을 가진 주주가 청구할 수 있습니다(상법 제366조 제1항). 여러 주주의 지분을 합쳐도 됩니다. 상장회사는 6개월 전부터 계속 1.5% 이상을 가진 주주도 청구할 수 있는데(상법 제542조의6 제1항), 보유기간을 못 채웠다면 3% 요건으로 청구해도 됩니다.",
+            "발행주식총수의 100분의 3 이상을 가진 주주가 청구할 수 있습니다(상법 제366조 제1항). 여러 주주의 지분을 합쳐도 됩니다. 상장회사는 6개월 전부터 계속 1천분의 15 이상을 가진 주주도 청구할 수 있는데(상법 제542조의6 제1항), 보유기간을 못 채웠다면 100분의 3 요건으로 청구해도 됩니다.",
             "안건은 주주총회가 결의할 수 있는 사항이어야 합니다. 대표이사는 원칙적으로 이사회가 정하므로 정관에 따로 정하지 않았다면 '대표이사 해임'은 안건이 될 수 없습니다. 이럴 때는 이사 해임과 새 이사 선임으로 안건을 짭니다. 새 이사 후보는 이름과 경력까지 구체적으로 적어 둡니다."
           ]
         },
@@ -1895,13 +1895,13 @@
           "title": "상장회사라면 함께 볼 것",
           "body": [
             "상장회사에서 다른 주주들에게 위임장을 모으려면 의결권 대리행사 권유 절차를 따라야 합니다(자본시장법 제152조). 위임장 용지와 참고서류를 미리 제출하는 절차가 있어 총회 일정에 맞춰 거꾸로 계산해야 합니다.",
-            "위임장을 받는 것만으로 곧바로 5% 대량보유 보고 의무가 생기지는 않는다는 대법원 판결이 최근에 나왔습니다. 다만 다른 주주들과 의결권을 함께 행사하기로 합의하면 공동보유자가 되어 합산 지분으로 보고 의무가 생길 수 있습니다(자본시장법 제147조). 보고를 빠뜨리면 의결권이 제한되니 연대를 꾸릴 때 이 부분을 먼저 확인합니다."
+            "위임장을 받는 것만으로 곧바로 대량보유(100분의 5) 보고 의무가 생기지는 않는다는 대법원 판결이 최근에 나왔습니다. 다만 다른 주주들과 의결권을 함께 행사하기로 합의하면 공동보유자가 되어 합산 지분으로 보고 의무가 생길 수 있습니다(자본시장법 제147조). 보고를 빠뜨리면 의결권이 제한되니 연대를 꾸릴 때 이 부분을 먼저 확인합니다."
           ]
         },
         {
           "title": "총회 당일과 그 뒤",
           "body": [
-            "회사 측 진행이 걱정되면 총회 전에 1% 이상 주주가 법원에 검사인 선임을 청구할 수 있습니다(상법 제367조 제2항). 총회가 끝나면 위임장, 출석 명단, 투표 집계는 회사가 보관하므로 필요하면 증거보전을 신청합니다(민사소송법 제375조). 소집 절차나 결의 방법에 문제가 있었다면 결의일부터 2개월 안에 결의취소 소송을 내야 합니다(상법 제376조).",
+            "회사 측 진행이 걱정되면 총회 전에 100분의 1 이상 주주가 법원에 검사인 선임을 청구할 수 있습니다(상법 제367조 제2항). 총회가 끝나면 위임장, 출석 명단, 투표 집계는 회사가 보관하므로 필요하면 증거보전을 신청합니다(민사소송법 제375조). 소집 절차나 결의 방법에 문제가 있었다면 결의일부터 2개월 안에 결의취소 소송을 내야 합니다(상법 제376조).",
             "지산은 청구서 작성부터 허가 신청, 의장 선임, 총회 진행 준비까지 맡습니다. 회사 쪽이 이미 총회 날짜를 정해 통지했다면 기한이 짧으니 02-6951-4097로 먼저 알려 주세요."
           ]
         }
@@ -1912,7 +1912,7 @@
           "a": "회사가 이사회 결의로 총회를 소집하면 법원은 허가할 필요가 없어졌다고 보고 신청을 받아들이지 않는 경우가 많습니다. 이때 의장은 보통 대표이사가 맡습니다. 진행이 걱정되면 총회 전에 검사인 선임을 청구하는 방법을 함께 검토합니다."
         },
         {
-          "q": "3%를 여러 주주가 합쳐서 채워도 되나요?",
+          "q": "100분의 3을 여러 주주가 합쳐서 채워도 되나요?",
           "a": "됩니다. 청구서와 법원 신청서에 지분을 합친 주주 모두가 이름을 올리고, 절차가 끝날 때까지 각자 지분을 유지하는 것이 안전합니다."
         },
         {
@@ -1987,7 +1987,7 @@
         {
           "title": "민사 책임도 함께 봅니다",
           "body": [
-            "배임 고소와 함께 회사가 대표에게 손해배상을 청구하거나(상법 제399조), 1% 이상 주주가 회사를 대신해 대표소송을 내는 경우가 많습니다(상법 제403조). 형사 조사에서 한 말과 민사 소송에서 내는 주장이 다르면 양쪽 모두에서 불리해집니다.",
+            "배임 고소와 함께 회사가 대표에게 손해배상을 청구하거나(상법 제399조), 100분의 1 이상 주주가 회사를 대신해 대표소송을 내는 경우가 많습니다(상법 제403조). 형사 조사에서 한 말과 민사 소송에서 내는 주장이 다르면 양쪽 모두에서 불리해집니다.",
             "그래서 처음부터 거래별로 사실관계를 한 장의 표로 정리하고, 그 표를 기준으로 조사 진술과 소송 서면을 맞춥니다. 경영권 분쟁 중이라면 다음 주주총회 일정과 수사 일정을 함께 놓고 대응 순서를 정합니다."
           ]
         },
@@ -2025,7 +2025,7 @@
       "lead": "상장회사 임직원이나 주주가 금융감독원에서 출석 요구서나 자료 제출 요구를 받으면 수사와 무엇이 다른지부터 궁금해집니다. 조사의 근거와 출석 전 준비, 문답에서 조심할 것을 정리했습니다.",
       "seo": {
         "title": "금융감독원 조사 출석 요구 대응 | 지산 기업센터",
-        "description": "금감원 출석 요구서를 받았다면 조사 근거와 대상 거래를 확인하고 증권 계좌 체결내역과 당시 회사 일정을 시간순으로 정리하세요. 미공개정보, 단기매매차익, 5% 보고 문제와 조사 뒤 절차를 안내합니다.",
+        "description": "금감원 출석 요구서를 받았다면 조사 근거와 대상 거래를 확인하고 증권 계좌 체결내역과 당시 회사 일정을 시간순으로 정리하세요. 미공개정보, 단기매매차익, 대량보유 보고 문제와 조사 뒤 절차를 안내합니다.",
         "keywords": [
           "금감원 조사",
           "금융감독원 출석요구",
@@ -2080,7 +2080,7 @@
           "bullets": [
             "미공개중요정보 이용: 상장회사 업무와 관련된 미공개 정보를 거래에 쓰거나 남에게 쓰게 하면 1년 이상의 유기징역 또는 얻은 이익의 4배 이상 6배 이하 벌금에 처해질 수 있습니다(자본시장법 제443조).",
             "단기매매차익: 임원, 일정한 직원, 주요주주가 6개월 안에 사고팔아 이익을 얻으면 정보 이용 여부와 상관없이 회사가 그 이익의 반환을 청구할 수 있습니다(자본시장법 제172조).",
-            "대량보유 보고: 특별관계자와 합쳐 5% 이상이 되거나 1% 이상 바뀌면 5일 안에 보고해야 하고, 빠뜨리면 초과분 의결권이 제한되고 처분명령을 받을 수 있습니다(자본시장법 제147조, 제150조)."
+            "대량보유 보고: 특별관계자와 합쳐 100분의 5 이상이 되거나 100분의 1 이상 바뀌면 5일 안에 보고해야 하고, 빠뜨리면 초과분 의결권이 제한되고 처분명령을 받을 수 있습니다(자본시장법 제147조, 제150조)."
           ]
         },
         {
@@ -2115,7 +2115,7 @@
       "lead": "채용하면서 \"회사 잘되면 지분 줄게\"라고 말했거나 오퍼레터에 스톡옵션을 적었다면, 실제로 권리가 생기려면 법에 정한 절차를 밟아야 합니다. 약속과 부여가 어떻게 다른지, 무엇을 정해야 하는지 정리했습니다.",
       "seo": {
         "title": "스톡옵션 부여 절차와 계약서 | 지산 기업센터",
-        "description": "스톡옵션은 정관 근거와 주주총회 특별결의, 부여계약서가 있어야 효력이 생깁니다. 부여할 수 없는 사람, 발행주식 10% 한도, 2년 재직 요건, 행사가격, 벤처기업 특례와 계약서 조항까지 정리했습니다.",
+        "description": "스톡옵션은 정관 근거와 주주총회 특별결의, 부여계약서가 있어야 효력이 생깁니다. 부여할 수 없는 사람, 발행주식총수 100분의 10 한도, 2년 재직 요건, 행사가격, 벤처기업 특례와 계약서 조항까지 정리했습니다.",
         "keywords": [
           "스톡옵션 부여",
           "주식매수선택권",
@@ -2141,10 +2141,10 @@
             "공동창업자처럼 지분이 많은 사람에게는 스톡옵션 대신 주주간계약으로 지분을 조정하는 방법을 쓰는 경우가 많습니다. 받을 사람이 어디에 해당하는지 결의 전에 주주명부로 확인하세요."
           ],
           "bullets": [
-            "의결권 없는 주식을 뺀 발행주식총수의 10% 이상을 가진 주주",
+            "의결권 없는 주식을 뺀 발행주식총수의 100분의 10 이상을 가진 주주",
             "이사·감사 선임과 해임 등 주요 경영에 사실상 영향력을 행사하는 사람",
             "위 두 경우에 해당하는 사람의 배우자와 직계존비속",
-            "스톡옵션으로 내줄 주식은 발행주식총수의 10%를 넘을 수 없습니다(상법 제340조의2 제2항, 제3항)."
+            "스톡옵션으로 내줄 주식은 발행주식총수의 100분의 10을 넘을 수 없습니다(상법 제340조의2 제2항, 제3항)."
           ]
         },
         {
@@ -2386,8 +2386,8 @@
     },
     {
       "category": "주주·경영권",
-      "q": "지분이 1%밖에 없는데 할 수 있는 게 있나요?",
-      "a": "주주라면 지분과 상관없이 정관, 주주총회 의사록, 주주명부 열람을 청구할 수 있고(상법 제396조), 정기총회 전에 비치된 재무제표도 볼 수 있습니다(상법 제448조). 1% 이상이면 총회 전 검사인 선임 청구와 대표소송도 가능합니다(상법 제367조, 제403조)."
+      "q": "지분이 100분의 1 정도밖에 없는데 할 수 있는 게 있나요?",
+      "a": "주주라면 지분과 상관없이 정관, 주주총회 의사록, 주주명부 열람을 청구할 수 있고(상법 제396조), 정기총회 전에 비치된 재무제표도 볼 수 있습니다(상법 제448조). 100분의 1 이상이면 총회 전 검사인 선임 청구와 대표소송도 가능합니다(상법 제367조, 제403조)."
     },
     {
       "category": "주주·경영권",
@@ -2441,8 +2441,8 @@
     },
     {
       "category": "자본시장·의료",
-      "q": "지분이 5%를 넘었는데 보고를 깜빡했습니다.",
-      "a": "5% 이상이 된 날부터 5일 안에 보고해야 하고(자본시장법 제147조), 보고하지 않으면 5%를 넘는 부분 중 위반분의 의결권이 제한되고 금융위원회가 처분을 명할 수 있습니다(자본시장법 제150조). 늦었더라도 바로 보고하고, 주주총회 일정이 있다면 의결권 문제를 먼저 검토하세요."
+      "q": "지분이 100분의 5를 넘었는데 보고를 깜빡했습니다.",
+      "a": "100분의 5 이상이 된 날부터 5일 안에 보고해야 하고(자본시장법 제147조), 보고하지 않으면 100분의 5를 넘는 부분 중 위반분의 의결권이 제한되고 금융위원회가 처분을 명할 수 있습니다(자본시장법 제150조). 늦었더라도 바로 보고하고, 주주총회 일정이 있다면 의결권 문제를 먼저 검토하세요."
     },
     {
       "category": "자본시장·의료",
@@ -2504,6 +2504,124 @@
     "https://www.law.go.kr/법령/국민건강보험법",
     "https://www.law.go.kr/법령/형사소송법",
     "https://www.law.go.kr/법령/민사소송법",
-    "https://www.law.go.kr/법령/민사집행법"
+    "https://www.law.go.kr/법령/민사집행법",
+    "https://blog.sugar.legal/86812",
+    "https://blog.sugar.legal/nda-information-protection",
+    "https://braindetox.kr/posts/contract_review_guide.html",
+    "https://cheongchul.com/blog/%ED%9A%8C%EC%82%AC%EB%B2%95-%EB%B3%80%ED%98%B8%EC%82%AC-%EC%A3%BC%EC%8B%9D%EB%A7%A4%EC%88%98%EC%84%A0%ED%83%9D%EA%B6%8C(%EC%8A%A4%ED%86%A1%EC%98%B5%EC%85%98)%EC%9D%98-%EB%B9%84%EC%83%81%EC%9E%A5%ED%9A%8C%EC%82%AC%C2%B7%EC%83%81%EC%9E%A5%ED%9A%8C%EC%82%AC%C2%B7%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85-%EB%B3%84-%EC%B0%A8%EC%9D%B4%EC%99%80-%EC%8B%A4%EB%AC%B4%EC%83%81-%EC%9C%A0%EC%9D%98%EC%A0%90",
+    "https://dealsite.co.kr/articles/91362",
+    "https://inblog.ai/ko/blog/medical-ad-review",
+    "https://jipyong.com/kr/business/business_introduce.php?seq=246",
+    "https://jipyong.com/newsletter/38_201112/data/law1.html",
+    "https://k-incorp.org/blog/minority-shareholder-rights-exercise-guide-2026",
+    "https://korea.legal/wiki/%EC%9D%B4%EC%82%AC%ED%95%B4%EC%9E%84%EC%9D%98-%EC%86%8C/",
+    "https://korea.legal/wiki/%ed%9a%8c%ea%b3%84%ec%9e%a5%eb%b6%80%ec%97%b4%eb%9e%8c%ea%b6%8c/",
+    "https://korea.legal/wiki/%ed%9a%8c%ea%b3%84%ec%9e%a5%eb%b6%80-%ec%97%b4%eb%9e%8c%c2%b7%eb%93%b1%ec%82%ac-%ea%b0%80%ec%b2%98%eb%b6%84-%ec%8b%a0%ec%b2%ad/",
+    "https://korea.legal/wiki/2020%eb%8b%a4245552/",
+    "https://korea.legal/wiki/2023%eb%8b%a4220639/",
+    "https://medicaltimes.com/Main/view.html?ID=1072399",
+    "https://medicaltimes.com/Mobile/News/NewsView.html?ID=1161467",
+    "https://medicaltimes.com/Mobile/News/NewsView.html?ID=1167001",
+    "https://medigatenews.com/news/2631759208",
+    "https://miso.kr/blog/전주-기업-법률-자문-변호사-비용",
+    "https://news.bizwatch.co.kr/article/market/2024/10/07/0030",
+    "https://newstomato.com/ReadNews.aspx?no=1243297",
+    "https://v.daum.net/v/20250819060252833",
+    "https://www.bkl.co.kr/law/insight/newsletter/6778",
+    "https://www.bkl.co.kr/law/seminar/1185",
+    "https://www.daeryunlaw-detective.com/broadcast/6414",
+    "https://www.daeryunlaw-detective.com/lawInfo_new/13610",
+    "https://www.daeryunlaw.com/broadcast/6414",
+    "https://www.daeryunlaw.com/case/preemptive-right",
+    "https://www.daeryunlaw.com/field_new/2773",
+    "https://www.daeryunlaw.com/newsletter/news/146",
+    "https://www.dailypharm.com/user/news/191155",
+    "https://www.etoday.co.kr/news/view/2424964",
+    "https://www.help-me.kr/blog/article/%EC%83%81%ED%99%98%EC%A0%84%ED%99%98%EC%9A%B0%EC%84%A0%EC%A3%BC(RCPS)%EA%B0%9C%EB%85%90%EB%B6%80%ED%84%B0%EB%B0%9C%ED%96%89%EC%A0%88%EC%B0%A8%EA%B9%8C%EC%A7%80/",
+    "https://www.help-me.kr/blog/article/%EC%86%8C%EC%88%98%EC%A3%BC%EC%A3%BC%EC%9D%98%ED%9A%8C%EA%B3%84%EC%9E%A5%EB%B6%80%EC%97%B4%EB%9E%8C%EB%93%B1%EC%82%AC%EC%B2%AD%EA%B5%AC%EA%B6%8C/",
+    "https://www.help-me.kr/blog/article/redeemable-shares-redemption-registration/",
+    "https://www.inews24.com/view/1086747",
+    "https://www.lawtalk.co.kr/case-lenses/19066",
+    "https://www.lawtalk.co.kr/case-lenses/52388",
+    "https://www.lawtalk.co.kr/posts/113042",
+    "https://www.lawtalk.co.kr/posts/126868",
+    "https://www.lawtalk.co.kr/posts/126869",
+    "https://www.lawtalk.co.kr/posts/137008",
+    "https://www.lawtalk.co.kr/posts/137121",
+    "https://www.lawtalk.co.kr/posts/141887",
+    "https://www.lawtalk.co.kr/posts/142097",
+    "https://www.lawtalk.co.kr/posts/144101",
+    "https://www.lawtalk.co.kr/posts/147060",
+    "https://www.lawtalk.co.kr/posts/147979",
+    "https://www.lawtalk.co.kr/posts/152189",
+    "https://www.lawtalk.co.kr/posts/153047",
+    "https://www.lawtalk.co.kr/posts/153726",
+    "https://www.lawtalk.co.kr/posts/154237",
+    "https://www.lawtalk.co.kr/posts/154395",
+    "https://www.lawtalk.co.kr/posts/163304",
+    "https://www.lawtalk.co.kr/posts/164067",
+    "https://www.lawtalk.co.kr/posts/165571",
+    "https://www.lawtalk.co.kr/posts/165572",
+    "https://www.lawtalk.co.kr/posts/169112",
+    "https://www.lawtalk.co.kr/posts/170004",
+    "https://www.lawtalk.co.kr/posts/175772",
+    "https://www.lawtalk.co.kr/posts/176531",
+    "https://www.lawtalk.co.kr/posts/176987",
+    "https://www.lawtalk.co.kr/posts/176991",
+    "https://www.lawtalk.co.kr/posts/178130",
+    "https://www.lawtalk.co.kr/posts/20690",
+    "https://www.lawtalk.co.kr/posts/27770",
+    "https://www.lawtalk.co.kr/posts/42149",
+    "https://www.lawtalk.co.kr/posts/53711",
+    "https://www.lawtalk.co.kr/posts/53789",
+    "https://www.lawtalk.co.kr/posts/55875",
+    "https://www.lawtalk.co.kr/posts/60367",
+    "https://www.lawtalk.co.kr/qna/151008",
+    "https://www.lawtalk.co.kr/qna/176107",
+    "https://www.lawtalk.co.kr/qna/178293",
+    "https://www.lawtalk.co.kr/qna/212751",
+    "https://www.lawtalk.co.kr/qna/241009",
+    "https://www.lawtalk.co.kr/qna/251085",
+    "https://www.lawtalk.co.kr/qna/256972",
+    "https://www.lawtalk.co.kr/qna/285330",
+    "https://www.lawtalk.co.kr/qna/292490",
+    "https://www.lawtalk.co.kr/qna/339418",
+    "https://www.lawtalk.co.kr/qna/361950",
+    "https://www.lawtalk.co.kr/qna/373784",
+    "https://www.lawtalk.co.kr/qna/389354",
+    "https://www.lawtalk.co.kr/qna/411557",
+    "https://www.lawtalk.co.kr/qna/436229",
+    "https://www.lawtalk.co.kr/qna/472519",
+    "https://www.lawtimes.co.kr/news/193161",
+    "https://www.lawtimes.co.kr/news/205376",
+    "https://www.lawtimes.co.kr/news/209836",
+    "https://www.lawtimes.co.kr/opinion/205649",
+    "https://www.lawwin.co.kr/gwangju/knowledgedetail?index=7898",
+    "https://www.lawwin.co.kr/incheon/newsdetail?index=2015",
+    "https://www.lawwin.co.kr/incheon/newsdetail?index=2724",
+    "https://www.lawwin.co.kr/seoul/knowledgedetail?index=7680",
+    "https://www.lawwin.co.kr/seoul/knowledgedetail?index=8076",
+    "https://www.lawwin.co.kr/seoul/wincasedetail?index=8276",
+    "https://www.medicaltimes.com/Main/view.html?ID=1083365",
+    "https://www.medicaltimes.com/Main/view.html?ID=1114497",
+    "https://www.mt.co.kr/article/2026062613241166310",
+    "https://www.nepla.ai/wiki/기업과-소비자/상법/-일문일답-대표이사-해임을-이유로-손해배상-청구를-할-수-있는지-j3wnk2qwny6k",
+    "https://www.shinkim.com/kor/business/view/U1119",
+    "https://www.shinkim.com/kor/media/case/4809",
+    "https://www.shinkim.com/kor/media/lawinfo/212",
+    "https://www.shinkim.com/kor/media/lawinfo/272",
+    "https://www.sidae.com/article/2023020316075887358",
+    "https://www.venturesquare.net/844557/",
+    "https://zuzu.network/resource/guide/all-about-rcps-1/",
+    "https://zuzu.network/resource/promotion/legal-advisory-service-want/",
+    "https://brunch.co.kr/@kid008/1272",
+    "https://brunch.co.kr/@s-valueup/149",
+    "https://brunch.co.kr/@s-valueup/265",
+    "https://brunch.co.kr/@s-valueup/260",
+    "https://brunch.co.kr/@s-valueup/203",
+    "https://www.law.go.kr/법령/벤처투자촉진에관한법률",
+    "https://www.law.go.kr/법령/특정경제범죄가중처벌등에관한법률",
+    "https://www.law.go.kr/법령/근로자퇴직급여보장법",
+    "https://www.law.go.kr/법령/비송사건절차법"
   ]
 }
