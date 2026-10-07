@@ -1,9 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { ChevronUp } from "lucide-react"
 
+/** 칼럼 목록·본문에서는 글을 가리지 않도록 숨깁니다 */
+const HIDDEN = /^\/column(\/|$)/
+
 export function BackToTop() {
+  const pathname = usePathname()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -13,7 +18,7 @@ export function BackToTop() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  if (!visible) return null
+  if (!visible || HIDDEN.test(pathname ?? "")) return null
 
   return (
     <button
