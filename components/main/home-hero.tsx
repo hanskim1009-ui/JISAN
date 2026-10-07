@@ -40,7 +40,7 @@ function HeroCopy({ look }: { look: Look }) {
       </h1>
       <p
         {...rise(0.54)}
-        className={`${dark ? "anim-rise text-white/75" : "text-jisan-ink/80"} mt-4 max-w-2xl text-[0.9375rem] leading-[1.75] md:mt-6 md:text-[1.0625rem] md:leading-[1.8]`}
+        className={`${dark ? "anim-rise text-white/75" : "text-jisan-ink/80"} mt-4 max-w-2xl text-balance text-[0.9375rem] leading-[1.75] md:mt-6 md:text-[1.0625rem] md:leading-[1.8]`}
       >
         아직 아무것도 정해진 게 없어도 괜찮습니다.<br className="hidden md:block" /> 지산 변호사가 상황에 맞춰 전부 해드리겠습니다. 밤과 주말이어도 괜찮습니다.
       </p>

@@ -23,7 +23,7 @@ export function SectionHead({
           {title}
         </Tag>
       </div>
-      {desc && <p className="text-sm text-[#4A505A]">{desc}</p>}
+      {desc && <p className="text-balance text-sm text-[#4A505A]">{desc}</p>}
       {href && (
         <Link
           href={href}
