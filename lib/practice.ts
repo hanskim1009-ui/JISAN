@@ -1,5 +1,6 @@
 /**
- * 메인 사이트 '업무영역' — 형사·가사·기업·민사를 같은 무게로 보여 줍니다.
+ * 메인 사이트 '업무영역' — 형사·가사·기업·의료·부동산·민사를 같은 무게로 보여 줍니다.
+ * situations가 있는 분야만 첫 화면 '지금 어떤 상황이신가요?' 칸에 나옵니다.
  * centers: 이 분야의 센터 사이트(lib/centers.ts slug). 센터가 생기면 여기에 추가합니다.
  * lawyers: 담당 변호사(lib/lawyers.ts slug). 임시 배정이며 확정되면 고칩니다.
  */
@@ -55,9 +56,9 @@ export const fields: Field[] = [
     name: "기업",
     desc: "투자계약, 주주 분쟁, 경영권 문제를 사업이 법에 막히기 전에 함께 살핍니다.",
     caseType: "기업",
-    items: ["투자계약, 주주간계약", "주주총회·이사회", "경영권 분쟁", "의료기관·기업 자문"],
+    items: ["투자계약, 주주간계약", "주주총회·이사회", "경영권 분쟁", "정기 자문, 노무·중대재해"],
     lawyers: ["koo-bonwoo", "kang-hyunwoo", "park-jongjin"],
-    centers: ["corporate", "medical"],
+    centers: ["corporate"],
     situations: [
       { label: "투자계약을 검토해야 해요", center: "corporate" },
       { label: "주주 간 분쟁이 생겼어요", center: "corporate" },
@@ -66,12 +67,30 @@ export const fields: Field[] = [
     ],
   },
   {
+    name: "의료",
+    desc: "의료사고, 현지조사와 행정처분, 의료법 위반 수사까지 병원과 의료인이 겪는 일을 함께 맡습니다.",
+    caseType: "의료",
+    items: ["의료사고 형사·민사", "현지조사·환수·행정처분", "사무장병원·리베이트 수사", "병원 개설·운영 자문"],
+    lawyers: ["kim-hansol", "kang-hyunwoo"],
+    centers: ["medical"],
+    situations: [],
+  },
+  {
+    name: "부동산",
+    desc: "공사대금과 하자, 재개발·재건축, 분양과 보상금처럼 건물과 땅을 둘러싼 분쟁을 맡습니다.",
+    caseType: "건설·부동산",
+    items: ["공사대금, 하자", "재개발·재건축", "분양·지역주택조합", "토지수용·보상금"],
+    lawyers: ["park-hanmin"],
+    centers: ["construction"],
+    situations: [],
+  },
+  {
     name: "민사",
-    desc: "빌려준 돈, 공사대금, 보증금처럼 받아야 할 돈을 돌려받는 일과 회생·파산을 맡습니다.",
+    desc: "빌려준 돈, 보증금, 손해배상처럼 받아야 할 돈을 돌려받는 일과 회생·파산을 맡습니다.",
     caseType: "민사",
-    items: ["대여금·투자금 반환", "공사대금, 하자", "임대차 보증금, 명도", "개인회생·파산"],
+    items: ["대여금·투자금 반환", "임대차 보증금, 명도", "손해배상", "개인회생·파산"],
     lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon", "park-hanmin"],
-    centers: ["civil", "construction", "insolvency"],
+    centers: ["civil", "insolvency"],
     situations: [
       { label: "빌려준 돈을 못 받았어요", center: "civil" },
       { label: "공사대금 문제예요", center: "construction" },

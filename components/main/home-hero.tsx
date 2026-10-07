@@ -75,7 +75,7 @@ function HeroPicker({ look }: { look: Look }) {
         <span aria-hidden className="text-xs font-medium text-white/60 lg:hidden">옆으로 넘겨 보세요 →</span>
       </div>
       <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-1 md:-mx-12 md:scroll-px-12 md:px-12 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
-        {fields.map((f) => (
+        {fields.filter((f) => f.situations.length > 0).map((f) => (
           <div
             key={f.name}
             className={`w-[80%] shrink-0 snap-start rounded-2xl p-4 sm:w-[46%] md:p-5 lg:w-auto lg:min-w-0 backdrop-blur-md ${

@@ -103,7 +103,7 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
 
           {megaOpen && (
             <div id="field-menu" className="hidden xl:block absolute left-0 right-0 top-full bg-white text-jisan-ink border-b border-[#E4E6E9] px-14 shadow-[0_12px_24px_rgba(20,25,31,0.06)]">
-              <div className="max-w-7xl mx-auto grid grid-cols-4 gap-10 py-8">
+              <div className="max-w-7xl mx-auto grid grid-cols-6 gap-6 py-8">
                 {fields.map((f) => (
                   <div key={f.name}>
                     <p className="border-b border-jisan-ink pb-2 text-lg font-bold text-jisan-ink">{f.name}</p>
