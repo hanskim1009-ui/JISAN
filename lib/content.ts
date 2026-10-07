@@ -12,6 +12,18 @@
 
 import { SHOW_SAMPLES } from "@/lib/preview"
 import { sampleCases, sampleColumns, sampleDiary } from "@/lib/samples"
+import crimeColumns from "@/content/columns/crime.json"
+import sexCrimeColumns from "@/content/columns/sex-crime.json"
+import drugColumns from "@/content/columns/drug.json"
+import divorceColumns from "@/content/columns/divorce.json"
+import adulteryColumns from "@/content/columns/adultery.json"
+import inheritanceColumns from "@/content/columns/inheritance.json"
+import corporateColumns from "@/content/columns/corporate.json"
+import medicalColumns from "@/content/columns/medical.json"
+import civilColumns from "@/content/columns/civil.json"
+import constructionColumns from "@/content/columns/construction.json"
+import insolvencyColumns from "@/content/columns/insolvency.json"
+import schoolViolenceColumns from "@/content/columns/school-violence.json"
 
 export type CaseField = "형사" | "가사" | "기업" | "민사"
 
@@ -86,7 +98,23 @@ const cases: CaseItem[] = []
 
 const diary: DiaryEntry[] = []
 
-const columns: ColumnItem[] = []
+/**
+ * 칼럼: content/columns/{센터}.json (센터마다 담당 변호사 이름으로 씀)
+ * 같은 날짜 안에서는 센터를 번갈아 섞어, 최신 글 목록에 한 센터 글만 몰리지 않게 합니다.
+ */
+const columnFiles = [
+  crimeColumns, divorceColumns, corporateColumns, civilColumns, sexCrimeColumns, adulteryColumns,
+  medicalColumns, constructionColumns, drugColumns, inheritanceColumns, insolvencyColumns, schoolViolenceColumns,
+] as unknown as ColumnItem[][]
+
+function interleave<T>(lists: T[][]): T[] {
+  const out: T[] = []
+  const max = Math.max(0, ...lists.map((l) => l.length))
+  for (let i = 0; i < max; i++) for (const l of lists) if (l[i]) out.push(l[i])
+  return out
+}
+
+const columns: ColumnItem[] = interleave(columnFiles)
 
 export function getCases(opts: { field?: CaseField; center?: string; limit?: number } = {}) {
   let list = [...(cases.length > 0 || !SHOW_SAMPLES ? cases : sampleCases)].sort((a, b) => b.decidedOn.localeCompare(a.decidedOn))

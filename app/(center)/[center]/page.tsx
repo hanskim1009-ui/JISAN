@@ -60,7 +60,8 @@ export default async function CenterPage({ params }: Props) {
   if (!center) notFound()
   const t = centerTones[center.tone]
   const cases = getCases({ center: center.slug })
-  const columns = getColumns({ center: center.slug, limit: 4 })
+  const columns = getColumns({ center: center.slug, limit: 6 })
+  const columnTotal = getColumns({ center: center.slug }).length
   const posts = center.blog ? await getNaverBlogPosts(center.blog.id, 6) : []
   const lawyers = center.lawyers.flatMap((cl) => {
     const l = getLawyer(cl.slug)
@@ -330,6 +331,11 @@ export default async function CenterPage({ params }: Props) {
                 <ColumnRow key={c.id} c={c} />
               ))}
             </div>
+            {columnTotal > columns.length && (
+              <Link href={`/column?center=${center.slug}`} className={`mt-6 inline-block text-sm font-semibold ${t.accent}`}>
+                {center.name} 칼럼 {columnTotal}편 모두 보기 →
+              </Link>
+            )}
           </div>
         </section>
       )}

@@ -31,7 +31,8 @@ export default async function ColumnPage({ params }: Props) {
   const c = getColumn((await params).id)
   if (!c) notFound()
   const author = getLawyer(c.author)
-  const more = getColumns({ field: c.field }).filter((x) => x.id !== c.id).slice(0, 3)
+  const sameCenter = c.centers?.[0] ? getColumns({ center: c.centers[0] }) : []
+  const more = [...sameCenter, ...getColumns({ field: c.field })].filter((x, i, arr) => x.id !== c.id && arr.findIndex((y) => y.id === x.id) === i).slice(0, 3)
   const cases = getCases({ field: c.field, limit: 3 })
 
   const jsonLd = {

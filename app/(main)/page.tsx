@@ -18,6 +18,7 @@ import { siteConfig } from "@/lib/site-config"
 import { SHOW_SAMPLES } from "@/lib/preview"
 import { sampleVideos } from "@/lib/samples"
 import { SampleNote } from "@/components/sample-note"
+import { centers } from "@/lib/centers"
 
 export const revalidate = 3600
 
@@ -37,7 +38,11 @@ const faqJsonLd = {
  */
 export default async function Page() {
   const cases = getCases({ limit: 6 })
-  const columns = getColumns({ limit: 3 })
+  const columns = getColumns({ limit: 6 })
+  const allColumns = getColumns()
+  const columnCenters = centers
+    .map((c) => ({ slug: c.slug, name: c.name, count: allColumns.filter((x) => x.centers?.includes(c.slug)).length }))
+    .filter((c) => c.count > 0)
   const diary = getDiary({ limit: 3 })
   const channelId = siteConfig.feeds.firmYoutubeChannelId
   const realVideos = await getYoutubeVideos(channelId, 4)
@@ -62,6 +67,8 @@ export default async function Page() {
       <CentersBand />
       <LegalInfoSection
         columns={columns}
+        columnTotal={allColumns.length}
+        columnCenters={columnCenters}
         videos={videos}
         youtubeUrl={channelId ? `https://www.youtube.com/channel/${channelId}` : undefined}
       />

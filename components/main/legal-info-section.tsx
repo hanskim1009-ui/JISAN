@@ -4,13 +4,27 @@ import { SectionHead } from "@/components/main/section-head"
 import { ColumnCard } from "@/components/column-parts"
 import { LiteYouTube } from "@/components/lite-youtube"
 import { SampleNote } from "@/components/sample-note"
+import Link from "next/link"
 import { Play } from "lucide-react"
 
 /**
  * 법률 정보: 칼럼 3편(홈페이지 안 글) + 법인 유튜브(대표 영상 1 + 작은 영상 3)
  * 둘 다 없으면 통째로 숨깁니다. 네이버 블로그 글은 메인에 띄우지 않습니다.
  */
-export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: ColumnItem[]; videos: FeedItem[]; youtubeUrl?: string }) {
+export function LegalInfoSection({
+  columns,
+  videos,
+  youtubeUrl,
+  columnTotal = columns.length,
+  columnCenters = [],
+}: {
+  columns: ColumnItem[]
+  videos: FeedItem[]
+  youtubeUrl?: string
+  columnTotal?: number
+  /** 센터별 칼럼 바로가기 (이름, slug, 편수) */
+  columnCenters?: { slug: string; name: string; count: number }[]
+}) {
   if (columns.length === 0 && videos.length === 0) return null
   const [main, ...rest] = videos
   const sampleVideos = videos.length > 0 && videos.every((v) => !v.videoId)
@@ -20,13 +34,31 @@ export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: Col
       <div data-reveal className="max-w-7xl mx-auto space-y-14">
         {columns.length > 0 && (
           <div>
-            <SectionHead title="칼럼" desc="실무에서 겪은 일을 지산 변호사들이 직접 씁니다." href="/column" linkLabel="더보기" />
+            <SectionHead
+              title="칼럼"
+              desc="실무에서 겪은 일을 지산 변호사들이 직접 씁니다."
+              href="/column"
+              linkLabel={columnTotal > columns.length ? `${columnTotal}편 모두 보기` : "더보기"}
+            />
             <SampleNote show={columns.some((c) => c.sample)} className="mb-4" />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {columns.map((c) => (
                 <ColumnCard key={c.id} c={c} />
               ))}
             </div>
+            {columnCenters.length > 0 && (
+              <div className="no-scrollbar -mx-5 mt-8 flex gap-2 overflow-x-auto px-5 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
+                {columnCenters.map((c) => (
+                  <Link
+                    key={c.slug}
+                    href={`/column?center=${c.slug}`}
+                    className="shrink-0 whitespace-nowrap rounded-full border border-[#D5DAE1] bg-white px-4 py-2 text-[0.875rem] font-semibold text-jisan-ink/75 hover:border-jisan-ink/50"
+                  >
+                    {c.name} 칼럼 <span className="ml-1 text-[0.75rem] tabular-nums opacity-60">{c.count}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         )}
         {main && (
