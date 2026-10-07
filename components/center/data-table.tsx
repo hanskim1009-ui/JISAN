@@ -1,11 +1,18 @@
+"use client"
+
+import { useState } from "react"
 import type { Table } from "@/lib/center-pages"
 
-/** 기준표 (처벌 기준, 절차 비교 등). 모바일에서는 줄마다 카드로 풀어 보여 줍니다 */
+const PREVIEW = 4
+
+/** 기준표 (처벌 기준, 절차 비교 등). 모바일에서는 줄마다 카드로 풀어 앞의 4개만, 나머지는 '더 보기' */
 export function DataTable({ table, className = "" }: { table: Table; className?: string }) {
+  const [all, setAll] = useState(false)
+  const rest = table.rows.length - PREVIEW
   return (
     <div className={className}>
       <ul className="space-y-2.5 md:hidden">
-        {table.rows.map((r) => (
+        {(all ? table.rows : table.rows.slice(0, PREVIEW)).map((r) => (
           <li key={r.join("|")} className="rounded-xl border border-[#E2E6ED] bg-white p-4">
             <p className="font-semibold leading-snug text-jisan-ink">{r[0]}</p>
             <dl className="mt-2 space-y-1.5 text-sm leading-relaxed">
@@ -19,6 +26,15 @@ export function DataTable({ table, className = "" }: { table: Table; className?:
           </li>
         ))}
       </ul>
+      {!all && rest > 0 && (
+        <button
+          type="button"
+          onClick={() => setAll(true)}
+          className="mt-2.5 w-full rounded-xl border border-[#D5DAE1] bg-white py-3 text-sm font-semibold text-jisan-ink md:hidden"
+        >
+          {rest}개 더 보기
+        </button>
+      )}
       <div className="hidden overflow-x-auto rounded-xl border border-[#E2E6ED] bg-white md:block">
         <table className="w-full min-w-[35rem] text-left text-sm">
           <thead className="bg-jisan-mist/60 text-xs text-jisan-ink/60">
