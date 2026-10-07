@@ -6,7 +6,7 @@ import { SampleNote } from "@/components/sample-note"
 
 export const metadata: Metadata = {
   title: "업무사례",
-  description: "형사·가사·기업·민사 업무사례. 의뢰인의 동의를 받은 사건만, 누구인지 알 수 없게 고쳐 싣습니다.",
+  description: "형사·가사·기업·의료·부동산·민사 업무사례. 의뢰인의 동의를 받은 사건만, 누구인지 알 수 없게 고쳐 싣습니다.",
   alternates: { canonical: "/cases" },
 }
 

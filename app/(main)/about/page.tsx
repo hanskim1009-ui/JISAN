@@ -6,7 +6,7 @@ import { SectionHead } from "@/components/main/section-head"
 
 export const metadata: Metadata = {
   title: "법인 소개",
-  description: `${siteConfig.name} 소개. 변호사 ${lawyers.length}명이 형사·가사·기업·민사 사건을 맡습니다.`,
+  description: `${siteConfig.name} 소개. 변호사 ${lawyers.length}명이 형사·가사·기업·의료·부동산·민사 사건을 맡습니다.`,
   alternates: { canonical: "/about" },
 }
 
@@ -33,7 +33,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 max-w-2xl space-y-5 text-[1.0625rem] leading-[1.85] text-[#2D323A]">
             <p>
-              {siteConfig.nameTopic} 변호사 {lawyers.length}명이 형사, 가사, 기업, 민사 사건을 맡고 있는 사무소입니다.
+              {siteConfig.nameTopic} 변호사 {lawyers.length}명이 형사, 가사, 기업, 의료, 부동산, 민사 사건을 맡고 있는 사무소입니다.
             </p>
             <p>
               저희 변호사들은 일해 온 곳이 서로 다릅니다. 검찰청에서 검사로 수사와 공판을 맡았던 변호사, 은행·증권사와 벤처캐피탈에서

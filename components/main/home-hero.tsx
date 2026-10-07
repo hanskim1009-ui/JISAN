@@ -28,7 +28,7 @@ function HeroCopy({ look }: { look: Look }) {
   return (
     <div className="max-w-3xl">
       <p {...rise(0.3)} className={`${dark ? "anim-rise text-white/65" : "text-jisan-ink/70"} text-sm font-semibold tracking-[0.06em]`}>
-        형사 · 가사 · 기업 · 민사
+        형사 · 가사 · 기업 · 의료 · 부동산 · 민사
       </p>
       <h1
         {...rise(0.42)}

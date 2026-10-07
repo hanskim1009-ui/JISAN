@@ -10,12 +10,12 @@ import "./globals.css"
 
 const siteUrl = siteConfig.siteUrl
 const description =
-  "형사·가사·기업·민사 사건을 담당 변호사가 상담부터 재판까지 직접 맡습니다. 상담 전화 24시간, 주말·공휴일 포함."
+  "형사·가사·기업·의료·부동산·민사 사건을 담당 변호사가 상담부터 재판까지 직접 맡습니다. 상담 전화 24시간, 주말·공휴일 포함."
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteConfig.name} | 형사·가사·기업·민사 변호사`,
+    default: `${siteConfig.name} | 형사·가사·기업·의료·부동산·민사 변호사`,
     template: `%s | ${siteConfig.name}`,
   },
   description,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     url: siteUrl,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} | 형사·가사·기업·민사 변호사`,
+    title: `${siteConfig.name} | 형사·가사·기업·의료·부동산·민사 변호사`,
     description,
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: siteConfig.name }],
   },

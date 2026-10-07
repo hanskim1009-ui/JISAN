@@ -9,7 +9,7 @@ import { SampleNote } from "@/components/sample-note"
 
 export const metadata: Metadata = {
   title: "칼럼",
-  description: "형사·가사·기업·민사 사건을 맡는 변호사들이 직접 쓴 글입니다. 센터별로 모아 볼 수 있습니다.",
+  description: "형사·가사·기업·의료·부동산·민사 사건을 맡는 변호사들이 직접 쓴 글입니다. 센터별로 모아 볼 수 있습니다.",
   alternates: { canonical: "/column" },
 }
 
