@@ -42,8 +42,10 @@ export function LegalInfoSection({
             />
             <SampleNote show={columns.some((c) => c.sample)} className="mb-4" />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              {columns.map((c) => (
-                <ColumnCard key={c.id} c={c} />
+              {columns.map((c, i) => (
+                <div key={c.id} className={i >= 3 ? "hidden md:block" : undefined}>
+                  <ColumnCard c={c} />
+                </div>
               ))}
             </div>
             {columnCenters.length > 0 && (

@@ -58,7 +58,7 @@ export function FaqSearch() {
             setQ(e.target.value)
             setShown(PAGE)
           }}
-          placeholder="궁금한 말을 넣어 보세요 (예: 합의금, 양육비, 보증금)"
+          placeholder="예: 합의금, 양육비, 보증금"
           className="w-full bg-transparent text-[0.9375rem] text-jisan-ink outline-none placeholder:text-jisan-ink/40"
         />
       </label>
