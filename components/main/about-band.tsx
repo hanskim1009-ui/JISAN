@@ -1,16 +1,18 @@
 import Link from "next/link"
 import { Nanum_Pen_Script } from "next/font/google"
 import { siteConfig } from "@/lib/site-config"
-import { LogoSvg } from "@/components/brand-logo"
+import { InkMountains } from "@/components/main/ink-mountains"
 
 /** 변호사 일동이 쓴 인사말을 손글씨처럼 */
 const pen = Nanum_Pen_Script({ weight: "400", subsets: ["latin"], display: "swap", preload: false })
 
-/** 법인 소개 띠: 변호사 일동의 짧은 인사말 */
+/** 법인 소개 띠: 변호사 일동의 짧은 인사말 + 수묵 산 */
 export function AboutBand() {
   return (
-    <section className="screen relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14 py-16 md:py-24">
-      <LogoSvg variant="tone" className="pointer-events-none absolute -left-16 top-1/2 h-[30rem] w-auto -translate-y-1/2 text-brand-tone opacity-70" />
+    <section className="screen relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14 pt-16 pb-56 md:py-24">
+      {/* 수묵 겹산: 넓은 화면은 오른쪽 전체, 좁은 화면은 글 아래쪽에 */}
+      <InkMountains idPrefix="ink-m" crop="560 250 880 650" moon={false} className="pointer-events-none absolute inset-x-0 bottom-0 h-64 w-full md:hidden" />
+      <InkMountains idPrefix="ink-d" className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" />
       <div data-reveal className="relative max-w-7xl mx-auto">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold text-white/60">법인 소개</p>
