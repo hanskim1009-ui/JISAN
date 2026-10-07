@@ -45,7 +45,7 @@ export function CentersBand() {
     <section className="screen bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead title="분야별 센터" desc="분야마다 센터를 따로 두고, 단계별 대응 방법까지 자세히 안내합니다." />
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 lg:grid-cols-3">
           {centers.map((c, i) => {
             const Icon = icons[c.slug] ?? Scale
             const field = fieldOf(c.slug)
@@ -54,7 +54,7 @@ export function CentersBand() {
               <Link
                 key={c.slug}
                 href={`/${c.slug}`}
-                className="card-lift group relative flex min-h-[17rem] flex-col overflow-hidden rounded-2xl border border-brand/10 bg-white p-6 text-brand transition-colors duration-300 hover:border-brand hover:bg-brand hover:text-white md:p-7"
+                className="card-lift group relative flex min-h-[17rem] w-[82%] shrink-0 snap-start flex-col sm:w-auto overflow-hidden rounded-2xl border border-brand/10 bg-white p-6 text-brand transition-colors duration-300 hover:border-brand hover:bg-brand hover:text-white md:p-7"
               >
                 <svg
                   viewBox={`0 0 ${W} ${H}`}

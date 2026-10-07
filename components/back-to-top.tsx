@@ -18,7 +18,7 @@ export function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-24 left-6 z-30 md:bottom-8 md:left-8 flex h-12 w-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg hover:bg-foreground/90 transition-colors"
+      className="fixed bottom-[5.25rem] right-4 z-30 md:bottom-8 md:left-8 md:right-auto flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-foreground text-background shadow-lg hover:bg-foreground/90 transition-colors"
       aria-label="맨 위로"
     >
       <ChevronUp className="h-5 w-5" />

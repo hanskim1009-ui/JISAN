@@ -174,3 +174,7 @@ html[data-look="photo"] .look-ridge {
     width: 100%;
   }
 }
+
+/* 가로로 넘기는 목록: 스크롤바 숨김 */
+.no-scrollbar { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

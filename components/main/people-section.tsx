@@ -17,9 +17,9 @@ export function PeopleSection() {
     <section id="team" className="screen scroll-mt-20 bg-brand-paper px-5 md:px-12 lg:px-14 pt-14 md:pt-20">
       <div data-reveal className="max-w-7xl mx-auto my-auto pb-14 md:pb-20">
         <SectionHead title="구성원 소개" desc="분야마다 그 일을 해 온 변호사가 사건을 직접 수행합니다." href="/lawyers" linkLabel="프로필 보기" />
-        <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-x-5 gap-y-8">
+        <ul className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-x-5 sm:gap-y-8 sm:overflow-visible sm:px-0 lg:grid-cols-4 xl:grid-cols-7">
           {lawyers.map((l) => (
-            <li key={l.slug} className="min-w-0">
+            <li key={l.slug} className="w-[44%] shrink-0 snap-start sm:w-auto sm:min-w-0">
               <Link href={`/lawyers#${l.slug}`} className="group block">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#C9CCD1] transition-transform duration-500 [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.04]">
                   <LawyerPhoto

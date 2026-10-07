@@ -17,7 +17,7 @@ export function AreaBrowser({ groups, accent }: { groups: { group: string; items
   return (
     <div>
       {many && (
-        <div className="mt-6 flex flex-wrap gap-2" role="tablist" aria-label="업무분야 묶음">
+        <div className="no-scrollbar -mx-6 mt-6 flex gap-2 overflow-x-auto px-6 md:mx-0 md:flex-wrap md:overflow-visible md:px-0" role="tablist" aria-label="업무분야 묶음">
           {["전체", ...groups.map((g) => g.group)].map((name) => {
             const on = active === name
             const count = name === "전체" ? total : groups.find((g) => g.group === name)?.items.length
@@ -28,7 +28,7 @@ export function AreaBrowser({ groups, accent }: { groups: { group: string; items
                 role="tab"
                 aria-selected={on}
                 onClick={() => setActive(name)}
-                className={`rounded-full border px-4 py-2 text-[0.875rem] font-semibold transition-colors ${
+                className={`shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-[0.875rem] font-semibold transition-colors ${
                   on ? "border-jisan-ink bg-jisan-ink text-white" : "border-[#D5DAE1] bg-white text-jisan-ink/75 hover:border-jisan-ink/50"
                 }`}
               >
@@ -44,14 +44,14 @@ export function AreaBrowser({ groups, accent }: { groups: { group: string; items
         {shown.map((g) => (
           <div key={g.group}>
             {many && <h3 className="mb-4 text-[1.0625rem] font-bold text-jisan-ink">{g.group}</h3>}
-            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4">
               {g.items.map((a) => (
                 <li key={a.href} className="card-lift flex rounded-2xl border border-[#E2E6ED] bg-white">
-                  <Link href={a.href} className="flex w-full flex-col p-5">
+                  <Link href={a.href} className="flex w-full flex-col p-4 md:p-5">
                     <span className="block text-[1.0625rem] font-bold text-jisan-ink">{a.name}</span>
                     {a.law && <span className={`mt-0.5 block text-xs font-semibold ${accent}`}>{a.law}</span>}
-                    <span className="mt-2 line-clamp-3 block text-sm leading-relaxed text-jisan-ink/65">{a.desc}</span>
-                    <span className={`mt-auto block pt-4 text-sm font-semibold ${accent}`}>자세히 보기 →</span>
+                    <span className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-jisan-ink/65 md:mt-2 md:line-clamp-3">{a.desc}</span>
+                    <span className={`mt-auto block pt-3 text-sm font-semibold md:pt-4 ${accent}`}>자세히 보기 →</span>
                   </Link>
                 </li>
               ))}
