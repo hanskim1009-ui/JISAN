@@ -35,11 +35,11 @@ function HeroCopy({ look }: { look: Look }) {
         {...rise(0.42)}
         className={`${dark ? "anim-rise" : ""} mt-3 text-[1.875rem] leading-[1.3] sm:text-[2.25rem] md:mt-4 md:text-[3.25rem] md:leading-[1.24] font-bold tracking-[-0.04em]`}
       >
-        검찰, 금융회사, 로펌에서
+        처음 겪는 일이라 막막할 때,
         <br />
-        쌓은 경험으로
+        무엇부터 해야 하는지
         <br />
-        당신의 사건을 맡습니다
+        먼저 말씀드립니다
       </h1>
       <p
         {...rise(0.54)}
