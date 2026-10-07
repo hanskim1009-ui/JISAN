@@ -191,16 +191,29 @@ export const lawyers: Lawyer[] = [
     ],
     highlights: ["건국대학교 자율전공학부", "전남대학교 법학전문대학원"],
   },
-  // TODO: 김미소 변호사 정보 수령 후 직함·소개·이력·학력 입력 (사진: public/images/lawyers/kim-miso.jpg)
+  // TODO: 김미소 변호사 사진 파일 받으면 public/images/lawyers/kim-miso.jpg 에 넣고 lawyerImages.kimMiso 경로 입력
   {
     slug: "kim-miso",
     field: "가사",
     name: "김미소",
-    title: "변호사",
+    tagline: "다국적 기업 자문부터 민형사 송무까지, 법률가의 외연을 확장해 왔습니다.",
+    title: "파트너 변호사",
     image: lawyerImages.kimMiso,
-    summary: "프로필을 준비하고 있습니다.",
-    career: [],
-    highlights: [],
+    summary:
+      "누구에게도 쉽게 꺼내기 어려운 이야기가 있습니다.\n그 이야기에 깊이 귀 기울이고, 당신에게 가장 나은 해결을 끝까지 고민하겠습니다.\n복잡하게 얽힌 문제를 풀어, 당신의 소중한 일상을 되찾는 데 함께하겠습니다.",
+    career: [
+      `현) ${siteConfig.name} 파트너 변호사`,
+      "전) 법무법인 대환 소속변호사",
+      "전) 주식회사 위메이드 법무팀 사내변호사",
+      "전) 법무법인 오라클 소속변호사",
+    ],
+    resumeSections: [
+      {
+        heading: "활동",
+        items: ["(사)한국여성변호사회 정회원", "한국의료변호사협회 이사", "광진구 선거방송토론위원회 위원"],
+      },
+    ],
+    highlights: ["성균관대학교 법학전문대학원 졸업", "한국외국어대학교 통번역대학(영어통번역) 졸업"],
   },
   // TODO: 김충현 변호사 정보 수령 후 직함·소개·이력·학력 입력 (사진: public/images/lawyers/kim-chunghyeon.jpg)
   {

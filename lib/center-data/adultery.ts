@@ -220,7 +220,7 @@ export const adultery: Center = {
   "lawyers": [
     {
       "slug": "kim-miso",
-      "note": ""
+      "note": "전) 법무법인 대환 · 주식회사 위메이드 법무팀 사내변호사 · 법무법인 오라클"
     }
   ],
   "faqs": [
