@@ -27,8 +27,26 @@ export function ScrollReveal() {
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
     )
     below.forEach((el) => io.observe(el))
+    // 빠르게 스크롤하거나 메뉴로 건너뛰어 지나친 구역도 숨은 채로 남지 않게 함
+    let raf = 0
+    const sweep = () => {
+      raf = 0
+      document.querySelectorAll<HTMLElement>(".reveal-pending").forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.remove("reveal-pending")
+          el.classList.add("reveal-in")
+          io.unobserve(el)
+        }
+      })
+    }
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(sweep)
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
     return () => {
       io.disconnect()
+      window.removeEventListener("scroll", onScroll)
+      cancelAnimationFrame(raf)
       below.forEach((el) => el.classList.remove("reveal-pending"))
     }
   }, [pathname])
