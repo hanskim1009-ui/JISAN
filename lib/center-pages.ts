@@ -24,6 +24,12 @@ export type Table = { title: string; columns: string[]; rows: string[][]; note?:
 export type AreaPage = {
   slug: string
   areaName: string
+  /** 센터 메인 업무분야 칸의 묶음 이름 (예: 재산범죄, 폭력·상해). 없으면 '주요 업무' */
+  group?: string
+  /** 업무분야 칸에 보일 한 줄 설명 (없으면 센터 메인 데이터의 설명이나 lead) */
+  summary?: string
+  /** 업무분야 칸의 근거 법조문 한 줄 (예: 형법 제347조) */
+  cardLaw?: string
   title: string
   lead: string
   seo: Seo
@@ -42,6 +48,8 @@ export type Guide = {
   slug: string
   /** 센터 첫 화면 '지금 어떤 상황이신가요?'의 버튼 문구와 같으면 그 버튼이 이 글로 연결됨 */
   stage?: string
+  /** 안내 글 모음에서 묶는 이름 (예: 수사 단계, 재판 단계, 피해자). 없으면 '상황별 안내' */
+  group?: string
   title: string
   lead: string
   seo: Seo
@@ -60,6 +68,8 @@ export type CenterPages = {
   areaPages: AreaPage[]
   guides: Guide[]
   moreFaqs: (Faq & { category: string })[]
+  /** 이 센터의 업무분야·안내 글 목록에 함께 보여 줄 다른 센터 (예: 형사센터에 성범죄·마약) */
+  includeCenters?: string[]
   sources?: string[]
 }
 
@@ -90,3 +100,70 @@ export function areaHref(center: string, areaName: string) {
 }
 
 export const allCenterPages = all
+
+export type AreaCard = { name: string; law?: string; desc: string; href: string; group: string }
+export type GuideCard = { slug: string; title: string; lead: string; href: string; group: string; stage?: string }
+
+const DEFAULT_AREA_GROUP = "주요 업무"
+const DEFAULT_GUIDE_GROUP = "상황별 안내"
+
+/**
+ * 센터 업무분야 칸 목록. 상세 페이지(areaPages) 순서대로, 센터 메인 데이터(areas)의 설명·조문을 우선 씀.
+ * includeCenters가 있으면 그 센터의 업무분야를 '<센터 이름>' 묶음으로 뒤에 붙임(링크는 그 센터 페이지).
+ */
+export function areaCards(
+  center: string,
+  baseAreas: { name: string; law?: string; desc: string; href?: string }[],
+  centerName: (slug: string) => string | undefined,
+): AreaCard[] {
+  const pages = getCenterPages(center)
+  const cards: AreaCard[] = []
+  const seen = new Set<string>()
+  for (const a of pages?.areaPages ?? []) {
+    const base = baseAreas.find((b) => b.name === a.areaName)
+    cards.push({
+      name: a.areaName,
+      law: base?.law ?? a.cardLaw,
+      desc: base?.desc ?? a.summary ?? a.lead,
+      href: `/${center}/${a.slug}`,
+      group: a.group ?? DEFAULT_AREA_GROUP,
+    })
+    seen.add(a.areaName)
+  }
+  for (const b of baseAreas) {
+    if (!seen.has(b.name) && b.href) cards.push({ name: b.name, law: b.law, desc: b.desc, href: b.href, group: DEFAULT_AREA_GROUP })
+  }
+  for (const other of pages?.includeCenters ?? []) {
+    const name = centerName(other)
+    for (const a of getCenterPages(other)?.areaPages ?? []) {
+      cards.push({ name: a.areaName, law: a.cardLaw, desc: a.summary ?? a.lead, href: `/${other}/${a.slug}`, group: name ?? other })
+    }
+  }
+  return cards
+}
+
+/** 안내 글 목록 (includeCenters의 글은 그 센터 이름으로 묶고 링크는 그 센터로) */
+export function guideCards(center: string, centerName: (slug: string) => string | undefined, withIncluded = true): GuideCard[] {
+  const pages = getCenterPages(center)
+  const own = (pages?.guides ?? []).map((g) => ({
+    slug: g.slug, title: g.title, lead: g.lead, href: `/${center}/guide/${g.slug}`, group: g.group ?? DEFAULT_GUIDE_GROUP, stage: g.stage,
+  }))
+  if (!withIncluded) return own
+  const inc = (pages?.includeCenters ?? []).flatMap((other) =>
+    (getCenterPages(other)?.guides ?? []).map((g) => ({
+      slug: `${other}-${g.slug}`, title: g.title, lead: g.lead, href: `/${other}/guide/${g.slug}`, group: centerName(other) ?? other,
+    })),
+  )
+  return [...own, ...inc]
+}
+
+/** 묶음 이름 순서를 지키며 나눔 */
+export function groupBy<T extends { group: string }>(items: T[]) {
+  const out: { group: string; items: T[] }[] = []
+  for (const it of items) {
+    let g = out.find((x) => x.group === it.group)
+    if (!g) out.push((g = { group: it.group, items: [] }))
+    g.items.push(it)
+  }
+  return out
+}

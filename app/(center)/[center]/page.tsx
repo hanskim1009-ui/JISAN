@@ -11,7 +11,8 @@ import { ConsultBand } from "@/components/center/consult-band"
 import { FaqList } from "@/components/center/faq-list"
 import { ProcessTabs } from "@/components/center/process-tabs"
 import { DataTable } from "@/components/center/data-table"
-import { areaHref, getCenterPages } from "@/lib/center-pages"
+import { areaCards, getCenterPages, groupBy, guideCards } from "@/lib/center-pages"
+import { AreaBrowser } from "@/components/center/area-browser"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { ConsultForm } from "@/components/consult-form"
 import { CasesTable } from "@/components/cases-table"
@@ -71,7 +72,12 @@ export default async function CenterPage({ params }: Props) {
     .map((l) => ({ ...l, line: (l.career ?? l.structuredResume?.career ?? []).find((c) => !c.includes(siteConfig.name)) }))
 
   const pages = getCenterPages(center.slug)
-  const guides = pages?.guides ?? []
+  const nameOf = (slug: string) => getCenter(slug)?.name.replace(/센터$/, "")
+  const areaGroups = groupBy(areaCards(center.slug, center.areas, nameOf))
+  /** 센터 첫 화면에는 상황 버튼과 연결된 글을 먼저, 나머지는 모음 페이지에서 */
+  const ownGuides = guideCards(center.slug, nameOf, false)
+  const guides = [...ownGuides.filter((g) => g.stage), ...ownGuides.filter((g) => !g.stage)]
+  const guideTotal = guideCards(center.slug, nameOf).length
   const faqCount = pages?.moreFaqs.length ?? 0
 
   /** 섹션 바탕: 보이는 섹션 순서대로 흰색/옅은 색을 번갈아 */
@@ -154,30 +160,7 @@ export default async function CenterPage({ params }: Props) {
       <section id="areas" className={`${sectionPad} ${bg("areas")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>{center.areasTitle}</h2>
-          <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {center.areas.map((a) => {
-              const href = areaHref(center.slug, a.name) ?? a.href
-              const body = (
-                <>
-                  <span className="block text-lg font-bold text-jisan-ink">{a.name}</span>
-                  {a.law && <span className={`block mt-0.5 text-xs font-semibold ${t.accent}`}>{a.law}</span>}
-                  <span className="block mt-2 text-sm leading-relaxed text-jisan-ink/65">{a.desc}</span>
-                  {href && <span className={`mt-auto block pt-4 text-sm font-semibold ${t.accent}`}>자세히 보기 →</span>}
-                </>
-              )
-              return (
-                <li key={a.name} className="card-lift flex rounded-2xl border border-[#E2E6ED] bg-white">
-                  {href ? (
-                    <Link href={href} className="flex w-full flex-col p-5">
-                      {body}
-                    </Link>
-                  ) : (
-                    <div className="flex w-full flex-col p-5">{body}</div>
-                  )}
-                </li>
-              )
-            })}
-          </ul>
+          <AreaBrowser groups={areaGroups} accent={t.accent} />
         </div>
       </section>
 
@@ -230,7 +213,7 @@ export default async function CenterPage({ params }: Props) {
               {guides.slice(0, 6).map((g) => (
                 <li key={g.slug}>
                   <Link
-                    href={`/${center.slug}/guide/${g.slug}`}
+                    href={g.href}
                     className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-6"
                   >
                     <span className={`text-xs font-bold ${t.accent}`}>{center.name} 안내</span>
@@ -243,9 +226,9 @@ export default async function CenterPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            {guides.length > 6 && (
+            {guideTotal > 6 && (
               <Link href={`/${center.slug}/guide`} className={`mt-6 inline-block text-sm font-semibold ${t.accent}`}>
-                안내 글 {guides.length}편 모두 보기 →
+                안내 글 {guideTotal}편 모두 보기 →
               </Link>
             )}
           </div>

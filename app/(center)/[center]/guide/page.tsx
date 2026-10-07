@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { centers, getCenter } from "@/lib/centers"
-import { getCenterPages } from "@/lib/center-pages"
+import { getCenterPages, groupBy, guideCards } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
 import { SubHero } from "@/components/center/sub-page"
@@ -29,6 +29,7 @@ export default async function GuideIndex({ params }: Props) {
   const pages = center && getCenterPages(center.slug)
   if (!center || !pages || pages.guides.length === 0) notFound()
   const t = centerTones[center.tone]
+  const groups = groupBy(guideCards(center.slug, (s) => getCenter(s)?.name.replace(/센터$/, "")))
   return (
     <>
       <SubHero
@@ -39,19 +40,41 @@ export default async function GuideIndex({ params }: Props) {
         lead="지금 겪고 있는 상황과 가까운 글부터 읽어 보세요. 무엇을 먼저 하고, 무엇을 하지 말아야 하는지 순서대로 정리했습니다."
       />
       <div className="bg-white px-6 md:px-12 lg:px-20 py-14 md:py-20">
-        <ul data-reveal className="max-w-7xl mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {pages.guides.map((g) => (
-            <li key={g.slug}>
-              <Link href={`/${center.slug}/guide/${g.slug}`} className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-6">
-                <span className="text-lg font-bold tracking-tight text-jisan-ink">{g.title}</span>
-                <span className="mt-2 text-sm leading-relaxed text-jisan-ink/65">{g.lead}</span>
-                <span className={`mt-auto pt-5 text-sm font-semibold ${t.accent}`}>
-                  읽어 보기 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="max-w-7xl mx-auto">
+          {groups.length > 1 && (
+            <nav aria-label="안내 글 묶음" className="mb-10 flex flex-wrap gap-2">
+              {groups.map((g, i) => (
+                <a
+                  key={g.group}
+                  href={`#g${i}`}
+                  className="rounded-full border border-[#D5DAE1] px-4 py-2 text-[0.875rem] font-semibold text-jisan-ink/75 hover:border-jisan-ink/50"
+                >
+                  {g.group} <span className="ml-1 text-[0.75rem] tabular-nums text-jisan-ink/40">{g.items.length}</span>
+                </a>
+              ))}
+            </nav>
+          )}
+          <div className="space-y-14">
+            {groups.map((g, i) => (
+              <section key={g.group} id={`g${i}`} className="scroll-mt-28">
+                {groups.length > 1 && <h2 className="mb-5 text-xl font-bold tracking-tight text-jisan-ink">{g.group}</h2>}
+                <ul data-reveal className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {g.items.map((c) => (
+                    <li key={c.slug}>
+                      <Link href={c.href} className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-6">
+                        <span className="text-lg font-bold tracking-tight text-jisan-ink">{c.title}</span>
+                        <span className="mt-2 text-sm leading-relaxed text-jisan-ink/65">{c.lead}</span>
+                        <span className={`mt-auto pt-5 text-sm font-semibold ${t.accent}`}>
+                          읽어 보기 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </div>
       </div>
       <ConsultBand center={center} />
     </>

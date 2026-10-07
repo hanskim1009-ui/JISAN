@@ -1,5 +1,9 @@
 {
   "slug": "crime",
+  "includeCenters": [
+    "sex-crime",
+    "drug"
+  ],
   "processes": [
     {
       "title": "경찰 조사부터 기소 판단까지 (피의자)",
