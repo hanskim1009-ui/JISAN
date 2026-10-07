@@ -233,6 +233,10 @@ export const corporate: Center = {
     {
       "slug": "kang-hyunwoo",
       "note": "대한병원협회 · 경기도의료원 등 의료기관 자문"
+    },
+    {
+      "slug": "park-hanmin",
+      "note": "하도급 · 설계변경 · 간접비 등 건설 거래 분쟁"
     }
   ],
   "faqs": [
