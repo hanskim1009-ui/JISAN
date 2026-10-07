@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useLayoutEffect } from "react"
+import { useState, useRef, useLayoutEffect, type ReactNode } from "react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { SectionHead } from "@/components/main/section-head"
@@ -114,6 +114,40 @@ function StructuredResumeToggle({
   )
 }
 
+/** 모바일에서 이력이 길면 앞부분만 보이고 '이력 전체 보기'로 펼칩니다. 넓은 화면은 처음부터 전부 */
+function MobileFold({ children }: { children: ReactNode }) {
+  const [open, setOpen] = useState(false)
+  const [long, setLong] = useState(false)
+  const boxRef = useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    const el = boxRef.current
+    if (!el) return
+    const check = () => setLong(el.scrollHeight > el.clientHeight + 8)
+    check()
+    const ro = new ResizeObserver(check)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+  const folded = !open && long
+  return (
+    <div>
+      <div ref={boxRef} className={`relative ${open ? "" : "max-h-[13rem] overflow-hidden md:max-h-none md:overflow-visible"}`}>
+        {children}
+        {folded && <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background md:hidden" />}
+      </div>
+      {folded && (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="mt-3 w-full rounded-xl border border-border py-2.5 text-sm font-semibold text-foreground md:hidden"
+        >
+          이력 전체 보기
+        </button>
+      )}
+    </div>
+  )
+}
+
 function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
   const { ref, isVisible } = useScrollReveal(0.1)
   const isEven = index % 2 === 0
@@ -127,10 +161,9 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
     <article
       ref={ref}
       id={lawyer.slug}
-      className={`scroll-mt-24 transition-all duration-700 ${
+      className={`scroll-mt-36 md:scroll-mt-24 transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
-      style={{ transitionDelay: `${index * 80}ms` }}
     >
       <div
         className={`flex flex-col md:flex-row ${
@@ -138,7 +171,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
         } border-b border-border`}
       >
         {/* 사진 영역 */}
-        <div className="relative w-full md:w-[38%] aspect-[3/4] md:aspect-auto md:min-h-[30rem] shrink-0 overflow-hidden bg-muted">
+        <div className="relative w-full md:w-[38%] aspect-square md:aspect-auto md:min-h-[30rem] shrink-0 overflow-hidden bg-muted">
           <LawyerPhoto
             src={lawyer.image}
             name={lawyer.name}
@@ -147,7 +180,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
         </div>
 
         {/* 텍스트 영역 */}
-        <div className="flex flex-col justify-center px-8 py-12 md:px-14 md:py-16 flex-1">
+        <div className="flex flex-col justify-center px-6 py-9 md:px-14 md:py-16 flex-1">
           {/* 이름 + 직함 */}
           <p className="mb-1 text-xs font-bold text-brand-accent">{lawyer.field}</p>
           <div className="flex items-baseline gap-3 mb-8 border-b border-border pb-8">
@@ -167,6 +200,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
           </p>
 
           {/* 구본우: 이력 ↔ 주요 업무 사례 같은 영역에서 토글 */}
+          <MobileFold>
           {hasStructuredCases && lawyer.structuredResume ? (
             <StructuredResumeToggle
               resume={lawyer.structuredResume}
@@ -214,6 +248,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
               )}
             </>
           )}
+          </MobileFold>
         </div>
       </div>
     </article>
@@ -239,6 +274,18 @@ export function TeamSection() {
           </p>
         </div>
       </div>
+
+      {/* 모바일: 변호사 이름으로 바로 가기 (위에 붙어 있음) */}
+      <nav
+        aria-label="변호사 바로 가기"
+        className="no-scrollbar sticky top-[4.3rem] z-20 flex gap-2 overflow-x-auto border-b border-border bg-background/95 px-5 py-3 backdrop-blur md:hidden"
+      >
+        {lawyers.map((l) => (
+          <a key={l.slug} href={`#${l.slug}`} className="shrink-0 whitespace-nowrap rounded-full border border-border px-3.5 py-1.5 text-sm font-semibold text-foreground">
+            {l.name}
+          </a>
+        ))}
+      </nav>
 
       {/* 변호사 목록 */}
       <div className="max-w-7xl mx-auto">
