@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Building2, HandCoins, HardHat, HeartCrack, House, Pill, Scale, School, ShieldAlert, Sprout, Stethoscope, type LucideIcon } from "lucide-react"
+import { Building2, HandCoins, HardHat, HeartCrack, House, Pill, Scale, School, ScrollText, ShieldAlert, Sprout, Stethoscope, type LucideIcon } from "lucide-react"
 import { centers } from "@/lib/centers"
 import { fields } from "@/lib/practice"
 import { ridgePath } from "@/lib/ridge"
@@ -12,6 +12,7 @@ const icons: Record<string, LucideIcon> = {
   drug: Pill,
   divorce: House,
   adultery: HeartCrack,
+  inheritance: ScrollText,
   corporate: Building2,
   medical: Stethoscope,
   construction: HardHat,

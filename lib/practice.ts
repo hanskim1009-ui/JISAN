@@ -43,12 +43,12 @@ export const fields: Field[] = [
     caseType: "가사",
     items: ["이혼, 재산분할", "상간 소송", "양육권·양육비", "상속, 유류분"],
     lawyers: ["kim-miso"],
-    centers: ["divorce", "adultery"],
+    centers: ["divorce", "adultery", "inheritance"],
     situations: [
       { label: "이혼을 준비하고 있어요", center: "divorce" },
       { label: "상간 소장을 받았어요", center: "adultery" },
       { label: "양육비를 못 받고 있어요", center: "divorce" },
-      { label: "상속 문제가 생겼어요", caseType: "가사" },
+      { label: "상속 문제가 생겼어요", center: "inheritance" },
     ],
   },
   {
@@ -82,4 +82,4 @@ export const fields: Field[] = [
 ]
 
 /** 상담 폼의 '어떤 일인가요?' 선택지 */
-export const CASE_TYPES = ["형사", "성범죄", "마약", "학교폭력", "이혼", "상간", "가사", "기업", "의료", "민사", "건설·부동산", "회생·파산", "기타"]
+export const CASE_TYPES = ["형사", "성범죄", "마약", "학교폭력", "이혼", "상간", "상속", "가사", "기업", "의료", "민사", "건설·부동산", "회생·파산", "기타"]

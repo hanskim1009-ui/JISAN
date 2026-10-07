@@ -66,10 +66,11 @@ import { corporate } from "@/lib/center-data/corporate"
 import { civil } from "@/lib/center-data/civil"
 import { insolvency } from "@/lib/center-data/insolvency"
 import { schoolViolence } from "@/lib/center-data/school-violence"
+import { inheritance } from "@/lib/center-data/inheritance"
 import { medical } from "@/lib/center-data/medical"
 import { construction } from "@/lib/center-data/construction"
 
-export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, corporate, medical, civil, construction, insolvency, schoolViolence]
+export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence]
 
 export function getCenter(slug: string) {
   return centers.find((c) => c.slug === slug)
