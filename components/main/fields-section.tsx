@@ -10,7 +10,7 @@ export function FieldsSection() {
   return (
     <section id="practice" className="screen scroll-mt-20 px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto">
-        <SectionHead title="업무영역" desc="형사·가사·기업·민사, 분야마다 담당 변호사가 정해져 있습니다." />
+        <SectionHead title="업무영역" desc="어떤 문제가 있으신가요?" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-jisan-ink">
           {fields.map((f) => (
             <div key={f.name} className="flex min-w-0 flex-col border-b border-[#E4E6E9] py-7 sm:pr-6 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:not(:first-child)]:pl-6">

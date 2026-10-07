@@ -3,7 +3,6 @@ import Link from "next/link"
 import { Phone } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 import { fields } from "@/lib/practice"
-import { lawyers } from "@/lib/lawyers"
 import { looksToRender, type Look } from "@/lib/look"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
 
@@ -37,16 +36,13 @@ function HeroCopy({ look }: { look: Look }) {
       >
         처음 겪는 일이라 막막할 때,
         <br />
-        무엇부터 해야 하는지
-        <br />
-        먼저 말씀드립니다
+        무엇을 해야할지 모를 때
       </h1>
       <p
         {...rise(0.54)}
         className={`${dark ? "anim-rise text-white/75" : "text-jisan-ink/80"} mt-4 max-w-2xl text-[0.9375rem] leading-[1.75] md:mt-6 md:text-[1.0625rem] md:leading-[1.8]`}
       >
-        {siteConfig.name}에는 형사·가사·기업·민사를 맡는 변호사 {lawyers.length}명이 있습니다. 사건 내용을 들은 담당 변호사가 직접
-        연락드리고, 상담 전화는 24시간 받습니다.
+        아직 아무것도 정해진 게 없어도 괜찮습니다.<br className="hidden md:block" /> 지산 변호사가 상황에 맞춰 전부 해드리겠습니다. 밤과 주말이어도 괜찮습니다.
       </p>
       <div {...rise(0.66)} className={`${dark ? "anim-rise" : ""} mt-6 flex flex-wrap gap-2.5 md:mt-8`}>
         <Link

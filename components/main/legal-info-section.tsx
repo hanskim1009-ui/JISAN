@@ -36,7 +36,7 @@ export function LegalInfoSection({
           <div>
             <SectionHead
               title="칼럼"
-              desc="실무에서 겪은 일을 지산 변호사들이 직접 씁니다."
+              desc="변호사의 이야기를 들어보세요."
               href="/column"
               linkLabel={columnTotal > columns.length ? `${columnTotal}편 모두 보기` : "더보기"}
             />
