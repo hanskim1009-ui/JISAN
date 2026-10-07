@@ -19,18 +19,18 @@ export function PeopleSection() {
         <SectionHead title="구성원 소개" desc="분야마다 그 일을 해 온 변호사가 사건을 직접 수행합니다." href="/lawyers" linkLabel="프로필 보기" />
         <ul className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-x-5 sm:gap-y-8 sm:overflow-visible sm:px-0 lg:grid-cols-4 xl:grid-cols-7">
           {lawyers.map((l) => (
-            <li key={l.slug} className="w-[44%] shrink-0 snap-start sm:w-auto sm:min-w-0">
+            <li key={l.slug} className="w-[62%] shrink-0 snap-start sm:w-auto sm:min-w-0">
               <Link href={`/lawyers#${l.slug}`} className="group block">
-                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-[#C9CCD1] transition-transform duration-500 [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.04]">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#C9CCD1] sm:aspect-[3/4] transition-transform duration-500 [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.04]">
                   <LawyerPhoto
                     src={l.image}
                     name={l.name}
                     imageClassName={l.photoImageClassName}
-                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                    sizes="(max-width: 640px) 75vw, (max-width: 1024px) 33vw, 16vw"
                   />
                 </div>
                 <p className="mt-2.5 text-xs font-bold text-brand-accent">{l.field || "\u00a0"}</p>
-                <p className="text-base font-bold text-jisan-ink group-hover:underline underline-offset-4">{l.name}</p>
+                <p className="text-lg font-bold text-jisan-ink group-hover:underline underline-offset-4 sm:text-base">{l.name}</p>
                 <p className="text-[0.8125rem] text-[#8A9099]">{l.title}</p>
                 {l.tagline && <p className="mt-2 text-[0.8125rem] leading-snug text-jisan-ink">{l.tagline}</p>}
                 {careerLines(l).length > 0 && (
