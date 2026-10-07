@@ -47,7 +47,10 @@ export default async function GuidePage({ params }: Props) {
   const pages = getCenterPages(cs)
   const g = getGuide(cs, guide)
   if (!center || !pages || !g) notFound()
-  const others = pages.guides.filter((x) => x.slug !== g.slug)
+  // 같은 묶음 글을 앞에. 모바일에서는 앞의 6편만 보이고 전체 목록 링크를 둡니다
+  const others = pages.guides
+    .filter((x) => x.slug !== g.slug)
+    .sort((a, b) => Number(b.group === g.group) - Number(a.group === g.group))
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -111,14 +114,19 @@ export default async function GuidePage({ params }: Props) {
               <section className="rounded-2xl bg-jisan-mist/60 p-6">
                 <p className="text-sm font-bold text-jisan-ink/60">이어서 읽어 보세요</p>
                 <ul className="mt-2 space-y-1">
-                  {others.map((o) => (
-                    <li key={o.slug}>
+                  {others.map((o, i) => (
+                    <li key={o.slug} className={i >= 6 ? "hidden md:list-item" : undefined}>
                       <Link href={`/${cs}/guide/${o.slug}`} className="text-[1rem] font-semibold text-jisan-ink underline-offset-4 hover:underline">
                         {o.title} →
                       </Link>
                     </li>
                   ))}
                 </ul>
+                {others.length > 6 && (
+                  <Link href={`/${cs}/guide`} className="mt-4 inline-block text-sm font-semibold text-jisan-ink/70 underline underline-offset-4 md:hidden">
+                    상황별 안내 {others.length + 1}편 전체 보기
+                  </Link>
+                )}
               </section>
             )}
           </article>

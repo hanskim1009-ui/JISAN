@@ -289,15 +289,19 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
 
 /** 같은 센터의 다른 업무분야 (모든 화면 너비에서 보이는 하단 이동) */
 export function RelatedAreas({ center, pages, current }: { center: Center; pages: CenterPages; current: string }) {
-  const others = pages.areaPages.filter((a) => a.slug !== current)
+  const group = pages.areaPages.find((a) => a.slug === current)?.group
+  // 같은 묶음을 앞에. 모바일에서는 앞의 6개만 보이고 전체 목록 링크를 둡니다
+  const others = pages.areaPages
+    .filter((a) => a.slug !== current)
+    .sort((a, b) => Number(b.group === group) - Number(a.group === group))
   if (others.length === 0) return null
   return (
     <section className="bg-jisan-mist/50 px-6 md:px-12 lg:px-20 py-14 md:py-16">
       <div data-reveal className="max-w-7xl mx-auto">
         <h2 className="text-xl font-bold text-jisan-ink">{center.name}의 다른 업무분야</h2>
         <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {others.map((a) => (
-            <li key={a.slug}>
+          {others.map((a, i) => (
+            <li key={a.slug} className={i >= 6 ? "hidden md:block" : undefined}>
               <Link href={`/${center.slug}/${a.slug}`} className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-5">
                 <span className="font-bold text-jisan-ink">{a.areaName}</span>
                 <span className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-jisan-ink/65">{a.lead}</span>
@@ -306,6 +310,14 @@ export function RelatedAreas({ center, pages, current }: { center: Center; pages
             </li>
           ))}
         </ul>
+        {others.length > 6 && (
+          <Link
+            href={`/${center.slug}#areas`}
+            className="mt-3 block rounded-xl border border-[#D5DAE1] bg-white py-3 text-center text-sm font-semibold text-jisan-ink md:hidden"
+          >
+            업무분야 {others.length + 1}개 전체 보기 →
+          </Link>
+        )}
       </div>
     </section>
   )
