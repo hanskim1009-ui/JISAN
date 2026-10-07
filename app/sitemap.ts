@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...allCenterPages.flatMap((c) => [
       ...c.areaPages.map((a) => ({ url: url(`/${c.slug}/${a.slug}`), changeFrequency: "monthly" as const, priority: 0.8 })),
       ...c.guides.map((g) => ({ url: url(`/${c.slug}/guide/${g.slug}`), changeFrequency: "monthly" as const, priority: 0.7 })),
+      ...(c.guides.length > 0 ? [{ url: url(`/${c.slug}/guide`), changeFrequency: "weekly" as const, priority: 0.6 }] : []),
+      ...(c.moreFaqs.length > 0 ? [{ url: url(`/${c.slug}/faq`), changeFrequency: "monthly" as const, priority: 0.6 }] : []),
     ]),
     { url: url("/about"), changeFrequency: "monthly", priority: 0.7 },
     { url: url("/consult"), changeFrequency: "yearly", priority: 0.6 },

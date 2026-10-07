@@ -47,8 +47,13 @@ export type Guide = {
   review?: string[]
 }
 
+export type ProcessStep = { title: string; desc: string; period?: string; tip?: string }
+export type Process = { title: string; summary?: string; steps: ProcessStep[] }
+
 export type CenterPages = {
   slug: string
+  /** 센터 메인 '사건 진행 절차'를 대신하는 자세한 절차 (없으면 센터 메인 데이터의 절차를 씀) */
+  processes?: Process[]
   areaPages: AreaPage[]
   guides: Guide[]
   moreFaqs: (Faq & { category: string })[]

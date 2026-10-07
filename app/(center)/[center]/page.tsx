@@ -9,6 +9,7 @@ import { centerTones } from "@/components/center/tone"
 import { CenterHero } from "@/components/center/center-hero"
 import { ConsultBand } from "@/components/center/consult-band"
 import { FaqList } from "@/components/center/faq-list"
+import { ProcessTabs } from "@/components/center/process-tabs"
 import { DataTable } from "@/components/center/data-table"
 import { areaHref, getCenterPages } from "@/lib/center-pages"
 import { LawyerPhoto } from "@/components/lawyer-photo"
@@ -71,13 +72,7 @@ export default async function CenterPage({ params }: Props) {
 
   const pages = getCenterPages(center.slug)
   const guides = pages?.guides ?? []
-  /** 추가 질문은 주제별로 묶어 기본 질문 아래에 */
-  const faqGroups = Object.entries(
-    (pages?.moreFaqs ?? []).reduce<Record<string, { q: string; a: string }[]>>((acc, f) => {
-      ;(acc[f.category] ??= []).push({ q: f.q, a: f.a })
-      return acc
-    }, {}),
-  )
+  const faqCount = pages?.moreFaqs.length ?? 0
 
   /** 섹션 바탕: 보이는 섹션 순서대로 흰색/옅은 색을 번갈아 */
   const shown = [
@@ -219,31 +214,8 @@ export default async function CenterPage({ params }: Props) {
         <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>사건 진행 절차</h2>
           <p className="mt-2 text-[15px] text-jisan-ink/70">{center.form.caseType} 사건, 단계별로 어떻게 대응하는지 알려드립니다.</p>
-          <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {center.processes.map((proc) => (
-              <div key={proc.title} className="min-w-0">
-                <h3 className="text-lg font-bold text-jisan-ink">{proc.title}</h3>
-                <table className="mt-3 w-full text-left text-[15px]">
-                  <thead>
-                    <tr className="border-b-2 border-jisan-ink text-xs text-[#8A9099]">
-                      <th className="w-10 py-2 font-medium">단계</th>
-                      <th className="py-2 pr-3 font-medium">하는 일</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {proc.steps.map((s, i) => (
-                      <tr key={s.title} className="border-b border-[#E2E6ED] align-top">
-                        <td className="py-3 text-[#8A9099] tabular-nums">{i + 1}</td>
-                        <td className="py-3 pr-3">
-                          <span className="block font-semibold text-jisan-ink">{s.title}</span>
-                          <span className="block mt-0.5 text-sm leading-relaxed text-jisan-ink/70">{s.desc}</span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ))}
+          <div className="mt-8">
+            <ProcessTabs processes={pages?.processes ?? center.processes} accent={t.accent} />
           </div>
         </div>
       </section>
@@ -255,7 +227,7 @@ export default async function CenterPage({ params }: Props) {
             <h2 className={h2}>상황별 안내</h2>
             <p className="mt-2 text-[15px] text-jisan-ink/70">처음 겪는 일이라 막막할 때, 무엇부터 해야 하는지 정리했습니다.</p>
             <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {guides.map((g) => (
+              {guides.slice(0, 6).map((g) => (
                 <li key={g.slug}>
                   <Link
                     href={`/${center.slug}/guide/${g.slug}`}
@@ -271,6 +243,11 @@ export default async function CenterPage({ params }: Props) {
                 </li>
               ))}
             </ul>
+            {guides.length > 6 && (
+              <Link href={`/${center.slug}/guide`} className={`mt-6 inline-block text-sm font-semibold ${t.accent}`}>
+                안내 글 {guides.length}편 모두 보기 →
+              </Link>
+            )}
           </div>
         </section>
       )}
@@ -386,12 +363,11 @@ export default async function CenterPage({ params }: Props) {
           </div>
           <div className="min-w-0 space-y-10">
             <FaqList items={center.faqs} />
-            {faqGroups.map(([cat, items]) => (
-              <div key={cat}>
-                <h3 className="mb-2 text-sm font-bold text-jisan-ink/60">{cat}</h3>
-                <FaqList items={items} />
-              </div>
-            ))}
+            {faqCount > 0 && (
+              <Link href={`/${center.slug}/faq`} className={`inline-block text-sm font-semibold ${t.accent}`}>
+                주제별 질문 {faqCount}개 더 보기 →
+              </Link>
+            )}
           </div>
         </div>
       </section>
