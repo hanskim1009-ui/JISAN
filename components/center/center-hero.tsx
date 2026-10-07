@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site-config"
 import { looksToRender, type Look } from "@/lib/look"
 import { centerTones } from "@/components/center/tone"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
+import { stageGuideHref } from "@/lib/center-pages"
 
 /**
  * 센터 첫 화면. 시안 두 가지(lib/look.ts)
@@ -29,7 +30,7 @@ function Hero({ look, center }: { look: Look; center: Center }) {
   const anim = ridge ? "anim-rise" : ""
 
   return (
-    <section className={`look-${look} relative overflow-hidden ${t.hero}`}>
+    <section className={`screen look-${look} relative overflow-hidden ${t.hero}`}>
       {look === "photo" ? (
         <>
           <div aria-hidden className="anim-kenburns absolute -inset-[4%]">
@@ -89,10 +90,14 @@ function Hero({ look, center }: { look: Look; center: Center }) {
         >
           <h2 className="text-base font-bold">{center.stageTitle}</h2>
           <ul className="mt-3 space-y-2">
-            {center.stages.map((s) => (
+            {center.stages.map((s) => {
+              // 상황을 설명하는 안내 글이 있으면 그리로 (전화로 바로 넘기지 않고 할 일부터 보여 줌)
+              const guide = stageGuideHref(center.slug, s.label)
+              const hint = guide && s.href.startsWith("tel:") ? "지금 할 일 보기 →" : s.hint
+              return (
               <li key={s.label}>
                 <a
-                  href={s.href}
+                  href={guide ?? s.href}
                   className={`group flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-[15px] font-semibold transition-colors ${
                     s.urgent ? "border-[#E2620F] text-[#B4490A] hover:bg-[#E2620F]/5" : "border-[#E2E6ED] hover:border-jisan-blue"
                   }`}
@@ -103,11 +108,12 @@ function Hero({ look, center }: { look: Look; center: Center }) {
                       s.urgent ? "text-[#B4490A]" : "text-muted-foreground"
                     }`}
                   >
-                    {s.hint}
+                    {hint}
                   </span>
                 </a>
               </li>
-            ))}
+              )
+            })}
           </ul>
         </div>
       </div>

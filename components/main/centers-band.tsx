@@ -41,7 +41,7 @@ function cardRidges(i: number) {
 export function CentersBand() {
   if (centers.length === 0) return null
   return (
-    <section className="bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
+    <section className="screen bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead title="분야별 센터" desc="분야마다 센터를 따로 두고, 단계별 대응 방법까지 자세히 안내합니다." />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -3,6 +3,7 @@ import { lawyers, type Lawyer } from "@/lib/lawyers"
 import { siteConfig } from "@/lib/site-config"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { SectionHead } from "@/components/main/section-head"
+import { KeywordMarquee } from "@/components/main/keyword-marquee"
 
 /** 지금 사무실 직함을 뺀 경력 한 줄 */
 function careerLines(l: Lawyer) {
@@ -13,8 +14,8 @@ function careerLines(l: Lawyer) {
 /** 구성원: 모두 같은 크기·같은 형식. 이름 위에 분야, 아래에 한 줄 소개와 경력 한 줄 */
 export function PeopleSection() {
   return (
-    <section id="team" className="scroll-mt-20 bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
-      <div data-reveal className="max-w-7xl mx-auto">
+    <section id="team" className="screen scroll-mt-20 bg-brand-paper px-5 md:px-12 lg:px-14 pt-14 md:pt-20">
+      <div data-reveal className="max-w-7xl mx-auto my-auto pb-14 md:pb-20">
         <SectionHead title="구성원 소개" desc="분야마다 그 일을 해 온 변호사가 사건을 직접 수행합니다." href="/lawyers" linkLabel="프로필 보기" />
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-x-5 gap-y-8">
           {lawyers.map((l) => (
@@ -43,6 +44,10 @@ export function PeopleSection() {
             </li>
           ))}
         </ul>
+      </div>
+      {/* 맡는 일이 흐르는 띠: 구성원 화면 맨 아래에 붙임 */}
+      <div className="-mx-5 md:-mx-12 lg:-mx-14">
+        <KeywordMarquee />
       </div>
     </section>
   )

@@ -13,7 +13,7 @@ export function AboutBand() {
     ["이름", "‘지혜의 산’이라는 뜻"],
   ]
   return (
-    <section className="relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14 py-16 md:py-24">
+    <section className="screen relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14 py-16 md:py-24">
       <LogoSvg variant="tone" className="pointer-events-none absolute -left-16 top-1/2 h-[30rem] w-auto -translate-y-1/2 text-brand-tone opacity-70" />
       <div data-reveal className="relative max-w-7xl mx-auto grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end">
         <div className="max-w-xl">

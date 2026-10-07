@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { Phone } from "lucide-react"
 import { notFound } from "next/navigation"
 import { getCenter } from "@/lib/centers"
 import { allCenterPages, getCenterPages, getGuide } from "@/lib/center-pages"
@@ -84,6 +85,20 @@ export default async function GuidePage({ params }: Props) {
           <SideNav center={center} pages={pages} current={`guide/${g.slug}`} />
           <article className="min-w-0 max-w-3xl space-y-16">
             <Sections sections={g.sections} />
+            <section className="rounded-2xl bg-jisan-ink p-6 text-white md:p-7">
+              <p className="text-lg font-bold">이 상황, 혼자 판단하기 어려우시면</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-white/75">
+                상담 전화는 24시간, 주말·공휴일에도 받습니다. 지금 겪고 계신 일을 말씀해 주시면 담당 변호사가 다음에 할 일을 알려드립니다.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2.5">
+                <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold tabular-nums text-jisan-ink">
+                  <Phone className="h-4 w-4" /> {siteConfig.phone}
+                </a>
+                <a href="#consult" className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10">
+                  상담 신청 남기기
+                </a>
+              </div>
+            </section>
             {g.faqs && g.faqs.length > 0 && (
               <section>
                 <h2 className="text-[1.375rem] md:text-[1.625rem] font-bold tracking-tight text-jisan-ink">자주 묻는 질문</h2>

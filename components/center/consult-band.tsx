@@ -8,7 +8,7 @@ import { ConsultForm } from "@/components/consult-form"
 export function ConsultBand({ center, title, source }: { center: Center; title?: string; source?: string }) {
   const t = centerTones[center.tone]
   return (
-    <section id="consult" className={`${t.band} px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20`}>
+    <section id="consult" className={`screen ${t.band} px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20`}>
       <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
         <div>
           <h2 className="text-2xl md:text-4xl font-bold tracking-tight leading-tight text-balance">{title ?? center.closing}</h2>

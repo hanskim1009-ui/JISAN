@@ -5,7 +5,7 @@ import { SectionHead } from "@/components/main/section-head"
 /** 자주 묻는 질문 (눌러서 펼침) */
 export function HomeFaq() {
   return (
-    <section className="px-5 md:px-12 lg:px-14 py-14 md:py-20">
+    <section className="screen px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr]">
         <SectionHead title="자주 묻는 질문" />
         <div className="border-t border-jisan-ink">

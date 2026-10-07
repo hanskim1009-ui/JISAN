@@ -8,7 +8,7 @@ export function MapSection() {
   const several = openOffices.length > 1
 
   return (
-    <section id="map" className="scroll-mt-20 px-5 md:px-12 lg:px-14 py-14 md:py-20">
+    <section id="map" className="screen scroll-mt-20 px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead
           title="오시는 길"

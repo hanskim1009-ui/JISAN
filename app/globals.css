@@ -157,3 +157,16 @@ html[data-look="photo"] .look-ridge {
   [data-reveal].reveal-pending { opacity: 1; transform: none; }
   .card-lift, .card-lift:hover { transition: none; transform: none; }
 }
+
+/* 넓고 높은 화면에서는 구역 하나가 화면 하나를 채우고 내용은 가운데에 (작은 화면·낮은 화면은 그대로) */
+@media (min-width: 1024px) and (min-height: 640px) {
+  .screen {
+    min-height: calc(100svh - 74px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .screen > div:not([aria-hidden]) {
+    width: 100%;
+  }
+}

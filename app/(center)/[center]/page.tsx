@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-const sectionPad = "px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20"
+const sectionPad = "screen px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20"
 const h2 = "text-2xl md:text-[2rem] font-bold tracking-tight text-jisan-ink leading-tight"
 
 export default async function CenterPage({ params }: Props) {

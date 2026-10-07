@@ -112,7 +112,7 @@ function HeroPicker({ look }: { look: Look }) {
 /** 추천안: 능선 사진 (Unsplash 무료 사진, 상업 사용 가능) */
 function PhotoHero() {
   return (
-    <section className="look-photo relative overflow-hidden bg-[#E6D8C6] text-brand px-5 md:px-12 lg:px-14">
+    <section className="screen look-photo relative overflow-hidden bg-[#E6D8C6] text-brand px-5 md:px-12 lg:px-14">
       <div aria-hidden className="anim-kenburns absolute -inset-[4%]">
         <Image src="/images/hero/ridge.jpg" alt="" fill priority sizes="100vw" className="object-cover object-[center_68%]" />
       </div>
@@ -136,7 +136,7 @@ function PhotoHero() {
 /** B안: 남색 바탕 + 겹 능선 그래픽 + 로고 획 그리기 */
 function RidgeHero() {
   return (
-    <section className="look-ridge relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14">
+    <section className="screen look-ridge relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14">
       <RidgeCanvas className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] max-h-[560px] w-full" />
       <svg
         viewBox="40 14 345 312"

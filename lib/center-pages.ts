@@ -39,6 +39,8 @@ export type AreaPage = {
 
 export type Guide = {
   slug: string
+  /** 센터 첫 화면 '지금 어떤 상황이신가요?'의 버튼 문구와 같으면 그 버튼이 이 글로 연결됨 */
+  stage?: string
   title: string
   lead: string
   seo: Seo
@@ -72,6 +74,12 @@ export function getAreaPage(center: string, area: string) {
 
 export function getGuide(center: string, guide: string) {
   return getCenterPages(center)?.guides.find((g) => g.slug === guide)
+}
+
+/** 센터 첫 화면 상황 버튼 → 그 상황을 설명하는 안내 글 */
+export function stageGuideHref(center: string, label: string) {
+  const g = getCenterPages(center)?.guides.find((x) => x.stage === label)
+  return g ? `/${center}/guide/${g.slug}` : undefined
 }
 
 /** 센터 메인의 업무분야 카드 → 상세 페이지 주소 */
