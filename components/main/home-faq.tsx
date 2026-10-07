@@ -1,14 +1,16 @@
 import { Plus } from "lucide-react"
 import { homeFaqs } from "@/lib/home-faq"
 import { SectionHead } from "@/components/main/section-head"
+import { FaqSearch } from "@/components/main/faq-search"
 
-/** 자주 묻는 질문 (눌러서 펼침) */
+/** 자주 묻는 질문: 기본 6개(눌러서 펼침) + 아래에서 모든 센터 질문 검색 */
 export function HomeFaq() {
   return (
     <section className="screen px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr]">
         <SectionHead title="자주 묻는 질문" />
-        <div className="border-t border-jisan-ink">
+        <div>
+          <div className="border-t border-jisan-ink">
           {homeFaqs.map((f) => (
             <details key={f.q} className="group border-b border-[#E4E6E9]">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-base font-bold text-jisan-ink [&::-webkit-details-marker]:hidden">
@@ -18,6 +20,8 @@ export function HomeFaq() {
               <p className="pb-5 text-[0.9375rem] leading-relaxed text-[#4A505A]">{f.a}</p>
             </details>
           ))}
+          </div>
+          <FaqSearch />
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { siteConfig } from "@/lib/site-config"
 import { SectionHead } from "@/components/main/section-head"
 
@@ -9,21 +8,14 @@ const steps = [
   { title: "사건 진행", body: "위임하시면 담당 변호사가 조사 입회, 서면 작성, 재판 출석까지 직접 맡습니다." },
 ]
 
-const documents = [
-  { field: "형사", items: "출석요구서나 수사관 문자, 고소장, 상대방과 주고받은 메시지" },
-  { field: "가사", items: "혼인·가족관계증명서, 재산 자료, 받은 소장" },
-  { field: "기업", items: "계약서 초안, 정관, 주주명부, 이사회 의사록" },
-  { field: "민사", items: "계약서·차용증, 입금 내역, 내용증명, 받은 소장" },
-]
-
-/** 상담 안내: 상담 접수부터 사건 진행까지 + 분야별로 준비하면 좋은 자료 */
+/** 상담 안내: 상담 접수부터 사건 진행까지 네 단계 */
 export function HowWeWork() {
   return (
     <section className="screen px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead title="상담 안내" desc="자료가 다 준비되지 않아도 됩니다. 편하게 전화를 주셔도 됩니다." href="/consult" linkLabel="상담 신청하기" />
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr]">
-          <ol className="border-t border-jisan-ink">
+        <div>
+          <ol className="grid grid-cols-1 border-t border-jisan-ink lg:grid-cols-2 lg:gap-x-12">
             {steps.map((s, i) => (
               <li key={s.title} className="grid grid-cols-[3.5rem_1fr] gap-3 border-b border-[#E4E6E9] py-5">
                 <span className="text-3xl font-bold text-brand-accent tabular-nums">{i + 1}</span>
@@ -34,23 +26,6 @@ export function HowWeWork() {
               </li>
             ))}
           </ol>
-          <div className="bg-brand-paper p-6 md:p-7">
-            <h3 className="text-[1.0625rem] font-bold text-jisan-ink">상담 전에 준비하시면 좋은 자료</h3>
-            <dl className="mt-4 text-[0.9375rem]">
-              {documents.map((d) => (
-                <div key={d.field} className="grid grid-cols-[3rem_1fr] gap-3 border-b border-[#D9D4CA] py-3 last:border-b-0">
-                  <dt className="font-bold text-brand-accent">{d.field}</dt>
-                  <dd className="text-[#2D323A]">{d.items}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mt-4 text-[0.8125rem] text-[#6B717B]">
-              없어도 상담은 됩니다.{" "}
-              <Link href="/consult" className="font-semibold text-brand-accent underline underline-offset-4">
-                상담 신청
-              </Link>
-            </p>
-          </div>
         </div>
       </div>
     </section>
