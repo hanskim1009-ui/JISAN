@@ -263,7 +263,7 @@ export const civil: Center = {
     },
     {
       "slug": "park-hanmin",
-      "note": "부동산 사건 담당"
+      "note": "재개발·재건축, 설계변경, 하도급, 간접비, 하자보수"
     }
   ],
   "faqs": [

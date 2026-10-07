@@ -212,14 +212,15 @@ export const lawyers: Lawyer[] = [
     career: [],
     highlights: [],
   },
-  // TODO: 박한민 변호사 정보 수령 후 직함·소개·이력·학력 입력 (사진: public/images/lawyers/park-hanmin.jpg)
+  // TODO: 박한민 변호사 직함·이력·학력·사진 수령 후 입력 (주력 분야는 확인됨) (사진: public/images/lawyers/park-hanmin.jpg)
   {
     slug: "park-hanmin",
     field: "부동산",
     name: "박한민",
     title: "변호사",
     image: lawyerImages.parkHanmin,
-    summary: "프로필을 준비하고 있습니다.",
+    tagline: "재개발·재건축, 설계변경, 하도급, 간접비, 하자보수 사건을 주로 맡는 변호사",
+    summary: "박한민 변호사는 재개발·재건축, 설계변경, 하도급, 간접비, 하자보수 사건을 주로 맡습니다.",
     career: [],
     highlights: [],
   },
