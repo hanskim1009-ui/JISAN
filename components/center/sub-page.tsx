@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Check, ChevronRight, Phone } from "lucide-react"
+import { Check, ChevronRight, Phone, Plus } from "lucide-react"
 import type { Center } from "@/lib/centers"
 import type { AreaPage, CenterPages, Section } from "@/lib/center-pages"
 import { getLawyer } from "@/lib/lawyers"
@@ -8,6 +8,7 @@ import { centerTones } from "@/components/center/tone"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { DataTable } from "@/components/center/data-table"
+import { ClampText } from "@/components/center/clamp-text"
 import { FaqList } from "@/components/center/faq-list"
 
 const h2 = "text-[1.375rem] md:text-[1.625rem] font-bold tracking-tight text-jisan-ink leading-snug text-balance"
@@ -170,7 +171,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
             {page.law.items.map((l) => (
               <div key={l.name} className="rounded-xl border-l-4 border-jisan-ink/70 bg-white px-5 py-4 shadow-[0_1px_0_#E2E6ED,0_0_0_1px_#E2E6ED]">
                 <p className="text-sm font-bold text-jisan-ink">{l.name}</p>
-                <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-jisan-ink/75">{l.text}</p>
+                <ClampText text={l.text} className="mt-1.5 text-[0.9375rem] leading-relaxed text-jisan-ink/75" />
               </div>
             ))}
           </div>
@@ -239,8 +240,28 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
         </section>
       )}
 
+      {/* 준비 자료: 모바일은 접어 두고(자료 준비 때문에 연락을 미루지 않게), 넓은 화면은 펼쳐서 */}
       {page.checklist && page.checklist.items.length > 0 && (
-        <section className="rounded-2xl border border-dashed border-jisan-ink/25 p-6 md:p-7">
+        <details className="group rounded-2xl border border-dashed border-jisan-ink/25 px-5 py-4 md:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
+            <span>
+              <span className="block font-bold text-jisan-ink">{page.checklist.title}</span>
+              <span className="mt-0.5 block text-xs text-jisan-ink/55">없어도 상담할 수 있습니다</span>
+            </span>
+            <Plus className="h-4 w-4 shrink-0 transition-transform group-open:rotate-45" />
+          </summary>
+          <ul className="mt-4 space-y-2">
+            {page.checklist.items.map((it) => (
+              <li key={it} className="flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-jisan-ink/85">
+                <span aria-hidden className="mt-1 h-4 w-4 shrink-0 rounded border border-jisan-ink/40" />
+                {it}
+              </li>
+            ))}
+          </ul>
+        </details>
+      )}
+      {page.checklist && page.checklist.items.length > 0 && (
+        <section className="hidden rounded-2xl border border-dashed border-jisan-ink/25 p-6 md:block md:p-7">
           <h2 className="text-lg font-bold text-jisan-ink">{page.checklist.title}</h2>
           <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {page.checklist.items.map((it) => (
@@ -290,7 +311,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
 /** 같은 센터의 다른 업무분야 (모든 화면 너비에서 보이는 하단 이동) */
 export function RelatedAreas({ center, pages, current }: { center: Center; pages: CenterPages; current: string }) {
   const group = pages.areaPages.find((a) => a.slug === current)?.group
-  // 같은 묶음을 앞에. 모바일에서는 앞의 6개만 보이고 전체 목록 링크를 둡니다
+  // 같은 묶음을 앞에. 모바일에서는 앞의 4개만 보이고 전체 목록 링크를 둡니다
   const others = pages.areaPages
     .filter((a) => a.slug !== current)
     .sort((a, b) => Number(b.group === group) - Number(a.group === group))
@@ -301,21 +322,21 @@ export function RelatedAreas({ center, pages, current }: { center: Center; pages
         <h2 className="text-xl font-bold text-jisan-ink">{center.name}의 다른 업무분야</h2>
         <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((a, i) => (
-            <li key={a.slug} className={i >= 6 ? "hidden md:block" : undefined}>
+            <li key={a.slug} className={i >= 4 ? "hidden md:block" : undefined}>
               <Link href={`/${center.slug}/${a.slug}`} className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-5">
                 <span className="font-bold text-jisan-ink">{a.areaName}</span>
                 <span className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-jisan-ink/65">{a.lead}</span>
-                <span className="mt-auto pt-3 text-sm font-semibold text-jisan-ink/70 group-hover:text-jisan-ink">자세히 보기 →</span>
+                <span className="mt-auto pt-3 text-sm font-semibold text-jisan-ink/70 group-hover:text-jisan-ink">자세히 보기&nbsp;→</span>
               </Link>
             </li>
           ))}
         </ul>
-        {others.length > 6 && (
+        {others.length > 4 && (
           <Link
             href={`/${center.slug}#areas`}
             className="mt-3 block rounded-xl border border-[#D5DAE1] bg-white py-3 text-center text-sm font-semibold text-jisan-ink md:hidden"
           >
-            업무분야 {others.length + 1}개 전체 보기 →
+            업무분야 {others.length + 1}개 전체 보기&nbsp;→
           </Link>
         )}
       </div>

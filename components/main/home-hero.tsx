@@ -72,7 +72,7 @@ function HeroPicker({ look }: { look: Look }) {
     <div className={dark ? "anim-rise" : ""} style={dark ? { animationDelay: "0.8s" } : undefined}>
       <div className="mb-3 flex items-baseline justify-between gap-3">
         <h2 className="text-[0.9375rem] font-bold text-white [text-shadow:0_1px_10px_rgb(8_22_40/0.45)]">지금 어떤 상황이신가요?</h2>
-        <span aria-hidden className="text-xs font-medium text-white/60 lg:hidden">옆으로 넘겨 보세요 →</span>
+        <span aria-hidden className="text-xs font-medium text-white/60 lg:hidden">옆으로 넘겨 보세요&nbsp;→</span>
       </div>
       <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-1 md:-mx-12 md:scroll-px-12 md:px-12 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
         {fields.filter((f) => f.situations.length > 0).map((f) => (

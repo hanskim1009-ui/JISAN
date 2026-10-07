@@ -77,7 +77,7 @@ function StructuredResumeToggle({
         <div ref={resumeRootRef} className="flex flex-col">
           <div className="mb-4 flex shrink-0 justify-end">
             <button type="button" onClick={() => setShowCases(true)} className={btnClass}>
-              업무사례 보기 →
+              업무사례 보기&nbsp;→
             </button>
           </div>
           <div className="space-y-5">

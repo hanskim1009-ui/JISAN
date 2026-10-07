@@ -63,7 +63,7 @@ export function AreaBrowser({ groups, accent }: { groups: { group: string; items
                     <span className="block text-[1.0625rem] font-bold text-jisan-ink">{a.name}</span>
                     {a.law && <span className={`mt-0.5 block text-xs font-semibold ${accent}`}>{a.law}</span>}
                     <span className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-jisan-ink/65 md:mt-2 md:line-clamp-3">{a.desc}</span>
-                    <span className={`mt-auto hidden pt-4 text-sm font-semibold md:block ${accent}`}>자세히 보기 →</span>
+                    <span className={`mt-auto hidden pt-4 text-sm font-semibold md:block ${accent}`}>자세히 보기&nbsp;→</span>
                   </Link>
                 </li>
               ))}

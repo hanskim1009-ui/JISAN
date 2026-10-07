@@ -117,7 +117,7 @@ export default async function GuidePage({ params }: Props) {
                   {others.map((o, i) => (
                     <li key={o.slug} className={i >= 6 ? "hidden md:list-item" : undefined}>
                       <Link href={`/${cs}/guide/${o.slug}`} className="text-[1rem] font-semibold text-jisan-ink underline-offset-4 hover:underline">
-                        {o.title} →
+                        {o.title}&nbsp;→
                       </Link>
                     </li>
                   ))}

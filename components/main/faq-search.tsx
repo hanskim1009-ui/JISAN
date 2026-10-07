@@ -88,7 +88,7 @@ export function FaqSearch() {
                     </summary>
                     <p className="text-[0.9375rem] leading-relaxed text-[#4A505A]">{f.a}</p>
                     <Link href={f.h} className="mb-4 mt-2 inline-block text-sm font-semibold text-brand-accent underline underline-offset-4">
-                      {f.n}에서 자세히 보기 →
+                      {f.n}에서 자세히 보기&nbsp;→
                     </Link>
                   </details>
                 ))}

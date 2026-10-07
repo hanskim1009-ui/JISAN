@@ -232,7 +232,7 @@ export default async function CenterPage({ params }: Props) {
             </ul>
             {guideTotal > 3 && (
               <Link href={`/${center.slug}/guide`} className={`mt-6 inline-block text-sm font-semibold ${t.accent} ${guideTotal > 6 ? "" : "md:hidden"}`}>
-                안내 글 {guideTotal}편 모두 보기 →
+                안내 글 {guideTotal}편 모두 보기&nbsp;→
               </Link>
             )}
           </div>
@@ -338,7 +338,7 @@ export default async function CenterPage({ params }: Props) {
             </div>
             {columnTotal > columns.length && (
               <Link href={`/column?center=${center.slug}`} className={`mt-6 inline-block text-sm font-semibold ${t.accent}`}>
-                {center.name} 칼럼 {columnTotal}편 모두 보기 →
+                {center.name} 칼럼 {columnTotal}편 모두 보기&nbsp;→
               </Link>
             )}
           </div>
@@ -359,7 +359,7 @@ export default async function CenterPage({ params }: Props) {
             <FaqList items={center.faqs} />
             {faqCount > 0 && (
               <Link href={`/${center.slug}/faq`} className={`inline-block text-sm font-semibold ${t.accent}`}>
-                주제별 질문 {faqCount}개 더 보기 →
+                주제별 질문 {faqCount}개 더 보기&nbsp;→
               </Link>
             )}
           </div>
@@ -382,7 +382,7 @@ export default async function CenterPage({ params }: Props) {
                 <p className="mt-3 text-sm font-semibold tabular-nums text-jisan-ink">전화 {o.phone || siteConfig.phone}</p>
                 {o.mapUrl && (
                   <a href={o.mapUrl} target="_blank" rel="noopener noreferrer" className={`mt-3 inline-block text-sm font-semibold ${t.accent}`}>
-                    지도 보기 →
+                    지도 보기&nbsp;→
                   </a>
                 )}
               </li>

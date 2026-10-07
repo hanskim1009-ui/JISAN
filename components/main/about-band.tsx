@@ -30,7 +30,7 @@ export function AboutBand() {
           </div>
           <p className={`${pen.className} mt-5 text-right text-[1.5rem] text-white/75 md:text-[1.75rem]`}>{siteConfig.name} 변호사 일동</p>
           <Link href="/about" className="mt-6 inline-block border-b border-white/60 pb-0.5 font-semibold text-white hover:border-white">
-            법인 소개 더보기 →
+            법인 소개 더보기&nbsp;→
           </Link>
         </div>
       </div>

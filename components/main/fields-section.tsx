@@ -12,7 +12,7 @@ export function FieldsSection() {
       <div data-reveal className="max-w-7xl mx-auto">
         <SectionHead title="업무영역" desc="어떤 문제가 있으신가요?" />
         <p aria-hidden className="-mt-4 mb-3 text-right text-xs text-[#8A9099] sm:hidden">
-          옆으로 넘겨 보세요 →
+          옆으로 넘겨 보세요&nbsp;→
         </p>
         {/* 모바일은 옆으로 넘기는 카드, sm 2칸, lg 3칸, xl 한 줄 6칸 */}
         <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-0 sm:overflow-visible sm:border-t sm:border-jisan-ink sm:px-0 sm:pb-0 lg:grid-cols-3 xl:grid-cols-6">
@@ -51,7 +51,7 @@ export function FieldsSection() {
                 <p className="mt-auto flex flex-wrap gap-x-4 pt-5 text-sm font-semibold">
                   {f.centers.filter((slug) => centers.some((c) => c.slug === slug)).map((slug) => (
                     <Link key={slug} href={`/${slug}`} className="text-brand-accent underline decoration-1 underline-offset-[0.3125rem]">
-                      {centers.find((c) => c.slug === slug)?.name} →
+                      {centers.find((c) => c.slug === slug)?.name}&nbsp;→
                     </Link>
                   ))}
                 </p>
