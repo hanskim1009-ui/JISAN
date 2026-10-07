@@ -9,7 +9,7 @@
  * 광고 규정: '전문', 승소율·석방률, 결과 보장 표현은 쓰지 않습니다.
  */
 
-/** dark: 형사·성범죄·마약·기업 / warm: 이혼·상간·민사·회생파산·학교폭력 */
+/** dark: 형사·성범죄·마약·기업 / warm: 이혼·상간·의료·민사·회생파산·학교폭력 */
 export type CenterTone = "dark" | "warm"
 
 export type CenterStage = {
@@ -66,8 +66,9 @@ import { corporate } from "@/lib/center-data/corporate"
 import { civil } from "@/lib/center-data/civil"
 import { insolvency } from "@/lib/center-data/insolvency"
 import { schoolViolence } from "@/lib/center-data/school-violence"
+import { medical } from "@/lib/center-data/medical"
 
-export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, corporate, civil, insolvency, schoolViolence]
+export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, corporate, medical, civil, insolvency, schoolViolence]
 
 export function getCenter(slug: string) {
   return centers.find((c) => c.slug === slug)

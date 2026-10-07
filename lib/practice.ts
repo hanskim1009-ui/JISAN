@@ -57,12 +57,12 @@ export const fields: Field[] = [
     caseType: "기업",
     items: ["투자계약, 주주간계약", "주주총회·이사회", "경영권 분쟁", "의료기관·기업 자문"],
     lawyers: ["koo-bonwoo", "kang-hyunwoo", "park-jongjin"],
-    centers: ["corporate"],
+    centers: ["corporate", "medical"],
     situations: [
       { label: "투자계약을 검토해야 해요", center: "corporate" },
       { label: "주주 간 분쟁이 생겼어요", center: "corporate" },
       { label: "정기 자문이 필요해요", center: "corporate" },
-      { label: "병원 운영 문제예요", caseType: "기업" },
+      { label: "병원 운영 문제예요", center: "medical" },
     ],
   },
   {
@@ -82,4 +82,4 @@ export const fields: Field[] = [
 ]
 
 /** 상담 폼의 '어떤 일인가요?' 선택지 */
-export const CASE_TYPES = ["형사", "성범죄", "마약", "학교폭력", "이혼", "상간", "가사", "기업", "민사", "건설·부동산", "회생·파산", "기타"]
+export const CASE_TYPES = ["형사", "성범죄", "마약", "학교폭력", "이혼", "상간", "가사", "기업", "의료", "민사", "건설·부동산", "회생·파산", "기타"]
