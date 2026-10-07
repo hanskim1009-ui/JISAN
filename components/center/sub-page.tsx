@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Check, ChevronRight, Phone, Plus } from "lucide-react"
+import { Check, ChevronRight, Phone } from "lucide-react"
 import type { Center } from "@/lib/centers"
 import type { AreaPage, CenterPages, Section } from "@/lib/center-pages"
 import { getLawyer } from "@/lib/lawyers"
@@ -237,41 +237,6 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
               </li>
             ))}
           </ol>
-        </section>
-      )}
-
-      {/* 준비 자료: 모바일은 접어 두고(자료 준비 때문에 연락을 미루지 않게), 넓은 화면은 펼쳐서 */}
-      {page.checklist && page.checklist.items.length > 0 && (
-        <details className="group rounded-2xl border border-dashed border-jisan-ink/25 px-5 py-4 md:hidden">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
-            <span>
-              <span className="block font-bold text-jisan-ink">{page.checklist.title}</span>
-              <span className="mt-0.5 block text-xs text-jisan-ink/55">없어도 상담할 수 있습니다</span>
-            </span>
-            <Plus className="h-4 w-4 shrink-0 transition-transform group-open:rotate-45" />
-          </summary>
-          <ul className="mt-4 space-y-2">
-            {page.checklist.items.map((it) => (
-              <li key={it} className="flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-jisan-ink/85">
-                <span aria-hidden className="mt-1 h-4 w-4 shrink-0 rounded border border-jisan-ink/40" />
-                {it}
-              </li>
-            ))}
-          </ul>
-        </details>
-      )}
-      {page.checklist && page.checklist.items.length > 0 && (
-        <section className="hidden rounded-2xl border border-dashed border-jisan-ink/25 p-6 md:block md:p-7">
-          <h2 className="text-lg font-bold text-jisan-ink">{page.checklist.title}</h2>
-          <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {page.checklist.items.map((it) => (
-              <li key={it} className="flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-jisan-ink/85">
-                <span aria-hidden className="mt-1 h-4 w-4 shrink-0 rounded border border-jisan-ink/40" />
-                {it}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-xs text-jisan-ink/55">자료가 다 없어도 괜찮습니다. 있는 것만 가지고 오셔도 상담할 수 있습니다.</p>
         </section>
       )}
 
