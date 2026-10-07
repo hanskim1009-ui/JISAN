@@ -13,6 +13,7 @@ import civil from "@/content/center-pages/civil.json"
 import insolvency from "@/content/center-pages/insolvency.json"
 import schoolViolence from "@/content/center-pages/school-violence.json"
 import medical from "@/content/center-pages/medical.json"
+import construction from "@/content/center-pages/construction.json"
 
 export type Seo = { title: string; description: string; keywords: string[] }
 export type Section = { title: string; body?: string[]; bullets?: string[] }
@@ -54,7 +55,7 @@ export type CenterPages = {
   sources?: string[]
 }
 
-const all = [crime, sexCrime, drug, divorce, adultery, corporate, medical, civil, insolvency, schoolViolence] as unknown as CenterPages[]
+const all = [crime, sexCrime, drug, divorce, adultery, corporate, medical, civil, construction, insolvency, schoolViolence] as unknown as CenterPages[]
 
 export function getCenterPages(center: string): CenterPages | undefined {
   return all.find((c) => c.slug === center)

@@ -71,10 +71,10 @@ export const fields: Field[] = [
     caseType: "민사",
     items: ["대여금·투자금 반환", "공사대금, 하자", "임대차 보증금, 명도", "개인회생·파산"],
     lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon", "park-hanmin"],
-    centers: ["civil", "insolvency"],
+    centers: ["civil", "construction", "insolvency"],
     situations: [
       { label: "빌려준 돈을 못 받았어요", center: "civil" },
-      { label: "공사대금 문제예요", center: "civil" },
+      { label: "공사대금 문제예요", center: "construction" },
       { label: "보증금을 못 받았어요", center: "civil" },
       { label: "빚을 정리하고 싶어요", center: "insolvency" },
     ],
