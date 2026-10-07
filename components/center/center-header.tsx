@@ -23,15 +23,15 @@ export function CenterHeader({ name, tone, nav, homeHref }: { name: string; tone
           <span className="block text-lg md:text-xl tracking-tight">
             {siteConfig.shortName} <b className="font-extrabold">{name}</b>
           </span>
-          <span className={`block text-[10.5px] ${t.logoSub}`}>{siteConfig.name}</span>
+          <span className={`block text-[0.6562rem] ${t.logoSub}`}>{siteConfig.name}</span>
         </a>
         <div className="hidden xl:flex items-center gap-5">
           {nav.map((n) => (
-            <a key={n.href} href={n.href} className={`whitespace-nowrap text-[14.5px] transition-colors ${t.headerLink}`}>
+            <a key={n.href} href={n.href} className={`whitespace-nowrap text-[0.9062rem] transition-colors ${t.headerLink}`}>
               {n.label}
             </a>
           ))}
-          <a href={siteConfig.phoneHref} className="hidden 2xl:inline whitespace-nowrap text-[15px] font-bold">
+          <a href={siteConfig.phoneHref} className="hidden 2xl:inline whitespace-nowrap text-[0.9375rem] font-bold">
             24시간 {siteConfig.phone}
           </a>
           <a href="#consult" className={`whitespace-nowrap px-5 py-2.5 text-sm font-semibold ${t.headerCta}`}>

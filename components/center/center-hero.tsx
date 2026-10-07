@@ -51,7 +51,7 @@ function Hero({ look, center }: { look: Look; center: Center }) {
           />
         </>
       ) : (
-        <RidgeCanvas palette={dark ? "navy" : "warm"} className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] max-h-[440px] w-full" />
+        <RidgeCanvas palette={dark ? "navy" : "warm"} className="pointer-events-none absolute inset-x-0 bottom-0 h-[46%] max-h-[27.5rem] w-full" />
       )}
 
       <div
@@ -69,16 +69,16 @@ function Hero({ look, center }: { look: Look; center: Center }) {
           >
             {center.hero.title}
           </h1>
-          <p {...rise(0.44)} className={`${anim} mt-5 max-w-xl text-base md:text-[17px] leading-relaxed ${t.heroSub}`}>
+          <p {...rise(0.44)} className={`${anim} mt-5 max-w-xl text-base md:text-[1.0625rem] leading-relaxed ${t.heroSub}`}>
             {center.hero.sub}
           </p>
           <div {...rise(0.56)} className={`${anim} mt-8 flex flex-wrap gap-2.5`}>
-            <a href="#consult" className={`rounded-full px-6 py-3 text-[15px] font-semibold ${t.primaryBtn}`}>
+            <a href="#consult" className={`rounded-full px-6 py-3 text-[0.9375rem] font-semibold ${t.primaryBtn}`}>
               상담 신청
             </a>
             <a
               href={siteConfig.phoneHref}
-              className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold tabular-nums ${t.ghostBtn}`}
+              className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold tabular-nums ${t.ghostBtn}`}
             >
               <Phone className="h-4 w-4" /> {siteConfig.phone}
             </a>
@@ -98,7 +98,7 @@ function Hero({ look, center }: { look: Look; center: Center }) {
               <li key={s.label}>
                 <a
                   href={guide ?? s.href}
-                  className={`group flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-[15px] font-semibold transition-colors ${
+                  className={`group flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-[0.9375rem] font-semibold transition-colors ${
                     s.urgent ? "border-[#E2620F] text-[#B4490A] hover:bg-[#E2620F]/5" : "border-[#E2E6ED] hover:border-jisan-blue"
                   }`}
                 >

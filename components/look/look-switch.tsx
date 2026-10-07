@@ -28,7 +28,7 @@ export function LookSwitch() {
     <div
       role="group"
       aria-label="첫 화면 시안 전환 (미리보기 전용)"
-      className="fixed left-1/2 -translate-x-1/2 bottom-24 md:bottom-5 z-[60] flex items-center gap-1 rounded-full bg-[#1C1C1C]/90 p-1 text-[12.5px] font-semibold text-white shadow-lg backdrop-blur"
+      className="fixed left-1/2 -translate-x-1/2 bottom-24 md:bottom-5 z-[60] flex items-center gap-1 rounded-full bg-[#1C1C1C]/90 p-1 text-[0.7812rem] font-semibold text-white shadow-lg backdrop-blur"
     >
       <span className="hidden px-2.5 text-white/60 md:inline">시안</span>
       {options.map((o) => (

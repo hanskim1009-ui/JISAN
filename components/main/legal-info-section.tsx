@@ -38,7 +38,7 @@ export function LegalInfoSection({ columns, videos, youtubeUrl }: { columns: Col
                 <div className="relative aspect-video overflow-hidden bg-jisan-ink">
                   <Video v={main} />
                 </div>
-                <figcaption className="mt-2.5 text-[15px] font-semibold text-jisan-ink">{main.title}</figcaption>
+                <figcaption className="mt-2.5 text-[0.9375rem] font-semibold text-jisan-ink">{main.title}</figcaption>
               </figure>
               <ul className="grid grid-cols-1 content-start gap-4 sm:grid-cols-3 lg:grid-cols-1">
                 {rest.map((v) => (

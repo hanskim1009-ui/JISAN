@@ -24,7 +24,7 @@ export default function CasesPage() {
         {cases.length > 0 ? (
           <CasesTable items={cases} />
         ) : (
-          <p className="py-10 text-[15px] text-[#4A505A]">업무사례를 정리하고 있습니다. 의뢰인의 동의를 받은 사건부터 차례로 올립니다.</p>
+          <p className="py-10 text-[0.9375rem] text-[#4A505A]">업무사례를 정리하고 있습니다. 의뢰인의 동의를 받은 사건부터 차례로 올립니다.</p>
         )}
       </div>
     </div>

@@ -28,9 +28,9 @@ export function DiaryGrid({ entries }: { entries: DiaryEntry[] }) {
           ) : (
             e.sample && <div className="flex aspect-[4/3] items-center justify-center bg-[#E4E1DA] text-sm text-[#8A857B]">사진 자리</div>
           )}
-          <p className="mt-3 text-[13px] text-[#8A9099] tabular-nums">{formatDate(e.date).full}</p>
-          <h3 className="mt-0.5 text-[17px] font-bold text-jisan-ink">{e.title}</h3>
-          <p className="mt-1.5 text-[15px] leading-[1.75] text-[#2D323A]">{e.body}</p>
+          <p className="mt-3 text-[0.8125rem] text-[#8A9099] tabular-nums">{formatDate(e.date).full}</p>
+          <h3 className="mt-0.5 text-[1.0625rem] font-bold text-jisan-ink">{e.title}</h3>
+          <p className="mt-1.5 text-[0.9375rem] leading-[1.75] text-[#2D323A]">{e.body}</p>
           <p className="mt-2 text-xs font-bold text-brand-accent">{e.field}</p>
         </article>
       ))}
@@ -46,7 +46,7 @@ export function DiaryList({ entries }: { entries: DiaryEntry[] }) {
         const d = formatDate(e.date)
         return (
           <article key={e.id} className="grid grid-cols-1 md:grid-cols-[9rem_18rem_1fr] gap-4 md:gap-8 border-t border-[#E4E6E9] py-7">
-            <p className="text-[13px] text-[#8A9099] tabular-nums">
+            <p className="text-[0.8125rem] text-[#8A9099] tabular-nums">
               <span className="block text-2xl font-bold tracking-tight text-jisan-ink">{d.md}</span>
               {d.yw}
             </p>
@@ -59,8 +59,8 @@ export function DiaryList({ entries }: { entries: DiaryEntry[] }) {
             </div>
             <div className="min-w-0">
               <h2 className="text-xl font-bold text-jisan-ink">{e.title}</h2>
-              <p className="mt-2 text-[15px] leading-[1.85] text-[#2D323A] whitespace-pre-line">{e.body}</p>
-              <p className="mt-3 text-[13px] text-[#8A9099]">
+              <p className="mt-2 text-[0.9375rem] leading-[1.85] text-[#2D323A] whitespace-pre-line">{e.body}</p>
+              <p className="mt-3 text-[0.8125rem] text-[#8A9099]">
                 <b className="text-brand-accent">{e.field}</b> · {e.author} · 보내 주신 분의 허락을 받았습니다
               </p>
             </div>

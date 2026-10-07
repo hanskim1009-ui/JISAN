@@ -17,7 +17,7 @@ export function MapSection() {
           linkLabel="네이버 지도에서 보기"
         />
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">
-          <dl className="text-[15px]">
+          <dl className="text-[0.9375rem]">
             {openOffices.map((o) => (
               <div key={o.name} className="border-b border-[#E4E6E9] py-3.5">
                 <dt className="font-semibold text-jisan-ink">{o.name}</dt>

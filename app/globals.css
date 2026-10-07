@@ -94,6 +94,10 @@
   @apply text-2xl md:text-4xl font-semibold tracking-tight text-foreground;
 }
 
+/* 큰 화면(가로 1600·세로 900 이상)에서는 기준 글자 크기를 화면에 맞춰 키움.
+   rem으로 잡은 글자·여백·폭이 함께 커져서 섹션이 커진 만큼 내용도 커집니다. 가로·세로 중 작은 쪽을 따라가 한 화면을 넘치지 않음. */
+html { font-size: clamp(16px, min(1vw, 1.778vh), 24px); }
+
 /* Typography: 카드 제목 H3 (로엘 스타일) */
 .card-title {
   @apply text-lg md:text-2xl font-semibold tracking-tight text-foreground;
@@ -161,12 +165,12 @@ html[data-look="photo"] .look-ridge {
 /* 넓고 높은 화면에서는 구역 하나가 화면 하나를 채우고 내용은 가운데에 (작은 화면·낮은 화면은 그대로) */
 @media (min-width: 1024px) and (min-height: 640px) {
   .screen {
-    min-height: calc(100svh - 74px);
+    min-height: calc(100svh - 4.625rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  .screen > div:not([aria-hidden]) {
+  .screen > div:not([aria-hidden]):not(.bleed) {
     width: 100%;
   }
 }

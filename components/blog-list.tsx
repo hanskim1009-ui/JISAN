@@ -10,10 +10,10 @@ export function BlogList({ posts, dark = false }: { posts: FeedItem[]; dark?: bo
             href={p.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="grid grid-cols-[1fr_auto] items-baseline gap-4 py-3 text-[15px] hover:underline underline-offset-4"
+            className="grid grid-cols-[1fr_auto] items-baseline gap-4 py-3 text-[0.9375rem] hover:underline underline-offset-4"
           >
             <span className="min-w-0">{p.title}</span>
-            <span className={`text-[13px] tabular-nums ${dark ? "text-white/55" : "text-[#8A9099]"}`}>{p.date.slice(5).replace("-", ".")}</span>
+            <span className={`text-[0.8125rem] tabular-nums ${dark ? "text-white/55" : "text-[#8A9099]"}`}>{p.date.slice(5).replace("-", ".")}</span>
           </a>
         </li>
       ))}

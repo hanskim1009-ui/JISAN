@@ -32,7 +32,7 @@ export function CasesTable({ items, tabs = true }: { items: CaseItem[]; tabs?: b
         </div>
       )}
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[640px] text-left text-[15px]">
+        <table className="w-full min-w-[40rem] text-left text-[0.9375rem]">
           <thead>
             <tr className="border-b border-jisan-ink text-xs text-[#8A9099]">
               <th className="py-2 pr-3 font-medium">시기</th>

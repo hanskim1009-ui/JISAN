@@ -27,7 +27,7 @@ export function SectionHead({
       {href && (
         <Link
           href={href}
-          className="ml-auto text-sm text-jisan-ink underline decoration-1 underline-offset-[5px] hover:text-brand-accent"
+          className="ml-auto text-sm text-jisan-ink underline decoration-1 underline-offset-[0.3125rem] hover:text-brand-accent"
         >
           {linkLabel}
         </Link>

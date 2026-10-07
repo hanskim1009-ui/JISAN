@@ -5,7 +5,7 @@ export function DataTable({ table, className = "" }: { table: Table; className?:
   return (
     <div className={className}>
       <div className="overflow-x-auto rounded-xl border border-[#E2E6ED] bg-white">
-        <table className="w-full min-w-[560px] text-left text-sm">
+        <table className="w-full min-w-[35rem] text-left text-sm">
           <thead className="bg-jisan-mist/60 text-xs text-jisan-ink/60">
             <tr>
               {table.columns.map((c) => (

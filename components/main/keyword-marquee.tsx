@@ -14,7 +14,7 @@ export function KeywordMarquee() {
     </div>
   )
   return (
-    <div className="overflow-hidden bg-brand py-4 text-[15px] font-semibold text-white/85 md:py-5 md:text-base">
+    <div className="overflow-hidden bg-brand py-4 text-[0.9375rem] font-semibold text-white/85 md:py-5 md:text-base">
       <div className="anim-marquee flex w-max">
         {row(false)}
         {row(true)}

@@ -28,15 +28,15 @@ export function HowWeWork() {
               <li key={s.title} className="grid grid-cols-[3.5rem_1fr] gap-3 border-b border-[#E4E6E9] py-5">
                 <span className="text-3xl font-bold text-brand-accent tabular-nums">{i + 1}</span>
                 <div>
-                  <h3 className="text-[17px] font-bold text-jisan-ink">{s.title}</h3>
-                  <p className="mt-1 text-[15px] leading-relaxed text-[#4A505A]">{s.body}</p>
+                  <h3 className="text-[1.0625rem] font-bold text-jisan-ink">{s.title}</h3>
+                  <p className="mt-1 text-[0.9375rem] leading-relaxed text-[#4A505A]">{s.body}</p>
                 </div>
               </li>
             ))}
           </ol>
           <div className="bg-brand-paper p-6 md:p-7">
-            <h3 className="text-[17px] font-bold text-jisan-ink">상담 전에 준비하시면 좋은 자료</h3>
-            <dl className="mt-4 text-[15px]">
+            <h3 className="text-[1.0625rem] font-bold text-jisan-ink">상담 전에 준비하시면 좋은 자료</h3>
+            <dl className="mt-4 text-[0.9375rem]">
               {documents.map((d) => (
                 <div key={d.field} className="grid grid-cols-[3rem_1fr] gap-3 border-b border-[#D9D4CA] py-3 last:border-b-0">
                   <dt className="font-bold text-brand-accent">{d.field}</dt>
@@ -44,7 +44,7 @@ export function HowWeWork() {
                 </div>
               ))}
             </dl>
-            <p className="mt-4 text-[13px] text-[#6B717B]">
+            <p className="mt-4 text-[0.8125rem] text-[#6B717B]">
               없어도 상담은 됩니다.{" "}
               <Link href="/consult" className="font-semibold text-brand-accent underline underline-offset-4">
                 상담 신청

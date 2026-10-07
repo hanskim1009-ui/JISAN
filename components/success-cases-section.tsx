@@ -206,10 +206,10 @@ function CaseCard({ item }: { item: CaseItem }) {
         >
           {item.outcomeTag}
         </span>
-        <h3 className="text-[15px] font-bold text-[#1a1a2e] mb-3 leading-snug">
+        <h3 className="text-[0.9375rem] font-bold text-[#1a1a2e] mb-3 leading-snug">
           {item.title}
         </h3>
-        <p className="text-[13px] leading-relaxed text-[#555]">
+        <p className="text-[0.8125rem] leading-relaxed text-[#555]">
           {item.summary}{" "}
           <span className="font-bold text-[#1e3a8a]">[{item.summaryBold}]</span>
           {item.particle || "를"} 이끌어냈습니다.
@@ -251,7 +251,7 @@ export function SuccessCasesSection() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a2e] mb-3 tracking-tight">
                 성공사례
               </h2>
-              <p className="text-[13px] text-[#777] max-w-2xl leading-relaxed">
+              <p className="text-[0.8125rem] text-[#777] max-w-2xl leading-relaxed">
                 수십 건의 형사·민사·기업 사건 경험을 기반으로, 유사한 상황의 의뢰인에게 실질적인 도움이 되는 전략을 제시합니다.
               </p>
             </div>

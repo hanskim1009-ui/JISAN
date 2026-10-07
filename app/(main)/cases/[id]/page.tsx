@@ -47,7 +47,7 @@ export default async function CasePage({ params }: Props) {
         <h1 className="mt-3 text-[1.75rem] md:text-[2.125rem] font-bold leading-[1.35] tracking-tight text-jisan-ink text-balance">
           {c.situation}
         </h1>
-        <dl className="mt-6 border-t-2 border-jisan-ink text-[15px]">
+        <dl className="mt-6 border-t-2 border-jisan-ink text-[0.9375rem]">
           {rows.map(([k, v]) => (
             <div key={k} className="grid grid-cols-[4.5rem_1fr] gap-3 border-b border-[#E4E6E9] py-2.5">
               <dt className="text-[#8A9099]">{k}</dt>
@@ -56,9 +56,9 @@ export default async function CasePage({ params }: Props) {
           ))}
         </dl>
         <h2 className="mt-10 text-lg font-bold text-jisan-ink">쟁점</h2>
-        <p className="mt-2 text-[16px] leading-[1.85] text-[#2D323A] whitespace-pre-line">{c.issue}</p>
+        <p className="mt-2 text-[1rem] leading-[1.85] text-[#2D323A] whitespace-pre-line">{c.issue}</p>
         <h2 className="mt-8 text-lg font-bold text-jisan-ink">한 일</h2>
-        <p className="mt-2 text-[16px] leading-[1.85] text-[#2D323A] whitespace-pre-line">{c.work}</p>
+        <p className="mt-2 text-[1rem] leading-[1.85] text-[#2D323A] whitespace-pre-line">{c.work}</p>
         <p className="mt-10 border-t border-[#E4E6E9] pt-4 text-sm text-[#4A505A]">
           담당{" "}
           {people.map((l, i) => (

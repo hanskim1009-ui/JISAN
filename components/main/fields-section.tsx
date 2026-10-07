@@ -15,8 +15,8 @@ export function FieldsSection() {
           {fields.map((f) => (
             <div key={f.name} className="flex min-w-0 flex-col border-b border-[#E4E6E9] py-7 sm:pr-6 lg:border-b-0 lg:border-r lg:last:border-r-0 lg:[&:not(:first-child)]:pl-6">
               <h3 className="text-[1.75rem] font-bold tracking-[-0.03em] text-jisan-ink">{f.name}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-[#4A505A]">{f.desc}</p>
-              <ul className="mt-4 text-[15px] text-jisan-ink">
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-[#4A505A]">{f.desc}</p>
+              <ul className="mt-4 text-[0.9375rem] text-jisan-ink">
                 {f.items.map((it) => (
                   <li key={it} className="border-b border-[#E4E6E9] py-2">
                     {it}
@@ -43,7 +43,7 @@ export function FieldsSection() {
               {f.centers.some((slug) => centers.some((c) => c.slug === slug)) && (
                 <p className="mt-auto flex flex-wrap gap-x-4 pt-5 text-sm font-semibold">
                   {f.centers.filter((slug) => centers.some((c) => c.slug === slug)).map((slug) => (
-                    <Link key={slug} href={`/${slug}`} className="text-brand-accent underline decoration-1 underline-offset-[5px]">
+                    <Link key={slug} href={`/${slug}`} className="text-brand-accent underline decoration-1 underline-offset-[0.3125rem]">
                       {centers.find((c) => c.slug === slug)?.name} →
                     </Link>
                   ))}

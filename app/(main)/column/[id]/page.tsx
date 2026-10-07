@@ -81,7 +81,7 @@ export default async function ColumnPage({ params }: Props) {
         {author && (
           <aside className="mt-12 bg-brand-paper p-6">
             <ColumnByline slug={author.slug} size="md" />
-            <p className="mt-3 text-[15px] leading-relaxed text-[#2D323A]">{author.field} 사건을 맡고 있습니다.</p>
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-[#2D323A]">{author.field} 사건을 맡고 있습니다.</p>
             <p className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
               <Link href={`/consult?type=${encodeURIComponent(c.field)}`} className="text-brand-accent underline underline-offset-4">
                 {author.name} 변호사에게 상담
@@ -103,7 +103,7 @@ export default async function ColumnPage({ params }: Props) {
             <h2 className="text-lg font-bold text-jisan-ink">{c.field} 업무사례</h2>
             <ul className="mt-3 border-t border-jisan-ink">
               {cases.map((x) => (
-                <li key={x.id} className="border-b border-[#E4E6E9] py-3 text-[15px]">
+                <li key={x.id} className="border-b border-[#E4E6E9] py-3 text-[0.9375rem]">
                   <Link href={`/cases/${x.id}`} className="hover:underline underline-offset-4">
                     {x.situation} <b className="ml-1 text-brand-accent">{x.result}</b>
                   </Link>

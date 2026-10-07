@@ -24,7 +24,7 @@ export default function DiaryPage() {
         {entries.length > 0 ? (
           <DiaryList entries={entries} />
         ) : (
-          <p className="py-10 text-[15px] text-[#4A505A]">첫 일기를 준비하고 있습니다.</p>
+          <p className="py-10 text-[0.9375rem] text-[#4A505A]">첫 일기를 준비하고 있습니다.</p>
         )}
       </div>
     </div>

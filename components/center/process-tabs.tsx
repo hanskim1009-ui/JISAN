@@ -28,7 +28,7 @@ export function ProcessTabs({ processes, accent }: { processes: Process[]; accen
         </div>
       )}
       <div role="tabpanel" className="mt-8">
-        {p.summary && <p className="mb-6 max-w-3xl text-[15px] leading-relaxed text-jisan-ink/70">{p.summary}</p>}
+        {p.summary && <p className="mb-6 max-w-3xl text-[0.9375rem] leading-relaxed text-jisan-ink/70">{p.summary}</p>}
         <ol className="grid grid-cols-1 gap-x-10 lg:grid-cols-2">
           {p.steps.map((s, k) => (
             <li key={s.title} className="relative flex gap-4 border-t border-[#E2E6ED] py-5">
@@ -37,10 +37,10 @@ export function ProcessTabs({ processes, accent }: { processes: Process[]; accen
               </span>
               <div className="min-w-0">
                 <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                  <span className="text-[16px] font-bold text-jisan-ink">{s.title}</span>
+                  <span className="text-[1rem] font-bold text-jisan-ink">{s.title}</span>
                   {s.period && <span className={`rounded-full bg-jisan-mist px-2.5 py-0.5 text-xs font-semibold ${accent}`}>{s.period}</span>}
                 </p>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-jisan-ink/75">{s.desc}</p>
+                <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-jisan-ink/75">{s.desc}</p>
                 {s.tip && <p className="mt-2 text-sm leading-relaxed text-jisan-ink/60">· {s.tip}</p>}
               </div>
             </li>

@@ -118,7 +118,7 @@ export function ConsultForm({
             <label
               key={opt}
               htmlFor={id(`stage-${i}`)}
-              className="cursor-pointer rounded-full border border-input px-3 py-1.5 text-[13px] text-muted-foreground transition-colors hover:border-foreground/40 has-[:checked]:border-jisan-blue has-[:checked]:bg-jisan-blue/5 has-[:checked]:font-semibold has-[:checked]:text-jisan-blue has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring"
+              className="cursor-pointer rounded-full border border-input px-3 py-1.5 text-[0.8125rem] text-muted-foreground transition-colors hover:border-foreground/40 has-[:checked]:border-jisan-blue has-[:checked]:bg-jisan-blue/5 has-[:checked]:font-semibold has-[:checked]:text-jisan-blue has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring"
             >
               <input id={id(`stage-${i}`)} type="radio" name="stage" value={opt} className="sr-only" />
               {opt}
@@ -151,7 +151,7 @@ export function ConsultForm({
         <Button
           type="submit"
           disabled={status === "submitting"}
-          className={`h-12 rounded-md bg-jisan-blue px-8 text-[15px] font-semibold text-white hover:bg-jisan-blue/90 ${compact ? "w-full" : "w-full sm:w-auto"}`}
+          className={`h-12 rounded-md bg-jisan-blue px-8 text-[0.9375rem] font-semibold text-white hover:bg-jisan-blue/90 ${compact ? "w-full" : "w-full sm:w-auto"}`}
         >
           {status === "submitting" ? "전송 중..." : "상담 신청"}
         </Button>

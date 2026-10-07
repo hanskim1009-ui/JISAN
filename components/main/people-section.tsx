@@ -31,10 +31,10 @@ export function PeopleSection() {
                 </div>
                 <p className="mt-2.5 text-xs font-bold text-brand-accent">{l.field || "\u00a0"}</p>
                 <p className="text-base font-bold text-jisan-ink group-hover:underline underline-offset-4">{l.name}</p>
-                <p className="text-[13px] text-[#8A9099]">{l.title}</p>
-                {l.tagline && <p className="mt-2 text-[13px] leading-snug text-jisan-ink">{l.tagline}</p>}
+                <p className="text-[0.8125rem] text-[#8A9099]">{l.title}</p>
+                {l.tagline && <p className="mt-2 text-[0.8125rem] leading-snug text-jisan-ink">{l.tagline}</p>}
                 {careerLines(l).length > 0 && (
-                  <ul className="mt-2 space-y-0.5 border-t border-[#D9D4CA] pt-2 text-[13px] leading-snug text-[#4A505A]">
+                  <ul className="mt-2 space-y-0.5 border-t border-[#D9D4CA] pt-2 text-[0.8125rem] leading-snug text-[#4A505A]">
                     {careerLines(l).map((c) => (
                       <li key={c}>{c}</li>
                     ))}
@@ -46,7 +46,7 @@ export function PeopleSection() {
         </ul>
       </div>
       {/* 맡는 일이 흐르는 띠: 구성원 화면 맨 아래에 붙임 */}
-      <div className="-mx-5 md:-mx-12 lg:-mx-14">
+      <div className="bleed -mx-5 md:-mx-12 lg:-mx-14">
         <KeywordMarquee />
       </div>
     </section>

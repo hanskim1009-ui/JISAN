@@ -11,7 +11,7 @@ export function ColumnByline({ slug, date, size = "sm" }: { slug: string; date?:
   if (!l) return null
   const box = size === "md" ? "h-11 w-11" : "h-7 w-7"
   return (
-    <span className="flex items-center gap-2.5 text-[13px] text-[#4A505A]">
+    <span className="flex items-center gap-2.5 text-[0.8125rem] text-[#4A505A]">
       <span className={`relative block ${box} shrink-0 overflow-hidden rounded-full bg-[#C9CCD1]`}>
         <LawyerPhoto src={l.image} name={l.name} imageClassName="object-cover object-top origin-top scale-[2]" sizes="96px" initialClassName="text-xs" />
       </span>
@@ -28,12 +28,12 @@ export function ColumnCard({ c }: { c: ColumnItem }) {
   return (
     <article className="flex min-w-0 flex-col border-t border-jisan-ink pt-4">
       <p className="text-xs font-bold text-brand-accent">{c.field}</p>
-      <h3 className="mt-1.5 text-[17px] font-bold leading-snug text-jisan-ink">
+      <h3 className="mt-1.5 text-[1.0625rem] font-bold leading-snug text-jisan-ink">
         <Link href={`/column/${c.id}`} className="hover:underline underline-offset-4">
           {c.title}
         </Link>
       </h3>
-      <p className="mt-2 line-clamp-3 text-[14px] leading-relaxed text-[#4A505A]">{c.summary}</p>
+      <p className="mt-2 line-clamp-3 text-[0.875rem] leading-relaxed text-[#4A505A]">{c.summary}</p>
       <div className="mt-auto pt-4">
         <ColumnByline slug={c.author} date={c.date} />
       </div>
@@ -45,7 +45,7 @@ export function ColumnCard({ c }: { c: ColumnItem }) {
 export function ColumnRow({ c }: { c: ColumnItem }) {
   return (
     <article className="grid grid-cols-1 gap-2 border-b border-[#E4E6E9] py-6 md:grid-cols-[8rem_1fr] md:gap-8">
-      <p className="text-[13px] tabular-nums text-[#8A9099]">
+      <p className="text-[0.8125rem] tabular-nums text-[#8A9099]">
         {dot(c.date)}
         <span className="ml-2 font-bold text-brand-accent md:ml-0 md:mt-1 md:block">{c.field}</span>
       </p>
@@ -55,7 +55,7 @@ export function ColumnRow({ c }: { c: ColumnItem }) {
             {c.title}
           </Link>
         </h2>
-        <p className="mt-1.5 text-[15px] leading-relaxed text-[#4A505A]">{c.summary}</p>
+        <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-[#4A505A]">{c.summary}</p>
         <div className="mt-3">
           <ColumnByline slug={c.author} />
         </div>
@@ -67,7 +67,7 @@ export function ColumnRow({ c }: { c: ColumnItem }) {
 /** 칼럼 본문 */
 export function ColumnBody({ blocks }: { blocks: ColumnBlock[] }) {
   return (
-    <div className="space-y-5 text-[17px] leading-[1.9] text-[#2D323A]">
+    <div className="space-y-5 text-[1.0625rem] leading-[1.9] text-[#2D323A]">
       {blocks.map((b, i) =>
         b.type === "h2" ? (
           <h2 key={i} className="pt-4 text-xl font-bold text-jisan-ink">

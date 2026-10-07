@@ -23,7 +23,7 @@ export function Footer() {
           </div>
           <a href={siteConfig.phoneHref} className="md:text-right">
             <span className="block text-[1.75rem] font-bold tabular-nums tracking-tight text-white">{siteConfig.phone}</span>
-            <span className="text-[13px] text-white/60">24시간 · 주말·공휴일 포함</span>
+            <span className="text-[0.8125rem] text-white/60">24시간 · 주말·공휴일 포함</span>
           </a>
         </div>
 
@@ -40,7 +40,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="mt-6 flex flex-col gap-3 text-[13px] md:flex-row md:items-center md:justify-between">
+        <div className="mt-6 flex flex-col gap-3 text-[0.8125rem] md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             {siteConfig.feeds.firmYoutubeChannelId && (
               <a href={`https://www.youtube.com/channel/${siteConfig.feeds.firmYoutubeChannelId}`} target="_blank" rel="noopener noreferrer" className="text-white/85 hover:text-white">

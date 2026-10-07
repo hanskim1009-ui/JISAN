@@ -15,7 +15,7 @@ export function HomeFaq() {
                 {f.q}
                 <Plus className="h-4 w-4 shrink-0 transition-transform group-open:rotate-45" />
               </summary>
-              <p className="pb-5 text-[15px] leading-relaxed text-[#4A505A]">{f.a}</p>
+              <p className="pb-5 text-[0.9375rem] leading-relaxed text-[#4A505A]">{f.a}</p>
             </details>
           ))}
         </div>

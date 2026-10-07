@@ -55,7 +55,7 @@ export default async function FaqPage({ params }: Props) {
             <ul className="sticky top-24 space-y-0.5">
               {groups.map(([cat, items]) => (
                 <li key={cat}>
-                  <a href={`#${encodeURIComponent(cat)}`} className="flex justify-between rounded-lg px-3 py-2 text-[14.5px] text-jisan-ink/75 hover:bg-jisan-mist hover:text-jisan-ink">
+                  <a href={`#${encodeURIComponent(cat)}`} className="flex justify-between rounded-lg px-3 py-2 text-[0.9062rem] text-jisan-ink/75 hover:bg-jisan-mist hover:text-jisan-ink">
                     {cat} <span className="tabular-nums text-jisan-ink/40">{items.length}</span>
                   </a>
                 </li>

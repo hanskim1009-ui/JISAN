@@ -23,7 +23,7 @@ export function AboutBand() {
             <br />
             한 번뿐인 사건입니다
           </h2>
-          <div className="mt-6 space-y-3 text-[16px] leading-[1.85] text-white/80">
+          <div className="mt-6 space-y-3 text-[1rem] leading-[1.85] text-white/80">
             <p>변호사에게는 매주 만나는 일이어도, 의뢰인에게는 대부분 처음이자 한 번뿐인 일입니다.</p>
             <p>
               그래서 저희는 지금 당장 선임을 결정하라고 하지 않습니다. 할 수 있는 일과 어려운 일부터 말씀드리고, 사건을 맡은 뒤에는
@@ -35,7 +35,7 @@ export function AboutBand() {
             법인 소개 더보기 →
           </Link>
         </div>
-        <dl className="border-t border-white/25 text-[15px]">
+        <dl className="border-t border-white/25 text-[0.9375rem]">
           {rows.map(([k, v]) => (
             <div key={k} className="grid grid-cols-[4.5rem_1fr] gap-4 border-b border-white/15 py-3.5">
               <dt className="text-white/55">{k}</dt>

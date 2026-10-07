@@ -24,7 +24,7 @@ export default function ColumnListPage() {
             ))}
           </div>
         ) : (
-          <p className="py-10 text-[15px] text-[#4A505A]">첫 칼럼을 준비하고 있습니다.</p>
+          <p className="py-10 text-[0.9375rem] text-[#4A505A]">첫 칼럼을 준비하고 있습니다.</p>
         )}
       </div>
     </div>

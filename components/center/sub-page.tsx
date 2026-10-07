@@ -11,7 +11,7 @@ import { DataTable } from "@/components/center/data-table"
 import { FaqList } from "@/components/center/faq-list"
 
 const h2 = "text-[1.375rem] md:text-[1.625rem] font-bold tracking-tight text-jisan-ink leading-snug text-balance"
-const para = "text-[16px] leading-[1.9] text-jisan-ink/80"
+const para = "text-[1rem] leading-[1.9] text-jisan-ink/80"
 
 /** 상세 페이지 첫 화면: 경로 표시 + 제목 + 한두 문장 + 상담 버튼, 아래에 센터 색 능선 */
 export function SubHero({
@@ -31,9 +31,9 @@ export function SubHero({
   const dark = center.tone === "dark"
   return (
     <section className={`relative overflow-hidden ${t.hero}`}>
-      <RidgeCanvas palette={dark ? "navy" : "warm"} className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] max-h-[220px] w-full opacity-80" />
+      <RidgeCanvas palette={dark ? "navy" : "warm"} className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] max-h-[13.75rem] w-full opacity-80" />
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-10 pb-24 md:pt-14 md:pb-32">
-        <nav aria-label="현재 위치" className={`flex flex-wrap items-center gap-1 text-[13px] ${dark ? "text-white/60" : "text-[#5A554C]"}`}>
+        <nav aria-label="현재 위치" className={`flex flex-wrap items-center gap-1 text-[0.8125rem] ${dark ? "text-white/60" : "text-[#5A554C]"}`}>
           {crumbs.map((c, i) => (
             <span key={c.label} className="inline-flex items-center gap-1">
               {i > 0 && <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />}
@@ -53,14 +53,14 @@ export function SubHero({
         <h1 style={{ animationDelay: "0.2s" }} className={`anim-rise mt-2 max-w-4xl text-[2rem] leading-[1.25] md:text-[2.75rem] text-balance ${t.heroTitle}`}>
           {title}
         </h1>
-        <p style={{ animationDelay: "0.3s" }} className={`anim-rise mt-5 max-w-2xl text-base md:text-[17px] leading-relaxed ${t.heroSub}`}>
+        <p style={{ animationDelay: "0.3s" }} className={`anim-rise mt-5 max-w-2xl text-base md:text-[1.0625rem] leading-relaxed ${t.heroSub}`}>
           {lead}
         </p>
         <div style={{ animationDelay: "0.4s" }} className="anim-rise mt-8 flex flex-wrap gap-2.5">
-          <a href="#consult" className={`rounded-full px-6 py-3 text-[15px] font-semibold ${t.primaryBtn}`}>
+          <a href="#consult" className={`rounded-full px-6 py-3 text-[0.9375rem] font-semibold ${t.primaryBtn}`}>
             상담 신청
           </a>
-          <a href={siteConfig.phoneHref} className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold tabular-nums ${t.ghostBtn}`}>
+          <a href={siteConfig.phoneHref} className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold tabular-nums ${t.ghostBtn}`}>
             <Phone className="h-4 w-4" /> {siteConfig.phone}
           </a>
         </div>
@@ -77,7 +77,7 @@ export function SideNav({ center, pages, current }: { center: Center; pages: Cen
       <Link
         href={href}
         aria-current={active ? "page" : undefined}
-        className={`block rounded-lg px-3 py-2 text-[14.5px] leading-snug transition-colors ${
+        className={`block rounded-lg px-3 py-2 text-[0.9062rem] leading-snug transition-colors ${
           active ? "bg-jisan-ink text-white font-semibold" : "text-jisan-ink/75 hover:bg-jisan-mist hover:text-jisan-ink"
         }`}
       >
@@ -126,7 +126,7 @@ export function Sections({ sections }: { sections: Section[] }) {
             {s.bullets && s.bullets.length > 0 && (
               <ul className="space-y-2 rounded-2xl bg-jisan-mist/50 p-5">
                 {s.bullets.map((b) => (
-                  <li key={b} className="flex gap-2.5 text-[15px] leading-relaxed text-jisan-ink/85">
+                  <li key={b} className="flex gap-2.5 text-[0.9375rem] leading-relaxed text-jisan-ink/85">
                     <span aria-hidden className="mt-[0.6em] h-1.5 w-1.5 shrink-0 rounded-full bg-jisan-ink/40" />
                     {b}
                   </li>
@@ -154,7 +154,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
           <h2 className="text-lg font-bold text-jisan-ink">{page.situations.title}</h2>
           <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {page.situations.items.map((it) => (
-              <li key={it} className="flex items-start gap-2.5 text-[15px] leading-relaxed text-jisan-ink">
+              <li key={it} className="flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-jisan-ink">
                 <Check className={`mt-1 h-4 w-4 shrink-0 ${t.accent}`} aria-hidden />
                 {it}
               </li>
@@ -170,7 +170,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
             {page.law.items.map((l) => (
               <div key={l.name} className="rounded-xl border-l-4 border-jisan-ink/70 bg-white px-5 py-4 shadow-[0_1px_0_#E2E6ED,0_0_0_1px_#E2E6ED]">
                 <p className="text-sm font-bold text-jisan-ink">{l.name}</p>
-                <p className="mt-1.5 text-[15px] leading-relaxed text-jisan-ink/75">{l.text}</p>
+                <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-jisan-ink/75">{l.text}</p>
               </div>
             ))}
           </div>
@@ -196,7 +196,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
                 <p className="text-sm font-bold text-[#B4490A]">불리하게 작용하는 사정</p>
                 <ul className="mt-3 space-y-2">
                   {page.factors.plus.map((x) => (
-                    <li key={x} className="text-[15px] leading-relaxed text-jisan-ink/80">
+                    <li key={x} className="text-[0.9375rem] leading-relaxed text-jisan-ink/80">
                       · {x}
                     </li>
                   ))}
@@ -208,7 +208,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
                 <p className={`text-sm font-bold ${t.accent}`}>유리하게 작용하는 사정</p>
                 <ul className="mt-3 space-y-2">
                   {page.factors.minus.map((x) => (
-                    <li key={x} className="text-[15px] leading-relaxed text-jisan-ink/80">
+                    <li key={x} className="text-[0.9375rem] leading-relaxed text-jisan-ink/80">
                       · {x}
                     </li>
                   ))}
@@ -225,13 +225,13 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
           <ol className="mt-6 space-y-0">
             {page.steps.items.map((s, i) => (
               <li key={s.title} className="relative flex gap-5 pb-7 last:pb-0">
-                {i < page.steps!.items.length - 1 && <span aria-hidden className="absolute left-[15px] top-9 bottom-0 w-px bg-[#D5DAE2]" />}
+                {i < page.steps!.items.length - 1 && <span aria-hidden className="absolute left-[0.9375rem] top-9 bottom-0 w-px bg-[#D5DAE2]" />}
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-jisan-ink text-sm font-bold tabular-nums text-white">
                   {i + 1}
                 </span>
                 <div className="min-w-0 pt-0.5">
-                  <p className="text-[16px] font-bold text-jisan-ink">{s.title}</p>
-                  <p className="mt-1 text-[15px] leading-relaxed text-jisan-ink/75">{s.desc}</p>
+                  <p className="text-[1rem] font-bold text-jisan-ink">{s.title}</p>
+                  <p className="mt-1 text-[0.9375rem] leading-relaxed text-jisan-ink/75">{s.desc}</p>
                 </div>
               </li>
             ))}
@@ -244,7 +244,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
           <h2 className="text-lg font-bold text-jisan-ink">{page.checklist.title}</h2>
           <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
             {page.checklist.items.map((it) => (
-              <li key={it} className="flex items-start gap-2.5 text-[15px] leading-relaxed text-jisan-ink/85">
+              <li key={it} className="flex items-start gap-2.5 text-[0.9375rem] leading-relaxed text-jisan-ink/85">
                 <span aria-hidden className="mt-1 h-4 w-4 shrink-0 rounded border border-jisan-ink/40" />
                 {it}
               </li>
@@ -267,7 +267,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
                   <p className="font-bold text-jisan-ink">
                     {l.name} <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
                   </p>
-                  {l.note && <p className="mt-0.5 text-[13px] leading-snug text-jisan-ink/70">{l.note}</p>}
+                  {l.note && <p className="mt-0.5 text-[0.8125rem] leading-snug text-jisan-ink/70">{l.note}</p>}
                 </div>
               </li>
             ))}

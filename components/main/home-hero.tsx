@@ -44,7 +44,7 @@ function HeroCopy({ look }: { look: Look }) {
       </h1>
       <p
         {...rise(0.54)}
-        className={`${dark ? "anim-rise text-white/75" : "text-jisan-ink/80"} mt-6 max-w-2xl text-base md:text-[17px] leading-[1.8]`}
+        className={`${dark ? "anim-rise text-white/75" : "text-jisan-ink/80"} mt-6 max-w-2xl text-base md:text-[1.0625rem] leading-[1.8]`}
       >
         {siteConfig.name}에는 형사·가사·기업·민사를 맡는 변호사 {lawyers.length}명이 있습니다. 사건 내용을 들은 담당 변호사가 직접
         연락드리고, 상담 전화는 24시간 받습니다.
@@ -52,7 +52,7 @@ function HeroCopy({ look }: { look: Look }) {
       <div {...rise(0.66)} className={`${dark ? "anim-rise" : ""} mt-8 flex flex-wrap gap-2.5`}>
         <Link
           href="/consult"
-          className={`rounded-full px-6 py-3 text-[15px] font-semibold transition-colors ${
+          className={`rounded-full px-6 py-3 text-[0.9375rem] font-semibold transition-colors ${
             dark ? "bg-white text-brand hover:bg-white/90" : "bg-brand text-white hover:bg-brand-tone"
           }`}
         >
@@ -60,7 +60,7 @@ function HeroCopy({ look }: { look: Look }) {
         </Link>
         <a
           href={siteConfig.phoneHref}
-          className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold tabular-nums transition-colors ${
+          className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold tabular-nums transition-colors ${
             dark ? "border border-white/40 text-white hover:bg-white/10" : "bg-white/60 text-brand backdrop-blur hover:bg-white/80"
           }`}
         >
@@ -75,7 +75,7 @@ function HeroPicker({ look }: { look: Look }) {
   const dark = look === "ridge"
   return (
     <div className={dark ? "anim-rise" : ""} style={dark ? { animationDelay: "0.8s" } : undefined}>
-      <h2 className="mb-3 text-[15px] font-bold text-white [text-shadow:0_1px_10px_rgb(8_22_40/0.45)]">지금 어떤 상황이신가요?</h2>
+      <h2 className="mb-3 text-[0.9375rem] font-bold text-white [text-shadow:0_1px_10px_rgb(8_22_40/0.45)]">지금 어떤 상황이신가요?</h2>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {fields.map((f) => (
           <div
@@ -84,13 +84,13 @@ function HeroPicker({ look }: { look: Look }) {
               dark ? "border border-white/15 bg-white/[0.07] text-white" : "bg-white/75 text-brand shadow-[0_10px_30px_-18px_rgb(8_22_40/0.6)]"
             }`}
           >
-            <p className={`text-[13px] font-bold ${dark ? "text-white/60" : "text-brand/60"}`}>{f.name}</p>
+            <p className={`text-[0.8125rem] font-bold ${dark ? "text-white/60" : "text-brand/60"}`}>{f.name}</p>
             <ul className="mt-1.5">
               {f.situations.map((s) => (
                 <li key={s.label}>
                   <Link
                     href={situationHref(s, f.caseType)}
-                    className={`group flex items-center justify-between gap-3 border-b py-2 text-[15px] font-semibold last:border-b-0 ${
+                    className={`group flex items-center justify-between gap-3 border-b py-2 text-[0.9375rem] font-semibold last:border-b-0 ${
                       dark ? "border-white/10" : "border-brand/10"
                     }`}
                   >
@@ -137,7 +137,7 @@ function PhotoHero() {
 function RidgeHero() {
   return (
     <section className="screen look-ridge relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14">
-      <RidgeCanvas className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] max-h-[560px] w-full" />
+      <RidgeCanvas className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] max-h-[35rem] w-full" />
       <svg
         viewBox="40 14 345 312"
         aria-hidden

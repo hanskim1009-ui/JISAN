@@ -98,7 +98,7 @@ export function NewsSection() {
               <h2 className="text-4xl md:text-5xl font-extrabold text-[#1a1a2e] mb-3 tracking-tight">
                 새소식 & 법률 지식
               </h2>
-              <p className="text-[13px] text-[#777] max-w-xl leading-relaxed">
+              <p className="text-[0.8125rem] text-[#777] max-w-xl leading-relaxed">
                 {siteConfig.name}의 새로운 소식과 법률 상식을 만나보세요.
               </p>
             </div>

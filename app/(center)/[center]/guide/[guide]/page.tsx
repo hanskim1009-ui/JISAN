@@ -87,7 +87,7 @@ export default async function GuidePage({ params }: Props) {
             <Sections sections={g.sections} />
             <section className="rounded-2xl bg-jisan-ink p-6 text-white md:p-7">
               <p className="text-lg font-bold">이 상황, 혼자 판단하기 어려우시면</p>
-              <p className="mt-2 text-[15px] leading-relaxed text-white/75">
+              <p className="mt-2 text-[0.9375rem] leading-relaxed text-white/75">
                 상담 전화는 24시간, 주말·공휴일에도 받습니다. 지금 겪고 계신 일을 말씀해 주시면 담당 변호사가 다음에 할 일을 알려드립니다.
               </p>
               <div className="mt-5 flex flex-wrap gap-2.5">
@@ -113,7 +113,7 @@ export default async function GuidePage({ params }: Props) {
                 <ul className="mt-2 space-y-1">
                   {others.map((o) => (
                     <li key={o.slug}>
-                      <Link href={`/${cs}/guide/${o.slug}`} className="text-[16px] font-semibold text-jisan-ink underline-offset-4 hover:underline">
+                      <Link href={`/${cs}/guide/${o.slug}`} className="text-[1rem] font-semibold text-jisan-ink underline-offset-4 hover:underline">
                         {o.title} →
                       </Link>
                     </li>

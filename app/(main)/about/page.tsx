@@ -31,7 +31,7 @@ export default function AboutPage() {
             <br />
             {siteConfig.name}입니다.
           </p>
-          <div className="mt-6 max-w-2xl space-y-5 text-[17px] leading-[1.85] text-[#2D323A]">
+          <div className="mt-6 max-w-2xl space-y-5 text-[1.0625rem] leading-[1.85] text-[#2D323A]">
             <p>
               {siteConfig.nameTopic} 변호사 {lawyers.length}명이 형사, 가사, 기업, 민사 사건을 맡고 있는 사무소입니다.
             </p>
@@ -50,16 +50,16 @@ export default function AboutPage() {
           <dl className="mt-4 max-w-2xl border-t border-jisan-ink">
             {principles.map(([title, body]) => (
               <div key={title} className="border-b border-[#E4E6E9] py-5">
-                <dt className="text-[17px] font-bold text-jisan-ink">{title}</dt>
-                <dd className="mt-1.5 text-[15px] leading-relaxed text-[#4A505A]">{body}</dd>
+                <dt className="text-[1.0625rem] font-bold text-jisan-ink">{title}</dt>
+                <dd className="mt-1.5 text-[0.9375rem] leading-relaxed text-[#4A505A]">{body}</dd>
               </div>
             ))}
           </dl>
-          <p className="mt-8 text-[15px] text-[#4A505A]">{siteConfig.name} 변호사 일동</p>
+          <p className="mt-8 text-[0.9375rem] text-[#4A505A]">{siteConfig.name} 변호사 일동</p>
         </div>
         <aside className="min-w-0">
           <SectionHead title="구성원" href="/lawyers" linkLabel="프로필 보기" />
-          <ul className="text-[15px]">
+          <ul className="text-[0.9375rem]">
             {lawyers.map((l) => (
               <li key={l.slug} className="grid grid-cols-[1fr_auto] gap-3 border-b border-[#E4E6E9] py-2.5">
                 <Link href={`/lawyers#${l.slug}`} className="font-semibold text-jisan-ink hover:underline underline-offset-4">
@@ -69,7 +69,7 @@ export default function AboutPage() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-[15px] text-[#4A505A]">
+          <p className="mt-6 text-[0.9375rem] text-[#4A505A]">
             {openOffices.map((o) => (
               <span key={o.name} className="block">
                 <b className="font-semibold text-jisan-ink">{o.name}</b> {officeAddress(o)}

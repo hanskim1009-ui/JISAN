@@ -138,7 +138,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
         } border-b border-border`}
       >
         {/* 사진 영역 */}
-        <div className="relative w-full md:w-[38%] aspect-[3/4] md:aspect-auto md:min-h-[480px] shrink-0 overflow-hidden bg-muted">
+        <div className="relative w-full md:w-[38%] aspect-[3/4] md:aspect-auto md:min-h-[30rem] shrink-0 overflow-hidden bg-muted">
           <LawyerPhoto
             src={lawyer.image}
             name={lawyer.name}
@@ -159,7 +159,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
             </p>
           </div>
 
-          {lawyer.tagline && <p className="-mt-4 mb-6 text-[17px] font-semibold leading-snug text-jisan-ink">{lawyer.tagline}</p>}
+          {lawyer.tagline && <p className="-mt-4 mb-6 text-[1.0625rem] font-semibold leading-snug text-jisan-ink">{lawyer.tagline}</p>}
 
           {/* 소개 텍스트 (줄바꿈은 \n + whitespace-pre-line) */}
           <p className="text-base leading-[1.9] text-foreground/80 mb-8 whitespace-pre-line">
@@ -234,7 +234,7 @@ export function TeamSection() {
           }`}
         >
           <SectionHead title="구성원 소개" as="h1" />
-          <p className="-mt-3 text-[17px] leading-relaxed text-[#2D323A]">
+          <p className="-mt-3 text-[1.0625rem] leading-relaxed text-[#2D323A]">
             검찰, 금융회사, 로펌, 의료기관 자문에서 일해 온 변호사들이 사건을 직접 수행합니다.
           </p>
         </div>

@@ -124,7 +124,7 @@ export default async function CenterPage({ params }: Props) {
         <section id="intro" className={`${sectionPad} ${bg("intro")}`}>
           <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.6fr]">
             <h2 className={`${h2} whitespace-pre-line`}>{center.intro.title}</h2>
-            <div className="space-y-4 text-[16px] leading-[1.85] text-jisan-ink/80">
+            <div className="space-y-4 text-[1rem] leading-[1.85] text-jisan-ink/80">
               {center.intro.body.map((p) => (
                 <p key={p}>{p}</p>
               ))}
@@ -140,7 +140,7 @@ export default async function CenterPage({ params }: Props) {
             <h2 className={h2}>{center.situations.title}</h2>
             <ul className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
               {center.situations.items.map((it) => (
-                <li key={it} className="flex items-start gap-3 rounded-xl border border-[#E2E6ED] bg-white px-4 py-3.5 text-[15px] text-jisan-ink">
+                <li key={it} className="flex items-start gap-3 rounded-xl border border-[#E2E6ED] bg-white px-4 py-3.5 text-[0.9375rem] text-jisan-ink">
                   <Check className={`mt-0.5 h-4 w-4 shrink-0 ${t.accent}`} />
                   {it}
                 </li>
@@ -213,7 +213,7 @@ export default async function CenterPage({ params }: Props) {
       <section id="process" className={`${sectionPad} ${bg("process")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>사건 진행 절차</h2>
-          <p className="mt-2 text-[15px] text-jisan-ink/70">{center.form.caseType} 사건, 단계별로 어떻게 대응하는지 알려드립니다.</p>
+          <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">{center.form.caseType} 사건, 단계별로 어떻게 대응하는지 알려드립니다.</p>
           <div className="mt-8">
             <ProcessTabs processes={pages?.processes ?? center.processes} accent={t.accent} />
           </div>
@@ -225,7 +225,7 @@ export default async function CenterPage({ params }: Props) {
         <section id="guides" className={`${sectionPad} ${bg("guides")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>상황별 안내</h2>
-            <p className="mt-2 text-[15px] text-jisan-ink/70">처음 겪는 일이라 막막할 때, 무엇부터 해야 하는지 정리했습니다.</p>
+            <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">처음 겪는 일이라 막막할 때, 무엇부터 해야 하는지 정리했습니다.</p>
             <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
               {guides.slice(0, 6).map((g) => (
                 <li key={g.slug}>
@@ -257,10 +257,10 @@ export default async function CenterPage({ params }: Props) {
         <section id="cases" className={`${sectionPad} ${bg("cases")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.name} 업무사례</h2>
-            <p className="mt-2 mb-6 text-[15px] text-jisan-ink/70">나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.</p>
+            <p className="mt-2 mb-6 text-[0.9375rem] text-jisan-ink/70">나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.</p>
             <SampleNote show={cases.some((c) => c.sample)} className="mb-4" />
             <CasesTable items={cases} tabs={false} />
-            <p className="mt-4 text-[13px] text-jisan-ink/55">※ 의뢰인의 동의를 얻은 사건만, 누구인지 알 수 없게 고쳐 공개합니다.</p>
+            <p className="mt-4 text-[0.8125rem] text-jisan-ink/55">※ 의뢰인의 동의를 얻은 사건만, 누구인지 알 수 없게 고쳐 공개합니다.</p>
           </div>
         </section>
       )}
@@ -269,7 +269,7 @@ export default async function CenterPage({ params }: Props) {
       <section id="lawyers" className={`${sectionPad} ${bg("lawyers")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>{center.name} 변호사</h2>
-          <p className="mt-2 text-[15px] text-jisan-ink/70">
+          <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">
             {siteConfig.shortName} 변호사는 {lawyers.length + others.length}명입니다. {center.name} 사건은 주력 변호사가 맡고, 민사·가사 문제가 겹치면 해당 분야 변호사가 같이 봅니다.
           </p>
           <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -283,7 +283,7 @@ export default async function CenterPage({ params }: Props) {
                   <p className="mt-2 text-lg font-bold text-jisan-ink">
                     {l.name} <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
                   </p>
-                  <p className="mt-1 text-[13px] font-medium leading-snug text-jisan-ink/80">{l.note}</p>
+                  <p className="mt-1 text-[0.8125rem] font-medium leading-snug text-jisan-ink/80">{l.note}</p>
                   <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70 line-clamp-4">{l.summary}</p>
                   <a href="#consult" className={`mt-3 inline-block text-sm font-semibold ${t.accent}`}>
                     이 변호사에게 상담
@@ -304,9 +304,9 @@ export default async function CenterPage({ params }: Props) {
                     <div className="p-3.5">
                       <p className="text-xs font-bold text-jisan-ink/60">{l.field}</p>
                       <p className="mt-0.5 font-bold text-jisan-ink">
-                        {l.name} <span className="text-[13px] font-medium text-muted-foreground">{l.title}</span>
+                        {l.name} <span className="text-[0.8125rem] font-medium text-muted-foreground">{l.title}</span>
                       </p>
-                      {l.line && <p className="mt-1 text-[13px] leading-snug text-jisan-ink/70">{l.line}</p>}
+                      {l.line && <p className="mt-1 text-[0.8125rem] leading-snug text-jisan-ink/70">{l.line}</p>}
                     </div>
                   </li>
                 ))}
@@ -377,7 +377,7 @@ export default async function CenterPage({ params }: Props) {
       <section id="offices" className={`${sectionPad} ${bg("offices")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>사무소 안내</h2>
-          <p className="mt-2 text-[15px] text-jisan-ink/70">
+          <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">
             {center.name} 사건은 {openOffices.length}곳 사무소 어디서나 상담받으실 수 있습니다. 가까운 곳으로 오세요.
           </p>
           <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -394,7 +394,7 @@ export default async function CenterPage({ params }: Props) {
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-[13px] text-jisan-ink/55">상담 전화는 24시간, 주말·공휴일에도 받습니다.</p>
+          <p className="mt-4 text-[0.8125rem] text-jisan-ink/55">상담 전화는 24시간, 주말·공휴일에도 받습니다.</p>
         </div>
       </section>
 

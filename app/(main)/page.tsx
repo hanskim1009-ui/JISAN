@@ -55,7 +55,7 @@ export default async function Page() {
             <SectionHead title="업무사례" desc="나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요." href="/cases" linkLabel="더보기" />
             <SampleNote show={cases.some((c) => c.sample)} className="mb-4" />
             <CasesTable items={cases} />
-            <p className="mt-4 text-[13px] text-[#8A9099]">※ 지산의 업무사례는 의뢰인의 동의를 얻은 사건만, 누구인지 알 수 없게 고쳐 공개합니다.</p>
+            <p className="mt-4 text-[0.8125rem] text-[#8A9099]">※ 지산의 업무사례는 의뢰인의 동의를 얻은 사건만, 누구인지 알 수 없게 고쳐 공개합니다.</p>
           </div>
         </section>
       )}

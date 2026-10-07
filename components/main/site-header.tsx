@@ -44,7 +44,7 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
     ...(showDiary ? [{ label: "감사일기", href: "/diary" }] : []),
     { label: "오시는 길", href: "/#map" },
   ]
-  const navLink = "text-[15px] text-white/75 hover:text-white transition-colors"
+  const navLink = "text-[0.9375rem] text-white/75 hover:text-white transition-colors"
   const close = () => {
     setMobileOpen(false)
     setMegaOpen(false)
@@ -55,7 +55,7 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
       <header className="sticky top-0 z-50 bg-brand text-white border-b border-white/10">
         <div ref={megaRef} className="relative px-5 md:px-12 lg:px-14">
           <nav className="max-w-7xl mx-auto flex items-center gap-7 py-4" aria-label="주 메뉴">
-            <Link href="/" className="mr-auto flex items-center gap-2.5 text-[17px] font-bold tracking-tight text-white" onClick={close}>
+            <Link href="/" className="mr-auto flex items-center gap-2.5 text-[1.0625rem] font-bold tracking-tight text-white" onClick={close}>
               <LogoSvg variant="reverse" className="h-6 w-auto" />
               {siteConfig.name}
             </Link>
