@@ -72,7 +72,7 @@ export const lawyerImages = {
   park: "/images/lawyers/park.jpg",
   kang: "/images/lawyers/kang.jpg",
   /** 사진 파일을 넣은 뒤 경로 입력 (예: "/images/lawyers/kim-miso.jpg"). 비어 있으면 이니셜로 표시 */
-  kimMiso: "",
+  kimMiso: "/images/lawyers/kim-miso.jpg",
   kimChungHyeon: "",
   parkHanmin: "",
 } as const

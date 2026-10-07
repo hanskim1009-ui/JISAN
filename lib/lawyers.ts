@@ -191,7 +191,6 @@ export const lawyers: Lawyer[] = [
     ],
     highlights: ["건국대학교 자율전공학부", "전남대학교 법학전문대학원"],
   },
-  // TODO: 김미소 변호사 사진 파일 받으면 public/images/lawyers/kim-miso.jpg 에 넣고 lawyerImages.kimMiso 경로 입력
   {
     slug: "kim-miso",
     field: "가사",
