@@ -3,6 +3,21 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  /** 외국인센터 영어·중국어판: /en/foreigner → 센터 slug foreigner-en (lib/centers.ts foreignCenters) */
+  async rewrites() {
+    return {
+      beforeFiles: ["en", "zh"].flatMap((l) => [
+        { source: `/${l}/foreigner`, destination: `/foreigner-${l}` },
+        { source: `/${l}/foreigner/:path*`, destination: `/foreigner-${l}/:path*` },
+      ]),
+    }
+  },
+  async redirects() {
+    return ["en", "zh"].flatMap((l) => [
+      { source: `/foreigner-${l}`, destination: `/${l}/foreigner`, permanent: true },
+      { source: `/foreigner-${l}/:path*`, destination: `/${l}/foreigner/:path*`, permanent: true },
+    ])
+  },
   images: {
     remotePatterns: [
       {

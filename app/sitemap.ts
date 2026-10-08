@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 import { siteConfig } from "@/lib/site-config"
-import { centers } from "@/lib/centers"
+import { allCenters, centerBase, getCenter } from "@/lib/centers"
 import { getCases, getColumns } from "@/lib/content"
 import { allCenterPages } from "@/lib/center-pages"
 
@@ -13,13 +13,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: url("/"), changeFrequency: "weekly", priority: 1 },
     { url: url("/en"), changeFrequency: "monthly", priority: 0.8 },
     { url: url("/zh"), changeFrequency: "monthly", priority: 0.8 },
-    ...centers.map((c) => ({ url: url(`/${c.slug}`), changeFrequency: "weekly" as const, priority: 0.9 })),
-    ...allCenterPages.flatMap((c) => [
-      ...c.areaPages.map((a) => ({ url: url(`/${c.slug}/${a.slug}`), changeFrequency: "monthly" as const, priority: 0.8 })),
-      ...c.guides.map((g) => ({ url: url(`/${c.slug}/guide/${g.slug}`), changeFrequency: "monthly" as const, priority: 0.7 })),
-      ...(c.guides.length > 0 ? [{ url: url(`/${c.slug}/guide`), changeFrequency: "weekly" as const, priority: 0.6 }] : []),
-      ...(c.moreFaqs.length > 0 ? [{ url: url(`/${c.slug}/faq`), changeFrequency: "monthly" as const, priority: 0.6 }] : []),
-    ]),
+    ...allCenters.map((c) => ({ url: url(centerBase(c)), changeFrequency: "weekly" as const, priority: 0.9 })),
+    ...allCenterPages.flatMap((c) => {
+      const center = getCenter(c.slug)
+      const b = center ? centerBase(center) : `/${c.slug}`
+      return [
+        ...c.areaPages.map((a) => ({ url: url(`${b}/${a.slug}`), changeFrequency: "monthly" as const, priority: 0.8 })),
+        ...c.guides.map((g) => ({ url: url(`${b}/guide/${g.slug}`), changeFrequency: "monthly" as const, priority: 0.7 })),
+        ...(c.guides.length > 0 ? [{ url: url(`${b}/guide`), changeFrequency: "weekly" as const, priority: 0.6 }] : []),
+        ...(c.moreFaqs.length > 0 ? [{ url: url(`${b}/faq`), changeFrequency: "monthly" as const, priority: 0.6 }] : []),
+      ]
+    }),
     { url: url("/about"), changeFrequency: "monthly", priority: 0.7 },
     { url: url("/consult"), changeFrequency: "yearly", priority: 0.6 },
     { url: url("/lawyers"), changeFrequency: "monthly", priority: 0.7 },
