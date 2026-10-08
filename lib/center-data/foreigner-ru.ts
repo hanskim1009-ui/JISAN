@@ -8,7 +8,7 @@ export const foreignerRu: Center = {
   "slug": "foreigner-ru",
   "lang": "ru",
   "basePath": "/ru/foreigner",
-  "alternates": {"ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner", "vi": "/vi/foreigner", "ru": "/ru/foreigner"},
+  "alternates": {"ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner", "vi": "/vi/foreigner", "ru": "/ru/foreigner", "mn": "/mn/foreigner"},
   "name": "Центр для иностранцев",
   "summary": "Отказ в продлении пребывания или смене статуса, приказ о выезде, депортация и помещение в центр содержания, проверка за нарушение иммиграционных правил, уголовные дела иностранцев, невыплата зарплаты и смена работодателя, международный развод, залог за жильё и мошенничество",
   "tone": "warm",

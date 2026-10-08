@@ -8,7 +8,7 @@ export const foreignerVi: Center = {
   "slug": "foreigner-vi",
   "lang": "vi",
   "basePath": "/vi/foreigner",
-  "alternates": {"ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner", "vi": "/vi/foreigner", "ru": "/ru/foreigner"},
+  "alternates": {"ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner", "vi": "/vi/foreigner", "ru": "/ru/foreigner", "mn": "/mn/foreigner"},
   "name": "Trung tâm Người nước ngoài",
   "summary": "Bị từ chối gia hạn lưu trú hoặc thay đổi tư cách lưu trú; lệnh xuất cảnh, lệnh trục xuất, lệnh tạm giữ; thẩm tra vi phạm xuất nhập cảnh; vụ án hình sự liên quan đến người nước ngoài; nợ lương và chuyển nơi làm việc; ly hôn có yếu tố nước ngoài; tranh chấp tiền đặt cọc và bị lừa đảo",
   "tone": "warm",

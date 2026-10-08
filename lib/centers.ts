@@ -79,6 +79,7 @@ import { construction } from "@/lib/center-data/construction"
 import { foreigner } from "@/lib/center-data/foreigner"
 import { foreignerEn } from "@/lib/center-data/foreigner-en"
 import { foreignerZh } from "@/lib/center-data/foreigner-zh"
+import { foreignerMn } from "@/lib/center-data/foreigner-mn"
 import { foreignerRu } from "@/lib/center-data/foreigner-ru"
 import { foreignerVi } from "@/lib/center-data/foreigner-vi"
 
@@ -86,7 +87,7 @@ import { foreignerVi } from "@/lib/center-data/foreigner-vi"
 export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner]
 
 /** 외국어판 센터: 메인 사이트 목록에는 없고, 주소(basePath)와 언어 전환으로만 들어옵니다 */
-export const foreignCenters: Center[] = [foreignerEn, foreignerZh, foreignerVi, foreignerRu]
+export const foreignCenters: Center[] = [foreignerEn, foreignerZh, foreignerVi, foreignerRu, foreignerMn]
 
 /** 페이지를 만드는 모든 센터 */
 export const allCenters: Center[] = [...centers, ...foreignCenters]

@@ -19,6 +19,7 @@ import construction from "@/content/center-pages/construction.json"
 import foreigner from "@/content/center-pages/foreigner.json"
 import foreignerEn from "@/content/center-pages/foreigner-en.json"
 import foreignerZh from "@/content/center-pages/foreigner-zh.json"
+import foreignerMn from "@/content/center-pages/foreigner-mn.json"
 import foreignerRu from "@/content/center-pages/foreigner-ru.json"
 import foreignerVi from "@/content/center-pages/foreigner-vi.json"
 
@@ -79,7 +80,7 @@ export type CenterPages = {
   sources?: string[]
 }
 
-const all = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner, foreignerEn, foreignerZh, foreignerVi, foreignerRu] as unknown as CenterPages[]
+const all = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner, foreignerEn, foreignerZh, foreignerVi, foreignerRu, foreignerMn] as unknown as CenterPages[]
 
 /** 센터 주소 앞부분 (외국어판은 /en/foreigner 처럼) */
 const pathOf = (slug: string) => {
