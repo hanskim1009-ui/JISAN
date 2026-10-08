@@ -238,7 +238,7 @@ export function IntlHomePage({ lang, t }: { lang: IntlLang; t: IntlHome }) {
 
           {/* 자주 묻는 질문 */}
           <section className="px-5 py-14 md:px-12 md:py-20 lg:px-14">
-            <div data-reveal className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_2fr]">
+            <div data-reveal className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-0 lg:grid-cols-[1fr_2fr] lg:gap-8">
               <SectionHead title={t.faq.title} />
               <div className="border-t border-jisan-ink">
                 {t.faq.items.map((f) => (
