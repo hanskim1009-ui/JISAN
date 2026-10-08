@@ -1,8 +1,8 @@
 /**
  * 업무사례 · 감사일기 · 칼럼
  *
- * 지금은 이 파일의 목록에서 읽습니다. 홈페이지용 Supabase 프로젝트를 만들면
- * 아래 get 함수들만 Supabase에서 읽도록 바꾸고, 직원은 관리 화면에서 입력합니다.
+ * 이 파일의 목록(칼럼 JSON 등)에 더해, 관리 화면(/admin)에서 쓰고 승인자가 게시한 글을
+ * Supabase에서 읽어 함께 보여 줍니다 (lib/posts-db.ts). 그래서 get 함수들은 모두 async 입니다.
  * 목록이 비어 있으면 메인의 해당 섹션과 메뉴가 숨겨집니다.
  * 단, 개발 미리보기에서는 예시 글(lib/samples.ts)로 채워 보여 줍니다 (lib/preview.ts).
  *
@@ -10,7 +10,9 @@
  * 결과는 처분·판결명만 적고 비율·누적 건수·결과 보장 표현은 쓰지 않습니다.
  */
 
+import { cache } from "react"
 import { SHOW_SAMPLES } from "@/lib/preview"
+import { getPublishedPosts, parseBody, type DbPost } from "@/lib/posts-db"
 import { sampleCases, sampleColumns, sampleDiary } from "@/lib/samples"
 import crimeColumns from "@/content/columns/crime.json"
 import sexCrimeColumns from "@/content/columns/sex-crime.json"
@@ -25,7 +27,7 @@ import constructionColumns from "@/content/columns/construction.json"
 import insolvencyColumns from "@/content/columns/insolvency.json"
 import schoolViolenceColumns from "@/content/columns/school-violence.json"
 
-export type CaseField = "형사" | "가사" | "기업" | "민사"
+export type CaseField = "형사" | "가사" | "기업" | "의료" | "부동산" | "민사"
 
 export type CaseItem = {
   /** 개발 미리보기용 예시 글 */
@@ -116,30 +118,97 @@ function interleave<T>(lists: T[][]): T[] {
 
 const columns: ColumnItem[] = interleave(columnFiles)
 
-export function getCases(opts: { field?: CaseField; center?: string; limit?: number } = {}) {
-  let list = [...(cases.length > 0 || !SHOW_SAMPLES ? cases : sampleCases)].sort((a, b) => b.decidedOn.localeCompare(a.decidedOn))
+const str = (v: unknown) => (typeof v === "string" ? v : "")
+const strs = (v: unknown) => (Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : [])
+
+function toColumn(p: DbPost): ColumnItem {
+  return {
+    id: p.slug,
+    field: p.field as CaseField,
+    centers: p.centers,
+    date: p.date,
+    title: p.title,
+    summary: str(p.data.summary),
+    body: parseBody(str(p.data.body)),
+    author: str(p.data.author),
+    blogPost: str(p.data.blogPost) || undefined,
+  }
+}
+
+function toDiary(p: DbPost): DiaryEntry {
+  return {
+    id: p.slug,
+    date: p.date,
+    title: p.title,
+    body: str(p.data.body),
+    field: p.field as CaseField,
+    photos: strs(p.data.photos),
+    author: str(p.data.author),
+  }
+}
+
+function toCase(p: DbPost): CaseItem {
+  return {
+    id: p.slug,
+    field: p.field as CaseField,
+    centers: p.centers,
+    decidedOn: str(p.data.decidedOn),
+    situation: p.title,
+    caseType: str(p.data.caseType),
+    clientRole: str(p.data.clientRole),
+    stage: str(p.data.stage),
+    result: str(p.data.result),
+    issue: str(p.data.issue),
+    work: str(p.data.work),
+    lawyers: strs(p.data.lawyers),
+  }
+}
+
+/** 파일 글 + 게시된 관리 화면 글 (요청마다 한 번만 읽음) */
+const loadAll = cache(async () => {
+  const db = await getPublishedPosts()
+  const dbColumns = db.filter((p) => p.kind === "column").map(toColumn)
+  const dbDiary = db.filter((p) => p.kind === "diary").map(toDiary)
+  const dbCases = db.filter((p) => p.kind === "case").map(toCase)
+  const allCases = [...dbCases, ...cases]
+  const allDiary = [...dbDiary, ...diary]
+  const allColumns = [...dbColumns, ...columns]
+  return {
+    cases: allCases.length > 0 || !SHOW_SAMPLES ? allCases : sampleCases,
+    diary: allDiary.length > 0 || !SHOW_SAMPLES ? allDiary : sampleDiary,
+    columns: allColumns.length > 0 || !SHOW_SAMPLES ? allColumns : sampleColumns,
+  }
+})
+
+export async function getCases(opts: { field?: CaseField; center?: string; limit?: number } = {}) {
+  let list = [...(await loadAll()).cases].sort((a, b) => b.decidedOn.localeCompare(a.decidedOn))
   if (opts.field) list = list.filter((c) => c.field === opts.field)
   if (opts.center) list = list.filter((c) => c.centers?.includes(opts.center!))
   return opts.limit ? list.slice(0, opts.limit) : list
 }
 
-export function getCase(id: string) {
-  return getCases().find((c) => c.id === id)
+export async function getCase(id: string) {
+  return (await getCases()).find((c) => c.id === id)
 }
 
-export function getDiary(opts: { limit?: number } = {}) {
-  const list = [...(diary.length > 0 || !SHOW_SAMPLES ? diary : sampleDiary)].sort((a, b) => b.date.localeCompare(a.date))
+export async function getDiary(opts: { limit?: number } = {}) {
+  const list = [...(await loadAll()).diary].sort((a, b) => b.date.localeCompare(a.date))
   return opts.limit ? list.slice(0, opts.limit) : list
 }
 
-export function getColumns(opts: { field?: CaseField; center?: string; author?: string; limit?: number } = {}) {
-  let list = [...(columns.length > 0 || !SHOW_SAMPLES ? columns : sampleColumns)].sort((a, b) => b.date.localeCompare(a.date))
+export async function getColumns(opts: { field?: CaseField; center?: string; author?: string; limit?: number } = {}) {
+  let list = [...(await loadAll()).columns].sort((a, b) => b.date.localeCompare(a.date))
   if (opts.field) list = list.filter((c) => c.field === opts.field)
   if (opts.center) list = list.filter((c) => c.centers?.includes(opts.center!))
   if (opts.author) list = list.filter((c) => c.author === opts.author)
   return opts.limit ? list.slice(0, opts.limit) : list
 }
 
-export function getColumn(id: string) {
-  return getColumns().find((c) => c.id === id)
+export async function getColumn(id: string) {
+  return (await getColumns()).find((c) => c.id === id)
+}
+
+/** 파일에 들어 있는 칼럼 주소 (빌드 때 미리 만들 페이지) */
+export function getFileColumnIds() {
+  return columns.map((c) => c.id)
 }

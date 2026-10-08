@@ -10,8 +10,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cases" },
 }
 
-export default function CasesPage() {
-  const cases = getCases()
+export const revalidate = 300
+
+export default async function CasesPage() {
+  const cases = await getCases()
   return (
     <div className="px-5 md:px-12 lg:px-14 py-12 md:py-16">
       <div className="max-w-7xl mx-auto">

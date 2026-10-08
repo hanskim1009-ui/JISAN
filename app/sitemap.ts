@@ -5,7 +5,9 @@ import { getCases, getColumns } from "@/lib/content"
 import { allCenterPages } from "@/lib/center-pages"
 
 /** /sitemap.xml - 센터를 추가하면 자동으로 포함됩니다. 네이버 서치어드바이저·구글 서치콘솔에 제출 */
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 3600
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const url = (path: string) => `${siteConfig.siteUrl}${path}`
   return [
     { url: url("/"), changeFrequency: "weekly", priority: 1 },
@@ -20,9 +22,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url("/consult"), changeFrequency: "yearly", priority: 0.6 },
     { url: url("/lawyers"), changeFrequency: "monthly", priority: 0.7 },
     { url: url("/cases"), changeFrequency: "weekly", priority: 0.8 },
-    ...getCases().map((c) => ({ url: url(`/cases/${c.id}`), changeFrequency: "yearly" as const, priority: 0.6 })),
+    ...(await getCases()).map((c) => ({ url: url(`/cases/${c.id}`), changeFrequency: "yearly" as const, priority: 0.6 })),
     { url: url("/column"), changeFrequency: "weekly", priority: 0.8 },
-    ...getColumns().map((c) => ({ url: url(`/column/${c.id}`), lastModified: c.date, changeFrequency: "yearly" as const, priority: 0.7 })),
+    ...(await getColumns()).map((c) => ({ url: url(`/column/${c.id}`), lastModified: c.date, changeFrequency: "yearly" as const, priority: 0.7 })),
     { url: url("/diary"), changeFrequency: "weekly", priority: 0.6 },
     { url: url("/privacy"), changeFrequency: "yearly", priority: 0.2 },
     { url: url("/disclaimer"), changeFrequency: "yearly", priority: 0.2 },

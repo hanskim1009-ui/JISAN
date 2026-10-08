@@ -9,14 +9,15 @@ import { SampleNote } from "@/components/sample-note"
 
 type Props = { params: Promise<{ id: string }> }
 
-export const dynamicParams = false
+export const dynamicParams = true
+export const revalidate = 300
 
-export function generateStaticParams() {
-  return getCases().map((c) => ({ id: c.id }))
+export async function generateStaticParams() {
+  return (await getCases()).map((c) => ({ id: c.id }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const c = getCase((await params).id)
+  const c = await getCase((await params).id)
   if (!c) return {}
   return {
     title: `${c.caseType} ${c.result} 사례`,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CasePage({ params }: Props) {
-  const c = getCase((await params).id)
+  const c = await getCase((await params).id)
   if (!c) notFound()
   const people = lawyers.filter((l) => c.lawyers.includes(l.slug))
   const rows = [

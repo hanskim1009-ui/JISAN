@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { siteConfig } from "@/lib/site-config"
 import { CASE_TYPES } from "@/lib/practice"
+import { SUPABASE_URL, restHeaders } from "@/lib/supabase"
 
 export const DEFAULT_STAGE_OPTIONS = ["상담만 먼저 받고 싶음", "고소·소송 준비 중", "수사·소송 진행 중", "재판 중"]
 
@@ -36,33 +37,62 @@ export function ConsultForm({
   const [caseType, setCaseType] = useState(fixedCaseType ?? defaultCaseType ?? "")
   const id = (name: string) => `${idPrefix}-${name}`
 
+  /** 상담 신청을 홈페이지 DB(관리 화면 '상담 신청')에 저장 */
+  const saveToDb = async (fd: FormData) => {
+    const v = (k: string) => {
+      const x = fd.get(k)
+      return typeof x === "string" && x.trim() ? x.trim() : null
+    }
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/consultations`, {
+      method: "POST",
+      headers: { ...restHeaders(), Prefer: "return=minimal" },
+      body: JSON.stringify({
+        name: v("name"),
+        phone: v("phone"),
+        case_type: v("caseType"),
+        stage: v("stage"),
+        concern: v("concern"),
+        message: v("message"),
+        source: source ?? null,
+        page: typeof window !== "undefined" ? window.location.pathname : null,
+      }),
+    })
+    return res.ok
+  }
+
+  /** 담당자 메일 알림 (Formspree) */
+  const sendMail = async (fd: FormData) => {
+    if (siteConfig.formspreeFormId === "YOUR_FORM_ID") return false
+    const res = await fetch(`https://formspree.io/f/${siteConfig.formspreeFormId}`, {
+      method: "POST",
+      body: fd,
+      headers: { Accept: "application/json" },
+    })
+    return res.ok
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
     const formData = new FormData(form)
-    formData.append("_subject", `[${siteConfig.name}] 상담 신청${source ? ` - ${source}` : ""}`)
-
-    if (siteConfig.formspreeFormId === "YOUR_FORM_ID") {
+    // 자동 입력 프로그램이 채우는 숨은 칸: 채워져 있으면 접수한 것처럼 보이고 저장하지 않음
+    if (formData.get("website")) {
       setStatus("success")
       form.reset()
       return
     }
+    formData.delete("website")
+    formData.append("_subject", `[${siteConfig.name}] 상담 신청${source ? ` - ${source}` : ""}`)
 
     setStatus("submitting")
-    try {
-      const res = await fetch(`https://formspree.io/f/${siteConfig.formspreeFormId}`, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      })
-      if (res.ok) {
-        setStatus("success")
-        form.reset()
-        setCaseType(fixedCaseType ?? "")
-      } else {
-        setStatus("error")
-      }
-    } catch {
+    // DB 저장과 메일 알림을 함께 보내고, 둘 중 하나라도 되면 접수된 것으로 봅니다
+    const [db, mail] = await Promise.allSettled([saveToDb(formData), sendMail(formData)])
+    const ok = (r: PromiseSettledResult<boolean>) => r.status === "fulfilled" && r.value
+    if (ok(db) || ok(mail)) {
+      setStatus("success")
+      form.reset()
+      setCaseType(fixedCaseType ?? "")
+    } else {
       setStatus("error")
     }
   }
@@ -78,6 +108,7 @@ export function ConsultForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden className="absolute -left-[9999px] h-0 w-0 opacity-0" />
       <div className={`grid grid-cols-1 gap-4 ${compact ? "" : "sm:grid-cols-2"}`}>
         <div className="space-y-2">
           <Label htmlFor={id("name")} className="text-sm">이름 *</Label>

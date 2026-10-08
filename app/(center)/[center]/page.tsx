@@ -25,7 +25,7 @@ import { SampleNote } from "@/components/sample-note"
 type Props = { params: Promise<{ center: string }> }
 
 export const dynamicParams = false
-export const revalidate = 3600
+export const revalidate = 300
 
 export function generateStaticParams() {
   return centers.map((c) => ({ center: c.slug }))
@@ -59,9 +59,9 @@ export default async function CenterPage({ params }: Props) {
   const center = getCenter((await params).center)
   if (!center) notFound()
   const t = centerTones[center.tone]
-  const cases = getCases({ center: center.slug })
-  const columns = getColumns({ center: center.slug, limit: 6 })
-  const columnTotal = getColumns({ center: center.slug }).length
+  const cases = await getCases({ center: center.slug })
+  const columns = await getColumns({ center: center.slug, limit: 6 })
+  const columnTotal = (await getColumns({ center: center.slug })).length
   const posts = center.blog ? await getNaverBlogPosts(center.blog.id, 6) : []
   const lawyers = center.lawyers.flatMap((cl) => {
     const l = getLawyer(cl.slug)

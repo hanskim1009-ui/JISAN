@@ -13,8 +13,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/column" },
 }
 
-export default function ColumnListPage() {
-  const list = getColumns()
+export const revalidate = 300
+
+export default async function ColumnListPage() {
+  const list = await getColumns()
   /** 목록에는 본문을 빼고 보냄 (글이 많아도 가볍게) */
   const items: ColumnLite[] = list.map(({ id, title, summary, field, centers, author, date, sample }) => ({ id, title, summary, field, centers, author, date, sample }))
   const centerList = centers.map((c) => ({ slug: c.slug, name: c.name }))

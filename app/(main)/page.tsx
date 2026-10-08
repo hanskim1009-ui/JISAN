@@ -20,7 +20,7 @@ import { sampleVideos } from "@/lib/samples"
 import { SampleNote } from "@/components/sample-note"
 import { centers } from "@/lib/centers"
 
-export const revalidate = 3600
+export const revalidate = 300
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -37,13 +37,13 @@ const faqJsonLd = {
  * → 법인 개요 → 상담 안내 → 자주 묻는 질문 → 오시는 길. 글이 없는 칸은 숨깁니다.
  */
 export default async function Page() {
-  const cases = getCases({ limit: 6 })
-  const columns = getColumns({ limit: 6 })
-  const allColumns = getColumns()
+  const cases = await getCases({ limit: 6 })
+  const columns = await getColumns({ limit: 6 })
+  const allColumns = await getColumns()
   const columnCenters = centers
     .map((c) => ({ slug: c.slug, name: c.name, count: allColumns.filter((x) => x.centers?.includes(c.slug)).length }))
     .filter((c) => c.count > 0)
-  const diary = getDiary({ limit: 3 })
+  const diary = await getDiary({ limit: 3 })
   const channelId = siteConfig.feeds.firmYoutubeChannelId
   const realVideos = await getYoutubeVideos(channelId, 4)
   const videos = realVideos.length > 0 || !SHOW_SAMPLES ? realVideos : sampleVideos

@@ -10,8 +10,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/diary" },
 }
 
-export default function DiaryPage() {
-  const entries = getDiary()
+export const revalidate = 300
+
+export default async function DiaryPage() {
+  const entries = await getDiary()
   return (
     <div className="px-5 md:px-12 lg:px-14 py-12 md:py-16">
       <div className="max-w-7xl mx-auto">

@@ -5,7 +5,7 @@ import Link from "next/link"
 import type { CaseField, CaseItem } from "@/lib/content"
 import { lawyers } from "@/lib/lawyers"
 
-const TABS: ("전체" | CaseField)[] = ["전체", "형사", "가사", "기업", "민사"]
+const TABS: ("전체" | CaseField)[] = ["전체", "형사", "가사", "기업", "의료", "부동산", "민사"]
 const name = (slug: string) => lawyers.find((l) => l.slug === slug)?.name ?? ""
 
 /** 업무사례 표 (분야 탭). 메인·업무사례 페이지·센터에서 함께 씁니다 */

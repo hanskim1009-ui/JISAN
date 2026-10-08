@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { getCases, getColumn, getColumns } from "@/lib/content"
+import { getCases, getColumn, getColumns, getFileColumnIds } from "@/lib/content"
 import { getLawyer } from "@/lib/lawyers"
 import { siteConfig } from "@/lib/site-config"
 import { ColumnBody, ColumnByline, ColumnCard } from "@/components/column-parts"
@@ -9,14 +9,16 @@ import { SampleNote } from "@/components/sample-note"
 
 type Props = { params: Promise<{ id: string }> }
 
-export const dynamicParams = false
+// 파일 칼럼은 미리 만들고, 관리 화면에서 게시한 칼럼은 처음 열릴 때 만듭니다
+export const dynamicParams = true
+export const revalidate = 300
 
 export function generateStaticParams() {
-  return getColumns().map((c) => ({ id: c.id }))
+  return getFileColumnIds().map((id) => ({ id }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const c = getColumn((await params).id)
+  const c = await getColumn((await params).id)
   if (!c) return {}
   const author = getLawyer(c.author)
   return {
@@ -28,12 +30,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ColumnPage({ params }: Props) {
-  const c = getColumn((await params).id)
+  const c = await getColumn((await params).id)
   if (!c) notFound()
   const author = getLawyer(c.author)
-  const sameCenter = c.centers?.[0] ? getColumns({ center: c.centers[0] }) : []
-  const more = [...sameCenter, ...getColumns({ field: c.field })].filter((x, i, arr) => x.id !== c.id && arr.findIndex((y) => y.id === x.id) === i).slice(0, 3)
-  const cases = getCases({ field: c.field, limit: 3 })
+  const sameCenter = c.centers?.[0] ? await getColumns({ center: c.centers[0] }) : []
+  const more = [...sameCenter, ...(await getColumns({ field: c.field }))].filter((x, i, arr) => x.id !== c.id && arr.findIndex((y) => y.id === x.id) === i).slice(0, 3)
+  const cases = await getCases({ field: c.field, limit: 3 })
 
   const jsonLd = {
     "@context": "https://schema.org",

@@ -32,10 +32,10 @@ export default async function CenterLayout({
     ...(center.table ? [{ label: center.table.nav ?? center.table.title, href: `${base}#table` }] : []),
     { label: "진행 절차", href: `${base}#process` },
     ...(hasGuides ? [{ label: "상황별 안내", href: `${base}#guides` }] : []),
-    ...(getCases({ center: center.slug }).length > 0 ? [{ label: "업무사례", href: `${base}#cases` }] : []),
+    ...((await getCases({ center: center.slug })).length > 0 ? [{ label: "업무사례", href: `${base}#cases` }] : []),
     { label: "변호사", href: `${base}#lawyers` },
     ...(hasBlog ? [{ label: "블로그", href: `${base}#blog` }] : []),
-    ...(getColumns({ center: center.slug }).length > 0 ? [{ label: "칼럼", href: `${base}#column` }] : []),
+    ...((await getColumns({ center: center.slug })).length > 0 ? [{ label: "칼럼", href: `${base}#column` }] : []),
     { label: "자주 묻는 질문", href: `${base}#faq` },
   ]
 
