@@ -266,7 +266,7 @@ export const construction: Center = {
   "lawyers": [
     {
       "slug": "park-hanmin",
-      "note": "재개발·재건축, 설계변경, 하도급, 간접비, 하자보수"
+      "note": "전) 남광토건·극동건설·금광기업 법무팀 · 법무법인(유) 세한 · 법무법인 법승"
     }
   ],
   "faqs": [

@@ -225,7 +225,7 @@ export const lawyers: Lawyer[] = [
     career: [],
     highlights: [],
   },
-  // TODO: 박한민 변호사 직함·이력·학력·사진 수령 후 입력 (주력 분야는 확인됨) (사진: public/images/lawyers/park-hanmin.jpg)
+  // TODO: 박한민 변호사 직함·학력 수령 후 입력
   {
     slug: "park-hanmin",
     field: "부동산",
@@ -233,8 +233,15 @@ export const lawyers: Lawyer[] = [
     title: "변호사",
     image: lawyerImages.parkHanmin,
     tagline: "재개발·재건축, 설계변경, 하도급, 간접비, 하자보수 사건을 주로 맡는 변호사",
-    summary: "박한민 변호사는 재개발·재건축, 설계변경, 하도급, 간접비, 하자보수 사건을 주로 맡습니다.",
-    career: [],
+    summary:
+      "박한민 변호사는 남광토건, 극동건설, 금광기업 법무팀과 법무법인(유) 세한, 법무법인 법승에서 일했고, 군법무관(94기)을 지냈습니다.\n지금은 재개발·재건축, 설계변경, 하도급, 간접비, 하자보수 사건을 주로 맡고 있습니다.",
+    career: [
+      `현) ${siteConfig.name} 변호사`,
+      "전) 남광토건 · 극동건설 · 금광기업 법무팀",
+      "전) 법무법인(유) 세한",
+      "전) 법무법인 법승",
+      "전) 군법무관 94기",
+    ],
     highlights: [],
   },
 ]
