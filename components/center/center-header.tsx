@@ -41,9 +41,10 @@ export function CenterHeader({
 
   return (
     <header className={`sticky top-0 z-50 border-b ${t.header}`}>
-      <nav className="max-w-7xl mx-auto flex items-center gap-7 px-6 md:px-12 xl:px-14 py-4" aria-label={L.menu(name)}>
-        <a href={homeHref} className="mr-auto leading-tight" onClick={() => setOpen(false)}>
-          <span className="block whitespace-nowrap text-lg md:text-xl tracking-tight">
+      <nav className="max-w-7xl mx-auto flex items-center gap-3 md:gap-7 px-5 md:px-12 xl:px-14 py-4" aria-label={L.menu(name)}>
+        <a href={homeHref} className="mr-auto min-w-0 leading-tight" onClick={() => setOpen(false)}>
+          {/* 센터 이름이 긴 언어(베트남어·러시아어·몽골어)는 좁은 화면에서 두 줄까지 */}
+          <span className={`block tracking-tight ${foreign ? "text-[1rem] sm:text-lg md:text-xl" : "whitespace-nowrap text-lg md:text-xl"}`}>
             {/* 외국어판 모바일은 아래 줄 JISAN LAW로 충분해 앞 글자를 숨김 (한 줄 유지) */}
             {foreign ? <span className="hidden sm:inline">JISAN </span> : `${siteConfig.shortName} `}
             <b className="font-extrabold">{name}</b>
