@@ -10,6 +10,12 @@
  * 결과는 처분·판결명만 적고 비율·누적 건수·결과 보장 표현은 쓰지 않습니다.
  */
 
+import type { ForeignLang, Lang } from "@/lib/langs"
+import colEn from "@/content/columns-i18n/en.json"
+import colZh from "@/content/columns-i18n/zh.json"
+import colVi from "@/content/columns-i18n/vi.json"
+import colRu from "@/content/columns-i18n/ru.json"
+import colMn from "@/content/columns-i18n/mn.json"
 import { cache } from "react"
 import { SHOW_SAMPLES } from "@/lib/preview"
 import { getPublishedPosts, parseBody, type DbPost } from "@/lib/posts-db"
@@ -96,6 +102,9 @@ export type ColumnItem = {
   blogPost?: string
 }
 
+/** 외국어 사이트 칼럼: 한국어 칼럼 중 골라 옮긴 것 (content/columns-i18n/{언어}.json, 같은 id) */
+const COLUMNS_I18N = { en: colEn, zh: colZh, vi: colVi, ru: colRu, mn: colMn } as unknown as Record<ForeignLang, ColumnItem[]>
+
 const cases: CaseItem[] = []
 
 const diary: DiaryEntry[] = []
@@ -180,35 +189,39 @@ const loadAll = cache(async () => {
   }
 })
 
-export async function getCases(opts: { field?: CaseField; center?: string; limit?: number } = {}) {
+export async function getCases(opts: { field?: CaseField; center?: string; limit?: number; lang?: Lang } = {}) {
+  // 외국어 사이트: 번역된 업무사례가 생기면 여기서 연결 (지금은 없음)
+  if (opts.lang && opts.lang !== "ko") return []
   let list = [...(await loadAll()).cases].sort((a, b) => b.decidedOn.localeCompare(a.decidedOn))
   if (opts.field) list = list.filter((c) => c.field === opts.field)
   if (opts.center) list = list.filter((c) => c.centers?.includes(opts.center!))
   return opts.limit ? list.slice(0, opts.limit) : list
 }
 
-export async function getCase(id: string) {
-  return (await getCases()).find((c) => c.id === id)
+export async function getCase(id: string, lang: Lang = "ko") {
+  return (await getCases({ lang })).find((c) => c.id === id)
 }
 
-export async function getDiary(opts: { limit?: number } = {}) {
+export async function getDiary(opts: { limit?: number; lang?: Lang } = {}) {
+  if (opts.lang && opts.lang !== "ko") return []
   const list = [...(await loadAll()).diary].sort((a, b) => b.date.localeCompare(a.date))
   return opts.limit ? list.slice(0, opts.limit) : list
 }
 
-export async function getColumns(opts: { field?: CaseField; center?: string; author?: string; limit?: number } = {}) {
-  let list = [...(await loadAll()).columns].sort((a, b) => b.date.localeCompare(a.date))
+export async function getColumns(opts: { field?: CaseField; center?: string; author?: string; limit?: number; lang?: Lang } = {}) {
+  const foreign = opts.lang && opts.lang !== "ko"
+  let list = foreign ? [...COLUMNS_I18N[opts.lang as ForeignLang]] : [...(await loadAll()).columns].sort((a, b) => b.date.localeCompare(a.date))
   if (opts.field) list = list.filter((c) => c.field === opts.field)
   if (opts.center) list = list.filter((c) => c.centers?.includes(opts.center!))
   if (opts.author) list = list.filter((c) => c.author === opts.author)
   return opts.limit ? list.slice(0, opts.limit) : list
 }
 
-export async function getColumn(id: string) {
-  return (await getColumns()).find((c) => c.id === id)
+export async function getColumn(id: string, lang: Lang = "ko") {
+  return (await getColumns({ lang })).find((c) => c.id === id)
 }
 
 /** 파일에 들어 있는 칼럼 주소 (빌드 때 미리 만들 페이지) */
-export function getFileColumnIds() {
-  return columns.map((c) => c.id)
+export function getFileColumnIds(lang: Lang = "ko") {
+  return (lang === "ko" ? columns : COLUMNS_I18N[lang as ForeignLang]).map((c) => c.id)
 }

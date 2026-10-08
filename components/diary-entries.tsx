@@ -1,9 +1,11 @@
 import Image from "next/image"
 import type { DiaryEntry } from "@/lib/content"
+import type { Lang } from "@/lib/langs"
+import { T, type TFn } from "@/lib/i18n/t"
 
 const WEEKDAY = ["일", "월", "화", "수", "목", "금", "토"]
 
-function formatDate(date: string) {
+function formatDate(date: string, t: TFn = (s) => s) {
   // "2025-12-03"을 서버 시간대와 무관하게 그대로 읽습니다
   const [y, m, d] = date.split("-").map(Number)
   const mm = String(m).padStart(2, "0")
@@ -11,12 +13,13 @@ function formatDate(date: string) {
   return {
     md: `${mm}.${dd}`,
     full: `${y}.${mm}.${dd}`,
-    yw: `${y} · ${WEEKDAY[new Date(Date.UTC(y, m - 1, d)).getUTCDay()]}요일`,
+    yw: `${y} · ${t(`${WEEKDAY[new Date(Date.UTC(y, m - 1, d)).getUTCDay()]}요일`)}`,
   }
 }
 
 /** 메인: 최근 감사일기 3개 (사진 + 날짜 + 짧은 글) */
-export function DiaryGrid({ entries }: { entries: DiaryEntry[] }) {
+export function DiaryGrid({ entries, lang = "ko" }: { entries: DiaryEntry[]; lang?: Lang }) {
+  const t = T(lang)
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {entries.map((e) => (
@@ -26,12 +29,12 @@ export function DiaryGrid({ entries }: { entries: DiaryEntry[] }) {
               <Image src={e.photos[0]} alt={e.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
           ) : (
-            e.sample && <div className="flex aspect-[4/3] items-center justify-center bg-[#E4E1DA] text-sm text-[#8A857B]">사진 자리</div>
+            e.sample && <div className="flex aspect-[4/3] items-center justify-center bg-[#E4E1DA] text-sm text-[#8A857B]">{t("사진 자리")}</div>
           )}
           <p className="mt-3 text-[0.8125rem] text-[#8A9099] tabular-nums">{formatDate(e.date).full}</p>
           <h3 className="mt-0.5 text-[1.0625rem] font-bold text-jisan-ink">{e.title}</h3>
           <p className="mt-1.5 text-[0.9375rem] leading-[1.75] text-[#2D323A]">{e.body}</p>
-          <p className="mt-2 text-xs font-bold text-brand-accent">{e.field}</p>
+          <p className="mt-2 text-xs font-bold text-brand-accent">{t(e.field)}</p>
         </article>
       ))}
     </div>
@@ -39,11 +42,12 @@ export function DiaryGrid({ entries }: { entries: DiaryEntry[] }) {
 }
 
 /** 감사일기 페이지: 왼쪽 날짜, 가운데 사진, 오른쪽 글 */
-export function DiaryList({ entries }: { entries: DiaryEntry[] }) {
+export function DiaryList({ entries, lang = "ko" }: { entries: DiaryEntry[]; lang?: Lang }) {
+  const t = T(lang)
   return (
     <div>
       {entries.map((e) => {
-        const d = formatDate(e.date)
+        const d = formatDate(e.date, t)
         return (
           <article key={e.id} className="grid grid-cols-1 md:grid-cols-[9rem_18rem_1fr] gap-4 md:gap-8 border-t border-[#E4E6E9] py-7">
             <p className="text-[0.8125rem] text-[#8A9099] tabular-nums">
@@ -53,7 +57,7 @@ export function DiaryList({ entries }: { entries: DiaryEntry[] }) {
             <div className="grid grid-cols-2 gap-2">
               {e.photos.slice(0, 2).map((p, i) => (
                 <div key={p} className={`relative overflow-hidden bg-[#E4E6E9] ${e.photos.length === 1 ? "col-span-2 aspect-[4/3]" : "aspect-square"}`}>
-                  <Image src={p} alt={`${e.title} 사진 ${i + 1}`} fill className="object-cover" sizes="(max-width: 768px) 50vw, 18rem" />
+                  <Image src={p} alt={t("{title} 사진 {n}", { title: e.title, n: i + 1 })} fill className="object-cover" sizes="(max-width: 768px) 50vw, 18rem" />
                 </div>
               ))}
             </div>
@@ -61,7 +65,7 @@ export function DiaryList({ entries }: { entries: DiaryEntry[] }) {
               <h2 className="text-xl font-bold text-jisan-ink">{e.title}</h2>
               <p className="mt-2 text-[0.9375rem] leading-[1.85] text-[#2D323A] whitespace-pre-line">{e.body}</p>
               <p className="mt-3 text-[0.8125rem] text-[#8A9099]">
-                <b className="text-brand-accent">{e.field}</b> · {e.author} · 보내 주신 분의 허락을 받았습니다
+                <b className="text-brand-accent">{t(e.field)}</b> · {e.author} · {t("보내 주신 분의 허락을 받았습니다")}
               </p>
             </div>
           </article>

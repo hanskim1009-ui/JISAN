@@ -1,5 +1,5 @@
 import type { Lang } from "@/lib/langs"
-import { extraLangs } from "@/lib/i18n/extra-langs"
+import { extraContent } from "@/lib/i18n/extra-content"
 
 /**
  * 영어·중국어 페이지용 변호사 정보 (외국인센터, 영문·중문 메인).
@@ -168,5 +168,5 @@ const data: Record<string, Entry> = {
 export function lawyerI18n(slug: string, lang: Lang | undefined): LawyerI18n | undefined {
   if (!lang || lang === "ko") return undefined
   if (lang === "en" || lang === "zh") return data[slug]?.[lang]
-  return (extraLangs[lang].lawyers as Record<string, LawyerI18n>)[slug]
+  return (extraContent[lang].lawyers as Record<string, LawyerI18n>)[slug]
 }

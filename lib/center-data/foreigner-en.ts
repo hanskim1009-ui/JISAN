@@ -8,11 +8,7 @@ export const foreignerEn: Center = {
   "slug": "foreigner-en",
   "lang": "en",
   "basePath": "/en/foreigner",
-  "alternates": {
-    "ko": "/foreigner",
-    "en": "/en/foreigner",
-    "zh": "/zh/foreigner"
-  },
+  "alternates": {"ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner", "vi": "/vi/foreigner", "ru": "/ru/foreigner"},
   "name": "Foreigner Center",
   "summary": "Refused stay extensions and status changes, departure, deportation and detention orders, immigration violation reviews, criminal cases involving foreigners, unpaid wages and workplace changes, international divorce, deposit and fraud losses",
   "tone": "warm",

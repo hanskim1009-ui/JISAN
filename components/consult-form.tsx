@@ -6,13 +6,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { siteConfig } from "@/lib/site-config"
-import { CASE_TYPES } from "@/lib/practice"
+import { CASE_TYPES, DEFAULT_STAGE_OPTIONS } from "@/lib/practice"
 import { SUPABASE_URL, restHeaders } from "@/lib/supabase"
 import type { Lang } from "@/lib/langs"
 import { LANG_NAME } from "@/lib/langs"
 import { extraLangs } from "@/lib/i18n/extra-langs"
 
-export const DEFAULT_STAGE_OPTIONS = ["상담만 먼저 받고 싶음", "고소·소송 준비 중", "수사·소송 진행 중", "재판 중"]
 
 /** 상담 폼 문구 (한국어 · 영어 · 중국어 간체) */
 const BASE_FORM_TEXT = {

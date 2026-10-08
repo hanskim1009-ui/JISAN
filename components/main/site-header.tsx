@@ -7,19 +7,28 @@ import { siteConfig } from "@/lib/site-config"
 import { centers } from "@/lib/centers"
 import { fields } from "@/lib/practice"
 import { lawyers } from "@/lib/lawyers"
+import { foreignerPath, type Lang } from "@/lib/langs"
+import { L, makeT, type Dict } from "@/lib/i18n/fmt"
 import { LogoSvg } from "@/components/brand-logo"
 import { LangSwitch } from "@/components/intl/intl-header"
 
-export type HeaderFlags = { showCases: boolean; showDiary: boolean; showColumns: boolean }
+export type HeaderFlags = { showCases: boolean; showDiary: boolean; showColumns: boolean; lang?: Lang; dict?: Dict }
 
-const lawyerName = (slug: string) => lawyers.find((l) => l.slug === slug)?.name ?? ""
-const centerOf = (slug: string) => centers.find((c) => c.slug === slug)
-
-/** 메인 사이트 헤더: 남색 바탕 + 흰 로고 + 메뉴 + '업무영역' 펼침 메뉴 */
-export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
+/** 메인 사이트 헤더: 남색 바탕 + 흰 로고 + 메뉴 + '업무영역' 펼침 메뉴 (외국어 사이트도 같은 틀) */
+export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dict }: HeaderFlags) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const megaRef = useRef<HTMLDivElement>(null)
+  const t = makeT(dict)
+  const ko = lang === "ko"
+
+  const nameOf = (slug: string) => {
+    const l = lawyers.find((x) => x.slug === slug)
+    return l ? t(l.name) : ""
+  }
+  /** 외국어 사이트는 번역된 외국인센터만 연결 (분야별 센터는 한국어 전용) */
+  const centerOf = (slug: string) => (ko ? centers.find((c) => c.slug === slug) : undefined)
+  const siteCenters = ko ? centers.map((c) => ({ name: c.name, href: `/${c.slug}` })) : [{ name: t("외국인센터"), href: foreignerPath(lang) }]
 
   useEffect(() => {
     if (!megaOpen) return
@@ -36,16 +45,17 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
   }, [megaOpen])
 
   const before = [
-    { label: "법인 소개", href: "/about" },
-    { label: "구성원", href: "/lawyers" },
+    { label: t("법인 소개"), href: L(lang, "/about") },
+    { label: t("구성원"), href: L(lang, "/lawyers") },
   ]
   const after = [
-    ...(showCases ? [{ label: "업무사례", href: "/cases" }] : []),
-    ...(showColumns ? [{ label: "칼럼", href: "/column" }] : []),
-    ...(showDiary ? [{ label: "감사일기", href: "/diary" }] : []),
-    { label: "오시는 길", href: "/#map" },
+    ...(ko ? [] : [{ label: t("외국인센터"), href: foreignerPath(lang) }]),
+    ...(showCases ? [{ label: t("업무사례"), href: L(lang, "/cases") }] : []),
+    ...(showColumns ? [{ label: t("칼럼"), href: L(lang, "/column") }] : []),
+    ...(showDiary ? [{ label: t("감사일기"), href: L(lang, "/diary") }] : []),
+    { label: t("오시는 길"), href: L(lang, "/#map") },
   ]
-  const navLink = "text-[0.9375rem] text-white/75 hover:text-white transition-colors"
+  const navLink = "text-[0.9375rem] text-white/75 hover:text-white transition-colors whitespace-nowrap"
   const close = () => {
     setMobileOpen(false)
     setMegaOpen(false)
@@ -55,10 +65,10 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
     <>
       <header className="sticky top-0 z-50 bg-brand text-white border-b border-white/10">
         <div ref={megaRef} className="relative px-5 md:px-12 lg:px-14">
-          <nav className="max-w-7xl mx-auto flex items-center gap-7 py-4" aria-label="주 메뉴">
-            <Link href="/" className="mr-auto flex items-center gap-2.5 text-[1.0625rem] font-bold tracking-tight text-white" onClick={close}>
+          <nav className="max-w-7xl mx-auto flex items-center gap-7 py-4" aria-label={t("주 메뉴")}>
+            <Link href={L(lang, "/")} className="mr-auto flex shrink-0 items-center gap-2.5 whitespace-nowrap text-[1.0625rem] font-bold tracking-tight text-white" onClick={close}>
               <LogoSvg variant="reverse" className="h-6 w-auto" />
-              {siteConfig.name}
+              {ko ? siteConfig.name : siteConfig.nameEn}
             </Link>
 
             <div className="hidden xl:flex items-center gap-7">
@@ -74,28 +84,29 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
                 aria-controls="field-menu"
                 onClick={() => setMegaOpen((v) => !v)}
               >
-                업무영역 <ChevronDown className={`h-4 w-4 transition-transform ${megaOpen ? "rotate-180" : ""}`} />
+                {t("업무영역")} <ChevronDown className={`h-4 w-4 transition-transform ${megaOpen ? "rotate-180" : ""}`} />
               </button>
               {after.map((l) => (
                 <Link key={l.href} href={l.href} className={navLink}>
                   {l.label}
                 </Link>
               ))}
-              <LangSwitch current="ko" className="-mx-2" />
-              <Link href="/consult" className="border border-white/70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white hover:text-brand transition-colors">
-                상담 신청
+              <LangSwitch current={lang} className="-mx-2" />
+              <Link href={L(lang, "/consult")} className="whitespace-nowrap border border-white/70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white hover:text-brand transition-colors">
+                {t("상담 신청")}
               </Link>
             </div>
 
             <div className="flex items-center gap-1 xl:hidden">
-              <a href={siteConfig.phoneHref} className="p-2 text-white" aria-label="전화 상담">
+              {!ko && <LangSwitch current={lang} />}
+              <a href={siteConfig.phoneHref} className="p-2 text-white" aria-label={t("전화 상담")}>
                 <Phone className="h-5 w-5" />
               </a>
               <button
                 type="button"
                 onClick={() => setMobileOpen((v) => !v)}
                 className="p-2 text-white"
-                aria-label={mobileOpen ? "메뉴 닫기" : "메뉴 열기"}
+                aria-label={mobileOpen ? t("메뉴 닫기") : t("메뉴 열기")}
                 aria-expanded={mobileOpen}
               >
                 {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -108,11 +119,11 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
               <div className="max-w-7xl mx-auto grid grid-cols-6 gap-6 py-8">
                 {fields.map((f) => (
                   <div key={f.name}>
-                    <p className="border-b border-jisan-ink pb-2 text-lg font-bold text-jisan-ink">{f.name}</p>
+                    <p className="border-b border-jisan-ink pb-2 text-lg font-bold text-jisan-ink">{t(f.name)}</p>
                     <ul className="mt-2 text-sm text-[#4A505A]">
                       {f.items.map((it) => (
                         <li key={it} className="py-1">
-                          {it}
+                          {t(it)}
                         </li>
                       ))}
                     </ul>
@@ -125,7 +136,9 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
                         ))}
                       </p>
                     )}
-                    <p className="mt-3 text-xs text-[#8A9099]">담당 변호사 {f.lawyers.map(lawyerName).join(" · ")}</p>
+                    <p className="mt-3 text-xs text-[#8A9099]">
+                      {t("담당 변호사")} {f.lawyers.map(nameOf).join(" · ")}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -141,18 +154,24 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
                   {l.label}
                 </Link>
               ))}
-              <p className="mt-5 text-sm font-bold text-jisan-ink">센터</p>
-              {centers.map((c) => (
-                <Link key={c.slug} href={`/${c.slug}`} onClick={close} className="border-b border-[#E4E6E9] py-3 text-base text-jisan-ink">
-                  {c.name}
-                </Link>
-              ))}
-              <Link href="/consult" onClick={close} className="mt-5 bg-brand py-3 text-center text-sm font-semibold text-white">
-                상담 신청
+              {ko && (
+                <>
+                  <p className="mt-5 text-sm font-bold text-jisan-ink">센터</p>
+                  {siteCenters.map((c) => (
+                    <Link key={c.href} href={c.href} onClick={close} className="border-b border-[#E4E6E9] py-3 text-base text-jisan-ink">
+                      {c.name}
+                    </Link>
+                  ))}
+                </>
+              )}
+              <Link href={L(lang, "/consult")} onClick={close} className="mt-5 bg-brand py-3 text-center text-sm font-semibold text-white">
+                {t("상담 신청")}
               </Link>
-              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-jisan-ink/60">
-                <LangSwitch current="ko" dark={false} align="left" />
-              </div>
+              {ko && (
+                <div className="mt-4 flex items-center justify-center gap-2 text-sm text-jisan-ink/60">
+                  <LangSwitch current="ko" dark={false} align="left" />
+                </div>
+              )}
             </div>
           </div>
         )}

@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Building2, Globe2, HandCoins, HardHat, HeartCrack, House, Pill, Scale, School, ScrollText, ShieldAlert, Sprout, Stethoscope, type LucideIcon } from "lucide-react"
-import { centers } from "@/lib/centers"
+import { centerBase, centers, getCenter } from "@/lib/centers"
+import type { Lang } from "@/lib/langs"
+import { T } from "@/lib/i18n/t"
 import { fields } from "@/lib/practice"
 import { ridgePath } from "@/lib/ridge"
 import { SectionHead } from "@/components/main/section-head"
@@ -40,22 +42,26 @@ function cardRidges(i: number) {
  * 분야별 센터: 흰 카드 + 남색 글씨 한 가지 색. 센터마다 선 그림과 능선 모양으로 구분하고,
  * 마우스를 올리면 카드가 남색으로 바뀌며 능선이 흐릅니다.
  */
-export function CentersBand() {
-  if (centers.length === 0) return null
+export function CentersBand({ lang = "ko" }: { lang?: Lang }) {
+  const t = T(lang)
+  // 외국어 사이트: 번역된 외국인센터만
+  const list = lang === "ko" ? centers : [getCenter(`foreigner-${lang}`)].filter((c) => !!c)
+  if (list.length === 0) return null
   return (
-    <section className="screen bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20">
+    <section className={`${lang === "ko" ? "screen " : ""}bg-brand-paper px-5 md:px-12 lg:px-14 py-14 md:py-20`}>
       <div data-reveal className="max-w-7xl mx-auto">
-        <SectionHead title="분야별 센터" desc="사건 종류에 따라 방향이 다릅니다." />
+        <SectionHead title={t("분야별 센터")} desc={t("사건 종류에 따라 방향이 다릅니다.")} />
         <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 lg:grid-cols-3">
-          {centers.map((c, i) => {
-            const Icon = icons[c.slug] ?? Scale
+          {list.map((c, i) => {
+            const key = c.slug.startsWith("foreigner") ? "foreigner" : c.slug
+            const Icon = icons[key] ?? Scale
             const field = fieldOf(c.slug)
             const ridges = cardRidges(i)
             return (
               <Link
                 key={c.slug}
-                href={`/${c.slug}`}
-                className={`${c.slug === "foreigner" ? "sm:col-span-2 lg:col-span-3 " : ""}card-lift group relative flex min-h-[17rem] w-[82%] shrink-0 snap-start flex-col sm:w-auto overflow-hidden rounded-2xl border border-brand/10 bg-white p-6 text-brand transition-colors duration-300 hover:border-brand hover:bg-brand hover:text-white md:p-7`}
+                href={centerBase(c)}
+                className={`${key === "foreigner" ? "sm:col-span-2 lg:col-span-3 " : ""}card-lift group relative flex min-h-[17rem] w-[82%] shrink-0 snap-start flex-col sm:w-auto overflow-hidden rounded-2xl border border-brand/10 bg-white p-6 text-brand transition-colors duration-300 hover:border-brand hover:bg-brand hover:text-white md:p-7`}
               >
                 <svg
                   viewBox={`0 0 ${W} ${H}`}
@@ -79,7 +85,7 @@ export function CentersBand() {
                 <div className="relative flex items-start justify-between gap-3">
                   <Icon className="h-9 w-9" strokeWidth={1.4} aria-hidden />
                   {(field || c.slug === "foreigner") && (
-                    <span className="rounded-full border border-brand/25 group-hover:border-white/40 px-2.5 py-0.5 text-xs font-semibold opacity-60">{field ?? "English · 中文"}</span>
+                    <span className="rounded-full border border-brand/25 group-hover:border-white/40 px-2.5 py-0.5 text-xs font-semibold opacity-60">{field ?? "EN · 中文 · VI · RU · MN"}</span>
                   )}
                 </div>
                 <span className="relative mt-6 text-sm font-bold opacity-60">{c.name}</span>
@@ -89,7 +95,7 @@ export function CentersBand() {
                 <p className="relative mt-3 max-w-md text-sm leading-relaxed opacity-70">{c.summary}</p>
                 <span className="relative mt-auto pt-8 text-sm font-semibold">
                   <span className="inline-flex items-center gap-1.5">
-                    {c.name} 바로가기 <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+                    {t("{name} 바로가기", { name: c.name })} <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
                   </span>
                 </span>
               </Link>

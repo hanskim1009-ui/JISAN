@@ -4,7 +4,8 @@ import { useState, useRef, useLayoutEffect, type ReactNode } from "react"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { SectionHead } from "@/components/main/section-head"
-import { lawyers, type Lawyer, type StructuredResume, type WorkCaseSection } from "@/lib/lawyers"
+import { lawyers as koLawyers, type Lawyer, type StructuredResume, type WorkCaseSection } from "@/lib/lawyers"
+import { makeT, type Dict, type TFn } from "@/lib/i18n/fmt"
 
 function ResumeList({ items }: { items: string[] }) {
   return (
@@ -40,9 +41,11 @@ function WorkCasesBlock({ sections }: { sections: WorkCaseSection[] }) {
 function StructuredResumeToggle({
   resume,
   sections,
+  t,
 }: {
   resume: StructuredResume
   sections: WorkCaseSection[]
+  t: TFn
 }) {
   const [showCases, setShowCases] = useState(false)
   const resumeRootRef = useRef<HTMLDivElement>(null)
@@ -77,20 +80,20 @@ function StructuredResumeToggle({
         <div ref={resumeRootRef} className="flex flex-col">
           <div className="mb-4 flex shrink-0 justify-end">
             <button type="button" onClick={() => setShowCases(true)} className={btnClass}>
-              업무사례 보기&nbsp;→
+              {t("업무사례 보기")}&nbsp;→
             </button>
           </div>
           <div className="space-y-5">
             <div>
-              <p className="text-xs font-semibold text-foreground/90 mb-2">자격</p>
+              <p className="text-xs font-semibold text-foreground/90 mb-2">{t("자격")}</p>
               <ResumeList items={resume.qualifications} />
             </div>
             <div>
-              <p className="text-xs font-semibold text-foreground/90 mb-2">경력</p>
+              <p className="text-xs font-semibold text-foreground/90 mb-2">{t("경력")}</p>
               <ResumeList items={resume.career} />
             </div>
             <div>
-              <p className="text-xs font-semibold text-foreground/90 mb-2">학력</p>
+              <p className="text-xs font-semibold text-foreground/90 mb-2">{t("학력")}</p>
               <ResumeList items={resume.education} />
             </div>
           </div>
@@ -99,11 +102,11 @@ function StructuredResumeToggle({
         <div className="flex h-full min-h-0 flex-col overflow-hidden">
           <div className="mb-3 flex shrink-0 items-center">
             <button type="button" onClick={() => setShowCases(false)} className={btnClass}>
-              ← 이력보기
+              {t("← 이력보기")}
             </button>
           </div>
           <h4 className="mb-2 shrink-0 text-sm font-semibold tracking-wide text-foreground">
-            주요 업무 사례
+            {t("주요 업무 사례")}
           </h4>
           <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1 -mr-1">
             <WorkCasesBlock sections={sections} />
@@ -115,7 +118,7 @@ function StructuredResumeToggle({
 }
 
 /** 모바일에서 이력이 길면 앞부분만 보이고 '이력 전체 보기'로 펼칩니다. 넓은 화면은 처음부터 전부 */
-function MobileFold({ children }: { children: ReactNode }) {
+function MobileFold({ children, t }: { children: ReactNode; t: TFn }) {
   const [open, setOpen] = useState(false)
   const [long, setLong] = useState(false)
   const boxRef = useRef<HTMLDivElement>(null)
@@ -146,14 +149,14 @@ function MobileFold({ children }: { children: ReactNode }) {
           }}
           className="mt-3 w-full rounded-xl border border-border py-2.5 text-sm font-semibold text-foreground md:hidden"
         >
-          이력 전체 보기
+          {t("이력 전체 보기")}
         </button>
       )}
     </div>
   )
 }
 
-function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
+function LawyerRow({ lawyer, index, t }: { lawyer: Lawyer; index: number; t: TFn }) {
   const { ref, isVisible } = useScrollReveal(0.1)
   const isEven = index % 2 === 0
 
@@ -205,18 +208,19 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
           </p>
 
           {/* 구본우: 이력 ↔ 주요 업무 사례 같은 영역에서 토글 */}
-          <MobileFold>
+          <MobileFold t={t}>
           {hasStructuredCases && lawyer.structuredResume ? (
             <StructuredResumeToggle
               resume={lawyer.structuredResume}
               sections={lawyer.workCaseSections!}
+              t={t}
             />
           ) : (
             <>
               {lawyer.career && lawyer.career.length > 0 && (
                 <div className="border-t border-border pt-6 mb-6">
                   {lawyer.resumeSections && lawyer.resumeSections.length > 0 && (
-                    <p className="text-xs font-semibold text-foreground/90 mb-2">이력</p>
+                    <p className="text-xs font-semibold text-foreground/90 mb-2">{t("이력")}</p>
                   )}
                   <ul className="space-y-3">
                     {lawyer.career.map((item) => (
@@ -239,7 +243,7 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
               {lawyer.highlights.length > 0 && (
                 <div className="border-t border-border pt-6">
                   {lawyer.resumeSections && lawyer.resumeSections.length > 0 && (
-                    <p className="text-xs font-semibold text-foreground/90 mb-2">학력</p>
+                    <p className="text-xs font-semibold text-foreground/90 mb-2">{t("학력")}</p>
                   )}
                   <ul className="space-y-3">
                     {lawyer.highlights.map((item) => (
@@ -260,8 +264,11 @@ function LawyerRow({ lawyer, index }: { lawyer: Lawyer; index: number }) {
   )
 }
 
-export function TeamSection() {
+/** people: 서버에서 그 언어로 옮긴 변호사 소개 (없으면 한국어) */
+export function TeamSection({ people, dict }: { people?: Lawyer[]; dict?: Dict } = {}) {
   const { ref, isVisible } = useScrollReveal(0.05)
+  const t = makeT(dict)
+  const lawyers = people ?? koLawyers
 
   return (
     <section id="team" className="bg-background pb-16 md:pb-24">
@@ -273,16 +280,16 @@ export function TeamSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <SectionHead title="구성원 소개" as="h1" />
+          <SectionHead title={t("구성원 소개")} as="h1" />
           <p className="-mt-3 text-[1.0625rem] leading-relaxed text-[#2D323A]">
-            검찰, 금융회사, 로펌, 의료기관 자문에서 일해 온 변호사들이 사건을 직접 수행합니다.
+            {t("검찰, 금융회사, 로펌, 의료기관 자문에서 일해 온 변호사들이 사건을 직접 수행합니다.")}
           </p>
         </div>
       </div>
 
       {/* 모바일: 변호사 이름으로 바로 가기 (위에 붙어 있음) */}
       <nav
-        aria-label="변호사 바로 가기"
+        aria-label={t("변호사 바로 가기")}
         className="no-scrollbar sticky top-[4.3rem] z-20 flex gap-2 overflow-x-auto border-b border-border bg-background/95 px-5 py-3 backdrop-blur md:hidden"
       >
         {lawyers.map((l) => (
@@ -295,7 +302,7 @@ export function TeamSection() {
       {/* 변호사 목록 */}
       <div className="max-w-7xl mx-auto">
         {lawyers.map((lawyer, index) => (
-          <LawyerRow key={lawyer.name} lawyer={lawyer} index={index} />
+          <LawyerRow key={lawyer.slug} lawyer={lawyer} index={index} t={t} />
         ))}
       </div>
     </section>

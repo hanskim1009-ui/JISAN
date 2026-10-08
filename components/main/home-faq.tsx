@@ -2,26 +2,30 @@ import { Plus } from "lucide-react"
 import { homeFaqs } from "@/lib/home-faq"
 import { SectionHead } from "@/components/main/section-head"
 import { FaqSearch } from "@/components/main/faq-search"
+import type { Lang } from "@/lib/langs"
+import { T } from "@/lib/i18n/t"
+import { FAQ_SEARCH_KEYS, clientDict } from "@/lib/i18n/client-keys"
 
 /** 자주 묻는 질문: 기본 6개(눌러서 펼침) + 아래에서 모든 센터 질문 검색 */
-export function HomeFaq() {
+export function HomeFaq({ lang = "ko" }: { lang?: Lang }) {
+  const t = T(lang)
   return (
     <section className="screen px-5 md:px-12 lg:px-14 py-14 md:py-20">
       <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 items-start gap-0 lg:grid-cols-[1fr_2fr] lg:gap-8">
-        <SectionHead title="자주 묻는 질문" />
+        <SectionHead title={t("자주 묻는 질문")} />
         <div>
           <div className="border-t border-jisan-ink">
           {homeFaqs.map((f) => (
             <details key={f.q} className="group border-b border-[#E4E6E9]">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-base font-bold text-jisan-ink [&::-webkit-details-marker]:hidden">
-                {f.q}
+                {t(f.q)}
                 <Plus className="h-4 w-4 shrink-0 transition-transform group-open:rotate-45" />
               </summary>
-              <p className="pb-5 text-[0.9375rem] leading-relaxed text-[#4A505A]">{f.a}</p>
+              <p className="pb-5 text-[0.9375rem] leading-relaxed text-[#4A505A]">{t(f.a)}</p>
             </details>
           ))}
           </div>
-          <FaqSearch />
+          <FaqSearch lang={lang} dict={clientDict(lang, FAQ_SEARCH_KEYS)} />
         </div>
       </div>
     </section>

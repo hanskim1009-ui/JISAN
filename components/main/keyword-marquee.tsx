@@ -1,8 +1,11 @@
 import { fields } from "@/lib/practice"
+import type { Lang } from "@/lib/langs"
+import { T } from "@/lib/i18n/t"
 
 /** 구성원과 업무영역 사이: 맡는 일이 한 줄로 천천히 흐르는 띠 (마우스를 올리면 멈춤) */
-export function KeywordMarquee() {
-  const words = fields.flatMap((f) => f.items)
+export function KeywordMarquee({ lang = "ko" }: { lang?: Lang }) {
+  const t = T(lang)
+  const words = fields.flatMap((f) => f.items).map((w) => t(w))
   const row = (hidden: boolean) => (
     <div aria-hidden={hidden || undefined} className="flex shrink-0 items-center gap-7 pr-7">
       {words.map((w) => (

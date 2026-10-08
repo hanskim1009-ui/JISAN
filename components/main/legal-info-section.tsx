@@ -6,6 +6,9 @@ import { LiteYouTube } from "@/components/lite-youtube"
 import { SampleNote } from "@/components/sample-note"
 import Link from "next/link"
 import { Play } from "lucide-react"
+import type { Lang } from "@/lib/langs"
+import { L, T } from "@/lib/i18n/t"
+import { COLUMN_KEYS, clientDict } from "@/lib/i18n/client-keys"
 
 /**
  * 법률 정보: 칼럼 3편(홈페이지 안 글) + 법인 유튜브(대표 영상 1 + 작은 영상 3)
@@ -17,6 +20,7 @@ export function LegalInfoSection({
   youtubeUrl,
   columnTotal = columns.length,
   columnCenters = [],
+  lang = "ko",
 }: {
   columns: ColumnItem[]
   videos: FeedItem[]
@@ -24,7 +28,9 @@ export function LegalInfoSection({
   columnTotal?: number
   /** 센터별 칼럼 바로가기 (이름, slug, 편수) */
   columnCenters?: { slug: string; name: string; count: number }[]
+  lang?: Lang
 }) {
+  const t = T(lang)
   if (columns.length === 0 && videos.length === 0) return null
   const [main, ...rest] = videos
   const sampleVideos = videos.length > 0 && videos.every((v) => !v.videoId)
@@ -35,16 +41,16 @@ export function LegalInfoSection({
         {columns.length > 0 && (
           <div>
             <SectionHead
-              title="칼럼"
-              desc="변호사의 이야기를 들어보세요."
-              href="/column"
-              linkLabel={columnTotal > columns.length ? `${columnTotal}편 모두 보기` : "더보기"}
+              title={t("칼럼")}
+              desc={t("변호사의 이야기를 들어보세요.")}
+              href={L(lang, "/column")}
+              linkLabel={columnTotal > columns.length ? t("{n}편 모두 보기", { n: columnTotal }) : t("더보기")}
             />
-            <SampleNote show={columns.some((c) => c.sample)} className="mb-4" />
+            <SampleNote show={columns.some((c) => c.sample)} className="mb-4" lang={lang} />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {columns.map((c, i) => (
                 <div key={c.id} className={i >= 3 ? "hidden md:block" : undefined}>
-                  <ColumnCard c={c} />
+                  <ColumnCard c={c} lang={lang} dict={clientDict(lang, COLUMN_KEYS)} />
                 </div>
               ))}
             </div>
@@ -56,7 +62,7 @@ export function LegalInfoSection({
                     href={`/column?center=${c.slug}`}
                     className="shrink-0 whitespace-nowrap rounded-full border border-[#D5DAE1] bg-white px-4 py-2 text-[0.875rem] font-semibold text-jisan-ink/75 hover:border-jisan-ink/50"
                   >
-                    {c.name} 칼럼 <span className="ml-1 text-[0.75rem] tabular-nums opacity-60">{c.count}</span>
+                    {t("{name} 칼럼", { name: c.name })} <span className="ml-1 text-[0.75rem] tabular-nums opacity-60">{c.count}</span>
                   </Link>
                 ))}
               </div>
@@ -65,8 +71,8 @@ export function LegalInfoSection({
         )}
         {main && (
           <div>
-            <SectionHead title="유튜브" desc="법률 상담이 낯설지 않도록 변호사가 직접 설명합니다." href={youtubeUrl} linkLabel="채널 바로가기" />
-            <SampleNote show={sampleVideos} className="mb-4" />
+            <SectionHead title={t("유튜브")} desc={t("법률 상담이 낯설지 않도록 변호사가 직접 설명합니다.")} href={youtubeUrl} linkLabel={t("채널 바로가기")} />
+            <SampleNote show={sampleVideos} className="mb-4" lang={lang} />
             <div className="grid grid-cols-1 gap-5 lg:grid-cols-[2fr_1fr]">
               <figure className="min-w-0">
                 <div className="relative aspect-video overflow-hidden bg-jisan-ink">

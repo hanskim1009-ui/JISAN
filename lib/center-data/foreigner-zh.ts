@@ -380,9 +380,5 @@ export const foreignerZh: Center = {
   "closing": "如果收到了写有出境期限的文件，请在期限届满前先与我们联系。",
   "lang": "zh",
   "basePath": "/zh/foreigner",
-  "alternates": {
-    "ko": "/foreigner",
-    "en": "/en/foreigner",
-    "zh": "/zh/foreigner"
-  }
+  "alternates": {"ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner", "vi": "/vi/foreigner", "ru": "/ru/foreigner"}
 }

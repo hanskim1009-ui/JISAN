@@ -2,21 +2,24 @@ import Link from "next/link"
 import type { ColumnBlock, ColumnItem } from "@/lib/content"
 import { getLawyer } from "@/lib/lawyers"
 import { LawyerPhoto } from "@/components/lawyer-photo"
+import type { Lang } from "@/lib/langs"
+import { L, makeT, type Dict } from "@/lib/i18n/fmt"
 
 const dot = (d: string) => d.replaceAll("-", ".")
 
 /** 쓴 변호사: 작은 원형 사진 + 이름 */
-export function ColumnByline({ slug, date, size = "sm" }: { slug: string; date?: string; size?: "sm" | "md" }) {
+export function ColumnByline({ slug, date, size = "sm", dict }: { slug: string; date?: string; size?: "sm" | "md"; lang?: Lang; dict?: Dict }) {
+  const t = makeT(dict)
   const l = getLawyer(slug)
   if (!l) return null
   const box = size === "md" ? "h-11 w-11" : "h-7 w-7"
   return (
     <span className="flex items-center gap-2.5 text-[0.8125rem] text-[#4A505A]">
       <span className={`relative block ${box} shrink-0 overflow-hidden rounded-full bg-[#C9CCD1]`}>
-        <LawyerPhoto src={l.image} name={l.name} imageClassName="object-cover object-top origin-top scale-[2]" sizes="96px" initialClassName="text-xs" />
+        <LawyerPhoto src={l.image} name={t(l.name)} imageClassName="object-cover object-top origin-top scale-[2]" sizes="96px" initialClassName="text-xs" />
       </span>
       <span>
-        <b className="font-semibold text-jisan-ink">{l.name}</b> {l.title}
+        <b className="font-semibold text-jisan-ink">{t(l.name)}</b> {t(l.title)}
         {date && <span className="ml-2 tabular-nums text-[#8A9099]">{dot(date)}</span>}
       </span>
     </span>
@@ -24,40 +27,42 @@ export function ColumnByline({ slug, date, size = "sm" }: { slug: string; date?:
 }
 
 /** 칼럼 카드: 분야 · 제목 · 요약 · 쓴 변호사 */
-export function ColumnCard({ c }: { c: ColumnItem }) {
+export function ColumnCard({ c, lang = "ko", dict }: { c: ColumnItem; lang?: Lang; dict?: Dict }) {
+  const t = makeT(dict)
   return (
     <article className="flex min-w-0 flex-col border-t border-jisan-ink pt-4">
-      <p className="text-xs font-bold text-brand-accent">{c.field}</p>
+      <p className="text-xs font-bold text-brand-accent">{t(c.field)}</p>
       <h3 className="mt-1.5 text-[1.0625rem] font-bold leading-snug text-jisan-ink">
-        <Link href={`/column/${c.id}`} className="hover:underline underline-offset-4">
+        <Link href={`${L(lang, "/column")}/${c.id}`} className="hover:underline underline-offset-4">
           {c.title}
         </Link>
       </h3>
       <p className="mt-2 line-clamp-3 text-[0.875rem] leading-relaxed text-[#4A505A]">{c.summary}</p>
       <div className="mt-auto pt-4">
-        <ColumnByline slug={c.author} date={c.date} />
+        <ColumnByline slug={c.author} date={c.date} dict={dict} />
       </div>
     </article>
   )
 }
 
 /** 칼럼 목록 한 줄: 왼쪽 날짜, 오른쪽 제목·요약·변호사 */
-export function ColumnRow({ c }: { c: ColumnItem }) {
+export function ColumnRow({ c, lang = "ko", dict }: { c: ColumnItem; lang?: Lang; dict?: Dict }) {
+  const t = makeT(dict)
   return (
     <article className="grid grid-cols-1 gap-2 border-b border-[#E4E6E9] py-6 md:grid-cols-[8rem_1fr] md:gap-8">
       <p className="text-[0.8125rem] tabular-nums text-[#8A9099]">
         {dot(c.date)}
-        <span className="ml-2 font-bold text-brand-accent md:ml-0 md:mt-1 md:block">{c.field}</span>
+        <span className="ml-2 font-bold text-brand-accent md:ml-0 md:mt-1 md:block">{t(c.field)}</span>
       </p>
       <div className="min-w-0">
         <h2 className="text-lg font-bold text-jisan-ink">
-          <Link href={`/column/${c.id}`} className="hover:underline underline-offset-4">
+          <Link href={`${L(lang, "/column")}/${c.id}`} className="hover:underline underline-offset-4">
             {c.title}
           </Link>
         </h2>
         <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-[#4A505A]">{c.summary}</p>
         <div className="mt-3">
-          <ColumnByline slug={c.author} />
+          <ColumnByline slug={c.author} dict={dict} />
         </div>
       </div>
     </article>
