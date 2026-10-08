@@ -3,15 +3,20 @@
 import { useState, useEffect } from "react"
 import { Phone, MessageCircle } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
+import type { Lang } from "@/lib/langs"
+import { extraLangs } from "@/lib/i18n/extra-langs"
 
-const TEXT = {
+const TEXT: Record<Lang, { call: string; kakao: string; consult: string; callAria: string; kakaoAria: string }> = {
   ko: { call: "전화", kakao: "카카오톡", consult: "상담 신청", callAria: "전화 상담", kakaoAria: "카카오톡 상담" },
   en: { call: "Call", kakao: "KakaoTalk", consult: "Contact us", callAria: "Call us", kakaoAria: "KakaoTalk" },
   zh: { call: "电话", kakao: "KakaoTalk", consult: "申请咨询", callAria: "电话咨询", kakaoAria: "KakaoTalk 咨询" },
+  vi: extraLangs.vi.floating,
+  ru: extraLangs.ru.floating,
+  mn: extraLangs.mn.floating,
 }
 
 /** 모바일 하단 바(전화·카카오톡·상담 신청) + PC 우측 하단 버튼 */
-export function FloatingCTA({ consultHref = "/#contact", lang = "ko" }: { consultHref?: string; lang?: "ko" | "en" | "zh" }) {
+export function FloatingCTA({ consultHref = "/#contact", lang = "ko" }: { consultHref?: string; lang?: Lang }) {
   const [visible, setVisible] = useState(false)
   const T = TEXT[lang]
 

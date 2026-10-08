@@ -6,37 +6,15 @@ import { Menu, Phone, X } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 import { LogoSvg } from "@/components/brand-logo"
 import type { IntlHome, IntlLang } from "@/lib/intl-home"
+import type { Lang } from "@/lib/langs"
+import { LangMenu } from "@/components/lang-menu"
 
-/** 언어 바꾸기: 한국어 · English · 中文 */
-export function LangSwitch({ current, dark = true, className = "" }: { current: "ko" | IntlLang; dark?: boolean; className?: string }) {
-  const items = [
-    { code: "ko", label: "한국어", href: "/" },
-    { code: "en", label: "EN", href: "/en" },
-    { code: "zh", label: "中文", href: "/zh" },
-  ] as const
-  return (
-    <div className={`flex shrink-0 items-center gap-0.5 whitespace-nowrap text-[0.8125rem] font-semibold ${className}`}>
-      {items.map((it) =>
-        it.code === current ? (
-          <span key={it.code} aria-current="true" className={`rounded-md px-2 py-1 ${dark ? "bg-white/15 text-white" : "bg-jisan-ink text-white"}`}>
-            {it.label}
-          </span>
-        ) : (
-          <Link
-            key={it.code}
-            href={it.href}
-            hrefLang={it.code === "zh" ? "zh-Hans" : it.code}
-            className={`rounded-md px-2 py-1 transition-colors ${dark ? "text-white/65 hover:text-white" : "text-jisan-ink/60 hover:text-jisan-ink"}`}
-          >
-            {it.label}
-          </Link>
-        ),
-      )}
-    </div>
-  )
+/** 언어 바꾸기 (지구본 펼침 목록, 여섯 언어) */
+export function LangSwitch({ current, dark = true, className = "", align = "right" }: { current: Lang; dark?: boolean; className?: string; align?: "left" | "right" }) {
+  return <LangMenu current={current} dark={dark} className={className} align={align} />
 }
 
-/** 영문·중문 메인 헤더: 한 페이지 안의 칸으로 이동 + 외국인센터 + 언어 바꾸기 */
+/** 외국어 메인 헤더: 한 페이지 안의 칸으로 이동 + 외국인센터 + 언어 바꾸기 */
 export function IntlHeader({ lang, t }: { lang: IntlLang; t: IntlHome }) {
   const [open, setOpen] = useState(false)
   const links = [
@@ -71,7 +49,7 @@ export function IntlHeader({ lang, t }: { lang: IntlLang; t: IntlHome }) {
           </div>
 
           <div className="flex items-center gap-1 xl:hidden">
-            <LangSwitch current={lang} className="[&>*]:px-1.5" />
+            <LangSwitch current={lang} />
             <a href={siteConfig.phoneHref} className="p-1.5 text-white" aria-label={t.offices.phone}>
               <Phone className="h-5 w-5" />
             </a>

@@ -8,11 +8,14 @@ import { Textarea } from "@/components/ui/textarea"
 import { siteConfig } from "@/lib/site-config"
 import { CASE_TYPES } from "@/lib/practice"
 import { SUPABASE_URL, restHeaders } from "@/lib/supabase"
+import type { Lang } from "@/lib/langs"
+import { LANG_NAME } from "@/lib/langs"
+import { extraLangs } from "@/lib/i18n/extra-langs"
 
 export const DEFAULT_STAGE_OPTIONS = ["상담만 먼저 받고 싶음", "고소·소송 준비 중", "수사·소송 진행 중", "재판 중"]
 
 /** 상담 폼 문구 (한국어 · 영어 · 중국어 간체) */
-const FORM_TEXT = {
+const BASE_FORM_TEXT = {
   ko: {
     ok: "접수되었습니다. 확인 후 연락드리겠습니다.",
     fail: (p: string) => `전송에 실패했습니다. 전화(${p}) 또는 카카오톡으로 문의해 주세요.`,
@@ -26,7 +29,7 @@ const FORM_TEXT = {
   en: {
     ok: "Received. We will review it and contact you.",
     fail: (p: string) => `Sending failed. Please call ${p} or message us on KakaoTalk.`,
-    name: "Name *", namePh: "Your name", phone: "Phone or messenger ID *", phonePh: "+82 10-0000-0000 / WeChat ID",
+    name: "Name *", namePh: "Your name", phone: "Phone or messenger ID *", phonePh: "+82 10-0000-0000 / messenger ID",
     caseType: "What is it about?", pick: "Please choose", stage: "Where are you now?",
     concern: "Your biggest concern", concernPh: "e.g. I'm worried about my visa",
     message: "Your situation *", messagePh: "Briefly describe what happened. We will review it and contact you.",
@@ -45,6 +48,14 @@ const FORM_TEXT = {
   },
 } as const
 
+type FormText = { [K in keyof (typeof BASE_FORM_TEXT)["en"]]: K extends "fail" ? (p: string) => string : string }
+const FORM_TEXT: Record<Lang, FormText> = {
+  ...BASE_FORM_TEXT,
+  vi: { ...extraLangs.vi.formText, lang: LANG_NAME.vi },
+  ru: { ...extraLangs.ru.formText, lang: LANG_NAME.ru },
+  mn: { ...extraLangs.mn.formText, lang: LANG_NAME.mn },
+}
+
 type ConsultFormProps = {
   /** 한 페이지에 폼이 둘 이상일 때 id 충돌 방지 */
   idPrefix?: string
@@ -58,7 +69,7 @@ type ConsultFormProps = {
   /** 첫 화면용 짧은 폼: 상담 내용·걱정되는 점 생략 */
   compact?: boolean
   /** 폼 언어 (외국어 페이지) */
-  lang?: "ko" | "en" | "zh"
+  lang?: Lang
   /** 사건 유형 선택지 (없으면 한국어 기본 목록) */
   caseTypes?: readonly string[]
 }

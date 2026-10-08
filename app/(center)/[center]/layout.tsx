@@ -6,6 +6,8 @@ import { getNaverBlogPosts } from "@/lib/feeds"
 import { getCenterPages } from "@/lib/center-pages"
 import { openOffices, siteConfig } from "@/lib/site-config"
 import { lawyerI18n } from "@/lib/lawyers-i18n"
+import { NEEDS_NOTO } from "@/lib/langs"
+import { notoSans } from "@/lib/noto-font"
 import { CenterHeader, type CenterNavItem } from "@/components/center/center-header"
 import { centerTones } from "@/components/center/tone"
 import { FloatingCTA } from "@/components/floating-cta"
@@ -44,7 +46,7 @@ export default async function CenterLayout({
   ]
 
   return (
-    <>
+    <div lang={L.htmlLang} className={center.lang && NEEDS_NOTO.includes(center.lang) ? notoSans.className : undefined}>
       <CenterHeader name={center.name} tone={center.tone} nav={nav} homeHref={base} lang={center.lang} alternates={center.alternates} />
       <FloatingCTA consultHref="#consult" lang={center.lang} />
       <BackToTop />
@@ -72,6 +74,6 @@ export default async function CenterLayout({
           </p>
         </div>
       </footer>
-    </>
+    </div>
   )
 }

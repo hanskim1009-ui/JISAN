@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { siteConfig } from "@/lib/site-config"
+import { FOREIGN_LANGS } from "@/lib/langs"
 import { allCenters, centerBase, getCenter } from "@/lib/centers"
 import { getCases, getColumns } from "@/lib/content"
 import { allCenterPages } from "@/lib/center-pages"
@@ -11,8 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const url = (path: string) => `${siteConfig.siteUrl}${path}`
   return [
     { url: url("/"), changeFrequency: "weekly", priority: 1 },
-    { url: url("/en"), changeFrequency: "monthly", priority: 0.8 },
-    { url: url("/zh"), changeFrequency: "monthly", priority: 0.8 },
+    ...FOREIGN_LANGS.map((l) => ({ url: url(`/${l}`), changeFrequency: "monthly" as const, priority: 0.8 })),
     ...allCenters.map((c) => ({ url: url(centerBase(c)), changeFrequency: "weekly" as const, priority: 0.9 })),
     ...allCenterPages.flatMap((c) => {
       const center = getCenter(c.slug)

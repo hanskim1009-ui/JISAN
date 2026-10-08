@@ -3,7 +3,9 @@
  * 센터 내용(업무분야·안내 글 등)은 각 센터 데이터에 그 언어로 들어 있고, 여기에는 화면 틀의 문구만 둡니다.
  * 현재 영어·중국어 센터: 외국인센터 (/en/foreigner, /zh/foreigner)
  */
-export type Lang = "ko" | "en" | "zh"
+import type { Lang } from "@/lib/langs"
+import { extraLangs } from "@/lib/i18n/extra-langs"
+export type { Lang }
 
 const ko = {
   htmlLang: "ko",
@@ -266,7 +268,14 @@ const zh: CenterText = {
   allGuidesN2: (n) => `查看全部 ${n} 篇指南`,
 }
 
-const texts: Record<Lang, CenterText> = { ko, en, zh }
+const texts: Record<Lang, CenterText> = {
+  ko,
+  en,
+  zh,
+  vi: extraLangs.vi.centerUi as CenterText,
+  ru: extraLangs.ru.centerUi as CenterText,
+  mn: extraLangs.mn.centerUi as CenterText,
+}
 
 export function centerText(lang: Lang | undefined): CenterText {
   return texts[lang ?? "ko"]
@@ -282,7 +291,8 @@ const OFFICE_I18N: Record<string, { en: string; zh: string; addrEn?: string }> =
 
 export function officeName(name: string, lang: Lang | undefined) {
   if (!lang || lang === "ko") return name
-  return OFFICE_I18N[name]?.[lang] ?? name
+  if (lang === "en" || lang === "zh") return OFFICE_I18N[name]?.[lang] ?? name
+  return (extraLangs[lang].offices as Record<string, string>)[name] ?? name
 }
 
 export function officeAddr(o: { name: string; address: string }, lang: Lang | undefined) {
@@ -290,5 +300,6 @@ export function officeAddr(o: { name: string; address: string }, lang: Lang | un
   if (!o.address) return L.addrLater
   if (lang === "en") return OFFICE_I18N[o.name]?.addrEn ?? o.address
   if (lang === "zh") return `${o.address}（韩文地址）`
+  if (lang === "vi" || lang === "ru" || lang === "mn") return `${o.address} ${extraLangs[lang].addrNote}`
   return o.address
 }

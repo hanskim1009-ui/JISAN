@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { HREFLANG, type Lang } from "@/lib/langs"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Check, MessageCircle, Phone, Plus } from "lucide-react"
@@ -42,10 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: center.seo.title },
     description: center.seo.description,
     keywords: center.seo.keywords,
-    alternates: { canonical: url, ...(center.alternates ? { languages: center.alternates } : {}) },
+    alternates: {
+      canonical: url,
+      ...(center.alternates ? { languages: Object.fromEntries(Object.entries(center.alternates).map(([l, h]) => [HREFLANG[l as Lang], h])) } : {}),
+    },
     openGraph: {
       type: "website",
-      locale: center.lang === "en" ? "en_US" : center.lang === "zh" ? "zh_CN" : "ko_KR",
+      locale: ({ en: "en_US", zh: "zh_CN", vi: "vi_VN", ru: "ru_RU", mn: "mn_MN" } as Record<string, string>)[center.lang ?? ""] ?? "ko_KR",
       url,
       siteName: `${siteConfig.shortName} ${center.name}`,
       title: center.seo.title,

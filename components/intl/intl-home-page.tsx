@@ -7,6 +7,8 @@ import { lawyerI18n } from "@/lib/lawyers-i18n"
 import { officeAddr, officeName } from "@/lib/center-i18n"
 import { openOffices, siteConfig } from "@/lib/site-config"
 import type { IntlHome, IntlLang } from "@/lib/intl-home"
+import { LANG_NAME, NEEDS_NOTO } from "@/lib/langs"
+import { notoSans } from "@/lib/noto-font"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
 import { SectionHead } from "@/components/main/section-head"
 import { InkMountains } from "@/components/main/ink-mountains"
@@ -33,7 +35,7 @@ export function IntlHomePage({ lang, t }: { lang: IntlLang; t: IntlHome }) {
   }
 
   return (
-    <div lang={t.htmlLang}>
+    <div lang={t.htmlLang} className={NEEDS_NOTO.includes(lang) ? notoSans.className : undefined}>
       <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(t.htmlLang)}` }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <IntlHeader lang={lang} t={t} />
@@ -307,7 +309,7 @@ export function IntlHomePage({ lang, t }: { lang: IntlLang; t: IntlHome }) {
                 <p className="mt-1 text-sm text-[#8A9099]">{t.offices.note}</p>
               </div>
               <div className="rounded-2xl bg-white p-5 md:p-8">
-                <ConsultForm idPrefix={`intl-${lang}`} lang={lang} caseTypes={t.contact.caseTypes} stageOptions={t.contact.stages} source={lang === "en" ? "영문 홈페이지" : "중문 홈페이지"} />
+                <ConsultForm idPrefix={`intl-${lang}`} lang={lang} caseTypes={t.contact.caseTypes} stageOptions={t.contact.stages} source={`${LANG_NAME[lang]} 홈페이지`} />
               </div>
             </div>
           </section>
@@ -339,7 +341,7 @@ export function IntlHomePage({ lang, t }: { lang: IntlLang; t: IntlHome }) {
             </div>
             <div className="mt-6 flex flex-col gap-3 text-[0.8125rem] md:flex-row md:items-center md:justify-between">
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                <LangSwitch current={lang} className="-ml-2" />
+                <LangSwitch current={lang} className="-ml-2" align="left" />
                 <Link href="/privacy" hrefLang="ko" className="transition-colors hover:text-white">
                   {t.footer.privacy}
                 </Link>

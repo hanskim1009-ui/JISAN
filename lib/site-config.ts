@@ -20,7 +20,7 @@ export const siteConfig = {
   /** 센터 로고 앞에 붙는 짧은 이름 (예: "지산 형사센터") */
   shortName: "지산",
   nameEn: INCORPORATED ? "JISAN & PARTNERS" : "JISAN LAW",
-  siteUrl: "https://www.jisanlaw.com",
+  siteUrl: "https://jisanlaw.com",
   phone: "02-6951-4097",
   phoneHref: "tel:02-6951-4097",
   phoneIntl: "+82-2-6951-4097",

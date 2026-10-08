@@ -18,7 +18,7 @@ export const foreignerEn: Center = {
   "tone": "warm",
   "seo": {
     "title": "Visa Lawyer Korea | Visa Refusal, Deportation, Foreigner Criminal Cases | Jisan Law Foreigner Center",
-    "description": "Refused visa extension or change of status, cancelled stay permit, departure and deportation orders, immigration detention, police questioning of foreigners, unpaid wages, workplace changes and international divorce. We start by counting your deadlines and challenge decisions through administrative appeals and lawsuits. Consultations in English and Chinese. 24-hour phone line 02-6951-4097.",
+    "description": "Refused visa extension or change of status, cancelled stay permit, departure and deportation orders, immigration detention, police questioning of foreigners, unpaid wages, workplace changes and international divorce. We start by counting your deadlines and challenge decisions through administrative appeals and lawsuits. Consultations in English. 24-hour phone line 02-6951-4097.",
     "keywords": [
       "visa lawyer Korea",
       "visa extension refused Korea",
@@ -32,7 +32,7 @@ export const foreignerEn: Center = {
   },
   "hero": {
     "title": "Legal trouble in Korea?\nWe handle it with your visa status in mind",
-    "sub": "Refused stay extensions, departure and deportation orders, police questioning, unpaid wages, divorce and deposit disputes. We look at how one case can affect your stay in Korea, and you can consult with us in English or Chinese."
+    "sub": "Refused stay extensions, departure and deportation orders, police questioning, unpaid wages, divorce and deposit disputes. We look at how one case can affect your stay in Korea, and you can consult with us in English."
   },
   "stageTitle": "What is your situation right now?",
   "stages": [
@@ -76,7 +76,7 @@ export const foreignerEn: Center = {
       "For foreigners living in Korea, a legal problem often does not end with the problem itself. A single fine can count against you when you apply to extend your stay. The moment you quit your job, you need to work out how much time is left on your stay. During a divorce lawsuit, the first worry is what happens to your status of stay. The Jisan Law Foreigner Center does not look at the case and your stay separately. We advise on both together.",
       "This is especially true for criminal cases. If you are sentenced to imprisonment without labor or a heavier sentence (금고 이상의 형) and then released, you may become subject to deportation. Even a fine can be grounds for cancelling your stay permit if the violation is serious (Immigration Act Articles 46 and 89). Cases that end in a suspended indictment (기소유예) or a decision not to refer the case to prosecutors (불송치) still remain in investigation history records (수사경력자료), and these can be checked when needed for a foreigner's stay or naturalization permit (Act on the Lapse of Criminal Sentences, Article 6). That is why you need to consider what each possible outcome means for your stay from the investigation stage onward.",
       "Deadlines in foreigner cases are also short. If your extension of stay is refused, the notice will in principle state a departure deadline within 14 days of its issue date. An objection to a deportation order must be filed within 7 days of receiving the order. Filing an administrative appeal or an administrative lawsuit does not suspend the decision, so if a departure deadline applies, you must also apply for a stay of execution (집행정지).",
-      "Partner Miso Kim consults in English and Managing Partner Hansol Kim in Chinese, including at night and on weekends. For other languages, we can arrange an interpreter if needed. Rather than simple application paperwork, we take on disputed cases such as refusals, cancellations and deportation, handling objections, administrative appeals and administrative lawsuits, as well as the related criminal, labor and family cases. Our consultation phone line is open 24 hours, including weekends and public holidays."
+      "Partner Miso Kim consults with you in English, including at night and on weekends. Rather than simple application paperwork, we take on disputed cases such as refusals, cancellations and deportation, handling objections, administrative appeals and administrative lawsuits, as well as the related criminal, labor and family cases. Our consultation phone line is open 24 hours, including weekends and public holidays."
     ]
   },
   "situations": {
@@ -259,7 +259,7 @@ export const foreignerEn: Center = {
       "steps": [
         {
           "title": "Consultation and checking your status of stay",
-          "desc": "Managing Partner Hansol Kim personally hears the allegations and the details of the request to appear, and checks your status of stay and its expiry date using your passport and residence card (외국인등록증). Consultations are available in English and Chinese."
+          "desc": "Managing Partner Hansol Kim personally hears the allegations and the details of the request to appear, and checks your status of stay and its expiry date using your passport and residence card (외국인등록증). Consultations are available in English."
         },
         {
           "title": "Requesting an interpreter and practicing for questioning",
@@ -337,7 +337,7 @@ export const foreignerEn: Center = {
     },
     {
       "slug": "kim-hansol",
-      "note": "Consults in Chinese · Former prosecutor (Incheon, Ansan, Hongseong) · University of Toronto"
+      "note": "Former prosecutor (Incheon, Ansan, Hongseong) · University of Toronto"
     }
   ],
   "faqs": [
@@ -366,8 +366,8 @@ export const foreignerEn: Center = {
       "a": "Marriage migrant (F-6) status can still be granted if the marriage could not continue because of the spouse's death or disappearance, or for other reasons you are not responsible for (Enforcement Decree of the Immigration Act, Appended Table 1-2). The Supreme Court interprets this as cases where the Korean spouse is mainly responsible for the breakdown of the marriage (Supreme Court Decision 2018Du66869, July 4, 2019). That is why arguing over who is responsible in the divorce lawsuit is directly tied to your stay."
     },
     {
-      "q": "Can I get advice in English or Chinese?",
-      "a": "Yes. Partner Miso Kim consults in English and Managing Partner Hansol Kim in Chinese, including at night and on weekends. If you need another language, or if family members will join the consultation, let us know in advance and we will arrange the necessary interpretation. Court and investigation documents are written in Korean, so we will explain important documents to you one by one."
+      "q": "Can I get advice in English?",
+      "a": "Yes. Partner Miso Kim consults with you in English, including at night and on weekends. Court and investigation documents are written in Korean, so we will explain important documents to you one by one."
     },
     {
       "q": "How are fees decided?",

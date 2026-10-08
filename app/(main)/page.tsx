@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { homeAlternates } from "@/lib/langs"
 import { HomeHero } from "@/components/main/home-hero"
 import { PeopleSection } from "@/components/main/people-section"
 import { FieldsSection } from "@/components/main/fields-section"
@@ -23,7 +24,7 @@ import { centers } from "@/lib/centers"
 export const revalidate = 300
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: homeAlternates() },
 }
 
 const faqJsonLd = {

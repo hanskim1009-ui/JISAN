@@ -151,8 +151,7 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
                 상담 신청
               </Link>
               <div className="mt-4 flex items-center justify-center gap-2 text-sm text-jisan-ink/60">
-                <span>Language</span>
-                <LangSwitch current="ko" dark={false} />
+                <LangSwitch current="ko" dark={false} align="left" />
               </div>
             </div>
           </div>

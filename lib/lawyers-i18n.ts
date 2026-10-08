@@ -1,4 +1,5 @@
-import type { Lang } from "@/lib/center-i18n"
+import type { Lang } from "@/lib/langs"
+import { extraLangs } from "@/lib/i18n/extra-langs"
 
 /**
  * 영어·중국어 페이지용 변호사 정보 (외국인센터, 영문·중문 메인).
@@ -7,7 +8,7 @@ import type { Lang } from "@/lib/center-i18n"
  */
 export type LawyerI18n = { name: string; title: string; field: string; line: string; bio: string; career: string[] }
 
-type Entry = Record<Exclude<Lang, "ko">, LawyerI18n>
+type Entry = Record<"en" | "zh", LawyerI18n>
 
 const MP = { en: "Managing Partner", zh: "代表律师" }
 const P = { en: "Partner", zh: "合伙人律师" }
@@ -19,7 +20,7 @@ const data: Record<string, Entry> = {
       name: "Hansol Kim",
       title: MP.en,
       field: "Criminal",
-      line: "Consults in Chinese · Former prosecutor (Incheon, Ansan, Hongseong)",
+      line: "Former prosecutor (Incheon, Ansan, Hongseong)",
       bio: "Hansol Kim served as a prosecutor at the Incheon District Prosecutors' Office, the Ansan Branch of the Suwon District Prosecutors' Office, and the Hongseong Branch of the Daejeon District Prosecutors' Office. He now focuses on criminal cases, handling everything from preparation before police questioning to accompanying clients at interviews, written opinions and trial. He graduated from the University of Toronto (Life Sciences, High Distinction) and Sungkyunkwan University Law School.",
       career: [
         "Managing Partner, Jisan Law",
@@ -71,7 +72,7 @@ const data: Record<string, Entry> = {
       name: "Miso Kim",
       title: P.zh,
       field: "家事",
-      line: "英文咨询 · 前 Wemade 公司内部律师；英语口笔译专业毕业",
+      line: "前 Wemade 公司内部律师；英语口笔译专业毕业",
       bio: "Miso Kim 律师的执业范围从跨国企业法律顾问到民事、刑事诉讼。曾任 Wemade 株式会社法务组公司内部律师，以及 Daehwan、Oracle 律师事务所律师。本科就读于韩国外国语大学英语口笔译专业，后毕业于成均馆大学法学专门研究生院。",
       career: [
         "现任 Jisan 法律事务所 合伙人律师",
@@ -166,5 +167,6 @@ const data: Record<string, Entry> = {
 
 export function lawyerI18n(slug: string, lang: Lang | undefined): LawyerI18n | undefined {
   if (!lang || lang === "ko") return undefined
-  return data[slug]?.[lang]
+  if (lang === "en" || lang === "zh") return data[slug]?.[lang]
+  return (extraLangs[lang].lawyers as Record<string, LawyerI18n>)[slug]
 }

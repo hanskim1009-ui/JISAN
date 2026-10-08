@@ -6,8 +6,8 @@ import { siteConfig } from "@/lib/site-config"
 import type { CenterTone } from "@/lib/centers"
 import { centerTones } from "@/components/center/tone"
 import { centerText, type Lang } from "@/lib/center-i18n"
+import { LangMenu } from "@/components/lang-menu"
 
-const LANG_LABEL: Record<Lang, string> = { ko: "한국어", en: "EN", zh: "中文" }
 
 export type CenterNavItem = { label: string; href: string }
 
@@ -34,15 +34,8 @@ export function CenterHeader({
   const [open, setOpen] = useState(false)
   const L = centerText(lang)
   const foreign = lang && lang !== "ko"
-  const langLinks = alternates ? (Object.entries(alternates) as [Lang, string][]) : []
-  const switcher = langLinks.length > 1 && (
-    <span className="flex shrink-0 items-center gap-1 text-xs font-semibold">
-      {langLinks.map(([l, href]) => (
-        <a key={l} href={href} lang={l} className={`whitespace-nowrap rounded px-1.5 py-1 ${l === (lang ?? "ko") ? "underline underline-offset-4" : "opacity-60 hover:opacity-100"}`}>
-          {LANG_LABEL[l]}
-        </a>
-      ))}
-    </span>
+  const switcher = alternates && Object.keys(alternates).length > 1 && (
+    <LangMenu current={lang ?? "ko"} hrefs={alternates} dark={tone === "dark"} />
   )
   const t = centerTones[tone]
 
