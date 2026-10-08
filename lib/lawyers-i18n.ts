@@ -19,7 +19,7 @@ const data: Record<string, Entry> = {
       name: "Hansol Kim",
       title: MP.en,
       field: "Criminal",
-      line: "Former prosecutor (Incheon, Ansan, Hongseong)",
+      line: "Consults in Chinese · Former prosecutor (Incheon, Ansan, Hongseong)",
       bio: "Hansol Kim served as a prosecutor at the Incheon District Prosecutors' Office, the Ansan Branch of the Suwon District Prosecutors' Office, and the Hongseong Branch of the Daejeon District Prosecutors' Office. He now focuses on criminal cases, handling everything from preparation before police questioning to accompanying clients at interviews, written opinions and trial. He graduated from the University of Toronto (Life Sciences, High Distinction) and Sungkyunkwan University Law School.",
       career: [
         "Managing Partner, Jisan Law",
@@ -35,7 +35,7 @@ const data: Record<string, Entry> = {
       name: "Hansol Kim",
       title: MP.zh,
       field: "刑事",
-      line: "前检察官（仁川、安山、洪城）",
+      line: "中文咨询 · 前检察官（仁川、安山、洪城）",
       bio: "Hansol Kim 律师曾在仁川地方检察厅、水原地方检察厅安山支厅、大田地方检察厅洪城支厅担任检察官。现主要办理刑事案件，从警方调查前的准备、陪同接受调查，到提交律师意见书和出庭辩护，均亲自负责。毕业于加拿大多伦多大学（生命科学，最优等）和成均馆大学法学专门研究生院。",
       career: [
         "现任 Jisan 法律事务所 代表律师",
@@ -53,7 +53,7 @@ const data: Record<string, Entry> = {
       name: "Miso Kim",
       title: P.en,
       field: "Family",
-      line: "Former in-house counsel at Wemade; English interpretation and translation graduate",
+      line: "Consults in English · Former in-house counsel at Wemade; English interpretation and translation graduate",
       bio: "Miso Kim has worked from advising multinational companies to litigating civil and criminal cases. She was in-house counsel on the legal team of Wemade Co., Ltd., and an associate at Daehwan Law Firm and Oracle Law Firm. She studied English interpretation and translation at Hankuk University of Foreign Studies before graduating from Sungkyunkwan University Law School.",
       career: [
         "Partner, Jisan Law",
@@ -71,7 +71,7 @@ const data: Record<string, Entry> = {
       name: "Miso Kim",
       title: P.zh,
       field: "家事",
-      line: "前 Wemade 公司内部律师；英语口笔译专业毕业",
+      line: "英文咨询 · 前 Wemade 公司内部律师；英语口笔译专业毕业",
       bio: "Miso Kim 律师的执业范围从跨国企业法律顾问到民事、刑事诉讼。曾任 Wemade 株式会社法务组公司内部律师，以及 Daehwan、Oracle 律师事务所律师。本科就读于韩国外国语大学英语口笔译专业，后毕业于成均馆大学法学专门研究生院。",
       career: [
         "现任 Jisan 法律事务所 合伙人律师",
