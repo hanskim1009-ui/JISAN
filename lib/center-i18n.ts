@@ -218,7 +218,7 @@ const zh: CenterText = {
   navLawyers: "律师",
   navBlog: "博客",
   navColumn: "专栏",
-  bizNo: "营业执照号",
+  bizNo: "韩国营业者登记号",
   adLawyer: "广告责任律师",
   privacy: "隐私政策",
   disclaimer: "免责声明",

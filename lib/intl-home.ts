@@ -37,13 +37,13 @@ const en: IntlHome = {
   locale: "en_US",
   seoTitle: "Jisan Law | Lawyers in Korea for Foreign Residents, Criminal, Family and Business Matters",
   seoDesc:
-    "Jisan Law is a Korean law office handling criminal, family, corporate, medical, real estate and civil cases, with a Foreigner Center for visa, immigration and other issues. Consultations in English and Chinese, 24/7.",
+    "Jisan Law is a Korean law office handling criminal, family, corporate, medical, real estate and civil cases, with a Foreigner Center for visa, immigration and other issues. Consultations in English and Chinese; phone line open 24/7.",
   nav: { about: "About", lawyers: "Lawyers", practice: "Practice areas", foreigner: "Foreigner Center", offices: "Offices", contact: "Contact" },
   firm: "JISAN LAW",
-  kicker: "Criminal · Family · Corporate · Medical · Real Estate · Civil",
-  heroTitle: ["When it's your first time", "and you don't know what to do"],
+  kicker: "Korean lawyers for foreign residents · English · 中文",
+  heroTitle: ["Legal trouble in Korea?", "Talk to us in English or Chinese"],
   heroSub:
-    "Nothing needs to be decided yet. Jisan's lawyers will take care of it, step by step, according to your situation. Nights and weekends are fine too.",
+    "Visa and immigration problems, police investigations, unpaid wages, divorce. Nothing needs to be decided yet. We first explain where you stand and what can be done. Our phone line is open 24/7.",
   langNote: "Consultations available in English and Chinese.",
   consult: "Request a consultation",
   menuOpen: "Open menu",
@@ -59,7 +59,7 @@ const en: IntlHome = {
       { title: "Family", items: ["International divorce", "Custody and child support", "Inheritance of property in Korea"] },
     ],
     cta: "Visit the Foreigner Center",
-    lawyersNote: "Lead lawyers: Miso Kim, Hansol Kim",
+    lawyersNote: "Miso Kim (Partner, studied English interpretation and translation) · Hansol Kim (Managing Partner, former prosecutor)",
   },
   lawyers: {
     title: "Lawyers",
@@ -72,14 +72,14 @@ const en: IntlHome = {
     fields: [
       {
         name: "Criminal",
-        desc: "From police questioning to trial, we prepare the response that protects you best at each stage.",
+        desc: "From police questioning to trial, we plan how to respond at each stage, based on your situation.",
         items: ["Accompanying you at police questioning; arrest and detention", "Sex crimes and drug offenses", "Fraud, embezzlement, capital markets offenses", "School violence; DUI and traffic offenses"],
         lawyers: ["kim-hansol", "kim-chunghyeon", "koo-bonwoo"],
       },
       {
         name: "Family",
         desc: "We sort out divorce, inheritance and child custody with your life after the case in mind.",
-        items: ["Divorce and division of property", "Claims against a spouse's affair partner", "Custody and child support", "Inheritance and forced heirship"],
+        items: ["Divorce and division of property", "Claims against a spouse's affair partner", "Custody and child support", "Inheritance and statutory reserved shares"],
         lawyers: ["kim-miso"],
       },
       {
@@ -110,7 +110,7 @@ const en: IntlHome = {
   },
   about: {
     kicker: "About us",
-    title: ["For the client,", "a case happens only once"],
+    title: ["For you, this may be", "the only case you ever have"],
     letter: [
       "For a lawyer it may be a matter seen every week, but for most clients it is the first and only time.",
       "So we never ask you to decide on hiring us right away. We first tell you what can be done and what is difficult, and once we take your case, the lawyer in charge stays in direct contact with you.",
@@ -131,6 +131,9 @@ const en: IntlHome = {
     title: "Frequently asked questions",
     items: [
       { q: "Can I consult in English or Chinese?", a: "Yes. You can consult us in English or Chinese. Korean documents and procedures are explained in the language you are comfortable with." },
+      { q: "Can a fine or a criminal case affect my visa?", a: "It can. Depending on the offense and the sentence, a criminal case can lead to a refused visa extension, a departure order or deportation. It is safer to consider the immigration side from the start of the investigation, not after the sentence." },
+      { q: "I received a departure or deportation order. How much time do I have?", a: "Deadlines can be very short. An objection to a deportation order, for example, must be filed within 7 days of receiving it. Check the date on the notice and contact us right away." },
+      { q: "I don't have a Korean phone number. How can I reach you?", a: "In the form, you can leave an international number or a messenger ID instead. You can also call us from abroad at +82-2-6951-4097." },
       { q: "Do I have to hire you after a consultation?", a: "No. You can simply get a consultation. Decide whether to hire us after hearing what we recommend." },
       { q: "Can I call at night or on the weekend?", a: "Yes. Our phone line is open 24 hours a day, including weekends and holidays. For urgent matters such as an arrest or questioning the next day, calling is faster than the form." },
       { q: "Will what I tell you stay confidential?", a: "Yes. Under Korean law, lawyers must keep confidential what they learn in their work. This applies even if you only have a consultation." },
@@ -156,12 +159,12 @@ const zh: IntlHome = {
   htmlLang: "zh-Hans",
   locale: "zh_CN",
   seoTitle: "Jisan 法律事务所 | 韩国律师：外国人签证与出入境、刑事、家事、企业",
-  seoDesc: "Jisan 法律事务所办理刑事、家事、企业、医疗、房地产、民事案件，并设有外国人中心，处理签证、出入境等在韩外国人的法律问题。可用中文、英文咨询，24小时接听。",
+  seoDesc: "Jisan 法律事务所办理刑事、家事、企业、医疗、房地产、民事案件，并设有外国人中心，处理签证、出入境等在韩外国人的法律问题。可用中文、英文咨询；电话24小时接听。",
   nav: { about: "事务所介绍", lawyers: "律师", practice: "业务领域", foreigner: "外国人中心", offices: "办公室", contact: "联系我们" },
   firm: "JISAN LAW",
-  kicker: "刑事 · 家事 · 企业 · 医疗 · 房地产 · 民事",
-  heroTitle: ["第一次遇到，不知所措时，", "不知道该做什么时"],
-  heroSub: "现在还什么都没决定也没关系。Jisan 的律师会根据您的情况，一步一步帮您处理。晚上和周末也可以。",
+  kicker: "为在韩外国人提供法律服务 · 中文 · English",
+  heroTitle: ["在韩国遇到法律问题？", "可以用中文、英文咨询"],
+  heroSub: "签证·出入境、警方调查、拖欠工资、离婚……现在还什么都没决定也没关系。我们会先说明您目前的处境和可以做的事。电话24小时接听。",
   langNote: "可用中文、英文咨询。",
   consult: "申请咨询",
   menuOpen: "打开菜单",
@@ -169,15 +172,15 @@ const zh: IntlHome = {
   foreigner: {
     kicker: "外国人中心",
     title: "为在韩外国人及其家人",
-    lead: "签证和滞留问题、警方调查、拖欠工资、与韩国配偶离婚……外国人中心集中处理外国人在韩国遇到的法律问题，并用中文、英文说明韩国的程序。",
+    lead: "签证和居留问题、警方调查、拖欠工资、与韩国配偶离婚……外国人中心集中处理外国人在韩国遇到的法律问题，并用中文、英文说明韩国的程序。",
     groups: [
-      { title: "签证·出入境", items: ["延长或变更滞留资格被拒", "出境命令和强制驱逐", "外国人保护所收容", "禁止入境和签证被拒"] },
+      { title: "签证·出入境", items: ["居留期间延长或居留资格变更不许可", "出境命令和强制驱逐", "外国人保护所收容", "禁止入境和签证被拒"] },
       { title: "刑事案件", items: ["接受警方调查", "逮捕和羁押", "刑事处罚对签证的影响", "作为受害人提起告诉"] },
       { title: "劳动·生活", items: ["拖欠工资和退休金", "工伤", "变更工作单位（E-9）", "租房押金和合同"] },
       { title: "家事", items: ["涉外离婚", "抚养权和抚养费", "继承在韩国的财产"] },
     ],
     cta: "进入外国人中心",
-    lawyersNote: "负责律师：Miso Kim、Hansol Kim",
+    lawyersNote: "Miso Kim（合伙人律师，英语口笔译专业）· Hansol Kim（代表律师，前检察官）",
   },
   lawyers: { title: "律师介绍", desc: "不必担心谁来负责您的案件。接受您咨询的律师会一直陪您到最后。" },
   practice: {
@@ -187,7 +190,7 @@ const zh: IntlHome = {
     fields: [
       {
         name: "刑事",
-        desc: "从警方调查到法院审判，在每个阶段为委托人准备最有利的应对方向。",
+        desc: "从警方调查到法院审判，根据您的情况，准备每个阶段的应对方向。",
         items: ["陪同接受警方调查，逮捕·羁押", "性犯罪 · 毒品", "诈骗·侵占·资本市场法", "校园暴力，酒驾·交通"],
         lawyers: ["kim-hansol", "kim-chunghyeon", "koo-bonwoo"],
       },
@@ -246,6 +249,9 @@ const zh: IntlHome = {
     title: "常见问题",
     items: [
       { q: "可以用中文或英文咨询吗？", a: "可以。您可以用中文或英文咨询，我们会用您方便的语言说明韩文文件和程序。" },
+      { q: "罚金或刑事案件会影响签证吗？", a: "有可能。根据罪名和判决结果，刑事案件可能导致居留期间延长不许可、出境命令或强制驱逐出境。因此，最好从调查阶段开始就一并考虑出入境问题，而不是等判决之后。" },
+      { q: "收到了出境命令或强制驱逐出境命令，还有多少时间？", a: "期限可能非常短。例如，对强制驱逐出境命令提出异议，须在收到命令之日起7日内提出。请先确认通知书上的日期，并尽快与我们联系。" },
+      { q: "没有韩国手机号码，怎么联系？", a: "可以在表格中留下国际电话号码或微信等即时通讯账号。也可以从海外拨打 +82-2-6951-4097。" },
       { q: "咨询后一定要委托吗？", a: "不需要。只咨询也可以。听完我们的建议后，再决定是否委托。" },
       { q: "晚上或周末可以打电话吗？", a: "可以。电话24小时接听，周末和节假日也不例外。被逮捕或第二天就要接受调查等紧急情况，打电话比填表更快。" },
       { q: "咨询内容会被泄露吗？", a: "不会。根据韩国法律，律师对执业中知悉的秘密负有保密义务。即使只咨询不委托，也同样适用。" },
@@ -258,7 +264,7 @@ const zh: IntlHome = {
     caseTypes: ["签证·出入境", "刑事", "劳动·拖欠工资", "家事·离婚", "租房·合同", "企业", "医疗", "房地产", "其他"],
     stages: ["想先咨询一下", "准备告诉或起诉", "调查或诉讼进行中", "收到了通知或命令", "其他"],
   },
-  footer: { bizNo: "营业执照号", adLawyer: "广告责任律师", privacy: "隐私政策", disclaimer: "免责声明", korean: "한국어" },
+  footer: { bizNo: "韩国营业者登记号", adLawyer: "广告责任律师", privacy: "隐私政策", disclaimer: "免责声明", korean: "한국어" },
 }
 
 export const intlHome: Record<IntlLang, IntlHome> = { en, zh }

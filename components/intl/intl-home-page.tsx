@@ -60,9 +60,6 @@ export function IntlHomePage({ lang, t }: { lang: IntlLang; t: IntlHome }) {
                 <p className="anim-rise mt-4 max-w-2xl text-balance text-[0.9375rem] leading-[1.75] text-white/75 md:mt-6 md:text-[1.0625rem]" style={{ animationDelay: "0.54s" }}>
                   {t.heroSub}
                 </p>
-                <p className="anim-rise mt-3 text-[0.9375rem] font-semibold text-white" style={{ animationDelay: "0.6s" }}>
-                  {t.langNote}
-                </p>
                 <div className="anim-rise mt-6 flex flex-wrap gap-2.5 md:mt-8" style={{ animationDelay: "0.66s" }}>
                   <Link href="#contact" className="rounded-full bg-white px-5 py-2.5 text-[0.9375rem] font-semibold text-brand transition-colors hover:bg-white/90 md:px-6 md:py-3">
                     {t.consult}
