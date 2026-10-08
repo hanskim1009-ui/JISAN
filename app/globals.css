@@ -78,6 +78,11 @@
     /* 한글 줄바꿈을 어절 단위로 */
     word-break: keep-all;
   }
+  /* 중국어는 글자 단위로 줄바꿈 (keep-all이면 긴 제목이 화면 밖으로 넘침) */
+  :lang(zh) {
+    word-break: normal;
+    line-break: strict;
+  }
   ::selection {
     background-color: hsl(230 35% 18%);
     color: hsl(0 0% 100%);

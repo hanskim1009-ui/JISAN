@@ -15,7 +15,7 @@ export function LangSwitch({ current, dark = true, className = "" }: { current: 
     { code: "zh", label: "中文", href: "/zh" },
   ] as const
   return (
-    <div className={`flex items-center gap-0.5 text-[0.8125rem] font-semibold ${className}`}>
+    <div className={`flex shrink-0 items-center gap-0.5 whitespace-nowrap text-[0.8125rem] font-semibold ${className}`}>
       {items.map((it) =>
         it.code === current ? (
           <span key={it.code} aria-current="true" className={`rounded-md px-2 py-1 ${dark ? "bg-white/15 text-white" : "bg-jisan-ink text-white"}`}>

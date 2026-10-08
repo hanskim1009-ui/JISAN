@@ -36,9 +36,9 @@ export function CenterHeader({
   const foreign = lang && lang !== "ko"
   const langLinks = alternates ? (Object.entries(alternates) as [Lang, string][]) : []
   const switcher = langLinks.length > 1 && (
-    <span className="flex items-center gap-1 text-xs font-semibold">
+    <span className="flex shrink-0 items-center gap-1 text-xs font-semibold">
       {langLinks.map(([l, href]) => (
-        <a key={l} href={href} lang={l} className={`rounded px-1.5 py-1 ${l === (lang ?? "ko") ? "underline underline-offset-4" : "opacity-60 hover:opacity-100"}`}>
+        <a key={l} href={href} lang={l} className={`whitespace-nowrap rounded px-1.5 py-1 ${l === (lang ?? "ko") ? "underline underline-offset-4" : "opacity-60 hover:opacity-100"}`}>
           {LANG_LABEL[l]}
         </a>
       ))}
@@ -50,8 +50,10 @@ export function CenterHeader({
     <header className={`sticky top-0 z-50 border-b ${t.header}`}>
       <nav className="max-w-7xl mx-auto flex items-center gap-7 px-6 md:px-12 xl:px-14 py-4" aria-label={L.menu(name)}>
         <a href={homeHref} className="mr-auto leading-tight" onClick={() => setOpen(false)}>
-          <span className="block text-lg md:text-xl tracking-tight">
-            {foreign ? "JISAN" : siteConfig.shortName} <b className="font-extrabold">{name}</b>
+          <span className="block whitespace-nowrap text-lg md:text-xl tracking-tight">
+            {/* 외국어판 모바일은 아래 줄 JISAN LAW로 충분해 앞 글자를 숨김 (한 줄 유지) */}
+            {foreign ? <span className="hidden sm:inline">JISAN </span> : `${siteConfig.shortName} `}
+            <b className="font-extrabold">{name}</b>
           </span>
           <span className={`block text-[0.6562rem] ${t.logoSub}`}>{foreign ? siteConfig.nameEn : siteConfig.name}</span>
         </a>
