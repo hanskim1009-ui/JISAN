@@ -41,7 +41,7 @@ export function AdminApp({ options }: { options: Options }) {
   if (!me)
     return (
       <Shell>
-        <p className="text-[0.9375rem]">이 계정은 관리자로 등록되어 있지 않습니다. 승인자에게 초대를 요청해 주세요.</p>
+        <p className="text-[0.9375rem]">이 계정은 관리자로 등록되어 있지 않습니다. 다른 관리자에게 초대를 요청해 주세요.</p>
         <button className={`${btnCls} mt-4 border border-[#D5DAE1] bg-white`} onClick={() => sb().auth.signOut()}>
           로그아웃
         </button>
@@ -51,7 +51,7 @@ export function AdminApp({ options }: { options: Options }) {
   const tabs: [Tab, string][] = [
     ["posts", "글"],
     ["consult", "상담 신청"],
-    ...(me.role === "approver" ? ([["users", "관리자"]] as [Tab, string][]) : []),
+    ["users", "관리자"],
     ["account", "내 계정"],
   ]
 
@@ -77,7 +77,7 @@ export function AdminApp({ options }: { options: Options }) {
             ))}
           </nav>
           <span className="ml-auto text-xs text-jisan-ink/60">
-            {me.name || me.email} · {me.role === "approver" ? "승인자" : "글쓴이"}
+            {me.name || me.email}
           </span>
         </div>
       </header>
@@ -89,7 +89,7 @@ export function AdminApp({ options }: { options: Options }) {
             <PostList me={me} options={options} onNew={() => setEditing("new")} onEdit={(p) => setEditing(p)} />
           ))}
         {tab === "consult" && <ConsultList me={me} />}
-        {tab === "users" && me.role === "approver" && <AdminUsers me={me} />}
+        {tab === "users" && <AdminUsers me={me} />}
         {tab === "account" && <Account me={me} />}
       </main>
     </div>
@@ -125,7 +125,7 @@ function Login() {
         password: pw,
         options: { emailRedirectTo: `${window.location.origin}/admin` },
       })
-      if (error) setMsg(error.message.includes("Database error") ? "초대받지 않은 이메일입니다. 승인자에게 초대를 요청해 주세요." : `가입하지 못했습니다: ${error.message}`)
+      if (error) setMsg(error.message.includes("Database error") ? "초대받지 않은 이메일입니다. 다른 관리자에게 초대를 요청해 주세요." : `가입하지 못했습니다: ${error.message}`)
       else if (!data.session) setMsg("가입했습니다. 메일함에서 확인 메일의 링크를 누른 뒤 로그인해 주세요.")
     }
     setBusy(false)

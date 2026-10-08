@@ -367,7 +367,7 @@ export function PostEditor({ me, options, post, onDone }: { me: Me; options: Opt
         <div className="flex flex-wrap gap-2">
           {/* 저장은 지금 상태를 그대로 둡니다 (반려된 글은 임시저장으로) */}
           <button disabled={busy} onClick={() => save(status === "rejected" ? "draft" : status)} className={`${btnCls} border border-[#D5DAE1] bg-white`}>
-            {status === "published" ? "고친 내용 게시" : "저장"}
+            {status === "published" ? "고친 내용 게시" : "임시저장 (사이트에 안 보임)"}
           </button>
           {status !== "published" && !approver && (
             <button disabled={busy} onClick={() => save("pending")} className={`${btnCls} bg-[#1F4E8C] text-white`}>

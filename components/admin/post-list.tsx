@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react"
 import { sb, btnCls, KIND_LABEL, STATUS_LABEL, STATUS_STYLE, type Me, type Options, type PostRow, type PostStatus } from "@/components/admin/shared"
 
-type Filter = "pending" | "mine" | "published" | "all"
+type Filter = "all" | "draft" | "published" | "mine"
 
 export function PostList({ me, options, onNew, onEdit }: { me: Me; options: Options; onNew: () => void; onEdit: (p: PostRow) => void }) {
   const [rows, setRows] = useState<PostRow[] | null>(null)
-  const [filter, setFilter] = useState<Filter>(me.role === "approver" ? "pending" : "mine")
+  const [filter, setFilter] = useState<Filter>("all")
   const [error, setError] = useState("")
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export function PostList({ me, options, onNew, onEdit }: { me: Me; options: Opti
   }, [])
 
   const shown = (rows ?? []).filter((p) =>
-    filter === "pending" ? p.status === "pending" : filter === "mine" ? p.created_by === me.id : filter === "published" ? p.status === "published" : true,
+    filter === "draft" ? p.status !== "published" : filter === "mine" ? p.created_by === me.id : filter === "published" ? p.status === "published" : true,
   )
   const count = (s: PostStatus) => (rows ?? []).filter((p) => p.status === s).length
   const authorName = (p: PostRow) => {
@@ -32,10 +32,10 @@ export function PostList({ me, options, onNew, onEdit }: { me: Me; options: Opti
   }
 
   const filters: [Filter, string][] = [
-    ["pending", `검토 대기 ${count("pending")}`],
-    ["mine", "내 글"],
-    ["published", `게시됨 ${count("published")}`],
     ["all", "전체"],
+    ["published", `게시됨 ${count("published")}`],
+    ["draft", `임시저장 ${(rows ?? []).length - count("published")}`],
+    ["mine", "내가 쓴 글"],
   ]
 
   return (
