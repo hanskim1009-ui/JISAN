@@ -8,6 +8,7 @@ import { centers } from "@/lib/centers"
 import { fields } from "@/lib/practice"
 import { lawyers } from "@/lib/lawyers"
 import { LogoSvg } from "@/components/brand-logo"
+import { LangSwitch } from "@/components/intl/intl-header"
 
 export type HeaderFlags = { showCases: boolean; showDiary: boolean; showColumns: boolean }
 
@@ -80,6 +81,7 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
                   {l.label}
                 </Link>
               ))}
+              <LangSwitch current="ko" className="-mx-2" />
               <Link href="/consult" className="border border-white/70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white hover:text-brand transition-colors">
                 상담 신청
               </Link>
@@ -148,6 +150,10 @@ export function SiteHeader({ showCases, showDiary, showColumns }: HeaderFlags) {
               <Link href="/consult" onClick={close} className="mt-5 bg-brand py-3 text-center text-sm font-semibold text-white">
                 상담 신청
               </Link>
+              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-jisan-ink/60">
+                <span>Language</span>
+                <LangSwitch current="ko" dark={false} />
+              </div>
             </div>
           </div>
         )}

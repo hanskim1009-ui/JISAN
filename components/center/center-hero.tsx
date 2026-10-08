@@ -6,6 +6,7 @@ import { looksToRender, type Look } from "@/lib/look"
 import { centerTones } from "@/components/center/tone"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
 import { stageGuideHref } from "@/lib/center-pages"
+import { centerText } from "@/lib/center-i18n"
 
 /**
  * 센터 첫 화면. 시안 두 가지(lib/look.ts)
@@ -24,6 +25,7 @@ export function CenterHero({ center }: { center: Center }) {
 
 function Hero({ look, center }: { look: Look; center: Center }) {
   const t = centerTones[center.tone]
+  const L = centerText(center.lang)
   const dark = center.tone === "dark"
   const ridge = look === "ridge"
   const rise = (d: number) => (ridge ? { style: { animationDelay: `${d}s` } } : {})
@@ -74,7 +76,7 @@ function Hero({ look, center }: { look: Look; center: Center }) {
           </p>
           <div {...rise(0.56)} className={`${anim} mt-8 flex flex-wrap gap-2.5`}>
             <a href="#consult" className={`rounded-full px-6 py-3 text-[0.9375rem] font-semibold ${t.primaryBtn}`}>
-              상담 신청
+              {L.consult}
             </a>
             <a
               href={siteConfig.phoneHref}
@@ -93,7 +95,7 @@ function Hero({ look, center }: { look: Look; center: Center }) {
             {center.stages.map((s) => {
               // 상황을 설명하는 안내 글이 있으면 그리로 (전화로 바로 넘기지 않고 할 일부터 보여 줌)
               const guide = stageGuideHref(center.slug, s.label)
-              const hint = guide && s.href.startsWith("tel:") ? "지금 할 일 보기 →" : s.hint
+              const hint = guide && s.href.startsWith("tel:") ? L.seeNow : s.hint
               return (
               <li key={s.label}>
                 <a

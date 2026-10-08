@@ -3,6 +3,7 @@
 import { useRef, useState } from "react"
 import Link from "next/link"
 import type { AreaCard } from "@/lib/center-pages"
+import { centerText, type Lang } from "@/lib/center-i18n"
 
 /**
  * 센터 업무분야 목록. 묶음이 둘 이상이면 위에 묶음 단추(전체/재산범죄/폭력…)를 두고,
@@ -11,12 +12,14 @@ import type { AreaCard } from "@/lib/center-pages"
  */
 const PREVIEW = 4
 
-export function AreaBrowser({ groups, accent }: { groups: { group: string; items: AreaCard[] }[]; accent: string }) {
-  const [active, setActive] = useState<string>("전체")
+export function AreaBrowser({ groups, accent, lang }: { groups: { group: string; items: AreaCard[] }[]; accent: string; lang?: Lang }) {
+  const L = centerText(lang)
+  const ALL = L.all
+  const [active, setActive] = useState<string>(ALL)
   const many = groups.length > 1
-  const shown = active === "전체" ? groups : groups.filter((g) => g.group === active)
+  const shown = active === ALL ? groups : groups.filter((g) => g.group === active)
   const total = groups.reduce((n, g) => n + g.items.length, 0)
-  const clip = many && active === "전체"
+  const clip = many && active === ALL
   const top = useRef<HTMLDivElement>(null)
   const pick = (name: string) => {
     setActive(name)
@@ -26,10 +29,10 @@ export function AreaBrowser({ groups, accent }: { groups: { group: string; items
   return (
     <div ref={top} className="scroll-mt-24">
       {many && (
-        <div className="no-scrollbar -mx-6 mt-6 flex gap-2 overflow-x-auto px-6 md:mx-0 md:flex-wrap md:overflow-visible md:px-0" role="tablist" aria-label="업무분야 묶음">
-          {["전체", ...groups.map((g) => g.group)].map((name) => {
+        <div className="no-scrollbar -mx-6 mt-6 flex gap-2 overflow-x-auto px-6 md:mx-0 md:flex-wrap md:overflow-visible md:px-0" role="tablist" aria-label={L.areaGroups}>
+          {[ALL, ...groups.map((g) => g.group)].map((name) => {
             const on = active === name
-            const count = name === "전체" ? total : groups.find((g) => g.group === name)?.items.length
+            const count = name === ALL ? total : groups.find((g) => g.group === name)?.items.length
             return (
               <button
                 key={name}
@@ -63,7 +66,7 @@ export function AreaBrowser({ groups, accent }: { groups: { group: string; items
                     <span className="block text-[1.0625rem] font-bold text-jisan-ink">{a.name}</span>
                     {a.law && <span className={`mt-0.5 block text-xs font-semibold ${accent}`}>{a.law}</span>}
                     <span className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-jisan-ink/65 md:mt-2 md:line-clamp-3">{a.desc}</span>
-                    <span className={`mt-auto hidden pt-4 text-sm font-semibold md:block ${accent}`}>자세히 보기&nbsp;→</span>
+                    <span className={`mt-auto hidden pt-4 text-sm font-semibold md:block ${accent}`}>{L.more}&nbsp;→</span>
                   </Link>
                 </li>
               ))}
@@ -74,7 +77,7 @@ export function AreaBrowser({ groups, accent }: { groups: { group: string; items
                 onClick={() => pick(g.group)}
                 className={`mt-3 w-full rounded-xl border border-[#D5DAE1] bg-white py-3 text-sm font-semibold md:hidden ${accent}`}
               >
-                {g.group} {g.items.length - PREVIEW}개 더 보기
+                {L.moreN(g.group, g.items.length - PREVIEW)}
               </button>
             )}
           </div>

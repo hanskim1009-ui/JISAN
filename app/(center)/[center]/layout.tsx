@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation"
-import { getCenter } from "@/lib/centers"
+import { centerBase, getCenter } from "@/lib/centers"
+import { centerText, officeAddr, officeName } from "@/lib/center-i18n"
 import { getCases, getColumns } from "@/lib/content"
 import { getNaverBlogPosts } from "@/lib/feeds"
 import { getCenterPages } from "@/lib/center-pages"
-import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
+import { openOffices, siteConfig } from "@/lib/site-config"
 import { CenterHeader, type CenterNavItem } from "@/components/center/center-header"
 import { centerTones } from "@/components/center/tone"
 import { FloatingCTA } from "@/components/floating-cta"
@@ -21,30 +22,32 @@ export default async function CenterLayout({
   const center = getCenter(slug)
   if (!center) notFound()
   const t = centerTones[center.tone]
+  const L = centerText(center.lang)
+  const foreign = center.lang && center.lang !== "ko"
   // 페이지와 같은 요청이라 한 번만 가져옵니다. 불러오지 못하면 메뉴에서도 숨깁니다
   const hasBlog = center.blog ? (await getNaverBlogPosts(center.blog.id, 6)).length > 0 : false
 
-  const base = `/${center.slug}`
+  const base = centerBase(center)
   const hasGuides = (getCenterPages(center.slug)?.guides.length ?? 0) > 0
   // 상세 페이지에서도 센터 메인의 각 구역으로 가도록 주소에 센터 경로를 붙입니다
   const nav: CenterNavItem[] = [
-    { label: "업무분야", href: `${base}#areas` },
+    { label: L.navAreas, href: `${base}#areas` },
     ...(center.table ? [{ label: center.table.nav ?? center.table.title, href: `${base}#table` }] : []),
-    { label: "진행 절차", href: `${base}#process` },
-    ...(hasGuides ? [{ label: "상황별 안내", href: `${base}#guides` }] : []),
-    ...((await getCases({ center: center.slug })).length > 0 ? [{ label: "업무사례", href: `${base}#cases` }] : []),
-    { label: "변호사", href: `${base}#lawyers` },
-    ...(hasBlog ? [{ label: "블로그", href: `${base}#blog` }] : []),
-    ...((await getColumns({ center: center.slug })).length > 0 ? [{ label: "칼럼", href: `${base}#column` }] : []),
-    { label: "자주 묻는 질문", href: `${base}#faq` },
+    { label: L.navProcess, href: `${base}#process` },
+    ...(hasGuides ? [{ label: L.guides, href: `${base}#guides` }] : []),
+    ...((await getCases({ center: center.slug })).length > 0 ? [{ label: L.navCases, href: `${base}#cases` }] : []),
+    { label: L.navLawyers, href: `${base}#lawyers` },
+    ...(hasBlog ? [{ label: L.navBlog, href: `${base}#blog` }] : []),
+    ...((await getColumns({ center: center.slug })).length > 0 ? [{ label: L.navColumn, href: `${base}#column` }] : []),
+    { label: L.faq, href: `${base}#faq` },
   ]
 
   return (
     <>
-      <CenterHeader name={center.name} tone={center.tone} nav={nav} homeHref={base} />
-      <FloatingCTA consultHref="#consult" />
+      <CenterHeader name={center.name} tone={center.tone} nav={nav} homeHref={base} lang={center.lang} alternates={center.alternates} />
+      <FloatingCTA consultHref="#consult" lang={center.lang} />
       <BackToTop />
-      <main id="top">
+      <main id="top" lang={L.htmlLang}>
         {children}
       </main>
       {/* 광고 규정상 법인명·광고책임변호사는 표시. 센터 인상을 해치지 않도록 하단에 작게 */}
@@ -52,19 +55,19 @@ export default async function CenterLayout({
         <div className="max-w-7xl mx-auto flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div className="space-y-0.5">
             <p>
-              {siteConfig.name} · 전화 {siteConfig.phone} · 사업자등록번호 {siteConfig.businessRegistration} · 광고책임변호사{" "}
+              {foreign ? `${siteConfig.nameEn} (${siteConfig.name})` : siteConfig.name} · {L.callN(siteConfig.phone)} · {L.bizNo} {siteConfig.businessRegistration} · {L.adLawyer}{" "}
               {siteConfig.advertisingAttorney}
             </p>
             {openOffices.map((o) => (
               <p key={o.name}>
-                {o.name} {officeAddress(o)}
+                {officeName(o.name, center.lang)} {officeAddr(o, center.lang)}
               </p>
             ))}
           </div>
           <p className="flex gap-4">
-            <a href="/privacy" className="hover:underline">개인정보처리방침</a>
-            <a href="/disclaimer" className="hover:underline">면책공고</a>
-            <a href="/" className="hover:underline">법인 홈페이지</a>
+            <a href="/privacy" className="hover:underline">{L.privacy}</a>
+            <a href="/disclaimer" className="hover:underline">{L.disclaimer}</a>
+            <a href={foreign ? `/${center.lang}` : "/"} className="hover:underline">{L.firmHome}</a>
           </p>
         </div>
       </footer>

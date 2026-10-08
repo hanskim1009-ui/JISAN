@@ -11,6 +11,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const url = (path: string) => `${siteConfig.siteUrl}${path}`
   return [
     { url: url("/"), changeFrequency: "weekly", priority: 1 },
+    { url: url("/en"), changeFrequency: "monthly", priority: 0.8 },
+    { url: url("/zh"), changeFrequency: "monthly", priority: 0.8 },
     ...centers.map((c) => ({ url: url(`/${c.slug}`), changeFrequency: "weekly" as const, priority: 0.9 })),
     ...allCenterPages.flatMap((c) => [
       ...c.areaPages.map((a) => ({ url: url(`/${c.slug}/${a.slug}`), changeFrequency: "monthly" as const, priority: 0.8 })),

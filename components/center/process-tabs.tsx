@@ -3,9 +3,10 @@
 import { useState } from "react"
 import { Plus } from "lucide-react"
 import type { Process } from "@/lib/center-pages"
+import { centerText, type Lang } from "@/lib/center-i18n"
 
 /** 진행 절차: 절차가 여러 개면 위에서 골라 보고, 단계마다 기간·놓치기 쉬운 점을 함께 보여 줌 */
-export function ProcessTabs({ processes, accent }: { processes: Process[]; accent: string }) {
+export function ProcessTabs({ processes, accent, lang }: { processes: Process[]; accent: string; lang?: Lang }) {
   const [i, setI] = useState(0)
   // 모바일: 단계 제목만 보이고 눌러서 설명을 펼침 (첫 단계는 펼친 채로)
   const [open, setOpen] = useState<Set<number>>(new Set([0]))
@@ -20,7 +21,7 @@ export function ProcessTabs({ processes, accent }: { processes: Process[]; accen
   return (
     <div>
       {processes.length > 1 && (
-        <div role="tablist" aria-label="절차 고르기" className="no-scrollbar -mx-6 flex gap-2 overflow-x-auto px-6 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
+        <div role="tablist" aria-label={centerText(lang).pickProcess} className="no-scrollbar -mx-6 flex gap-2 overflow-x-auto px-6 md:mx-0 md:flex-wrap md:overflow-visible md:px-0">
           {processes.map((x, k) => (
             <button
               key={x.title}

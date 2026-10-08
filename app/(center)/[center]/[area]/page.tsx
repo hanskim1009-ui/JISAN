@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { getCenter } from "@/lib/centers"
+import { centerBase, getCenter } from "@/lib/centers"
+import { centerText } from "@/lib/center-i18n"
 import { allCenterPages, getAreaPage, getCenterPages } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
 import { AreaArticle, RelatedAreas, SideNav, SubHero } from "@/components/center/sub-page"
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const center = getCenter(cs)
   const page = getAreaPage(cs, area)
   if (!center || !page) return {}
-  const url = `/${cs}/${area}`
+  const url = `${center ? centerBase(center) : `/${cs}`}/${area}`
   return {
     title: { absolute: page.seo.title },
     description: page.seo.description,
@@ -44,6 +45,8 @@ export default async function AreaPage({ params }: Props) {
   const pages = getCenterPages(cs)
   const page = getAreaPage(cs, area)
   if (!center || !pages || !page) notFound()
+  const L = centerText(center.lang)
+  const base = centerBase(center)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -51,8 +54,8 @@ export default async function AreaPage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: center.name, item: `${siteConfig.siteUrl}/${cs}` },
-          { "@type": "ListItem", position: 2, name: page.title, item: `${siteConfig.siteUrl}/${cs}/${area}` },
+          { "@type": "ListItem", position: 1, name: center.name, item: `${siteConfig.siteUrl}${base}` },
+          { "@type": "ListItem", position: 2, name: page.title, item: `${siteConfig.siteUrl}${base}/${area}` },
         ],
       },
       ...(page.faqs && page.faqs.length > 0
@@ -71,8 +74,8 @@ export default async function AreaPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SubHero
         center={center}
-        crumbs={[{ label: center.name, href: `/${cs}` }, { label: "업무분야", href: `/${cs}#areas` }, { label: page.areaName }]}
-        kicker={`${center.name} 업무분야`}
+        crumbs={[{ label: center.name, href: base }, { label: L.navAreas, href: `${base}#areas` }, { label: page.areaName }]}
+        kicker={L.areaKicker(center.name)}
         title={page.title}
         lead={page.lead}
       />
@@ -83,7 +86,7 @@ export default async function AreaPage({ params }: Props) {
         </div>
       </div>
       <RelatedAreas center={center} pages={pages} current={page.slug} />
-      <ConsultBand center={center} title={`${page.areaName} 사건, 먼저 상의해 보세요.`} source={`${center.name} · ${page.areaName}`} />
+      <ConsultBand center={center} title={L.areaBand(page.areaName)} source={`${center.name} · ${page.areaName}`} />
     </>
   )
 }

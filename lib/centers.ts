@@ -30,6 +30,12 @@ export type CenterProcess = { title: string; steps: { title: string; desc: strin
 
 export type Center = {
   slug: string
+  /** 센터 화면 언어 (없으면 한국어). 영어·중국어 센터는 basePath 주소로 보입니다 */
+  lang?: Lang
+  /** 주소 (없으면 /slug). 예: 영어 외국인센터 "/en/foreigner" (next.config 의 rewrites 로 연결) */
+  basePath?: string
+  /** 같은 센터의 다른 언어판 주소 (언어 전환 버튼) */
+  alternates?: Partial<Record<Lang, string>>
   name: string
   /** 메인 사이트 카드에 쓰는 한 줄 설명 */
   summary: string
@@ -57,6 +63,7 @@ export type Center = {
   blog?: { id: string; title: string }
 }
 
+import type { Lang } from "@/lib/center-i18n"
 import { crime } from "@/lib/center-data/crime"
 import { sexCrime } from "@/lib/center-data/sex-crime"
 import { drug } from "@/lib/center-data/drug"
@@ -70,8 +77,20 @@ import { inheritance } from "@/lib/center-data/inheritance"
 import { medical } from "@/lib/center-data/medical"
 import { construction } from "@/lib/center-data/construction"
 
+/** 메인 사이트에 보이는 (한국어) 센터 */
 export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence]
 
+/** 외국어판 센터: 메인 사이트 목록에는 없고, 주소(basePath)와 언어 전환으로만 들어옵니다 */
+export const foreignCenters: Center[] = []
+
+/** 페이지를 만드는 모든 센터 */
+export const allCenters: Center[] = [...centers, ...foreignCenters]
+
 export function getCenter(slug: string) {
-  return centers.find((c) => c.slug === slug)
+  return allCenters.find((c) => c.slug === slug)
+}
+
+/** 센터 주소 앞부분: /crime, /en/foreigner */
+export function centerBase(c: Pick<Center, "slug" | "basePath">) {
+  return c.basePath ?? `/${c.slug}`
 }

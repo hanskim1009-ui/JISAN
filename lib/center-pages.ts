@@ -4,6 +4,7 @@
  * 법률 내용은 게시 전 담당 변호사 검토가 필요합니다(review 항목은 화면에 나오지 않음).
  */
 import crime from "@/content/center-pages/crime.json"
+import { centerBase, getCenter } from "@/lib/centers"
 import sexCrime from "@/content/center-pages/sex-crime.json"
 import drug from "@/content/center-pages/drug.json"
 import divorce from "@/content/center-pages/divorce.json"
@@ -75,6 +76,12 @@ export type CenterPages = {
 
 const all = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence] as unknown as CenterPages[]
 
+/** 센터 주소 앞부분 (외국어판은 /en/foreigner 처럼) */
+const pathOf = (slug: string) => {
+  const c = getCenter(slug)
+  return c ? centerBase(c) : `/${slug}`
+}
+
 export function getCenterPages(center: string): CenterPages | undefined {
   return all.find((c) => c.slug === center)
 }
@@ -90,13 +97,13 @@ export function getGuide(center: string, guide: string) {
 /** 센터 첫 화면 상황 버튼 → 그 상황을 설명하는 안내 글 */
 export function stageGuideHref(center: string, label: string) {
   const g = getCenterPages(center)?.guides.find((x) => x.stage === label)
-  return g ? `/${center}/guide/${g.slug}` : undefined
+  return g ? `${pathOf(center)}/guide/${g.slug}` : undefined
 }
 
 /** 센터 메인의 업무분야 카드 → 상세 페이지 주소 */
 export function areaHref(center: string, areaName: string) {
   const a = getCenterPages(center)?.areaPages.find((p) => p.areaName === areaName)
-  return a ? `/${center}/${a.slug}` : undefined
+  return a ? `${pathOf(center)}/${a.slug}` : undefined
 }
 
 export const allCenterPages = all
@@ -125,7 +132,7 @@ export function areaCards(
       name: a.areaName,
       law: base?.law ?? a.cardLaw,
       desc: base?.desc ?? a.summary ?? a.lead,
-      href: `/${center}/${a.slug}`,
+      href: `${pathOf(center)}/${a.slug}`,
       group: a.group ?? DEFAULT_AREA_GROUP,
     })
     seen.add(a.areaName)
@@ -136,7 +143,7 @@ export function areaCards(
   for (const other of pages?.includeCenters ?? []) {
     const name = centerName(other)
     for (const a of getCenterPages(other)?.areaPages ?? []) {
-      cards.push({ name: a.areaName, law: a.cardLaw, desc: a.summary ?? a.lead, href: `/${other}/${a.slug}`, group: name ?? other })
+      cards.push({ name: a.areaName, law: a.cardLaw, desc: a.summary ?? a.lead, href: `${pathOf(other)}/${a.slug}`, group: name ?? other })
     }
   }
   return cards
@@ -146,12 +153,12 @@ export function areaCards(
 export function guideCards(center: string, centerName: (slug: string) => string | undefined, withIncluded = true): GuideCard[] {
   const pages = getCenterPages(center)
   const own = (pages?.guides ?? []).map((g) => ({
-    slug: g.slug, title: g.title, lead: g.lead, href: `/${center}/guide/${g.slug}`, group: g.group ?? DEFAULT_GUIDE_GROUP, stage: g.stage,
+    slug: g.slug, title: g.title, lead: g.lead, href: `${pathOf(center)}/guide/${g.slug}`, group: g.group ?? DEFAULT_GUIDE_GROUP, stage: g.stage,
   }))
   if (!withIncluded) return own
   const inc = (pages?.includeCenters ?? []).flatMap((other) =>
     (getCenterPages(other)?.guides ?? []).map((g) => ({
-      slug: `${other}-${g.slug}`, title: g.title, lead: g.lead, href: `/${other}/guide/${g.slug}`, group: centerName(other) ?? other,
+      slug: `${other}-${g.slug}`, title: g.title, lead: g.lead, href: `${pathOf(other)}/guide/${g.slug}`, group: centerName(other) ?? other,
     })),
   )
   return [...own, ...inc]

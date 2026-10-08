@@ -4,9 +4,16 @@ import { useState, useEffect } from "react"
 import { Phone, MessageCircle } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 
+const TEXT = {
+  ko: { call: "전화", kakao: "카카오톡", consult: "상담 신청", callAria: "전화 상담", kakaoAria: "카카오톡 상담" },
+  en: { call: "Call", kakao: "KakaoTalk", consult: "Contact us", callAria: "Call us", kakaoAria: "KakaoTalk" },
+  zh: { call: "电话", kakao: "KakaoTalk", consult: "申请咨询", callAria: "电话咨询", kakaoAria: "KakaoTalk 咨询" },
+}
+
 /** 모바일 하단 바(전화·카카오톡·상담 신청) + PC 우측 하단 버튼 */
-export function FloatingCTA({ consultHref = "/#contact" }: { consultHref?: string }) {
+export function FloatingCTA({ consultHref = "/#contact", lang = "ko" }: { consultHref?: string; lang?: "ko" | "en" | "zh" }) {
   const [visible, setVisible] = useState(false)
+  const T = TEXT[lang]
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 400)
@@ -27,7 +34,7 @@ export function FloatingCTA({ consultHref = "/#contact" }: { consultHref?: strin
             className="flex items-center justify-center gap-1.5 rounded-lg border border-border py-3 text-sm font-semibold text-jisan-ink"
           >
             <Phone className="h-4 w-4 shrink-0" />
-            전화
+            {T.call}
           </a>
           <a
             href={siteConfig.kakaoTalkUrl}
@@ -36,13 +43,13 @@ export function FloatingCTA({ consultHref = "/#contact" }: { consultHref?: strin
             className="flex items-center justify-center gap-1.5 rounded-lg bg-[#FEE500] py-3 text-sm font-semibold text-[#191919]"
           >
             <MessageCircle className="h-4 w-4 shrink-0" />
-            카카오톡
+            {T.kakao}
           </a>
           <a
             href={consultHref}
             className="flex items-center justify-center rounded-lg bg-jisan-blue py-3 text-sm font-semibold text-white"
           >
-            상담 신청
+            {T.consult}
           </a>
         </div>
       </div>
@@ -52,8 +59,8 @@ export function FloatingCTA({ consultHref = "/#contact" }: { consultHref?: strin
         <a
           href={siteConfig.phoneHref}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-jisan-blue text-white shadow-lg hover:bg-jisan-blue/90 transition-colors"
-          title="전화 상담"
-          aria-label="전화 상담"
+          title={T.callAria}
+          aria-label={T.callAria}
         >
           <Phone className="h-6 w-6" />
         </a>
@@ -62,8 +69,8 @@ export function FloatingCTA({ consultHref = "/#contact" }: { consultHref?: strin
           target="_blank"
           rel="noopener noreferrer"
           className="flex h-14 w-14 items-center justify-center rounded-full bg-[#FEE500] text-[#191919] shadow-lg hover:bg-[#FEE500]/90 transition-colors"
-          title="카카오톡 상담"
-          aria-label="카카오톡 상담"
+          title={T.kakaoAria}
+          aria-label={T.kakaoAria}
         >
           <MessageCircle className="h-6 w-6" />
         </a>

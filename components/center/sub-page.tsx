@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Check, ChevronRight, Phone } from "lucide-react"
-import type { Center } from "@/lib/centers"
+import { centerBase, type Center } from "@/lib/centers"
+import { centerText } from "@/lib/center-i18n"
 import type { AreaPage, CenterPages, Section } from "@/lib/center-pages"
 import { getLawyer } from "@/lib/lawyers"
 import { siteConfig } from "@/lib/site-config"
@@ -29,12 +30,13 @@ export function SubHero({
   lead: string
 }) {
   const t = centerTones[center.tone]
+  const L = centerText(center.lang)
   const dark = center.tone === "dark"
   return (
     <section className={`relative overflow-hidden ${t.hero}`}>
       <RidgeCanvas palette={dark ? "navy" : "warm"} className="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] max-h-[13.75rem] w-full opacity-80" />
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-10 pb-24 md:pt-14 md:pb-32">
-        <nav aria-label="현재 위치" className={`flex flex-wrap items-center gap-1 text-[0.8125rem] ${dark ? "text-white/60" : "text-[#5A554C]"}`}>
+        <nav aria-label={L.breadcrumb} className={`flex flex-wrap items-center gap-1 text-[0.8125rem] ${dark ? "text-white/60" : "text-[#5A554C]"}`}>
           {crumbs.map((c, i) => (
             <span key={c.label} className="inline-flex items-center gap-1">
               {i > 0 && <ChevronRight className="h-3.5 w-3.5 opacity-60" aria-hidden />}
@@ -59,7 +61,7 @@ export function SubHero({
         </p>
         <div style={{ animationDelay: "0.4s" }} className="anim-rise mt-8 flex flex-wrap gap-2.5">
           <a href="#consult" className={`rounded-full px-6 py-3 text-[0.9375rem] font-semibold ${t.primaryBtn}`}>
-            상담 신청
+            {L.consult}
           </a>
           <a href={siteConfig.phoneHref} className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold tabular-nums ${t.ghostBtn}`}>
             <Phone className="h-4 w-4" /> {siteConfig.phone}
@@ -73,6 +75,8 @@ export function SubHero({
 /** 넓은 화면 왼쪽: 센터 안의 다른 상세 페이지로 이동 */
 export function SideNav({ center, pages, current }: { center: Center; pages: CenterPages; current: string }) {
   const t = centerTones[center.tone]
+  const L = centerText(center.lang)
+  const base = centerBase(center)
   const link = (href: string, label: string, active: boolean) => (
     <li key={href}>
       <Link
@@ -90,21 +94,21 @@ export function SideNav({ center, pages, current }: { center: Center; pages: Cen
     <aside className="hidden lg:block">
       <div className="sticky top-24 space-y-8">
         <div>
-          <p className="mb-2 px-3 text-xs font-bold text-jisan-ink/50">{center.name} 업무분야</p>
-          <ul className="space-y-0.5">{pages.areaPages.map((a) => link(`/${center.slug}/${a.slug}`, a.areaName, current === a.slug))}</ul>
+          <p className="mb-2 px-3 text-xs font-bold text-jisan-ink/50">{L.areasOf(center.name)}</p>
+          <ul className="space-y-0.5">{pages.areaPages.map((a) => link(`${base}/${a.slug}`, a.areaName, current === a.slug))}</ul>
         </div>
         {pages.guides.length > 0 && (
           <div>
-            <p className="mb-2 px-3 text-xs font-bold text-jisan-ink/50">상황별 안내</p>
-            <ul className="space-y-0.5">{pages.guides.map((g) => link(`/${center.slug}/guide/${g.slug}`, g.title, current === `guide/${g.slug}`))}</ul>
+            <p className="mb-2 px-3 text-xs font-bold text-jisan-ink/50">{L.guides}</p>
+            <ul className="space-y-0.5">{pages.guides.map((g) => link(`${base}/guide/${g.slug}`, g.title, current === `guide/${g.slug}`))}</ul>
           </div>
         )}
         <div className="rounded-2xl border border-[#E2E6ED] p-4">
-          <p className="text-sm font-bold text-jisan-ink">24시간 상담 전화</p>
+          <p className="text-sm font-bold text-jisan-ink">{L.phone24}</p>
           <a href={siteConfig.phoneHref} className={`mt-1 block text-lg font-bold tabular-nums ${t.accent}`}>
             {siteConfig.phone}
           </a>
-          <p className="mt-1 text-xs leading-relaxed text-jisan-ink/60">주말·공휴일에도 받습니다.</p>
+          <p className="mt-1 text-xs leading-relaxed text-jisan-ink/60">{L.weekendsToo}</p>
         </div>
       </div>
     </aside>
@@ -144,6 +148,7 @@ export function Sections({ sections }: { sections: Section[] }) {
 /** 업무분야 상세 페이지 본문 전체 */
 export function AreaArticle({ center, page }: { center: Center; page: AreaPage }) {
   const t = centerTones[center.tone]
+  const L = centerText(center.lang)
   const leads = center.lawyers.flatMap((cl) => {
     const l = getLawyer(cl.slug)
     return l ? [{ ...l, note: cl.note }] : []
@@ -171,18 +176,18 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
             {page.law.items.map((l) => (
               <div key={l.name} className="rounded-xl border-l-4 border-jisan-ink/70 bg-white px-5 py-4 shadow-[0_1px_0_#E2E6ED,0_0_0_1px_#E2E6ED]">
                 <p className="text-sm font-bold text-jisan-ink">{l.name}</p>
-                <ClampText text={l.text} className="mt-1.5 text-[0.9375rem] leading-relaxed text-jisan-ink/75" />
+                <ClampText text={l.text} moreLabel={L.showAll} className="mt-1.5 text-[0.9375rem] leading-relaxed text-jisan-ink/75" />
               </div>
             ))}
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">조문은 요지만 옮겼습니다. 정확한 문언은 국가법령정보센터에서 확인하실 수 있습니다.</p>
+          <p className="mt-3 text-xs text-muted-foreground">{L.lawNote}</p>
         </section>
       )}
 
       {page.table && (
         <section>
           <h2 className={h2}>{page.table.title}</h2>
-          <DataTable table={page.table} className="mt-5" />
+          <DataTable table={page.table} className="mt-5" lang={center.lang} />
         </section>
       )}
 
@@ -194,7 +199,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
           <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
             {page.factors.plus && page.factors.plus.length > 0 && (
               <div className="rounded-2xl border border-[#E2E6ED] p-5">
-                <p className="text-sm font-bold text-[#B4490A]">불리하게 작용하는 사정</p>
+                <p className="text-sm font-bold text-[#B4490A]">{L.against}</p>
                 <ul className="mt-3 space-y-2">
                   {page.factors.plus.map((x) => (
                     <li key={x} className="text-[0.9375rem] leading-relaxed text-jisan-ink/80">
@@ -206,7 +211,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
             )}
             {page.factors.minus && page.factors.minus.length > 0 && (
               <div className="rounded-2xl border border-[#E2E6ED] p-5">
-                <p className={`text-sm font-bold ${t.accent}`}>유리하게 작용하는 사정</p>
+                <p className={`text-sm font-bold ${t.accent}`}>{L.inFavor}</p>
                 <ul className="mt-3 space-y-2">
                   {page.factors.minus.map((x) => (
                     <li key={x} className="text-[0.9375rem] leading-relaxed text-jisan-ink/80">
@@ -242,7 +247,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
 
       {leads.length > 0 && (
         <section>
-          <h2 className={h2}>이 사건을 맡는 변호사</h2>
+          <h2 className={h2}>{L.leadLawyers}</h2>
           <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {leads.map((l) => (
               <li key={l.slug} className="flex items-center gap-4 rounded-2xl border border-[#E2E6ED] p-3">
@@ -263,7 +268,7 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
 
       {page.faqs && page.faqs.length > 0 && (
         <section>
-          <h2 className={h2}>자주 묻는 질문</h2>
+          <h2 className={h2}>{L.faq}</h2>
           <div className="mt-4">
             <FaqList items={page.faqs} />
           </div>
@@ -275,6 +280,8 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
 
 /** 같은 센터의 다른 업무분야 (모든 화면 너비에서 보이는 하단 이동) */
 export function RelatedAreas({ center, pages, current }: { center: Center; pages: CenterPages; current: string }) {
+  const L = centerText(center.lang)
+  const base = centerBase(center)
   const group = pages.areaPages.find((a) => a.slug === current)?.group
   // 같은 묶음을 앞에. 모바일에서는 앞의 4개만 보이고 전체 목록 링크를 둡니다
   const others = pages.areaPages
@@ -284,24 +291,24 @@ export function RelatedAreas({ center, pages, current }: { center: Center; pages
   return (
     <section className="bg-jisan-mist/50 px-6 md:px-12 lg:px-20 py-14 md:py-16">
       <div data-reveal className="max-w-7xl mx-auto">
-        <h2 className="text-xl font-bold text-jisan-ink">{center.name}의 다른 업무분야</h2>
+        <h2 className="text-xl font-bold text-jisan-ink">{L.otherAreas(center.name)}</h2>
         <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {others.map((a, i) => (
             <li key={a.slug} className={i >= 4 ? "hidden md:block" : undefined}>
-              <Link href={`/${center.slug}/${a.slug}`} className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-5">
+              <Link href={`${base}/${a.slug}`} className="card-lift group flex h-full flex-col rounded-2xl border border-[#E2E6ED] bg-white p-5">
                 <span className="font-bold text-jisan-ink">{a.areaName}</span>
                 <span className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-jisan-ink/65">{a.lead}</span>
-                <span className="mt-auto pt-3 text-sm font-semibold text-jisan-ink/70 group-hover:text-jisan-ink">자세히 보기&nbsp;→</span>
+                <span className="mt-auto pt-3 text-sm font-semibold text-jisan-ink/70 group-hover:text-jisan-ink">{L.more}&nbsp;→</span>
               </Link>
             </li>
           ))}
         </ul>
         {others.length > 4 && (
           <Link
-            href={`/${center.slug}#areas`}
+            href={`${base}#areas`}
             className="mt-3 block rounded-xl border border-[#D5DAE1] bg-white py-3 text-center text-sm font-semibold text-jisan-ink md:hidden"
           >
-            업무분야 {others.length + 1}개 전체 보기&nbsp;→
+            {L.allAreasN(others.length + 1)}&nbsp;→
           </Link>
         )}
       </div>

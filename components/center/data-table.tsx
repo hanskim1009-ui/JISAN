@@ -2,11 +2,12 @@
 
 import { useState } from "react"
 import type { Table } from "@/lib/center-pages"
+import { centerText, type Lang } from "@/lib/center-i18n"
 
 const PREVIEW = 4
 
 /** 기준표 (처벌 기준, 절차 비교 등). 모바일에서는 줄마다 카드로 풀어 앞의 4개만, 나머지는 '더 보기' */
-export function DataTable({ table, className = "" }: { table: Table; className?: string }) {
+export function DataTable({ table, className = "", lang }: { table: Table; className?: string; lang?: Lang }) {
   const [all, setAll] = useState(false)
   const rest = table.rows.length - PREVIEW
   return (
@@ -32,7 +33,7 @@ export function DataTable({ table, className = "" }: { table: Table; className?:
           onClick={() => setAll(true)}
           className="mt-2.5 w-full rounded-xl border border-[#D5DAE1] bg-white py-3 text-sm font-semibold text-jisan-ink md:hidden"
         >
-          {rest}개 더 보기
+          {centerText(lang).nMore(rest)}
         </button>
       )}
       <div className="hidden overflow-x-auto rounded-xl border border-[#E2E6ED] bg-white md:block">

@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Phone } from "lucide-react"
 import { notFound } from "next/navigation"
-import { getCenter } from "@/lib/centers"
+import { centerBase, getCenter } from "@/lib/centers"
+import { centerText } from "@/lib/center-i18n"
 import { allCenterPages, getCenterPages, getGuide } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
 import { RelatedAreas, Sections, SideNav, SubHero } from "@/components/center/sub-page"
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const center = getCenter(cs)
   const g = getGuide(cs, guide)
   if (!center || !g) return {}
-  const url = `/${cs}/guide/${guide}`
+  const url = `${center ? centerBase(center) : `/${cs}`}/guide/${guide}`
   return {
     title: { absolute: g.seo.title },
     description: g.seo.description,
@@ -47,6 +48,8 @@ export default async function GuidePage({ params }: Props) {
   const pages = getCenterPages(cs)
   const g = getGuide(cs, guide)
   if (!center || !pages || !g) notFound()
+  const L = centerText(center.lang)
+  const base = centerBase(center)
   // 같은 묶음 글을 앞에. 모바일에서는 앞의 6편만 보이고 전체 목록 링크를 둡니다
   const others = pages.guides
     .filter((x) => x.slug !== g.slug)
@@ -58,8 +61,8 @@ export default async function GuidePage({ params }: Props) {
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: center.name, item: `${siteConfig.siteUrl}/${cs}` },
-          { "@type": "ListItem", position: 2, name: g.title, item: `${siteConfig.siteUrl}/${cs}/guide/${guide}` },
+          { "@type": "ListItem", position: 1, name: center.name, item: `${siteConfig.siteUrl}${base}` },
+          { "@type": "ListItem", position: 2, name: g.title, item: `${siteConfig.siteUrl}${base}/guide/${guide}` },
         ],
       },
       ...(g.faqs && g.faqs.length > 0
@@ -78,8 +81,8 @@ export default async function GuidePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SubHero
         center={center}
-        crumbs={[{ label: center.name, href: `/${cs}` }, { label: "상황별 안내", href: `/${cs}#guides` }, { label: g.title }]}
-        kicker={`${center.name} 상황별 안내`}
+        crumbs={[{ label: center.name, href: base }, { label: L.guides, href: `${base}#guides` }, { label: g.title }]}
+        kicker={`${center.name} · ${L.guides}`}
         title={g.title}
         lead={g.lead}
       />
@@ -89,22 +92,22 @@ export default async function GuidePage({ params }: Props) {
           <article className="min-w-0 max-w-3xl space-y-16">
             <Sections sections={g.sections} />
             <section className="rounded-2xl bg-jisan-ink p-6 text-white md:p-7">
-              <p className="text-lg font-bold">이 상황, 혼자 판단하기 어려우시면</p>
+              <p className="text-lg font-bold">{L.aloneTitle}</p>
               <p className="mt-2 text-[0.9375rem] leading-relaxed text-white/75">
-                상담 전화는 24시간, 주말·공휴일에도 받습니다. 지금 겪고 계신 일을 말씀해 주시면 담당 변호사가 다음에 할 일을 알려드립니다.
+                {L.aloneLead}
               </p>
               <div className="mt-5 flex flex-wrap gap-2.5">
                 <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold tabular-nums text-jisan-ink">
                   <Phone className="h-4 w-4" /> {siteConfig.phone}
                 </a>
                 <a href="#consult" className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10">
-                  상담 신청 남기기
+                  {L.leaveRequest}
                 </a>
               </div>
             </section>
             {g.faqs && g.faqs.length > 0 && (
               <section>
-                <h2 className="text-[1.375rem] md:text-[1.625rem] font-bold tracking-tight text-jisan-ink">자주 묻는 질문</h2>
+                <h2 className="text-[1.375rem] md:text-[1.625rem] font-bold tracking-tight text-jisan-ink">{L.faq}</h2>
                 <div className="mt-4">
                   <FaqList items={g.faqs} />
                 </div>
@@ -112,19 +115,19 @@ export default async function GuidePage({ params }: Props) {
             )}
             {others.length > 0 && (
               <section className="rounded-2xl bg-jisan-mist/60 p-6">
-                <p className="text-sm font-bold text-jisan-ink/60">이어서 읽어 보세요</p>
+                <p className="text-sm font-bold text-jisan-ink/60">{L.readNext}</p>
                 <ul className="mt-2 space-y-1">
                   {others.map((o, i) => (
                     <li key={o.slug} className={i >= 6 ? "hidden md:list-item" : undefined}>
-                      <Link href={`/${cs}/guide/${o.slug}`} className="text-[1rem] font-semibold text-jisan-ink underline-offset-4 hover:underline">
+                      <Link href={`${base}/guide/${o.slug}`} className="text-[1rem] font-semibold text-jisan-ink underline-offset-4 hover:underline">
                         {o.title}&nbsp;→
                       </Link>
                     </li>
                   ))}
                 </ul>
                 {others.length > 6 && (
-                  <Link href={`/${cs}/guide`} className="mt-4 inline-block text-sm font-semibold text-jisan-ink/70 underline underline-offset-4 md:hidden">
-                    상황별 안내 {others.length + 1}편 전체 보기
+                  <Link href={`${base}/guide`} className="mt-4 inline-block text-sm font-semibold text-jisan-ink/70 underline underline-offset-4 md:hidden">
+                    {L.allGuidesN2(others.length + 1)}
                   </Link>
                 )}
               </section>
