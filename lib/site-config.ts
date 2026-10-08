@@ -41,7 +41,7 @@ export const siteConfig = {
    */
   offices: [
     { name: "서울 주사무소", address: "서울시 서초구 서초대로46길 109, 6층(지산빌딩)", phone: "02-6951-4097", mapUrl: "https://naver.me/FYrhnFqC", open: true },
-    { name: "인천 분사무소", address: "", phone: "", mapUrl: "", open: true },
+    { name: "인천 분사무소", address: "인천광역시 검단구 이음4로 6, 606호(KR법조타워)", phone: "", mapUrl: "https://map.naver.com/p/search/%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C%20%EA%B2%80%EB%8B%A8%EA%B5%AC%20%EC%9D%B4%EC%9D%8C4%EB%A1%9C%206%20KR%EB%B2%95%EC%A1%B0%ED%83%80%EC%9B%8C", open: true },
     { name: "홍성 분사무소", address: "", phone: "", mapUrl: "", open: true },
     { name: "송파 분사무소", address: "", phone: "", mapUrl: "", open: true },
   ] as Office[],
