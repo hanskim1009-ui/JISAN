@@ -76,9 +76,10 @@ import { schoolViolence } from "@/lib/center-data/school-violence"
 import { inheritance } from "@/lib/center-data/inheritance"
 import { medical } from "@/lib/center-data/medical"
 import { construction } from "@/lib/center-data/construction"
+import { foreigner } from "@/lib/center-data/foreigner"
 
 /** 메인 사이트에 보이는 (한국어) 센터 */
-export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence]
+export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner]
 
 /** 외국어판 센터: 메인 사이트 목록에는 없고, 주소(basePath)와 언어 전환으로만 들어옵니다 */
 export const foreignCenters: Center[] = []

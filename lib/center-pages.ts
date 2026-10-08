@@ -16,6 +16,7 @@ import schoolViolence from "@/content/center-pages/school-violence.json"
 import inheritance from "@/content/center-pages/inheritance.json"
 import medical from "@/content/center-pages/medical.json"
 import construction from "@/content/center-pages/construction.json"
+import foreigner from "@/content/center-pages/foreigner.json"
 
 export type Seo = { title: string; description: string; keywords: string[] }
 export type Section = { title: string; body?: string[]; bullets?: string[] }
@@ -74,7 +75,7 @@ export type CenterPages = {
   sources?: string[]
 }
 
-const all = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence] as unknown as CenterPages[]
+const all = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner] as unknown as CenterPages[]
 
 /** 센터 주소 앞부분 (외국어판은 /en/foreigner 처럼) */
 const pathOf = (slug: string) => {

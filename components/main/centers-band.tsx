@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Building2, HandCoins, HardHat, HeartCrack, House, Pill, Scale, School, ScrollText, ShieldAlert, Sprout, Stethoscope, type LucideIcon } from "lucide-react"
+import { Building2, Globe2, HandCoins, HardHat, HeartCrack, House, Pill, Scale, School, ScrollText, ShieldAlert, Sprout, Stethoscope, type LucideIcon } from "lucide-react"
 import { centers } from "@/lib/centers"
 import { fields } from "@/lib/practice"
 import { ridgePath } from "@/lib/ridge"
@@ -19,6 +19,7 @@ const icons: Record<string, LucideIcon> = {
   civil: HandCoins,
   insolvency: Sprout,
   "school-violence": School,
+  foreigner: Globe2,
 }
 
 const fieldOf = (slug: string) => fields.find((f) => f.centers.includes(slug))?.name
@@ -54,7 +55,7 @@ export function CentersBand() {
               <Link
                 key={c.slug}
                 href={`/${c.slug}`}
-                className="card-lift group relative flex min-h-[17rem] w-[82%] shrink-0 snap-start flex-col sm:w-auto overflow-hidden rounded-2xl border border-brand/10 bg-white p-6 text-brand transition-colors duration-300 hover:border-brand hover:bg-brand hover:text-white md:p-7"
+                className={`${c.slug === "foreigner" ? "sm:col-span-2 lg:col-span-3 " : ""}card-lift group relative flex min-h-[17rem] w-[82%] shrink-0 snap-start flex-col sm:w-auto overflow-hidden rounded-2xl border border-brand/10 bg-white p-6 text-brand transition-colors duration-300 hover:border-brand hover:bg-brand hover:text-white md:p-7`}
               >
                 <svg
                   viewBox={`0 0 ${W} ${H}`}
@@ -77,8 +78,8 @@ export function CentersBand() {
                 </svg>
                 <div className="relative flex items-start justify-between gap-3">
                   <Icon className="h-9 w-9" strokeWidth={1.4} aria-hidden />
-                  {field && (
-                    <span className="rounded-full border border-brand/25 group-hover:border-white/40 px-2.5 py-0.5 text-xs font-semibold opacity-60">{field}</span>
+                  {(field || c.slug === "foreigner") && (
+                    <span className="rounded-full border border-brand/25 group-hover:border-white/40 px-2.5 py-0.5 text-xs font-semibold opacity-60">{field ?? "English · 中文"}</span>
                   )}
                 </div>
                 <span className="relative mt-6 text-sm font-bold opacity-60">{c.name}</span>
