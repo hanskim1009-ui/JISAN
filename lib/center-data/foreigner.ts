@@ -7,6 +7,7 @@ import type { Center } from "@/lib/centers"
 export const foreigner: Center = {
   "slug": "foreigner",
   "name": "외국인센터",
+  "alternates": { "ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner" },
   "summary": "체류기간 연장·자격변경 불허, 출국명령·강제퇴거명령·보호명령, 출입국사범 심사, 외국인 형사사건, 임금체불·사업장 변경, 국제이혼, 보증금·사기 피해",
   "tone": "warm",
   "seo": {

@@ -5,6 +5,7 @@ import { getCases, getColumns } from "@/lib/content"
 import { getNaverBlogPosts } from "@/lib/feeds"
 import { getCenterPages } from "@/lib/center-pages"
 import { openOffices, siteConfig } from "@/lib/site-config"
+import { lawyerI18n } from "@/lib/lawyers-i18n"
 import { CenterHeader, type CenterNavItem } from "@/components/center/center-header"
 import { centerTones } from "@/components/center/tone"
 import { FloatingCTA } from "@/components/floating-cta"
@@ -56,7 +57,7 @@ export default async function CenterLayout({
           <div className="space-y-0.5">
             <p>
               {foreign ? `${siteConfig.nameEn} (${siteConfig.name})` : siteConfig.name} · {L.callN(siteConfig.phone)} · {L.bizNo} {siteConfig.businessRegistration} · {L.adLawyer}{" "}
-              {siteConfig.advertisingAttorney}
+              {lawyerI18n("kim-hansol", center.lang)?.name ?? siteConfig.advertisingAttorney}
             </p>
             {openOffices.map((o) => (
               <p key={o.name}>
