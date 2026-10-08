@@ -138,7 +138,12 @@ function MobileFold({ children }: { children: ReactNode }) {
       {folded && (
         <button
           type="button"
-          onClick={() => setOpen(true)}
+          onClick={() => {
+            // 펼친 뒤에도 화면 위치를 그대로 두어, 새로 보이는 이력이 바로 이어서 보이게
+            const y = window.scrollY
+            setOpen(true)
+            requestAnimationFrame(() => window.scrollTo({ top: y }))
+          }}
           className="mt-3 w-full rounded-xl border border-border py-2.5 text-sm font-semibold text-foreground md:hidden"
         >
           이력 전체 보기
