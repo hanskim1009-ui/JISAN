@@ -5,6 +5,7 @@ import { Check, MessageCircle, Phone, Plus } from "lucide-react"
 import { allCenters, centerBase, getCenter } from "@/lib/centers"
 import { getLawyer, lawyers as allLawyers } from "@/lib/lawyers"
 import { lawyerI18n } from "@/lib/lawyers-i18n"
+import { IntroParas } from "@/components/center/intro-paras"
 import { centerText, officeAddr, officeName } from "@/lib/center-i18n"
 import { openOffices, siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
@@ -139,11 +140,7 @@ export default async function CenterPage({ params }: Props) {
         <section id="intro" className={`${sectionPad} ${bg("intro")}`}>
           <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.6fr]">
             <h2 className={`${h2} whitespace-pre-line`}>{center.intro.title}</h2>
-            <div className="space-y-4 text-[1rem] leading-[1.85] text-jisan-ink/80">
-              {center.intro.body.map((p) => (
-                <p key={p}>{p}</p>
-              ))}
-            </div>
+            <IntroParas paras={center.intro.body} moreLabel={L.showAll} />
           </div>
         </section>
       )}
