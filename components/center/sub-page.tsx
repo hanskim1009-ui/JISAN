@@ -4,6 +4,7 @@ import { centerBase, type Center } from "@/lib/centers"
 import { centerText } from "@/lib/center-i18n"
 import type { AreaPage, CenterPages, Section } from "@/lib/center-pages"
 import { getLawyer } from "@/lib/lawyers"
+import { lawyerI18n } from "@/lib/lawyers-i18n"
 import { siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
@@ -151,7 +152,8 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
   const L = centerText(center.lang)
   const leads = center.lawyers.flatMap((cl) => {
     const l = getLawyer(cl.slug)
-    return l ? [{ ...l, note: cl.note }] : []
+    const i = lawyerI18n(cl.slug, center.lang)
+    return l ? [{ ...l, ...(i ? { name: i.name, title: i.title } : {}), note: cl.note }] : []
   })
   return (
     <article className="min-w-0 max-w-3xl space-y-16">
