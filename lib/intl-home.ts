@@ -40,7 +40,7 @@ const en: IntlHome = {
     "Jisan Law is a Korean law office handling criminal, family, corporate, medical, real estate and civil cases, with a Foreigner Center for visa, immigration and other issues. Consultations in English and Chinese, 24/7 including nights and weekends.",
   nav: { about: "About", lawyers: "Lawyers", practice: "Practice areas", foreigner: "Foreigner Center", offices: "Offices", contact: "Contact" },
   firm: "JISAN LAW",
-  kicker: "Korean lawyers for foreign residents · English · 中文",
+  kicker: "Korean lawyers for foreign residents",
   heroTitle: ["Legal trouble in Korea?", "Talk to us in English or Chinese"],
   heroSub:
     "Visa and immigration problems, police investigations, unpaid wages, divorce. Nothing needs to be decided yet. We first explain where you stand and what can be done, in English or Chinese, 24/7.",
@@ -59,7 +59,7 @@ const en: IntlHome = {
       { title: "Family", items: ["International divorce", "Custody and child support", "Inheritance of property in Korea"] },
     ],
     cta: "Visit the Foreigner Center",
-    lawyersNote: "Miso Kim (Partner, consults in English; studied English interpretation and translation) · Hansol Kim (Managing Partner, consults in Chinese; former prosecutor)",
+    lawyersNote: "Miso Kim (English) · Hansol Kim (Chinese)",
   },
   lawyers: {
     title: "Lawyers",
@@ -162,7 +162,7 @@ const zh: IntlHome = {
   seoDesc: "Jisan 法律事务所办理刑事、家事、企业、医疗、房地产、民事案件，并设有外国人中心，处理签证、出入境等在韩外国人的法律问题。可用中文、英文咨询，晚上和周末也可以，24小时接听。",
   nav: { about: "事务所介绍", lawyers: "律师", practice: "业务领域", foreigner: "外国人中心", offices: "办公室", contact: "联系我们" },
   firm: "JISAN LAW",
-  kicker: "为在韩外国人提供法律服务 · 中文 · English",
+  kicker: "为在韩外国人提供法律服务",
   heroTitle: ["在韩国遇到法律问题？", "可以用中文、英文咨询"],
   heroSub: "签证·出入境、警方调查、拖欠工资、离婚……现在还什么都没决定也没关系。我们会先说明您目前的处境和可以做的事。中文、英文咨询24小时都可以。",
   langNote: "中文咨询由 Hansol Kim 律师负责，英文咨询由 Miso Kim 律师负责。晚上和周末也可以。",
@@ -180,7 +180,7 @@ const zh: IntlHome = {
       { title: "家事", items: ["涉外离婚", "抚养权和抚养费", "继承在韩国的财产"] },
     ],
     cta: "进入外国人中心",
-    lawyersNote: "Hansol Kim（代表律师，中文咨询，前检察官）· Miso Kim（合伙人律师，英文咨询，英语口笔译专业）",
+    lawyersNote: "Miso Kim（英文）· Hansol Kim（中文）",
   },
   lawyers: { title: "律师介绍", desc: "不必担心谁来负责您的案件。接受您咨询的律师会一直陪您到最后。" },
   practice: {
