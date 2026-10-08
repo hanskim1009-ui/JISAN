@@ -333,11 +333,11 @@ export const foreignerEn: Center = {
   "lawyers": [
     {
       "slug": "kim-miso",
-      "note": "Consults in English · Graduate of the Graduate School of Interpretation and Translation (English Interpretation and Translation), Hankuk University of Foreign Studies · Former in-house counsel, Legal Team, Wemade Co., Ltd. · Daehwan Law Firm · Oracle Law Firm"
+      "note": "Consults in English · Studied English interpretation and translation (Hankuk University of Foreign Studies) · Former in-house counsel, Wemade"
     },
     {
       "slug": "kim-hansol",
-      "note": "Consults in Chinese · Former prosecutor at the Incheon District Prosecutors' Office, Ansan Branch of the Suwon District Prosecutors' Office and Hongseong Branch of the Daejeon District Prosecutors' Office · Graduate of the University of Toronto, Canada"
+      "note": "Consults in Chinese · Former prosecutor (Incheon, Ansan, Hongseong) · University of Toronto"
     }
   ],
   "faqs": [

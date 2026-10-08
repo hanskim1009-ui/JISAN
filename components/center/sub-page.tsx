@@ -308,7 +308,7 @@ export function RelatedAreas({ center, pages, current }: { center: Center; pages
             href={`${base}#areas`}
             className="mt-3 block rounded-xl border border-[#D5DAE1] bg-white py-3 text-center text-sm font-semibold text-jisan-ink md:hidden"
           >
-            {L.allAreasN(others.length + 1)}&nbsp;→
+            {L.allAreasN(pages.areaPages.length)}&nbsp;→
           </Link>
         )}
       </div>

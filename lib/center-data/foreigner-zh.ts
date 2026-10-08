@@ -326,11 +326,11 @@ export const foreignerZh: Center = {
   "lawyers": [
     {
       "slug": "kim-miso",
-      "note": "英语咨询 · 韩国外国语大学翻译学院（英语口笔译学系）毕业 · 前 Wemade 股份公司法务组企业内部律师 · 法务法人 Daehwan · 法务法人 Oracle"
+      "note": "英文咨询 · 韩国外国语大学英语口笔译专业 · 前 Wemade 公司内部律师"
     },
     {
       "slug": "kim-hansol",
-      "note": "中文咨询 · 前 仁川地方检察厅 · 水原地方检察厅安山支厅 · 大田地方检察厅洪城支厅检察官 · 加拿大多伦多大学毕业"
+      "note": "中文咨询 · 前检察官（仁川、安山、洪城）· 加拿大多伦多大学"
     }
   ],
   "faqs": [
