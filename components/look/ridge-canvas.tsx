@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { RIDGE_LAYERS as SHAPE, ridgeY } from "@/lib/ridge"
+import { SKY_EVENT, readSky, ridgeColors, snowLayers } from "@/lib/sky"
 
 /** 겹 능선 색 (뒤 → 앞) */
 export const ridgePalettes = {
@@ -13,7 +14,8 @@ export const ridgePalettes = {
  * 여러 겹의 산 능선을 캔버스에 그리고 천천히 흐르게 합니다 (B안 첫 화면).
  * 화면에 보일 때만 움직이고, '동작 줄이기' 설정이면 멈춘 그림으로 둡니다.
  */
-export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: keyof typeof ridgePalettes; className?: string }) {
+/** sky: 첫 화면처럼 시간대·계절에 따라 능선 색을 바꿀지 (lib/sky.ts) */
+export function RidgeCanvas({ palette = "navy", className = "", sky = false }: { palette?: keyof typeof ridgePalettes; className?: string; sky?: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -21,7 +23,15 @@ export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: ke
     if (!cv) return
     const ctx = cv.getContext("2d")
     if (!ctx) return
-    const colors = ridgePalettes[palette]
+    let colors: readonly string[] = ridgePalettes[palette]
+    let snow: number[] = []
+    const applySky = () => {
+      if (!sky) return
+      const { phase, season } = readSky()
+      colors = ridgeColors(phase, season)
+      snow = snowLayers(season)
+    }
+    applySky()
     let t = Math.random() * 40
     let last = 0
     let raf = 0
@@ -48,6 +58,26 @@ export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: ke
         ctx.closePath()
         ctx.fillStyle = colors[i]
         ctx.fill()
+        // 겨울: 봉우리 끝(그 겹에서 가장 높은 쪽)에만 가는 눈선
+        if (snow.includes(i)) {
+          const ys: number[] = []
+          for (let x = 0; x <= w; x += 4) ys.push(ridgeY(l, (x / dpr) / 1440, t) * h)
+          const top = Math.min(...ys)
+          const cut = top + (Math.max(...ys) - top) * 0.32
+          ctx.strokeStyle = i === 0 ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0.35)"
+          ctx.lineWidth = 2 * dpr
+          ctx.lineCap = "round"
+          ctx.beginPath()
+          let on = false
+          ys.forEach((y, k) => {
+            if (y < cut) {
+              if (on) ctx.lineTo(k * 4, y)
+              else ctx.moveTo(k * 4, y)
+              on = true
+            } else on = false
+          })
+          ctx.stroke()
+        }
       })
     }
     const loop = (ts: number) => {
@@ -66,6 +96,12 @@ export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: ke
       draw()
     })
     ro.observe(cv)
+    // 미리보기 전환 버튼으로 시간대·계절을 바꾸면 다시 그림
+    const onSky = () => {
+      applySky()
+      draw()
+    }
+    window.addEventListener(SKY_EVENT, onSky)
     const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting))
     io.observe(cv)
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -74,8 +110,9 @@ export function RidgeCanvas({ palette = "navy", className = "" }: { palette?: ke
       cancelAnimationFrame(raf)
       io.disconnect()
       ro.disconnect()
+      window.removeEventListener(SKY_EVENT, onSky)
     }
-  }, [palette])
+  }, [palette, sky])
 
   return <canvas ref={ref} aria-hidden className={className} />
 }

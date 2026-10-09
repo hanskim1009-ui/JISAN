@@ -183,3 +183,31 @@ html[data-look="photo"] .look-ridge {
 /* 가로로 넘기는 목록: 스크롤바 숨김 */
 .no-scrollbar { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ── 첫 화면 하늘: 밤낮·사계절 (lib/sky.ts, html[data-sky][data-season]) ── 위쪽은 늘 헤더와 같은 남색 */
+.hero-sky { background: #0C1E36; transition: background 0.8s ease; }
+html[data-sky="night"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #0F2441 55%, #152C4C 100%); }
+html[data-sky="dawn"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #22355A 42%, #4A4B6F 72%, #8A6C78 100%); }
+html[data-sky="day"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #1B3960 38%, #2D5482 72%, #48719F 100%); }
+html[data-sky="dusk"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #252F50 42%, #554667 72%, #976A66 100%); }
+
+.sky-glow { opacity: 0; transition: opacity 0.8s ease; }
+html[data-sky="dawn"] .sky-glow { opacity: 1; background: radial-gradient(ellipse 55% 35% at 22% 62%, rgba(246, 178, 132, 0.32), transparent 70%); }
+html[data-sky="dusk"] .sky-glow { opacity: 1; background: radial-gradient(ellipse 55% 35% at 78% 62%, rgba(236, 150, 112, 0.34), transparent 70%); }
+html[data-sky="day"] .sky-glow { opacity: 1; background: radial-gradient(ellipse 40% 30% at 80% 22%, rgba(255, 255, 255, 0.12), transparent 70%); }
+
+.sky-stars { opacity: 0; transition: opacity 0.8s ease; }
+html[data-sky="night"] .sky-stars { opacity: 0.85; }
+html[data-sky="dawn"] .sky-stars { opacity: 0.2; }
+.sky-star { opacity: 0.7; animation: sky-twinkle 6s ease-in-out infinite; }
+@keyframes sky-twinkle { 0%, 100% { opacity: 0.75; } 50% { opacity: 0.25; } }
+
+/* 초승달: 투명한 원에 안쪽 그림자로 */
+.sky-moon { opacity: 0; transition: opacity 0.8s ease; box-shadow: inset -9px 5px 0 0 #EDE7D9; filter: drop-shadow(0 0 10px rgba(237, 231, 217, 0.35)); }
+html[data-sky="night"] .sky-moon { opacity: 0.9; }
+@media (min-width: 768px) { .sky-moon { box-shadow: inset -12px 6px 0 0 #EDE7D9; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-star { animation: none; }
+  .hero-sky, .sky-glow, .sky-stars, .sky-moon { transition: none; }
+}

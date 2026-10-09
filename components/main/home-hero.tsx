@@ -5,6 +5,8 @@ import { siteConfig } from "@/lib/site-config"
 import { fields } from "@/lib/practice"
 import { looksToRender, type Look } from "@/lib/look"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
+import { SkyLayer } from "@/components/look/sky-layer"
+import { SkyPicker } from "@/components/look/sky-picker"
 import type { Lang } from "@/lib/langs"
 import { L, T, type TFn } from "@/lib/i18n/t"
 import { LANG_NOTE } from "@/lib/i18n/lang-notes"
@@ -152,8 +154,11 @@ function PhotoHero({ lang }: { lang: Lang }) {
 /** B안: 남색 바탕 + 겹 능선 그래픽 + 로고 획 그리기 */
 function RidgeHero({ lang }: { lang: Lang }) {
   return (
-    <section className="screen look-ridge relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14">
-      <RidgeCanvas className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] max-h-[35rem] w-full" />
+    <section className="screen look-ridge hero-sky relative overflow-hidden bg-brand text-white px-5 md:px-12 lg:px-14">
+      {/* 하늘(밤낮·계절)은 lib/sky.ts. 미리보기: 주소 뒤 ?skypreview=1 */}
+      <SkyLayer />
+      <RidgeCanvas sky className="pointer-events-none absolute inset-x-0 bottom-0 h-[62%] max-h-[35rem] w-full" />
+      <SkyPicker />
       <div className="relative max-w-7xl mx-auto flex min-h-[calc(100svh-8rem)] flex-col justify-between gap-8 pt-7 pb-5 md:min-h-0 md:justify-start md:gap-24 md:pt-20 md:pb-14">
         <HeroCopy look="ridge" lang={lang} />
         <HeroPicker look="ridge" lang={lang} />

@@ -7,6 +7,7 @@ import { LOOK_SWITCH, lookInitScript } from "@/lib/look"
 import { LookSwitch } from "@/components/look/look-switch"
 import { ScrollReveal } from "@/components/look/scroll-reveal"
 import { Analytics } from "@/components/analytics"
+import { skyInitScript } from "@/lib/sky"
 import "./globals.css"
 
 const siteUrl = siteConfig.siteUrl
@@ -114,11 +115,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      {LOOK_SWITCH && (
-        <head>
-          <script dangerouslySetInnerHTML={{ __html: lookInitScript }} />
-        </head>
-      )}
+      <head>
+        {LOOK_SWITCH && <script dangerouslySetInnerHTML={{ __html: lookInitScript }} />}
+        {/* 첫 화면 하늘(밤낮·계절)을 그리기 전에 정함 */}
+        <script dangerouslySetInnerHTML={{ __html: skyInitScript }} />
+      </head>
       <body className="font-sans antialiased">
         <JsonLdScript />
         {children}
