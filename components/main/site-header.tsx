@@ -4,18 +4,18 @@ import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { ChevronDown, Menu, Phone, X } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
-import { centers } from "@/lib/centers"
 import { fields } from "@/lib/practice"
 import { lawyers } from "@/lib/lawyers"
-import { foreignerPath, type Lang } from "@/lib/langs"
+import type { Lang } from "@/lib/langs"
 import { L, makeT, type Dict } from "@/lib/i18n/fmt"
 import { LogoSvg } from "@/components/brand-logo"
 import { LangSwitch } from "@/components/intl/intl-header"
 
-export type HeaderFlags = { showCases: boolean; showDiary: boolean; showColumns: boolean; lang?: Lang; dict?: Dict }
+export type CenterLink = { slug: string; name: string; href: string }
+export type HeaderFlags = { showCases: boolean; showDiary: boolean; showColumns: boolean; lang?: Lang; dict?: Dict; centerLinks?: CenterLink[] }
 
 /** 메인 사이트 헤더: 남색 바탕 + 흰 로고 + 메뉴 + '업무영역' 펼침 메뉴 (외국어 사이트도 같은 틀) */
-export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dict }: HeaderFlags) {
+export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dict, centerLinks = [] }: HeaderFlags) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const megaRef = useRef<HTMLDivElement>(null)
@@ -26,9 +26,11 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
     const l = lawyers.find((x) => x.slug === slug)
     return l ? t(l.name) : ""
   }
-  /** 외국어 사이트는 번역된 외국인센터만 연결 (분야별 센터는 한국어 전용) */
-  const centerOf = (slug: string) => (ko ? centers.find((c) => c.slug === slug) : undefined)
-  const siteCenters = ko ? centers.map((c) => ({ name: c.name, href: `/${c.slug}` })) : [{ name: t("외국인센터"), href: foreignerPath(lang) }]
+  /** 센터 링크는 서버에서 이름·주소만 받음. 외국어 사이트는 그 언어로 옮긴 센터(외국인·형사·가사)만 */
+  const centerOf = (slug: string) => centerLinks.find((c) => c.slug === slug)
+  const fieldCenters = (slugs: string[]) =>
+    slugs.flatMap((s) => centerOf(s) ?? []).filter((c, i, a) => a.findIndex((x) => x.href === c.href) === i)
+  const foreigner = centerOf("foreigner")
 
   useEffect(() => {
     if (!megaOpen) return
@@ -49,7 +51,7 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
     { label: t("구성원"), href: L(lang, "/lawyers") },
   ]
   const after = [
-    ...(ko ? [] : [{ label: t("외국인센터"), href: foreignerPath(lang) }]),
+    ...(!ko && foreigner ? [{ label: foreigner.name, href: foreigner.href }] : []),
     ...(showCases ? [{ label: t("업무사례"), href: L(lang, "/cases") }] : []),
     ...(showColumns ? [{ label: t("칼럼"), href: L(lang, "/column") }] : []),
     ...(showDiary ? [{ label: t("감사일기"), href: L(lang, "/diary") }] : []),
@@ -127,11 +129,11 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
                         </li>
                       ))}
                     </ul>
-                    {f.centers.some((slug) => centerOf(slug)) && (
+                    {fieldCenters(f.centers).length > 0 && (
                       <p className="mt-3 flex flex-wrap gap-x-3 text-sm font-semibold">
-                        {f.centers.filter((slug) => centerOf(slug)).map((slug) => (
-                          <Link key={slug} href={`/${slug}`} onClick={close} className="text-brand-accent underline underline-offset-4">
-                            {centerOf(slug)?.name}
+                        {fieldCenters(f.centers).map((c) => (
+                          <Link key={c.href} href={c.href} onClick={close} className="text-brand-accent underline underline-offset-4">
+                            {c.name}
                           </Link>
                         ))}
                       </p>
@@ -154,10 +156,10 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
                   {l.label}
                 </Link>
               ))}
-              {ko && (
+              {(ko ? centerLinks.length > 0 : centerLinks.length > 1) && (
                 <>
-                  <p className="mt-5 text-sm font-bold text-jisan-ink">센터</p>
-                  {siteCenters.map((c) => (
+                  <p className="mt-5 text-sm font-bold text-jisan-ink">{t("센터")}</p>
+                  {fieldCenters(centerLinks.map((c) => c.slug)).filter((c) => ko || c !== foreigner).map((c) => (
                     <Link key={c.href} href={c.href} onClick={close} className="border-b border-[#E4E6E9] py-3 text-base text-jisan-ink">
                       {c.name}
                     </Link>

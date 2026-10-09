@@ -1,7 +1,10 @@
 import Link from "next/link"
 import { fields } from "@/lib/practice"
 import { getLawyer } from "@/lib/lawyers"
-import { centers } from "@/lib/centers"
+import { centerBase, centers, getCenter } from "@/lib/centers"
+
+/** 한국어 센터 → 외국어판 센터 종류 */
+const INTL_OF: Record<string, string> = { crime: "crime", divorce: "family", adultery: "family", inheritance: "family" }
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { SectionHead } from "@/components/main/section-head"
 import type { Lang } from "@/lib/langs"
@@ -26,8 +29,10 @@ export function FieldsSection({ lang = "ko" }: { lang?: Lang }) {
         {/* 모바일은 옆으로 넘기는 카드, sm 2칸, lg 3칸, xl 한 줄 6칸 */}
         <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-x-0 sm:gap-y-0 sm:overflow-visible sm:border-t sm:border-jisan-ink sm:px-0 sm:pb-0 lg:grid-cols-3 xl:grid-cols-6">
           {fields.map((f) => {
-            // 외국어 사이트는 분야별 센터가 번역돼 있지 않아 센터 버튼을 두지 않음 (외국인센터는 메뉴·센터 칸에서 안내)
-            const fieldCenters = ko ? f.centers.map((slug) => centers.find((c) => c.slug === slug)).filter((c) => !!c) : []
+            // 외국어 사이트는 그 언어로 옮긴 형사·가사센터만 버튼으로 (이혼·상간·상속은 가사센터 하나)
+            const fieldCenters = ko
+              ? f.centers.map((slug) => centers.find((c) => c.slug === slug)).filter((c) => !!c)
+              : [...new Set(f.centers.map((slug) => INTL_OF[slug]).filter(Boolean))].map((k) => getCenter(`${k}-${lang}`)).filter((c) => !!c)
             return (
               <div
                 key={f.name}
@@ -76,7 +81,7 @@ export function FieldsSection({ lang = "ko" }: { lang?: Lang }) {
                     {fieldCenters.map((c) => (
                       <Link
                         key={c.slug}
-                        href={`/${c.slug}`}
+                        href={centerBase(c)}
                         className="group flex items-center justify-between gap-2 rounded-lg bg-[#F2F4F7] px-3 py-2 text-[0.8125rem] font-semibold text-jisan-ink transition-colors hover:bg-jisan-ink hover:text-white"
                       >
                         {c.name}

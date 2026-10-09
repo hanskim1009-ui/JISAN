@@ -13,7 +13,7 @@ const fieldWords = fields.flatMap((f) => [f.name, ...f.items])
 
 export const HEADER_KEYS = [
   "법인 소개", "구성원", "외국인센터", "업무사례", "칼럼", "감사일기", "오시는 길", "주 메뉴", "업무영역", "상담 신청",
-  "전화 상담", "메뉴 닫기", "메뉴 열기", "담당 변호사", ...fieldWords,
+  "전화 상담", "메뉴 닫기", "메뉴 열기", "담당 변호사", "센터", ...fieldWords,
   ...lawyers.map((l) => l.title),
 ]
 
