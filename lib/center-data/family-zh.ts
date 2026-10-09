@@ -13,7 +13,8 @@ export const familyZh: Center = {
     "en": "/en/family",
     "zh": "/zh/family",
     "vi": "/vi/family",
-    "ru": "/ru/family"
+    "ru": "/ru/family",
+    "mn": "/mn/family"
   },
   "name": "家事案件中心",
   "summary": "离婚·财产分割·抚养权，向第三者请求抚慰金与应对第三者诉状，放弃继承·限定承认·遗产分割·遗留分",

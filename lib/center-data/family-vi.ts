@@ -13,7 +13,8 @@ export const familyVi: Center = {
     "en": "/en/family",
     "zh": "/zh/family",
     "vi": "/vi/family",
-    "ru": "/ru/family"
+    "ru": "/ru/family",
+    "mn": "/mn/family"
   },
   "name": "Trung tâm Hôn nhân và Gia đình",
   "summary": "Ly hôn, chia tài sản, quyền nuôi con; kiện người thứ ba đòi bồi thường tổn thất tinh thần và ứng phó khi bị kiện vì ngoại tình; từ chối thừa kế, chấp nhận thừa kế có giới hạn, phân chia di sản, phần di sản bắt buộc",

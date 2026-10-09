@@ -13,7 +13,8 @@ export const crimeVi: Center = {
     "en": "/en/crime",
     "zh": "/zh/crime",
     "vi": "/vi/crime",
-    "ru": "/ru/crime"
+    "ru": "/ru/crime",
+    "mn": "/mn/crime"
   },
   "name": "Trung tâm Hình sự",
   "summary": "Đi cùng khi cảnh sát lấy lời khai, bị bắt và tạm giam, lừa đảo và biển thủ, lái xe khi say rượu và hành hung, đại diện tố cáo",

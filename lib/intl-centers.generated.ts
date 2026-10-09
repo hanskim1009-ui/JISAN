@@ -16,6 +16,10 @@ import { crimeRu } from "@/lib/center-data/crime-ru"
 import crimeRuPages from "@/content/center-pages/crime-ru.json"
 import { familyRu } from "@/lib/center-data/family-ru"
 import familyRuPages from "@/content/center-pages/family-ru.json"
+import { crimeMn } from "@/lib/center-data/crime-mn"
+import crimeMnPages from "@/content/center-pages/crime-mn.json"
+import { familyMn } from "@/lib/center-data/family-mn"
+import familyMnPages from "@/content/center-pages/family-mn.json"
 
-export const intlCenters: Center[] = [crimeEn, familyEn, crimeZh, familyZh, crimeVi, familyVi, crimeRu, familyRu]
-export const intlCenterPages: unknown[] = [crimeEnPages, familyEnPages, crimeZhPages, familyZhPages, crimeViPages, familyViPages, crimeRuPages, familyRuPages]
+export const intlCenters: Center[] = [crimeEn, familyEn, crimeZh, familyZh, crimeVi, familyVi, crimeRu, familyRu, crimeMn, familyMn]
+export const intlCenterPages: unknown[] = [crimeEnPages, familyEnPages, crimeZhPages, familyZhPages, crimeViPages, familyViPages, crimeRuPages, familyRuPages, crimeMnPages, familyMnPages]

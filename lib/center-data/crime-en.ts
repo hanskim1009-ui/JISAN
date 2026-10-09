@@ -13,7 +13,8 @@ export const crimeEn: Center = {
     "en": "/en/crime",
     "zh": "/zh/crime",
     "vi": "/vi/crime",
-    "ru": "/ru/crime"
+    "ru": "/ru/crime",
+    "mn": "/mn/crime"
   },
   "name": "Criminal Law Center",
   "summary": "Police questioning, arrest and detention, fraud and embezzlement, DUI and assault, filing criminal complaints",

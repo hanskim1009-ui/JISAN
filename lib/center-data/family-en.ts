@@ -13,7 +13,8 @@ export const familyEn: Center = {
     "en": "/en/family",
     "zh": "/zh/family",
     "vi": "/vi/family",
-    "ru": "/ru/family"
+    "ru": "/ru/family",
+    "mn": "/mn/family"
   },
   "name": "Family Law Center",
   "summary": "Divorce, property division and custody; claims against a spouse's affair partner and defending against such claims; renouncing or accepting an inheritance with limited liability, dividing an estate, and forced heirship shares",
