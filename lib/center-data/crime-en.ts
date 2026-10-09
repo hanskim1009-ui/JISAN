@@ -21,7 +21,7 @@ export const crimeEn: Center = {
   "tone": "dark",
   "seo": {
     "title": "Criminal Lawyer in Korea | Police Questioning, Detention, Criminal Trials | Jisan Law Criminal Law Center",
-    "description": "Called in by the Korean police, arrested or detained, facing a criminal trial, or filing a complaint? At Jisan Law's Criminal Law Center, the managing partner consults with you in person, and we handle mock questioning, sitting in on questioning and defense written opinions. Phone consultations 24 hours a day, including weekends and public holidays.",
+    "description": "Called in by the Korean police, arrested or detained, facing a criminal trial, or filing a complaint? At Jisan Law's Criminal Law Center, the managing partner consults with you in person, and we handle mock questioning, sitting in on questioning and defense written opinions. Message us through the chat on this page.",
     "keywords": [
       "criminal lawyer Korea",
       "police questioning lawyer Korea",
@@ -77,7 +77,7 @@ export const crimeEn: Center = {
     "body": [
       "From the day the police call, your mind starts racing. The more you search online, the more anxious you get, and the questioning date draws closer while you still don't know where to start. Jisan Law's Criminal Law Center sorts out what needs to be done first. Together we go over what you are accused of, what records exist, and which parts to dispute and which to admit.",
       "At Jisan Law, we don't hand you off to office managers or associate lawyers. The managing partner handles your first consultation in person. Once we take the case, we run mock questioning with likely questions, go into the interview room with you, and submit a defense written opinion after questioning. The lawyer in charge does all of this personally.",
-      "We offer consultations at our main office in Seoul and our branch offices in Incheon, Hongseong and Songpa. 02-6951-4097 is answered 24 hours a day, including weekends and public holidays. If time is short, as with an arrest, call us at any hour of the night."
+      "We offer consultations at our main office in Seoul and our branch offices in Incheon, Hongseong and Songpa. You can send us a message through the chat on this page at any time, including weekends and public holidays. If time is short, as with an arrest, message us at any hour of the night."
     ]
   },
   "situations": {
@@ -305,7 +305,7 @@ export const crimeEn: Center = {
     },
     {
       "q": "A family member has been arrested. What should I do now?",
-      "a": "Whether to request a detention warrant is decided within 48 hours of the arrest. A lawyer can visit right after the arrest, so contact us immediately. If a warrant is requested, a judge questions the suspect in person (Criminal Procedure Act Article 201-2), and we prepare a written opinion and documents on residence, work and family for that hearing. We answer the phone 24 hours a day, including weekends and public holidays."
+      "a": "Whether to request a detention warrant is decided within 48 hours of the arrest. A lawyer can visit right after the arrest, so contact us immediately. If a warrant is requested, a judge questions the suspect in person (Criminal Procedure Act Article 201-2), and we prepare a written opinion and documents on residence, work and family for that hearing. You can send us a message through the chat on this page at any time, including weekends and public holidays."
     },
     {
       "q": "Questioning is over, and I was told the case has been referred to prosecutors. What happens now?",

@@ -21,7 +21,7 @@ export const crimeVi: Center = {
   "tone": "dark",
   "seo": {
     "title": "Luật sư hình sự Hàn Quốc | Cảnh sát lấy lời khai, tạm giam, xét xử hình sự | Trung tâm Hình sự Jisan",
-    "description": "Bị cảnh sát triệu tập, bị bắt hoặc tạm giam, bị đưa ra xét xử hình sự, hay muốn tố cáo. Tại Trung tâm Hình sự của Văn phòng Luật Jisan, luật sư điều hành trực tiếp tư vấn và đảm nhận việc luyện tập trước buổi lấy lời khai, đi cùng khi lấy lời khai và bản ý kiến của luật sư. Tư vấn qua điện thoại 24 giờ, kể cả cuối tuần và ngày lễ.",
+    "description": "Bị cảnh sát triệu tập, bị bắt hoặc tạm giam, bị đưa ra xét xử hình sự, hay muốn tố cáo. Tại Trung tâm Hình sự của Văn phòng Luật Jisan, luật sư điều hành trực tiếp tư vấn và đảm nhận việc luyện tập trước buổi lấy lời khai, đi cùng khi lấy lời khai và bản ý kiến của luật sư. Hãy nhắn tin cho chúng tôi qua khung chat trên trang này.",
     "keywords": [
       "luật sư hình sự Hàn Quốc",
       "luật sư khi bị cảnh sát lấy lời khai Hàn Quốc",
@@ -51,13 +51,13 @@ export const crimeVi: Center = {
     },
     {
       "label": "Người nhà tôi bị bắt",
-      "hint": "Gọi ngay →",
+      "hint": "Nhắn tin ngay →",
       "href": "tel:02-6951-4097",
       "urgent": true
     },
     {
       "label": "Nhà hoặc công ty tôi bị khám xét, thu giữ",
-      "hint": "Gọi ngay →",
+      "hint": "Nhắn tin ngay →",
       "href": "tel:02-6951-4097",
       "urgent": true
     },
@@ -77,7 +77,7 @@ export const crimeVi: Center = {
     "body": [
       "Từ ngày nhận cuộc gọi của đồn cảnh sát, đầu óc bạn rối bời. Càng tìm trên mạng càng lo lắng, không biết phải làm gì trước mà ngày lấy lời khai cứ đến gần. Trung tâm Hình sự của Văn phòng Luật Jisan sắp xếp cho bạn những việc cần làm trước nhất vào lúc đó. Chúng tôi cùng bạn xem xét đó là cáo buộc gì, còn những tài liệu nào, phần nào cần tranh chấp và phần nào nên thừa nhận.",
       "Jisan không đứng sau thư ký văn phòng hay luật sư cộng sự. Buổi tư vấn đầu tiên do luật sư điều hành trực tiếp thực hiện. Khi nhận vụ việc, chúng tôi luyện tập với các câu hỏi dự kiến, vào phòng lấy lời khai cùng bạn và nộp bản ý kiến của luật sư (변호인 의견서) sau khi lấy lời khai xong. Luật sư phụ trách trực tiếp thực hiện toàn bộ quá trình này.",
-      "Chúng tôi tư vấn tại văn phòng chính ở Seoul và các văn phòng chi nhánh ở Incheon, Hongseong, Songpa. Số 02-6951-4097 nhận cuộc gọi 24 giờ, kể cả cuối tuần và ngày lễ. Với những việc gấp như bị bắt, dù là ban đêm hay rạng sáng, hãy gọi cho chúng tôi."
+      "Chúng tôi tư vấn tại văn phòng chính ở Seoul và các văn phòng chi nhánh ở Incheon, Hongseong, Songpa. Bạn có thể nhắn tin cho chúng tôi qua khung chat trên trang này bất cứ lúc nào, kể cả cuối tuần và ngày lễ. Với những việc gấp như bị bắt, dù là ban đêm hay rạng sáng, hãy nhắn tin cho chúng tôi."
     ]
   },
   "situations": {
@@ -305,7 +305,7 @@ export const crimeVi: Center = {
     },
     {
       "q": "Người nhà tôi bị bắt. Bây giờ tôi phải làm gì?",
-      "a": "Việc có yêu cầu ra lệnh tạm giam hay không sẽ được quyết định trong vòng 48 giờ kể từ khi bị bắt. Luật sư có thể gặp người bị bắt ngay sau khi bắt, nên hãy liên hệ ngay. Nếu có yêu cầu ra lệnh, thẩm phán sẽ trực tiếp thẩm vấn người bị nghi vấn (Điều 201-2 Luật Tố tụng hình sự); chúng tôi chuẩn bị bản ý kiến nộp lúc đó cùng tài liệu về nơi ở, công việc và quan hệ gia đình. Chúng tôi nhận điện thoại 24 giờ, kể cả cuối tuần và ngày lễ."
+      "a": "Việc có yêu cầu ra lệnh tạm giam hay không sẽ được quyết định trong vòng 48 giờ kể từ khi bị bắt. Luật sư có thể gặp người bị bắt ngay sau khi bắt, nên hãy liên hệ ngay. Nếu có yêu cầu ra lệnh, thẩm phán sẽ trực tiếp thẩm vấn người bị nghi vấn (Điều 201-2 Luật Tố tụng hình sự); chúng tôi chuẩn bị bản ý kiến nộp lúc đó cùng tài liệu về nơi ở, công việc và quan hệ gia đình. Bạn có thể nhắn tin cho chúng tôi qua khung chat trên trang này bất cứ lúc nào, kể cả cuối tuần và ngày lễ."
     },
     {
       "q": "Tôi đã lấy lời khai xong và được báo là hồ sơ đã được chuyển đi. Tiếp theo sẽ thế nào?",

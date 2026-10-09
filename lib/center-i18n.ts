@@ -5,6 +5,8 @@
  */
 import type { Lang } from "@/lib/langs"
 import { extraLangs } from "@/lib/i18n/extra-langs"
+import { CHAT_UI } from "@/lib/i18n/center-chat"
+import { chatOnly } from "@/lib/chat"
 export type { Lang }
 
 const ko = {
@@ -277,8 +279,25 @@ const texts: Record<Lang, CenterText> = {
   mn: extraLangs.mn.centerUi as CenterText,
 }
 
-export function centerText(lang: Lang | undefined): CenterText {
-  return texts[lang ?? "ko"]
+/** 메신저 문의 문구 (한국어 센터는 전화 안내를 그대로 쓰고, 이 값은 외국어 센터에서만 바뀜) */
+const CHAT_KO = {
+  chatTitle: "메신저로 문의하기",
+  chatNote: "첫 메시지에 성함, 겪고 계신 일, 받은 서류에 적힌 기한을 함께 적어 주세요.",
+  wechatId: "위챗 ID",
+  copy: "복사",
+  copied: "복사됨",
+  wechatScan: "위챗에서 이 코드를 스캔해 추가해 주세요.",
+}
+export type CenterTextFull = CenterText & typeof CHAT_KO
+
+export function centerText(lang: Lang | undefined): CenterTextFull {
+  const base = { ...texts[lang ?? "ko"], ...CHAT_KO }
+  if (!chatOnly(lang)) return base
+  const ui = CHAT_UI[lang!] ?? CHAT_UI.en
+  const conv = Object.fromEntries(
+    Object.entries(ui).map(([k, v]) => [k, typeof v === "string" ? v : (...a: string[]) => v.params.reduce((t, p, i) => t.replaceAll(`{${p}}`, a[i] ?? ""), v.template)]),
+  )
+  return { ...base, ...conv } as CenterTextFull
 }
 
 /** 사무소 이름·주소 (영어는 로마자 주소, 중국어는 택시·지도 검색에 쓰도록 한국어 주소를 그대로) */

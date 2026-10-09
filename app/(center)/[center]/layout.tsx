@@ -48,7 +48,7 @@ export default async function CenterLayout({
   return (
     <div lang={L.htmlLang} className={center.lang && NEEDS_NOTO.includes(center.lang) ? notoSans.className : undefined}>
       <CenterHeader name={center.name} tone={center.tone} nav={nav} homeHref={base} lang={center.lang} alternates={center.alternates} />
-      <FloatingCTA consultHref="#consult" lang={center.lang} />
+      <FloatingCTA consultHref="#consult" lang={center.lang} chatLabel={foreign ? L.chatTitle : undefined} />
       <BackToTop />
       <main id="top" lang={L.htmlLang}>
         {children}
@@ -58,7 +58,7 @@ export default async function CenterLayout({
         <div className="max-w-7xl mx-auto flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div className="space-y-0.5">
             <p>
-              {foreign ? `${siteConfig.nameEn} (${siteConfig.name})` : siteConfig.name} · {L.callN(siteConfig.phone)} · {L.bizNo} {siteConfig.businessRegistration} · {L.adLawyer}{" "}
+              {foreign ? `${siteConfig.nameEn} (${siteConfig.name})` : siteConfig.name} · {foreign ? "" : `${L.callN(siteConfig.phone)} · `}{L.bizNo} {siteConfig.businessRegistration} · {L.adLawyer}{" "}
               {lawyerI18n("kim-hansol", center.lang)?.name ?? siteConfig.advertisingAttorney}
             </p>
             {openOffices.map((o) => (
@@ -68,8 +68,8 @@ export default async function CenterLayout({
             ))}
           </div>
           <p className="flex gap-4">
-            <a href="/privacy" className="hover:underline">{L.privacy}</a>
-            <a href="/disclaimer" className="hover:underline">{L.disclaimer}</a>
+            <a href={foreign ? `/${center.lang}/privacy` : "/privacy"} className="hover:underline">{L.privacy}</a>
+            <a href={foreign ? `/${center.lang}/disclaimer` : "/disclaimer"} className="hover:underline">{L.disclaimer}</a>
             <a href={foreign ? `/${center.lang}` : "/"} className="hover:underline">{L.firmHome}</a>
           </p>
         </div>

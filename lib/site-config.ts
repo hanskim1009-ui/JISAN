@@ -26,6 +26,24 @@ export const siteConfig = {
   phoneIntl: "+82-2-6951-4097",
   /** 카카오톡 채널 URL - 본인 채널로 교체 필요 */
   kakaoTalkUrl: "https://pf.kakao.com/_Mxlgyn/chat",
+  /**
+   * 외국어 센터(외국인·형사·가사센터 외국어판)는 전화 대신 메신저 채팅으로만 문의를 받습니다.
+   * 값을 넣은 메신저만 버튼으로 보입니다 (비어 있으면 숨김). 직원이 채팅으로 먼저 답하고 변호사에게 넘깁니다.
+   * - wechatId: 위챗 ID (위챗은 웹 링크로 친구 추가가 안 되어 ID와 QR 이미지를 보여 줌)
+   * - wechatQr: public 폴더 안 QR 이미지 경로 (예: "/chat/wechat-qr.png")
+   * - telegramUrl: https://t.me/아이디   - whatsappUrl: https://wa.me/8210xxxxxxxx (국가번호 포함, + 없이)
+   * - zaloUrl: https://zalo.me/전화번호   - messengerUrl: https://m.me/페이지이름   - lineUrl: https://line.me/R/ti/p/@아이디
+   */
+  chat: {
+    kakaoUrl: "https://pf.kakao.com/_Mxlgyn/chat",
+    wechatId: "",
+    wechatQr: "",
+    telegramUrl: "",
+    whatsappUrl: "",
+    zaloUrl: "",
+    messengerUrl: "",
+    lineUrl: "",
+  },
   address: "서울시 서초구 서초대로46길 109, 6층(지산빌딩)",
   addressShort: "서울시 서초구 서초대로46길 109",
   /** 지도 좌표 (지산빌딩 근사치) - 카카오맵/네이버맵용 */

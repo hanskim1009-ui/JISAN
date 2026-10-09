@@ -6,6 +6,7 @@ import { centerBase, getCenter } from "@/lib/centers"
 import { centerText } from "@/lib/center-i18n"
 import { allCenterPages, getCenterPages, getGuide } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
+import { chatOnly } from "@/lib/chat"
 import { RelatedAreas, Sections, SideNav, SubHero } from "@/components/center/sub-page"
 import { ConsultBand } from "@/components/center/consult-band"
 import { FaqList } from "@/components/center/faq-list"
@@ -97,9 +98,11 @@ export default async function GuidePage({ params }: Props) {
                 {L.aloneLead}
               </p>
               <div className="mt-5 flex flex-wrap gap-2.5">
-                <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold tabular-nums text-jisan-ink">
-                  <Phone className="h-4 w-4" /> {siteConfig.phone}
-                </a>
+                {!chatOnly(center.lang) && (
+                  <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold tabular-nums text-jisan-ink">
+                    <Phone className="h-4 w-4" /> {siteConfig.phone}
+                  </a>
+                )}
                 <a href="#consult" className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10">
                   {L.leaveRequest}
                 </a>

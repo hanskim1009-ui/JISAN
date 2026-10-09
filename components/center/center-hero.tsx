@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Phone } from "lucide-react"
 import type { Center } from "@/lib/centers"
 import { siteConfig } from "@/lib/site-config"
+import { chatOnly } from "@/lib/chat"
 import { looksToRender, type Look } from "@/lib/look"
 import { centerTones } from "@/components/center/tone"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
@@ -78,12 +79,14 @@ function Hero({ look, center }: { look: Look; center: Center }) {
             <a href="#consult" className={`rounded-full px-6 py-3 text-[0.9375rem] font-semibold ${t.primaryBtn}`}>
               {L.consult}
             </a>
-            <a
-              href={siteConfig.phoneHref}
-              className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold tabular-nums ${t.ghostBtn}`}
-            >
-              <Phone className="h-4 w-4" /> {siteConfig.phone}
-            </a>
+            {!chatOnly(center.lang) && (
+              <a
+                href={siteConfig.phoneHref}
+                className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold tabular-nums ${t.ghostBtn}`}
+              >
+                <Phone className="h-4 w-4" /> {siteConfig.phone}
+              </a>
+            )}
           </div>
         </div>
         <div
@@ -99,7 +102,7 @@ function Hero({ look, center }: { look: Look; center: Center }) {
               return (
               <li key={s.label}>
                 <a
-                  href={guide ?? s.href}
+                  href={guide ?? (chatOnly(center.lang) && s.href.startsWith("tel:") ? "#consult" : s.href)}
                   className={`group flex items-center justify-between gap-3 rounded-xl border px-4 py-3 text-[0.9375rem] font-semibold transition-colors ${
                     s.urgent ? "border-[#E2620F] text-[#B4490A] hover:bg-[#E2620F]/5" : "border-[#E2E6ED] hover:border-jisan-blue"
                   }`}

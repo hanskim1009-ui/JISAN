@@ -4,11 +4,33 @@ import { siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
 import { ConsultForm } from "@/components/consult-form"
 import { centerText } from "@/lib/center-i18n"
+import { chatChannels, chatOnly } from "@/lib/chat"
+import { ChatButtons } from "@/components/center/chat-buttons"
 
 /** 센터 페이지 맨 아래 상담 구역 (센터 메인과 상세 페이지가 같이 씀) */
 export function ConsultBand({ center, title, source }: { center: Center; title?: string; source?: string }) {
   const t = centerTones[center.tone]
   const L = centerText(center.lang)
+  if (chatOnly(center.lang)) {
+    // 외국어 센터: 전화·신청서 없이 메신저 채팅으로만 문의 (직원이 먼저 답하고 변호사에게 넘김)
+    return (
+      <section id="consult" className={`screen ${t.band} px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20`}>
+        <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+          <div>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight leading-tight text-balance">{title ?? center.closing}</h2>
+            <p className="mt-4 max-w-md text-base leading-relaxed opacity-80">{L.bandLead}</p>
+          </div>
+          <div className="rounded-2xl bg-white/10 p-6 md:p-8 ring-1 ring-white/15">
+            <h3 className="text-lg font-bold">{L.chatTitle}</h3>
+            <div className="mt-5">
+              <ChatButtons channels={chatChannels(center.lang)} text={{ wechatId: L.wechatId, copy: L.copy, copied: L.copied, wechatScan: L.wechatScan }} />
+            </div>
+            <p className="mt-5 text-sm leading-relaxed opacity-75">{L.chatNote}</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
   return (
     <section id="consult" className={`screen ${t.band} px-6 md:px-12 lg:px-20 py-16 md:py-24 scroll-mt-20`}>
       <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">

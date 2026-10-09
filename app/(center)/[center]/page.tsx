@@ -417,7 +417,7 @@ export default async function CenterPage({ params }: Props) {
               <li key={o.name} className={`border border-[#E2E6ED] bg-white p-5 ${o.address ? "" : "hidden sm:block"}`}>
                 <p className="text-lg font-bold text-jisan-ink">{officeName(o.name, center.lang)}</p>
                 <p className="mt-2 text-sm leading-relaxed text-jisan-ink/70">{officeAddr(o, center.lang)}</p>
-                <p className="mt-3 text-sm font-semibold tabular-nums text-jisan-ink">{L.callN(o.phone || siteConfig.phone)}</p>
+                {!foreign && <p className="mt-3 text-sm font-semibold tabular-nums text-jisan-ink">{L.callN(o.phone || siteConfig.phone)}</p>}
                 {o.mapUrl && (
                   <a href={o.mapUrl} target="_blank" rel="noopener noreferrer" className={`mt-3 inline-block text-sm font-semibold ${t.accent}`}>
                     {L.map}&nbsp;→

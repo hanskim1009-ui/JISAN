@@ -21,7 +21,7 @@ export const familyVi: Center = {
   "tone": "warm",
   "seo": {
     "title": "Luật sư ly hôn, ngoại tình, thừa kế Hàn Quốc | Chia tài sản · Quyền nuôi con · Bồi thường tinh thần · Từ chối thừa kế · Phần di sản bắt buộc | Trung tâm Hôn nhân và Gia đình Jisan",
-    "description": "Thuận tình ly hôn và kiện ly hôn tại Hàn Quốc, chia tài sản, quyền nuôi con và tiền cấp dưỡng nuôi con, bồi thường tổn thất tinh thần khi vợ/chồng ngoại tình, ứng phó khi bị kiện vì ngoại tình, từ chối thừa kế, chấp nhận thừa kế có giới hạn, phân chia di sản và phần di sản bắt buộc – Trung tâm Hôn nhân và Gia đình của Văn phòng Luật Jisan đồng hành cùng bạn. Điện thoại 24 giờ: 02-6951-4097.",
+    "description": "Thuận tình ly hôn và kiện ly hôn tại Hàn Quốc, chia tài sản, quyền nuôi con và tiền cấp dưỡng nuôi con, bồi thường tổn thất tinh thần khi vợ/chồng ngoại tình, ứng phó khi bị kiện vì ngoại tình, từ chối thừa kế, chấp nhận thừa kế có giới hạn, phân chia di sản và phần di sản bắt buộc – Trung tâm Hôn nhân và Gia đình của Văn phòng Luật Jisan đồng hành cùng bạn. Hãy nhắn tin cho chúng tôi qua khung chat trên trang này.",
     "keywords": [
       "luật sư ly hôn Hàn Quốc",
       "ly hôn có yếu tố nước ngoài Hàn Quốc",
@@ -73,7 +73,7 @@ export const familyVi: Center = {
     },
     {
       "label": "Vợ/chồng tôi liên tục chửi mắng, đánh đập",
-      "hint": "Gọi ngay →",
+      "hint": "Nhắn tin ngay →",
       "href": "tel:02-6951-4097",
       "urgent": true
     }
@@ -83,7 +83,7 @@ export const familyVi: Center = {
     "body": [
       "Vì là chuyện với người gần gũi nhất nên rất khó nói với ai. Dù vậy, thay vì để cảm xúc dẫn dắt, trước hết cần xác định những vấn đề phải giải quyết: lý do ly hôn, quá trình hình thành tài sản, môi trường nuôi dạy con. Trung tâm Hôn nhân và Gia đình của Văn phòng Luật Jisan không khuyên bạn ly hôn bằng mọi giá. Chúng tôi lắng nghe bạn đang ở trong hoàn cảnh nào và điều bạn muốn giữ gìn nhất là gì, rồi mới định hướng.",
       "Khi phát hiện vợ/chồng ngoại tình, hay khi bị kiện vì ngoại tình, kết quả thường không phụ thuộc vào mức độ tổn thương mà vào việc bạn đưa tài liệu nào ra tòa và bằng cách nào. Sau khi người thân qua đời, mỗi thủ tục đều có thời hạn, như thời hạn 3 tháng để từ chối thừa kế hoặc chấp nhận thừa kế có giới hạn, nên việc đầu tiên là xác định thứ tự cần làm.",
-      "Ly hôn là nhiều nút thắt đan xen giữa tài sản, con cái và cảm xúc. Nếu có thể kết thúc bằng thỏa thuận, hãy ghi rõ các điều kiện bằng văn bản để giảm mầm mống tranh chấp về sau; nếu cần kiện, chúng tôi chứng minh lý do ly hôn theo luật định bằng chứng cứ. Bạn có thể đến tư vấn tại văn phòng chính ở Seoul và các văn phòng chi nhánh Incheon, Hongseong, Songpa. Số 02-6951-4097 hoạt động 24 giờ, kể cả cuối tuần và ngày lễ."
+      "Ly hôn là nhiều nút thắt đan xen giữa tài sản, con cái và cảm xúc. Nếu có thể kết thúc bằng thỏa thuận, hãy ghi rõ các điều kiện bằng văn bản để giảm mầm mống tranh chấp về sau; nếu cần kiện, chúng tôi chứng minh lý do ly hôn theo luật định bằng chứng cứ. Bạn có thể đến tư vấn tại văn phòng chính ở Seoul và các văn phòng chi nhánh Incheon, Hongseong, Songpa. Bạn có thể nhắn tin cho chúng tôi qua khung chat trên trang này bất cứ lúc nào, kể cả cuối tuần và ngày lễ."
     ]
   },
   "situations": {

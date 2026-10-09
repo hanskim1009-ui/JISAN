@@ -8,13 +8,20 @@ export const foreignerEn: Center = {
   "slug": "foreigner-en",
   "lang": "en",
   "basePath": "/en/foreigner",
-  "alternates": {"ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner", "vi": "/vi/foreigner", "ru": "/ru/foreigner", "mn": "/mn/foreigner"},
+  "alternates": {
+    "ko": "/foreigner",
+    "en": "/en/foreigner",
+    "zh": "/zh/foreigner",
+    "vi": "/vi/foreigner",
+    "ru": "/ru/foreigner",
+    "mn": "/mn/foreigner"
+  },
   "name": "Foreigner Center",
   "summary": "Refused stay extensions and status changes, departure, deportation and detention orders, immigration violation reviews, criminal cases involving foreigners, unpaid wages and workplace changes, international divorce, deposit and fraud losses",
   "tone": "warm",
   "seo": {
     "title": "Visa Lawyer Korea | Visa Refusal, Deportation, Foreigner Criminal Cases | Jisan Law Foreigner Center",
-    "description": "Refused visa extension or change of status, cancelled stay permit, departure and deportation orders, immigration detention, police questioning of foreigners, unpaid wages, workplace changes and international divorce. We start by counting your deadlines and challenge decisions through administrative appeals and lawsuits. Consultations in English. 24-hour phone line 02-6951-4097.",
+    "description": "Refused visa extension or change of status, cancelled stay permit, departure and deportation orders, immigration detention, police questioning of foreigners, unpaid wages, workplace changes and international divorce. We start by counting your deadlines and challenge decisions through administrative appeals and lawsuits. Consultations in English. Message us through the chat on this page.",
     "keywords": [
       "visa lawyer Korea",
       "visa extension refused Korea",
@@ -72,7 +79,7 @@ export const foreignerEn: Center = {
       "For foreigners living in Korea, a legal problem often does not end with the problem itself. A single fine can count against you when you apply to extend your stay. The moment you quit your job, you need to work out how much time is left on your stay. During a divorce lawsuit, the first worry is what happens to your status of stay. The Jisan Law Foreigner Center does not look at the case and your stay separately. We advise on both together.",
       "This is especially true for criminal cases. If you are sentenced to imprisonment without labor or a heavier sentence (금고 이상의 형) and then released, you may become subject to deportation. Even a fine can be grounds for cancelling your stay permit if the violation is serious (Immigration Act Articles 46 and 89). Cases that end in a suspended indictment (기소유예) or a decision not to refer the case to prosecutors (불송치) still remain in investigation history records (수사경력자료), and these can be checked when needed for a foreigner's stay or naturalization permit (Act on the Lapse of Criminal Sentences, Article 6). That is why you need to consider what each possible outcome means for your stay from the investigation stage onward.",
       "Deadlines in foreigner cases are also short. If your extension of stay is refused, the notice will in principle state a departure deadline within 14 days of its issue date. An objection to a deportation order must be filed within 7 days of receiving the order. Filing an administrative appeal or an administrative lawsuit does not suspend the decision, so if a departure deadline applies, you must also apply for a stay of execution (집행정지).",
-      "Consultations are available in English, including at night and on weekends. Rather than simple application paperwork, we take on disputed cases such as refusals, cancellations and deportation, handling objections, administrative appeals and administrative lawsuits, as well as the related criminal, labor and family cases. Our consultation phone line is open 24 hours, including weekends and public holidays."
+      "Consultations are available in English. Rather than simple application paperwork, we take on disputed cases such as refusals, cancellations and deportation, handling objections, administrative appeals and administrative lawsuits, as well as the related criminal, labor and family cases. You can send us a message through the chat on this page at any time, including weekends and public holidays."
     ]
   },
   "situations": {

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, Phone, X } from "lucide-react"
+import { Menu, MessageCircle, Phone, X } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 import type { CenterTone } from "@/lib/centers"
 import { centerTones } from "@/components/center/tone"
@@ -59,17 +59,20 @@ export function CenterHeader({
             </a>
           ))}
           {switcher}
-          <a href={siteConfig.phoneHref} className={`hidden whitespace-nowrap text-[0.9375rem] font-bold ${foreign ? "" : "2xl:inline"}`}>
-            {L.call24} {siteConfig.phone}
-          </a>
+          {!foreign && (
+            <a href={siteConfig.phoneHref} className="hidden whitespace-nowrap text-[0.9375rem] font-bold 2xl:inline">
+              {L.call24} {siteConfig.phone}
+            </a>
+          )}
           <a href="#consult" className={`whitespace-nowrap px-5 py-2.5 text-sm font-semibold ${t.headerCta}`}>
             {L.consult}
           </a>
         </div>
         <div className={`flex items-center gap-1 ${foreign ? "2xl:hidden" : "xl:hidden"}`}>
           {switcher}
-          <a href={siteConfig.phoneHref} className="p-2" aria-label={L.callAria}>
-            <Phone className="h-5 w-5" />
+          {/* 외국어 센터는 전화 대신 메신저 문의로 */}
+          <a href={foreign ? "#consult" : siteConfig.phoneHref} className="p-2" aria-label={L.callAria}>
+            {foreign ? <MessageCircle className="h-5 w-5" /> : <Phone className="h-5 w-5" />}
           </a>
           <button
             type="button"

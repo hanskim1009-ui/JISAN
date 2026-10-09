@@ -8,13 +8,20 @@ export const foreignerVi: Center = {
   "slug": "foreigner-vi",
   "lang": "vi",
   "basePath": "/vi/foreigner",
-  "alternates": {"ko": "/foreigner", "en": "/en/foreigner", "zh": "/zh/foreigner", "vi": "/vi/foreigner", "ru": "/ru/foreigner", "mn": "/mn/foreigner"},
+  "alternates": {
+    "ko": "/foreigner",
+    "en": "/en/foreigner",
+    "zh": "/zh/foreigner",
+    "vi": "/vi/foreigner",
+    "ru": "/ru/foreigner",
+    "mn": "/mn/foreigner"
+  },
   "name": "Trung tâm Người nước ngoài",
   "summary": "Bị từ chối gia hạn lưu trú hoặc thay đổi tư cách lưu trú; lệnh xuất cảnh, lệnh trục xuất, lệnh tạm giữ; thẩm tra vi phạm xuất nhập cảnh; vụ án hình sự liên quan đến người nước ngoài; nợ lương và chuyển nơi làm việc; ly hôn có yếu tố nước ngoài; tranh chấp tiền đặt cọc và bị lừa đảo",
   "tone": "warm",
   "seo": {
     "title": "Luật sư Hàn Quốc cho người nước ngoài | Từ chối gia hạn visa, trục xuất, vụ án hình sự | Jisan Law",
-    "description": "Bị từ chối gia hạn lưu trú hoặc thay đổi tư cách lưu trú, bị hủy giấy phép lưu trú, nhận lệnh xuất cảnh hay lệnh trục xuất, bị tạm giữ tại trung tâm tạm giữ người nước ngoài, bị cảnh sát triệu tập, bị nợ lương, chuyển nơi làm việc, ly hôn có yếu tố nước ngoài. Chúng tôi tính thời hạn trước tiên và tranh chấp bằng khiếu nại hành chính, kiện hành chính. Điện thoại 24 giờ: 02-6951-4097.",
+    "description": "Bị từ chối gia hạn lưu trú hoặc thay đổi tư cách lưu trú, bị hủy giấy phép lưu trú, nhận lệnh xuất cảnh hay lệnh trục xuất, bị tạm giữ tại trung tâm tạm giữ người nước ngoài, bị cảnh sát triệu tập, bị nợ lương, chuyển nơi làm việc, ly hôn có yếu tố nước ngoài. Chúng tôi tính thời hạn trước tiên và tranh chấp bằng khiếu nại hành chính, kiện hành chính. Hãy nhắn tin cho chúng tôi qua khung chat trên trang này.",
     "keywords": [
       "luật sư Hàn Quốc",
       "luật sư visa Hàn Quốc",
@@ -39,13 +46,13 @@ export const foreignerVi: Center = {
     },
     {
       "label": "Tôi nhận lệnh xuất cảnh hoặc lệnh trục xuất",
-      "hint": "Thời hạn phản đối rất ngắn. Gọi ngay →",
+      "hint": "Thời hạn phản đối rất ngắn. Nhắn tin ngay →",
       "href": "tel:02-6951-4097",
       "urgent": true
     },
     {
       "label": "Người nhà tôi bị đưa vào trung tâm tạm giữ người nước ngoài",
-      "hint": "Gọi ngay →",
+      "hint": "Nhắn tin ngay →",
       "href": "tel:02-6951-4097",
       "urgent": true
     },
@@ -56,7 +63,7 @@ export const foreignerVi: Center = {
     },
     {
       "label": "Người nhà tôi là người nước ngoài và bị bắt",
-      "hint": "Gọi ngay →",
+      "hint": "Nhắn tin ngay →",
       "href": "tel:02-6951-4097",
       "urgent": true
     },
@@ -72,7 +79,7 @@ export const foreignerVi: Center = {
       "Với người nước ngoài sống tại Hàn Quốc, một vấn đề pháp lý thường không dừng lại ở chính nó. Một lần bị phạt tiền có thể bị xét đến khi thẩm tra gia hạn lưu trú. Ngay khi nghỉ việc, bạn phải tính thời gian lưu trú còn lại. Khi đang kiện ly hôn, điều lo lắng đầu tiên là tư cách lưu trú sẽ ra sao. Trung tâm Người nước ngoài của Jisan Law không tách rời vụ việc và việc lưu trú, mà tư vấn cả hai cùng lúc.",
       "Vụ án hình sự đặc biệt như vậy. Người bị tuyên hình phạt tù (금고) trở lên rồi được thả có thể thuộc diện bị trục xuất. Ngay cả hình phạt tiền, nếu mức độ vi phạm nghiêm trọng, cũng có thể là lý do hủy giấy phép lưu trú (Điều 46, Điều 89 Luật Quản lý Xuất nhập cảnh (출입국관리법)). Vụ việc kết thúc bằng tạm hoãn truy tố (기소유예) hay không chuyển hồ sơ sang viện kiểm sát (불송치) vẫn để lại hồ sơ lý lịch điều tra (수사경력자료), và hồ sơ này có thể bị tra cứu khi cần cho việc xét cấp phép lưu trú hoặc nhập quốc tịch của người nước ngoài (Điều 6 Luật về việc mất hiệu lực của hình phạt (형의 실효 등에 관한 법률)). Vì vậy, ngay từ giai đoạn điều tra phải cân nhắc kết quả xử lý có ý nghĩa gì đối với việc lưu trú.",
       "Vụ việc của người nước ngoài còn có thời hạn rất ngắn. Khi bị từ chối gia hạn lưu trú, theo nguyên tắc, thông báo sẽ ghi thời hạn xuất cảnh trong vòng 14 ngày kể từ ngày cấp. Đơn phản đối lệnh trục xuất phải nộp trong vòng 7 ngày kể từ ngày nhận lệnh. Dù đã nộp khiếu nại hành chính hay khởi kiện hành chính, quyết định vẫn giữ nguyên hiệu lực, nên nếu đang có thời hạn xuất cảnh thì phải xin tạm đình chỉ thi hành cùng lúc.",
-      "Chúng tôi không chủ yếu làm hộ hồ sơ đơn giản, mà nhận các vụ việc có tranh chấp như bị từ chối, bị hủy, bị trục xuất: phản đối, khiếu nại hành chính, kiện hành chính, cùng các vụ việc hình sự, lao động, gia đình gắn liền với chúng. Chúng tôi nhận điện thoại tư vấn 24 giờ, kể cả cuối tuần và ngày lễ."
+      "Chúng tôi không chủ yếu làm hộ hồ sơ đơn giản, mà nhận các vụ việc có tranh chấp như bị từ chối, bị hủy, bị trục xuất: phản đối, khiếu nại hành chính, kiện hành chính, cùng các vụ việc hình sự, lao động, gia đình gắn liền với chúng. Bạn có thể nhắn tin cho chúng tôi qua khung chat trên trang này bất cứ lúc nào, kể cả cuối tuần và ngày lễ."
     ]
   },
   "situations": {

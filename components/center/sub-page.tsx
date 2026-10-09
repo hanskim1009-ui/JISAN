@@ -6,6 +6,7 @@ import type { AreaPage, CenterPages, Section } from "@/lib/center-pages"
 import { getLawyer } from "@/lib/lawyers"
 import { lawyerI18n } from "@/lib/lawyers-i18n"
 import { siteConfig } from "@/lib/site-config"
+import { chatOnly } from "@/lib/chat"
 import { centerTones } from "@/components/center/tone"
 import { RidgeCanvas } from "@/components/look/ridge-canvas"
 import { LawyerPhoto } from "@/components/lawyer-photo"
@@ -65,9 +66,11 @@ export function SubHero({
           <a href="#consult" className={`rounded-full px-6 py-3 text-[0.9375rem] font-semibold ${t.primaryBtn}`}>
             {L.consult}
           </a>
-          <a href={siteConfig.phoneHref} className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold tabular-nums ${t.ghostBtn}`}>
-            <Phone className="h-4 w-4" /> {siteConfig.phone}
-          </a>
+          {!chatOnly(center.lang) && (
+            <a href={siteConfig.phoneHref} className={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-[0.9375rem] font-semibold tabular-nums ${t.ghostBtn}`}>
+              <Phone className="h-4 w-4" /> {siteConfig.phone}
+            </a>
+          )}
         </div>
       </div>
     </section>
@@ -107,9 +110,15 @@ export function SideNav({ center, pages, current }: { center: Center; pages: Cen
         )}
         <div className="rounded-2xl border border-[#E2E6ED] p-4">
           <p className="text-sm font-bold text-jisan-ink">{L.phone24}</p>
-          <a href={siteConfig.phoneHref} className={`mt-1 block text-lg font-bold tabular-nums ${t.accent}`}>
-            {siteConfig.phone}
-          </a>
+          {chatOnly(center.lang) ? (
+            <a href="#consult" className={`mt-1 block text-[0.9375rem] font-bold ${t.accent}`}>
+              {L.chatTitle}&nbsp;→
+            </a>
+          ) : (
+            <a href={siteConfig.phoneHref} className={`mt-1 block text-lg font-bold tabular-nums ${t.accent}`}>
+              {siteConfig.phone}
+            </a>
+          )}
           <p className="mt-1 text-xs leading-relaxed text-jisan-ink/60">{L.weekendsToo}</p>
         </div>
       </div>
