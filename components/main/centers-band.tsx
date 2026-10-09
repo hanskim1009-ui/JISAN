@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Building2, Globe2, HandCoins, HardHat, HeartCrack, House, Pill, Scale, School, ScrollText, ShieldAlert, Sprout, Stethoscope, type LucideIcon } from "lucide-react"
 import { centerBase, centers, getCenter, type Center } from "@/lib/centers"
-import type { Lang } from "@/lib/langs"
+import { FOREIGN_LANGS, LANG_SHORT, type Lang } from "@/lib/langs"
 import { T } from "@/lib/i18n/t"
 import { fields } from "@/lib/practice"
 import { ridgePath } from "@/lib/ridge"
@@ -38,16 +38,14 @@ const KO_INTL: Omit<Card, "href">[] = [
     key: "crime",
     name: "외국인 형사센터",
     title: "한국에서 수사·재판을 받는\n외국인을 위한 형사센터",
-    summary: "경찰 조사, 체포·구속, 벌금과 형사재판까지 형사센터 안내를 다섯 개 외국어로 옮겼습니다.",
-    badge: LANG_BADGE,
+    summary: "경찰 조사, 체포·구속, 벌금과 형사재판까지 형사센터 안내를 외국어로 옮겼습니다.",
   },
   {
     slug: "family-intl",
     key: "family",
     name: "외국인 가사센터",
     title: "이혼·상간·상속,\n외국인 가족을 위한 가사센터",
-    summary: "국제이혼과 재산분할·양육권, 상간 소송, 상속포기·상속재산분할 안내를 다섯 개 외국어로 옮겼습니다.",
-    badge: LANG_BADGE,
+    summary: "국제이혼과 재산분할·양육권, 상간 소송, 상속포기·상속재산분할 안내를 외국어로 옮겼습니다.",
   },
 ]
 
@@ -89,7 +87,8 @@ export function CentersBand({ lang = "ko" }: { lang?: Lang }) {
           ...centers.map(toCard),
           ...KO_INTL.flatMap((c) => {
             const en = intl(c.key, "en")
-            return en ? [{ ...c, href: centerBase(en) }] : []
+            const langs = FOREIGN_LANGS.filter((l) => intl(c.key, l))
+            return en ? [{ ...c, href: centerBase(en), badge: langs.map((l) => LANG_SHORT[l]).join(" · ") }] : []
           }),
         ]
       : ["foreigner", "crime", "family"].flatMap((k) => {
