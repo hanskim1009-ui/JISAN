@@ -36,7 +36,7 @@ const data: Record<string, Entry> = {
       name: "Hansol Kim",
       title: MP.zh,
       field: "刑事",
-      line: "中文咨询 · 前检察官（仁川、安山、洪城）",
+      line: "前检察官（仁川、安山、洪城）",
       bio: "Hansol Kim 律师曾在仁川地方检察厅、水原地方检察厅安山支厅、大田地方检察厅洪城支厅担任检察官。现主要办理刑事案件，从警方调查前的准备、陪同接受调查，到提交律师意见书和出庭辩护，均亲自负责。毕业于加拿大多伦多大学（生命科学，最优等）和成均馆大学法学专门研究生院。",
       career: [
         "现任 Jisan 法律事务所 代表律师",
@@ -54,7 +54,7 @@ const data: Record<string, Entry> = {
       name: "Miso Kim",
       title: P.en,
       field: "Family",
-      line: "Consults in English · Former in-house counsel at Wemade; English interpretation and translation graduate",
+      line: "Former in-house counsel at Wemade; English interpretation and translation graduate",
       bio: "Miso Kim has worked from advising multinational companies to litigating civil and criminal cases. She was in-house counsel on the legal team of Wemade Co., Ltd., and an associate at Daehwan Law Firm and Oracle Law Firm. She studied English interpretation and translation at Hankuk University of Foreign Studies before graduating from Sungkyunkwan University Law School.",
       career: [
         "Partner, Jisan Law",

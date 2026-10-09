@@ -328,12 +328,12 @@ export const foreignerRu: Center = {
   ],
   "lawyers": [
     {
-      "slug": "kim-miso",
-      "note": "Университет иностранных языков Хангук (Hankuk University of Foreign Studies), английский перевод · бывший штатный юрист компании Wemade"
-    },
-    {
       "slug": "kim-hansol",
       "note": "Бывший прокурор (Инчхон, Ансан, Хонсон) · выпускник Университета Торонто (Канада)"
+    },
+    {
+      "slug": "kim-miso",
+      "note": "Университет иностранных языков Хангук (Hankuk University of Foreign Studies), английский перевод · бывший штатный юрист компании Wemade"
     }
   ],
   "faqs": [

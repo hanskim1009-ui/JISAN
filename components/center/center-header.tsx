@@ -41,31 +41,32 @@ export function CenterHeader({
 
   return (
     <header className={`sticky top-0 z-50 border-b ${t.header}`}>
-      <nav className="max-w-7xl mx-auto flex items-center gap-3 md:gap-7 px-5 md:px-12 xl:px-14 py-4" aria-label={L.menu(name)}>
-        <a href={homeHref} className="mr-auto min-w-0 leading-tight" onClick={() => setOpen(false)}>
-          {/* 센터 이름이 긴 언어(베트남어·러시아어·몽골어)는 좁은 화면에서 두 줄까지 */}
-          <span className={`block tracking-tight ${foreign ? "text-[1rem] sm:text-lg md:text-xl" : "whitespace-nowrap text-lg md:text-xl"}`}>
+      <nav className={`max-w-7xl ${foreign ? "2xl:max-w-screen-2xl" : ""} mx-auto flex items-center gap-3 md:gap-7 px-5 md:px-12 xl:px-14 py-4`} aria-label={L.menu(name)}>
+        <a href={homeHref} className={`mr-auto min-w-0 leading-tight ${foreign ? "2xl:shrink-0" : "xl:shrink-0"}`} onClick={() => setOpen(false)}>
+          {/* 센터 이름이 긴 언어(베트남어·러시아어·몽골어)는 좁은 화면에서 두 줄까지, 넓은 화면에서는 한 줄 */}
+          <span className={`block tracking-tight ${foreign ? "text-[1rem] sm:text-lg md:text-xl 2xl:whitespace-nowrap" : "whitespace-nowrap text-lg md:text-xl"}`}>
             {/* 외국어판 모바일은 아래 줄 JISAN LAW로 충분해 앞 글자를 숨김 (한 줄 유지) */}
-            {foreign ? <span className="hidden sm:inline">JISAN </span> : `${siteConfig.shortName} `}
+            {foreign ? null : `${siteConfig.shortName} `}
             <b className="font-extrabold">{name}</b>
           </span>
           <span className={`block text-[0.6562rem] ${t.logoSub}`}>{foreign ? siteConfig.nameEn : siteConfig.name}</span>
         </a>
-        <div className="hidden xl:flex items-center gap-5">
+        {/* 외국어판은 메뉴 글이 길어 더 넓은 화면(2xl)부터 가로 메뉴 */}
+        <div className={`hidden items-center gap-5 ${foreign ? "2xl:flex" : "xl:flex"}`}>
           {nav.map((n) => (
             <a key={n.href} href={n.href} className={`whitespace-nowrap text-[0.9062rem] transition-colors ${t.headerLink}`}>
               {n.label}
             </a>
           ))}
           {switcher}
-          <a href={siteConfig.phoneHref} className="hidden 2xl:inline whitespace-nowrap text-[0.9375rem] font-bold">
+          <a href={siteConfig.phoneHref} className={`hidden whitespace-nowrap text-[0.9375rem] font-bold ${foreign ? "" : "2xl:inline"}`}>
             {L.call24} {siteConfig.phone}
           </a>
           <a href="#consult" className={`whitespace-nowrap px-5 py-2.5 text-sm font-semibold ${t.headerCta}`}>
             {L.consult}
           </a>
         </div>
-        <div className="flex items-center gap-1 xl:hidden">
+        <div className={`flex items-center gap-1 ${foreign ? "2xl:hidden" : "xl:hidden"}`}>
           {switcher}
           <a href={siteConfig.phoneHref} className="p-2" aria-label={L.callAria}>
             <Phone className="h-5 w-5" />
@@ -82,7 +83,7 @@ export function CenterHeader({
         </div>
       </nav>
       {open && (
-        <div className={`xl:hidden border-t ${t.divider} px-6 pb-6 pt-2 flex flex-col`}>
+        <div className={`${foreign ? "2xl:hidden" : "xl:hidden"} border-t ${t.divider} px-6 pb-6 pt-2 flex flex-col`}>
           {nav.map((n) => (
             <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="py-3 text-base">
               {n.label}

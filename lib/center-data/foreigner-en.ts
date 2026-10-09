@@ -72,7 +72,7 @@ export const foreignerEn: Center = {
       "For foreigners living in Korea, a legal problem often does not end with the problem itself. A single fine can count against you when you apply to extend your stay. The moment you quit your job, you need to work out how much time is left on your stay. During a divorce lawsuit, the first worry is what happens to your status of stay. The Jisan Law Foreigner Center does not look at the case and your stay separately. We advise on both together.",
       "This is especially true for criminal cases. If you are sentenced to imprisonment without labor or a heavier sentence (금고 이상의 형) and then released, you may become subject to deportation. Even a fine can be grounds for cancelling your stay permit if the violation is serious (Immigration Act Articles 46 and 89). Cases that end in a suspended indictment (기소유예) or a decision not to refer the case to prosecutors (불송치) still remain in investigation history records (수사경력자료), and these can be checked when needed for a foreigner's stay or naturalization permit (Act on the Lapse of Criminal Sentences, Article 6). That is why you need to consider what each possible outcome means for your stay from the investigation stage onward.",
       "Deadlines in foreigner cases are also short. If your extension of stay is refused, the notice will in principle state a departure deadline within 14 days of its issue date. An objection to a deportation order must be filed within 7 days of receiving the order. Filing an administrative appeal or an administrative lawsuit does not suspend the decision, so if a departure deadline applies, you must also apply for a stay of execution (집행정지).",
-      "Partner Miso Kim consults with you in English, including at night and on weekends. Rather than simple application paperwork, we take on disputed cases such as refusals, cancellations and deportation, handling objections, administrative appeals and administrative lawsuits, as well as the related criminal, labor and family cases. Our consultation phone line is open 24 hours, including weekends and public holidays."
+      "Consultations are available in English, including at night and on weekends. Rather than simple application paperwork, we take on disputed cases such as refusals, cancellations and deportation, handling objections, administrative appeals and administrative lawsuits, as well as the related criminal, labor and family cases. Our consultation phone line is open 24 hours, including weekends and public holidays."
     ]
   },
   "situations": {
@@ -328,12 +328,12 @@ export const foreignerEn: Center = {
   ],
   "lawyers": [
     {
-      "slug": "kim-miso",
-      "note": "Consults in English · Studied English interpretation and translation (Hankuk University of Foreign Studies) · Former in-house counsel, Wemade"
-    },
-    {
       "slug": "kim-hansol",
       "note": "Former prosecutor (Incheon, Ansan, Hongseong) · University of Toronto"
+    },
+    {
+      "slug": "kim-miso",
+      "note": "Studied English interpretation and translation (Hankuk University of Foreign Studies) · Former in-house counsel, Wemade"
     }
   ],
   "faqs": [
@@ -363,7 +363,7 @@ export const foreignerEn: Center = {
     },
     {
       "q": "Can I get advice in English?",
-      "a": "Yes. Partner Miso Kim consults with you in English, including at night and on weekends. Court and investigation documents are written in Korean, so we will explain important documents to you one by one."
+      "a": "Yes. Consultations are available in English, including at night and on weekends. Court and investigation documents are written in Korean, so we will explain important documents to you one by one."
     },
     {
       "q": "How are fees decided?",

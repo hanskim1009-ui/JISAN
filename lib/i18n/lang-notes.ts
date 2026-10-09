@@ -1,10 +1,6 @@
 import type { Lang } from "@/lib/langs"
 
 /**
- * 그 언어로 상담할 수 있다는 안내 (사무소가 확인한 언어만).
- * 영어: 김미소 변호사, 중국어: 김한솔 변호사. 베트남어·러시아어·몽골어는 상담 방식을 쓰지 않습니다.
+ * 첫 화면·상담 페이지에 붙일 '그 언어 상담 안내' 한 줄. 지금은 쓰지 않습니다(사용자 요청으로 변호사별 상담 언어 표시를 뺌).
  */
-export const LANG_NOTE: Partial<Record<Lang, string>> = {
-  en: "Consultations in English with Partner Miso Kim, including nights and weekends.",
-  zh: "中文咨询由代表律师 Hansol Kim 亲自负责，晚上和周末也可以。",
-}
+export const LANG_NOTE: Partial<Record<Lang, string>> = {}

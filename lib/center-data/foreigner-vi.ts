@@ -328,12 +328,12 @@ export const foreignerVi: Center = {
   ],
   "lawyers": [
     {
-      "slug": "kim-miso",
-      "note": "Tốt nghiệp ngành Biên phiên dịch tiếng Anh, Đại học Ngoại ngữ Hankuk · Nguyên luật sư nội bộ của Wemade Co., Ltd."
-    },
-    {
       "slug": "kim-hansol",
       "note": "Nguyên công tố viên (Incheon, Ansan, Hongseong) · Tốt nghiệp Đại học Toronto, Canada"
+    },
+    {
+      "slug": "kim-miso",
+      "note": "Tốt nghiệp ngành Biên phiên dịch tiếng Anh, Đại học Ngoại ngữ Hankuk · Nguyên luật sư nội bộ của Wemade Co., Ltd."
     }
   ],
   "faqs": [
