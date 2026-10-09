@@ -8,8 +8,8 @@
 
 ## 1. 이번 주 (기본 설정, 1~2시간)
 
-- [ ] **[사무소]** 구글 서치콘솔 등록 (search.google.com/search-console) → 'URL 접두어'로 `https://jisanlaw.com` 추가 → 'HTML 태그' 코드 전달
-- [ ] **[사무소]** 네이버 서치어드바이저 등록 (searchadvisor.naver.com) → 'HTML 태그' 코드 전달
+- [x] **[사무소]** 구글 서치콘솔 등록 (소유 확인 완료) (search.google.com/search-console) → 'URL 접두어'로 `https://jisanlaw.com` 추가 → 'HTML 태그' 코드 전달
+- [x] **[사무소]** 네이버 서치어드바이저 등록 (searchadvisor.naver.com) → 'HTML 태그' 코드 전달 (코드 반영·배포 완료, 네이버에서 '소유확인' 누르기)
 - [ ] **[Claude]** 받은 코드 홈페이지에 넣고 배포
 - [ ] **[사무소]** 소유 확인 후 사이트맵 제출: `https://jisanlaw.com/sitemap.xml` (구글·네이버 모두), 네이버에는 RSS `https://jisanlaw.com/rss.xml`도 제출
 - [ ] **[사무소]** 구글 애널리틱스 4 속성 만들기 → 측정 ID(G-로 시작) 전달
