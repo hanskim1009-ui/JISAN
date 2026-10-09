@@ -25,7 +25,7 @@ Getting a call from a Korean police station is stressful, especially if your Kor
 
 **1. The first phone call is not the interview**
 
-A lot of people start explaining their whole story on that first call. You don't need to. Investigators sometimes write up the call in an investigation report, and nothing guarantees your explanation gets recorded the way you meant it. On the first call, your job is to confirm, not to explain. Write down:
+A lot of people start explaining their whole story on that first call. You don't need to. Investigators sometimes write up the call in an investigation report, and there's no assurance your explanation gets recorded the way you meant it. On the first call, your job is to confirm, not to explain. Write down:
 
 - Which police station and team, and the investigator's name
 - The case number, the charge, and who filed the complaint
