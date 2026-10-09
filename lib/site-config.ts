@@ -46,7 +46,7 @@ export const siteConfig = {
    */
   seo: {
     google: process.env.NEXT_PUBLIC_VERIFY_GOOGLE ?? "",
-    naver: process.env.NEXT_PUBLIC_VERIFY_NAVER ?? "",
+    naver: process.env.NEXT_PUBLIC_VERIFY_NAVER ?? "0e80fd7c7d260c6b83e920684e9665e80ac0b9ec",
     bing: process.env.NEXT_PUBLIC_VERIFY_BING ?? "",
     yandex: process.env.NEXT_PUBLIC_VERIFY_YANDEX ?? "",
     baidu: process.env.NEXT_PUBLIC_VERIFY_BAIDU ?? "",
