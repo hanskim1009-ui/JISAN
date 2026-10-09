@@ -82,7 +82,7 @@ export function AboutPage({ lang }: { lang: Lang }) {
                 <b className="font-semibold text-jisan-ink">{officeName(o.name, lang)}</b> {ko ? officeAddress(o) : officeAddr(o, lang)}
               </span>
             ))}
-            {t("전화")} {ko ? siteConfig.phone : siteConfig.phoneIntl} · {t("24시간, 주말·공휴일 포함")}
+            {ko && `${t("전화")} ${siteConfig.phone} · ${t("24시간, 주말·공휴일 포함")}`}
           </p>
         </aside>
       </div>

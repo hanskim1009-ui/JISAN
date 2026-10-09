@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { ChevronDown, Menu, Phone, X } from "lucide-react"
+import { ChevronDown, Menu, MessageCircle, Phone, X } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 import { fields } from "@/lib/practice"
 import { lawyers } from "@/lib/lawyers"
@@ -101,8 +101,9 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
 
             <div className="flex items-center gap-1 xl:hidden">
               {!ko && <LangSwitch current={lang} />}
-              <a href={siteConfig.phoneHref} className="p-2 text-white" aria-label={t("전화 상담")}>
-                <Phone className="h-5 w-5" />
+              {/* 외국어 사이트는 전화 대신 메신저 문의(상담 신청 페이지) */}
+              <a href={ko ? siteConfig.phoneHref : L(lang, "/consult")} className="p-2 text-white" aria-label={t(ko ? "전화 상담" : "상담 신청")}>
+                {ko ? <Phone className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
               </a>
               <button
                 type="button"

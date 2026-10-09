@@ -34,7 +34,7 @@ export function MapSection({ lang = "ko" }: { lang?: Lang }) {
                   ) : (
                     ko ? officeAddress(o) : officeAddr(o, lang)
                   )}
-                  {o.phone && <span className="block tabular-nums">{t("전화")} {ko ? o.phone : siteConfig.phoneIntl}</span>}
+                  {ko && o.phone && <span className="block tabular-nums">{t("전화")} {o.phone}</span>}
                 </dd>
               </div>
             ))}

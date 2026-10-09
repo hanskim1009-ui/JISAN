@@ -5,13 +5,21 @@ import zh from "@/lib/i18n/site/zh.json"
 import vi from "@/lib/i18n/site/vi.json"
 import ru from "@/lib/i18n/site/ru.json"
 import mn from "@/lib/i18n/site/mn.json"
+/** 외국어 메인 사이트는 채팅으로만 문의: 전화 안내 문장을 채팅 안내로 덮어씀 */
+import { SITE_CHAT } from "@/lib/i18n/site-chat"
 
 /**
  * 메인 사이트 번역 (서버 컴포넌트 전용 — 브라우저 컴포넌트는 dictFor 로 고른 사전과 makeT 사용): 한국어 문장 자체가 열쇠입니다. t("법인 소개") → 영어면 "About us".
  * 번역 파일(lib/i18n/site/{언어}.json)에 없으면 한국어 그대로 나오고, 그 목록은 scripts/i18n-keys 로 뽑습니다.
  * {name} 같은 자리표시는 vars 로 채웁니다.
  */
-const MAPS: Record<Exclude<Lang, "ko">, Record<string, string>> = { en, zh, vi, ru, mn }
+const MAPS: Record<Exclude<Lang, "ko">, Record<string, string>> = {
+  en: { ...en, ...SITE_CHAT.en },
+  zh: { ...zh, ...SITE_CHAT.zh },
+  vi: { ...vi, ...SITE_CHAT.vi },
+  ru: { ...ru, ...SITE_CHAT.ru },
+  mn: { ...mn, ...SITE_CHAT.mn },
+}
 
 export type { TFn }
 

@@ -3,7 +3,8 @@ import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { LogoSvg } from "@/components/brand-logo"
 import type { Lang } from "@/lib/langs"
 import { L, T } from "@/lib/i18n/t"
-import { officeAddr, officeName } from "@/lib/center-i18n"
+import { centerText, officeAddr, officeName } from "@/lib/center-i18n"
+import { chatChannels } from "@/lib/chat"
 import { lawyerI18n } from "@/lib/lawyers-i18n"
 import { LangSwitch } from "@/components/intl/intl-header"
 
@@ -28,10 +29,18 @@ export function Footer({ lang = "ko" }: { lang?: Lang }) {
             </Link>
             <p className="mt-4 text-sm text-white/55">{t("지산은 ‘지혜의 산’이라는 뜻입니다.")}</p>
           </div>
-          <a href={ko ? siteConfig.phoneHref : `tel:${siteConfig.phoneIntl.replace(/-/g, "")}`} className="md:text-right">
-            <span className="block text-[1.75rem] font-bold tabular-nums tracking-tight text-white">{ko ? siteConfig.phone : siteConfig.phoneIntl}</span>
-            <span className="text-[0.8125rem] text-white/60">{t("24시간 · 주말·공휴일 포함")}</span>
-          </a>
+          {ko ? (
+            <a href={siteConfig.phoneHref} className="md:text-right">
+              <span className="block text-[1.75rem] font-bold tabular-nums tracking-tight text-white">{siteConfig.phone}</span>
+              <span className="text-[0.8125rem] text-white/60">{t("24시간 · 주말·공휴일 포함")}</span>
+            </a>
+          ) : (
+            /* 외국어 사이트: 전화 대신 메신저 문의 */
+            <Link href={L(lang, "/consult")} className="md:text-right">
+              <span className="block text-[1.75rem] font-bold tracking-tight text-white">{centerText(lang).chatTitle}&nbsp;→</span>
+              <span className="text-[0.8125rem] text-white/60">{chatChannels(lang).map((c) => c.name).join(" · ")}</span>
+            </Link>
+          )}
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-1.5 border-t border-white/15 pt-6 text-sm md:grid-cols-2">

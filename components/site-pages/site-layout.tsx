@@ -7,6 +7,7 @@ import { HREFLANG, NEEDS_NOTO, type Lang } from "@/lib/langs"
 import { notoSans } from "@/lib/noto-font"
 import { L } from "@/lib/i18n/t"
 import { HEADER_KEYS, clientDict } from "@/lib/i18n/client-keys"
+import { centerText } from "@/lib/center-i18n"
 import { centerBase, centers, getCenter } from "@/lib/centers"
 import type { CenterLink } from "@/components/main/site-header"
 
@@ -38,7 +39,7 @@ export async function SiteLayout({ lang, children }: { lang: Lang; children: Rea
       {/* 빙 등은 문서 언어를 이 값으로도 판단 (html lang 은 공통 틀이라 한국어로 고정) */}
       {lang !== "ko" && <meta httpEquiv="content-language" content={HREFLANG[lang]} />}
       <SiteHeader {...flags} lang={lang} dict={clientDict(lang, HEADER_KEYS)} centerLinks={centerLinks} />
-      <FloatingCTA consultHref={L(lang, "/consult")} lang={lang} />
+      <FloatingCTA consultHref={L(lang, "/consult")} lang={lang} chatLabel={lang === "ko" ? undefined : centerText(lang).chatTitle} />
       <BackToTop />
       <div className="pb-24 md:pb-0">
         <main id="main-content">{children}</main>

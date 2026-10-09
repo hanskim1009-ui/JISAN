@@ -69,14 +69,15 @@ function HeroCopy({ look, lang }: { look: Look; lang: Lang }) {
         >
           {t("상담 신청")}
         </Link>
-        <a
-          href={ko ? siteConfig.phoneHref : `tel:${siteConfig.phoneIntl.replace(/-/g, "")}`}
+        {/* 외국어 사이트는 전화 없이 채팅으로만 문의 (상담 신청 페이지가 메신저 목록) */}
+        {ko && <a
+          href={siteConfig.phoneHref}
           className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[0.9375rem] font-semibold md:px-6 md:py-3 tabular-nums transition-colors ${
             dark ? "border border-white/40 text-white hover:bg-white/10" : "bg-white/60 text-brand backdrop-blur hover:bg-white/80"
           }`}
         >
-          <Phone className="h-4 w-4" /> {ko ? siteConfig.phone : siteConfig.phoneIntl}
-        </a>
+          <Phone className="h-4 w-4" /> {siteConfig.phone}
+        </a>}
       </div>
     </div>
   )
