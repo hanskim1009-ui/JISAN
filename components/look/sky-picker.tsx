@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { SEASONS, SKY_EVENT, SKY_PHASES, phaseOf, readSky, seasonOfMonth, type Season, type SkyPhase } from "@/lib/sky"
 
-const PHASE_KO: Record<SkyPhase, string> = { night: "밤", dawn: "새벽", day: "낮", dusk: "해 질 녘" }
+const PHASE_KO: Record<SkyPhase, string> = { night: "밤", dawn: "새벽", day: "낮" }
 const SEASON_KO: Record<Season, string> = { spring: "봄", summer: "여름", autumn: "가을", winter: "겨울" }
 
 /** 미리보기 전용 전환 버튼 (주소에 ?skypreview=1 · ?sky= · ?season= 이 있을 때만 보임) */

@@ -189,11 +189,9 @@ html[data-look="photo"] .look-ridge {
 html[data-sky="night"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #0F2441 55%, #152C4C 100%); }
 html[data-sky="dawn"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #22355A 42%, #4A4B6F 72%, #8A6C78 100%); }
 html[data-sky="day"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #1B3960 38%, #2D5482 72%, #48719F 100%); }
-html[data-sky="dusk"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #252F50 42%, #554667 72%, #976A66 100%); }
 
 .sky-glow { opacity: 0; transition: opacity 0.8s ease; }
 html[data-sky="dawn"] .sky-glow { opacity: 1; background: radial-gradient(ellipse 55% 35% at 22% 62%, rgba(246, 178, 132, 0.32), transparent 70%); }
-html[data-sky="dusk"] .sky-glow { opacity: 1; background: radial-gradient(ellipse 55% 35% at 78% 62%, rgba(236, 150, 112, 0.34), transparent 70%); }
 html[data-sky="day"] .sky-glow { opacity: 1; background: radial-gradient(ellipse 40% 30% at 80% 22%, rgba(255, 255, 255, 0.12), transparent 70%); }
 
 .sky-stars { opacity: 0; transition: opacity 0.8s ease; }

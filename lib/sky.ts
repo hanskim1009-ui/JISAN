@@ -2,13 +2,14 @@
  * 첫 화면 산 그림의 밤낮·사계절 (미리보기 단계).
  * - 시간대: 방문한 사람의 시계 기준 (외국에서 보면 그 나라 하늘)
  * - 계절: 한국 날짜 기준 (3~5월 봄, 6~8월 여름, 9~11월 가을, 12~2월 겨울)
- * - 주소 뒤 ?sky=night|dawn|day|dusk&season=spring|summer|autumn|winter 로 강제 지정, ?skypreview=1 이면 전환 버튼
+ * - 시간대는 밤(19~5시)·새벽(5~7시)·낮(7~19시) 세 가지 (해 질 녘은 넣지 않기로 함)
+ * - 주소 뒤 ?sky=night|dawn|day&season=spring|summer|autumn|winter 로 강제 지정, ?skypreview=1 이면 전환 버튼
  * 색은 남색(브랜드)을 벗어나지 않는 범위에서만 바뀝니다. 위쪽은 늘 헤더와 같은 남색에서 시작.
  */
-export type SkyPhase = "night" | "dawn" | "day" | "dusk"
+export type SkyPhase = "night" | "dawn" | "day"
 export type Season = "spring" | "summer" | "autumn" | "winter"
 
-export const SKY_PHASES: SkyPhase[] = ["night", "dawn", "day", "dusk"]
+export const SKY_PHASES: SkyPhase[] = ["night", "dawn", "day"]
 export const SEASONS: Season[] = ["spring", "summer", "autumn", "winter"]
 
 /** 다섯 겹 능선 색 (뒤 → 앞), 시간대별 */
@@ -16,7 +17,6 @@ const PHASE_RIDGES: Record<SkyPhase, string[]> = {
   night: ["#3A5378", "#2A4366", "#1B3253", "#112440", "#08162A"],
   dawn: ["#6D6F8E", "#4D5A7D", "#30446A", "#1C3152", "#0D1F38"],
   day: ["#7E98B8", "#5A7AA0", "#3C5D86", "#24456C", "#122C4C"],
-  dusk: ["#7A6684", "#56527A", "#36406A", "#1F2F54", "#0E1D38"],
 }
 
 /** 계절 색을 앞쪽 능선에 살짝 섞음 (layer별 섞는 비율, 뒤 → 앞) */
@@ -45,8 +45,7 @@ export const snowLayers = (season: Season) => (season === "winter" ? [0, 1] : []
 
 export function phaseOf(hour: number): SkyPhase {
   if (hour >= 5 && hour < 7) return "dawn"
-  if (hour >= 7 && hour < 17) return "day"
-  if (hour >= 17 && hour < 19) return "dusk"
+  if (hour >= 7 && hour < 19) return "day"
   return "night"
 }
 
@@ -61,7 +60,7 @@ export function seasonOfMonth(month: number): Season {
  * 첫 화면이 그려지기 전에 html[data-sky][data-season] 을 정하는 스크립트 (깜빡임 방지).
  * 위 phaseOf / seasonOfMonth 와 같은 규칙.
  */
-export const skyInitScript = `(function(){try{var d=document.documentElement,q=new URLSearchParams(location.search),h=new Date().getHours(),p=h>=5&&h<7?'dawn':h>=7&&h<17?'day':h>=17&&h<19?'dusk':'night',m=+new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',month:'numeric'}).format(new Date()),s=m>=3&&m<=5?'spring':m>=6&&m<=8?'summer':m>=9&&m<=11?'autumn':'winter',qs=q.get('sky'),qn=q.get('season');if(['night','dawn','day','dusk'].indexOf(qs)>=0)p=qs;if(['spring','summer','autumn','winter'].indexOf(qn)>=0)s=qn;d.setAttribute('data-sky',p);d.setAttribute('data-season',s);if(q.has('skypreview')||qs||qn)d.setAttribute('data-sky-preview','1')}catch(e){}})()`
+export const skyInitScript = `(function(){try{var d=document.documentElement,q=new URLSearchParams(location.search),h=new Date().getHours(),p=h>=5&&h<7?'dawn':h>=7&&h<19?'day':'night',m=+new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',month:'numeric'}).format(new Date()),s=m>=3&&m<=5?'spring':m>=6&&m<=8?'summer':m>=9&&m<=11?'autumn':'winter',qs=q.get('sky'),qn=q.get('season');if(['night','dawn','day'].indexOf(qs)>=0)p=qs;if(['spring','summer','autumn','winter'].indexOf(qn)>=0)s=qn;d.setAttribute('data-sky',p);d.setAttribute('data-season',s);if(q.has('skypreview')||qs||qn)d.setAttribute('data-sky-preview','1')}catch(e){}})()`
 
 /** 미리보기 전환 버튼이 바꿀 때 알리는 이벤트 이름 */
 export const SKY_EVENT = "jisan-sky"
