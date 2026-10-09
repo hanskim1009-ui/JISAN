@@ -11,7 +11,8 @@ export const crimeZh: Center = {
   "alternates": {
     "ko": "/crime",
     "en": "/en/crime",
-    "zh": "/zh/crime"
+    "zh": "/zh/crime",
+    "vi": "/vi/crime"
   },
   "name": "刑事案件中心",
   "summary": "陪同警方调查，逮捕·拘留，诈骗·侵占，酒驾·暴力，代理告诉",

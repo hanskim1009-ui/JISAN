@@ -11,7 +11,8 @@ export const crimeEn: Center = {
   "alternates": {
     "ko": "/crime",
     "en": "/en/crime",
-    "zh": "/zh/crime"
+    "zh": "/zh/crime",
+    "vi": "/vi/crime"
   },
   "name": "Criminal Law Center",
   "summary": "Police questioning, arrest and detention, fraud and embezzlement, DUI and assault, filing criminal complaints",
