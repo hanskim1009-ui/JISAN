@@ -6,6 +6,7 @@ import { lawyers } from "@/lib/lawyers"
 import { LOOK_SWITCH, lookInitScript } from "@/lib/look"
 import { LookSwitch } from "@/components/look/look-switch"
 import { ScrollReveal } from "@/components/look/scroll-reveal"
+import { Analytics } from "@/components/analytics"
 import "./globals.css"
 
 const siteUrl = siteConfig.siteUrl
@@ -39,6 +40,16 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  /** 검색엔진 소유 확인 (lib/site-config.ts 의 seo 값이 있을 때만) */
+  verification: {
+    ...(siteConfig.seo.google ? { google: siteConfig.seo.google } : {}),
+    ...(siteConfig.seo.yandex ? { yandex: siteConfig.seo.yandex } : {}),
+    other: {
+      ...(siteConfig.seo.naver ? { "naver-site-verification": siteConfig.seo.naver } : {}),
+      ...(siteConfig.seo.bing ? { "msvalidate.01": siteConfig.seo.bing } : {}),
+      ...(siteConfig.seo.baidu ? { "baidu-site-verification": siteConfig.seo.baidu } : {}),
+    },
   },
 }
 
@@ -113,6 +124,7 @@ export default function RootLayout({
         {children}
         <ScrollReveal />
         {LOOK_SWITCH && <LookSwitch />}
+        <Analytics />
       </body>
     </html>
   )

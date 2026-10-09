@@ -47,6 +47,7 @@ export default async function CenterLayout({
 
   return (
     <div lang={L.htmlLang} className={center.lang && NEEDS_NOTO.includes(center.lang) ? notoSans.className : undefined}>
+      {foreign && <meta httpEquiv="content-language" content={L.htmlLang} />}
       <CenterHeader name={center.name} tone={center.tone} nav={nav} homeHref={base} lang={center.lang} alternates={center.alternates} />
       <FloatingCTA consultHref="#consult" lang={center.lang} chatLabel={foreign ? L.chatTitle : undefined} />
       <BackToTop />

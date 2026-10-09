@@ -34,7 +34,7 @@ export function homeMetadata(lang: Lang): Metadata {
     title: { absolute: title },
     description,
     alternates,
-    openGraph: { type: "website", locale: HREFLANG[lang], url: L(lang, "/"), siteName: siteConfig.nameEn, title, description, images: [{ url: "/og.jpg", width: 1200, height: 630, alt: siteConfig.nameEn }] },
+    openGraph: { type: "website", locale: ({ en: "en_US", zh: "zh_CN", vi: "vi_VN", ru: "ru_RU", mn: "mn_MN" } as Record<string, string>)[lang], url: L(lang, "/"), siteName: siteConfig.nameEn, title, description, images: [{ url: "/og.jpg", width: 1200, height: 630, alt: siteConfig.nameEn }] },
   }
 }
 

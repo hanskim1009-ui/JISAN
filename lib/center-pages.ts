@@ -181,3 +181,48 @@ export function groupBy<T extends { group: string }>(items: T[]) {
   }
   return out
 }
+
+/**
+ * 센터 상세 페이지의 다른 언어판 주소 (검색엔진 hreflang 용).
+ * 외국어판 형사·가사·외국인센터는 한국어 원본과 같은 slug 를 씀. 가사센터는 이혼·상간·상속 세 곳을 합친 것이라
+ * 한국어 쪽은 slug 가 있는 센터로 연결 (상간의 de-facto-marriage 는 가사센터에서 de-facto-marriage-affair).
+ * path: "fraud-embezzlement", "guide/police-summons", "faq", "lawyers/kim-hansol"
+ */
+const KIND_KO: Record<string, string[]> = { crime: ["crime"], family: ["divorce", "adultery", "inheritance"], foreigner: ["foreigner"] }
+const KO_KIND: Record<string, string> = { crime: "crime", divorce: "family", adultery: "family", inheritance: "family", foreigner: "foreigner" }
+const FOREIGN = ["en", "zh", "vi", "ru", "mn"] as const
+
+function hasPath(slug: string, path: string) {
+  const p = getCenterPages(slug)
+  if (!p) return false
+  if (path === "faq") return p.moreFaqs.length > 0
+  if (path === "guide") return p.guides.length > 0
+  if (path.startsWith("lawyers/")) return true
+  if (path.startsWith("guide/")) return p.guides.some((g) => `guide/${g.slug}` === path)
+  return p.areaPages.some((a) => a.slug === path)
+}
+
+export function subPageAlternates(centerSlug: string, path: string): Record<string, string> | undefined {
+  const m = centerSlug.match(/^(crime|family|foreigner)-(en|zh|vi|ru|mn)$/)
+  const kind = m ? m[1] : KO_KIND[centerSlug]
+  if (!kind) return undefined
+  const out: Record<string, string> = {}
+  // 한국어판
+  if (m) {
+    for (const ko of KIND_KO[kind]) {
+      const p = kind === "family" && ko === "adultery" && path === "de-facto-marriage-affair" ? "de-facto-marriage" : path
+      if (kind === "family" && path === "de-facto-marriage" && ko === "adultery") continue
+      if (hasPath(ko, p)) {
+        out.ko = `/${ko}/${p}`
+        break
+      }
+    }
+  } else if (hasPath(centerSlug, path)) out.ko = `/${centerSlug}/${path}`
+  // 외국어판
+  const fpath = !m && centerSlug === "adultery" && path === "de-facto-marriage" ? "de-facto-marriage-affair" : path
+  for (const l of FOREIGN) {
+    const slug = `${kind}-${l}`
+    if (hasPath(slug, fpath)) out[l === "zh" ? "zh-Hans" : l] = `${pathOf(slug)}/${fpath}`
+  }
+  return Object.keys(out).length > 1 ? out : undefined
+}

@@ -1,10 +1,11 @@
+import { OG_LOCALE } from "@/lib/langs"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Phone } from "lucide-react"
 import { notFound } from "next/navigation"
 import { centerBase, getCenter } from "@/lib/centers"
 import { centerText } from "@/lib/center-i18n"
-import { allCenterPages, getCenterPages, getGuide } from "@/lib/center-pages"
+import { allCenterPages, getCenterPages, getGuide, subPageAlternates } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
 import { chatOnly } from "@/lib/chat"
 import { RelatedAreas, Sections, SideNav, SubHero } from "@/components/center/sub-page"
@@ -29,10 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: g.seo.title },
     description: g.seo.description,
     keywords: g.seo.keywords,
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: subPageAlternates(center.slug, `guide/${g.slug}`) },
     openGraph: {
       type: "article",
-      locale: "ko_KR",
+      locale: OG_LOCALE[center.lang ?? "ko"],
       url,
       siteName: `${siteConfig.shortName} ${center.name}`,
       title: g.seo.title,

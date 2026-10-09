@@ -38,3 +38,6 @@ export const foreignerAlternates = () => Object.fromEntries(LANGS.map((l) => [l,
 
 /** 키릴 문자·베트남어 성조가 기본 글꼴(넥슨 Lv2 고딕)에 없어 별도 글꼴을 쓰는 언어 */
 export const NEEDS_NOTO: Lang[] = ["vi", "ru", "mn"]
+
+/** og:locale 값 */
+export const OG_LOCALE: Record<Lang, string> = { ko: "ko_KR", en: "en_US", zh: "zh_CN", vi: "vi_VN", ru: "ru_RU", mn: "mn_MN" }

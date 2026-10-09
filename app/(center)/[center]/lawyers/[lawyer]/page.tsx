@@ -8,6 +8,7 @@ import { HREFLANG, type Lang } from "@/lib/langs"
 import { T } from "@/lib/i18n/t"
 import { translateLawyer } from "@/lib/i18n/translate-lawyer"
 import { PROFILE_TEXT } from "@/lib/center-profile-text"
+import { siteConfig } from "@/lib/site-config"
 import { centerText } from "@/lib/center-i18n"
 import { centerTones } from "@/components/center/tone"
 import { SubHero } from "@/components/center/sub-page"
@@ -137,10 +138,24 @@ export default async function CenterLawyerPage({ params }: Props) {
   const rest = others(center, lang, lawyer.slug)
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: lawyer.name,
-    jobTitle: lawyer.title,
-    description: lawyer.summary.replace(/\n/g, " "),
+    "@graph": [
+      {
+        "@type": ["Person", "Attorney"],
+        name: lawyer.name,
+        jobTitle: lawyer.title,
+        description: lawyer.summary.replace(/\n/g, " "),
+        url: `${siteConfig.siteUrl}${base}/lawyers/${lawyer.slug}`,
+        ...(lawyer.image?.startsWith("/") ? { image: `${siteConfig.siteUrl}${lawyer.image}` } : {}),
+        worksFor: { "@id": `${siteConfig.siteUrl}/#organization` },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: center.name, item: `${siteConfig.siteUrl}${base}` },
+          { "@type": "ListItem", position: 2, name: lawyer.name, item: `${siteConfig.siteUrl}${base}/lawyers/${lawyer.slug}` },
+        ],
+      },
+    ],
   }
 
   return (

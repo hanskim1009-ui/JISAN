@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { siteConfig } from "@/lib/site-config"
+import { trackEvent } from "@/components/analytics"
 import { CASE_TYPES, DEFAULT_STAGE_OPTIONS } from "@/lib/practice"
 import { SUPABASE_URL, restHeaders } from "@/lib/supabase"
 import type { Lang } from "@/lib/langs"
@@ -141,6 +142,7 @@ export function ConsultForm({
     const ok = (r: PromiseSettledResult<boolean>) => r.status === "fulfilled" && r.value
     if (ok(db) || ok(mail)) {
       setStatus("success")
+      trackEvent("generate_lead", { case_type: caseType })
       form.reset()
       setCaseType(fixedCaseType ?? "")
     } else {

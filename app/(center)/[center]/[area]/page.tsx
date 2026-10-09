@@ -1,8 +1,9 @@
+import { OG_LOCALE } from "@/lib/langs"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { centerBase, getCenter } from "@/lib/centers"
 import { centerText } from "@/lib/center-i18n"
-import { allCenterPages, getAreaPage, getCenterPages } from "@/lib/center-pages"
+import { allCenterPages, getAreaPage, getCenterPages, subPageAlternates } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
 import { AreaArticle, RelatedAreas, SideNav, SubHero } from "@/components/center/sub-page"
 import { ConsultBand } from "@/components/center/consult-band"
@@ -25,10 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: page.seo.title },
     description: page.seo.description,
     keywords: page.seo.keywords,
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: subPageAlternates(center.slug, page.slug) },
     openGraph: {
       type: "article",
-      locale: "ko_KR",
+      locale: OG_LOCALE[center.lang ?? "ko"],
       url,
       siteName: `${siteConfig.shortName} ${center.name}`,
       title: page.seo.title,

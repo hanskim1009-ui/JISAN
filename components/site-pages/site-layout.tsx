@@ -35,6 +35,8 @@ export async function SiteLayout({ lang, children }: { lang: Lang; children: Rea
   const body = (
     <>
       {lang !== "ko" && <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(HREFLANG[lang])}` }} />}
+      {/* 빙 등은 문서 언어를 이 값으로도 판단 (html lang 은 공통 틀이라 한국어로 고정) */}
+      {lang !== "ko" && <meta httpEquiv="content-language" content={HREFLANG[lang]} />}
       <SiteHeader {...flags} lang={lang} dict={clientDict(lang, HEADER_KEYS)} centerLinks={centerLinks} />
       <FloatingCTA consultHref={L(lang, "/consult")} lang={lang} />
       <BackToTop />

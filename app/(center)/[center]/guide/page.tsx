@@ -3,7 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { allCenters, centerBase, getCenter } from "@/lib/centers"
 import { centerText } from "@/lib/center-i18n"
-import { getCenterPages, groupBy, guideCards } from "@/lib/center-pages"
+import { getCenterPages, groupBy, guideCards, subPageAlternates } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
 import { centerTones } from "@/components/center/tone"
 import { SubHero } from "@/components/center/sub-page"
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!center) return {}
   const L = centerText(center.lang)
   const title = L.guidesTitle(center.name, center.lang && center.lang !== "ko" ? "JISAN" : siteConfig.shortName)
-  return { title: { absolute: title }, description: L.guidesDesc(center.name), alternates: { canonical: `${centerBase(center)}/guide` } }
+  return { title: { absolute: title }, description: L.guidesDesc(center.name), alternates: { canonical: `${centerBase(center)}/guide`, languages: subPageAlternates(center.slug, "guide") } }
 }
 
 /** 상황별 안내 글 모음: /센터/guide */

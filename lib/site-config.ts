@@ -34,6 +34,25 @@ export const siteConfig = {
    * - telegramUrl: https://t.me/아이디   - whatsappUrl: https://wa.me/8210xxxxxxxx (국가번호 포함, + 없이)
    * - zaloUrl: https://zalo.me/전화번호   - messengerUrl: https://m.me/페이지이름   - lineUrl: https://line.me/R/ti/p/@아이디
    */
+  /**
+   * 검색엔진 소유 확인 코드 · 방문 분석 ID (값이 있으면 사이트에 자동으로 들어감. Vercel 환경변수로 넣어도 됨)
+   * - google: 구글 서치콘솔 > 속성 추가 > URL 접두어 > 'HTML 태그'의 content 값   (env NEXT_PUBLIC_VERIFY_GOOGLE)
+   * - naver: 네이버 서치어드바이저 > 사이트 등록 > 'HTML 태그'의 content 값        (env NEXT_PUBLIC_VERIFY_NAVER)
+   * - bing: 빙 웹마스터 도구 > 'msvalidate.01' 태그의 content 값                 (env NEXT_PUBLIC_VERIFY_BING)
+   * - yandex: 얀덱스 웹마스터 > 'Meta tag'의 content 값                          (env NEXT_PUBLIC_VERIFY_YANDEX)
+   * - baidu: 바이두 站长平台 > 'HTML标签'의 content 값                            (env NEXT_PUBLIC_VERIFY_BAIDU)
+   * - gaId: 구글 애널리틱스 4 측정 ID (G-로 시작)                                 (env NEXT_PUBLIC_GA_ID)
+   * - naverAnalyticsId: 네이버 애널리틱스 사이트 ID                               (env NEXT_PUBLIC_NAVER_ANALYTICS_ID)
+   */
+  seo: {
+    google: process.env.NEXT_PUBLIC_VERIFY_GOOGLE ?? "",
+    naver: process.env.NEXT_PUBLIC_VERIFY_NAVER ?? "",
+    bing: process.env.NEXT_PUBLIC_VERIFY_BING ?? "",
+    yandex: process.env.NEXT_PUBLIC_VERIFY_YANDEX ?? "",
+    baidu: process.env.NEXT_PUBLIC_VERIFY_BAIDU ?? "",
+    gaId: process.env.NEXT_PUBLIC_GA_ID ?? "",
+    naverAnalyticsId: process.env.NEXT_PUBLIC_NAVER_ANALYTICS_ID ?? "",
+  },
   chat: {
     kakaoUrl: "https://pf.kakao.com/_Mxlgyn/chat",
     wechatId: "",

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { allCenters, centerBase, getCenter } from "@/lib/centers"
 import { centerText } from "@/lib/center-i18n"
-import { getCenterPages } from "@/lib/center-pages"
+import { getCenterPages, subPageAlternates } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
 import { SubHero } from "@/components/center/sub-page"
 import { ConsultBand } from "@/components/center/consult-band"
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!center) return {}
   const L = centerText(center.lang)
   const title = L.faqTitle(center.name, center.lang && center.lang !== "ko" ? "JISAN" : siteConfig.shortName)
-  return { title: { absolute: title }, description: L.faqDesc(center.name), alternates: { canonical: `${centerBase(center)}/faq` } }
+  return { title: { absolute: title }, description: L.faqDesc(center.name), alternates: { canonical: `${centerBase(center)}/faq`, languages: subPageAlternates(center.slug, "faq") } }
 }
 
 /** 자주 묻는 질문 전체: /센터/faq — 기본 질문 + 주제별 질문 */
