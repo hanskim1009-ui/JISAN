@@ -57,8 +57,9 @@ export const siteConfig = {
     kakaoUrl: "https://pf.kakao.com/_Mxlgyn/chat",
     wechatId: "",
     wechatQr: "",
-    telegramUrl: "",
-    whatsappUrl: "",
+    telegramUrl: "https://t.me/JISANLAWYERS",
+    /** 김한솔 변호사 WhatsApp 연락처 QR 링크 (WhatsApp에서 QR을 재설정하면 바뀌므로 여기도 바꿔야 함) */
+    whatsappUrl: "https://wa.me/qr/LBIJBRCCXHKRB1",
     zaloUrl: "",
     messengerUrl: "",
     lineUrl: "",
