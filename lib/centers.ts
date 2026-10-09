@@ -84,8 +84,17 @@ import { foreignerRu } from "@/lib/center-data/foreigner-ru"
 import { foreignerVi } from "@/lib/center-data/foreigner-vi"
 import { intlCenters } from "@/lib/intl-centers.generated"
 
+/** 한국어 센터 → 그 내용을 옮긴 외국어판 센터 종류 (언어 전환 단추로 연결) */
+const INTL_FROM: Record<string, string> = { crime: "crime", divorce: "family", adultery: "family", inheritance: "family" }
+function withIntl(c: Center): Center {
+  const kind = INTL_FROM[c.slug]
+  const alts = kind ? intlCenters.filter((x) => x.slug.startsWith(`${kind}-`)) : []
+  if (alts.length === 0) return c
+  return { ...c, alternates: { ko: `/${c.slug}`, ...Object.fromEntries(alts.map((x) => [x.lang, x.basePath])) } }
+}
+
 /** 메인 사이트에 보이는 (한국어) 센터 */
-export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner]
+export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner].map(withIntl)
 
 /** 외국어판 센터: 메인 사이트 목록에는 없고, 주소(basePath)와 언어 전환으로만 들어옵니다 */
 export const foreignCenters: Center[] = [foreignerEn, foreignerZh, foreignerVi, foreignerRu, foreignerMn, ...intlCenters]

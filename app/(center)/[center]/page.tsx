@@ -26,6 +26,12 @@ import { ColumnRow } from "@/components/column-parts"
 import { getNaverBlogPosts } from "@/lib/feeds"
 import { SampleNote } from "@/components/sample-note"
 import { PROFILE_TEXT } from "@/lib/center-profile-text"
+import { T, L as L_ } from "@/lib/i18n/t"
+import { COLUMN_KEYS, clientDict } from "@/lib/i18n/client-keys"
+import type { CaseField } from "@/lib/content"
+
+/** 외국어판 센터 → 보여 줄 칼럼 분야 */
+const INTL_FIELD: Record<string, CaseField> = { crime: "형사", family: "가사" }
 
 type Props = { params: Promise<{ center: string }> }
 
@@ -73,8 +79,14 @@ export default async function CenterPage({ params }: Props) {
   const base = centerBase(center)
   // 업무사례·칼럼은 한국어만 있어 외국어판에서는 숨김
   const cases = foreign ? [] : await getCases({ center: center.slug })
-  const columns = foreign ? [] : await getColumns({ center: center.slug, limit: 6 })
-  const columnTotal = foreign ? 0 : (await getColumns({ center: center.slug })).length
+  // 외국어판: 그 언어로 옮긴 칼럼 중 센터 분야 글 (외국인센터는 전부)
+  const colOpts = foreign
+    ? { lang: center.lang, ...(INTL_FIELD[center.slug.replace(/-[a-z]{2}$/, "")] ? { field: INTL_FIELD[center.slug.replace(/-[a-z]{2}$/, "")] } : {}) }
+    : { center: center.slug }
+  const columns = await getColumns({ ...colOpts, limit: 6 })
+  const columnTotal = (await getColumns(colOpts)).length
+  const colDict = foreign ? clientDict(center.lang!, COLUMN_KEYS) : undefined
+  const tt = T(center.lang ?? "ko")
   const posts = center.blog ? await getNaverBlogPosts(center.blog.id, 6) : []
   const lawyers = center.lawyers.flatMap((cl) => {
     const l = getLawyer(cl.slug)
@@ -347,19 +359,25 @@ export default async function CenterPage({ params }: Props) {
       {columns.length > 0 && (
         <section id="column" className={`${sectionPad} ${bg("column")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
-            <h2 className={h2}>{center.name} 칼럼</h2>
+            <h2 className={h2}>{foreign ? tt("칼럼") : `${center.name} 칼럼`}</h2>
             <SampleNote show={columns.some((c) => c.sample)} className="mt-3" />
             <div className="mt-6 border-t border-jisan-ink">
               {columns.map((c, i) => (
                 <div key={c.id} className={i >= 3 ? "hidden md:block" : undefined}>
-                  <ColumnRow c={c} />
+                  <ColumnRow c={c} lang={center.lang} dict={colDict} />
                 </div>
               ))}
             </div>
-            {columnTotal > columns.length && (
-              <Link href={`/column?center=${center.slug}`} className={`mt-6 inline-block text-sm font-semibold ${t.accent}`}>
-                {center.name} 칼럼 {columnTotal}편 모두 보기&nbsp;→
+            {foreign ? (
+              <Link href={L_(center.lang!, "/column")} className={`mt-6 inline-block text-sm font-semibold ${t.accent}`}>
+                {tt("칼럼")}&nbsp;→
               </Link>
+            ) : (
+              columnTotal > columns.length && (
+                <Link href={`/column?center=${center.slug}`} className={`mt-6 inline-block text-sm font-semibold ${t.accent}`}>
+                  {center.name} 칼럼 {columnTotal}편 모두 보기&nbsp;→
+                </Link>
+              )
             )}
           </div>
         </section>

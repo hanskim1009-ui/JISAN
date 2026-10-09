@@ -1946,5 +1946,2562 @@
    }
   ],
   "author": "park-jongjin"
+ },
+ {
+  "id": "crime-a-voice-phishing-runner",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-09-09",
+  "title": "Why ‘I only passed on the money’ does not work as a defense",
+  "summary": "Couriers who collect and hand over cash are investigated as accomplices in voice phishing fraud. We look at how courts assess intent, and at the new reduction provision introduced in September 2026.",
+  "body": [
+   {
+    "type": "p",
+    "text": "High daily pay, a job delivering documents, interviews held over a messenger app. Open the file in a voice phishing courier case and the story usually begins with a job ad like this. People facing questioning say the same thing every time: “I just did what I was told and passed on the money.” Even if that is true, it is not enough on its own to clear the charge."
+   },
+   {
+    "type": "h2",
+    "text": "Intent can be found even if you did not know for sure"
+   },
+   {
+    "type": "p",
+    "text": "Even if you did not clearly know it was voice phishing, courts find intent if you thought it might be illegal and carried on with the work anyway. This is what is called dolus eventualis (미필적 고의). So rather than repeating that you did not know, it matters far more to show, with records, why you believed at the time that it was a legitimate job."
+   },
+   {
+    "type": "p",
+    "text": "Small actions, such as whether you searched the company name when you were hired, checked its business registration, or how you explained the new job to family or friends, can serve as circumstances showing you believed the job was legitimate. On the other hand, the circumstances investigators ask about are almost always the same."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Whether you were hired only through a messenger app, with no employment contract or face-to-face interview",
+     "Whether the pay was excessive for the work involved",
+     "Whether you were told to pretend to be someone else or to delete chat rooms",
+     "Whether you split the cash you received into several cash deposits made without a bankbook"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Going out even once does not end lightly"
+   },
+   {
+    "type": "p",
+    "text": "A person who collected and passed on money is investigated as a co-principal or an aider and abettor in fraud. Following an amendment on December 23, 2025, the statutory penalty for fraud is now imprisonment of up to 20 years or a fine of up to 50 million won, and Article 15-2 of the Special Act on the Prevention of Damage from Telecommunications Financial Fraud and Refund of Damaged Assets (전기통신금융사기 피해 방지 및 피해자산 환급에 관한 특별법) provides for imprisonment for a definite term of at least one year or a fine of three to five times the criminal proceeds."
+   },
+   {
+    "type": "p",
+    "text": "If the scope of the conspiracy is read broadly, losses you never collected yourself can end up in the charges. The starting point of the defense is to pin down precisely from when to when, how many times, and from whom you collected money."
+   },
+   {
+    "type": "p",
+    "text": "If your mobile phone has been seized, you can apply to take part in the forensic process and watch what data is extracted. It is a chance to check whether only data unfavorable to you is being picked out, and whether conversations showing that you were used have been left out."
+   },
+   {
+    "type": "p",
+    "text": "Because couriers meet victims in person, they are the first to be identified, and if they went out several times or the amounts are large, an arrest may be followed by a request for a detention warrant. Restoring the victims' losses weighs heavily in sentencing, so where there are several victims we try to reach a settlement with each one, and for victims who cannot be reached we consider a criminal deposit (형사공탁)."
+   },
+   {
+    "type": "h2",
+    "text": "The new reduction provision"
+   },
+   {
+    "type": "p",
+    "text": "On September 8, 2026, Article 17-2 was added to the same Act. It provides that the sentence may be reduced or waived for a person who, during the investigation or trial, gives statements or materials revealing other people's crimes, or provides information about catching offenders or about criminal proceeds. It also applies to cases under investigation or on trial when it took effect."
+   },
+   {
+    "type": "p",
+    "text": "With this provision in mind, deleting Telegram chats or resetting your phone out of fear hurts you twice over. You come under suspicion of trying to destroy evidence, and you also throw away the very material that could expose the organization. Leave the instruction messages, the screens of the job ad and the records of the pay you received as they are, and we recommend deciding what to submit, and when, before you are questioned."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-a-bank-card-lending",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-05-05",
+  "title": "If you only sent your debit card and received no money",
+  "summary": "Many people are investigated under the Electronic Financial Transactions Act after handing over a debit card and PIN to get a loan. We look at the difference between transfer and lending, and what counts as consideration.",
+  "body": [
+   {
+    "type": "p",
+    "text": "A message saying you need to build up a transaction history to get a loan limit, so please send your debit card and PIN. Quite a few people believe this, send the card by courier, and a few weeks later get a call from the police station. Most of them say, “I didn't receive a single won.” But what matters in these cases is not money received but something you were promised in return."
+   },
+   {
+    "type": "h2",
+    "text": "What the law targets is the means of access, not the bank account"
+   },
+   {
+    "type": "p",
+    "text": "People usually say they ‘lent their bankbook’, but what the Electronic Financial Transactions Act (전자금융거래법) punishes is dealing in means of access (접근매체). These include the tools and information used to move money out of an account, such as debit cards, cash cards, certificates and passwords. Even if you handed over no physical item and only shared information, it may still apply if you allowed someone else to transact through your account."
+   },
+   {
+    "type": "p",
+    "text": "A violation is punishable by imprisonment of up to five years or a fine of up to 30 million won, and both may be imposed together (Article 49(4) and (8) of the Electronic Financial Transactions Act)."
+   },
+   {
+    "type": "h2",
+    "text": "Transfer and lending have different requirements"
+   },
+   {
+    "type": "p",
+    "text": "Transferring an account outright is punishable even without consideration. Lending it for someone to use for a period, on the other hand, is punishable when consideration is given, received or promised, or when you knew it would be used for crime. So in lending cases, what the other party offered to do for you when you sent the card decides the outcome."
+   },
+   {
+    "type": "p",
+    "text": "In a case where a person who would normally have had difficulty getting a loan sent a debit card in exchange for the chance to build a transaction record and obtain a loan, the Supreme Court held that the chance itself could be consideration for the lending (Supreme Court Decision 2017Do16946, June 27, 2019). This is why saying you received no money does not lead straight to a finding of no charge."
+   },
+   {
+    "type": "p",
+    "text": "Of course, not every case ends in a conviction. The judgment can differ depending on how convincingly the other party impersonated a financial company, whether you were to get the card back, and whether you reported it immediately once you felt something was wrong."
+   },
+   {
+    "type": "p",
+    "text": "If voice phishing proceeds came into the account you handed over, you may be investigated not only for violating the Electronic Financial Transactions Act but also for aiding fraud or as an accomplice. If you withdrew that money yourself or sent it to another account as instructed, the charges become much more serious."
+   },
+   {
+    "type": "p",
+    "text": "What about lending your card to a family member for a short while? If you let them use it briefly with no consideration and did not know it would be used for crime, lending in itself is not punished. But if you handed it over outright, that is a transfer even without consideration, and if the card is used for crime, the account holder will also find it hard to avoid investigation."
+   },
+   {
+    "type": "h2",
+    "text": "Inconveniences that remain even if it ends with a fine"
+   },
+   {
+    "type": "p",
+    "text": "In a case related to voice phishing, you may be designated as a person restricted from electronic financial transactions for three years even if you only receive a fine, and for five years if you receive a prison sentence, including a suspended one. Once internet banking is blocked, even salary transfers and paying utility bills become inconvenient. That is why you need to take this consequence into account when responding at the disposition stage."
+   },
+   {
+    "type": "p",
+    "text": "If you receive notice that your account has been suspended from payment, first check the deadline for filing an objection, and keep the texts and call records you exchanged with the other party rather than deleting them. An objection to a payment suspension is not accepted if the account holder appears to have known, or through gross negligence failed to know, that the account was being used for fraud, so the records explaining the situation when you sent the card are used here as well."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-a-breath-test-refusal",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-08-14",
+  "title": "I only asked for a blood test, so why is it refusal of a breath test?",
+  "summary": "Refusing a sobriety test carries a heavier statutory penalty than drunk driving below 0.2 percent. We look at the Supreme Court's standard for refusal, the order of breath testing and blood sampling, and what refusing a screening device means.",
+  "body": [
+   {
+    "type": "p",
+    "text": "At checkpoints, some drivers say, “I don't trust the breath test, so take my blood instead.” It was only a request to be measured accurately, made out of a sense of injustice, but by the time they are questioned the charge has become refusal of a sobriety test. This one matter of order makes a bigger difference than you might think."
+   },
+   {
+    "type": "h2",
+    "text": "Why refusal is punished more heavily"
+   },
+   {
+    "type": "p",
+    "text": "A driver who fails to comply with a sobriety test when there are reasonable grounds to believe they are under the influence of alcohol is punishable by imprisonment of one to five years or a fine of 5 million to 20 million won (Article 148-2(2) of the Road Traffic Act). This applies regardless of the actual reading, so you may be punished more heavily than if you had been measured below 0.2 percent. Obstructing a sobriety test, by drinking more after driving in order to make measurement difficult, is punished with the same penalty."
+   },
+   {
+    "type": "p",
+    "text": "The same goes for your license. If you refuse a test, your license is always revoked, and you are excluded from the reduction available for people who drive to earn a living. The disqualification period is one year in principle, but two years if you caused an accident or if drunk driving and test refusal together add up to two or more times (Article 82(2) of the Road Traffic Act)."
+   },
+   {
+    "type": "h2",
+    "text": "A blood test is the step after a breath test"
+   },
+   {
+    "type": "p",
+    "text": "The Road Traffic Act provides that measurement is first made by breath test, and that a driver who disputes the result may be measured again by blood sample with their consent (Article 44(2) and (3)). A blood test is a procedure for disputing the result, so if you skip the breath test altogether and insist on a blood test from the start, there is a risk it will be treated as refusal. However unfair it feels, the proper order is to take the breath test first, state clearly that you do not accept the result, and then ask for a blood test."
+   },
+   {
+    "type": "h2",
+    "text": "Failing to blow properly a few times is not automatically refusal"
+   },
+   {
+    "type": "p",
+    "text": "The Supreme Court regards a failure to comply with a test as a case where it is objectively clear that the driver has no intention of complying. It decides this by looking at the driver's words and conduct at the time, how and in what way the officer requested the test, documents such as the detection report, and the reasons for and length of the refusal as a whole (Supreme Court Decision 2016Do16121, June 8, 2017)."
+   },
+   {
+    "type": "p",
+    "text": "The same decision held that refusing the earlier screening step with an alcohol detector, while knowing that a breathalyzer test was to follow, can also amount to refusal. Do not assume it is fine because the detector is not the formal test. On the other hand, if you were not driving, or if the alcohol was drunk elsewhere well after you had finished driving, you can challenge the very basis for demanding the test."
+   },
+   {
+    "type": "p",
+    "text": "If lung disease or an injury made it hard to blow enough air, you need to show this with a medical certificate and treatment records. Write down in chronological order how many times you tried, whether the officer explained how to do it, and what was said between each attempt."
+   },
+   {
+    "type": "h2",
+    "text": "Be even more careful if there was an accident"
+   },
+   {
+    "type": "p",
+    "text": "If you cause an accident injuring someone and do not comply with a test request, you can be prosecuted even if you have comprehensive insurance or the victim does not want you punished (Article 3(2) of the Act on Special Cases Concerning the Settlement of Traffic Accidents (교통사고처리 특례법)). Cases where the driver requested or agreed to a blood test are excluded from this exception, so at an accident scene what was said during the testing process is especially important."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-a-true-fact-defamation",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-05-24",
+  "title": "I wrote the truth, so why is it defamation?",
+  "summary": "It can be defamation even if you did not lie. We go through, in order, the punishment of stating true facts, public interest purpose, the possibility of spreading, and the 2026 amendment to the Network Act.",
+  "body": [
+   {
+    "type": "p",
+    "text": "“Everything I wrote is true.” This is the first thing people accused of defamation say in the consultation room. It is said with a sense of injustice, but unfortunately that fact alone does not end the case. Korean criminal law punishes the disclosure of true facts as well."
+   },
+   {
+    "type": "h2",
+    "text": "The provision that punishes even the truth"
+   },
+   {
+    "type": "p",
+    "text": "Article 307(1) of the Criminal Act provides that a person who defames another by publicly stating facts is punishable by imprisonment with or without labor for up to two years or a fine of up to 5 million won. There has been debate over whether this provision restricts freedom of expression too much, but the Constitutional Court held it constitutional (Constitutional Court Decision 2017HunMa1113 and others, February 25, 2021)."
+   },
+   {
+    "type": "p",
+    "text": "There is, however, one way out. If the facts are true and solely in the public interest, the act is not punished (Article 310 of the Criminal Act). Reviews written to inform other consumers, and warning posts meant to prevent the same harm, are argued mainly on this point. Whether you wrote only verifiable facts, such as dates, amounts and what was said, and whether personal attacks were mixed in, weigh heavily in the judgment."
+   },
+   {
+    "type": "h2",
+    "text": "When words said to one person can spread"
+   },
+   {
+    "type": "p",
+    "text": "Defamation requires publicity (공연성). The Supreme Court maintains the position that even if you spoke to only one or two people, publicity can be found if they might pass it on to others (Supreme Court en banc Decision 2020Do5813, November 19, 2020). Conversely, if you spoke only to family or to someone in a relationship of confidentiality, the possibility of spreading may be denied."
+   },
+   {
+    "type": "p",
+    "text": "Another common defense is that you did not use the person's name. Even if you used only initials or a nickname, the victim is treated as identified if people around them can tell who it is by putting together the company name, job title, neighborhood or photos."
+   },
+   {
+    "type": "h2",
+    "text": "For online posts, the issue is intent to slander"
+   },
+   {
+    "type": "p",
+    "text": "Posts on blogs, online communities, social media and review boards are often investigated under Article 70 of the Network Act (정보통신망법). If the facts are true, the penalty is imprisonment of up to three years or a fine of up to 30 million won; if false, imprisonment of up to seven years, suspension of qualifications for up to ten years, or a fine of up to 70 million won. The 70 million won cap on fines for false facts applies to acts committed after the amended provision took effect on January 6, 2026, and the previous standard applies to earlier acts."
+   },
+   {
+    "type": "p",
+    "text": "This provision punishes only where there is intent to slander. If the main motive for a post was the public interest, the judgment may lean toward denying intent to slander, so why you wrote the post becomes the center of the case."
+   },
+   {
+    "type": "p",
+    "text": "Under both the Criminal Act and the Network Act, defamation is an offense that cannot be prosecuted against the victim's wishes (반의사불벌죄), so if the victim does not want punishment, no indictment can be filed. Because it is not an offense prosecutable only on complaint (친고죄), the six-month period for filing a complaint does not apply either. If there is a lot of room for dispute, it may be better to argue public interest and identifiability first in a written opinion rather than rushing into a settlement."
+   },
+   {
+    "type": "p",
+    "text": "If, on the other hand, you are the victim, the order of steps matters. You can explain the infringement to the board operator and request deletion or a temporary measure, and the temporary measure lasts up to 30 days (Article 44-2 of the Network Act). But you need to capture the original post, its address and the date and time it was written before it disappears, so that evidence remains when you later file a complaint."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-b-first-call",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-05-10",
+  "title": "The investigator's first call: you do not need to explain at length",
+  "summary": "Many people tell the whole story of their case in the first call from the police. We have set out what to confirm on that call and what to hold back.",
+  "body": [
+   {
+    "type": "p",
+    "text": "You answer a call from an unknown number and the caller says they are from a police investigation team. After confirming your name, they tell you that you need to come in for questioning about a certain matter. When we hear about this first call in consultations, quite a few people say that, in their shock, they explained their situation at length right then and there. Some even say they spent more than ten minutes justifying themselves, starting with “No, it's not like that.”"
+   },
+   {
+    "type": "p",
+    "text": "It is natural to feel wronged first. But that call is not an interview, and nothing ensures your explanation will be recorded the way you meant it. Investigators sometimes write up the content of the call in an investigation report."
+   },
+   {
+    "type": "h2",
+    "text": "What to write down on this call"
+   },
+   {
+    "type": "p",
+    "text": "Your task on the first call is to confirm, not to explain. Pick up a pen and ask about and note down the following. If the unfamiliar number seems suspicious, it is safer to hang up and call the main number of that police station to ask for the officer in charge."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Which police station and team the caller belongs to, and their name",
+     "The case number, the charge, and who filed the complaint",
+     "Whether you are being called as a suspect or as a witness",
+     "Possible dates for appearing and any documents you are asked to bring"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "If you are being called as a suspect, the summons must state the gist of the alleged facts (Article 19(3) of the Investigation Rules (수사준칙)). If you were contacted only by phone because the matter is said to be urgent, you may ask them to send you a text message stating what facts you are being questioned about."
+   },
+   {
+    "type": "p",
+    "text": "Hearing that you are a witness is no reason to relax yet. Questioning that begins with you as a witness sometimes turns into questioning as a suspect depending on what you say. Once you have confirmed in what capacity you are being called, you can decide how much preparation it needs."
+   },
+   {
+    "type": "h2",
+    "text": "You do not have to fix a date now"
+   },
+   {
+    "type": "p",
+    "text": "The investigator may ask you to set a date on the spot. If you need time to prepare, you can say you will check your schedule and call back. Investigators must agree the date, time and place of questioning with the suspect, and if you ask for a postponement they are to adjust it unless there are special circumstances (Article 19(1)3 and 19(2) of the Investigation Rules)."
+   },
+   {
+    "type": "p",
+    "text": "Avoiding contact, or failing to show up on the agreed day without a word, is a different matter. If you do not comply with a summons without a justifiable reason, an arrest warrant may be requested (Article 200-2 of the Criminal Procedure Act). Even if you postpone the date, do not cut off contact."
+   },
+   {
+    "type": "h2",
+    "text": "When you still want to say something"
+   },
+   {
+    "type": "p",
+    "text": "Sometimes the investigator asks about the facts, saying, ‘I'll just ask you a few simple things.’ In that case it is enough to reply politely that you will give the details when you come in. You need not worry about seeming rude. A calm explanation given in the interview room with your materials in order is a far more useful statement for the investigator as well."
+   },
+   {
+    "type": "p",
+    "text": "After you hang up, write down what you remember of the call just as it was. As a party to the conversation, recording the call is not a problem either, but more useful than a recording is a note written right after hanging up. What the investigator asked can be a clue to the direction of the investigation. Once you appoint defense counsel, further scheduling is arranged with your lawyer."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-b-partial-silence",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-08-09",
+  "title": "The right to remain silent is used question by question",
+  "summary": "When people hear ‘the right to remain silent’, they tend to picture someone refusing to answer every question. We explain the right to refuse to make statements, which can be used question by question, and how to decide when to use it.",
+  "body": [
+   {
+    "type": "p",
+    "text": "In TV dramas, remaining silent usually means saying nothing at all to the very end. Perhaps that is why people feel that using the right to refuse to make statements means confronting the investigator, or they walk into the interview room without even thinking of it. In actual questioning, the right is used far more precisely than that."
+   },
+   {
+    "type": "h2",
+    "text": "The law has spoken of ‘individual questions’ from the start"
+   },
+   {
+    "type": "p",
+    "text": "Before questioning, the investigator must inform you that you may refuse to make any statement or decline to answer individual questions, that you will suffer no disadvantage for not making a statement, and that what you say may be used as evidence of guilt in court (Article 244-3(1) of the Criminal Procedure Act). It is not all or nothing; you can choose question by question."
+   },
+   {
+    "type": "p",
+    "text": "After informing you of this, the investigator must ask whether you will exercise the right to refuse to make statements (진술거부권) and the right to the assistance of counsel, and record your answer in the interrogation record (paragraph (2) of the same Article). This exchange on the first page of the record looks like a formality, but it is the record showing whether you were properly informed of your rights."
+   },
+   {
+    "type": "p",
+    "text": "So it is possible to explain your personal details and how the events unfolded while declining to answer only certain points. Conversely, you can also refuse to answer most questions and state only the facts that are truly necessary. Which approach is better differs from case to case."
+   },
+   {
+    "type": "h2",
+    "text": "Which questions to stop at"
+   },
+   {
+    "type": "p",
+    "text": "In consultations, the situations where we consider refusing to answer are usually these: questions asking you to pin down specific dates or amounts when you have no idea what material the investigators hold, questions about the roles of others involved, and questions asking you to answer even by guessing when your memory is vague. A hasty answer to such questions looks like a changed story later when it conflicts with objective evidence."
+   },
+   {
+    "type": "p",
+    "text": "When you decline, it is enough to say briefly, ‘I will not answer that part now.’ There is no need to explain your reasons at length or argue with the investigator. For the points where you held back, the option remains to explain them in a written opinion after checking the record and gathering materials."
+   },
+   {
+    "type": "p",
+    "text": "Things are different in a case where you admit the charge and ask for leniency. Admitting your wrongdoing and explaining honestly how it happened is itself something that is considered in the disposition and sentencing, so refusing to answer often does not help."
+   },
+   {
+    "type": "h2",
+    "text": "Silence is recorded too"
+   },
+   {
+    "type": "p",
+    "text": "If you refuse to answer, the record states exactly that you declined to make a statement. That you will suffer no disadvantage is the law's promise, but in a case with enough other evidence, silence alone will not change the outcome. The right is better used not as a way to cover up a case but as a way to avoid leaving unprepared answers in the record."
+   },
+   {
+    "type": "p",
+    "text": "Having refused once does not mean you can never speak afterwards. You may give a statement at the next questioning after checking the record. But an explanation given then is only convincing if it is supported by materials that existed from the beginning."
+   },
+   {
+    "type": "p",
+    "text": "Which questions to stop at should be decided before questioning. If you choose on the spot in the interview room, speech and silence get mixed together and the record ends up looking awkward instead."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-b-arrest-night",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-03-31",
+  "title": "The night you get a call saying a family member has been arrested",
+  "summary": "When you hear about an arrest, your first impulse is to rush to the police station. We set out what the family should do first that night, and the difference between a family visit and a meeting with defense counsel.",
+  "body": [
+   {
+    "type": "p",
+    "text": "News of an arrest usually comes without warning, and often at night or on a weekend. It may be a call from the police made on the person's own mobile phone, or a notice of arrest sent by the police station. After hanging up, most people grab their coat and head for the station, because they feel they will only be at ease once they have seen their family member's face."
+   },
+   {
+    "type": "h2",
+    "text": "A family visit and a meeting with counsel are different"
+   },
+   {
+    "type": "p",
+    "text": "Even if you go to the station, questioning often continues right after the arrest, so families frequently come home without seeing the person. Even if you do meet, it is just a brief chance to ask how they are, and since the conversation may be overheard or recorded, it is hard to talk about the case."
+   },
+   {
+    "type": "p",
+    "text": "Defense counsel, or a person seeking to become defense counsel, may meet the arrested person (Article 34 of the Criminal Procedure Act). This meeting is where you can discuss what happened, what has been said in questioning so far, and how to give statements from here on. The spouse, lineal relatives and siblings of the arrested person may appoint defense counsel independently of the person (Article 30(2)). Since the arrested person cannot use a mobile phone, in practice the family has to act first."
+   },
+   {
+    "type": "p",
+    "text": "If the arrested person has no defense counsel, the police must, within 24 hours of the arrest, notify a family member or other person designated by the arrested person in writing of the name of the case, the date, time and place of arrest, the gist of the alleged offense and the reason for arrest (Article 33(1) of the Investigation Rules (수사준칙)). If you receive this notice, take a photo of it, because its contents are the first information defense counsel will check."
+   },
+   {
+    "type": "h2",
+    "text": "The number 48 hours"
+   },
+   {
+    "type": "p",
+    "text": "If a detention warrant is not requested within 48 hours of the arrest, the person must be released (Article 200-2(5) of the Criminal Procedure Act). Questioning continues during this time, and those statements become material for the warrant application and the pre-detention hearing (영장실질심사). An arrested person in a state of panic tends to answer whatever they are asked. The quickest help a family can give is to have defense counsel meet them before the next round of questioning."
+   },
+   {
+    "type": "p",
+    "text": "Meanwhile, the family gathers documents for the pre-detention hearing: documents showing that this person is not someone who will flee or destroy evidence, such as a resident registration certificate, a family relations certificate and a certificate of employment. Also write down on paper the time of arrest, the police station, the department in charge and the charge."
+   },
+   {
+    "type": "p",
+    "text": "The time of arrest is the starting point for counting the 48 hours. If the arrested person is taking any medication, it is also the family's job to bring the name of the medicine and the prescription and inform the police station."
+   },
+   {
+    "type": "h2",
+    "text": "What not to do that night"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Contacting the victim or others involved in the case to explain the situation",
+     "Clearing out the arrested person's mobile phone or computer",
+     "Guessing what the arrested person might have said and getting your stories straight with other family members or acquaintances"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "If something you did in haste is read as an attempt to sway witnesses or destroy evidence, it can instead hasten the very detention you were trying to prevent. What the family needs to do that night is simpler than you might think: write things down, gather documents, and hand them to defense counsel."
+   },
+   {
+    "type": "p",
+    "text": "Arrests happen at any hour. Jisan Law takes requests for meetings at night and on weekends as well."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-b-detention-clock",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-09-16",
+  "title": "Detention periods are shorter than you think",
+  "summary": "Once someone is detained, time seems to stand still, but for investigators and defense counsel the clock runs fast. We set out what to do, and when, within the detention period during the investigation stage.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When a warrant is issued, the family feels that a long fight has begun. For the person inside, a single day feels as long as a week. Yet the detention period during the investigation stage is kept short by law. That shortness puts pressure on both the investigators and the suspect's side."
+   },
+   {
+    "type": "h2",
+    "text": "Ten days with the police, ten days with the prosecutor"
+   },
+   {
+    "type": "p",
+    "text": "The police must release a suspect if they do not hand the suspect over to the prosecutor within ten days of detention (Article 202 of the Criminal Procedure Act), and the prosecutor must release the suspect if no indictment is filed within ten days of receiving the case (Article 203). If a request for supplementary investigation or the like is needed, the period may be extended once, by no more than ten days, with a judge's permission (Article 205)."
+   },
+   {
+    "type": "p",
+    "text": "The time the documents were at the court for the pre-detention hearing (영장실질심사) and the period of a review of the legality of detention (구속적부심사) are not counted in this detention period (Article 201-2(7) and Article 214-2(13)). So the date counted on a calendar and the actual expiry date can be several days apart. When we take on a detention case, we calculate this expiry date at the first meeting."
+   },
+   {
+    "type": "h2",
+    "text": "What the shortness means"
+   },
+   {
+    "type": "p",
+    "text": "Investigators pack their questioning into this period. The detained person is called out several times at short intervals and asked the same questions while exhausted. Work that would be spread over several months in a case without detention is compressed into just over ten days."
+   },
+   {
+    "type": "p",
+    "text": "Defense counsel can also be present during questioning while in detention. The most important work in this period is to realign the direction of statements through meetings between sessions and to check points where earlier answers wavered. The more sessions there are, the easier it is for inconsistencies with earlier statements to arise, so at each meeting we go back over what was asked and how it was answered. The person inside does not know what is happening outside, so it is also defense counsel's job to pass on, at meetings, the materials the family has gathered and the progress of settlement talks."
+   },
+   {
+    "type": "h2",
+    "text": "Written opinions and settlements are timed to the clock too"
+   },
+   {
+    "type": "p",
+    "text": "A settlement agreement submitted before the decision on whether to indict is used differently from one submitted after. The former is taken into account in deciding whether to indict, and the latter in deciding the sentence at trial. This is why settlements are pursued urgently in detention cases."
+   },
+   {
+    "type": "p",
+    "text": "If new circumstances have arisen since the warrant was issued, such as a settlement or restoration of the victim's losses, a review of the legality of detention is also considered within this period. After indictment the route is bail instead, so which procedure to use also depends on the date."
+   },
+   {
+    "type": "h2",
+    "text": "The clock changes after indictment"
+   },
+   {
+    "type": "p",
+    "text": "After indictment, the court's detention period applies. It is two months as a base, and if continued detention is necessary it may be renewed for two months at a time at each level of trial (Article 92 of the Criminal Procedure Act). From this point, bail can be requested."
+   },
+   {
+    "type": "p",
+    "text": "Preparing a detention case ultimately means counting the days backwards. If you work back from the expiry date to decide when to handle questioning, written opinions, settlement and the review of detention, the family will also know what to prepare by when."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-b-fine-unpaid",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-10-05",
+  "title": "If you cannot pay a fine, do you go straight to a workhouse?",
+  "summary": "When people receive a fine notice but have no money to pay it, many immediately picture being sent to a workhouse. We set out the options you can apply for before that, and their deadlines.",
+  "body": [
+   {
+    "type": "p",
+    "text": "Once a fine becomes final through a summary order (약식명령) or a judgment, a payment notice arrives some time later. Quite a few people sigh as soon as they see the amount. Money is already tight for living expenses, and now they are told to pay several million won at once; some even say they would rather serve it off in a workhouse."
+   },
+   {
+    "type": "p",
+    "text": "Before deciding that, there are things you should know. The period for requesting a formal trial in objection to a summary order is seven days from the day you received notice of it (Article 453(1) of the Criminal Procedure Act), and this article concerns what happens after that period has passed and the fine has become final."
+   },
+   {
+    "type": "h2",
+    "text": "How confinement in a workhouse is decided"
+   },
+   {
+    "type": "p",
+    "text": "A fine must be paid within 30 days from the day the judgment becomes final (Article 69(1) of the Criminal Act). If it is not paid, you are confined in a workhouse (노역장 유치) for a period of one day to three years (paragraph (2) of the same Article), and the number of days it converts into is set when the fine is imposed (Article 70(1)). This is the sentence in the judgment or summary order stating how much one day is worth. If you have paid even part of the fine, the days of confinement are reduced in proportion to the amount paid (Article 71 of the Criminal Act)."
+   },
+   {
+    "type": "p",
+    "text": "If you simply leave the notice alone, procedures to enforce the sentence go ahead, and a sentence execution warrant may be issued and you may be taken into custody (Articles 473 and 492 of the Criminal Procedure Act). This is why some people end up being taken to a workhouse straight from a routine police check. You would suddenly be out of contact with your work and family, so if you cannot pay, you should actually act first."
+   },
+   {
+    "type": "h2",
+    "text": "You can pay in installments or defer payment"
+   },
+   {
+    "type": "p",
+    "text": "If you are in financial difficulty, you can apply to the enforcement department of the Public Prosecution Office (공소청) for installment payment or deferral of payment. The basis for this is Article 12 of the Rules on the Enforcement of Property Penalties by the Public Prosecution Office. Eligible people include recipients of basic livelihood benefits, some near-poverty households, persons with disabilities, recipients of unemployment benefits, people who have received a decision to commence individual rehabilitation, and people who themselves, or whose household members, need medical treatment for a month or more, and the prosecutor grants permission after considering your circumstances and ability to pay."
+   },
+   {
+    "type": "p",
+    "text": "If permission is granted, you are given a deadline of up to six months, which can be extended up to twice, by three months each time, if the grounds remain. If you fail to pay twice without a justifiable reason, the permission may be revoked, so keep to the agreed schedule. When applying, submit documents showing your circumstances, such as a certificate of benefit receipt or a medical certificate."
+   },
+   {
+    "type": "h2",
+    "text": "For fines of 5 million won or less, community service is also possible"
+   },
+   {
+    "type": "p",
+    "text": "If a fine of 5 million won or less has become final and you cannot pay it, you can apply to have it converted to community service instead of the workhouse (Article 4(1) of the Act on Special Cases Concerning the Execution of Community Service by Persons Who Fail to Pay Fines, and Article 2 of its Enforcement Decree). You apply to a prosecutor at the district public prosecution office with jurisdiction over your place of residence within 30 days of the prosecutor's payment order, and if you have received permission for installment payment or deferral, you can also apply within that deadline."
+   },
+   {
+    "type": "p",
+    "text": "There are cases in which you cannot apply, such as when you were sentenced to both imprisonment and a fine, so check in advance. Whichever route you choose, the one thing to avoid is putting the notice in a drawer and letting the deadline pass."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-b-deferred-prosecution",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-04-21",
+  "title": "A suspended indictment does not mean ‘it never happened’",
+  "summary": "When you receive a suspended indictment, it is easy to think the case is completely over. We set out what a suspended indictment leaves behind and what it means for your life afterwards.",
+  "body": [
+   {
+    "type": "p",
+    "text": "‘I received a suspended indictment. So I don't have a criminal record now, right?’ This is a question we often hear on the day the notice of the decision arrives."
+   },
+   {
+    "type": "p",
+    "text": "It is half right and half wrong. Since you were not tried, you do not have a record of being sentenced. But the case does not become something that never happened."
+   },
+   {
+    "type": "h2",
+    "text": "It is a decision in which the charge is accepted"
+   },
+   {
+    "type": "p",
+    "text": "A suspended indictment (기소유예) is not a finding that there is no charge. It is a decision that, although the crime is recognized, the case will not be sent to trial this time in light of circumstances such as age and environment and what happened after the offense. Even among decisions not to indict, it differs in nature from ‘no charge’ (혐의없음) or ‘not a crime’ (죄가안됨)."
+   },
+   {
+    "type": "p",
+    "text": "It is a decision often made where a settlement has been reached with the victim, or where it is a first offense and the harm is not serious. In cases where the charge is admitted, it is also often the outcome that defense counsel's written opinion aims for."
+   },
+   {
+    "type": "p",
+    "text": "So for someone who disputed the charge to the end, a suspended indictment may not be an entirely welcome outcome. There is a way to challenge a suspended indictment received unjustly, but it is narrow and has a fixed deadline, so if you intend to challenge it, you need to seek advice right after receiving the notice. Whether to accept or challenge it is decided by looking at the reasons for the decision together with the record so far."
+   },
+   {
+    "type": "h2",
+    "text": "The record remains for a certain period"
+   },
+   {
+    "type": "p",
+    "text": "Records of having been investigated are kept as investigation history data. A suspended indictment received as an adult is kept for five or ten years from the date of the decision, depending on the statutory penalty for the offense (Article 8-2(2) of the Act on the Lapse of Criminal Sentences). If you were a juvenile at the time of the decision, it is three years (paragraph (3) of the same Article)."
+   },
+   {
+    "type": "p",
+    "text": "This data is kept separately from criminal history data, what is commonly called a criminal record. Even so, if you are investigated again for the same kind of conduct, investigators will check the earlier suspended indictment. The fact that a person who was once shown leniency repeated the same wrongdoing weighs heavily in the second decision. The first suspended indictment, in effect, becomes an unfavorable factor in the second case."
+   },
+   {
+    "type": "p",
+    "text": "Overseas visa applications and some hiring processes ask about criminal records or investigation history. What must be disclosed, and to what extent, depends on the standards of that country or organization, so it is safer to check separately before submitting documents."
+   },
+   {
+    "type": "h2",
+    "text": "Homework left after the decision"
+   },
+   {
+    "type": "p",
+    "text": "Sometimes a suspended indictment comes with conditions, such as completing education or taking part in a counseling program. If you received such conditions, finish them within the deadline you were given. If money you agreed to pay in installments as part of a settlement is still outstanding, keep that promise to the end as well. If you break it and the victim raises the matter again, things get complicated."
+   },
+   {
+    "type": "p",
+    "text": "Depending on your occupation, such as public servants or certain licensed professions, even a suspended indictment can be linked to disciplinary action or licensing issues. If this applies to you, it is a good idea to check separately whether you must report it to your organization after receiving the decision, and what procedures follow."
+   },
+   {
+    "type": "p",
+    "text": "A suspended indictment means you have been given another chance. You may put the decision deep in a drawer, but the years after it will show how you used that chance."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "crime-b-settlement-timing",
+  "field": "형사",
+  "centers": [
+   "crime"
+  ],
+  "date": "2026-10-06",
+  "title": "Settlement: when should you raise it?",
+  "summary": "Before the amount of a settlement, what you need to think about is when to start talking about one. We set out what a settlement means at each stage and the problems that arise when you rush.",
+  "body": [
+   {
+    "type": "p",
+    "text": "‘When is the right time to settle?’ The answer lies somewhere between ‘the sooner the better’ and ‘don't rush.’ Both are true, which makes it all the more confusing. In criminal settlements, even the same amount of money can lead to different results depending on when and how you raise it."
+   },
+   {
+    "type": "h2",
+    "text": "A settlement does different work at each stage"
+   },
+   {
+    "type": "p",
+    "text": "For offenses that cannot be punished if the victim does not want punishment, such as assault or intimidation, the case can end on the spot once the victim's wish not to have the offender punished (처벌불원) is submitted. This wish must be expressed before the first-instance judgment is pronounced, and once expressed it cannot be withdrawn (Article 232(3) of the Criminal Procedure Act). For offenses that can be punished even after a settlement, such as fraud, embezzlement or bodily injury, where the settlement is taken into account differs by stage."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Police stage: it is taken into account in whether the case is referred to the prosecutor and in the prosecutor's later judgment",
+     "Before indictment: it is a major factor in deciding whether to end the case with a suspended indictment or a summary order",
+     "During trial: it is taken into account in sentencing, and continues to matter until the sentence is pronounced"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "What is clear is that the later it gets, the fewer options remain. Once you are indicted, the option of a suspended indictment has already passed."
+   },
+   {
+    "type": "h2",
+    "text": "Still, avoid contacting the victim on day one"
+   },
+   {
+    "type": "p",
+    "text": "That said, calling the victim the day after the incident usually backfires. Contact received while the victim is still angry sounds more like pressure than an apology. Investigators, too, do not look favorably on a suspect contacting the victim directly. If the first contact begins with talk of money, it also easily leaves the impression that you are trying to buy your way out."
+   },
+   {
+    "type": "p",
+    "text": "If you are disputing the charge, you need to be even more careful. Raising a settlement hastily can look as though you have admitted the facts. The proper order is to decide first which parts to dispute and which to admit, and to begin settlement talks within that direction. In a case where you dispute some parts and admit others, one approach is to start by discussing compensation for the parts you admit."
+   },
+   {
+    "type": "p",
+    "text": "When you receive a settlement agreement, check that it contains a sentence saying the victim does not want you punished, and that the case number and date are correct. A settlement agreement only counts if it is submitted promptly to wherever the case currently is, that is, the police, the Public Prosecution Office (공소청) or the court. Receiving it and keeping it in a drawer does no good."
+   },
+   {
+    "type": "h2",
+    "text": "When you do not know how to reach the victim"
+   },
+   {
+    "type": "p",
+    "text": "If you do not know the victim's contact details, do not ask around to track them down and visit them. If you ask the investigator in charge to pass on that you wish to settle, contact will follow if the victim agrees. If you have appointed defense counsel, asking the victim's side about their wishes through counsel first puts less pressure on both sides."
+   },
+   {
+    "type": "p",
+    "text": "The victim may ultimately not want to settle. In that case, the next step is to respect that wish while keeping a record of your attempts to settle and your efforts to make up for the harm. After indictment you can consider a criminal deposit (형사공탁), but because it is money deposited regardless of the victim's wishes, you should also know before deciding that it is often not given the same weight as a settlement."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "drug-a-overseas-direct-purchase",
+  "field": "형사",
+  "centers": [
+   "drug"
+  ],
+  "date": "2026-03-03",
+  "title": "How diet pills bought directly from overseas become ‘importing psychotropics’",
+  "summary": "Appetite suppressants and sleep aids sold freely abroad may contain ingredients classified as psychotropic drugs in Korea. We explain why buying them directly from overseas leads to the import provision, which is heavier than possession.",
+  "body": [
+   {
+    "type": "p",
+    "text": "Some medicines that can only be obtained in Korea with a doctor's prescription are sold like health foods in overseas online stores. Quite a few people order them because they are cheaper and more convenient, and then get a call from customs. The first thing to know in these cases is that, even for the same medicine, different provisions apply to holding it in Korea and to bringing it in from abroad."
+   },
+   {
+    "type": "h2",
+    "text": "Even category (d) drugs are a step heavier when imported"
+   },
+   {
+    "type": "p",
+    "text": "If a person who is not a narcotics handler possesses category (d) psychotropic drugs (향정 라목), such as zolpidem or phentermine, the penalty is imprisonment of up to five years or a fine of up to 50 million won (Article 61(1)5 of the Narcotics Control Act (마약류관리법)). But if the same medicine is brought in from abroad, it becomes importing, and the penalty rises to imprisonment of up to ten years or a fine of up to 100 million won (Article 60(1)3)."
+   },
+   {
+    "type": "p",
+    "text": "If the ingredient is a category (a) or (b) psychotropic drug or cannabis, importing carries life imprisonment or imprisonment of at least five years, and for category (c), imprisonment for a definite term of at least one year. So in direct-purchase cases, you can only know the statutory penalty once you have checked which category the tested ingredient falls into, not the product name."
+   },
+   {
+    "type": "p",
+    "text": "The value threshold must be checked as well. If the value of imported psychotropic drugs exceeds 5 million won, the Act on the Aggravated Punishment of Specific Crimes (특정범죄가중처벌법) may apply, so if you placed several orders, first check the total amount."
+   },
+   {
+    "type": "h2",
+    "text": "Inspection of directly purchased foods has become tighter"
+   },
+   {
+    "type": "p",
+    "text": "With the amendment to the Special Act on Imported Food Safety Control that took effect on January 1, 2026, the Ministry of Food and Drug Safety is now required to inspect overseas direct-purchase foods that may contain narcotic raw materials or ingredients. Jellies or drinks containing cannabis ingredients, and products sold abroad as health foods, are that much more likely to be caught at customs clearance."
+   },
+   {
+    "type": "p",
+    "text": "The Ministry of Food and Drug Safety provides a service, Overseas Direct Purchase Food Guide (해외직구식품 올바로), where you can check raw materials and ingredients that are blocked from entry. Many cases could be avoided simply by searching the ingredient name once before ordering."
+   },
+   {
+    "type": "p",
+    "text": "Sometimes customs contacts you and asks you to agree to disposal, but agreeing to disposal does not end the case. Goods confirmed to contain narcotic ingredients may be reported to investigators separately from disposal, and the answers you gave over the phone at that time are later reviewed together with your statements."
+   },
+   {
+    "type": "h2",
+    "text": "Explain that you did not know with the purchase screens"
+   },
+   {
+    "type": "p",
+    "text": "The crime of importing also requires intent, so if you did not know the product contained narcotic ingredients, you can dispute the charge. The description on the sales page, the ingredient labeling, the price, purchase reviews and your search history before and after ordering are the materials for that judgment. Conversely, if the seller used slang or told you to split your orders because customs clearance was difficult, these are circumstances suggesting that you knew."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Order history and screens of the product page (save them; do not delete them)",
+     "Payment records and conversations with any purchasing agent",
+     "Medical records, if you were taking the same medicine on a prescription in Korea",
+     "A summary of whether you had ordered the same item before"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "If it was for treatment, your medical records in Korea become important material. If you can explain whether you were seeing a doctor for the same symptoms and why you chose to buy directly from overseas, it becomes easier to show that you brought it in solely for your own use."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "drug-a-cbd-thc-label",
+  "field": "형사",
+  "centers": [
+   "drug"
+  ],
+  "date": "2026-02-03",
+  "title": "Why a ‘THC 0’ label does not work in Korea",
+  "summary": "CBD oils and gummies sold abroad like health foods are cannabis under Korean law. We set out why they are treated as cannabis regardless of THC content, and how the applicable provision changes depending on how the product was brought in.",
+  "body": [
+   {
+    "type": "p",
+    "text": "After the autumn travel season, similar inquiries keep coming in: someone bought CBD gummies said to help with sleep at a supermarket abroad and was caught at the airport, or someone got a call from customs because of CBD oil they received as a gift. They feel wronged, saying the package stated there was no THC, but that label is not the standard under Korean law."
+   },
+   {
+    "type": "h2",
+    "text": "CBD is cannabis in itself"
+   },
+   {
+    "type": "p",
+    "text": "The Narcotics Control Act (마약류관리법) defines cannabis as the cannabis plant and its resin, products made from them as raw materials, chemically synthesized equivalents specified by Presidential Decree, and mixtures containing any of these (Article 2, item 4). The Enforcement Decree specifies cannabidiol (CBD) as cannabis, together with cannabinol (CBN) and tetrahydrocannabinol (THC) (Annex 7-2 of the Enforcement Decree)."
+   },
+   {
+    "type": "p",
+    "text": "So if a product contains CBD, it is cannabis whatever its THC content. The law excludes the seeds, roots and mature stalks of the cannabis plant and products made from them, but even a product labeled as extracted from stalks or seeds is treated as a mixture containing cannabis if it contains CBD."
+   },
+   {
+    "type": "p",
+    "text": "The Ministry of Food and Drug Safety's guidance on narcotics also describes cannabis as the cannabis plant and its resin, cannabinol, tetrahydrocannabinol and cannabidiol. If the ingredient list of a foreign product shows CBD, cannabidiol or hemp extract, it is safer to treat it as a product containing cannabis ingredients."
+   },
+   {
+    "type": "h2",
+    "text": "How it was brought in decides the penalty"
+   },
+   {
+    "type": "p",
+    "text": "If you brought it in your luggage or received it through a direct overseas purchase, it is importing cannabis. The statutory penalty is life imprisonment or imprisonment of at least five years (Article 58(1)5), so the starting point differs from possessing a product received in Korea, which carries imprisonment of up to five years or a fine of up to 50 million won (Article 61(1)6). If you received it as a gift from a friend living in Korea, it may be treated as a matter of receiving and possession, but if you asked the friend to bring it in or were involved in the process, being an accomplice to importing may come up."
+   },
+   {
+    "type": "p",
+    "text": "The sentencing guidelines treat importing for one's own use as a special mitigating factor. If you bought it for sleep or pain, you need to show it was for personal use by setting out records of treatment for those symptoms, the quantity ordered and whether purchases were repeated."
+   },
+   {
+    "type": "h2",
+    "text": "Buying it in a country where it is legal, and not knowing"
+   },
+   {
+    "type": "p",
+    "text": "The fact that it was legal in the country where it was sold does not change the judgment under Korean law. If you knew it contained CBD but did not know that was prohibited, it becomes a question of mistake of law, and you escape punishment only if there was a justifiable reason for that belief (Article 16 of the Criminal Act). This standard is not easily met, so it is realistic to also prepare to explain the circumstances at the disposition and sentencing stages."
+   },
+   {
+    "type": "p",
+    "text": "For cannabis-based medicines that are truly necessary for treatment, there is a separate route: obtaining them through the Korea Orphan & Essential Drug Center, or carrying them in and out of the country for self-treatment with the approval of the Minister of Food and Drug Safety (Article 3(3) of the Enforcement Decree). Products bought from overseas online stores are not regarded as having gone through this procedure, even if a doctor recommended them. Foods made from seeds, such as hemp seed oil, can be distributed only within the limits for trace residues, and oils or capsules marketed for CBD fall outside that range."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "drug-a-cannabis-buy-vs-smoke",
+  "field": "형사",
+  "centers": [
+   "drug"
+  ],
+  "date": "2026-06-08",
+  "title": "With cannabis, ‘buying’ can be heavier than smoking",
+  "summary": "Smoking cannabis falls under a provision that allows a fine, but buying and selling can be dealt with under a provision carrying imprisonment of at least one year. We also look at what happens if you bought a friend's share as well.",
+  "body": [
+   {
+    "type": "p",
+    "text": "In consultations on cannabis cases, many people start by saying, ‘I only smoked it a few times.’ But the weight of a cannabis case is sometimes decided more by how the cannabis was obtained and to whom it was passed than by the number of times it was smoked. This is because, even with the same cannabis, the applicable provision differs completely depending on the act."
+   },
+   {
+    "type": "h2",
+    "text": "Smoking and trading are in different provisions"
+   },
+   {
+    "type": "p",
+    "text": "Smoking cannabis, or possessing it for the purpose of smoking, carries imprisonment of up to five years or a fine of up to 50 million won (Article 61(1)4 of the Narcotics Control Act (마약류관리법)). Cultivation, possession, receiving and transporting are also in the same Article 61. By contrast, buying or selling cannabis, or arranging or encouraging its sale, falls under Article 59(1)7, with no fine option and imprisonment for a definite term of at least one year."
+   },
+   {
+    "type": "p",
+    "text": "The difference between the two provisions is more than numbers. Under a provision that allows a fine, a first offender with few occasions has a relatively wide chance of the case ending with a suspended indictment or a fine. Under a provision with a minimum of one year, a fine cannot be chosen, so if the case goes to trial you argue for a suspended sentence on the premise of imprisonment."
+   },
+   {
+    "type": "p",
+    "text": "In practice, buying cannabis is sometimes treated as trading and this provision is applied. That is why, in cases where a seller is caught and the list of buyers is handed over, buying becomes an issue as well as smoking."
+   },
+   {
+    "type": "p",
+    "text": "In Telegram transactions where transfer records and chats remain, the number of purchases is fully exposed. Rather than giving a lower or higher number from memory, the first step is to check each transaction in the records one by one and see whether any transfers unrelated to you are mixed in."
+   },
+   {
+    "type": "h2",
+    "text": "If you bought a friend's share as well"
+   },
+   {
+    "type": "p",
+    "text": "It is common for one person to buy on behalf of several people who plan to smoke together. The part bought from the seller can be treated as trading, and the part passed on to friends is trading if you received payment, or receiving and giving if you simply gave it. If there are transfer records, you first need to sort out whether that money was payment for cannabis or a split of shared expenses."
+   },
+   {
+    "type": "p",
+    "text": "This distinction carries through to the sentence. In the trading and brokering category, the sentencing guidelines for drug crimes list ‘buying or receiving for use, simple possession and the like’ as a special mitigating factor. If it is accepted that you bought solely for your own use, even the same purchase may be assessed differently."
+   },
+   {
+    "type": "h2",
+    "text": "It is different if the other person is a minor"
+   },
+   {
+    "type": "p",
+    "text": "Giving cannabis to a minor or having a minor smoke it carries imprisonment for a definite term of at least two years (Article 58-2(1)). If anyone in the group was a minor, that fact must be checked first. Since the weight of the case depends on which act it is classified as, the first task is to write down smoking, buying and sharing separately, by date and by person."
+   },
+   {
+    "type": "p",
+    "text": "If the cannabis was brought in from abroad, yet another provision awaits. Importing cannabis carries life imprisonment or imprisonment of at least five years (Article 58(1)5), which is far heavier than buying it in Korea. This is why you also need to check whether any cannabis products received through direct overseas purchase are mixed in."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "drug-a-import-definition",
+  "field": "형사",
+  "centers": [
+   "drug"
+  ],
+  "date": "2026-07-04",
+  "title": "It is ‘importing’ even if you did not carry it in yourself",
+  "summary": "Drugs ordered from an overseas seller and received by mail also amount to the crime of importing, and the statutory penalty starts from a different point than buying in Korea. We look at the scope of the crime of importing and the aggravation thresholds.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When people hear ‘smuggling’, they tend to picture bags being searched at the airport. But most importing cases we see in consultations are not that dramatic. An item ordered from an overseas website is caught at customs while coming by international mail, and a few days later investigators get in touch. The person thinks they merely bought something, but the law treats it as importing."
+   },
+   {
+    "type": "h2",
+    "text": "It is importing the moment it enters the country"
+   },
+   {
+    "type": "p",
+    "text": "Importing narcotics means bringing narcotics into Korea. It is importing not only when you carry them in yourself but also when you order from an overseas seller and receive them by post or express courier, and the fact that you brought them in for your own use does not, on its own, stop it being importing."
+   },
+   {
+    "type": "p",
+    "text": "So even for the same quantity, the statutory penalty is far heavier than for buying in Korea. Smoking cannabis carries imprisonment of up to five years or a fine of up to 50 million won, but importing cannabis carries life imprisonment or imprisonment of at least five years (Article 58(1)5 of the Narcotics Control Act (마약류관리법)). Importing category (b) psychotropics such as methamphetamine, category (a) such as LSD, or narcotics all likewise carry life imprisonment or imprisonment of at least five years."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Importing narcotics, category (a) or (b) psychotropics, or cannabis: life imprisonment or imprisonment of at least five years (Article 58(1))",
+     "Importing category (c) psychotropics: imprisonment for a definite term of at least one year (Article 59(1)10)",
+     "Importing category (d) psychotropics such as zolpidem: imprisonment of up to ten years or a fine of up to 100 million won (Article 60(1)3)"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Even if you never received it, even if you only prepared"
+   },
+   {
+    "type": "p",
+    "text": "Even if it was caught at customs and you never received it, you can be punished for attempted importing (Article 58(3)). Preparation and conspiracy for the crimes in Article 58(1) are also punishable by imprisonment of up to ten years (paragraph (4)), so whether it is a completed offense, an attempt or preparation depends on what you did at which stage, from ordering and paying to specifying the delivery address."
+   },
+   {
+    "type": "p",
+    "text": "When narcotics are found in international mail or express cargo at customs clearance, investigators sometimes deliver the item as is and identify the recipient. Courts regard opening and inspection for customs clearance as an administrative investigation, so it is hard to have evidence excluded merely because the package was opened without a warrant. Instead, the seizure procedure after receipt and the way the recipient was identified can be examined."
+   },
+   {
+    "type": "p",
+    "text": "There are value thresholds as well. If the value of imported narcotics or psychotropic drugs is 5 million won or more, Article 11(1) of the Act on the Aggravated Punishment of Specific Crimes (특정범죄가중처벌법) applies, with life imprisonment or imprisonment of at least seven years, and if it is 50 million won or more, life imprisonment or imprisonment of at least ten years. Importing cannabis is not covered by this provision."
+   },
+   {
+    "type": "h2",
+    "text": "In the end, it is a question of what you knew"
+   },
+   {
+    "type": "p",
+    "text": "The crime of importing also requires intent. The first thing disputed is whether you knew it was a narcotic, or at least ordered or received it while thinking it might be. Circumstances such as whether the seller used slang, whether they explained ways to avoid customs, and whether the price was unusually high become the materials for that judgment."
+   },
+   {
+    "type": "p",
+    "text": "The sentencing guidelines treat importing solely for one's own use as a special mitigating factor in the import and export category. But if you ordered the same item several times or the quantity was enough to share with others, it is hard to have this accepted, so the entire order history should be checked first."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "sex-crime-a-subway-article-11",
+  "field": "형사",
+  "centers": [
+   "sex-crime"
+  ],
+  "date": "2026-06-09",
+  "title": "Why subway groping cases fall under Article 11 of the Sexual Violence Punishment Act",
+  "summary": "Cases on the morning commute are often investigated not as indecent assault under the Criminal Act but under Article 11 of the Sexual Violence Punishment Act. The two provisions differ in their requirements, statutory penalties and punishment of attempts.",
+  "body": [
+   {
+    "type": "p",
+    "text": "The summons text message received by someone reported on the subway usually gives a long charge name: ‘Violation of the Sexual Violence Punishment Act (Indecent Act in a Crowded Public Place)’. Many people ask how this differs from indecent assault. The answer is that even the same physical contact can fall under a different provision because of where it happened."
+   },
+   {
+    "type": "h2",
+    "text": "The provisions require different things"
+   },
+   {
+    "type": "p",
+    "text": "Indecent assault under Article 298 of the Criminal Act requires an indecent act committed by violence or intimidation. By contrast, Article 11 of the Act on Special Cases Concerning the Punishment of Sexual Crimes (성폭력처벌법) is satisfied when a person commits an indecent act against another on public transport, at a performance or assembly venue, or in any other place where the public is crowded together, and does not separately require violence or intimidation. The law recognizes separately that these are spaces where crowds make it hard for victims to move away and easy for offenders to pretend it was an accident."
+   },
+   {
+    "type": "p",
+    "text": "The statutory penalties differ too. Indecent assault carries imprisonment of up to ten years or a fine of up to 15 million won, while Article 11 carries imprisonment of up to three years or a fine of up to 30 million won. The cap on imprisonment is lower under Article 11, but the cap on fines is actually higher. If there are clear signs of touching someone's body by surprise, indecent assault may be considered even on the subway, so you first need to confirm which provision you are being investigated under."
+   },
+   {
+    "type": "p",
+    "text": "A crowded public place does not mean only subways and buses. The provision gives performance venues and assembly sites as examples and adds any other place where the public is crowded together. Whether a place qualifies, such as a festival site, a packed elevator or a store with a long queue, can be disputed depending on the nature of the place and the circumstances at the time."
+   },
+   {
+    "type": "h2",
+    "text": "There is no provision punishing attempts"
+   },
+   {
+    "type": "p",
+    "text": "Article 15 of the Sexual Violence Punishment Act limits the punishment of attempts to Articles 3 to 9, 14, 14-2 and 14-3. Article 11 is not among them. This means that in a case where someone reached out but was stopped before making contact, they cannot be punished for an attempted Article 11 offense. Because the Criminal Act does punish attempted indecent assault (Article 300 of the Criminal Act), this difference means the applicable provision can change the size of the case."
+   },
+   {
+    "type": "h2",
+    "text": "In the end, it is about intent and movements"
+   },
+   {
+    "type": "p",
+    "text": "What is most often disputed in Article 11 cases is whether the contact was deliberate. Being pushed against someone on a crowded train and deliberately pressing a hand or body against them lead to different conclusions. Investigators look at CCTV in the train and station, the position of the hands, the duration of contact and behavior right after getting off. Materials that explain your posture, such as the station where you boarded and got off, transit card records and the bag you were carrying at the time, become hard to obtain as time passes."
+   },
+   {
+    "type": "p",
+    "text": "If you were caught on the spot and taken to a police box, the statement you wrote there becomes the backbone of the case. Sentences written in panic, such as “I'm sorry” or “I think I touched her,” are easily read later as admitting intent. If you have already written a statement, first write down from memory what you put in it."
+   },
+   {
+    "type": "p",
+    "text": "One misunderstanding needs correcting. A statutory penalty lighter than indecent assault does not mean the ancillary measures are light. Under Article 11, too, once a fine becomes final you become subject to registration of personal information, and completion orders and employment restrictions are also decided. That is how far apart a suspended indictment and a fine are."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "sex-crime-a-filming-body-test",
+  "field": "형사",
+  "centers": [
+   "sex-crime"
+  ],
+  "date": "2026-09-30",
+  "title": "Can photographing someone fully clothed be illegal filming?",
+  "summary": "The crime of filming with a camera or similar device starts from whether what was filmed is a body part that may arouse sexual desire or shame. We set out the factors courts consider, the punishment of attempts and possession, and why forensics can change the size of a case.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When people think of illegal filming, they tend to picture hidden cameras in toilets or changing rooms. But there are also quite a few cases of photographing someone in leggings on the street or filming the legs of the person sitting opposite on the subway. That is why people ask whether it can be a crime when nothing was exposed."
+   },
+   {
+    "type": "h2",
+    "text": "The body as the law defines it"
+   },
+   {
+    "type": "p",
+    "text": "Article 14(1) of the Act on Special Cases Concerning the Punishment of Sexual Crimes (성폭력처벌법) punishes a person who films the body of another that may arouse sexual desire or shame, against the will of the person filmed, with imprisonment of up to seven years or a fine of up to 50 million won. The provision does not make exposure a requirement. It is structured to ask what the footage means, rather than what exactly was filmed."
+   },
+   {
+    "type": "p",
+    "text": "Courts judge from the standpoint of an average person of the same sex and age group as the victim, considering a range of circumstances together. Even if the person was clothed, it may qualify if a particular body part was zoomed in on or the person was followed and filmed repeatedly from behind. On the other hand, if a person was merely included in a landscape or an ordinary photo of people, there is room for dispute."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "The victim's clothing and degree of exposure",
+     "The intent of the person filming and how the filming came about",
+     "The place, angle and distance of the filming",
+     "Whether a particular body part was emphasized in the shot"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Even if the filming was not completed, even if it was deleted"
+   },
+   {
+    "type": "p",
+    "text": "Article 14 also punishes attempts (Article 15 of the Sexual Violence Punishment Act). If filming has begun, for example by putting a phone under a skirt, it can be an attempt even if no file was saved. The crime is complete the moment the filming takes place, so deleting it later does not make it as if it never happened, and deleted files are often recovered through forensics."
+   },
+   {
+    "type": "p",
+    "text": "You can be punished even if you did not do the filming yourself. Possessing, purchasing, storing or viewing the footage or copies of it carries imprisonment of up to three years or a fine of up to 30 million won (Article 14(4)). If you forwarded a video you received to another group chat, it is assessed as providing or distributing it, and the same statutory penalty as filming applies."
+   },
+   {
+    "type": "p",
+    "text": "Videos filmed between partners are no exception. Whether there was consent at the time of filming is assessed scene by scene. Even if filming took place several times with consent, a single occasion without consent is a separate problem, and knowing that one was being filmed is not the same as consenting to the filming."
+   },
+   {
+    "type": "h2",
+    "text": "Other files on the phone make the case bigger"
+   },
+   {
+    "type": "p",
+    "text": "In illegal filming cases, the phone is the most important evidence. If old photos unrelated to the current report are also found, separate cases are added, and if the conduct is assessed as habitual, the sentence can be increased by up to one half (Article 14(5)). If you are asked at the scene to submit your phone voluntarily, you need to state not only whether you will submit it but also the scope, in terms of which period and which apps' data."
+   },
+   {
+    "type": "p",
+    "text": "For filming with a camera or similar device, you become subject to registration of personal information even if a fine becomes final. This differs from offenses such as obscene acts using communication media, where a fine takes you out of registration, so how seriously the possibility of a suspended indictment is pursued at the disposition stage changes the outcome. Whether the filmed scene is a body as the law defines it is the first issue in that."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "sex-crime-b-first-call-from-detective",
+  "field": "형사",
+  "centers": [
+   "sex-crime"
+  ],
+  "date": "2026-04-02",
+  "title": "The investigator's first call: what you must write down",
+  "summary": "Calls asking you to come in for questioning usually come without warning. We set out what to note down on the first call, what to hold back, and what not to do in the 30 minutes after you hang up.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When a call from an unknown number begins with the words ‘This is the investigation team at the police station’, most people's minds go blank. When we hear about that call in the consultation room, quite a few people say they were so startled that they explained their situation at length on the spot. When a summons is made by phone, an investigation report stating its purpose is attached to the case file (Article 19(4) of the Investigation Rules (수사준칙)), and what you said on the call can remain as the first impression of the case. Wanting to explain yourself is natural, but at that moment you do not yet even know what the case is about."
+   },
+   {
+    "type": "h2",
+    "text": "What to write down is fixed"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "The charge and the case number",
+     "The department in charge, the investigator's name and direct number",
+     "Whether the case began with a complaint, a report at the scene, or grew out of another case",
+     "The date, time and place the investigator proposed for your appearance"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "In principle, a summons is made with a written summons stating the gist of the alleged facts, and it may be made by phone or text message when there are urgent circumstances (Article 19(3) of the Investigation Rules). So asking for the gist of why you are being called is a natural question. Even if you cannot hear the details over the phone, knowing just the charge greatly changes the direction of your preparation."
+   },
+   {
+    "type": "p",
+    "text": "Also ask whether you are being called as a suspect or as a witness. Some people are contacted as witnesses and become suspects partway through questioning, so neither should be taken lightly."
+   },
+   {
+    "type": "h2",
+    "text": "You do not have to confirm the date on the spot"
+   },
+   {
+    "type": "p",
+    "text": "Investigators must agree the date, time and place of questioning with the suspect, and with defense counsel if there is one (Article 19(2) of the Investigation Rules). If you request a postponement, they are to adjust it unless there are special circumstances. Saying you will call back after consulting a lawyer is not an evasive answer; it is an answer within the procedure."
+   },
+   {
+    "type": "p",
+    "text": "Cutting off contact or failing to appear without reason is another story. If you do not comply with a summons without a justifiable reason, an arrest warrant may be requested (Article 200-2 of the Criminal Procedure Act). Investigators also distinguish between postponing a schedule and avoiding the investigation. If it is difficult to appear because of work commitments or medical treatment, it is better to say so honestly. There is also a provision allowing questioning outside the investigating office where it is extremely difficult to appear at the police station because of treatment or similar reasons (Article 19(5) of the Investigation Rules)."
+   },
+   {
+    "type": "h2",
+    "text": "The 30 minutes after you hang up"
+   },
+   {
+    "type": "p",
+    "text": "When the call ends, you will want to contact the other person and ask what is going on. That one message often becomes the most unfavorable piece of evidence in the case. The same goes for asking mutual acquaintances about the situation. Regardless of your intent, it can be read as an attempt to get stories straight, and clearing out chat rooms or deleting photos also often happens in exactly this window."
+   },
+   {
+    "type": "p",
+    "text": "Those 30 minutes are better spent writing down what you remember. Write down when, where and with whom you were, as it comes to mind, and mark which parts are certain and which are hazy. Save a screenshot of the summons text message, and if it was a call, note the time of the call and what the investigator said. These notes become the starting point for consultation and preparing for questioning."
+   }
+  ],
+  "author": "kim-hansol"
+ },
+ {
+  "id": "divorce-a-international-law",
+  "field": "가사",
+  "centers": [
+   "divorce"
+  ],
+  "date": "2026-09-15",
+  "title": "Divorcing a foreign spouse: which country's law applies?",
+  "summary": "If your spouse is a foreign national, you first need to check whether you can divorce in a Korean court and which country's law applies. We set out the jurisdiction and governing law provisions of the Act on Private International Law, service of documents, and recognition of judgments.",
+  "body": [
+   {
+    "type": "p",
+    "text": "As international marriages increase, divorce consultations involving foreign spouses come in steadily. Many people tell us their spouse returned to their home country and contact was lost, or that it seems the spouse never intended to live in Korea in the first place. In such cases, there are two things to check before looking at the grounds for divorce: whether a Korean court can take the case, and under which country's law it will be decided."
+   },
+   {
+    "type": "h2",
+    "text": "Can a Korean court take the case?"
+   },
+   {
+    "type": "p",
+    "text": "Article 56 of the Act on Private International Law (국제사법) sets out when Korean courts have jurisdiction in matrimonial cases. These include cases where one spouse's habitual residence is in Korea and the couple's last common habitual residence was also in Korea, where the plaintiff and minor children have their habitual residence in Korea, where both spouses are Korean nationals, and where a Korean national with habitual residence in Korea files suit solely to dissolve the marriage."
+   },
+   {
+    "type": "p",
+    "text": "If you lived together in Korea and your foreign spouse left home, Korean courts will usually have jurisdiction. Conversely, if both spouses live abroad or both are foreign nationals, each case has to be reviewed separately."
+   },
+   {
+    "type": "p",
+    "text": "Jurisdiction affects not only the divorce but also matters concerning children and property. If your child is growing up in Korea, the person with parental authority (친권자) and the custodial parent can also be decided by the Korean court, but if property in your spouse's name is abroad, there are limits to enforcing a Korean judgment against it. Even if the divorce itself is settled easily in Korea, actually receiving a division of property and child support often remains a separate task."
+   },
+   {
+    "type": "h2",
+    "text": "Under which country's law is it decided?"
+   },
+   {
+    "type": "p",
+    "text": "Article 66 of the Act on Private International Law provides that divorce is governed, in order, by the law of the spouses' common nationality, the law of their common habitual residence, and the law of the place most closely connected, while providing that Korean law applies if one spouse is a Korean national with habitual residence in Korea. So for a Korean spouse living in Korea, the grounds for divorce are decided under Article 840 of the Civil Act. How divorce works in the other spouse's country is not an issue at this stage."
+   },
+   {
+    "type": "h2",
+    "text": "Service of documents and what comes after the judgment"
+   },
+   {
+    "type": "p",
+    "text": "If you do not know your spouse's address, you show that service by ordinary means is impossible and proceed by service by public notice (공시송달). The first service by public notice takes effect after two weeks, and service by public notice for service to be made abroad after two months, and these periods cannot be shortened (Article 196 of the Civil Procedure Act). If you know the foreign address, service must go through overseas service, which can take several months."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Check your spouse's name in Roman letters, date of birth and passport number in the documents submitted when the marriage was registered",
+     "Confirm whether your spouse has left the country through an immigration records inquiry made through the court",
+     "Keep records of any missing-person report and messages showing attempts to make contact",
+     "If the marriage was a means of entering Korea from the start, also consider annulment of the marriage (혼인무효)"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Conversely, if you obtained a divorce judgment from a foreign court, it must meet the recognition requirements of Article 217 of the Civil Procedure Act before it can be reflected in the Korean family relations register. The points examined are whether that court had international jurisdiction, whether the defendant was lawfully served by a method other than service by public notice or appeared in the proceedings, whether it is contrary to good morals, and whether there is reciprocity. Please also bear in mind that to have a divorce in Korea reflected in the civil status records of your spouse's country, you must separately follow that country's procedures."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "divorce-a-six-grounds",
+  "field": "가사",
+  "centers": [
+   "divorce"
+  ],
+  "date": "2026-08-18",
+  "title": "Can you divorce over ‘incompatible personalities’? Rereading Article 840 of the Civil Act",
+  "summary": "The phrase ‘incompatible personalities’ does not appear in the statute. We set out what each of the six grounds for judicial divorce means, and why the ground you choose determines how you prepare your evidence.",
+  "body": [
+   {
+    "type": "p",
+    "text": "“Can I get a divorce because of incompatible personalities?” This question often comes up at the start of a consultation. If your spouse does not agree to a divorce, the court looks at whether one of the grounds set out in Article 840 of the Civil Act exists. That provision does not mention incompatible personalities, but that does not mean divorce is blocked."
+   },
+   {
+    "type": "h2",
+    "text": "Five of them are specific grounds"
+   },
+   {
+    "type": "p",
+    "text": "Article 840 lists six grounds. The first five are relatively clear."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Item 1, an unchaste act by the spouse: even without sexual intercourse, it may apply if the act betrays the marital duty of fidelity",
+     "Item 2, malicious desertion: a typical example is leaving home without a justifiable reason, cutting off living expenses and not returning",
+     "Item 3, extremely unjust treatment by the spouse or the spouse's lineal ascendants: unbearable treatment such as violence or severe insults",
+     "Item 4, extremely unjust treatment of one's own lineal ascendants by the spouse: verbal abuse or mistreatment directed at your parents",
+     "Item 5, where it has been unclear for three years or more whether the spouse is alive or dead"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "The sixth ground is the broadest"
+   },
+   {
+    "type": "p",
+    "text": "Item 6 is ‘any other serious reason making it difficult to continue the marriage’. Circumstances that do not fit neatly into the first five, such as incompatible personalities, long separation, a life without communication, financial problems or conflict with in-laws, are mostly dealt with here."
+   },
+   {
+    "type": "p",
+    "text": "What the court looks at is not the label of the conflict but its result. It considers whether the marriage has broken down to the point where it is hard to restore, and whether being told to continue the marriage would cause one party unbearable suffering. However, if the main responsibility for the breakdown lies with the party seeking the divorce, the matter becomes one of a divorce claim by the spouse at fault (유책배우자), which in principle is not accepted."
+   },
+   {
+    "type": "p",
+    "text": "The circumstances used in this judgment are specific. How long the separation has lasted, what contact and living expenses were like during that time, whether there were attempts at couples counseling or restoring the relationship, and whether the other spouse has shown through their actions an intention to continue the marriage are all reviewed together. The course of life over several years often carries more weight than one or two big fights. So when relying on item 6, the starting point is a timeline setting out the conflicts since the marriage in date order."
+   },
+   {
+    "type": "h2",
+    "text": "The ground you choose determines the evidence"
+   },
+   {
+    "type": "p",
+    "text": "You do not have to choose just one ground, and in practice several grounds are often argued together. Still, deciding on the central ground determines what materials to gather. For an unchaste act you need messages and payment records; for malicious desertion, account records showing living expenses were cut off; for unjust treatment, medical certificates and records of reports."
+   },
+   {
+    "type": "p",
+    "text": "You also need to watch the time limits. Under item 1, you can no longer claim on that ground once six months have passed since you learned of it or two years since it occurred (Article 841), and item 6 has the same periods (Article 842). However, case law holds that these periods are not a problem if the broken state of the marriage still continues today. Incompatible personalities is a phrase not found in the statute, but it is no reason you cannot go to court either."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "divorce-a-custody-criteria",
+  "field": "가사",
+  "centers": [
+   "divorce"
+  ],
+  "date": "2026-03-18",
+  "title": "Choosing the custodial parent: what comes before financial means",
+  "summary": "Courts decide custody not by which parent was more at fault but by which environment is better for the child. We look at how much weight is given to the primary caregiver, the child's wishes, financial means and gender.",
+  "body": [
+   {
+    "type": "p",
+    "text": "What parents fighting over custody usually worry about first is money: whether they will lose their child because they earn less than the other parent, or whether being the father puts them at a disadvantage. What the court actually gives weight to lies somewhere a little different."
+   },
+   {
+    "type": "h2",
+    "text": "There is one standard: the child's welfare"
+   },
+   {
+    "type": "p",
+    "text": "Articles 837 and 909 of the Civil Act provide that if the parents cannot agree, the family court decides the custodial parent (양육자) and the person with parental authority (친권자) based on the child's welfare. Who broke up the marriage is a matter for compensation for emotional distress, and is not in itself decisive in deciding custody. This means that even a spouse who had an affair can become the custodial parent if they have taken good care of the child."
+   },
+   {
+    "type": "p",
+    "text": "Parental authority and custody can be given to different people, but in practice they are often given to the same person. This is because the child's daily life is less disrupted if the parent living with the child can handle matters such as school, hospital visits and opening a bank account on their own. Joint parental authority or joint custody is also legally possible, but since it requires the parents to live nearby and consult often, it is hard to have it accepted in cases with intense conflict."
+   },
+   {
+    "type": "h2",
+    "text": "The circumstances given the most weight"
+   },
+   {
+    "type": "p",
+    "text": "What the court considers most important is who has actually been caring for the child so far, and where and how the child is living now. Courts tend to favor the side where the child's life will be least disrupted, so having been the primary caregiver stands at the center of the judgment."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Who has mainly handled taking the child to and from school, meals, hospital visits and school meetings",
+     "The child's age and whether siblings can be raised together",
+     "Housing and work arrangements after the divorce, and who can help with care",
+     "The child's wishes (if the child is 13 or older, the court must in principle hear the child's views)",
+     "Problems such as violence, neglect or drinking",
+     "An attitude of respecting the child's relationship with the other parent"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Financial means and gender are not decisive"
+   },
+   {
+    "type": "p",
+    "text": "If the parent with less income becomes the custodial parent, this can be made up for by receiving child support from the other parent. So financial means are a factor, but custody is not decided on that alone. Gender is not a standard either. If the father has actually been the main caregiver and shows a plan to raise the child stably after the divorce, he can be designated as the custodial parent."
+   },
+   {
+    "type": "p",
+    "text": "The child's wishes are given important consideration, but they do not simply become the conclusion. Under Article 100 of the Rules on Family Litigation, the court in principle hears the views of a child aged 13 or older, and even with younger children, their feelings are sometimes explored during the family investigation (가사조사). Signs that a parent pressured the child to choose a side may actually be assessed unfavorably."
+   },
+   {
+    "type": "h2",
+    "text": "The moment separation begins is important"
+   },
+   {
+    "type": "p",
+    "text": "Once separation begins, the care arrangements from that point affect the later judgment. If one parent takes the child and raises them for a long time, that situation can become entrenched, so if you have been separated from your child, do not delay applying for designation of a temporary custodial parent through a preliminary disposition (사전처분). Conversely, taking the child away without the other parent's knowledge may look bad to the court, so be careful."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "divorce-a-support-table",
+  "field": "가사",
+  "centers": [
+   "divorce"
+  ],
+  "date": "2026-08-12",
+  "title": "The child support table is only a starting point",
+  "summary": "Child support starts from the standard amount in the calculation table and is set by adding or subtracting for the circumstances of the child and parents. We explain how to read the table, the grounds for increases and reductions, and the question of costs after the child reaches adulthood.",
+  "body": [
+   {
+    "type": "p",
+    "text": "People looking into child support usually start by finding the Child Support Calculation Table (양육비 산정기준표). Match the bracket for the parents' combined income with the child's age and an amount comes out, so it looks simple. But the amount actually set by the court often differs from the number in the table."
+   },
+   {
+    "type": "h2",
+    "text": "How to read the table"
+   },
+   {
+    "type": "p",
+    "text": "Based on the Child Support Calculation Table published by the Seoul Family Court, the court finds the standard child support amount that matches the parents' combined income and the age and number of children. It then divides this amount according to the ratio of the parents' incomes to set the share to be paid by the parent who does not live with the child. For example, if the two parents earn about the same, roughly half the standard amount is calculated as the non-custodial parent's burden, and if one parent earns much more, a larger share in proportion to that parent's ratio is calculated."
+   },
+   {
+    "type": "p",
+    "text": "The first point of dispute here is income. For salaried workers it is relatively clear from the withholding tax receipt, but for self-employed people and freelancers, reported income and actual standard of living often differ. In that case, you argue for the actual income to be estimated from card spending records, vehicles and housing, and business sales data, and if necessary you apply for a property disclosure order (재산명시) and a property inquiry (재산조회)."
+   },
+   {
+    "type": "h2",
+    "text": "Circumstances that add or subtract"
+   },
+   {
+    "type": "p",
+    "text": "The table's amounts assume an average household, so the court can increase or reduce them depending on the circumstances. The circumstances we often deal with in consultations are these."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Where the child needs long-term treatment or has a disability and costs are high",
+     "Where the child has been receiving costly education, such as in the arts or sports, consistently since before the divorce",
+     "Where the parents have substantial assets relative to their income",
+     "Where the paying parent has other family members to support",
+     "Where the custodial parent's housing costs are low, for example because they use the home they live in with the child without paying for it"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "The side arguing for an increase must show the costs actually spent with receipts and account records, and the side arguing for a reduction must show income and support burdens with documents. Arguments made only in words find it hard to move the numbers in the table."
+   },
+   {
+    "type": "p",
+    "text": "The calculation also differs depending on the number of children. The amounts in the table are per child and assume a household with two children, and the table also explains how to adjust the amount where there is one child or three or more. Where siblings are raised separately by each parent, the arrangement is sometimes that each parent calculates the share for the child they raise and only the difference is paid."
+   },
+   {
+    "type": "h2",
+    "text": "After adulthood, and later changes"
+   },
+   {
+    "type": "p",
+    "text": "Child support set by the court is in principle for costs until the child reaches adulthood. Costs after adulthood, such as university tuition, can be claimed under an agreement if the parents have made one separately, so if you want this, write down how the costs will be shared in the agreement at the time of divorce."
+   },
+   {
+    "type": "p",
+    "text": "If circumstances change after the amount is set, you can claim an increase or reduction. The child moving on to a higher level of school, or the paying parent losing their job, can be grounds for this. However, the paying parent must know that if they reduce payments on their own without a court decision, the difference simply builds up as unpaid child support. The number in the table is the starting line for negotiation, and the conclusion is shaped by the evidence."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "divorce-a-title-not-matter",
+  "field": "가사",
+  "centers": [
+   "divorce"
+  ],
+  "date": "2026-08-27",
+  "title": "‘Whose name it is in doesn't matter’ is only half right",
+  "summary": "It is true that title is not decisive in the division of property, but property owned before marriage and property inherited or received as a gift are different. We look at the relationship between Article 830 of the Civil Act and contribution.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When the division of property comes up, we often hear, “They say it doesn't matter whose name it's in.” It is not wrong, since it means that property built up together during the marriage is subject to division whether it is in the husband's or the wife's name. But applying this to every asset in the same way throws the calculation far off."
+   },
+   {
+    "type": "h2",
+    "text": "The law actually starts from title"
+   },
+   {
+    "type": "p",
+    "text": "Article 830 of the Civil Act defines property one spouse owned before the marriage and property acquired in their own name during the marriage as that spouse's separate property (특유재산). Only property whose ownership is unclear is presumed to be jointly owned by the couple. Looking at the provision alone, title seems quite important."
+   },
+   {
+    "type": "p",
+    "text": "However, Article 839-2, which governs the division of property, calls for dividing ‘property formed through the cooperation of both parties’. Even an apartment bought in one spouse's name during the marriage becomes property formed through cooperation if the other spouse helped build it through housework and childcare, dual income or loan repayments. This is where the saying that title does not matter comes from."
+   },
+   {
+    "type": "p",
+    "text": "Conversely, even property bought during the marriage may be excluded from division if one spouse bought it solely with money they had before the marriage and the other played no role in maintaining it. So it is more accurate to understand ‘title doesn't matter’ as meaning ‘title alone does not decide the outcome’. The work of examining the source of funds and contributions still remains."
+   },
+   {
+    "type": "h2",
+    "text": "Property from before the marriage and inherited property"
+   },
+   {
+    "type": "p",
+    "text": "Property owned before the marriage, and property inherited or received as a gift from parents during the marriage, is in principle excluded from division, because it was not formed through cooperation. However, case law holds that if the other spouse contributed to maintaining that property or increasing its value, it can be included in the division."
+   },
+   {
+    "type": "p",
+    "text": "What is recognized as contribution differs case by case, but the situations we often deal with in consultations are these."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Where the loan on a home one spouse bought before marriage was repaid together from both spouses' income after the marriage",
+     "Where inherited land was managed together and a building was built on it to earn rental income",
+     "Where money from parents became the seed money for the newlyweds' first home, which was then grown through several moves",
+     "Where one spouse helped for a long time with bookkeeping and client management for a business in the other spouse's name"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "In the end, it is about showing the flow of funds"
+   },
+   {
+    "type": "p",
+    "text": "In cases disputing title, the most powerful evidence is account records showing where money came from and where it went. The side claiming property was owned before the marriage must show when it was acquired and where the funds came from, and the side claiming contribution must show later loan repayments and management records. For money contributed by parents, transfer records and conversations showing to whom the money was given at the time are important."
+   },
+   {
+    "type": "p",
+    "text": "Money received from both families at the time of the wedding is especially prone to being argued from memory. If the two sides disagree about who contributed how much over a decade ago, bank statements from that time or the source of the down payment in the sale contract decide the outcome. Bank transaction records can often be issued even for periods long ago, so please check in advance before litigation."
+   },
+   {
+    "type": "p",
+    "text": "The length of the marriage is also considered. If the couple has not been married long, property from before the marriage or gifted property is often excluded from the calculation, but if they have lived together for decades and their assets have become intermingled, it becomes hard to separate the original sources. That is why the same question gets different answers depending on the length of the marriage. Title is the starting point, and the conclusion is reached by who did what for that property."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "divorce-b-complaint-30-days",
+  "field": "가사",
+  "centers": [
+   "divorce"
+  ],
+  "date": "2026-07-24",
+  "title": "The 30 days after receiving a divorce complaint, broken down week by week",
+  "summary": "The 30-day deadline for an answer looks long, but it passes quickly while you are pulling your emotions together. We set out, in order, how to use the four weeks from the day you receive the complaint.",
+  "body": [
+   {
+    "type": "p",
+    "text": "On the day the court envelope arrives, most people cannot focus on anything. The picture of themselves in the complaint feels unfamiliar and unfair, and some let several days pass without doing anything. The answer must be filed within 30 days of being served with a copy of the complaint (Article 256 of the Civil Procedure Act and Article 12 of the Family Litigation Act), and once a week or two goes by like that, the remaining time gets tight. Thinking of the 30 days as four weeks makes it feel a little less overwhelming."
+   },
+   {
+    "type": "h2",
+    "text": "Weeks one and two"
+   },
+   {
+    "type": "p",
+    "text": "In the first week, write the date of receipt on the envelope and lay out all the documents that came with it. Besides the complaint, an application for a preliminary disposition (사전처분) or a provisional attachment order (가압류) may have arrived with it, and these need to be dealt with separately. In the claims section, find and mark the amount of compensation for emotional distress, the demands for division of property and the demands concerning the children, and it is a good idea to get a consultation within this week."
+   },
+   {
+    "type": "p",
+    "text": "In the second week, read the factual allegations in the complaint line by line and sort them into what you admit, what you do not know, and what is untrue. Next to the untrue parts, note where the evidence to rebut them is. Then make the most important decision: whether you do not want the divorce at all, or whether you accept the divorce but will dispute the terms."
+   },
+   {
+    "type": "p",
+    "text": "If you have children, also review their daily life during this period. If the complaint says the other parent wants to be the custodial parent, gather in advance the materials showing who has been caring for the children so far, so that you are not shaken during the family investigation (가사조사)."
+   },
+   {
+    "type": "h2",
+    "text": "Weeks three and four"
+   },
+   {
+    "type": "p",
+    "text": "In the third week, prepare your documents in line with that decision. If you should receive compensation for emotional distress or a division of property, or you want to raise the children, an answer alone is not enough and you need to file a counterclaim as well. If living expenses have been cut off or there is a dispute over the children, consider applying for a preliminary disposition at this point too. If there are signs that the other party is moving assets, it is also wise not to miss this window for a provisional attachment."
+   },
+   {
+    "type": "p",
+    "text": "In the fourth week, finalize and file your documents. If you have not finished gathering materials, file an answer setting out your basic position first and supplement the rest with preparatory briefs. In a divorce case, not filing an answer does not mean the other party's claims are accepted as they are (proviso to Article 12 of the Family Litigation Act), but in the meantime the court reads only the plaintiff's side of the story first."
+   },
+   {
+    "type": "p",
+    "text": "The shorter the sentences in the answer, the better. If you rebut every expression in the complaint emotionally, the document gets long and the key points the court needs to see become blurred. It is enough to pick only the parts of the other party's claims that affect the outcome and answer them with facts and evidence, and simply note that you dispute the rest."
+   },
+   {
+    "type": "h2",
+    "text": "What not to do in the meantime"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sending the other party long, confrontational messages",
+     "Moving savings or disposing of the home",
+     "Suddenly moving house with the children",
+     "Posting about the lawsuit on social media"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "If the case is proceeding through electronic litigation, the other party's filings, hearing notices and orders to make corrections are posted on the website. Make it a habit to check the case history at least once a week. From the moment you receive the complaint, time runs on the court's schedule, not the other party's."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "adultery-a-three-requirements",
+  "field": "가사",
+  "centers": [
+   "adultery"
+  ],
+  "date": "2026-04-27",
+  "title": "Can you lose a lawsuit against the affair partner even with clear evidence of the affair?",
+  "summary": "Even if your spouse's affair is clear, the affair partner's liability is assessed separately. We set out the three requirements the court checks and the gaps that are often left empty.",
+  "body": [
+   {
+    "type": "p",
+    "text": "“We even have photos of them going into a motel together. Could we still lose?” When we hear this question, we first ask back not about the scene in the photo but about what that person knew. A claim for compensation for emotional distress against an affair partner is not a divorce case but a damages case for a tort under Article 750 of the Civil Act. A tort requires intent or negligence on the part of the person who acted."
+   },
+   {
+    "type": "h2",
+    "text": "Your spouse's wrong and the affair partner's wrong are assessed separately"
+   },
+   {
+    "type": "p",
+    "text": "The fact that your spouse had an affair shows your spouse's wrongdoing. To hold the affair partner liable, there must be a separate wrong attributable to that person. The Supreme Court holds that a third party who commits an unchaste act with one spouse and thereby infringes the couple's shared married life in principle commits a tort, and is jointly liable with the spouse as a joint tortfeasor (Supreme Court Decision 2013Meu2441, May 29, 2015). The words to note here are infringement of the couple's shared married life, and acting with knowledge of it. This is also why you can bring a claim against the affair partner alone without divorcing. Even if the marriage continues, the harm of the infringement of shared married life remains."
+   },
+   {
+    "type": "h2",
+    "text": "The three things the court checks"
+   },
+   {
+    "type": "p",
+    "text": "In practice, courts generally look at three things separately. If even one is missing, the outcome is shaken no matter how much other evidence there is."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Whether the two were in a romantic relationship. Even if sexual intercourse cannot be proven, a relationship that breaches the duty of fidelity amounts to an unchaste act.",
+     "Whether the affair partner knew, or could have known, that your spouse had a family.",
+     "Whether your shared married life was actually continuing at the time."
+    ]
+   },
+   {
+    "type": "p",
+    "text": "In consultations, we often see plenty of material on the first question while the second and third are almost empty. A hotel receipt shows the relationship, but it does not go so far as to show that the affair partner knew your spouse was married."
+   },
+   {
+    "type": "p",
+    "text": "Case law does not go so far as to impose a duty to check whether a romantic partner has a spouse. So a vague claim that the affair partner could have known carries little force; it needs specific circumstances, such as your spouse always wearing a wedding ring or being out of contact every weekend because of family plans."
+   },
+   {
+    "type": "h2",
+    "text": "How to fill the gaps"
+   },
+   {
+    "type": "p",
+    "text": "Knowledge of the marriage is most often revealed in the two people's conversations. Typical examples are talk about the children, remarks about being careful around the spouse, and pressure to get a divorce. If there are no such conversations, gather indirect material period by period, such as a messenger profile with family photos, or the fact that they met at a workplace or group where the marriage was known."
+   },
+   {
+    "type": "p",
+    "text": "The fact that the marriage was continuing is surprisingly easy to forget. Ordinary records showing that you lived in the same home, shared living expenses, and spent holidays and children's events together block the other side's claim that the marriage had broken down. The affair partner who claims the marriage had already broken down must prove it (Supreme Court Decision 2022Meu13504, 13511, June 27, 2024), but having rebuttal material ready in advance makes the trial proceed much more steadily."
+   },
+   {
+    "type": "p",
+    "text": "Before writing the complaint, try sorting the material you have into a three-column table. The empty column is where the other side will attack. As you fill in the table, you may find you have more material than you thought, or you may conclude that you should not file the complaint yet. Either way, that judgment needs to be made before filing."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "adultery-a-didnt-know-married",
+  "field": "가사",
+  "centers": [
+   "adultery"
+  ],
+  "date": "2026-02-21",
+  "title": "What it takes for ‘I didn't know he was married’ to be accepted",
+  "summary": "If you did not know the person was married, liability as an affair partner may be denied. But saying you did not know is not enough; you also need to show when you found out and what you did afterwards.",
+  "body": [
+   {
+    "type": "p",
+    "text": "The thing we hear most often from people who have received a complaint as an affair partner is that they did not know. They say they were never told the person was married and that the person seemed to live alone. This argument has legal significance too, because the affair partner's liability is liability in tort, and a tort requires intent or negligence (Article 750 of the Civil Act)."
+   },
+   {
+    "type": "h2",
+    "text": "The burden of proof is on the plaintiff to begin with"
+   },
+   {
+    "type": "p",
+    "text": "Case law does not go so far as to impose a duty to check whether a romantic partner has a spouse. So it is the plaintiff bringing the claim who must prove that the affair partner knew, or could have known, of the marriage. On this point alone, it may seem the defendant can simply sit back."
+   },
+   {
+    "type": "p",
+    "text": "Negligence is examined as well. Even if you did not actually know, liability may be found if there were circumstances from which you could have known with a little care. This is why, between people who worked together on the same team for several years, a claim of not knowing about the marriage is not easily accepted."
+   },
+   {
+    "type": "p",
+    "text": "Actual trials do not unfold that way. The plaintiff picks out parts of the two people's conversations that mention children or a spouse, and puts forward the fact that they were at the same workplace or in the same group. If the defendant cannot then present specific circumstances to the contrary, the court tends to lean toward the plaintiff's circumstantial evidence. Proof may be the plaintiff's burden, but in the end it is the defendant who must persuade."
+   },
+   {
+    "type": "h2",
+    "text": "The three things the court asks"
+   },
+   {
+    "type": "p",
+    "text": "When examining a claim of not knowing, the court generally seeks to confirm three things: what words and actions deceived you, when you learned of the marriage, and how you acted after finding out. If you have the following materials, set them aside and keep them safe now."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Messages in which the other person introduced themselves as single or divorced, and conversations in which you asked whether they were married",
+     "Circumstances showing they lived like a single person, such as meeting freely on weekends and holidays and having you visit their home",
+     "The date you found out about the marriage and how it happened",
+     "Messages right after that in which you cut off contact or protested"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "The third question is especially important. If the meetings continued after you found out, liability may be found for the period after that. If you set out the period when you did not know separately from the period when you did, you may not be able to dispute liability entirely, but you can narrow its scope."
+   },
+   {
+    "type": "h2",
+    "text": "Arguments that can backfire"
+   },
+   {
+    "type": "p",
+    "text": "Insisting you did not know when the circumstances from which you could have known are obvious is risky. If a photo with a wedding ring was on the person's profile, or your conversations frequently mention their child's after-school classes, the court will find it hard to believe that argument. Once one argument collapses, the rest lose credibility too."
+   },
+   {
+    "type": "p",
+    "text": "In such cases, some cases are better served by admitting what should be admitted and putting the weight on the short length of the relationship and the fact that you ended it as soon as it was discovered. Which path to take is decided by looking at the plaintiff's evidence together with the conversations you have. If the other person ever showed you documents claiming to be divorced, be sure to keep those photos or conversations. Also avoid contacting the plaintiff or the other spouse directly to explain yourself after receiving the complaint. Things said in an emotional phone call are sometimes used as an admission that you knew about the marriage."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "adultery-b-thirty-days-defendant",
+  "field": "가사",
+  "centers": [
+   "adultery"
+  ],
+  "date": "2026-06-22",
+  "title": "The 30 days from receiving an affair lawsuit complaint: how to divide them",
+  "summary": "The 30-day deadline for an answer looks long, but it passes quickly. We set out, in order and week by week, what a defendant who has received the complaint needs to do.",
+  "body": [
+   {
+    "type": "p",
+    "text": "The clock starts the moment you tear open the court envelope. The defendant must file an answer within 30 days of receiving a copy of the complaint, and if no answer is filed, the court may treat the plaintiff's claims as admitted and give judgment without a hearing (Articles 256 and 257 of the Civil Procedure Act). If a family member living with you received it on your behalf, that day is the reference point, and the deadline does not get longer because you opened the envelope a few days later. If the 30th day falls on a Saturday or public holiday, the deadline runs to the following day. Dividing the 30 days roughly into three stages makes the tasks easier to see."
+   },
+   {
+    "type": "h2",
+    "text": "Week one: read and preserve"
+   },
+   {
+    "type": "p",
+    "text": "Gather the complaint, the attached evidence, the envelope and the guidance notes in one place. Mark the amount claimed, the period of the relationship the plaintiff alleges, and the grounds on which the plaintiff says you knew of the marriage. The most important thing this week is not to delete your conversations with the other spouse. Records favorable to you, such as messages saying they were single, are in there too."
+   },
+   {
+    "type": "p",
+    "text": "Sometimes a provisional attachment order (가압류) arrives before or together with the complaint. This means the plaintiff has frozen your deposits or wages before judgment, and the money does not go straight to the plaintiff. If you think the provisional attachment is excessive, you can challenge it by filing an objection (Article 283 of the Civil Execution Act), so keep the order together with the complaint."
+   },
+   {
+    "type": "h2",
+    "text": "Weeks two and three: set the direction"
+   },
+   {
+    "type": "p",
+    "text": "Sort the contents of the complaint into what is true, what is wrong and what is exaggerated. Then decide whether to dispute the unchaste act itself, say you did not know of the marriage, argue the marriage had already broken down at the time, or accept liability and dispute the amount. Whichever you choose, pick only arguments supported by the material you have."
+   },
+   {
+    "type": "p",
+    "text": "If you intend to argue that the marriage had broken down, keep in mind that the defendant must prove it (Supreme Court Decision 2022Meu13504, 13511, June 27, 2024). Rather than the other spouse's word that ‘we were already finished’, you need objective material such as when the separation began or when a divorce suit was filed."
+   },
+   {
+    "type": "h2",
+    "text": "Week four: file first, supplement later"
+   },
+   {
+    "type": "p",
+    "text": "An answer is usually written in two parts. The first states the conclusion, asking for the plaintiff's claim to be dismissed, and the second sets out which of the plaintiff's allegations you admit and which you dispute, with your reasons and evidence. Evidence is submitted together, numbered as the defendant's exhibits, such as Eul No. 1 (을 제1호증) and Eul No. 2."
+   },
+   {
+    "type": "p",
+    "text": "If you have not finished gathering material, one approach is to file an answer within the deadline stating that you dispute the claim, and supplement the detailed arguments with preparatory briefs. If an answer is filed before judgment is pronounced, judgment without a hearing will not be given (proviso to Article 257(1) of the Civil Procedure Act), but there is no reason to rely on that proviso and miss the deadline."
+   },
+   {
+    "type": "p",
+    "text": "There are also principles to keep throughout the 30 days. Messages sent to explain yourself become evidence for the plaintiff, and signs of getting stories straight undermine the credibility of your whole account."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Do not contact the plaintiff or the other spouse to explain yourself",
+     "Do not coordinate your account with the other spouse",
+     "Do not pour out the story of the case to people around you"
+    ]
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "inheritance-a-cross-border-governing-law",
+  "field": "가사",
+  "centers": [
+   "inheritance"
+  ],
+  "date": "2026-02-10",
+  "title": "Inheritance with family members of foreign nationality: which country's law applies?",
+  "summary": "Even if an heir has foreign nationality, the Korean Civil Act is the standard if the deceased was a Korean national. We set out the principle and exceptions for deciding the applicable law, the validity of wills made abroad, and documents and deadlines for heirs overseas.",
+  "body": [
+   {
+    "type": "p",
+    "text": "As more siblings have emigrated, it has become common for some heirs to be foreign citizens. The first question in such cases is, “My younger brother is a U.S. citizen. Can he still inherit?” He can. This is because the standard for deciding the law applicable to inheritance lies with the deceased, not the heir."
+   },
+   {
+    "type": "h2",
+    "text": "The deceased's nationality is the standard"
+   },
+   {
+    "type": "p",
+    "text": "Article 77(1) of the Act on Private International Law (국제사법) provides that inheritance is governed by the law of the deceased's nationality at the time of death. If your parents died as Korean nationals, the heirs and their shares are decided under the Korean Civil Act whether an heir is a U.S. citizen or lives in Japan, and an heir's nationality does not change their share."
+   },
+   {
+    "type": "p",
+    "text": "Conversely, if a father who acquired foreign nationality died leaving land in Korea, the law of that country is the standard in principle. However, if that country's law in turn provides for Korean law to apply, Korean law may govern (Article 22 of the Act on Private International Law), and if the deceased expressly designated in a will the law of their habitual residence or the law of the place where the real estate is located, that law applies (Article 77(2)). This is why the conclusion can differ from case to case even for the same land."
+   },
+   {
+    "type": "h2",
+    "text": "Wills written abroad"
+   },
+   {
+    "type": "p",
+    "text": "The rules on the form of a will are generous. It is enough for the will to comply with any one of the following: the law of a country of which the testator was a national at the time of making the will or at death, the law of the testator's habitual residence at the time of making the will or at death, the law of the place where the will was made, or, for a will concerning real estate, the law of the place where it is located (Article 78(3)). This means a will made in the United States in the local form can also be valid in Korea. However, registering property in Korea on the basis of that will may separately require procedures such as probate (검인) or translation and authentication."
+   },
+   {
+    "type": "h2",
+    "text": "Deadlines run the same way abroad"
+   },
+   {
+    "type": "p",
+    "text": "The three-month period for renunciation of inheritance (상속포기) and qualified acceptance (한정승인) runs just the same even if you are abroad. Korean nationals residing abroad can obtain signature authentication at a Korean diplomatic mission in place of a certificate of seal impression, while foreign nationals need local notarization, an apostille or consular confirmation, and a translation. Authentication can take several weeks, so we also consider appointing a domestic agent by power of attorney or requesting an extension of the period."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "If an heir has an address abroad, the filing deadline for acquisition tax and inheritance tax is extended to nine months (Article 20 of the Local Tax Act and Article 67 of the Inheritance Tax and Gift Tax Act).",
+     "A foreign national who acquires real estate in Korea through inheritance must report it to the competent authority within six months of acquisition (Article 8(2) of the Act on Report on Real Estate Transactions).",
+     "Preparing in advance documents linking your Korean name with the name in your foreign passport as the same person can reduce requests for corrections."
+    ]
+   },
+   {
+    "type": "p",
+    "text": "For assets located abroad, even if the shares are determined under Korean law, separate procedures with the courts or authorities of that country are often required. Saving time and cost starts with making a table of which assets are in which country and how much, and deciding which country's procedures to go through first. So that domestic deadlines do not pass while heirs living abroad are slow to respond to discussions, set the order of tasks starting with those that have deadlines."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "inheritance-b-heir-abroad-paperwork",
+  "field": "가사",
+  "centers": [
+   "inheritance"
+  ],
+  "date": "2026-04-12",
+  "title": "The order in which inheritance documents travel when a sibling lives abroad",
+  "summary": "When one of the heirs lives abroad, even a single signature can take several weeks. Here is how to plan a schedule that covers the documents needed for each nationality without missing deadlines.",
+  "body": [
+   {
+    "type": "p",
+    "text": "Families with an older sister living in the United States or a younger brother who emigrated to Canada stall at some point in the inheritance process. Getting a seal on a single division agreement takes a day or two in Korea, but from abroad it can take several weeks because of consulate appointments and international mail. Yet inheritance deadlines are not delayed because someone is overseas. This is why you need to put the fact that a sibling lives abroad at the center of your schedule from the start."
+   },
+   {
+    "type": "h2",
+    "text": "Check nationality first"
+   },
+   {
+    "type": "p",
+    "text": "For Korean nationals residing abroad who have kept their Korean nationality, a common method is to have their signature on the division agreement or power of attorney authenticated at a Korean diplomatic mission in their country of residence, in place of a certificate of seal impression (인감증명서). If they have changed to a foreign nationality, they need local notarization and an apostille or consular confirmation, plus a translation, and must also prepare documents linking their Korean name with the name in their foreign passport as the same person."
+   },
+   {
+    "type": "p",
+    "text": "Either way, an heir's nationality does not change the right of inheritance itself. The inheritance of parents who were Korean nationals follows the Korean Civil Act, and a sibling of foreign nationality is equally an heir. The only thing that differs is how the documents are prepared. Notarization methods and whether a country is party to the Apostille Convention vary, so checking and passing on the procedures of the country where your sibling lives first can save wasted trips."
+   },
+   {
+    "type": "h2",
+    "text": "Count the deadlines backwards"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Renunciation of inheritance (상속포기) and qualified acceptance (한정승인): three months from the day you learned; the period runs the same way abroad",
+     "Inheritance tax and acquisition tax returns: nine months if an heir has an address abroad",
+     "A foreign national who acquires real estate in Korea through inheritance must report it within six months of acquisition",
+     "Build the several weeks needed for document authentication and international mail into the schedule in advance"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Especially if renunciation of inheritance is needed, contact your sibling abroad first. A commonly used method is to appoint a domestic agent with an authenticated power of attorney to file with the family court, but obtaining even one power of attorney takes time. If the decision looks like it will be delayed, consider requesting an extension of the period before the three months run out."
+   },
+   {
+    "type": "h2",
+    "text": "Decide which documents to get in one go and send them together"
+   },
+   {
+    "type": "p",
+    "text": "The most common mistake is requesting documents several times in separate batches. If, after getting a signature on the division agreement, a power of attorney for the bank is needed, and then documents for registration, your sibling abroad grows weary and the time doubles. It is better to put together everything needed, such as the division agreement, powers of attorney and identity confirmation documents, and send it all at once with a checklist."
+   },
+   {
+    "type": "p",
+    "text": "Explain the contents of the division agreement thoroughly by email before it is signed. If phone calls are difficult because of the time difference, sending the list of assets and the calculation table as files and answering questions as they come actually leaves a record and causes fewer misunderstandings. The farther away a sibling is and the less they know of the situation, the more likely they are to say later that they did not know. If the deceased had foreign nationality or left bank accounts or a house abroad, which country's law and procedures to follow must first be reviewed separately, so if that applies, please let us know at the start of the consultation."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "inheritance-a-three-months-from-knowing",
+  "field": "가사",
+  "centers": [
+   "inheritance"
+  ],
+  "date": "2026-07-19",
+  "title": "The three months for renouncing an inheritance do not run from the date of death",
+  "summary": "The three months for renunciation and qualified acceptance are counted not from the date of death but from the day you learned that the inheritance had begun and that you had become an heir. For family members who heard the news late and for lower-ranking heirs, the starting point is different.",
+  "body": [
+   {
+    "type": "p",
+    "text": "Ask about the deadline for renouncing an inheritance and most people say three months from the date of death. That is not wrong, but it is not precise either. Article 1019(1) of the Civil Act sets the starting point as ‘the day one learned that the inheritance had commenced’, and courts read this as the day one learned both that the deceased had died and that one had thereby become an heir."
+   },
+   {
+    "type": "h2",
+    "text": "A child at the deathbed and a child who heard the news late"
+   },
+   {
+    "type": "p",
+    "text": "For a child who was at their parent's side when they died, the date of death and the day they learned are the same, so you count from that day. On the other hand, for a child who received news by post several months later that a father they had long been out of touch with had died, the day they heard the news can be the starting point. However, courts usually assume you knew on the date of death, so the person filing must show the circumstances of learning late. Do not throw away the text message or the registered mail envelope through which you were informed."
+   },
+   {
+    "type": "h2",
+    "text": "From when do lower-ranking heirs count?"
+   },
+   {
+    "type": "p",
+    "text": "Sometimes all the children renounce and grandchildren or siblings become the heirs. In that case, Supreme Court case law holds that the three months for a lower-ranking heir run from the day they learned that the higher-ranking heirs had renounced and that they had become an heir as a result. Writing down the day you heard your older brother had renounced, or the day you first received a demand from a creditor, gives you a basis if the starting point is disputed later."
+   },
+   {
+    "type": "p",
+    "text": "When it goes down to the fourth rank, cousins who had little contact with the deceased can become heirs. They are not eligible to apply for the Safe Inheritance One-Stop Service (안심상속 원스톱서비스), so they must check the assets and debts separately through the Financial Supervisory Service's inquiry into heirs' financial transactions. It takes time for the results to come back, so it is a good idea to consider requesting an extension of the period at the same time."
+   },
+   {
+    "type": "h2",
+    "text": "Learning of the debts late is a different matter"
+   },
+   {
+    "type": "p",
+    "text": "Some people think that if they knew of the death and that they had become an heir but did not know there were debts, the three months start again from when they found out. That is not so. The original three months have already run, and if you did not know, without gross negligence, that the debts exceeded the assets, you must turn to special qualified acceptance (특별한정승인), made within three months of learning that fact (paragraph (3) of the same Article). On this route, renunciation is not available; only qualified acceptance is possible."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "If it is hard to decide because the asset inquiries are not finished, you can request an extension of the period from the family court before the three months pass.",
+     "It is enough for the filing to be received within the three months; the court's decision accepting it does not have to come out within that time.",
+     "If an heir is a minor, the period is counted from the day the person with parental authority or the guardian learned that the inheritance had commenced (Article 1020 of the Civil Act)."
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Calculating the final day is also more confusing than you might think. The Civil Act does not count the first day of a period and starts from the next day (Article 157), and a period in months is reckoned by the calendar and ends on the day before the day in the last month corresponding to the starting day (Article 160). If you learned on March 10, June 10 is the last day, and if that day is a Saturday or public holiday, it is extended to the next day (Article 161). Even so, we do not recommend filing on the last day, because it is common for one document to be missing and need to be obtained again."
+   },
+   {
+    "type": "p",
+    "text": "A single date can decide the outcome. If the starting point is unclear, it is safer to take the earliest possible date as your reference and act on it."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "inheritance-a-deemed-simple-acceptance",
+  "field": "가사",
+  "centers": [
+   "inheritance"
+  ],
+  "date": "2026-09-11",
+  "title": "Why touching the deceased's property can block renunciation of inheritance",
+  "summary": "If you dispose of inherited property, the law treats you as having accepted the inheritance. Using the provisions on statutory simple acceptance, we look at which actions count as disposal and what to be careful about even after renouncing.",
+  "body": [
+   {
+    "type": "p",
+    "text": "The Civil Act has a provision that treats an heir as having accepted the inheritance regardless of what they actually intended. This is statutory simple acceptance (법정단순승인) under Article 1026. If you fall under it, renunciation of inheritance (상속포기) or qualified acceptance (한정승인) may not be accepted even if the debts far exceed the assets. This is also why something done without thinking while arranging the funeral can become a problem months later."
+   },
+   {
+    "type": "h2",
+    "text": "Three cases the law treats as simple acceptance"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "When the heir has disposed of inherited property (item 1)",
+     "When the heir has not made a qualified acceptance or renunciation within three months (item 2)",
+     "When, after a qualified acceptance or renunciation, the heir has concealed inherited property, used it up improperly, or deliberately left it out of the inventory of assets (item 3)"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "What counts as disposal"
+   },
+   {
+    "type": "p",
+    "text": "Typical examples are withdrawing the deceased's deposits and using them for living expenses, selling the deceased's car or transferring it into your name, and collecting a lease deposit owed back to the deceased and splitting it among siblings. There is case law holding that paying costs within a socially reasonable range, such as funeral expenses, from inherited property is not disposal, but you must be able to explain the amount and use with receipts. Even for funeral expenses, the judgment may differ if the amount was excessive or leftover money was used personally."
+   },
+   {
+    "type": "p",
+    "text": "From September 11, 2026, financial transactions in the deceased's name are blocked from the day after the death is reported. For urgent funeral and hospital expenses, using the exceptional withdrawal by which the financial institution pays the hospital or funeral home directly means the money does not pass through the heirs' hands, which also reduces disputes over disposal."
+   },
+   {
+    "type": "p",
+    "text": "Conversely, some money looks like disposal but is not. Death insurance payouts naming a spouse or child as beneficiary, and benefits for which the law designates the recipient, such as National Pension survivors' pensions, are not inherited property but the recipient's own property, so in principle receiving them does not amount to simple acceptance. However, if the deceased is named as the insurance beneficiary, that payout is inherited property, so check the policy first."
+   },
+   {
+    "type": "p",
+    "text": "In fact, the most common form of simple acceptance is item 2. If three months pass without any filing, it simply becomes simple acceptance. It is not unusual for people to miss the deadline while waiting for the results of asset inquiries, so if the results are delayed, it is safer to request an extension before the period ends."
+   },
+   {
+    "type": "h2",
+    "text": "It is not over even after you renounce"
+   },
+   {
+    "type": "p",
+    "text": "Item 3 applies after a renunciation or qualified acceptance has been accepted. If you quietly took jewelry or cash from the deceased's home, or left a deposit you knew about out of the inventory for a qualified acceptance, it may be treated as simple acceptance. A person who has renounced must also continue to manage the property with the same care as their own until the person who became an heir through that renunciation is able to manage it (Article 1044)."
+   },
+   {
+    "type": "p",
+    "text": "If you have already moved money out of the deceased's account, it is better to set out when, how much and on what it was spent than to hide it. Whether it was disposal or not is ultimately judged by looking at that record. If any cash remains, keep it separately, and collect the receipts for money spent, sorted by funeral home and hospital."
+   }
+  ],
+  "author": "kim-miso"
+ },
+ {
+  "id": "civil-a-deposit-new-tenant",
+  "field": "민사",
+  "centers": [
+   "civil"
+  ],
+  "date": "2026-09-15",
+  "title": "The legal weight of “I'll pay you once the next tenant moves in”",
+  "summary": "A new tenant moving in is not a condition for returning the deposit. However, you need to sort out the simultaneous performance relationship and the date the lease ended before you can hold the landlord responsible.",
+  "body": [
+   {
+    "type": "p",
+    "text": "This is probably the sentence tenants hear most often from landlords a month or two before the lease expires, and even more so when the jeonse (전세) market has frozen. But the law attaches no such condition to the return of the deposit."
+   },
+   {
+    "type": "h2",
+    "text": "Returning the deposit and vacating the home are linked"
+   },
+   {
+    "type": "p",
+    "text": "When a lease ends, the landlord must return the deposit and the tenant must vacate the home. The two obligations are to be performed simultaneously. Finding a new tenant is only the landlord's own concern, not a condition that triggers the obligation to return the deposit. Even after the lease term ends, the lease relationship is deemed to continue until the deposit is returned (Article 4(2) of the Housing Lease Protection Act (주택임대차보호법)), so the tenant's status is also maintained in the meantime."
+   },
+   {
+    "type": "p",
+    "text": "The simultaneous performance relationship leaves the tenant with homework too. If the tenant keeps living there without preparing to vacate, it is hard to hold the landlord responsible for the delay in returning the deposit. That is why you need to plan when to move and which procedures to follow together."
+   },
+   {
+    "type": "h2",
+    "text": "The first thing to examine is whether the lease has ended"
+   },
+   {
+    "type": "p",
+    "text": "Surprisingly, the first issue in deposit disputes is the end date. If the landlord does not give notice of non-renewal between six months and two months before expiry, or the tenant does not do so by two months before expiry, the lease is deemed renewed on the same terms (Article 6 of the same Act). After such an implied renewal, the tenant may give notice of termination at any time, and it takes effect three months after the landlord receives the notice (Article 6-2 of the same Act)."
+   },
+   {
+    "type": "p",
+    "text": "Where the landlord did not refuse renewal and the lease was renewed because the tenant exercised the right to request renewal of the contract (계약갱신요구권), the tenant may likewise give notice of termination at any time, and it likewise takes effect three months later. In the end, the end date can only be calculated accurately by checking how the renewal came about and when the notice reached the other party."
+   },
+   {
+    "type": "p",
+    "text": "If you only said verbally that you would move out, a dispute may later arise over whether notice was given. Please give notice by a method that leaves a date on record, such as a text message or certified mail (내용증명)."
+   },
+   {
+    "type": "h2",
+    "text": "If your moving date is fixed"
+   },
+   {
+    "type": "p",
+    "text": "If you have to move without getting your deposit back, apply for a lease registration order (임차권등기명령), confirm that the lease registration appears on the certificate of registered matters, and only then move your belongings out and transfer your resident registration. Once registered, your opposability and priority right to repayment are preserved, and you can claim the costs of the application and registration from the landlord (Article 3-3 of the same Act). Moving your resident registration when you have only applied is risky."
+   },
+   {
+    "type": "p",
+    "text": "You can only apply for registration after the lease has ended. If you gave notice of termination after an implied renewal, you can apply once three months have passed, so it is safer to count backwards from the move-in date of your new home to decide when to give notice."
+   },
+   {
+    "type": "p",
+    "text": "Waiting for a new tenant is a choice, not an obligation. If you decide to wait, it is a good idea to put in writing how long you will wait and what will happen if the deposit is not returned by then."
+   }
+  ],
+  "author": "park-jongjin"
+ },
+ {
+  "id": "civil-b-moving-day-lease-registration",
+  "field": "민사",
+  "centers": [
+   "civil"
+  ],
+  "date": "2026-02-25",
+  "title": "If your moving day is approaching but the lease registration has not come through",
+  "summary": "The balance payment date for your new home is fixed, your deposit has not been returned, and the lease registration is not yet on the register. We set out, in chronological order, what to do first.",
+  "body": [
+   {
+    "type": "p",
+    "text": "The most nerve-racking moment in a deposit dispute is when the moving date and the registration date do not line up. You have signed the contract for your new home and the balance payment date is set, but the lease registration for the home you live in now has not yet appeared on the register. If you move your belongings out and transfer your move-in report at this point, you may lose your opposability and priority right to repayment, so keeping to the right order matters above all."
+   },
+   {
+    "type": "h2",
+    "text": "The reference point is when it is entered in the register"
+   },
+   {
+    "type": "p",
+    "text": "You can apply for a lease registration order (임차권등기명령) when the lease has ended and you have not received your deposit (Article 3-3(1) of the Housing Lease Protection Act (주택임대차보호법)), and once registration is made, the opposability and priority right to repayment you already have are preserved even if you move (paragraph (5) of the same Article). The reference point is neither the day you applied nor the day the order was issued, but the time the lease registration is entered in the register."
+   },
+   {
+    "type": "p",
+    "text": "Obtain the register from the Internet Registry Office and check for yourself that the housing lease appears in section B (을구). It is easy to assume you can move once you have received the court's order, but it can take more time after the order for the registration to be entered. It is safest to pull the register once more on the morning of moving day."
+   },
+   {
+    "type": "h2",
+    "text": "What you can try when the schedules clash"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Apply the day after the lease ends, and respond to any court request for corrections the same day",
+     "Discuss in advance whether the balance payment or move-in date for your new home can be pushed back a few days",
+     "Inform the bank holding your jeonse loan and the guarantee insurer of your schedule and check which documents they need",
+     "Do not move out all your belongings or transfer your resident registration before confirming the registration"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "You can save time by preparing the application before the lease ends and filing it as soon as the end date passes. Having the lease contract, an abstract of your resident registration, and the text message or certified mail notifying the landlord of the end of the lease ready in advance reduces time lost to corrections. If you apply through electronic litigation, you can check progress online. If the court contacts you about corrections, do not put it off until the next day."
+   },
+   {
+    "type": "p",
+    "text": "You may hear that it is fine to move as long as you leave some belongings behind, but there is no assurance that this will be recognized as possession. If adjusting the schedule for your new home is truly difficult, please tell us about it at the start of the consultation. We need to work out together the order with the least risk given the remaining dates."
+   },
+   {
+    "type": "p",
+    "text": "If you have taken out a jeonse deposit return guarantee, also go through the procedure of claiming performance from the guarantor. Each guarantor has its own required documents and order of steps, and many require a register showing the completed lease registration, so ask in advance."
+   },
+   {
+    "type": "h2",
+    "text": "Work remains even after registration"
+   },
+   {
+    "type": "p",
+    "text": "Lease registration is only a device to protect your deposit; it does not return the money. After moving, you obtain an enforceable title through a payment order (지급명령) or a lawsuit for return of the deposit, and if the landlord still does not pay, you apply for a compulsory auction of that home. A lawsuit for return of a deposit proceeds relatively quickly because some of the small claims procedures apply to it regardless of the amount (Article 13 of the Housing Lease Protection Act)."
+   },
+   {
+    "type": "p",
+    "text": "From the day after you vacate the home, you can also claim damages for late payment on the deposit, so keep a record of the date you handed over the keys. You can claim from the landlord the costs of applying for the lease registration order and of registration (Article 3-3(8)). A home with a lease registration becomes hard to rent to a new tenant, so around this time some landlords raise the money and get in touch."
+   }
+  ],
+  "author": "kang-hyunwoo"
+ },
+ {
+  "id": "civil-a-loan-or-gift",
+  "field": "민사",
+  "centers": [
+   "civil"
+  ],
+  "date": "2026-04-09",
+  "title": "When there is a record of the transfer but the other person says the money was a gift",
+  "summary": "In a lawsuit to recover a loan, what the plaintiff must prove is not the transfer but the agreement to repay. We set out what courts look at to distinguish a loan from a gift when there is no IOU.",
+  "body": [
+   {
+    "type": "p",
+    "text": "The record of sending the money is right there in your bank statement. But once the lawsuit begins, the other person almost always responds with one sentence: it was not a loan, it was money they were given. Many people pour out their sense of injustice when they hear this, but what matters in court is not injustice but proof."
+   },
+   {
+    "type": "h2",
+    "text": "Sending money and lending money are different facts"
+   },
+   {
+    "type": "p",
+    "text": "The Civil Act defines a loan for consumption (소비대차) as a contract in which ownership of money is transferred and the parties agree that the same amount will be returned (Article 598 of the Civil Act). What the party claiming repayment must prove is not the transfer itself but the agreement to repay. A bank transfer record shows only that money passed from one person to another; it does not say whether that money was a loan, a gift or an investment."
+   },
+   {
+    "type": "p",
+    "text": "So in cases without an IOU, the circumstances before and after the transfer decide the outcome. Points such as whether the message asking for money said ‘I'll pay you back by next month’, and whether the other person, when pressed, replied ‘Please wait a little longer.’ If they did not counter that it was a gift when asked to repay, that reaction is also a relevant circumstance."
+   },
+   {
+    "type": "p",
+    "text": "Just because the other person claims it was a gift does not mean the plaintiff must disprove a gift without leaving any gaps. However, the judgment differs depending on how many circumstances supporting a loan you put forward, and how specific they are. If you match the transfer records and conversations in a single table in date order before the lawsuit, you can see where the gaps are."
+   },
+   {
+    "type": "h2",
+    "text": "Circumstances the court considers together"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "The relationship between the two people, and whether the amount is a natural one to give as a gift in that relationship",
+     "Conversations around the time the money was sent, especially about its purpose and when it would be repaid",
+     "Records of any partial repayment or money received as interest",
+     "How the other person reacted when asked to repay"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "The closer the relationship, such as partners or family, the more easily a gift claim gains weight, especially for living expenses or shared costs. Conversely, if a large sum was sent at once, the judgment may lean toward it being hard to see as given for nothing. Keep in mind that no single circumstance decides the outcome; the court weighs several circumstances together."
+   },
+   {
+    "type": "h2",
+    "text": "Evidence you can still create now"
+   },
+   {
+    "type": "p",
+    "text": "Even if the relationship has already soured, it is sometimes not too late. Send a message stating the amount lent and the date and asking when they can repay, and keep their reply. If the other person does not deny the amount and only talks about when they will repay, that reply can be as good as an IOU. Call recordings can also be used, but they must be recorded by someone who took part in the conversation directly."
+   },
+   {
+    "type": "p",
+    "text": "There are also points to be careful about. If, in an emotional message, you use an expression that could be read as a gift, such as ‘the money I helped you with back then’, the other person will submit that very sentence as evidence. Read it once more before sending, and if the dispute looks likely to be serious, it is better to seek advice first on how to word your question."
+   }
+  ],
+  "author": "park-jongjin"
+ },
+ {
+  "id": "civil-b-court-mail-service",
+  "field": "민사",
+  "centers": [
+   "civil"
+  ],
+  "date": "2026-06-01",
+  "title": "What happens if you do not accept registered mail from the court",
+  "summary": "It may seem that avoiding court mail will stop the case, but in reality it does not. We set out how service is carried out and how deadlines run once you have received documents.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When a notice of court mail is stuck on your front door, it is frightening. Some people let the post office's holding period lapse, thinking the trial will not start if they do not accept it. But in civil litigation, avoiding service only delays things a little, and in the end it often works to reduce your chance to make your case, because the plaintiff is taking the next steps even while you avoid service."
+   },
+   {
+    "type": "h2",
+    "text": "Service can be made even if you do not accept it"
+   },
+   {
+    "type": "p",
+    "text": "Court documents are in principle handed to the person themselves, but if the person cannot be found at home, they can be handed to a family member living with them (Article 186(1) of the Civil Procedure Act). In principle, the day a family member receives it becomes the day of service, so if a family member takes the mail and passes it on a few days later, your deadline shrinks by that much. If you refuse to accept it without a justifiable reason, service can also be made by leaving the documents at that place (paragraph (3) of the same Article)."
+   },
+   {
+    "type": "p",
+    "text": "If service keeps failing, the plaintiff applies for service at night or on holidays, and if that also fails, the trial proceeds by service by public notice (공시송달). If it proceeds by service by public notice, judgment can be given without the defendant having said a word. Some people only learn there was a lawsuit after their bank account is seized on the basis of that judgment, and to challenge it from that point they must go through procedures with strict requirements, such as a subsequently supplemented appeal (추후보완항소)."
+   },
+   {
+    "type": "h2",
+    "text": "Deadlines are counted from the day after receipt"
+   },
+   {
+    "type": "p",
+    "text": "If you have received documents, check the title first. Each document has a different deadline."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Payment order (지급명령) or recommendation for performance (이행권고결정): file an objection within two weeks of service",
+     "Recommendation for settlement (화해권고결정) or a decision in lieu of conciliation: file an objection within two weeks",
+     "Copy of a complaint: file an answer within 30 days",
+     "Written judgment: appeal within two weeks"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "The period is counted from the day after receipt, and if the last day is a Saturday or public holiday, it runs to the following day (Article 170 of the Civil Procedure Act and Articles 157 and 161 of the Civil Act). Write the last day in large letters on your calendar and, if possible, file a few days early. If you file through electronic litigation, the time of receipt is recorded immediately. If you file by post, the day it arrives at the court is what counts, so mailing it on the last day may be too late."
+   },
+   {
+    "type": "h2",
+    "text": "If you have moved, you must inform the court"
+   },
+   {
+    "type": "p",
+    "text": "If you move while a lawsuit is in progress, you must report your new address to the court immediately (Article 185(1) of the Civil Procedure Act). If you do not, the court may send documents to your old address (paragraph (2) of the same Article), and the fact that you did not receive them is hard to have protected. Even if no lawsuit has started yet, if there is someone you are in a dispute with, it is a good idea to arrange a way to check mail sent to your old address after you move. Applying for the post office's mail forwarding service is one option."
+   },
+   {
+    "type": "p",
+    "text": "If you have received mail, take a photo of the first page of the documents and the envelope with your phone before putting them in a drawer. These two things are what we check first in a consultation. If the date stamped on the envelope differs from the date you actually received it, do not forget to note the date of receipt separately."
+   }
+  ],
+  "author": "kang-hyunwoo"
+ },
+ {
+  "id": "civil-b-messenger-evidence",
+  "field": "민사",
+  "centers": [
+   "civil"
+  ],
+  "date": "2026-08-07",
+  "title": "What people miss when submitting KakaoTalk chats as evidence",
+  "summary": "Messenger conversations are the most common evidence in civil litigation. We set out how much to capture, keeping the originals, exporting chats, and what to do before changing your phone.",
+  "body": [
+   {
+    "type": "p",
+    "text": "In cases where money was lent without an IOU, the key evidence showing the loan is usually a messenger conversation. A single line saying they will definitely repay by the end of next month, or will pay a certain amount of interest each month, serves as the contract. That is why how you keep the conversations and how you submit them can decide the outcome."
+   },
+   {
+    "type": "h2",
+    "text": "Capture the context before and after"
+   },
+   {
+    "type": "p",
+    "text": "If you capture only a single favorable line, the other side will produce the surrounding conversation and argue that it meant something else. Captures should show the other person's name or number and the date dividers, and should include plenty of the conversation before and after the sentence in question. Even if parts that look unfavorable are mixed in, deliberately leaving them out actually invites doubts about credibility."
+   },
+   {
+    "type": "p",
+    "text": "If the conversation is long, also save a text file using KakaoTalk's export chat function. Captures are what you submit to the court, and the exported file is used to show the original flow if the other side claims tampering. It is also a good idea to separately save materials within the chat room, such as voice messages, photos and transfer notifications. If you use a cloud backup, note down the backup date and account as well."
+   },
+   {
+    "type": "p",
+    "text": "The same principles apply to text messages, Telegram and Instagram messages. If the other person deletes their account or leaves the chat room, the information on your screen may change too, so save everything as soon as there are signs that a dispute is starting."
+   },
+   {
+    "type": "h2",
+    "text": "Before changing your phone"
+   },
+   {
+    "type": "p",
+    "text": "If you are considering a lawsuit, it is better to put off replacing or resetting your phone. Even with a backup, photos or voice messages sometimes go missing during restoration. If you really must change it, back up the chat rooms, export the files and take captures, and keep the old device rather than throwing it away."
+   },
+   {
+    "type": "p",
+    "text": "If the content of a call matters, a recording of a call you took part in can be submitted as evidence. Keep the original recording file exactly as first recorded, and submit a transcript to the court along with it. If only an edited file remains, a dispute arises over whether it is the original."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "A screen showing the other person's profile and phone number",
+     "Captures showing the date dividers",
+     "The exported chat text file",
+     "Transfer records supporting the content of the conversation",
+     "Your old phone"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "If the other side claims tampering"
+   },
+   {
+    "type": "p",
+    "text": "If the other side argues that the captures were edited, reinforce them with other materials that match the conversation, such as transfer records from the same period. Since the same conversation should also remain on the other person's phone, we also consider applying for a document production order (문서제출명령). Even words the other person erased with the message deletion function can be used as evidence if you took a capture before that. If authenticity is seriously disputed, forensic examination may be needed, but it takes time and money."
+   },
+   {
+    "type": "p",
+    "text": "With evidence, it is less a matter of the more the better than of pinpointing the disputed facts accurately. Rather than submitting hundreds of pages of conversation as they are, pick out and mark the important parts, and organize the rest in date order so it can be submitted when needed. What the court reads is often just the few lines that are marked."
+   }
+  ],
+  "author": "park-jongjin"
+ },
+ {
+  "id": "civil-a-mistaken-transfer-recipient",
+  "field": "민사",
+  "centers": [
+   "civil"
+  ],
+  "date": "2026-06-28",
+  "title": "Money sent by mistake: you claim it from the recipient, not the bank",
+  "summary": "In a mistaken transfer, the recipient acquires the deposit claim, so the sender must claim return of unjust enrichment from the recipient, not the bank. We distinguish the scope and order of recovery, and cases that are not mistaken transfers.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When money goes to a stranger because you mistyped one digit of an account number, the first thing you do is call the bank. The bank may ask the recipient to return it, but if the recipient does not agree, the bank cannot reverse the money on its own. This is because, legally, the party you must ask to return the money is not the bank."
+   },
+   {
+    "type": "h2",
+    "text": "How the legal relationship works"
+   },
+   {
+    "type": "p",
+    "text": "Supreme Court case law holds that once an account transfer is made, the recipient acquires a deposit claim against the bank for that amount, and the sender must claim return of unjust enrichment (부당이득반환) from the recipient (Supreme Court Decision 2007Da51239, November 29, 2007). Even if the transfer was a mistake, you have no right to demand that the bank return the money."
+   },
+   {
+    "type": "p",
+    "text": "Article 741 of the Civil Act requires a person who, without legal cause, has obtained a benefit from another's property and thereby caused that other a loss to return the benefit. Money that came in by mistake must be returned because the recipient has no legal cause to keep it."
+   },
+   {
+    "type": "h2",
+    "text": "The scope of what you get back"
+   },
+   {
+    "type": "p",
+    "text": "If the recipient received it without knowing the circumstances, they must return it to the extent the benefit remains; if they received it knowingly, they must return the benefit with interest and compensate any loss (Article 748 of the Civil Act). That is why it is a good idea to notify the recipient by message or certified mail (내용증명) that the money was sent by mistake. With money, the benefit is often regarded as remaining even if the recipient has spent it."
+   },
+   {
+    "type": "p",
+    "text": "A recipient who spends money knowing it came in by mistake may also face criminal liability. When told of this, quite a few recipients get in touch and return the money. If the recipient's account has already been seized by another creditor, matters become complicated, so it is important to act quickly."
+   },
+   {
+    "type": "p",
+    "text": "Sometimes a recipient says they will return the money but asks for a fee or a reward. Since it is money they are obliged to return, there is no legal reason to agree to such demands; at most you settle actual costs such as the transfer fee."
+   },
+   {
+    "type": "h2",
+    "text": "What to do, in order, if they do not return it"
+   },
+   {
+    "type": "p",
+    "text": "First ask the bank you sent it from to request return of the mistaken transfer, and if you still cannot get it back, move on to the Korea Deposit Insurance Corporation's return assistance program, a payment order (지급명령) or a lawsuit. Even if you know only the name and account number, you can file a lawsuit and then apply for a fact inquiry to the bank to find the recipient's address. If the claim is 30 million won or less, it proceeds as a small claims case. A claim for return of unjust enrichment is an ordinary civil claim and is in principle subject to a ten-year limitation period."
+   },
+   {
+    "type": "h2",
+    "text": "Cases that are not mistaken transfers"
+   },
+   {
+    "type": "p",
+    "text": "Money sent after being deceived by voice phishing is not eligible for mistaken transfer return assistance. In that case, immediately ask the sending bank or the receiving bank to suspend payment and report it to the police to start the damage relief procedure. Also, money paid while knowing you owed nothing cannot be reclaimed (Article 742 of the Civil Act), so if you sent the same payment twice, keep evidence that it was a mistake. Please also note that money given for an illegal cause, such as a gambling debt, cannot in principle be recovered (Article 746 of the Civil Act)."
+   }
+  ],
+  "author": "kang-hyunwoo"
+ },
+ {
+  "id": "corporate-b-labor-office-wage-table",
+  "field": "기업",
+  "centers": [
+   "corporate"
+  ],
+  "date": "2026-09-25",
+  "title": "The table to make first when you receive a summons from the labor office",
+  "summary": "If you have been summoned by a labor inspector over a former employee's wage arrears petition, start by sorting out the amounts. We also cover the penalties that change from October 8, 2026.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When a former employee files a petition with the labor office, the employer receives a summons. The moment it arrives, you feel offended, wondering whether you have become a criminal, and want to call the employee to have it out. It is better not to make that call, because it may look like pressure to withdraw the petition. Use that time instead to make a single table."
+   },
+   {
+    "type": "h2",
+    "text": "What you owe and what you paid, side by side"
+   },
+   {
+    "type": "p",
+    "text": "What the labor inspector checks is, in the end, numbers. They will ask in turn about the wage structure in the employment contract, the actual working hours and the amounts already paid. If you make a table of what should have been paid and what was actually paid for each period, and separate the amounts you accept from those you dispute, the investigation becomes much smoother."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Employment contract and wage statements",
+     "Salary transfer records",
+     "Clock-in and clock-out records, access records, POS login records",
+     "Time stamps in work messenger apps"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "If you are disputing overtime hours, you must respond with objective records, not memory. If the employer only says, “They never worked that late,” the matter is easily settled according to the employee's claims. If you rely on a comprehensive wage agreement (포괄임금 약정), we also look at how that agreement is written in the employment contract."
+   },
+   {
+    "type": "p",
+    "text": "Making the table sometimes reveals amounts the company had not thought of. Typical examples are annual leave allowances and allowances left out of the severance pay calculation. If you pay the parts you accept first and leave only the parts you dispute, the tone of the investigation changes."
+   },
+   {
+    "type": "p",
+    "text": "Many employers talk at length in front of the inspector about the employee's attitude or how they left. The hurt feelings are understandable, but they have nothing to do with whether wages are in arrears and do not help the investigation. It is better to say less and answer with the table and records."
+   },
+   {
+    "type": "h2",
+    "text": "How a petition case proceeds"
+   },
+   {
+    "type": "p",
+    "text": "If arrears are confirmed, the inspector orders payment by a set deadline. If you pay within that time, the matter usually ends as an administrative procedure, but if you do not, it turns into a criminal case, and the employer may be questioned as a suspect and referred to the prosecution. Failing to comply with a summons can also lead to an administrative fine (Article 116(2) of the Labor Standards Act (근로기준법)), so if the date does not work, call to ask for it to be rescheduled."
+   },
+   {
+    "type": "p",
+    "text": "Wages for an employee who has left must be paid within 14 days of departure, after which late payment interest of 20 percent per year applies. This means the longer the investigation drags on, the more you will have to pay."
+   },
+   {
+    "type": "h2",
+    "text": "What changes from October 8"
+   },
+   {
+    "type": "p",
+    "text": "From October 8, 2026, the statutory penalty for wage and severance arrears rises to imprisonment of up to five years or a fine of up to 50 million won (Article 107 of the Labor Standards Act). For arrears arising before then, the standard is the statutory penalty at the time of the act: imprisonment of up to three years or a fine of up to 30 million won. The structure under which no indictment can be filed once the affected employee states that they do not want the employer punished is maintained, but there is an exception for employers whose names have been publicly disclosed for wage arrears and who fall into arrears again during the disclosure period."
+   },
+   {
+    "type": "p",
+    "text": "That is why, in practice, many settlements combine payment with obtaining the employee's statement that they do not want the employer punished (처벌불원). The settlement agreement states the amount and date of payment, the date of each installment if paid in installments, and the wording that the employee does not want punishment. Showing a payment plan first, rather than asking for the statement of non-punishment first, works better in the end."
+   }
+  ],
+  "author": "park-jongjin"
+ },
+ {
+  "id": "corporate-b-harassment-report-first-week",
+  "field": "기업",
+  "centers": [
+   "corporate"
+  ],
+  "date": "2026-03-22",
+  "title": "The first week after a workplace harassment report comes in",
+  "summary": "A company that receives a report must investigate without delay and protect the employee who reported. We set out why it is risky for the CEO to broker a reconciliation, and the order of steps in the first week.",
+  "body": [
+   {
+    "type": "p",
+    "text": "When a harassment report comes in at a small company, the CEO is tempted to call the two people in and have them clear up the misunderstanding. After all, they know each other and have to keep working together. But what the law requires of the company is not brokering a reconciliation; it is investigation and protection. If you get the order wrong, the company will later be told it failed to fulfill its obligations."
+   },
+   {
+    "type": "h2",
+    "text": "What the law requires"
+   },
+   {
+    "type": "p",
+    "text": "When an employer receives a report or becomes aware of harassment, it must without delay conduct an objective investigation of the parties and others involved (Article 76-3 of the Labor Standards Act (근로기준법)). During the investigation, the employee claiming harm must be protected, but no measure may be taken against that employee's wishes. If harassment is confirmed, the employer must take measures such as a change of workplace at the victim's request, and must hear the victim's views before disciplining the perpetrator."
+   },
+   {
+    "type": "p",
+    "text": "Unfavorable treatment of the reporter or victim, such as dismissal, is punishable by imprisonment of up to three years or a fine of up to 30 million won (Article 109). Failing to investigate or breaching the duty to take measures may lead to an administrative fine, and if the employer personally committed the harassment, an administrative fine of up to 10 million won applies (Article 116). For sexual harassment, the Equal Employment Opportunity Act (남녀고용평등법) sets out investigation and protection in a similar structure."
+   },
+   {
+    "type": "h2",
+    "text": "What to do in the first week"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Record the date, time and content of the report in writing and inform the reporter that it has been received",
+     "Ask the employee claiming harm for their views and decide on protective measures such as separating seating or paid leave",
+     "Appoint an investigator with no stake in the matter involving the person accused",
+     "Preserve materials that could be deleted, such as messenger chats, emails and CCTV footage",
+     "Inform everyone involved in the investigation of their duty of confidentiality"
+    ]
+   },
+   {
+    "type": "p",
+    "text": "The investigation starts by breaking down the report into individual acts. If there are two acts, such as verbal abuse and unfair exclusion from work, check separately for each when and where it happened and who saw it. Interview the reporter, the accused and witnesses in that order, and have each person sign their statement."
+   },
+   {
+    "type": "p",
+    "text": "The investigation report states, act by act, whether it is found to be true and on what basis, and the judgment on whether it went beyond the appropriate scope of work. Even if the conclusion is that harassment is not established, the record of a diligent investigation itself protects the company in any later petition or lawsuit."
+   },
+   {
+    "type": "p",
+    "text": "Warn the parties in advance not to contact each other or ask witnesses to give statements during the investigation. If there are signs of this, record them with the dates. If the investigation drags on, the anxiety of the employee claiming harm also grows, so letting them know the rough timeline is itself one of the protective measures."
+   },
+   {
+    "type": "h2",
+    "text": "If the person accused is the CEO or an executive"
+   },
+   {
+    "type": "p",
+    "text": "If the person accused directs the investigation, it will be hard to have its objectivity accepted whatever the conclusion. In such cases, it is better to entrust it to an outside investigator and separate the reporting line as well. Even if the investigation does not find harassment, disciplining the reporter calls for great caution unless they made a report they knew to be clearly false."
+   },
+   {
+    "type": "p",
+    "text": "The harassment provisions of the Labor Standards Act do not apply to workplaces with four or fewer regular employees. Even so, verbal abuse or sexual harassment can lead to criminal or civil liability, so it is not something to take lightly."
+   }
+  ],
+  "author": "kang-hyunwoo"
+ },
+ {
+  "id": "insolvency-a-wage-guarantee-2026",
+  "field": "민사",
+  "centers": [
+   "insolvency"
+  ],
+  "date": "2026-09-03",
+  "title": "Employee wages when winding up a company: the 2026 substitute payment scope has widened",
+  "summary": "In bankruptcy and rehabilitation, employee wages are paid before other debts, and if the company has no money, employees can claim substitute payments. Under the amendment that took effect on August 20, 2026, the wage coverage has increased to the final six months.",
+  "body": [
+   {
+    "type": "p",
+    "text": "What weighs most heavily on a CEO winding up a company is usually the salaries left unpaid to employees. Many people considering corporate bankruptcy or rehabilitation put off the decision because of their employees. From the employees' point of view, however, the company entering court proceedings sometimes actually opens the way to receiving their unpaid wages."
+   },
+   {
+    "type": "h2",
+    "text": "Wages stand ahead of other debts"
+   },
+   {
+    "type": "p",
+    "text": "In bankruptcy proceedings, employees' wages, severance pay and accident compensation are estate claims (재단채권), paid from the bankruptcy estate from time to time and ahead of ordinary bankruptcy claims (Article 473, item 10 of the Debtor Rehabilitation and Bankruptcy Act (채무자 회생 및 파산에 관한 법률)). In rehabilitation proceedings, they are common-benefit claims (공익채권) and must be paid first, from time to time, regardless of the rehabilitation plan (Article 179(1)10). If any company assets remain, the employees' share comes first."
+   },
+   {
+    "type": "h2",
+    "text": "Substitute payments when the company has no money"
+   },
+   {
+    "type": "p",
+    "text": "Even if the company's assets fall short, there is a way. If a decision to commence rehabilitation proceedings or a declaration of bankruptcy has been made against the employer, or the Minister of Employment and Labor has recognized the fact of insolvency, employees who have left can claim substitute payments (대지급금) from the Ministry of Employment and Labor for unpaid wages and the like (Article 7(1) of the Wage Claim Guarantee Act (임금채권보장법))."
+   },
+   {
+    "type": "p",
+    "text": "This scope widened this year. The Wage Claim Guarantee Act, amended on February 19, 2026 and in force from August 20, 2026, sets substitute payments through this route at the final six months of wages, the final three years of retirement benefits, and the final six months of leave allowances and maternity leave pay (Article 7(2)1). For wages, this is up from the final three months previously. Article 2 of the Addenda provides that it applies to cases where the decision to commence rehabilitation proceedings, the declaration of bankruptcy or the recognition of insolvency is made after it takes effect, so the reference point is not the day the employee left but the day the decision concerning the company was made."
+   },
+   {
+    "type": "p",
+    "text": "However, substitute payments are subject to a cap set by Presidential Decree, so they may not cover the full amount in arrears. You also need to distinguish this from the other route, through a judgment or a confirmation of unpaid wages, whose scope is set separately. When explaining to employees, mentioning this difference as well reduces misunderstandings."
+   },
+   {
+    "type": "p",
+    "text": "The provision covers employees who have left. If the company is saved through rehabilitation, the back wages of employees who continue working are common-benefit claims that the company must pay off, and if the company is being wound up, employees are informed of both the timing of their departure and how to claim substitute payments. Either way, a calculation table for each employee must come first."
+   },
+   {
+    "type": "h2",
+    "text": "What the CEO also needs to consider"
+   },
+   {
+    "type": "p",
+    "text": "Wage arrears can lead to criminal issues for the CEO personally. Criminal proceedings over wage arrears do not stop automatically because the corporation is wound up, so the schedule for winding up the corporation and the plan for settling with employees must be drawn up together. If each employee's period of service and unpaid amounts are organized in advance, claims for substitute payments and the filing of claims after the application move faster, and conflict during the winding-up process is reduced."
+   },
+   {
+    "type": "p",
+    "text": "If the company's assets are scattered through seizures while the decision is put off, the share that goes to employees shrinks too. If you are thinking of your employees, there are cases where you should actually consider bringing forward the timing of the wind-up."
+   }
+  ],
+  "author": "park-jongjin"
  }
 ]
