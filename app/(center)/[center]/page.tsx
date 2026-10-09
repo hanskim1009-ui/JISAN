@@ -25,6 +25,7 @@ import { getCases, getColumns } from "@/lib/content"
 import { ColumnRow } from "@/components/column-parts"
 import { getNaverBlogPosts } from "@/lib/feeds"
 import { SampleNote } from "@/components/sample-note"
+import { PROFILE_TEXT } from "@/lib/center-profile-text"
 
 type Props = { params: Promise<{ center: string }> }
 
@@ -67,6 +68,7 @@ export default async function CenterPage({ params }: Props) {
   if (!center) notFound()
   const t = centerTones[center.tone]
   const L = centerText(center.lang)
+  const P = PROFILE_TEXT[center.lang ?? "ko"]
   const foreign = Boolean(center.lang && center.lang !== "ko")
   const base = centerBase(center)
   // 업무사례·칼럼은 한국어만 있어 외국어판에서는 숨김
@@ -277,13 +279,19 @@ export default async function CenterPage({ params }: Props) {
                 <div className="min-w-0 py-1">
                   <span className="inline-block rounded-full bg-jisan-ink px-2.5 py-0.5 text-xs font-bold text-white">{L.lead}</span>
                   <p className="mt-2 text-lg font-bold text-jisan-ink">
-                    {l.name} <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
+                    <Link href={`${base}/lawyers/${l.slug}`} className="hover:underline underline-offset-4">{l.name}</Link>{" "}
+                    <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
                   </p>
                   <p className="mt-1 text-[0.8125rem] font-medium leading-snug text-jisan-ink/80">{l.note}</p>
                   <p className="mt-2 hidden text-sm leading-relaxed text-jisan-ink/70 line-clamp-4 sm:[display:-webkit-box]">{l.summary}</p>
-                  <a href="#consult" className={`mt-3 inline-block text-sm font-semibold ${t.accent}`}>
-                    {L.askThis}
-                  </a>
+                  <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm font-semibold">
+                    <Link href={`${base}/lawyers/${l.slug}`} className={t.accent}>
+                      {P.view}&nbsp;→
+                    </Link>
+                    <a href="#consult" className="text-jisan-ink/60 hover:text-jisan-ink">
+                      {L.askThis}
+                    </a>
+                  </p>
                 </div>
               </li>
             ))}
@@ -294,6 +302,7 @@ export default async function CenterPage({ params }: Props) {
               <ul className="no-scrollbar -mx-6 mt-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-6 px-6 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0 lg:grid-cols-4">
                 {others.map((l) => (
                   <li key={l.slug} className="card-lift w-[42%] min-w-0 shrink-0 snap-start overflow-hidden rounded-2xl bg-white border border-[#E2E6ED] sm:w-auto">
+                    <Link href={`${base}/lawyers/${l.slug}`} className="block">
                     <div className="relative aspect-[4/3] overflow-hidden bg-[#2a3348]">
                       <LawyerPhoto src={l.image} name={l.name} imageClassName="object-cover object-top" sizes="(max-width: 640px) 50vw, 25vw" initialClassName="text-5xl" />
                     </div>
@@ -303,7 +312,9 @@ export default async function CenterPage({ params }: Props) {
                         {l.name} <span className="text-[0.8125rem] font-medium text-muted-foreground">{l.title}</span>
                       </p>
                       {l.line && <p className="mt-1 text-[0.8125rem] leading-snug text-jisan-ink/70">{l.line}</p>}
+                      <p className={`mt-1.5 text-[0.8125rem] font-semibold ${t.accent}`}>{P.view}&nbsp;→</p>
                     </div>
+                    </Link>
                   </li>
                 ))}
               </ul>

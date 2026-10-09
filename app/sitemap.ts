@@ -14,6 +14,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: url("/"), changeFrequency: "weekly", priority: 1 },
     ...FOREIGN_LANGS.map((l) => ({ url: url(`/${l}`), changeFrequency: "monthly" as const, priority: 0.8 })),
     ...allCenters.map((c) => ({ url: url(centerBase(c)), changeFrequency: "weekly" as const, priority: 0.9 })),
+    ...allCenters.flatMap((c) => c.lawyers.map((l) => ({ url: url(`${centerBase(c)}/lawyers/${l.slug}`), changeFrequency: "monthly" as const, priority: 0.6 }))),
+    ...(
+      await Promise.all(
+        FOREIGN_LANGS.map(async (l) => [
+          ...["/about", "/lawyers", "/consult", "/column"].map((p) => ({ url: url(`/${l}${p}`), changeFrequency: "monthly" as const, priority: 0.6 })),
+          ...(await getColumns({ lang: l })).map((c) => ({ url: url(`/${l}/column/${c.id}`), changeFrequency: "yearly" as const, priority: 0.5 })),
+        ]),
+      )
+    ).flat(),
     ...allCenterPages.flatMap((c) => {
       const center = getCenter(c.slug)
       const b = center ? centerBase(center) : `/${c.slug}`

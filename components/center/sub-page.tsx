@@ -12,6 +12,7 @@ import { LawyerPhoto } from "@/components/lawyer-photo"
 import { DataTable } from "@/components/center/data-table"
 import { ClampText } from "@/components/center/clamp-text"
 import { FaqList } from "@/components/center/faq-list"
+import { PROFILE_TEXT } from "@/lib/center-profile-text"
 
 const h2 = "text-[1.375rem] md:text-[1.625rem] font-bold tracking-tight text-jisan-ink leading-snug text-balance"
 const para = "text-[1rem] leading-[1.9] text-jisan-ink/80"
@@ -261,6 +262,9 @@ export function AreaArticle({ center, page }: { center: Center; page: AreaPage }
                     {l.name} <span className="text-sm font-medium text-muted-foreground">{l.title}</span>
                   </p>
                   {l.note && <p className="mt-0.5 text-[0.8125rem] leading-snug text-jisan-ink/70">{l.note}</p>}
+                  <Link href={`${centerBase(center)}/lawyers/${l.slug}`} className={`mt-1 inline-block text-[0.8125rem] font-semibold ${t.accent}`}>
+                    {PROFILE_TEXT[center.lang ?? "ko"].view}&nbsp;→
+                  </Link>
                 </div>
               </li>
             ))}
