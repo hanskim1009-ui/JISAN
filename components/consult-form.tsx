@@ -253,6 +253,26 @@ export function ConsultForm({
     return res.ok
   }
 
+  /** 사무소 텔레그램 알림 (app/api/consult-notify, 봇 설정이 없으면 서버가 그냥 넘어감) */
+  const notify = async (fd: FormData) => {
+    const v = (k: string) => (typeof fd.get(k) === "string" ? (fd.get(k) as string) : "")
+    const res = await fetch("/api/consult-notify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: v("name"),
+        phone: v("phone"),
+        caseType: v("caseType"),
+        stage: v("stage"),
+        concern: v("concern"),
+        message: v("message"),
+        source: source ?? "",
+        page: typeof window !== "undefined" ? window.location.pathname : "",
+      }),
+    })
+    return res.ok
+  }
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
@@ -268,7 +288,8 @@ export function ConsultForm({
 
     setStatus("submitting")
     // DB 저장과 메일 알림을 함께 보내고, 둘 중 하나라도 되면 접수된 것으로 봅니다
-    const [db, mail] = await Promise.allSettled([saveToDb(formData), sendMail(formData)])
+    // 텔레그램 알림은 알림일 뿐이라 접수 성공 여부에는 넣지 않습니다
+    const [db, mail] = await Promise.allSettled([saveToDb(formData), sendMail(formData), notify(formData)])
     const ok = (r: PromiseSettledResult<boolean>) => r.status === "fulfilled" && r.value
     if (ok(db) || ok(mail)) {
       setStatus("success")
