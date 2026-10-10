@@ -1,0 +1,200 @@
+{
+  "prosecution": [
+    {
+      "q": "Mức án đề nghị (구형) là gì, có giống mức án thực tế phải nhận không?",
+      "a": "Mức án đề nghị (구형) là mức hình phạt công tố viên đề nghị tòa án tuyên tại phiên xét xử. Mức án cuối cùng do tòa án quyết định, nên mức án đề nghị và mức án thực tế được tuyên có thể khác nhau."
+    },
+    {
+      "q": "Tạm hoãn truy tố, phạt tiền theo thủ tục rút gọn và xét xử chính thức khác nhau thế nào?",
+      "a": "Tạm hoãn truy tố (기소유예) là quyết định trong đó lỗi được thừa nhận, nhưng xét nhiều hoàn cảnh, công tố viên kết thúc vụ việc mà không đưa ra xét xử. Truy tố theo thủ tục rút gọn (약식기소) là thủ tục định mức phạt tiền dựa trên hồ sơ, không cần ra tòa; còn xét xử chính thức (구공판) là thủ tục công tố viên yêu cầu tòa án xét xử và bị cáo phải ra tòa trước thẩm phán."
+    },
+    {
+      "q": "Nếu thỏa thuận được với người bị hại thì hình phạt có nhẹ đi không?",
+      "a": "Việc có thỏa thuận hay không, cùng với tiền án, mức độ thiệt hại và quá trình phạm tội, là hoàn cảnh chủ yếu được xem xét khi quyết định cách xử lý, nên công cụ cũng hỏi về việc này ở nhiều tội danh. Thỏa thuận ảnh hưởng đến kết quả nhiều hay ít còn tùy tội danh và các hoàn cảnh khác."
+    },
+    {
+      "q": "Kết quả ước tính đáng tin đến mức nào?",
+      "a": "Đây chỉ là ước tính dựa trên xu hướng xử lý chung của cơ quan điều tra; quyết định xử lý và mức án đề nghị thực tế khác nhau tùy hoàn cảnh vụ việc và đánh giá của công tố viên phụ trách. Bản tiếng nước ngoài chỉ có những tội danh thường gặp trong vụ việc của người nước ngoài, với tội danh không có ở đây, hãy nhắn tin hỏi chúng tôi. Nếu sắp phải đến làm việc với cơ quan điều tra, đừng chỉ dựa vào kết quả này mà hãy trao đổi với luật sư trước."
+    }
+  ],
+  "sentencing": [
+    {
+      "q": "Tiêu chuẩn lượng hình là gì, thẩm phán có buộc phải theo không?",
+      "a": "Tiêu chuẩn lượng hình là hướng dẫn mang tính khuyến nghị do Ủy ban Lượng hình đặt ra, được thẩm phán tham khảo khi quyết định hình phạt. Công cụ này cho thấy khung hình phạt khuyến nghị theo Tiêu chuẩn lượng hình năm 2026 (Ủy ban Lượng hình), và mức án thực tế được tuyên có thể khác."
+    },
+    {
+      "q": "Vùng giảm nhẹ, vùng cơ bản, vùng tăng nặng được xác định thế nào?",
+      "a": "Sau khi so sánh các yếu tố lượng hình đặc biệt, nếu phía tăng nặng nặng hơn thì khuyến nghị vùng tăng nặng, nếu phía giảm nhẹ nặng hơn thì khuyến nghị vùng giảm nhẹ, còn lại là vùng cơ bản. Nếu số lượng bằng nhau thì “yếu tố hành vi” (về chính hành vi phạm tội) được coi là nặng hơn “yếu tố người phạm tội/khác” (về hoàn cảnh của bị cáo…), và việc người bị hại không muốn xử phạt có thể được coi nặng ngang yếu tố hành vi."
+    },
+    {
+      "q": "Tôi có thể được hưởng án treo không?",
+      "a": "Án treo chỉ có thể áp dụng khi tuyên phạt tù từ 3 năm trở xuống. Theo tiêu chuẩn, nếu căn cứ tích cực chủ yếu nhiều hơn căn cứ tiêu cực chủ yếu từ 2 trở lên thì khuyến nghị án treo, ngược lại nếu căn cứ tiêu cực chủ yếu nhiều hơn từ 2 trở lên thì khuyến nghị án tù thực tế. Ngoài các trường hợp đó, hoặc khi chênh lệch căn cứ thông thường ở phía ngược lại lớn hơn, thẩm phán sẽ so sánh toàn bộ các căn cứ để quyết định."
+    },
+    {
+      "q": "Có trường hợp nào không áp dụng Tiêu chuẩn lượng hình không?",
+      "a": "Tiêu chuẩn lượng hình không áp dụng khi chọn hình phạt tiền (trừ tội phạm bầu cử, giao thông, theo dõi đeo bám, bảo vệ động vật), phạm tội chưa đạt (trừ giết người chưa đạt), giúp sức phạm tội, bị cáo dưới 19 tuổi, hoặc khi bị xét xử cùng với tội đã có bản án có hiệu lực. Nếu nhiều tội bị xét xử cùng lúc thì khung hình phạt thay đổi theo quy tắc xử lý nhiều tội, nhưng công cụ này chỉ tính cho một tội."
+    }
+  ],
+  "drunk-driving": [
+    {
+      "q": "Lái xe khi say rượu với nồng độ 0,03% thì bị xử phạt thế nào?",
+      "a": "Nồng độ cồn trong máu từ 0,03% đến dưới 0,08% và không có tiền sử vi phạm trong 10 năm thì khung hình phạt là tù đến 1 năm hoặc phạt tiền đến 5 triệu won (Điều 148-2 khoản 3 điểm 3 Luật Giao thông Đường bộ). Giấy phép lái xe bị đình chỉ với 100 điểm phạt, thời gian đình chỉ theo nguyên tắc là 100 ngày. Tuy nhiên, nếu làm người khác bị thương hoặc trước đây đã từng lái xe khi say rượu hay từ chối đo thì giấy phép bị thu hồi."
+    },
+    {
+      "q": "Nồng độ cồn vượt 0,08% hoặc 0,2% thì hình phạt nặng hơn bao nhiêu?",
+      "a": "Khi không có tiền sử vi phạm trong 10 năm, từ 0,08% đến dưới 0,2% là tù từ 1 năm đến 2 năm hoặc phạt tiền từ 5 triệu đến 10 triệu won, từ 0,2% trở lên là tù từ 2 năm đến 5 năm hoặc phạt tiền từ 10 triệu đến 20 triệu won. Từ 0,08% trở lên thuộc tiêu chuẩn thu hồi giấy phép, và nếu không có tiền sử vi phạm cũng không có tai nạn thì trong 1 năm không được cấp lại giấy phép (결격기간)."
+    },
+    {
+      "q": "Nếu từ chối đo nồng độ cồn thì sao?",
+      "a": "Có lý do xác đáng để cho rằng đang say rượu mà không chịu đo thì bị phạt tù từ 1 năm đến 5 năm hoặc phạt tiền từ 5 triệu đến 20 triệu won, và giấy phép bắt buộc bị thu hồi. Nếu không đồng ý với kết quả đo qua hơi thở, bạn có thể được đo lại bằng cách lấy máu… với sự đồng ý của bạn, nhưng nếu từ chối ngay cả việc đo qua hơi thở thì có thể bị coi là từ chối đo."
+    },
+    {
+      "q": "Tái phạm lái xe khi say rượu bị xử phạt khác thế nào?",
+      "a": "Nếu vi phạm lại trong vòng 10 năm kể từ ngày bản án từ mức phạt tiền trở lên của vụ trước có hiệu lực, thì từ 0,2% trở lên là tù từ 2 năm đến 6 năm hoặc phạt tiền từ 10 triệu đến 30 triệu won, từ 0,03% đến dưới 0,2% là tù từ 1 năm đến 5 năm hoặc phạt tiền từ 5 triệu đến 20 triệu won. Người trước đây đã từng lái xe khi say rượu, từ chối đo hoặc cản trở việc đo thì giấy phép bị thu hồi bất kể đã cách bao lâu, và nếu không có tai nạn thì thời gian không được cấp lại là 2 năm."
+    }
+  ],
+  "police-summons": [
+    {
+      "q": "Có thể dời ngày cảnh sát yêu cầu đến làm việc không?",
+      "a": "Khi xin dời ngày giờ đến làm việc, quy định yêu cầu điều chỉnh trừ khi có lý do đặc biệt (Điều 19 Quy chế điều tra chung). Hãy chủ động liên lạc với điều tra viên trước khi đến ngày, nêu lý do và những ngày bạn có thể đến, rồi xin xác nhận ngày mới bằng tin nhắn. Nếu người bị nghi vấn không đến mà không có lý do chính đáng, cảnh sát có thể yêu cầu ra lệnh bắt (체포영장)."
+    },
+    {
+      "q": "Khi cảnh sát lấy lời khai, luật sư có thể đi cùng không?",
+      "a": "Nếu người bị nghi vấn, luật sư bào chữa, vợ/chồng, người thân trực hệ, anh chị em… đề nghị, cảnh sát phải cho luật sư tham gia buổi hỏi cung trừ khi có lý do chính đáng (Điều 243-2 khoản 1 Luật Tố tụng hình sự). Khi lấy lời khai người làm chứng, người bị hại, luật sư cũng có thể ngồi bên cạnh để tư vấn và ghi chép (Điều 13 khoản 3 Quy chế điều tra chung). Để luật sư tham gia, cần nộp giấy chỉ định luật sư và đơn xin tham gia trước buổi lấy lời khai."
+    },
+    {
+      "q": "Tôi được yêu cầu đến với tư cách người làm chứng, có bắt buộc phải đi không?",
+      "a": "Người không phải người bị nghi vấn có thể tự quyết định có đến và có khai hay không. Tuy nhiên, nếu người được xác định rõ ràng là biết sự việc thật sự cần thiết cho việc điều tra mà từ chối, công tố viên có thể yêu cầu thẩm phán thẩm vấn người đó với tư cách nhân chứng trước phiên xét xử đầu tiên (Điều 221-2 Luật Tố tụng hình sự), và nếu trong lúc lấy lời khai phát hiện có nghi vấn thì người làm chứng cũng có thể trở thành người bị nghi vấn."
+    },
+    {
+      "q": "Từ chối khai khi bị cảnh sát lấy lời khai có bị bất lợi không?",
+      "a": "Bạn có thể không trả lời tất cả hoặc chỉ một số câu hỏi, và không bị bất lợi vì điều đó (Điều 244-3 Luật Tố tụng hình sự). Tuy nhiên, những gì bạn đã khai mà không từ chối có thể được dùng làm chứng cứ buộc tội tại tòa, vì vậy hãy quyết định trước sẽ nói đến đâu."
+    }
+  ],
+  "child-support": [
+    {
+      "q": "Tiền cấp dưỡng nuôi con được tính thế nào?",
+      "a": "Dựa vào tổng thu nhập hằng tháng trước thuế của cha mẹ và tuổi của con, tìm tiền cấp dưỡng tiêu chuẩn cho mỗi con trong Bảng tiêu chuẩn tính tiền cấp dưỡng nuôi con năm 2021. Sau đó chia số tiền này theo tỷ lệ thu nhập của hai người: phần của bên không nuôi con = tiền cấp dưỡng × thu nhập của bên không nuôi con ÷ tổng thu nhập."
+    },
+    {
+      "q": "Thu nhập được tính trước thuế hay sau thuế?",
+      "a": "Tính trước thuế. Hãy nhập số tiền một tháng trước khi trừ thuế, cộng tất cả tiền lương, thu nhập kinh doanh, thu nhập cho thuê, tiền lãi, lương hưu…, kể cả tiền trợ cấp của chính phủ."
+    },
+    {
+      "q": "Có 1 con hoặc từ 3 con trở lên thì tiền cấp dưỡng có khác không?",
+      "a": "Bảng tiêu chuẩn là số tiền cho mỗi con, lấy hộ gia đình có cha mẹ và hai con làm chuẩn. Vì vậy nếu chỉ có 1 con, số tiền thường được định cao hơn một chút (tăng thêm), nếu có từ 3 con trở lên thì thường thấp hơn một chút (giảm bớt); nơi sinh sống hay tài sản của cha mẹ cũng có thể là lý do tăng, giảm."
+    },
+    {
+      "q": "Tiền cấp dưỡng có được định đúng bằng số tiền công cụ tính ra không?",
+      "a": "Số tiền trong bảng là điểm xuất phát của tòa án; tiền cấp dưỡng thực tế do tòa án quyết định sau khi xem xét cả mức sống của con, tài sản và nợ của cha mẹ, nơi sinh sống, hình thức nuôi con…. Nếu tổng thu nhập của cha mẹ từ 12 triệu won một tháng trở lên thì bảng không có giới hạn trên, nên số tiền có thể được định cao hơn số tiền trong bảng."
+    }
+  ],
+  "inheritance": [
+    {
+      "q": "Thứ tự hàng thừa kế như thế nào?",
+      "a": "Hàng thứ 1 là con cháu trực hệ như con, hàng thứ 2 là người thân trực hệ bậc trên như cha mẹ, hàng thứ 3 là anh chị em, hàng thứ 4 là người thân bàng hệ trong phạm vi 4 đời; nếu có người ở hàng trước thì hàng sau không được thừa kế (Điều 1000 Bộ luật Dân sự). Vợ/chồng thừa kế cùng với hàng thứ 1 hoặc hàng thứ 2, và thừa kế một mình nếu không có con và cha mẹ (Điều 1003 Bộ luật Dân sự)."
+    },
+    {
+      "q": "Phần thừa kế theo pháp luật của vợ/chồng là bao nhiêu?",
+      "a": "Vợ/chồng được nhận gấp 1,5 lần phần của một người con (hoặc cha mẹ) cùng thừa kế (Điều 1009 Bộ luật Dân sự). Ví dụ, vợ/chồng và 2 người con thì chia theo tỷ lệ 3 : 2 : 2, vợ/chồng được 3/7, mỗi người con được 2/7."
+    },
+    {
+      "q": "Nếu con mất trước cha mẹ thì phần của người con đó ra sao?",
+      "a": "Phần của người con đã mất trước do con và vợ/chồng của người đó nhận thay (thừa kế thế vị, Điều 1001 và Điều 1010 Bộ luật Dân sự), và trong phần đó lại chia theo tỷ lệ vợ/chồng 1,5 : con 1. Nếu không có ai nhận thay thì phần đó thuộc về những người thừa kế khác."
+    },
+    {
+      "q": "Vợ/chồng chung sống không đăng ký hoặc đã ly hôn có được thừa kế không?",
+      "a": "Chỉ vợ/chồng đã đăng ký kết hôn mới là người thừa kế. Vợ/chồng đã ly hôn hoặc vợ/chồng chung sống không đăng ký kết hôn không phải là người thừa kế."
+    }
+  ],
+  "reserved-share": [
+    {
+      "q": "Ai có thể yêu cầu phần di sản bắt buộc (유류분)?",
+      "a": "Con là người thừa kế (kể cả cháu nhận thay) và vợ/chồng có phần di sản bắt buộc bằng 1/2 phần thừa kế theo pháp luật, người thân trực hệ bậc trên như cha mẹ là 1/3 (Điều 1112 Bộ luật Dân sự). Anh chị em đã mất phần này do quyết định vi hiến của Tòa án Hiến pháp ngày 25/4/2024 và việc sửa đổi Bộ luật Dân sự ngày 20/9/2024, còn người thân bàng hệ trong phạm vi 4 đời vốn không có phần này."
+    },
+    {
+      "q": "Phần di sản bắt buộc được tính thế nào?",
+      "a": "Lấy tài sản làm căn cứ tính phần di sản bắt buộc (tài sản để lại + tài sản đã cho khi còn sống − nợ) nhân với phần thừa kế theo pháp luật và tỷ lệ phần di sản bắt buộc. Số tiền thực sự có thể yêu cầu là phần còn thiếu sau khi trừ đi những gì người đó đã được tặng cho, di tặng và phần nhận được từ thừa kế."
+    },
+    {
+      "q": "Tài sản tặng cho từ lâu có được tính vào không?",
+      "a": "Tài sản người thừa kế được tặng cho thì tính cả những khoản đã lâu. Tài sản người không phải người thừa kế được tặng cho thì chỉ tính những khoản trong vòng 1 năm trước khi mất, nhưng khoản tặng cho dù biết là gây thiệt hại cho người thừa kế khác thì tính cả khoản trước đó. Phần được cho để đền đáp việc phụng dưỡng đặc biệt hoặc việc làm tăng tài sản có thể được loại ra."
+    },
+    {
+      "q": "Thời hạn yêu cầu phần di sản bắt buộc là bao lâu?",
+      "a": "Không thể yêu cầu khi đã quá 1 năm kể từ ngày biết việc thừa kế bắt đầu và biết có khoản tặng cho, di tặng cần đòi lại, hoặc quá 10 năm kể từ ngày thừa kế bắt đầu (Điều 1117 Bộ luật Dân sự). Thời hạn ngắn, nên khi biết có việc tặng cho, hãy trao đổi ngay với luật sư."
+    }
+  ],
+  "interest": [
+    {
+      "q": "Lãi suất luật định (lãi chậm trả) là bao nhiêu?",
+      "a": "Khoản nợ thông thường không có thỏa thuận riêng về lãi suất áp dụng lãi suất luật định dân sự 5%/năm (Điều 379 Bộ luật Dân sự), khoản nợ phát sinh từ hoạt động buôn bán, kinh doanh áp dụng lãi suất luật định thương mại 6%/năm (Điều 54 Luật Thương mại). Nếu hợp đồng có ghi lãi suất thì cũng có thể tính theo lãi suất thỏa thuận đó."
+    },
+    {
+      "q": "Lãi suất 12% theo Luật Thúc đẩy Tố tụng áp dụng từ khi nào?",
+      "a": "Lãi suất theo Luật Đặc biệt về Thúc đẩy Tố tụng là 12%/năm từ ngày 1/6/2019; từ 1/10/2015 đến 31/5/2019 là 15%/năm, từ 1/6/2003 đến 30/9/2015 là 20%/năm. Thông thường phần quyết định của bản án ghi áp dụng từ ngày sau ngày bị đơn nhận bản sao đơn khởi kiện, và vụ án đã kết thúc phần tranh luận ở sơ thẩm vào thời điểm lãi suất thay đổi thì vẫn áp dụng lãi suất trước khi thay đổi."
+    },
+    {
+      "q": "Tiền lãi chậm trả được tính thế nào?",
+      "a": "Tính theo công thức tiền gốc × lãi suất năm × số ngày ÷ 365, phần lẻ dưới 1 won được làm tròn. Có thể tính cả ngày bắt đầu là một ngày như cách bản án ghi “từ ngày ○○ đến ngày trả hết”, và nếu khoảng thời gian đi qua ngày lãi suất thay đổi thì được tính tách riêng."
+    },
+    {
+      "q": "Nếu đã trả một phần thì tiền lãi chậm trả tính ra sao?",
+      "a": "Công cụ này chỉ tính tiền lãi của một khoản tiền gốc trong một khoảng thời gian, nên nếu đã trả một phần hoặc bản án định riêng thời gian, lãi suất thì số tiền thực tế sẽ khác. Khi đó, hãy ghi lại ngày và số tiền đã trả rồi trao đổi với luật sư."
+    }
+  ],
+  "court-fees": [
+    {
+      "q": "Tem án phí được tính thế nào?",
+      "a": "Tem án phí sơ thẩm bằng 0,5% giá trị vụ kiện nếu dưới 10 triệu won, 0,45% + 5.000 won nếu dưới 100 triệu won, 0,4% + 55.000 won nếu dưới 1 tỷ won, và 0,35% + 555.000 won nếu từ 1 tỷ won trở lên; phần dưới 100 won được bỏ đi (Điều 2 Luật về Tem án phí trong Tố tụng Dân sự). Nếu nộp qua tố tụng điện tử thì tem án phí giảm 10%."
+    },
+    {
+      "q": "Tem án phí khi kháng cáo phúc thẩm hoặc lên Tòa án Tối cao là bao nhiêu?",
+      "a": "Đơn kháng cáo phúc thẩm gấp 1,5 lần tem án phí sơ thẩm, kháng cáo lên Tòa án Tối cao gấp 2 lần, và giảm thêm 10% nếu là tố tụng điện tử. Yêu cầu ra lệnh thanh toán và yêu cầu hòa giải dân sự bằng 1/10 mức phí của đơn khởi kiện."
+    },
+    {
+      "q": "Phải nộp trước bao nhiêu phí tống đạt?",
+      "a": "Phí tống đạt là tiền bưu phí nộp trước để tòa án gửi giấy tờ, tính bằng 5.640 won mỗi lần (từ 1/7/2026) nhân với số lần quy định cho từng loại vụ việc và số người. Vụ kiện dân sự sơ thẩm là 10 lần nếu là vụ việc giá trị nhỏ (giá trị vụ kiện từ 30 triệu won trở xuống) và 15 lần với các vụ khác, phúc thẩm 12 lần, Tòa án Tối cao 8 lần. Phí tống đạt còn thừa sẽ được trả lại khi vụ việc kết thúc."
+    },
+    {
+      "q": "Tem án phí cho vụ kiện ly hôn là bao nhiêu?",
+      "a": "Vụ án gia sự không lấy số tiền làm căn cứ như ly hôn theo phán quyết của tòa án (loại Ga, Na) có tem án phí cố định 20.000 won (tính theo hồ sơ giấy), giảm 10% nếu là tố tụng điện tử. Vụ án gia sự đòi tiền như tiền bồi thường tổn thất tinh thần do ly hôn (loại Da) có mức phí bằng một nửa mức phí dân sự. Nếu nộp nhiều yêu cầu cùng lúc thì số tiền có thể khác, và thù lao luật sư hay phí giám định không được tính vào đây."
+    }
+  ],
+  "deadline": [
+    {
+      "q": "Thời hạn kháng cáo được tính từ khi nào?",
+      "a": "Kháng cáo dân sự phải nộp trong vòng 2 tuần kể từ ngày nhận tống đạt bản án, kháng cáo hình sự trong vòng 7 ngày kể từ ngày tuyên án. Không tính ngày đầu tiên mà tính từ ngày hôm sau (Điều 157 Bộ luật Dân sự, Điều 66 khoản 1 Luật Tố tụng hình sự), nhưng nếu tống đạt có hiệu lực từ 0 giờ ngày hôm đó, như khi văn bản tố tụng điện tử không được mở xem trong 1 tuần nên được coi là đã tống đạt, thì tính cả ngày đầu tiên."
+    },
+    {
+      "q": "Nếu ngày hết hạn rơi vào thứ Bảy hoặc ngày lễ thì sao?",
+      "a": "Nếu ngày cuối cùng là thứ Bảy, Chủ nhật hoặc ngày lễ thì thời hạn kéo dài đến ngày hôm sau (Điều 161 Bộ luật Dân sự, Điều 66 khoản 3 Luật Tố tụng hình sự). Ngày lễ bao gồm cả ngày nghỉ bù."
+    },
+    {
+      "q": "Nếu gửi bưu điện thì có tính theo ngày gửi không?",
+      "a": "Giấy tờ phải đến tòa án chậm nhất vào ngày hết hạn, và nếu gửi bưu điện thì tính theo ngày đến nơi, không phải ngày gửi. Thời hạn bất biến như thời hạn kháng cáo thì ngay cả tòa án cũng không thể kéo dài, theo nguyên tắc chỉ cần quá một ngày là mất cơ hội tranh chấp, vì vậy hãy nộp sớm."
+    },
+    {
+      "q": "Phản đối lệnh thanh toán hoặc quyết định khuyến nghị thực hiện nghĩa vụ phải làm trước khi nào?",
+      "a": "Phản đối lệnh thanh toán (Điều 470 khoản 1 Luật Tố tụng Dân sự) và phản đối quyết định khuyến nghị thực hiện nghĩa vụ (Điều 5-4 khoản 1 Luật Xét xử Vụ việc Giá trị Nhỏ) đều phải nộp trong vòng 2 tuần kể từ ngày nhận tống đạt. Phản đối quyết định khuyến nghị thỏa thuận và quyết định thay cho hòa giải cũng là 2 tuần, và tất cả đều là thời hạn bất biến."
+    }
+  ],
+  "interest-cap": [
+    {
+      "q": "Lãi suất tối đa theo luật là bao nhiêu?",
+      "a": "Hợp đồng ký từ ngày 7/7/2021 trở đi có lãi suất tối đa 20%/năm theo cả Luật Hạn chế Lãi suất và Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính; hợp đồng ký từ 8/2/2018 đến 6/7/2021 là 24%/năm. Lãi suất tối đa được xác định theo thời điểm thỏa thuận tiền lãi (ngày ký hợp đồng)."
+    },
+    {
+      "q": "Đã trả tiền lãi vượt mức tối đa thì có đòi lại được không?",
+      "a": "Phần tiền lãi vượt mức tối đa không có hiệu lực; nếu đã trả thì có thể coi là đã trả vào tiền gốc hoặc yêu cầu trả lại (Điều 2 khoản 3, 4 Luật Hạn chế Lãi suất; Điều 8 khoản 4, 5 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính). Thu tiền lãi vượt mức tối đa cũng có thể bị xử lý hình sự (Điều 8 Luật Hạn chế Lãi suất; Điều 19 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính)."
+    },
+    {
+      "q": "Tiền lãi trừ trước và các loại phí có bị coi là tiền lãi không?",
+      "a": "Dù được gọi là phí, tiền cảm ơn hay tiền chiết khấu, mọi khoản tiền nhận được để đổi lấy việc cho vay đều được coi là tiền lãi (Điều 4 Luật Hạn chế Lãi suất). Nếu đã trừ trước tiền lãi thì số tiền thực nhận được coi là tiền gốc (Điều 3 Luật Hạn chế Lãi suất)."
+    },
+    {
+      "q": "Vay của người cho vay chưa đăng ký (cho vay bất hợp pháp) thì có phải trả lãi không?",
+      "a": "Hợp đồng cho vay ký từ ngày 22/7/2025 trở đi với người kinh doanh cho vay chưa đăng ký thì toàn bộ thỏa thuận về tiền lãi không có hiệu lực (Điều 11 khoản 1 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính). Với hợp đồng ký trước ngày đó, phần tiền lãi vượt mức tối đa không có hiệu lực."
+    }
+  ]
+}
