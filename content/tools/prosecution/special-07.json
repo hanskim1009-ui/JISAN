@@ -1,0 +1,9603 @@
+[
+ {
+  "id": "dispatch-harmful-work",
+  "name": "유해업무 취업 목적 근로자파견",
+  "law": "파견근로자 보호 등에 관한 법률 제42조 제1항",
+  "group": "노동",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금 (미수범도 처벌)",
+  "aliases": [
+   "성매매 업소 파견",
+   "유해업무 파견",
+   "파견법위반"
+  ],
+  "questions": [
+   {
+    "id": "scale",
+    "label": "많은 인원을 오랜 기간 파견했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "harm",
+    "label": "생명·신체에 직접 해로운 업무였거나 크게 다친 사람이 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "scale",
+       "op": "eq",
+       "value": "yes"
+      },
+      {
+       "q": "harm",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "대규모·장기간 파견이면서 생명·신체에 직접 해로운 업무였거나 중대한 피해자가 생기면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "scale",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "성매매, 부정식품·부정의약품 제조 등 법이 정한 해로운 업무에 일하게 할 목적으로 파견한 경우입니다."
+  ],
+  "lawName": "파견근로자 보호 등에 관한 법률"
+ },
+ {
+  "id": "dispatch-illegal",
+  "name": "불법파견 (파견 대상·기간 위반, 무허가 파견)",
+  "law": "파견근로자 보호 등에 관한 법률 제43조 제1호·제2호",
+  "group": "노동",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "불법파견",
+   "파견기간 위반",
+   "파견 역무를 제공받은 자",
+   "사용사업주 불법파견",
+   "무허가 파견사업"
+  ],
+  "questions": [
+   {
+    "id": "scale",
+    "label": "많은 인원을 오랜 기간 파견했거나 파견받았나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "scale",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "파견사업자뿐 아니라 파견 근로자를 받아 쓴 사업주(사용사업주)도 처벌됩니다."
+  ],
+  "lawName": "파견근로자 보호 등에 관한 법률"
+ },
+ {
+  "id": "dispatch-fraud-license",
+  "name": "거짓·부정한 방법의 파견사업 허가·갱신",
+  "law": "파견근로자 보호 등에 관한 법률 제43조 제3호",
+  "group": "노동",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "파견업 허가 부정취득",
+   "파견 허가 거짓"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "org",
+    "label": "상습적이거나 조직적으로 했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      },
+      {
+       "q": "org",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "같은 전력 3회 이상이고 직업적·조직적으로 위반하면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "org",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "파견근로자 보호 등에 관한 법률"
+ },
+ {
+  "id": "dispatch-name-lending",
+  "name": "파견사업 명의대여",
+  "law": "파견근로자 보호 등에 관한 법률 제43조 제4호",
+  "group": "노동",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "파견업 명의대여",
+   "파견 허가 대여"
+  ],
+  "questions": [
+   {
+    "id": "gain",
+    "label": "명의대여로 얻은 이익",
+    "type": "number",
+    "unit": "만원",
+    "min": 0,
+    "max": 1000000,
+    "step": 10
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "habitual",
+    "label": "상습적·직업적으로 했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      },
+      {
+       "q": "habitual",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "같은 전력 3회 이상이고 상습적·직업적으로 했다면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "gain",
+       "op": "gte",
+       "value": 2000
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 0,
+     "atLeast": true,
+     "perUnit": {
+      "q": "gain",
+      "over": 0,
+      "amount": 5000
+     },
+     "max": 30000000
+    },
+    "note": "얻은 이익의 50% 이상이 기준입니다."
+   }
+  ],
+  "notes": [
+   "빌려준 기간도 함께 고려됩니다."
+  ],
+  "lawName": "파견근로자 보호 등에 관한 법률"
+ },
+ {
+  "id": "dispatch-retaliation",
+  "name": "차별 시정 신청 등을 이유로 한 불리한 처우 (파견근로자)",
+  "law": "파견근로자 보호 등에 관한 법률 제43조의2",
+  "group": "노동",
+  "statutory": "2년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "파견근로자 차별",
+   "차별처우",
+   "차별시정 신청 해고"
+  ],
+  "questions": [
+   {
+    "id": "wide",
+    "label": "불리한 처우의 정도가 크고 대상자가 많나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "malicious",
+    "label": "일부러 반복하는 등 악의적인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "wide",
+       "op": "eq",
+       "value": "yes"
+      },
+      {
+       "q": "malicious",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "차별 범위가 크고 대상자가 많으며 악의적인 사업자라면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "wide",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "파견근로자가 차별 시정을 신청하거나 관련 진술을 했다는 이유로 해고 등 불리하게 대한 경우입니다."
+  ],
+  "lawName": "파견근로자 보호 등에 관한 법률"
+ },
+ {
+  "id": "dispatch-suspension-violation",
+  "name": "파견사업 영업정지 위반·파견 제한 위반",
+  "law": "파견근로자 보호 등에 관한 법률 제44조",
+  "group": "노동",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "영업정지 중 파견",
+   "쟁의행위 중 파견",
+   "파견 제한 위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ]
+    ],
+    "sentence": "징역 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "영업정지 명령을 어기고 파견사업을 계속하거나, 파업 중인 사업장 등 파견이 금지된 곳에 파견한 경우입니다."
+  ],
+  "lawName": "파견근로자 보호 등에 관한 법률"
+ },
+ {
+  "id": "waste-mgmt-dumping",
+  "name": "사업장폐기물 불법 투기·매립",
+  "law": "폐기물관리법 제63조 제1호·제2호",
+  "group": "환경",
+  "statutory": "7년 이하의 징역 또는 7천만원 이하의 벌금 (함께 물릴 수 있음)",
+  "aliases": [
+   "폐기물 무단투기",
+   "폐기물 불법매립",
+   "산업폐기물 투기",
+   "폐기물관리법위반"
+  ],
+  "questions": [
+   {
+    "id": "kind",
+    "label": "폐기물 종류",
+    "type": "select",
+    "options": [
+     {
+      "value": "designated",
+      "label": "지정폐기물 (폐유·폐산 등 유해한 폐기물)"
+     },
+     {
+      "value": "general",
+      "label": "일반 사업장폐기물"
+     },
+     {
+      "value": "light",
+      "label": "건축폐기물·석재 등 유해성이 적은 폐기물"
+     }
+    ]
+   },
+   {
+    "id": "tons",
+    "label": "버리거나 묻은 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "operator",
+    "label": "폐기물처리업자(수집·운반업 포함)인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 10
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 100
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ],
+     [
+      {
+       "q": "operator",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "지정폐기물 10톤 이상, 일반폐기물 100톤 이상, 5년 내 같은 전력 2회 이상이면 구속이 검토되고, 폐기물처리업자는 구속 기소가 원칙입니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 5
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 50
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "note": "지정폐기물 5톤 이상, 일반폐기물 50톤 이상이거나 같은 전력이 있으면 정식재판으로 갑니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "general"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 10
+      }
+     ]
+    ],
+    "fine": {
+     "base": 7500000,
+     "atLeast": true
+    },
+    "note": "유해성이 커서 기본 금액(500만원)의 1.5~2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    },
+    "note": "건축폐기물·석재처럼 유해성이 적으면 줄어들 수 있습니다."
+   }
+  ],
+  "notes": [
+   "징역과 벌금을 함께 물릴 수 있고, 제대로 처리했을 때 드는 비용을 아낀 만큼 벌금으로 거둬들이는 것이 원칙입니다.",
+   "생활폐기물을 버리거나 묻은 경우는 과태료 대상입니다.",
+   "단체를 이뤄 돈을 벌 목적으로 버리거나 묻으면 환경범죄 가중처벌 규정으로 2년 이상 징역이 됩니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-unlicensed",
+  "name": "무허가·거짓 허가 폐기물처리업",
+  "law": "폐기물관리법 제64조 제5호·제6호",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "무허가 폐기물처리업",
+   "폐기물처리업 허가 부정취득",
+   "무허가 폐기물 수집운반"
+  ],
+  "questions": [
+   {
+    "id": "months",
+    "label": "영업한 기간",
+    "type": "number",
+    "unit": "개월",
+    "min": 0,
+    "max": 600,
+    "step": 1
+   },
+   {
+    "id": "polluted",
+    "label": "주변 환경을 오염시켰나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "facility",
+    "label": "허가에 필요한 설비는 다 갖추고 행정절차만 빠졌나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "polluted",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 12
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "불법 처리로 주변 환경을 오염시켰거나, 영업기간 1년 이상, 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 6
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 1년 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "facility",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1500000,
+     "atLeast": true
+    },
+    "note": "설비를 갖추고 절차만 빠진 경우 기본 금액의 0.5~0.7배로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "불법 영업으로 얻은 이익은 벌금으로 거둬들이는 것이 원칙입니다.",
+   "건설폐기물처리업체가 사업장폐기물을 처리하는 등 허가 범위를 벗어난 처리도 무허가로 봅니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-closure-order",
+  "name": "폐기물처리시설 폐쇄명령 불이행",
+  "law": "폐기물관리법 제64조 제9호",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "폐쇄명령 위반",
+   "폐기물시설 폐쇄명령"
+  ],
+  "questions": [
+   {
+    "id": "months",
+    "label": "명령을 따르지 않은 기간",
+    "type": "number",
+    "unit": "개월",
+    "min": 0,
+    "max": 600,
+    "step": 1
+   },
+   {
+    "id": "polluted",
+    "label": "주변 환경이 뚜렷하게 오염되었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "designatedFacility",
+    "label": "지정폐기물 처리시설인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 3
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ],
+     [
+      {
+       "q": "polluted",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "3개월 이상 따르지 않았거나, 같은 전력 2회 이상, 뚜렷한 오염이 입증되면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "designatedFacility",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 6000000,
+     "atLeast": true
+    },
+    "note": "지정폐기물 처리시설이라 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업자(수집·운반업 포함)가 위반하면 2배까지 무겁게 처리될 수 있습니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-improvement-order",
+  "name": "폐기물처리시설 개선명령 불이행·사용중지명령 위반",
+  "law": "폐기물관리법 제65조 제20호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "개선명령 불이행",
+   "사용중지명령 위반"
+  ],
+  "questions": [
+   {
+    "id": "months",
+    "label": "명령을 따르지 않은 기간",
+    "type": "number",
+    "unit": "개월",
+    "min": 0,
+    "max": 600,
+    "step": 1
+   },
+   {
+    "id": "polluted",
+    "label": "주변 환경이 뚜렷하게 오염되었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "designatedFacility",
+    "label": "지정폐기물 처리시설인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 3
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ],
+     [
+      {
+       "q": "polluted",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "3개월 이상 따르지 않았거나, 같은 전력 2회 이상, 뚜렷한 오염이 입증되면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "designatedFacility",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 6000000,
+     "atLeast": true
+    },
+    "note": "지정폐기물 처리시설이라 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업자(수집·운반업 포함)가 위반하면 2배까지 무겁게 처리될 수 있습니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-volume-bag",
+  "name": "종량제 봉투 무단 제작·유통",
+  "law": "폐기물관리법 제64조 제4호",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "종량제봉투 위조",
+   "가짜 종량제봉투",
+   "쓰레기봉투 무단 제작"
+  ],
+  "questions": [
+   {
+    "id": "months",
+    "label": "제작·유통한 기간",
+    "type": "number",
+    "unit": "개월",
+    "min": 0,
+    "max": 600,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 12
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "1년 이상 했거나 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 6
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 1년 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "같은 전력이 있으면 벌금이 2~3배로 무거워집니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-landfill",
+  "name": "처리기준을 어긴 폐기물 매립",
+  "law": "폐기물관리법 제65조 제1호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금 (함께 물릴 수 있음)",
+  "aliases": [
+   "폐기물 매립",
+   "폐기물 처리기준 위반 매립"
+  ],
+  "questions": [
+   {
+    "id": "kind",
+    "label": "폐기물 종류",
+    "type": "select",
+    "options": [
+     {
+      "value": "designated",
+      "label": "지정폐기물 (폐유·폐산 등 유해한 폐기물)"
+     },
+     {
+      "value": "general",
+      "label": "일반 사업장폐기물"
+     },
+     {
+      "value": "light",
+      "label": "건축폐기물·석재 등 유해성이 적은 폐기물"
+     }
+    ]
+   },
+   {
+    "id": "tons",
+    "label": "묻은 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 200
+      }
+     ]
+    ],
+    "note": "200톤 이상 묻었으면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 100
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "general"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 10
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4500000,
+     "atLeast": true
+    },
+    "note": "유해성이 커서 기본 금액(300만원)의 1.5~2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "주변 환경이 오염되지 않았으면 과태료 대상이 될 수 있지만 엄격하게 봅니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-illegal-consign",
+  "name": "사업장폐기물 불법처리 (부적정 위탁 등)",
+  "law": "폐기물관리법 제65조 제11호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금 (함께 물릴 수 있음)",
+  "aliases": [
+   "폐기물 불법위탁",
+   "무허가업체 위탁",
+   "사업장폐기물 처리기준 위반"
+  ],
+  "questions": [
+   {
+    "id": "kind",
+    "label": "폐기물 종류",
+    "type": "select",
+    "options": [
+     {
+      "value": "designated",
+      "label": "지정폐기물"
+     },
+     {
+      "value": "general",
+      "label": "일반 사업장폐기물"
+     }
+    ]
+   },
+   {
+    "id": "tons",
+    "label": "불법 처리된 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "unaware",
+    "label": "맡긴 업체가 불법업자인 줄 몰랐나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 300
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 1000
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "지정폐기물 300톤·일반폐기물 1,000톤 이상을 맡겨 불법 매립되었거나 5년 내 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 100
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 500
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 100
+      }
+     ]
+    ],
+    "fine": {
+     "base": 6000000,
+     "atLeast": true
+    },
+    "note": "지정폐기물이거나 100톤 이상이면 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "unaware",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1500000,
+     "atLeast": true
+    },
+    "note": "불법업자인 줄 확실히 알지 못하고 맡겼다면 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업자(수집·운반업 포함)가 위반하면 2배까지 무겁게 처리될 수 있습니다.",
+   "불법 위탁으로 아낀 비용은 벌금으로 거둬들이는 것이 원칙입니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-unapproved-facility",
+  "name": "승인 없는 폐기물처리시설 설치",
+  "law": "폐기물관리법 제65조 제18호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "미승인 폐기물처리시설",
+   "폐기물처리시설 무단 설치"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "recent",
+    "label": "가장 최근 전력이 5년 안에 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "polluted",
+    "label": "시설 때문에 주변 환경이 오염되었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "minor",
+    "label": "가볍게 볼 사정",
+    "type": "select",
+    "options": [
+     {
+      "value": "none",
+      "label": "해당 없음"
+     },
+     {
+      "value": "idle",
+      "label": "설치만 하고 가동하지 않았거나, 서류가 행정기관에서 처리 중"
+     },
+     {
+      "value": "trivial",
+      "label": "상호·소재지 등 처리와 관계없는 사항만 승인을 받지 않음"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      },
+      {
+       "q": "recent",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "같은 전력 3회 이상이거나 5년 내 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      },
+      {
+       "q": "recent",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "polluted",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 6000000,
+     "atLeast": true
+    },
+    "note": "주변 환경을 오염시켜 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "minor",
+       "op": "eq",
+       "value": "idle"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1500000,
+     "atLeast": true
+    },
+    "note": "가볍게 볼 사정이 있어 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "minor",
+       "op": "eq",
+       "value": "trivial"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 900000,
+     "atLeast": true
+    },
+    "note": "처리와 관계없는 사항이라 크게 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업자(수집·운반업 포함)가 위반하면 2배까지 무겁게 처리될 수 있습니다.",
+   "변경신고를 하지 않거나 신고 없이 사용을 시작한 경우는 과태료 대상입니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-facility-misc",
+  "name": "금지된 소각시설 설치·미신고 처리시설 설치·변경승인 미이행",
+  "law": "폐기물관리법 제66조 제10호~제12호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "소각시설 설치",
+   "미신고 폐기물처리시설",
+   "폐기물시설 변경승인 미이행"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "recent",
+    "label": "가장 최근 전력이 5년 안에 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "polluted",
+    "label": "시설 때문에 주변 환경이 오염되었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "minor",
+    "label": "가볍게 볼 사정",
+    "type": "select",
+    "options": [
+     {
+      "value": "none",
+      "label": "해당 없음"
+     },
+     {
+      "value": "idle",
+      "label": "설치만 하고 가동하지 않았거나, 서류가 행정기관에서 처리 중"
+     },
+     {
+      "value": "trivial",
+      "label": "상호·소재지 등 처리와 관계없는 사항만 승인을 받지 않음"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      },
+      {
+       "q": "recent",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "같은 전력 3회 이상이거나 5년 내 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      },
+      {
+       "q": "recent",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "polluted",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    },
+    "note": "주변 환경을 오염시켜 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "minor",
+       "op": "eq",
+       "value": "idle"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    },
+    "note": "가볍게 볼 사정이 있어 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "minor",
+       "op": "eq",
+       "value": "trivial"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 600000,
+     "atLeast": true
+    },
+    "note": "처리와 관계없는 사항이라 크게 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업자(수집·운반업 포함)가 위반하면 2배까지 무겁게 처리될 수 있습니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-uninspected",
+  "name": "검사·적합판정 없이 폐기물처리시설 사용",
+  "law": "폐기물관리법 제65조 제19호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "폐기물처리시설 검사 미수검",
+   "적합판정 없이 가동"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "recent",
+    "label": "가장 최근 전력이 5년 안에 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "polluted",
+    "label": "시설 운영으로 주변 환경이 오염되었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "testOnly",
+    "label": "일시적으로 시험 가동만 했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      },
+      {
+       "q": "recent",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "같은 전력 3회 이상이거나 5년 내 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      },
+      {
+       "q": "recent",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "polluted",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    },
+    "note": "주변 환경을 오염시켜 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "testOnly",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    },
+    "note": "시험 가동만 해 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-unapproved-change",
+  "name": "변경허가 없이 폐기물처리업 허가사항 변경",
+  "law": "폐기물관리법 제65조 제14호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "폐기물처리업 변경허가 미이행"
+  ],
+  "questions": [
+   {
+    "id": "months",
+    "label": "변경한 상태로 영업한 기간",
+    "type": "number",
+    "unit": "개월",
+    "min": 0,
+    "max": 600,
+    "step": 1
+   },
+   {
+    "id": "major",
+    "label": "처리하는 폐기물 종류나 주요 설비를 바꿨나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 12
+      }
+     ]
+    ],
+    "note": "1년 이상 영업했다면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 6
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "major",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 6000000,
+     "atLeast": true
+    },
+    "note": "처리 대상·주요 설비를 바꿔 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-suspended-business",
+  "name": "영업정지 기간 중 영업·폐기물 처리명령 불이행",
+  "law": "폐기물관리법 제65조 제16호·제17호·제21호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "폐기물처리업 영업정지 위반",
+   "폐기물 처리명령 불이행"
+  ],
+  "questions": [
+   {
+    "id": "big",
+    "label": "지정폐기물 300톤 이상 또는 일반폐기물 1,000톤 이상이 맡겨져 불법 매립되었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "recent",
+    "label": "가장 최근 전력이 5년 안에 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "big",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      },
+      {
+       "q": "recent",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "대량으로 불법 매립되었거나 5년 내 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    },
+    "note": "같은 전력이 있어 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "불법 영업으로 얻은 이익은 벌금으로 거둬들이는 것이 원칙입니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-admin-order",
+  "name": "폐기물 관련 조치명령 등 불이행",
+  "law": "폐기물관리법 제65조 제22호~제27호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "폐기물 조치명령 불이행",
+   "매립시설 개선명령 불이행",
+   "반입정지명령 위반"
+  ],
+  "questions": [
+   {
+    "id": "aggravated",
+    "label": "명령을 전혀 이행하지 않아 오염을 키웠거나, 이행한 것처럼 꾸몄나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "partial",
+    "label": "명령을 충실히 이행했고 일부 위반만 남았나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "aggravated",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "조치를 전혀 하지 않아 오염을 키웠거나 거짓으로 이행한 것처럼 꾸며 오염시키면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "partial",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1500000,
+     "atLeast": true
+    },
+    "note": "대부분 이행해 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "매립지 사용 종료나 폐쇄 신고를 하지 않은 경우는 과태료 대상입니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-standard-pollution",
+  "name": "처리기준을 어긴 폐기물 처리로 주변환경 오염",
+  "law": "폐기물관리법 제66조 제1호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "폐기물 처리기준 위반",
+   "폐기물 보관기준 위반 오염"
+  ],
+  "questions": [
+   {
+    "id": "tons",
+    "label": "문제된 폐기물 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.1
+   },
+   {
+    "id": "kind",
+    "label": "폐기물 종류",
+    "type": "select",
+    "options": [
+     {
+      "value": "designated",
+      "label": "지정폐기물"
+     },
+     {
+      "value": "general",
+      "label": "일반폐기물"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "minor",
+    "label": "가볍게 볼 사정",
+    "type": "select",
+    "options": [
+     {
+      "value": "none",
+      "label": "해당 없음"
+     },
+     {
+      "value": "yes",
+      "label": "바로 치워 오염을 최소화했거나, 화재 등 어쩔 수 없는 사유"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 1000
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ]
+    ],
+    "note": "1,000톤 이상이거나 같은 전력 3회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 500
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    },
+    "note": "지정폐기물이거나 같은 전력이 있어 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "minor",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    },
+    "note": "가볍게 볼 사정이 있어 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물을 묻은 경우는 따로(처리기준 위반 매립) 봅니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-recycle-order",
+  "name": "유해성기준 위반 재활용 제품 회수·파기 등 조치명령 위반",
+  "law": "폐기물관리법 제66조 제1호의3",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "재활용제품 회수명령 위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "malicious",
+    "label": "일부러 따르지 않았나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ]
+    ],
+    "note": "같은 전력 3회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "malicious",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    },
+    "note": "악의적이거나 재범이라 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-report",
+  "name": "폐기물처리 신고 미이행·거짓 신고 (재활용 신고 등)",
+  "law": "폐기물관리법 제66조 제2호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "폐기물 재활용 신고 미이행",
+   "폐기물처리 허위신고"
+  ],
+  "questions": [
+   {
+    "id": "agg",
+    "label": "사정",
+    "type": "select",
+    "options": [
+     {
+      "value": "none",
+      "label": "해당 없음"
+     },
+     {
+      "value": "up",
+      "label": "거짓으로 신고했거나 재활용 과정에서 주변 환경을 오염시킴"
+     },
+     {
+      "value": "down",
+      "label": "오염이 없었거나 적발 후 20일 안에 신고함"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "up"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    },
+    "note": "무거운 사정이 있어 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "down"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    },
+    "note": "가벼운 사정이 있어 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업자(수집·운반업 포함)가 위반하면 2배까지 무겁게 처리될 수 있습니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-designated-unconfirmed",
+  "name": "지정폐기물 처리계획 미확인·확인 내용과 다른 처리",
+  "law": "폐기물관리법 제66조 제4호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "지정폐기물 처리계획 확인 미이행"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "agg",
+    "label": "사정",
+    "type": "select",
+    "options": [
+     {
+      "value": "none",
+      "label": "해당 없음"
+     },
+     {
+      "value": "up",
+      "label": "불법업체에 맡겼거나 악의가 분명함"
+     },
+     {
+      "value": "down",
+      "label": "1회 위반, 적법업체에 처리, 적발 후 바로 확인을 받음"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "5년 내 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "up"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    },
+    "note": "무거운 사정이 있어 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "down"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    },
+    "note": "가벼운 사정이 있어 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업자(수집·운반업 포함)가 위반하면 2배까지 무겁게 처리될 수 있습니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-business-scope",
+  "name": "폐기물처리업 업종·영업범위·허가조건 위반",
+  "law": "폐기물관리법 제66조 제6호·제7호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "폐기물처리업 허가조건 위반",
+   "폐기물처리업 영업범위 위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "polluted",
+    "label": "불법 처리로 주변 환경을 (심각하게) 오염시켰나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "polluted",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "불법 처리로 주변 환경을 오염시켰다면 구속 기소가 원칙이고, 5년 내 같은 전력 2회 이상이어도 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업 허가를 받은 사람에게만 해당합니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-permit-lending",
+  "name": "폐기물처리업 허가증 대여·명의대여",
+  "law": "폐기물관리법 제66조 제8호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "폐기물 허가증 대여",
+   "폐기물처리업 명의대여"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "polluted",
+    "label": "빌린 사람이 처리 과정에서 주변 환경을 오염시켰나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ],
+     [
+      {
+       "q": "polluted",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "같은 전력 2회 이상이거나 처리 과정에서 주변 환경을 오염시키면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-storage",
+  "name": "폐기물처리업자의 보관량 등 준수사항 위반",
+  "law": "폐기물관리법 제66조 제9호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "폐기물 과다보관",
+   "폐기물 보관기간 초과"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "agg",
+    "label": "사정",
+    "type": "select",
+    "options": [
+     {
+      "value": "none",
+      "label": "해당 없음"
+     },
+     {
+      "value": "up",
+      "label": "보관 중 주변 환경을 오염시킴"
+     },
+     {
+      "value": "down",
+      "label": "1회 위반이거나 적발 후 바로 보관량을 지킴"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ]
+    ],
+    "note": "같은 전력 3회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "up"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    },
+    "note": "오염이 있거나 재범이라 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "down"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 500000,
+     "atLeast": true
+    },
+    "note": "가벼운 사정이 있어 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "초과 기간과 양도 함께 고려됩니다.",
+   "폐기물 보관과 관계없는 준수사항 위반은 과태료 대상입니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-mgmt-facility-pollution",
+  "name": "관리기준을 어긴 폐기물처리시설 운영으로 주변환경 오염",
+  "law": "폐기물관리법 제66조 제13호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "폐기물처리시설 관리기준 위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "5년 내 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "폐기물처리업자(수집·운반업 포함)가 위반하면 2배까지 무겁게 처리될 수 있습니다.",
+   "주변 환경이 오염되지 않았으면 과태료 대상입니다."
+  ],
+  "lawName": "폐기물관리법"
+ },
+ {
+  "id": "waste-trans-unlicensed",
+  "name": "허가 없는 폐기물 수출입·반송명령 등 위반",
+  "law": "폐기물의 국가 간 이동 및 그 처리에 관한 법률 제28조",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "폐기물 불법 수출",
+   "폐기물 불법 수입",
+   "폐기물국가간이동법위반"
+  ],
+  "questions": [
+   {
+    "id": "dumped",
+    "label": "들여온 폐기물을 불법으로 묻거나 버렸나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "harm",
+    "label": "불법 처리로 사람 몸에 해를 끼쳤나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "months",
+    "label": "영업한 기간",
+    "type": "number",
+    "unit": "개월",
+    "min": 0,
+    "max": 600,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "otherIllegal",
+    "label": "허가 문제 말고도 폐기물을 불법으로 처리했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "dumped",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "harm",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 24
+      },
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "불법 매립·투기, 신체 위해, 영업 2년 이상이면서 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "otherIllegal",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "months",
+       "op": "gte",
+       "value": 12
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    },
+    "note": "위해성, 같은 전력, 불법 수익이 크면 더 무거워집니다."
+   }
+  ],
+  "notes": [
+   "국내 폐기물 신고 위반보다 무겁게 처리합니다."
+  ],
+  "lawName": "폐기물의 국가 간 이동 및 그 처리에 관한 법률"
+ },
+ {
+  "id": "waste-trans-documents",
+  "name": "폐기물 수출입 이동서류 미작성·거짓 작성·기재내용 위반",
+  "law": "폐기물의 국가 간 이동 및 그 처리에 관한 법률 제29조 제1호의2~제4호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "이동서류 허위작성",
+   "폐기물 수출입 서류"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "detail",
+    "label": "문제된 내용",
+    "type": "select",
+    "options": [
+     {
+      "value": "substantive",
+      "label": "폐기물 종류·처리방법 등 중요한 내용"
+     },
+     {
+      "value": "formal",
+      "label": "형식적인 내용"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "detail",
+       "op": "eq",
+       "value": "substantive"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    },
+    "note": "중요한 내용이라 더 무거워질 수 있습니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    },
+    "note": "형식적인 내용이면 줄어들 수 있습니다."
+   }
+  ],
+  "lawName": "폐기물의 국가 간 이동 및 그 처리에 관한 법률"
+ },
+ {
+  "id": "waste-trans-export-as-is",
+  "name": "수입폐기물을 들여온 상태 그대로 수출",
+  "law": "폐기물의 국가 간 이동 및 그 처리에 관한 법률 제29조 제7호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "수입폐기물 재수출"
+  ],
+  "questions": [
+   {
+    "id": "kind",
+    "label": "폐기물 종류",
+    "type": "select",
+    "options": [
+     {
+      "value": "designated",
+      "label": "지정폐기물"
+     },
+     {
+      "value": "general",
+      "label": "일반폐기물"
+     }
+    ]
+   },
+   {
+    "id": "tons",
+    "label": "수출한 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 1000
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 3000
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ]
+    ],
+    "note": "지정폐기물 1,000톤·일반폐기물 3,000톤 이상이거나 5년 내 같은 전력 3회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "designated"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 300
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 1500
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "폐기물의 국가 간 이동 및 그 처리에 관한 법률"
+ },
+ {
+  "id": "waste-trans-port",
+  "name": "폐기물 수출입 항구·경유지 제한 위반, 출입검사 거부",
+  "law": "폐기물의 국가 간 이동 및 그 처리에 관한 법률 제30조 제1호·제2호",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "폐기물 수출입 항구 위반"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "폐기물의 국가 간 이동 및 그 처리에 관한 법률"
+ },
+ {
+  "id": "adult-ent-prostitution",
+  "name": "풍속영업소 성매매알선",
+  "law": "풍속영업의 규제에 관한 법률 제10조 제1항",
+  "group": "성범죄",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "노래방 성매매알선",
+   "유흥업소 성매매",
+   "풍속영업규제법위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "youth",
+    "label": "청소년이 관련되었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      },
+      {
+       "q": "youth",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "재범이면서 청소년이 관련되면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "노래연습장·유흥주점·숙박업소 등 풍속영업소에서 성매매를 알선한 경우입니다."
+  ],
+  "lawName": "풍속영업의 규제에 관한 법률"
+ },
+ {
+  "id": "adult-ent-obscenity",
+  "name": "풍속영업소 음란행위·음란물·도박 등",
+  "law": "풍속영업의 규제에 관한 법률 제10조 제2항",
+  "group": "기타",
+  "statutory": "3년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "업소 음란행위 알선",
+   "음란물 상영",
+   "업소 도박",
+   "풍속영업소 사행행위"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "풍속영업소에서 음란행위를 하게 하거나, 음란물을 보여주거나 팔고, 도박을 하게 한 경우입니다."
+  ],
+  "lawName": "풍속영업의 규제에 관한 법률"
+ },
+ {
+  "id": "subcontract-duties",
+  "name": "하도급 원사업자 의무 위반 (서면 미발급·부당 대금결정·대금 미지급 등)",
+  "law": "하도급거래 공정화에 관한 법률 제30조 제1항",
+  "group": "기타",
+  "statutory": "하도급대금의 2배 이하의 벌금",
+  "aliases": [
+   "하도급대금 미지급",
+   "부당 하도급대금 결정",
+   "하도급 서면 미발급",
+   "부당 반품",
+   "기술자료 요구",
+   "하도급법위반"
+  ],
+  "questions": [
+   {
+    "id": "amount",
+    "label": "하도급대금",
+    "type": "number",
+    "unit": "만원",
+    "min": 0,
+    "max": 10000000,
+    "step": 100
+   },
+   {
+    "id": "severe",
+    "label": "상대 업체가 회생하기 어렵거나 심각한 경영 위기에 빠지는 등 피해가 컸나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial-fine",
+    "when": [
+     [
+      {
+       "q": "severe",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 0,
+     "perUnit": {
+      "q": "amount",
+      "over": 0,
+      "amount": 5000
+     },
+     "atLeast": true
+    },
+    "note": "피해가 커서 정식재판에서 벌금이 구형될 수 있습니다. 하도급대금의 50% 이상입니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 0,
+     "atLeast": true,
+     "perUnit": {
+      "q": "amount",
+      "over": 0,
+      "amount": 5000
+     }
+    },
+    "note": "하도급대금의 50% 이상이 기준입니다."
+   }
+  ],
+  "notes": [
+   "공정거래위원회의 고발이 있어야 처벌할 수 있습니다.",
+   "얻은 이익, 동기, 위반 정도와 사유를 고려해 줄어들 수 있습니다."
+  ],
+  "lawName": "하도급거래 공정화에 관한 법률"
+ },
+ {
+  "id": "subcontract-retaliation",
+  "name": "하도급 보복 불이익 행위",
+  "law": "하도급거래 공정화에 관한 법률 제30조 제2항 제1호",
+  "group": "기타",
+  "statutory": "3억원 이하의 벌금",
+  "aliases": [
+   "하도급 보복조치",
+   "신고했다고 거래 중단"
+  ],
+  "questions": [
+   {
+    "id": "corp",
+    "label": "위반한 쪽",
+    "type": "select",
+    "options": [
+     {
+      "value": "person",
+      "label": "개인"
+     },
+     {
+      "value": "corp",
+      "label": "법인(회사)"
+     }
+    ]
+   },
+   {
+    "id": "severe",
+    "label": "상대 업체가 회생하기 어렵거나 심각한 경영 위기에 빠지는 등 피해가 컸나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial-fine",
+    "when": [
+     [
+      {
+       "q": "severe",
+       "op": "eq",
+       "value": "yes"
+      },
+      {
+       "q": "corp",
+       "op": "eq",
+       "value": "corp"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 50000000,
+     "atLeast": true
+    },
+    "note": "피해가 커서 정식재판에서 벌금이 구형될 수 있습니다."
+   },
+   {
+    "level": "trial-fine",
+    "when": [
+     [
+      {
+       "q": "severe",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 30000000,
+     "atLeast": true
+    },
+    "note": "피해가 커서 정식재판에서 벌금이 구형될 수 있습니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "corp",
+       "op": "eq",
+       "value": "corp"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 50000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 30000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "공정거래위원회의 고발이 있어야 처벌할 수 있습니다.",
+   "얻은 이익, 동기, 위반 정도와 사유를 고려해 줄어들 수 있습니다."
+  ],
+  "lawName": "하도급거래 공정화에 관한 법률"
+ },
+ {
+  "id": "subcontract-interference",
+  "name": "하도급 경영간섭·탈법행위",
+  "law": "하도급거래 공정화에 관한 법률 제30조 제2항 제2호",
+  "group": "기타",
+  "statutory": "1억 5천만원 이하의 벌금",
+  "aliases": [
+   "하도급 경영간섭",
+   "하도급 탈법행위"
+  ],
+  "questions": [
+   {
+    "id": "corp",
+    "label": "위반한 쪽",
+    "type": "select",
+    "options": [
+     {
+      "value": "person",
+      "label": "개인"
+     },
+     {
+      "value": "corp",
+      "label": "법인(회사)"
+     }
+    ]
+   },
+   {
+    "id": "severe",
+    "label": "상대 업체가 회생하기 어렵거나 심각한 경영 위기에 빠지는 등 피해가 컸나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial-fine",
+    "when": [
+     [
+      {
+       "q": "severe",
+       "op": "eq",
+       "value": "yes"
+      },
+      {
+       "q": "corp",
+       "op": "eq",
+       "value": "corp"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 20000000,
+     "atLeast": true
+    },
+    "note": "피해가 커서 정식재판에서 벌금이 구형될 수 있습니다."
+   },
+   {
+    "level": "trial-fine",
+    "when": [
+     [
+      {
+       "q": "severe",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    },
+    "note": "피해가 커서 정식재판에서 벌금이 구형될 수 있습니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "corp",
+       "op": "eq",
+       "value": "corp"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 20000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "공정거래위원회의 고발이 있어야 처벌할 수 있습니다.",
+   "얻은 이익, 동기, 위반 정도와 사유를 고려해 줄어들 수 있습니다."
+  ],
+  "lawName": "하도급거래 공정화에 관한 법률"
+ },
+ {
+  "id": "subcontract-order",
+  "name": "공정거래위원회 하도급 시정조치명령 불이행",
+  "law": "하도급거래 공정화에 관한 법률 제30조 제2항 제3호",
+  "group": "기타",
+  "statutory": "1억 5천만원 이하의 벌금",
+  "aliases": [
+   "시정명령 불이행 하도급"
+  ],
+  "questions": [
+   {
+    "id": "severe",
+    "label": "상대 업체가 회생하기 어렵거나 심각한 경영 위기에 빠지는 등 피해가 컸나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial-fine",
+    "when": [
+     [
+      {
+       "q": "severe",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    },
+    "note": "피해가 커서 정식재판에서 벌금이 구형될 수 있습니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    },
+    "note": "위반 정도와 불이행 사유에 따라 1천만원(법인 2천만원) 이상으로 정해지기도 합니다."
+   }
+  ],
+  "notes": [
+   "공정거래위원회의 고발이 있어야 처벌할 수 있습니다.",
+   "얻은 이익, 동기, 위반 정도와 사유를 고려해 줄어들 수 있습니다."
+  ],
+  "lawName": "하도급거래 공정화에 관한 법률"
+ },
+ {
+  "id": "sewer-bypass-discharge",
+  "name": "공공하수처리시설을 거치지 않은 배출·공공하수도 손괴",
+  "law": "하수도법 제75조",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "하수 무단방류",
+   "하수도 손괴",
+   "하수도법위반"
+  ],
+  "questions": [
+   {
+    "id": "toxic",
+    "label": "특정수질유해물질을 많이 배출하는 업소인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "agg",
+    "label": "시설 규모가 크거나 유해성이 높은가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ],
+    "help": "같은 전력이 있는 경우도 무겁게 봅니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "toxic",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "특정수질유해물질 다량 배출업소이거나 5년 내 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 7500000
+    },
+    "note": "시설 규모·유해성 때문에 기본 금액(500만원)의 1.5~2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000
+    }
+   }
+  ],
+  "lawName": "하수도법"
+ },
+ {
+  "id": "sewer-art76",
+  "name": "분뇨 희석 처리, 개인하수처리시설 미설치(1일 2㎥ 초과), 무허가 분뇨 수집·운반 등",
+  "law": "하수도법 제76조",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "분뇨 무허가 수거",
+   "정화조 미설치",
+   "개인하수처리시설 미설치",
+   "하수도 명의대여"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "agg",
+    "label": "시설 규모가 크거나 유해성이 높은가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ],
+    "help": "같은 전력이 있는 경우도 무겁게 봅니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4500000
+    },
+    "note": "시설 규모·유해성 때문에 기본 금액(300만원)의 1.5~2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000
+    }
+   }
+  ],
+  "notes": [
+   "개인하수처리시설을 설치하지 않은 경우 원상회복(설치) 여부를 고려해 구형합니다."
+  ],
+  "lawName": "하수도법"
+ },
+ {
+  "id": "sewer-art77",
+  "name": "하수도 조치명령 위반, 분뇨 무단 투기, 개인하수처리시설 미설치(1일 2㎥ 이하) 등",
+  "law": "하수도법 제77조",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "분뇨 무단투기",
+   "하수 흐름 방해",
+   "개인하수처리시설 개선명령 불이행"
+  ],
+  "questions": [
+   {
+    "id": "agg",
+    "label": "시설 규모가 크거나 유해성이 높은가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ],
+    "help": "같은 전력이 있는 경우도 무겁게 봅니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 3000000
+    },
+    "note": "시설 규모·유해성 때문에 기본 금액(200만원)의 1.5~2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000
+    }
+   }
+  ],
+  "notes": [
+   "개인하수처리시설을 설치하지 않은 경우 원상회복(설치) 여부를 고려해 구형합니다."
+  ],
+  "lawName": "하수도법"
+ },
+ {
+  "id": "river-facility-damage",
+  "name": "하천시설 이전·손괴",
+  "law": "하천법 제93조",
+  "group": "건축·부동산",
+  "statutory": "10년 이하의 징역 또는 1억원 이하의 벌금",
+  "aliases": [
+   "제방 훼손",
+   "하천시설 손괴",
+   "하천법위반"
+  ],
+  "questions": [
+   {
+    "id": "minor",
+    "label": "피해와 치수 장애가 아주 작고 변상 등 참작할 사정이 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "minor",
+       "op": "eq",
+       "value": "no"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 6월 이상",
+    "note": "구속 수사가 원칙이고 정식재판에서 징역 1년 6월 이상이 예상됩니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 7000000,
+     "atLeast": true
+    },
+    "note": "피해가 아주 작고 변상한 경우입니다."
+   }
+  ],
+  "lawName": "하천법"
+ },
+ {
+  "id": "river-order",
+  "name": "하천 조치명령 불이행·재해방지시설 미설치",
+  "law": "하천법 제94조 제1호·제3호",
+  "group": "건축·부동산",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "홍수방지 조치명령 불이행",
+   "재해방지시설 미설치"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류 전력이나 명령 불이행 횟수",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "하천법"
+ },
+ {
+  "id": "river-aggregate",
+  "name": "무허가 하천 토석·모래·자갈 채취",
+  "law": "하천법 제94조 제2호",
+  "group": "건축·부동산",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "골재 무단채취",
+   "모래 불법채취",
+   "하천 자갈 채취"
+  ],
+  "questions": [
+   {
+    "id": "large",
+    "label": "대규모로 채취했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "하천법"
+ },
+ {
+  "id": "river-occupation",
+  "name": "무허가 하천공사·하천 점용·하천수 사용 등",
+  "law": "하천법 제95조",
+  "group": "건축·부동산",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "하천 무단점용",
+   "무허가 하천공사",
+   "하천 금지행위"
+  ],
+  "questions": [
+   {
+    "id": "large",
+    "label": "대규모이거나 위반 기간이 긴가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "business",
+    "label": "영업 목적이었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "habitual",
+    "label": "상습적인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "business",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "habitual",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    },
+    "note": "나중에 허가나 승인을 받은 경우를 기준으로 한 금액입니다."
+   }
+  ],
+  "lawName": "하천법"
+ },
+ {
+  "id": "edu-env-zone",
+  "name": "교육환경보호구역 금지행위·금지시설",
+  "law": "교육환경 보호에 관한 법률 제16조 제1항",
+  "group": "행정",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "학교 정화구역 영업",
+   "학교환경위생정화구역",
+   "학교 앞 유해업소",
+   "교육환경보호법위반",
+   "학교보건법위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "large",
+    "label": "규모가 크거나 수익이 많은가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      },
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "약식기소(벌금)가 원칙입니다.",
+   "예전 학교보건법의 정화구역 규정이 이 법으로 옮겨졌습니다."
+  ],
+  "lawName": "교육환경 보호에 관한 법률"
+ },
+ {
+  "id": "school-health-secret",
+  "name": "학생·교직원 건강검사 등 직무상 비밀 누설",
+  "law": "학교보건법 제19조 제1항",
+  "group": "행정",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "건강검사 비밀누설"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "profit",
+    "label": "돈을 벌 목적으로 한 악의적인 경우인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "profit",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "학교보건법"
+ },
+ {
+  "id": "hakwon-unregistered",
+  "name": "무등록 학원·미신고 교습소·미신고 개인과외",
+  "law": "학원의 설립ㆍ운영 및 과외교습에 관한 법률 제22조 제1항",
+  "group": "행정",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "무등록 학원",
+   "미신고 과외",
+   "불법 과외",
+   "미신고 교습소",
+   "학원법위반"
+  ],
+  "questions": [
+   {
+    "id": "type",
+    "label": "유형",
+    "type": "select",
+    "options": [
+     {
+      "value": "academy",
+      "label": "무등록 학원 (거짓 등록 포함)"
+     },
+     {
+      "value": "tutor",
+      "label": "미신고 교습소·개인과외"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 6월 이상",
+    "note": "같은 전력이 있으면 정식재판으로 가고, 규모·수익도 고려됩니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "type",
+       "op": "eq",
+       "value": "academy"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "법정형이 올라(벌금 상한 500만원 → 1천만원) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "학원의 설립ㆍ운영 및 과외교습에 관한 법률"
+ },
+ {
+  "id": "hakwon-teacher-tutoring",
+  "name": "교원의 과외교습",
+  "law": "학원의 설립ㆍ운영 및 과외교습에 관한 법률 제22조 제2항",
+  "group": "행정",
+  "statutory": "1년 이하의 금고 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "교사 과외",
+   "현직 교사 과외"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "금고 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "법정형이 올라(벌금 상한 300만원 → 1천만원) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "학원의 설립ㆍ운영 및 과외교습에 관한 법률"
+ },
+ {
+  "id": "hakwon-sign-removal",
+  "name": "무등록 학원 제한 표지물 제거·시설물 설치 방해",
+  "law": "학원의 설립ㆍ운영 및 과외교습에 관한 법률 제22조 제3항",
+  "group": "행정",
+  "statutory": "200만원 이하의 벌금",
+  "aliases": [
+   "학원 폐쇄 게시문 훼손"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 500000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "학원의 설립ㆍ운영 및 과외교습에 관한 법률"
+ },
+ {
+  "id": "hanriver-riparian",
+  "name": "한강 수변구역 등 행위제한 위반·무허가 시설 설치·조업정지명령 위반",
+  "law": "한강수계 상수원수질개선 및 주민지원 등에 관한 법률 제30조 제1항",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "수변구역 무허가 영업",
+   "수변구역 폐수배출",
+   "한강수계법위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "large",
+    "label": "규모가 크거나 오래 영업해 수익이 많은가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ]
+    ],
+    "note": "같은 전력 3회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "한강수계 상수원수질개선 및 주민지원 등에 관한 법률"
+ },
+ {
+  "id": "hanriver-paldang",
+  "name": "팔당댐 하류구간 등 오염행위",
+  "law": "한강수계 상수원수질개선 및 주민지원 등에 관한 법률 제30조 제2항",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "팔당댐 하류 오염"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "large",
+    "label": "규모가 크거나 오래 영업해 수익이 많은가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "한강수계 상수원수질개선 및 주민지원 등에 관한 법률"
+ },
+ {
+  "id": "hanriver-improvement",
+  "name": "한강수계 시설 개선명령 등 불이행",
+  "law": "한강수계 상수원수질개선 및 주민지원 등에 관한 법률 제30조 제3항",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "large",
+    "label": "규모가 크거나 오래 영업해 수익이 많은가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "한강수계 상수원수질개선 및 주민지원 등에 관한 법률"
+ },
+ {
+  "id": "horse-illegal-racing",
+  "name": "사설 경마 시행 (불법 경마 운영)",
+  "law": "한국마사회법 제50조 제1항 제1호, 제48조 제1항, 제2항 제1호",
+  "group": "기타",
+  "statutory": "7년 이하의 징역 또는 7천만원 이하의 벌금 (함께 물릴 수 있음, 미수범도 처벌)",
+  "aliases": [
+   "사설경마",
+   "불법 경마사이트 운영",
+   "승마투표 유사행위",
+   "해외경마 불법중계",
+   "한국마사회법위반"
+  ],
+  "questions": [
+   {
+    "id": "role",
+    "label": "역할",
+    "type": "select",
+    "options": [
+     {
+      "value": "main",
+      "label": "운영·주도"
+     },
+     {
+      "value": "simple",
+      "label": "단순 가담"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "enterprise",
+    "label": "기업형(조직적)으로 운영했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "role",
+       "op": "eq",
+       "value": "main"
+      }
+     ]
+    ],
+    "sentence": "구속 원칙",
+    "note": "구속 수사가 원칙입니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "enterprise",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    },
+    "note": "단순 가담자는 줄어들 수 있습니다."
+   }
+  ],
+  "notes": [
+   "범죄로 얻은 재물은 반드시 몰수·추징됩니다."
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-proxy-betting",
+  "name": "영리 목적 마권 구매대행·알선·양도, 경마정보 무단 복제·전송",
+  "law": "한국마사회법 제50조 제1항 제1호, 제48조 제2항 제2호, 제3항 제1호",
+  "group": "기타",
+  "statutory": "7년 이하의 징역 또는 7천만원 이하의 벌금 (함께 물릴 수 있음, 미수범도 처벌)",
+  "aliases": [
+   "마권 구매대행",
+   "마권 대리구매",
+   "경마 중계 불법복제"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "징역 2년 이상",
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "notes": [
+   "범죄로 얻은 재물은 반드시 몰수·추징됩니다."
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-gambling",
+  "name": "경마를 이용한 도박·도박방조",
+  "law": "한국마사회법 제50조 제1항 제2호",
+  "group": "기타",
+  "statutory": "7년 이하의 징역 또는 7천만원 이하의 벌금",
+  "aliases": [
+   "사설경마 베팅",
+   "경마 도박",
+   "인터넷 경마 도박"
+  ],
+  "questions": [
+   {
+    "id": "online",
+    "label": "인터넷을 이용했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "amount",
+    "label": "건 돈의 합계",
+    "type": "number",
+    "unit": "만원",
+    "min": 0,
+    "max": 10000000,
+    "step": 10
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "online",
+       "op": "eq",
+       "value": "yes"
+      },
+      {
+       "q": "amount",
+       "op": "gte",
+       "value": 20000
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "인터넷 도박은 건 돈의 규모에 따라 처리가 달라집니다."
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-insider-gambling",
+  "name": "마사회 관계자(감독 공무원·임직원·기수 등)의 경마 도박 관여",
+  "law": "한국마사회법 제50조 제1항 제3호",
+  "group": "기타",
+  "statutory": "7년 이하의 징역 또는 7천만원 이하의 벌금",
+  "aliases": [
+   "마사회 직원 도박",
+   "기수 도박"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "징역 1년 이상",
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-race-fixing",
+  "name": "출전마 약물 사용·기수 승부조작",
+  "law": "한국마사회법 제50조 제1항 제4호·제5호",
+  "group": "기타",
+  "statutory": "7년 이하의 징역 또는 7천만원 이하의 벌금 (함께 물릴 수 있음, 미수범도 처벌)",
+  "aliases": [
+   "경마 승부조작",
+   "경주마 약물",
+   "경마 조작"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [],
+    "sentence": "구속 원칙, 징역 2년 이상",
+    "note": "구속 수사가 원칙이고 정식재판에서 징역 2년 이상이 예상됩니다."
+   }
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-bribery-misconduct",
+  "name": "조교사·기수·말관리사의 금품수수 후 부정행위",
+  "law": "한국마사회법 제50조 제1항 제6호",
+  "group": "기타",
+  "statutory": "7년 이하의 징역 또는 7천만원 이하의 벌금",
+  "aliases": [
+   "기수 뇌물 부정행위"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [],
+    "sentence": "구속 원칙, 징역 3년 이상",
+    "note": "구속 수사가 원칙이고 정식재판에서 징역 3년 이상이 예상됩니다."
+   }
+  ],
+  "notes": [
+   "범죄로 얻은 재물은 반드시 몰수·추징됩니다."
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-bribery",
+  "name": "조교사·기수·말관리사의 부정청탁 금품수수·요구·약속",
+  "law": "한국마사회법 제51조 제1호·제2호",
+  "group": "기타",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "기수 금품수수",
+   "조교사 뇌물"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [],
+    "sentence": "구속 원칙, 징역 2년 이상",
+    "note": "구속 수사가 원칙이고 정식재판에서 징역 2년 이상이 예상됩니다."
+   }
+  ],
+  "notes": [
+   "범죄로 얻은 재물은 반드시 몰수·추징됩니다."
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-bribe-giving",
+  "name": "조교사·기수 등에게 금품 약속·제공",
+  "law": "한국마사회법 제51조 제3호",
+  "group": "기타",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "기수에게 금품 제공"
+  ],
+  "questions": [
+   {
+    "id": "minor",
+    "label": "적은 금액이거나 수사에 적극 협조하는 등 뉘우치는 사정이 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "minor",
+       "op": "eq",
+       "value": "no"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상",
+    "note": "정식재판이 원칙입니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "범죄로 얻은 재물은 반드시 몰수·추징됩니다."
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-obstruction",
+  "name": "위계·위력 경마 방해, 경주로 무단 진입·이물질 투척",
+  "law": "한국마사회법 제51조 제4호·제5호",
+  "group": "기타",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "경마 방해",
+   "경주로 난입"
+  ],
+  "questions": [
+   {
+    "id": "serious",
+    "label": "동기·수법·결과 등 죄질이 무거운가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "serious",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-unregistered-owner",
+  "name": "마주 등록 없이 자기 말을 마주 명의로 출전",
+  "law": "한국마사회법 제51조 제6호",
+  "group": "기타",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "마주 명의 차용"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-illegal-betting-user",
+  "name": "사설 경마 이용·마권 발행 시스템 제공·관계자 마권 구매 등",
+  "law": "한국마사회법 제51조 제7호~제10호",
+  "group": "기타",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금 (제8호·제9호는 함께 물릴 수 있음)",
+  "aliases": [
+   "사설경마 이용자",
+   "불법 경마 베팅 이용",
+   "마권 발행 프로그램 제작",
+   "마주 명의 부정등록",
+   "마사회 직원 마권 구매"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "사설 경마의 상대방(이용자)이 된 경우 등입니다. 이용자에게서 나온 재물은 몰수·추징됩니다."
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "horse-promotion",
+  "name": "사설 경마 홍보·미성년자 마권 발매",
+  "law": "한국마사회법 제53조",
+  "group": "기타",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "사설경마 광고",
+   "미성년자 마권"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "한국마사회법"
+ },
+ {
+  "id": "avsec-aircraft-damage",
+  "name": "운항 중인 항공기 파손",
+  "law": "항공보안법 제39조 제1항",
+  "group": "기타",
+  "statutory": "사형, 무기징역 또는 5년 이상의 징역",
+  "aliases": [
+   "항공기 손괴",
+   "항공보안법위반"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [],
+    "sentence": "구속 원칙, 징역 5년 이상",
+    "note": "구속 수사가 원칙이고 정식재판에서 법정 최저형(징역 5년) 이상이 예상됩니다."
+   }
+  ],
+  "lawName": "항공보안법"
+ },
+ {
+  "id": "avsec-parked-aircraft-damage",
+  "name": "계류 중인 항공기 파손",
+  "law": "항공보안법 제39조 제2항",
+  "group": "기타",
+  "statutory": "7년 이하의 징역",
+  "aliases": [
+   "주기 중 항공기 손상"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "징역 2년 이상",
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "lawName": "항공보안법"
+ },
+ {
+  "id": "avsec-hijack",
+  "name": "항공기 납치",
+  "law": "항공보안법 제40조 제1항",
+  "group": "기타",
+  "statutory": "무기 또는 7년 이상의 징역 (미수범도 처벌)",
+  "aliases": [
+   "하이재킹",
+   "항공기 강탈"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "무기 또는 징역 10년 이상",
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "lawName": "항공보안법"
+ },
+ {
+  "id": "avsec-hijack-casualty",
+  "name": "항공기 납치 치사상",
+  "law": "항공보안법 제40조 제2항",
+  "group": "기타",
+  "statutory": "사형 또는 무기징역",
+  "aliases": [
+   "하이재킹 치사"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "무기징역 이상",
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "lawName": "항공보안법"
+ },
+ {
+  "id": "avsec-facility-damage",
+  "name": "항공시설 파손",
+  "law": "항공보안법 제41조",
+  "group": "기타",
+  "statutory": "10년 이하의 징역 (사람이 죽거나 다치면 사형, 무기징역 또는 7년 이상의 징역)",
+  "aliases": [
+   "공항 항행안전시설 파손"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [],
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "notes": [
+   "예전에는 법정형 하한(2년 이상)이 있었으나 지금은 10년 이하 징역으로 바뀌었습니다."
+  ],
+  "lawName": "항공보안법"
+ },
+ {
+  "id": "avsec-route-change",
+  "name": "항공기 항로 변경",
+  "law": "항공보안법 제42조",
+  "group": "기타",
+  "statutory": "1년 이상 10년 이하의 징역",
+  "questions": [],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "징역 1년 이상",
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "lawName": "항공보안법"
+ },
+ {
+  "id": "avsec-crew-obstruction",
+  "name": "기장 등 직무집행방해",
+  "law": "항공보안법 제43조",
+  "group": "기타",
+  "statutory": "10년 이하의 징역",
+  "aliases": [
+   "기내 승무원 업무방해",
+   "기장 폭행"
+  ],
+  "questions": [
+   {
+    "id": "serious",
+    "label": "죄질이 나쁘거나 사안이 중대한가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "serious",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "죄질이 나쁘고 사안이 중대하면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "징역 1년 6월 이상",
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "lawName": "항공보안법"
+ },
+ {
+  "id": "avsec-inflight-assault",
+  "name": "항공기 내 폭행 (안전운항 저해)",
+  "law": "항공보안법 제46조",
+  "group": "기타",
+  "statutory": "보안·운항을 해치는 폭행·협박 등은 10년 이하의 징역, 기내에서 다른 사람 폭행은 5년 이하의 징역",
+  "aliases": [
+   "기내 난동 폭행",
+   "비행기 안 폭행"
+  ],
+  "questions": [
+   {
+    "id": "serious",
+    "label": "죄질이 나쁘거나 사안이 중대한가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "serious",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "죄질이 나쁘고 사안이 중대하면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [],
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "notes": [
+   "2016년 이후 법정형이 무거워져(보안·운항 저해 폭행은 10년 이하) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "항공보안법"
+ },
+ {
+  "id": "beacon-unlicensed",
+  "name": "무허가 항로표지 설치, 항로표지 훼손 후 미신고",
+  "law": "항로표지법 제53조 제2항 제1호·제5호",
+  "group": "행정",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "항로표지 무단설치",
+   "등부표 훼손"
+  ],
+  "questions": [
+   {
+    "id": "danger",
+    "label": "조난·선박 실종 등 실제 위험이 커졌나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "danger",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "구체적 위험이 커지는 등 죄질이 나쁘면 정식재판으로 갑니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "항로표지법"
+ },
+ {
+  "id": "port-facility-damage",
+  "name": "항만시설 훼손·무단 변경",
+  "law": "항만법 제107조",
+  "group": "행정",
+  "statutory": "5년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "항만시설 손괴",
+   "항만법위반"
+  ],
+  "questions": [
+   {
+    "id": "intentional",
+    "label": "일부러 중요 시설을 훼손해 항만 기능을 크게 떨어뜨렸나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "intentional",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "의도적으로 중요 시설을 훼손해 항만 기능이 상당 부분 떨어지면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "징역 1년 이상",
+    "note": "정식재판이 원칙이고, 가벼운 경우 벌금 300만원 이상이 될 수 있습니다."
+   }
+  ],
+  "lawName": "항만법"
+ },
+ {
+  "id": "port-unlicensed",
+  "name": "무허가 항만개발사업·항만시설 사용, 항만 금지행위 등",
+  "law": "항만법 제109조",
+  "group": "행정",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "무허가 항만공사",
+   "항만시설 무단사용",
+   "항만 금지행위"
+  ],
+  "questions": [
+   {
+    "id": "restored",
+    "label": "원상회복을 했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "restored",
+       "op": "eq",
+       "value": "no"
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상",
+    "note": "원상회복을 하지 않으면 정식재판으로 갑니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "항만법"
+ },
+ {
+  "id": "port-minor",
+  "name": "신고 없는 항만 조성토지 사용·항만 명령 위반·항만배후단지 무허가 행위 등",
+  "law": "항만법 제110조",
+  "group": "행정",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "항만 조성토지 무단사용",
+   "항만배후단지 무허가 건축"
+  ],
+  "questions": [
+   {
+    "id": "kind",
+    "label": "유형",
+    "type": "select",
+    "options": [
+     {
+      "value": "land",
+      "label": "신고 없는 토지·시설 사용"
+     },
+     {
+      "value": "other",
+      "label": "그 밖의 위반"
+     }
+    ]
+   },
+   {
+    "id": "restored",
+    "label": "원상회복을 했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "land"
+      },
+      {
+       "q": "restored",
+       "op": "eq",
+       "value": "no"
+      }
+     ]
+    ],
+    "sentence": "징역 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "항만법"
+ },
+ {
+  "id": "stevedore-unregistered",
+  "name": "무등록 항만운송사업",
+  "law": "항만운송사업법 제30조 제1호",
+  "group": "행정",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "무등록 하역업",
+   "항만운송사업법위반"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "항만운송사업법"
+ },
+ {
+  "id": "stevedore-related-unregistered",
+  "name": "무등록·미신고 항만운송관련사업",
+  "law": "항만운송사업법 제30조 제2호",
+  "group": "행정",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "무등록 선박급유업",
+   "무신고 항만용역업"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "항만운송사업법"
+ },
+ {
+  "id": "stevedore-scope",
+  "name": "등록·신고 사항을 어긴 항만운송사업",
+  "law": "항만운송사업법 제31조 제1호",
+  "group": "행정",
+  "statutory": "500만원 이하의 벌금",
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 700000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "항만운송사업법"
+ },
+ {
+  "id": "reserve-training-absence",
+  "name": "예비군 훈련 불참·대리 훈련",
+  "law": "예비군법 제15조 제9항 제1호",
+  "group": "기타",
+  "statutory": "1년 이하의 징역, 1천만원 이하의 벌금, 구류 또는 과료",
+  "aliases": [
+   "예비군 불참",
+   "예비군 훈련 기피",
+   "향토예비군설치법위반",
+   "예비군법위반"
+  ],
+  "questions": [
+   {
+    "id": "count",
+    "label": "이번에 문제된 불참 횟수",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 50,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "예비군 훈련 불참으로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "habitual",
+    "label": "여러 해에 걸쳐 상습적으로 불참했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "habitual",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "count",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "fine": {
+     "base": 2000000
+    },
+    "note": "재범이거나 여러 번 불참한 경우입니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000
+    }
+   }
+  ],
+  "notes": [
+   "기본훈련에 불참한 사람이 보충훈련에도 불참하면 1회 불참으로 봅니다.",
+   "법 이름이 '향토예비군 설치법'에서 '예비군법'으로 바뀌었습니다."
+  ],
+  "lawName": "예비군법"
+ },
+ {
+  "id": "reserve-address-evasion",
+  "name": "소집통지 회피 목적 주소이전 미신고 (주민등록 말소)",
+  "law": "예비군법 제15조 제2항",
+  "group": "기타",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "예비군 주소 미신고",
+   "거주불명 등록 예비군"
+  ],
+  "questions": [
+   {
+    "id": "purpose",
+    "label": "훈련을 피하려는 목적이 있었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "delay",
+    "label": "신고가 늦어진 기간",
+    "type": "number",
+    "unit": "개월",
+    "min": 0,
+    "max": 240,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "purpose",
+       "op": "eq",
+       "value": "yes"
+      },
+      {
+       "q": "delay",
+       "op": "gte",
+       "value": 12
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "delay",
+       "op": "gte",
+       "value": 6
+      }
+     ]
+    ],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000
+    }
+   }
+  ],
+  "lawName": "예비군법"
+ },
+ {
+  "id": "maritime-drunk-steering",
+  "name": "음주 운항 (술 취한 상태로 선박 조타)",
+  "law": "해상교통안전법 제113조 제1항·제2항",
+  "group": "교통",
+  "statutory": "혈중알코올농도 0.03~0.08%: 1년 이하 징역 또는 1천만원 이하 벌금 / 0.08~0.2%: 1~2년 징역 또는 1천만~2천만원 벌금 / 0.2% 이상: 2~5년 징역 또는 2천만~3천만원 벌금 (10년 안에 다시 위반하면 더 무거움)",
+  "aliases": [
+   "선박 음주운항",
+   "음주 조타",
+   "해사안전법위반",
+   "해상교통안전법위반"
+  ],
+  "questions": [
+   {
+    "id": "bac",
+    "label": "혈중알코올농도",
+    "type": "number",
+    "unit": "%",
+    "min": 0,
+    "max": 0.5,
+    "step": 0.001
+   },
+   {
+    "id": "priors",
+    "label": "음주 운항·음주운전 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "자동차 음주운전 전력도 합해서 봅니다."
+   },
+   {
+    "id": "accident",
+    "label": "사고를 냈나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      },
+      {
+       "q": "accident",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "음주 전력 3회 이상인 사람이 사고를 내면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "bac",
+       "op": "gte",
+       "value": 0.25
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      },
+      {
+       "q": "bac",
+       "op": "gte",
+       "value": 0.2
+      }
+     ]
+    ],
+    "sentence": "징역 2년 이상"
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      },
+      {
+       "q": "bac",
+       "op": "gte",
+       "value": 0.15
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      },
+      {
+       "q": "bac",
+       "op": "gte",
+       "value": 0.1
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "bac",
+       "op": "gte",
+       "value": 0.2
+      }
+     ]
+    ],
+    "fine": {
+     "base": 20000000,
+     "atLeast": true
+    },
+    "note": "법정 벌금 하한이 2천만원입니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "bac",
+       "op": "gte",
+       "value": 0.08
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    },
+    "note": "법정 벌금 하한이 1천만원입니다(10년 안 재범 포함)."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "2016년 이후 법정형이 크게 올라 혈중알코올농도 구간별 벌금 하한이 생겼습니다. 금액은 그 하한에 맞췄습니다.",
+   "총톤수 5톤 미만 소형 선박은 500만원 이하 벌금으로 따로 처벌됩니다."
+  ],
+  "lawName": "해상교통안전법"
+ },
+ {
+  "id": "maritime-drunk-refusal",
+  "name": "선박 음주측정 거부",
+  "law": "해상교통안전법 제113조 제3항",
+  "group": "교통",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금 (10년 안에 다시 거부하면 1~6년 징역 또는 1천만~4천만원 벌금)",
+  "aliases": [
+   "해상 음주측정 불응"
+  ],
+  "questions": [
+   {
+    "id": "recent",
+    "label": "최근 2년 안에 음주 운항·음주운전 전력이 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "long",
+    "label": "상당한 시간 동안 측정을 거부했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "recent",
+       "op": "eq",
+       "value": "yes"
+      },
+      {
+       "q": "long",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "10년 안에 다시 측정을 거부하면 벌금 하한이 1천만원입니다."
+  ],
+  "lawName": "해상교통안전법"
+ },
+ {
+  "id": "maritime-drug-steering",
+  "name": "약물 영향 상태로 선박 조타",
+  "law": "해상교통안전법 제112조 제1호",
+  "group": "교통",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "약물 운항"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "음주·약물 운항(운전) 전력 합계",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "자동차 음주운전 전력도 합해서 봅니다."
+   },
+   {
+    "id": "accident",
+    "label": "사고를 냈나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      },
+      {
+       "q": "accident",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "음주·약물 전력 합계 3회 이상인 사람이 사고를 내면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해상교통안전법"
+ },
+ {
+  "id": "marine-eco-capture",
+  "name": "해양포유동물·해양보호생물 포획·채취·훼손",
+  "law": "해양생태계의 보전 및 관리에 관한 법률 제61조",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "고래 불법포획",
+   "돌고래 포획",
+   "해양보호생물 포획",
+   "해양생태계법위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 3
+      }
+     ]
+    ],
+    "note": "5년 내 같은 전력 3회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "벌금으로 처리되더라도 재범은 50%, 3범은 2배까지 무거워집니다.",
+   "팔 목적이었다면 얻은 가액의 2~10배 벌금이 함께 붙습니다."
+  ],
+  "lawName": "해양생태계의 보전 및 관리에 관한 법률"
+ },
+ {
+  "id": "marine-eco-trade",
+  "name": "해양보호생물 이식·가공·유통·보관 등",
+  "law": "해양생태계의 보전 및 관리에 관한 법률 제62조",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "해양보호생물 유통",
+   "생태계교란생물 방류"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해양생태계의 보전 및 관리에 관한 법률"
+ },
+ {
+  "id": "marine-eco-fraud-permit",
+  "name": "해양생물 포획·채취 허가 부정취득 등",
+  "law": "해양생태계의 보전 및 관리에 관한 법률 제63조",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1500000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해양생태계의 보전 및 관리에 관한 법률"
+ },
+ {
+  "id": "marine-env-oil-intentional",
+  "name": "선박·해양시설에서 고의 기름 배출",
+  "law": "해양환경관리법 제126조 제1호",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "선박 기름 무단배출",
+   "폐유 해상 투기",
+   "해양환경관리법위반"
+  ],
+  "questions": [
+   {
+    "id": "tons",
+    "label": "배출한 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 5
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "note": "5톤 이상이거나 5년 내 재범이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 3
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    },
+    "note": "영세한 소형 선박은 줄어들 수 있습니다."
+   }
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "marine-env-intentional-discharge",
+  "name": "선박·해양시설에서 고의 유해액체물질·폐기물 배출",
+  "law": "해양환경관리법 제126조 제1호, 제127조 제1호",
+  "group": "환경",
+  "statutory": "유해액체물질·포장유해물질: 5년 이하의 징역 또는 5천만원 이하의 벌금 / 폐기물: 3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "선박 폐기물 해상투기",
+   "유해액체물질 배출"
+  ],
+  "questions": [
+   {
+    "id": "kind",
+    "label": "배출한 물질",
+    "type": "select",
+    "options": [
+     {
+      "value": "x",
+      "label": "X류 유해액체물질"
+     },
+     {
+      "value": "y",
+      "label": "Y류 유해액체물질·포장유해물질"
+     },
+     {
+      "value": "z",
+      "label": "Z류 유해액체물질"
+     },
+     {
+      "value": "waste",
+      "label": "폐기물"
+     }
+    ]
+   },
+   {
+    "id": "tons",
+    "label": "배출한 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "x"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 5
+      }
+     ],
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "y"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 7
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 10
+      }
+     ]
+    ],
+    "note": "X류 5톤, Y류·포장유해물질 7톤, Z류·폐기물 10톤 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "x"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 3
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 5
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "x"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "y"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "2016년 이후 유해액체물질·포장유해물질 고의 배출의 법정형이 5년 이하로 올라 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "marine-env-oil-negligent",
+  "name": "선박·해양시설에서 과실로 기름 등 배출",
+  "law": "해양환경관리법 제127조 제2호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "기름 유출 사고",
+   "과실 해양오염"
+  ],
+  "questions": [
+   {
+    "id": "tons",
+    "label": "배출한 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.01
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 10
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "영세한 소형 선박이 소량(10리터 이하)의 기름을 실수로 흘린 경우는 탄력적으로 처리합니다.",
+   "유해액체물질·포장유해물질을 과실로 배출한 경우도 이 조문으로 처벌됩니다."
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "marine-env-response-failure",
+  "name": "해양오염 방제조치·배출방지조치 미이행",
+  "law": "해양환경관리법 제127조 제4호·제5호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "방제조치 불이행",
+   "오염물질 배출방지 미조치"
+  ],
+  "questions": [
+   {
+    "id": "malicious",
+    "label": "일부러 이행하지 않았나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "malicious",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "marine-env-waste-negligent",
+  "name": "선박·해양시설에서 과실로 폐기물 등 배출",
+  "law": "해양환경관리법 제128조 제1호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금 (유해액체물질·포장유해물질 과실 배출은 3년 이하의 징역 또는 3천만원 이하의 벌금)",
+  "aliases": [
+   "과실 폐기물 해상배출"
+  ],
+  "questions": [
+   {
+    "id": "kind",
+    "label": "배출한 물질",
+    "type": "select",
+    "options": [
+     {
+      "value": "x",
+      "label": "X류 유해액체물질"
+     },
+     {
+      "value": "y",
+      "label": "Y류 유해액체물질·포장유해물질"
+     },
+     {
+      "value": "z",
+      "label": "Z류 유해액체물질"
+     },
+     {
+      "value": "waste",
+      "label": "폐기물"
+     }
+    ]
+   },
+   {
+    "id": "tons",
+    "label": "배출한 양",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 100000,
+    "step": 0.1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "x"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 10
+      }
+     ],
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "y"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 15
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 20
+      }
+     ]
+    ],
+    "note": "X류 10톤, Y류·포장유해물질 15톤, Z류·폐기물 20톤 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "x"
+      },
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 5
+      }
+     ],
+     [
+      {
+       "q": "tons",
+       "op": "gte",
+       "value": 10
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "x"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "kind",
+       "op": "eq",
+       "value": "y"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "marine-env-boom",
+  "name": "방제선 미배치·선박 입출항금지명령 위반",
+  "law": "해양환경관리법 제128조 제8호·제9호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "marine-env-unregistered",
+  "name": "무등록 해양환경관리업",
+  "law": "해양환경관리법 제128조 제10호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "무등록 폐유 수거업"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    },
+    "note": "영업 기간과 수익에 따라 달라집니다."
+   }
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "marine-env-special-area",
+  "name": "특별관리해역 내 시설 설치·오염물질 총량배출 위반",
+  "law": "해양환경관리법 제129조 제1항 제1호",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "marine-env-equipment",
+  "name": "선박 오염방지설비 기준 위반·검사 미수검 항해·선박 미신고 해체 등",
+  "law": "해양환경관리법 제129조 제2항 제2호~제4호·제8호·제9호·제14호",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 500만원 이하의 벌금",
+  "aliases": [
+   "해양오염방지검사 미수검",
+   "선박 무단 해체"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 500000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해양환경관리법"
+ },
+ {
+  "id": "emigration-unregistered-agency",
+  "name": "무등록 해외이주 알선업",
+  "law": "해외이주법 제15조 제1항 제1호",
+  "group": "행정",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "무등록 이민 알선",
+   "해외이주법위반"
+  ],
+  "questions": [
+   {
+    "id": "forgery",
+    "label": "이주 서류 위조 등 다른 불법행위가 함께 있나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "large",
+    "label": "규모가 크거나 기업형으로, 또는 오랜 기간 영업했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "forgery",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "서류 위조 등 다른 불법행위가 함께 있으면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해외이주법"
+ },
+ {
+  "id": "shipping-unlicensed",
+  "name": "무면허·무등록 해상운송사업·해운중개업",
+  "law": "해운법 제56조 제1호·제2호",
+  "group": "행정",
+  "statutory": "2천만원 이하의 벌금",
+  "aliases": [
+   "무면허 해상여객운송",
+   "무등록 해상화물운송",
+   "해운법위반"
+  ],
+  "questions": [
+   {
+    "id": "large",
+    "label": "상습적이거나 큰 규모로 운송했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial-fine",
+    "when": [
+     [
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    },
+    "note": "상습적·대규모이면 정식재판에서 벌금이 구형됩니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ],
+    "fine": {
+     "base": 4000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "해운법"
+ },
+ {
+  "id": "blood-trade",
+  "name": "혈액 매매",
+  "law": "혈액관리법 제18조 제1호",
+  "group": "식품·보건",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "피 매매",
+   "혈액 판매",
+   "혈액관리법위반"
+  ],
+  "questions": [
+   {
+    "id": "habitual",
+    "label": "상습적이거나 돈을 벌려고 알선했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "habitual",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "법정형이 올라(벌금 상한 2천만원 → 5천만원) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "혈액관리법"
+ },
+ {
+  "id": "blood-safety-duties",
+  "name": "혈액원 시설기준·헌혈자 확인·혈액 적격검사 의무 위반",
+  "law": "혈액관리법 제19조 제1호~제5호·제8호",
+  "group": "식품·보건",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "헌혈자 건강진단 미실시",
+   "혈액 검사 미확인"
+  ],
+  "questions": [
+   {
+    "id": "repeat",
+    "label": "반복해서 위반했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "repeat",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 500000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "법정형이 올라(벌금 상한 500만원 → 2천만원) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "혈액관리법"
+ },
+ {
+  "id": "blood-disposal",
+  "name": "부적격 혈액 폐기·보고 의무 위반",
+  "law": "혈액관리법 제19조 제9호",
+  "group": "식품·보건",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "questions": [
+   {
+    "id": "repeat",
+    "label": "반복해서 위반했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "repeat",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "법정형이 올라(벌금 상한 500만원 → 2천만원) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "혈액관리법"
+ },
+ {
+  "id": "blood-certificate",
+  "name": "헌혈증서 미발급·헌혈증서 수혈 요구 거절",
+  "law": "혈액관리법 제20조 제1호",
+  "group": "식품·보건",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 500000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "법정형이 올라(벌금 상한 300만원 → 1천만원) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "혈액관리법"
+ },
+ {
+  "id": "truck-unlicensed",
+  "name": "무허가 화물자동차 운송사업",
+  "law": "화물자동차 운수사업법 제67조 제1호",
+  "group": "교통",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "화물차 무허가 영업",
+   "화물운송 무허가",
+   "화물자동차운수사업법위반"
+  ],
+  "questions": [
+   {
+    "id": "vehicles",
+    "label": "영업에 쓴 화물차 수",
+    "type": "number",
+    "unit": "대",
+    "min": 0,
+    "max": 500,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "vehicles",
+       "op": "gte",
+       "value": 5
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true,
+     "perUnit": {
+      "q": "vehicles",
+      "over": 1,
+      "amount": 1000000
+     }
+    },
+    "note": "1대 100만원에 1대 늘 때마다 100만~150만원씩 더합니다."
+   }
+  ],
+  "notes": [
+   "중·대형 화물차 기준이고 소형은 줄어들 수 있습니다."
+  ],
+  "lawName": "화물자동차 운수사업법"
+ },
+ {
+  "id": "truck-private-paid",
+  "name": "자가용 화물차 유상운송",
+  "law": "화물자동차 운수사업법 제67조 제7호",
+  "group": "교통",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "자가용 화물차 영업",
+   "노란 번호판 아닌 화물 영업"
+  ],
+  "questions": [
+   {
+    "id": "size",
+    "label": "차 크기",
+    "type": "select",
+    "options": [
+     {
+      "value": "large",
+      "label": "중형·대형 (최대적재량 1톤 초과 또는 총중량 3.5톤 초과)"
+     },
+     {
+      "value": "small",
+      "label": "경형·소형"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 8월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "size",
+       "op": "eq",
+       "value": "large"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 700000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "같은 전력이 있으면 무거워집니다."
+  ],
+  "lawName": "화물자동차 운수사업법"
+ },
+ {
+  "id": "cosmetics-unregistered",
+  "name": "무등록 화장품 제조·판매, 미심사 기능성화장품, 판매 금지 화장품 판매 등",
+  "law": "화장품법 제36조 제1항",
+  "group": "식품·보건",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금 (함께 물릴 수 있음)",
+  "aliases": [
+   "무등록 화장품 제조",
+   "불량 화장품 판매",
+   "화장품법위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "화장품법"
+ },
+ {
+  "id": "cosmetics-false-ad",
+  "name": "화장품 부당 표시·광고, 시험용 화장품 판매 목적 진열 등",
+  "law": "화장품법 제37조 제1항",
+  "group": "식품·보건",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금 (함께 물릴 수 있음)",
+  "aliases": [
+   "화장품 과장광고",
+   "화장품 의약품 오인 광고"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "small",
+    "label": "영업 규모가 영세한가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "suspension",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "eq",
+       "value": 0
+      },
+      {
+       "q": "small",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "초범이고 영업 규모가 영세하면 기소유예가 가능합니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "화장품법"
+ },
+ {
+  "id": "cosmetics-compliance",
+  "name": "화장품 제조판매업자 준수사항·기재사항 위반, 검사 방해 등",
+  "law": "화장품법 제38조",
+  "group": "식품·보건",
+  "statutory": "200만원 이하의 벌금",
+  "aliases": [
+   "화장품 표시사항 위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "small",
+    "label": "영업 규모가 영세한가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "suspension",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "eq",
+       "value": 0
+      },
+      {
+       "q": "small",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "초범이고 영업 규모가 영세하면 기소유예가 가능합니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 500000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "화장품법"
+ },
+ {
+  "id": "fire-order-violation",
+  "name": "소방시설 조치명령·화재예방 조치명령 위반",
+  "law": "소방시설 설치 및 관리에 관한 법률 제57조 제1호, 화재의 예방 및 안전관리에 관한 법률 제50조 제1항",
+  "group": "행정",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "소방 보완명령 위반",
+   "소방시설 개수명령 위반",
+   "소방시설법위반"
+  ],
+  "questions": [
+   {
+    "id": "count",
+    "label": "명령을 어긴 횟수",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 50,
+    "step": 1
+   },
+   {
+    "id": "cause",
+    "label": "위반이 화재의 원인이 되었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "damage",
+    "label": "화재 피해가 컸나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "risk",
+    "label": "화재 위험이 크거나, 대형건물·상시 100명 이상 드나드는 업소인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "count",
+       "op": "gte",
+       "value": 3
+      },
+      {
+       "q": "cause",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "damage",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "명령을 3회 이상 어기고 화재 원인을 제공했거나 화재 피해가 크면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "risk",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "count",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1500000,
+     "atLeast": true
+    },
+    "note": "대형건물·다중이용업소는 2배 이상으로 무거워집니다."
+   }
+  ],
+  "notes": [
+   "법정형이 올라(벌금 상한 1,500만원 → 3천만원) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "소방시설 설치 및 관리에 관한 법률"
+ },
+ {
+  "id": "fire-mgmt-unregistered",
+  "name": "무등록 소방시설관리업",
+  "law": "소방시설 설치 및 관리에 관한 법률 제57조 제2호",
+  "group": "행정",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "무등록 소방점검업"
+  ],
+  "questions": [
+   {
+    "id": "risk",
+    "label": "화재 위험이 크거나, 대형건물·상시 100명 이상 드나드는 업소인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "risk",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 10월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1500000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "법정형이 올라(벌금 상한 1,500만원 → 3천만원) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "소방시설 설치 및 관리에 관한 법률"
+ },
+ {
+  "id": "fire-self-inspection",
+  "name": "소방시설 자체점검 미실시·영업정지 중 관리업 영업",
+  "law": "소방시설 설치 및 관리에 관한 법률 제58조 제1호·제6호",
+  "group": "행정",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "소방점검 미실시",
+   "소방시설 점검 안 함"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "소방시설 설치 및 관리에 관한 법률"
+ },
+ {
+  "id": "fire-license-lending",
+  "name": "소방시설관리사증·관리업 등록증 대여, 이중취업",
+  "law": "소방시설 설치 및 관리에 관한 법률 제58조 제2호·제3호·제5호",
+  "group": "행정",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "관리사 자격증 대여",
+   "소방 등록증 대여"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "long",
+    "label": "오래 빌려주었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ],
+     [
+      {
+       "q": "long",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "sentence": "징역 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "소방시설 설치 및 관리에 관한 법률"
+ },
+ {
+  "id": "fire-manager-unappointed",
+  "name": "소방안전관리자 미선임",
+  "law": "화재의 예방 및 안전관리에 관한 법률 제50조 제3항 제3호",
+  "group": "행정",
+  "statutory": "300만원 이하의 벌금",
+  "aliases": [
+   "소방안전관리자 선임 안 함",
+   "화재예방법위반"
+  ],
+  "questions": [
+   {
+    "id": "late",
+    "label": "선임이 1개월 이내로 늦어진 경우인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "suspension",
+    "when": [
+     [
+      {
+       "q": "late",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "1개월 이내로 늦게 선임했다면 기소유예가 가능합니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 500000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "화재의 예방 및 안전관리에 관한 법률"
+ },
+ {
+  "id": "chem-banned",
+  "name": "금지물질 취급·무허가 허가물질 사용·무허가 유해화학물질 영업",
+  "law": "화학물질관리법 제58조 제2호~제4호",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 1억원 이하의 벌금",
+  "aliases": [
+   "무허가 유해화학물질 영업",
+   "금지물질 취급",
+   "유해화학물질관리법위반",
+   "화학물질관리법위반"
+  ],
+  "questions": [
+   {
+    "id": "vol",
+    "label": "연간 유통(취급)량",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 1000000,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "harm",
+    "label": "사람 몸에 해를 끼쳤나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "leak",
+    "label": "유해화학물질이 새어 나갔거나 주변 환경을 오염시켰나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "small",
+    "label": "취급량이 아주 적거나 적발 즉시 허가를 받았나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "vol",
+       "op": "gte",
+       "value": 1000
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ],
+     [
+      {
+       "q": "harm",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "연간 1,000톤 이상, 5년 내 같은 전력 2회 이상, 사람 몸에 해를 끼치면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "vol",
+       "op": "gte",
+       "value": 500
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "leak",
+       "op": "eq",
+       "value": "yes"
+      }
+     ],
+     [
+      {
+       "q": "vol",
+       "op": "gte",
+       "value": 300
+      }
+     ]
+    ],
+    "fine": {
+     "base": 20000000,
+     "atLeast": true
+    },
+    "note": "유출·오염이 있거나 연간 300톤 이상이라 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "small",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    },
+    "note": "가벼운 사정이 있어 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "화학물질관리법"
+ },
+ {
+  "id": "chem-handling-standard",
+  "name": "유해화학물질 취급기준 위반·표시 미이행",
+  "law": "화학물질관리법 제59조 제1호·제4호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "유해화학물질 표시 위반",
+   "유해화학물질 취급기준 위반"
+  ],
+  "questions": [
+   {
+    "id": "vol",
+    "label": "연간 유통(취급)량",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 1000000,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "leak",
+    "label": "유해화학물질이 새어 나갔거나 주변 환경을 오염시켰나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "fixed",
+    "label": "적발 후 바로 기준을 지키거나 표시를 했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "vol",
+       "op": "gte",
+       "value": 1000
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "연간 1,000톤 이상이거나 5년 내 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "vol",
+       "op": "gte",
+       "value": 500
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "leak",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 10000000,
+     "atLeast": true
+    },
+    "note": "유출·오염이 있어 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "fixed",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 2500000,
+     "atLeast": true
+    },
+    "note": "바로 바로잡아 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "화학물질관리법"
+ },
+ {
+  "id": "chem-accident-report",
+  "name": "화학사고 즉시 신고 안 함",
+  "law": "화학물질관리법 제60조",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 1억원 이하의 벌금",
+  "aliases": [
+   "화학사고 늑장신고",
+   "화학물질 누출 미신고"
+  ],
+  "questions": [
+   {
+    "id": "pollution",
+    "label": "주변 환경 오염",
+    "type": "select",
+    "options": [
+     {
+      "value": "severe",
+      "label": "오염 정도가 무거움"
+     },
+     {
+      "value": "some",
+      "label": "오염이 있음"
+     },
+     {
+      "value": "slight",
+      "label": "오염이 아주 적음"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "pollution",
+       "op": "eq",
+       "value": "severe"
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "pollution",
+       "op": "eq",
+       "value": "some"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 10000000
+    },
+    "note": "주변 환경을 오염시켜 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "pollution",
+       "op": "eq",
+       "value": "slight"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 2500000
+    },
+    "note": "오염이 아주 적어 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000
+    }
+   }
+  ],
+  "lawName": "화학물질관리법"
+ },
+ {
+  "id": "chem-import-unreported",
+  "name": "인체등유해성물질 수입 미신고·거짓 신고",
+  "law": "화학물질관리법 제61조 제2호",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "유독물질 수입 미신고"
+  ],
+  "questions": [
+   {
+    "id": "vol",
+    "label": "연간 수입량",
+    "type": "number",
+    "unit": "톤",
+    "min": 0,
+    "max": 1000000,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "vol",
+       "op": "gte",
+       "value": 1000
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "notes": [
+   "예전 '유독물질'이 지금은 '인체등유해성물질'로 바뀌었습니다."
+  ],
+  "lawName": "화학물질관리법"
+ },
+ {
+  "id": "chem-change-permit",
+  "name": "유해화학물질 영업 변경허가 미이행",
+  "law": "화학물질관리법 제61조 제4호",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 3천만원 이하의 벌금",
+  "questions": [
+   {
+    "id": "agg",
+    "label": "사정",
+    "type": "select",
+    "options": [
+     {
+      "value": "none",
+      "label": "해당 없음"
+     },
+     {
+      "value": "up",
+      "label": "제한물질을 유통했거나 주변 환경을 오염시킴"
+     },
+     {
+      "value": "down",
+      "label": "적발 후 바로 허가를 받음"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "up"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 6000000
+    },
+    "note": "무거운 사정이 있어 2배로 무거워집니다."
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "agg",
+       "op": "eq",
+       "value": "down"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1500000
+    },
+    "note": "바로 허가를 받아 절반으로 줄어듭니다."
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000
+    }
+   }
+  ],
+  "lawName": "화학물질관리법"
+ },
+ {
+  "id": "envtech-newtech-mark",
+  "name": "인증 없는 환경신기술 표시·광고",
+  "law": "환경기술 및 환경산업 지원법 제35조 제1호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "환경신기술 허위표시",
+   "환경기술산업법위반"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 1
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000
+    }
+   }
+  ],
+  "lawName": "환경기술 및 환경산업 지원법"
+ },
+ {
+  "id": "envtech-secret",
+  "name": "환경 관련 평가·검증 업무상 비밀 누설",
+  "law": "환경기술 및 환경산업 지원법 제35조 제2호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "questions": [
+   {
+    "id": "serious",
+    "label": "누설한 비밀이 중대한가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "serious",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000
+    }
+   }
+  ],
+  "lawName": "환경기술 및 환경산업 지원법"
+ },
+ {
+  "id": "envtech-false-green-ad",
+  "name": "제품 환경성 부당 표시·광고, 중지명령 위반",
+  "law": "환경기술 및 환경산업 지원법 제35조 제3호·제4호",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "친환경 허위광고",
+   "그린워싱"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000
+    }
+   }
+  ],
+  "lawName": "환경기술 및 환경산업 지원법"
+ },
+ {
+  "id": "envtech-eco-label",
+  "name": "인증 없는 환경표지 표시·광고, 환경표지 제거명령 위반",
+  "law": "환경기술 및 환경산업 지원법 제34조",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "환경마크 무단표시",
+   "환경표지 도용"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000
+    }
+   }
+  ],
+  "notes": [
+   "법정형이 올라(2년 이하 → 3년 이하) 실제로는 더 무거울 수 있습니다."
+  ],
+  "lawName": "환경기술 및 환경산업 지원법"
+ },
+ {
+  "id": "envtech-unregistered-contractor",
+  "name": "무등록·영업정지 중 환경 공사업",
+  "law": "환경기술 및 환경산업 지원법 제36조",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "무등록 환경시설 공사업"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000
+    }
+   }
+  ],
+  "lawName": "환경기술 및 환경산업 지원법"
+ },
+ {
+  "id": "envcrime-endangerment",
+  "name": "오염물질 불법배출로 생명·신체 위해, 먹는 물 위험",
+  "law": "환경범죄 등의 단속 및 가중처벌에 관한 법률 제3조 제1항",
+  "group": "환경",
+  "statutory": "3년 이상 15년 이하의 징역",
+  "aliases": [
+   "환경범죄",
+   "상수원 오염",
+   "환경범죄단속법위반"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [],
+    "sentence": "구속 원칙, 징역 3년 이상",
+    "note": "구속 수사가 원칙이고 정식재판에서 징역 3년 이상이 예상됩니다."
+   }
+  ],
+  "notes": [
+   "환경보호지역에서 저지르면 형의 2분의 1까지 무거워질 수 있습니다.",
+   "업무상 과실이나 중대한 과실로 저질러도 처벌됩니다."
+  ],
+  "lawName": "환경범죄 등의 단속 및 가중처벌에 관한 법률"
+ },
+ {
+  "id": "envcrime-casualty",
+  "name": "오염물질 불법배출 치사상",
+  "law": "환경범죄 등의 단속 및 가중처벌에 관한 법률 제3조 제2항",
+  "group": "환경",
+  "statutory": "무기 또는 5년 이상의 징역",
+  "questions": [],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [],
+    "sentence": "구속 원칙, 징역 5년 이상",
+    "note": "구속 수사가 원칙이고 정식재판에서 징역 5년 이상이 예상됩니다."
+   }
+  ],
+  "notes": [
+   "환경보호지역에서 저지르면 형의 2분의 1까지 무거워질 수 있습니다.",
+   "업무상 과실이나 중대한 과실로 저질러도 처벌됩니다."
+  ],
+  "lawName": "환경범죄 등의 단속 및 가중처벌에 관한 법률"
+ },
+ {
+  "id": "envcrime-pollution",
+  "name": "오염물질 불법배출로 농지·하천 등 오염, 어패류 집단폐사",
+  "law": "환경범죄 등의 단속 및 가중처벌에 관한 법률 제3조 제3항",
+  "group": "환경",
+  "statutory": "1년 이상 7년 이하의 징역",
+  "aliases": [
+   "물고기 떼죽음",
+   "하천 오염",
+   "농지 오염"
+  ],
+  "questions": [
+   {
+    "id": "serious",
+    "label": "오염이 넓고 중대한가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "serious",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "note": "오염 정도가 넓고 중대하면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [],
+    "sentence": "징역 1년 이상",
+    "note": "정식재판이 원칙입니다."
+   }
+  ],
+  "notes": [
+   "환경보호지역에서 저지르면 형의 2분의 1까지 무거워질 수 있습니다.",
+   "업무상 과실이나 중대한 과실로 저질러도 처벌됩니다."
+  ],
+  "lawName": "환경범죄 등의 단속 및 가중처벌에 관한 법률"
+ },
+ {
+  "id": "envhealth-order",
+  "name": "위해 기술·물질 사용제한 위반, 어린이활동공간 개선명령·어린이용품 회수명령 불이행",
+  "law": "환경보건법 제31조 제1항 제1호·제3호·제4호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "aliases": [
+   "어린이활동공간 개선명령 불이행",
+   "어린이용품 회수명령 위반",
+   "환경보건법위반"
+  ],
+  "questions": [
+   {
+    "id": "large",
+    "label": "대규모로 영업했나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   },
+   {
+    "id": "minor",
+    "label": "초범이거나 법을 잘못 아는 등 가벼운 사안인가요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "large",
+       "op": "eq",
+       "value": "yes"
+      },
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "대규모 영업이면서 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 1년 이상"
+   },
+   {
+    "level": "summary",
+    "when": [
+     [
+      {
+       "q": "minor",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ],
+    "fine": {
+     "base": 1500000,
+     "atLeast": true
+    }
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 3000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "환경보건법"
+ },
+ {
+  "id": "envhealth-secret",
+  "name": "환경보건 조사 직무상 개인정보·비밀 누설",
+  "law": "환경보건법 제31조 제1항 제2호",
+  "group": "환경",
+  "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 6월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "환경보건법"
+ },
+ {
+  "id": "envhealth-child-product",
+  "name": "환경유해인자를 어린이 용도로 사용·판매",
+  "law": "환경보건법 제31조 제4항",
+  "group": "환경",
+  "statutory": "6개월 이하의 징역 또는 500만원 이하의 벌금",
+  "aliases": [
+   "어린이용품 유해물질"
+  ],
+  "questions": [
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1
+   }
+  ],
+  "tiers": [
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "sentence": "징역 4월 이상"
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "환경보건법"
+ },
+ {
+  "id": "eia-stop-order",
+  "name": "환경영향평가 관련 공사중지명령·원상복구명령 불이행",
+  "law": "환경영향평가법 제73조",
+  "group": "환경",
+  "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+  "aliases": [
+   "공사중지명령 불이행",
+   "원상복구명령 불이행",
+   "환경영향평가법위반"
+  ],
+  "questions": [
+   {
+    "id": "days",
+    "label": "명령을 따르지 않은 기간",
+    "type": "number",
+    "unit": "일",
+    "min": 0,
+    "max": 3650,
+    "step": 1
+   },
+   {
+    "id": "priors",
+    "label": "같은 종류로 처벌받은 전력",
+    "type": "number",
+    "unit": "회",
+    "min": 0,
+    "max": 20,
+    "step": 1,
+    "help": "최근 5년 안의 전력을 기준으로 보는 경우가 많습니다."
+   },
+   {
+    "id": "impact",
+    "label": "불법 공사로 환경에 중대한 영향을 주었나요",
+    "type": "select",
+    "options": [
+     {
+      "value": "no",
+      "label": "아니오"
+     },
+     {
+      "value": "yes",
+      "label": "예"
+     }
+    ]
+   }
+  ],
+  "tiers": [
+   {
+    "level": "detention",
+    "when": [
+     [
+      {
+       "q": "days",
+       "op": "gte",
+       "value": 30
+      }
+     ],
+     [
+      {
+       "q": "priors",
+       "op": "gte",
+       "value": 2
+      }
+     ]
+    ],
+    "note": "30일 이상 따르지 않았거나 5년 내 같은 전력 2회 이상이면 구속이 검토됩니다."
+   },
+   {
+    "level": "trial",
+    "when": [
+     [
+      {
+       "q": "days",
+       "op": "gte",
+       "value": 15
+      }
+     ],
+     [
+      {
+       "q": "impact",
+       "op": "eq",
+       "value": "yes"
+      }
+     ]
+    ]
+   },
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 5000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "환경영향평가법"
+ },
+ {
+  "id": "eia-art74-1",
+  "name": "사후환경영향조사 미실시, 평가서 거짓 작성, 무등록 환경영향평가업 등",
+  "law": "환경영향평가법 제74조 제1항",
+  "group": "환경",
+  "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+  "aliases": [
+   "환경영향평가서 거짓 작성",
+   "무등록 환경영향평가업"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 2000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "환경영향평가법"
+ },
+ {
+  "id": "eia-art74-2",
+  "name": "환경영향평가·협의 없이 공사, 평가업 명의대여·재대행 등",
+  "law": "환경영향평가법 제74조 제2항",
+  "group": "환경",
+  "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+  "aliases": [
+   "환경영향평가 없이 공사",
+   "협의 전 착공"
+  ],
+  "questions": [],
+  "tiers": [
+   {
+    "level": "summary",
+    "when": [],
+    "fine": {
+     "base": 1000000,
+     "atLeast": true
+    }
+   }
+  ],
+  "lawName": "환경영향평가법"
+ }
+]
