@@ -267,7 +267,7 @@ export async function RegionHome({ slug }: { slug: RegionSlug }) {
   )
 }
 
-/** 이 지역에서 사건이 진행되는 곳: 법원 · 공소청 · 경찰서 */
+/** 이 지역에서 사건이 진행되는 곳: 법원 · 공소청(검찰청) · 경찰서 */
 function Agencies({ region }: { region: Region }) {
   return (
     <section id="agencies" className={`${pad} bg-white`}>

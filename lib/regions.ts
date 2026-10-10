@@ -81,9 +81,9 @@ export const regions: Region[] = [
         ],
       },
       {
-        kind: "공소청",
+        kind: "공소청(검찰청)",
         hint: PROSECUTION_HINT,
-        items: [{ name: "인천지방공소청", desc: "옛 인천지방검찰청" }],
+        items: [{ name: "인천지방공소청(인천지방검찰청)" }],
       },
       {
         kind: "경찰서",
@@ -128,9 +128,9 @@ export const regions: Region[] = [
         ],
       },
       {
-        kind: "공소청",
+        kind: "공소청(검찰청)",
         hint: PROSECUTION_HINT,
-        items: [{ name: "수원지방공소청", desc: "옛 수원지방검찰청" }],
+        items: [{ name: "수원지방공소청(수원지방검찰청)" }],
       },
       {
         kind: "경찰서",
@@ -171,9 +171,9 @@ export const regions: Region[] = [
         ],
       },
       {
-        kind: "공소청",
+        kind: "공소청(검찰청)",
         hint: PROSECUTION_HINT,
-        items: [{ name: "대전지방공소청 홍성지청", desc: "옛 대전지방검찰청 홍성지청" }],
+        items: [{ name: "대전지방공소청 홍성지청(대전지방검찰청 홍성지청)" }],
       },
       {
         kind: "경찰서",
@@ -214,9 +214,9 @@ export const regions: Region[] = [
         ],
       },
       {
-        kind: "공소청",
+        kind: "공소청(검찰청)",
         hint: PROSECUTION_HINT,
-        items: [{ name: "수원지방공소청 안산지청", desc: "옛 수원지방검찰청 안산지청" }],
+        items: [{ name: "수원지방공소청 안산지청(수원지방검찰청 안산지청)" }],
       },
       {
         kind: "경찰서",
