@@ -20,7 +20,7 @@ const CHUNK_BYTES = 80_000
 const str = (v: unknown) => (typeof v === "string" ? v : "")
 const strList = (v: unknown) => (Array.isArray(v) ? v.filter((s): s is string => typeof s === "string" && s.trim() !== "") : [])
 
-/** 모양 확인 + 화면이 쓰는 필드만 남김. ref 가 있으면 questions·tiers 가 비어 있어도 됨 */
+/** 모양 확인 + 화면이 쓰는 필드만 남김. ref·consultOnly 가 있으면 questions·tiers 가 비어 있어도 됨 */
 function fixCrime(x: unknown): Crime | null {
   if (!x || typeof x !== "object") return null
   const c = x as Partial<Crime>
@@ -28,7 +28,8 @@ function fixCrime(x: unknown): Crime | null {
   const ref = c.ref && typeof c.ref.href === "string" && typeof c.ref.label === "string" ? { href: c.ref.href, label: c.ref.label } : undefined
   const questions = Array.isArray(c.questions) ? c.questions.filter((q) => q && typeof q.id === "string" && typeof q.label === "string") : []
   const tiers = Array.isArray(c.tiers) ? c.tiers.filter((t) => t && typeof t.level === "string" && Array.isArray(t.when)) : []
-  if (!ref && tiers.length === 0) return null
+  const consultOnly = c.consultOnly === true
+  if (!ref && !consultOnly && tiers.length === 0) return null
   const aliases = strList(c.aliases)
   const notes = strList(c.notes)
   const law = str(c.law)
@@ -44,6 +45,7 @@ function fixCrime(x: unknown): Crime | null {
     ...(notes.length ? { notes } : {}),
     ...(c.basis === "guideline-x2" ? { basis: c.basis } : {}),
     ...(ref ? { ref } : {}),
+    ...(consultOnly ? { consultOnly } : {}),
     lawName: tidyLawName(str(c.lawName)) || lawNameOf(law),
   }
 }

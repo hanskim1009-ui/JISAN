@@ -122,6 +122,35 @@ export function RefCard({ crime }: { crime: Crime }) {
   )
 }
 
+/** 정해진 구형 기준이 없는 죄명: 법정형 + 변호사 문의 안내 */
+export function ConsultOnlyCard({ crime }: { crime: Crime }) {
+  if (!crime.consultOnly) return null
+  return (
+    <section className="min-w-0 rounded-2xl border border-[#D5DAE1] bg-white p-5 md:p-6">
+      <p className="text-[0.9375rem] font-semibold leading-relaxed text-jisan-ink">
+        이 죄명은 정해진 구형 기준이 없습니다. 사실관계에 따라 구형은 물론 적용되는 법정형도 달라질 수 있으니, 변호사에게 문의하세요.
+      </p>
+      <Statutory crime={crime} />
+      {crime.notes && crime.notes.length > 0 && (
+        <ul className="mt-4 space-y-1.5 text-sm leading-relaxed text-[#4A505A]">
+          {crime.notes.map((n) => (
+            <li key={n} className="flex gap-2">
+              <span aria-hidden className="mt-[0.55em] h-1 w-1 shrink-0 rounded-full bg-[#8A9099]" />
+              <span className="min-w-0">{n}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <Link
+        href="/consult?type=%ED%98%95%EC%82%AC&from=/tools/prosecution"
+        className="mt-5 inline-flex items-center justify-center rounded-full bg-jisan-ink px-5 py-2.5 text-sm font-semibold text-white hover:bg-jisan-ink/90"
+      >
+        변호사에게 문의하기
+      </Link>
+    </section>
+  )
+}
+
 /** 다섯 단계의 뜻 (이름 옆에 쉬운 설명). 지금 결과 단계는 강조 */
 export function StepGuide({ current }: { current?: number }) {
   return (

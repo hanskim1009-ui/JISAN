@@ -91,6 +91,11 @@ export type Crime = {
   basis?: "guideline-x2"
   /** 구형 기준이 없어 다른 계산기로 안내하는 죄명 (이때 questions·tiers 는 비어 있어도 됨) */
   ref?: { href: string; label: string }
+  /**
+   * 정해진 구형 기준이 없는 죄명: 법정형만 보여 주고 "사실관계에 따라 달라지니 변호사에게 문의" 안내
+   * (이때 questions·tiers 는 비어 있어도 됨)
+   */
+  consultOnly?: boolean
   /** 특별법 법률 이름 (묶음·검색용, 예: "도로교통법") */
   lawName?: string
 }

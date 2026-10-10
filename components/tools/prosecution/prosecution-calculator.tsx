@@ -4,7 +4,7 @@ import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react"
 import type { Crime, Question } from "@/lib/tools/prosecution-types"
 import { evaluate, groupRank, isComplete, type Answers, type CrimeSummary } from "@/lib/tools/prosecution"
 import { searchCrimes } from "./search"
-import { RefCard, ResultCard, StepGuide } from "./result-card"
+import { RefCard, ConsultOnlyCard, ResultCard, StepGuide } from "./result-card"
 
 /** 자주 찾는 죄명 (목록에 없는 id 는 건너뜀) */
 const POPULAR = [
@@ -172,6 +172,10 @@ export function ProsecutionCalculator({ crimes }: { crimes: CrimeSummary[] }) {
               ) : (
                 <p>질문을 불러오는 중입니다…</p>
               )}
+            </div>
+          ) : crime.consultOnly ? (
+            <div className="mt-6 max-w-2xl">
+              <ConsultOnlyCard crime={crime} />
             </div>
           ) : crime.ref ? (
             <div className="mt-6 max-w-2xl">
