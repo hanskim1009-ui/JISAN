@@ -76,9 +76,9 @@ export type DdResult = {
 /** 처벌 기준 (퍼센트) */
 export const BAC_LIMIT = 0.03
 
-/** "0.08", ".08", "0.08%" 같은 입력 → 숫자. 0 이상 1 미만만 */
+/** "0.08", ".08", "0.08%", "0,08"(쉼표 소수점 언어) 같은 입력 → 숫자. 0 이상 1 미만만 */
 export function parseBac(raw: string): number | null {
-  const s = raw.trim().replace(/%$/, "").trim()
+  const s = raw.trim().replace(/%$/, "").trim().replace(",", ".")
   if (s === "" || !/^\d*\.?\d+$/.test(s)) return null
   const n = Number(s)
   if (!Number.isFinite(n) || n < 0 || n >= 1) return null
