@@ -1,0 +1,60 @@
+{
+  "ui": {
+    "listTitle": "Hướng dẫn theo từng tư cách lưu trú (visa)",
+    "listLead": "Cùng một vấn đề pháp lý nhưng ảnh hưởng đến việc lưu trú khác nhau tùy tư cách lưu trú. Hãy chọn tư cách lưu trú (visa) của bạn để xem.",
+    "listSeoTitle": "Visa Hàn Quốc và vấn đề pháp lý theo từng tư cách lưu trú",
+    "listSeoDescription": "Visa E-9, H-2, E-7, D-2, D-4, D-10, F-6, F-2, F-4, F-5, C-3, G-1: bị xử phạt hình sự, ly hôn, nợ lương, làm việc không phép ảnh hưởng thế nào đến gia hạn, đổi visa, thường trú và trục xuất.",
+    "groups": {
+      "work": "Tư cách lưu trú để làm việc",
+      "study": "Du học, đào tạo, tìm việc",
+      "family": "Gia đình, lưu trú dài hạn",
+      "short": "Thăm ngắn hạn và diện khác"
+    },
+    "home": "Trang chủ",
+    "crumb": "Hướng dẫn theo tư cách lưu trú",
+    "about": "Tư cách lưu trú này là gì",
+    "impact": "Khi gặp vấn đề pháp lý, việc lưu trú sẽ ra sao",
+    "issues": "Những vấn đề hay gặp với tư cách này",
+    "faq": "Câu hỏi thường gặp",
+    "consultWhen": "Hãy nhắn tin cho luật sư ngay khi",
+    "related": "Hướng dẫn nên xem thêm",
+    "laws": "Căn cứ",
+    "basis": "Nội dung được tổng hợp theo pháp luật về xuất nhập cảnh hiện hành tại thời điểm tháng 10 năm 2026 và Sổ tay hướng dẫn thủ tục lưu trú theo từng tư cách lưu trú của Bộ Tư pháp (법무부 체류민원 자격별 안내 매뉴얼, tháng 9/2026). Tiêu chuẩn thẩm tra của Bộ Tư pháp có thể thay đổi bất cứ lúc nào.",
+    "notice": "Hướng dẫn này chỉ để tham khảo. Việc bạn có được tiếp tục lưu trú hay không do cơ quan xuất nhập cảnh quyết định sau khi xem xét cả hoàn cảnh vụ việc lẫn cuộc sống của bạn tại Hàn Quốc, nên cùng một quyết định xử lý nhưng kết quả có thể khác nhau tùy từng trường hợp.",
+    "readMore": "Xem chi tiết",
+    "otherVisas": "Hướng dẫn về các tư cách lưu trú khác",
+    "ctaTitle": "Nếu bạn muốn biết việc lưu trú của mình bị ảnh hưởng thế nào",
+    "ctaLead": "Hãy nhắn tin cho chúng tôi nội dung sự việc, tư cách lưu trú hiện tại và ngày hết hạn lưu trú. Luật sư sẽ xem xét và trả lời bạn.",
+    "ctaButton": "Nhắn tin cho chúng tôi"
+  },
+  "common": {
+    "title": "Kết quả xử lý ảnh hưởng thế nào đến việc lưu trú",
+    "lead": "Dù bạn có tư cách lưu trú nào, kết quả của vụ án hình sự cũng sẽ được xem xét khi thẩm tra lưu trú. Dưới đây là tổng hợp theo các tiêu chuẩn do pháp luật quy định; trên thực tế, cơ quan xuất nhập cảnh quyết định sau khi xem xét cả hoàn cảnh vụ việc lẫn cuộc sống của bạn tại Hàn Quốc.",
+    "items": [
+      {
+        "title": "Không chuyển hồ sơ sang viện kiểm sát, tạm hoãn truy tố",
+        "body": "Đây không phải là hình phạt, nên không thuộc “hình phạt tù (금고) trở lên”, là lý do trục xuất. Tuy nhiên, quyết định tạm hoãn truy tố (기소유예) và một số quyết định không chuyển hồ sơ sang viện kiểm sát (불송치) được lưu lại trong hồ sơ lý lịch điều tra (수사경력자료) trong một thời gian nhất định, và có thể bị tra cứu khi cần cho việc xét nhập quốc tịch hoặc cấp phép lưu trú của người nước ngoài (Điều 6 khoản 1 điểm 6, Điều 8-2 Luật về việc mất hiệu lực của hình phạt (형의 실효 등에 관한 법률)). Thời gian lưu lại khác nhau tùy khung hình phạt luật định của tội. Khi thẩm tra có xét phẩm hạnh như cư trú (F-2), thường trú (F-5), lịch sử vụ việc như vậy cũng sẽ được kiểm tra."
+      },
+      {
+        "title": "Phạt tiền (kể cả lệnh xử phạt rút gọn)",
+        "body": "Phạt tiền không thuộc “hình phạt tù (금고) trở lên”, là lý do trục xuất. Nhưng phạt tiền bị xem là tình tiết bất lợi khi thẩm tra gia hạn thời gian lưu trú, thay đổi tư cách lưu trú, thường trú và nhập quốc tịch; nếu mức độ vi phạm pháp luật nghiêm trọng, giấy phép lưu trú có thể bị hủy (Điều 89 khoản 1 điểm 5 Luật Quản lý Xuất nhập cảnh (출입국관리법)). Trong tiêu chuẩn thẩm tra của Bộ Tư pháp có nhiều mục xét đến số tiền phạt và thời gian đã qua kể từ khi nộp tiền phạt. Nếu nhận lệnh xử phạt rút gọn (약식명령, lệnh định mức phạt tiền mà không qua xét xử), bạn có thể yêu cầu xét xử chính thức trong vòng 7 ngày kể từ ngày nhận lệnh (Điều 453 Luật Tố tụng hình sự (형사소송법))."
+      },
+      {
+        "title": "Án treo của hình phạt tù",
+        "body": "Án treo (집행유예) vẫn là bị tuyên hình phạt tù (징역 hoặc 금고), nên có thể phát sinh vấn đề về lý do trục xuất (“người bị tuyên hình phạt tù (금고) trở lên rồi được thả”, Điều 46 khoản 1 điểm 13 Luật Quản lý Xuất nhập cảnh). Tiêu chuẩn thẩm tra cư trú (F-2), thường trú (F-5), kiều bào ở nước ngoài (F-4)… cũng coi án treo là lý do không đủ điều kiện trong một thời gian nhất định kể từ ngày bản án có hiệu lực."
+      },
+      {
+        "title": "Án tù thực tế",
+        "body": "Khi chấp hành xong và được thả, bạn có thể thuộc diện bị trục xuất, và giám đốc trại giam phải thông báo cho cơ quan xuất nhập cảnh về người nước ngoài đã được quyết định thả (Điều 84 khoản 2 Luật Quản lý Xuất nhập cảnh). Thủ tục trục xuất có thể được tiến hành ngay cả khi đang chấp hành án (Điều 85). Nếu xuất cảnh theo lệnh trục xuất, bạn có thể bị cấm nhập cảnh trong 5 năm sau đó (Điều 11 khoản 1 điểm 6)."
+      },
+      {
+        "title": "Vi phạm Luật Quản lý Xuất nhập cảnh (lưu trú quá hạn, làm việc khi chưa được phép…)",
+        "body": "Sau khi bị cơ quan xuất nhập cảnh điều tra, bạn có thể nhận quyết định thông báo nộp tiền phạt vi phạm (범칙금, khoản tiền tương tự tiền phạt) hoặc bị chuyển hồ sơ truy cứu (Điều 102, Điều 105 Luật Quản lý Xuất nhập cảnh), rồi sau đó có thể dẫn đến lệnh xuất cảnh hoặc trục xuất. Lịch sử nộp tiền phạt vi phạm cũng được tính là lịch sử vi phạm pháp luật trong các lần thẩm tra lưu trú sau."
+      },
+      {
+        "title": "Lệnh xuất cảnh và lệnh trục xuất",
+        "body": "Lệnh xuất cảnh (출국명령) là quyết định yêu cầu bạn tự xuất cảnh trước thời hạn được định; thời hạn xuất cảnh được định trong vòng 30 ngày kể từ ngày cấp lệnh (Điều 68 Luật Quản lý Xuất nhập cảnh, Điều 65 Quy tắc thi hành). Với lệnh trục xuất (강제퇴거명령), bạn có thể nộp đơn phản đối lên Bộ trưởng Bộ Tư pháp trong vòng 7 ngày kể từ ngày nhận lệnh (Điều 60). Dù đã nộp khiếu nại hành chính hay kiện hành chính, quyết định vẫn giữ nguyên hiệu lực, nên phải xin tạm đình chỉ thi hành cùng lúc."
+      }
+    ]
+  }
+}

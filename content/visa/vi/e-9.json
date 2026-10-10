@@ -1,0 +1,100 @@
+{
+  "code": "E-9",
+  "slug": "e-9",
+  "name": "Lao động phổ thông",
+  "group": "work",
+  "summary": "Lao động nước ngoài làm việc tại công ty được cấp phép theo chế độ cấp phép tuyển dụng (EPS)",
+  "seo": {
+    "title": "Visa E-9 Hàn Quốc: chuyển nơi làm việc, nợ lương, xử phạt",
+    "description": "Lao động EPS visa E-9 bị phạt tiền, án treo, đổi công ty, bị nợ lương hay tai nạn lao động thì việc lưu trú ra sao? Theo Luật Quản lý Xuất nhập cảnh và luật tuyển dụng lao động nước ngoài."
+  },
+  "about": [
+    "Lao động phổ thông, hay việc làm không chuyên môn (비전문취업, E-9), là tư cách lưu trú của lao động nước ngoài sang Hàn Quốc theo chế độ cấp phép tuyển dụng (고용허가제, EPS) của Luật về Tuyển dụng Lao động Nước ngoài (외국인근로자의 고용 등에 관한 법률) và làm việc tại công ty đã được cấp phép tuyển dụng (Phụ lục 1-2 Nghị định thi hành Luật Quản lý Xuất nhập cảnh (출입국관리법)). Theo nguyên tắc, bạn làm việc tại nơi làm việc được cấp phép tuyển dụng ban đầu; muốn chuyển sang nơi khác phải có lý do và thủ tục theo quy định.",
+    "Thời gian làm việc là 3 năm kể từ ngày nhập cảnh; nếu chủ sử dụng lao động yêu cầu tuyển dụng lại, thời gian này có thể được gia hạn một lần trong phạm vi dưới 2 năm (Điều 18, Điều 18-2 Luật về Tuyển dụng Lao động Nước ngoài)."
+  ],
+  "impact": {
+    "lead": "Với lao động E-9, vụ án hình sự và vấn đề lao động sẽ dẫn thẳng đến vấn đề lưu trú. Nếu lỡ thủ tục chuyển công ty hoặc làm việc ở nơi khác khi chưa được phép, bản thân việc đó đã là vi phạm Luật Quản lý Xuất nhập cảnh.",
+    "items": [
+      {
+        "title": "Nếu bị xử phạt hình sự",
+        "body": "Nếu bị tuyên hình phạt tù (징역 hoặc 금고), có thể phát sinh vấn đề về lý do trục xuất (Điều 46 khoản 1 điểm 13 Luật Quản lý Xuất nhập cảnh). Phạt tiền không phải là lý do trục xuất, nhưng bị xem là tình tiết bất lợi khi thẩm tra gia hạn thời gian lưu trú hoặc chuyển sang tư cách lưu trú khác. Ví dụ, khi thẩm tra chuyển sang lao động có tay nghề (E-7-4), nếu trong 10 năm gần nhất bạn đã bị phạt tiền từ 3 triệu won trở lên thì không được nộp đơn, và mức phạt thấp hơn cũng bị trừ điểm (Sổ tay hướng dẫn thủ tục lưu trú theo từng tư cách lưu trú của Bộ Tư pháp (법무부 체류민원 자격별 안내 매뉴얼))."
+      },
+      {
+        "title": "Nếu chuyển công ty khi chưa được phép",
+        "body": "Nếu bắt đầu làm việc ở công ty mới trước khi được cấp phép thay đổi nơi làm việc, bạn có thể bị xử phạt vì vi phạm Điều 21 Luật Quản lý Xuất nhập cảnh (Điều 95 điểm 6) và có thể thuộc diện bị trục xuất (Điều 46 khoản 1 điểm 9). Dù đã có công ty mới, bạn vẫn phải chờ có giấy phép rồi mới bắt đầu làm việc."
+      },
+      {
+        "title": "Nếu tự ý nghỉ làm không báo",
+        "body": "Khi không biết lao động nước ngoài mình tuyển dụng đang ở đâu, chủ sử dụng lao động phải khai báo với cơ quan xuất nhập cảnh trong vòng 15 ngày (Điều 19 khoản 1 điểm 2 Luật Quản lý Xuất nhập cảnh). Sau khi bị khai báo như vậy (thường gọi là bị báo bỏ trốn), việc chuyển nơi làm việc hay tiếp tục lưu trú có thể trở nên khó khăn, vì vậy hãy lưu lại lý do bạn muốn nghỉ việc và lịch sử liên lạc với công ty."
+      },
+      {
+        "title": "Nếu quá hạn chuyển nơi làm việc",
+        "body": "Nếu không nộp đơn xin chuyển nơi làm việc trong vòng 1 tháng kể từ ngày hợp đồng lao động kết thúc, hoặc không được cấp phép thay đổi nơi làm việc trong vòng 3 tháng kể từ ngày nộp đơn, bạn phải xuất cảnh. Nếu không thể nộp đơn vì tai nạn lao động, bệnh tật, mang thai hoặc sinh con, thời hạn được tính từ ngày lý do đó chấm dứt (Điều 25 khoản 3 Luật về Tuyển dụng Lao động Nước ngoài)."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "Khi muốn chuyển công ty",
+      "body": [
+        "Bạn có thể xin chuyển nơi làm việc trong các trường hợp như: chủ sử dụng lao động chấm dứt hợp đồng hoặc từ chối gia hạn hợp đồng vì lý do chính đáng; công ty tạm ngừng hoạt động hoặc đóng cửa; hoặc Bộ trưởng Bộ Việc làm và Lao động đã công bố rằng bạn khó tiếp tục làm việc vì lý do không do lỗi của người lao động, như vi phạm điều kiện lao động hay bị đối xử bất công (Điều 25 khoản 1 Luật về Tuyển dụng Lao động Nước ngoài).",
+        "Theo nguyên tắc, bạn được chuyển tối đa 3 lần trong 3 năm đầu và 2 lần trong thời gian được gia hạn do tuyển dụng lại. Những lần chuyển vì lý do không do lỗi của người lao động không bị tính vào số lần (khoản 4 cùng điều)."
+      ]
+    },
+    {
+      "title": "Khi không được trả lương hoặc trợ cấp thôi việc",
+      "body": [
+        "Dù có tư cách lưu trú nào, bạn vẫn có thể đòi tiền công cho phần việc đã làm và trợ cấp thôi việc. Chúng tôi cùng xem xét việc trình báo lên Sở Lao động (노동청), kiện dân sự và kê biên tạm thời (가압류, thủ tục phong tỏa trước tài sản của bên kia).",
+        "Trợ cấp thôi việc được nhận qua bảo hiểm xuất cảnh (출국만기보험) do chủ sử dụng lao động đóng, và tiền bảo hiểm được chi trả trong vòng 14 ngày kể từ khi bạn xuất cảnh (Điều 13 Luật về Tuyển dụng Lao động Nước ngoài). Nếu tình trạng nợ lương kéo dài, đó có thể trở thành lý do chuyển nơi làm việc, nên hãy gom sẵn sao kê tài khoản và hồ sơ ngày giờ làm việc."
+      ]
+    },
+    {
+      "title": "Khi bị tai nạn trong lúc làm việc",
+      "body": [
+        "Nếu bị thương hoặc mắc bệnh do công việc, dù có tư cách lưu trú nào, bạn vẫn có thể xin quyền lợi bảo hiểm tai nạn lao động. Trong thời gian điều trị, thời hạn chuyển nơi làm việc được tính từ ngày lý do đó chấm dứt.",
+        "Nếu điều trị kéo dài đến khi hết thời gian lưu trú, bạn có thể chuyển sang tư cách diện khác (G-1) để tiếp tục điều trị; nếu vẫn còn thời gian lưu trú tối đa, có thủ tục để khôi phục tư cách E-9 sau khi điều trị xong (sổ tay hướng dẫn của Bộ Tư pháp)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Nếu chủ không đồng ý thì tôi không thể chuyển công ty sao?",
+      "a": "Không nhất thiết phải có sự đồng ý của chủ. Nếu có lý do không do lỗi của người lao động như công ty tạm ngừng hoạt động hoặc đóng cửa, vi phạm điều kiện lao động hay bị đối xử bất công như bị nợ lương, bị hành hung, bạn có thể xin chuyển nơi làm việc. Tuy nhiên, bạn phải chứng minh lý do đó bằng tài liệu, nên hãy gom trước các chứng cứ như sao kê tài khoản, giấy chẩn đoán của bác sĩ, tin nhắn."
+    },
+    {
+      "q": "Nếu nghỉ việc mà trong 3 tháng không tìm được công ty mới thì sao?",
+      "a": "Nếu không được cấp phép thay đổi nơi làm việc trong vòng 3 tháng kể từ ngày nộp đơn xin chuyển nơi làm việc, bạn phải xuất cảnh (Điều 25 khoản 3 Luật về Tuyển dụng Lao động Nước ngoài). Nếu là do tai nạn lao động, bệnh tật, mang thai hoặc sinh con thì cách tính thời hạn sẽ khác, nên hãy chuẩn bị giấy tờ chứng minh như giấy chẩn đoán của bác sĩ."
+    },
+    {
+      "q": "Bị phạt tiền thì có được tuyển dụng lại hay gia hạn lưu trú không?",
+      "a": "Luật không quy định tiêu chuẩn theo số tiền phạt. Tuy nhiên, phạt tiền bị xem là tình tiết bất lợi khi thẩm tra gia hạn thời gian lưu trú và thay đổi tư cách lưu trú, và có những lần thẩm tra xét cụ thể lịch sử phạt tiền như khi chuyển sang lao động có tay nghề (E-7-4). Đó là lý do việc giảm mức xử lý ngay từ giai đoạn điều tra rất quan trọng."
+    },
+    {
+      "q": "Công ty dọa sẽ báo tôi bỏ trốn nếu tôi trình báo việc bị nợ lương.",
+      "a": "Đòi tiền lương là quyền của người lao động, và việc bị nợ lương có thể là lý do để xin chuyển nơi làm việc. Hãy lưu lại lý do bạn không thể đi làm và lịch sử liên lạc với công ty, đồng thời nộp đơn trình báo lên Sở Lao động trước; những điều này sẽ là căn cứ để giải thích rằng bạn không bỏ trốn."
+    },
+    {
+      "q": "Từ E-9 có thể chuyển sang tư cách lưu trú khác không?",
+      "a": "Có nhiều hạn chế. Người đã làm việc hợp pháp trong một thời gian nhất định và đạt đủ điểm có thể chuyển sang lao động có tay nghề (E-7-4), nhưng khi thẩm tra vẫn xét lịch sử phạt tiền, số lần vi phạm Luật Quản lý Xuất nhập cảnh và lịch sử cư trú bất hợp pháp. Theo hướng dẫn, người có tư cách E-9 không được chuyển sang du học (D-2) khi đang ở Hàn Quốc (sổ tay hướng dẫn của Bộ Tư pháp)."
+    }
+  ],
+  "consultWhen": [
+    "Khi bạn được cảnh sát gọi đến làm việc hoặc nhận lệnh xử phạt rút gọn (phạt tiền)",
+    "Khi chủ không đồng ý cho chuyển nơi làm việc hoặc dọa sẽ báo bạn bỏ trốn",
+    "Khi hợp đồng lao động đã kết thúc mà bạn không biết phải làm gì trong vòng 1 tháng",
+    "Khi bạn bị nợ lương, trợ cấp thôi việc hoặc bị tai nạn lao động mà thời gian lưu trú sắp hết"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "eps-worker-changing-workplace" },
+    { "center": "foreigner", "guide": "unpaid-wages-foreign-worker" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Điều 19, Điều 21, Điều 46, Điều 95 Luật Quản lý Xuất nhập cảnh",
+    "Phụ lục 1-2 Nghị định thi hành Luật Quản lý Xuất nhập cảnh",
+    "Điều 13, Điều 18, Điều 18-2, Điều 25 Luật về Tuyển dụng Lao động Nước ngoài",
+    "Sổ tay hướng dẫn thủ tục lưu trú theo từng tư cách lưu trú của Bộ Tư pháp (tháng 9/2026): Lao động phổ thông (E-9), Hoạt động đặc định (E-7-4)"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "code": "E-7",
+  "slug": "e-7",
+  "name": "Hoạt động đặc định",
+  "group": "work",
+  "summary": "Người nước ngoài làm việc theo hợp đồng trong các ngành nghề do Bộ trưởng Bộ Tư pháp chỉ định",
+  "seo": {
+    "title": "Visa E-7 Hàn Quốc: đổi nơi làm việc, làm sai việc, xử phạt",
+    "description": "Visa E-7 đổi công ty, làm việc khác với hợp đồng, bị phạt tiền hay án treo thì gia hạn lưu trú và chuyển sang cư trú F-2, thường trú F-5 tại Hàn Quốc bị ảnh hưởng ra sao."
+  },
+  "about": [
+    "Hoạt động đặc định (특정활동, E-7) là tư cách lưu trú của người nước ngoài ký hợp đồng với cơ quan công quyền, công ty… tại Hàn Quốc và làm việc trong các ngành nghề do Bộ trưởng Bộ Tư pháp chỉ định riêng (Phụ lục 1-2 Nghị định thi hành Luật Quản lý Xuất nhập cảnh (출입국관리법)). Mỗi ngành nghề như quản lý, kỹ thuật, văn phòng và dịch vụ, lao động có tay nghề (E-7-4)… có điều kiện khác nhau về học vấn, kinh nghiệm và mức lương.",
+    "Vì tư cách này dựa trên việc bạn làm việc đúng ngành nghề và nơi làm việc đã được cấp phép, nên khi chuyển công ty hoặc thay đổi công việc, bạn phải làm thủ tục tương ứng."
+  ],
+  "impact": {
+    "lead": "Với E-7, “làm ở đâu và làm việc gì” chính là căn cứ để lưu trú. Lịch sử bị xử phạt hình sự sẽ được kiểm tra không chỉ khi gia hạn thời gian lưu trú mà cả khi thẩm tra chuyển sang cư trú (F-2) hoặc thường trú (F-5) sau này.",
+    "items": [
+      {
+        "title": "Nếu bị xử phạt hình sự",
+        "body": "Nếu bị tuyên hình phạt tù (징역 hoặc 금고), có thể phát sinh vấn đề về lý do trục xuất (Điều 46 khoản 1 điểm 13 Luật Quản lý Xuất nhập cảnh). Phạt tiền không phải là lý do trục xuất, nhưng bị xem là tình tiết bất lợi khi thẩm tra gia hạn thời gian lưu trú, và nếu mức độ vi phạm pháp luật nghiêm trọng, giấy phép lưu trú có thể bị hủy (Điều 89 khoản 1 điểm 5)."
+      },
+      {
+        "title": "Nếu chuyển nơi làm việc khi chưa được phép",
+        "body": "Muốn thay đổi hoặc thêm nơi làm việc, tùy ngành nghề, bạn phải xin phép trước hoặc khai báo trong vòng 15 ngày kể từ ngày thay đổi (Điều 21 khoản 1 Luật Quản lý Xuất nhập cảnh). Nếu ngành nghề của bạn cần giấy phép mà bạn chuyển khi chưa được phép, bạn có thể bị xử phạt (Điều 95 điểm 6) và thuộc diện bị trục xuất (Điều 46 khoản 1 điểm 9)."
+      },
+      {
+        "title": "Nếu làm công việc khác với ngành nghề được cấp phép",
+        "body": "Đó là hoạt động ngoài phạm vi tư cách lưu trú nên có thể bị xử phạt (Điều 17 khoản 1, Điều 94 điểm 7 Luật Quản lý Xuất nhập cảnh), và giấy phép lưu trú có thể bị hủy hoặc bị từ chối gia hạn. Dù là việc công ty giao, nếu khác với công việc được cấp phép thì bản thân người nước ngoài cũng phải chịu trách nhiệm."
+      },
+      {
+        "title": "Khi muốn chuyển sang cư trú (F-2), thường trú (F-5) sau này",
+        "body": "Nếu lưu trú bằng E-7 từ 5 năm trở lên, bạn có thể thuộc diện được xin thường trú (F-5) (Phụ lục 1-3 Nghị định thi hành), và khi đó sẽ bị thẩm tra điều kiện phẩm hạnh tốt. Theo tiêu chuẩn của Bộ Tư pháp, người bị phạt tiền mà chưa qua 3 năm kể từ ngày nộp tiền phạt, hoặc bị án treo của hình phạt tù (금고) trở lên mà chưa qua 5 năm kể từ ngày bản án có hiệu lực, bị coi là không đáp ứng điều kiện (Sổ tay hướng dẫn thủ tục lưu trú theo từng tư cách lưu trú của Bộ Tư pháp (법무부 체류민원 자격별 안내 매뉴얼))."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "Khi nghỉ việc hoặc chuyển công ty",
+      "body": [
+        "Khi người nước ngoài nghỉ việc, công ty phải khai báo với cơ quan xuất nhập cảnh trong vòng 15 ngày (Điều 19 Luật Quản lý Xuất nhập cảnh). Tùy ngành nghề, khi chuyển sang nơi làm việc mới, bạn cần xin phép trước hoặc chỉ cần khai báo sau.",
+        "Theo hướng dẫn, nếu bạn bị sa thải do lỗi của mình hoặc tự nghỉ giữa chừng hợp đồng, thì nếu không có sự đồng ý của chủ cũ, bạn không thể chuyển chỉ bằng việc khai báo (sổ tay hướng dẫn của Bộ Tư pháp). Nếu phía công ty có lý do như tạm ngừng hoạt động, đóng cửa hay nợ lương, tài liệu về việc đó có thể thay thế, nên hãy gom sẵn từ trước."
+      ]
+    },
+    {
+      "title": "Khi công ty giao việc khác với hợp đồng",
+      "body": [
+        "Nếu công ty liên tục giao việc khác với hợp đồng và ngành nghề được cấp phép, hãy lưu lại hồ sơ (tin nhắn giao việc, bảng phân ca). Đây vừa là tài liệu bảo vệ việc lưu trú của bạn, vừa là tài liệu cho thấy lý do bạn cần chuyển công ty."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Nghỉ việc thì có phải xuất cảnh ngay không?",
+      "a": "Bạn không phải xuất cảnh ngay trong ngày nghỉ việc. Trong thời gian lưu trú còn lại, bạn có thể tìm nơi làm việc mới và làm thủ tục thay đổi nơi làm việc, hoặc nếu đủ điều kiện thì xem xét chuyển sang tư cách tìm việc (D-10). Tuy nhiên, thủ tục bạn có thể dùng khác nhau tùy lý do nghỉ việc và việc chủ cũ có đồng ý hay không, nên hãy kiểm tra trước khi nghỉ."
+    },
+    {
+      "q": "Khi chuyển nơi làm việc, tôi phải xin phép hay chỉ cần khai báo?",
+      "a": "Tùy ngành nghề. Một số ngành nghề có giới hạn số người được tuyển và lao động có tay nghề (E-7-4) phải xin phép trước, còn các ngành nghề E-7 khác thì khai báo trong vòng 15 ngày kể từ ngày chuyển (Điều 21 Luật Quản lý Xuất nhập cảnh, sổ tay hướng dẫn của Bộ Tư pháp)."
+    },
+    {
+      "q": "Bị phạt tiền thì có được gia hạn thời gian lưu trú không?",
+      "a": "Luật không quy định tiêu chuẩn theo số tiền phạt, mà xem xét cả hoàn cảnh vụ việc lẫn cuộc sống của bạn tại Hàn Quốc. Tuy nhiên, khi chuyển sang cư trú (F-2) hoặc thường trú (F-5) sau này, sẽ áp dụng các tiêu chuẩn cụ thể như thời gian đã qua kể từ ngày nộp tiền phạt, nên việc giảm mức xử lý ngay từ giai đoạn điều tra rất quan trọng."
+    },
+    {
+      "q": "Công ty giao việc khác với hợp đồng, tôi sợ từ chối sẽ bị sa thải.",
+      "a": "Nếu làm việc khác với ngành nghề được cấp phép, chính bạn cũng có nguy cơ bị xử phạt hoặc bị hủy giấy phép lưu trú. Hãy lưu lại hồ sơ giao việc; nếu cần chuyển công ty, hồ sơ đó sẽ là tài liệu cho thấy lý do thay đổi nơi làm việc. Nếu bị sa thải bất công, bạn cũng có thể xem xét yêu cầu Ủy ban Lao động (노동위원회) khắc phục."
+    }
+  ],
+  "consultWhen": [
+    "Khi bạn sắp bị cảnh sát lấy lời khai hoặc đã nhận bản án phạt tiền, án treo",
+    "Khi bạn bị sa thải hoặc muốn nghỉ việc mà chưa biết sẽ lưu trú tiếp bằng cách nào",
+    "Khi công ty liên tục giao việc khác với công việc được cấp phép",
+    "Khi bạn bị từ chối gia hạn thời gian lưu trú hoặc thay đổi nơi làm việc và nhận được thông báo"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "stay-refusal-notice" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Điều 17, Điều 19, Điều 21, Điều 46, Điều 89, Điều 94, Điều 95 Luật Quản lý Xuất nhập cảnh",
+    "Phụ lục 1-2, Phụ lục 1-3 Nghị định thi hành Luật Quản lý Xuất nhập cảnh",
+    "Sổ tay hướng dẫn thủ tục lưu trú theo từng tư cách lưu trú của Bộ Tư pháp (tháng 9/2026): Hoạt động đặc định (E-7), Thường trú (F-5)"
+  ]
+}
