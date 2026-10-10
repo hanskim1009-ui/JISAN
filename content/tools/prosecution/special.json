@@ -473,7 +473,7 @@
           [{ "q": "weapon", "op": "eq", "value": "yes" }],
           [{ "q": "priors", "op": "gte", "value": 2 }]
         ],
-        "sentence": "징역 6월 ~ 1년 6월",
+        "sentence": "징역 1년 6월",
         "note": "죄질이 나쁘면 한 번의 범행이라도 구속이 검토됩니다."
       },
       {
