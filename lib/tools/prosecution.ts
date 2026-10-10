@@ -194,7 +194,9 @@ export function evaluate(crime: Crime, answers: Answers): Evaluation | null {
     0,
     STEPS.findIndex((s) => s.levels.includes(tier.level)),
   )
-  const fine = tier.fine ? formatFine(tier.fine, answers) : undefined
+  // 금액 비례 벌금에 0 을 넣으면 "0원 이상"이 되므로 금액이 없으면 벌금 줄을 숨김
+  const fineRaw = tier.fine ? formatFine(tier.fine, answers) : undefined
+  const fine = fineRaw && fineRaw.amount > 0 ? fineRaw : undefined
   return {
     tier,
     tierIndex,
