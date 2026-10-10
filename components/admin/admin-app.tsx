@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react"
 import type { Session } from "@supabase/supabase-js"
-import { sb, btnCls, inputCls, type Me, type Options, type PostRow } from "@/components/admin/shared"
+import { sb, btnCls, inputCls, toEmail, showId, type Me, type Options, type PostRow } from "@/components/admin/shared"
 import { PostList } from "@/components/admin/post-list"
 import { PostEditor } from "@/components/admin/post-editor"
 import { ConsultList } from "@/components/admin/consult-list"
@@ -77,7 +77,7 @@ export function AdminApp({ options }: { options: Options }) {
             ))}
           </nav>
           <span className="ml-auto text-xs text-jisan-ink/60">
-            {me.name || me.email}
+            {me.name || showId(me.email)}
           </span>
         </div>
       </header>
@@ -117,8 +117,8 @@ function Login() {
     setBusy(true)
     setMsg("")
     if (mode === "in") {
-      const { error } = await sb().auth.signInWithPassword({ email: email.trim(), password: pw })
-      if (error) setMsg("이메일이나 비밀번호가 맞지 않습니다.")
+      const { error } = await sb().auth.signInWithPassword({ email: toEmail(email), password: pw })
+      if (error) setMsg("아이디나 비밀번호가 맞지 않습니다.")
     } else {
       const { data, error } = await sb().auth.signUp({
         email: email.trim().toLowerCase(),
@@ -134,7 +134,16 @@ function Login() {
   return (
     <Shell>
       <form onSubmit={submit} className="space-y-3">
-        <input className={inputCls} type="email" placeholder="이메일" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input
+          className={inputCls}
+          type={mode === "in" ? "text" : "email"}
+          placeholder={mode === "in" ? "아이디 (또는 이메일)" : "초대받은 이메일"}
+          autoComplete="username"
+          autoCapitalize="none"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
         <input
           className={inputCls}
           type="password"
@@ -163,7 +172,7 @@ function Account({ me }: { me: Me }) {
     <div className="max-w-md space-y-6">
       <div className="rounded-2xl bg-white p-6">
         <p className="font-bold">{me.name || "이름 없음"}</p>
-        <p className="text-sm text-jisan-ink/60">{me.email}</p>
+        <p className="text-sm text-jisan-ink/60">{showId(me.email)}</p>
       </div>
       <form
         className="space-y-3 rounded-2xl bg-white p-6"

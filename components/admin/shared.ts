@@ -117,3 +117,12 @@ export async function shrinkImage(file: File): Promise<Blob> {
 export const inputCls =
   "w-full rounded-lg border border-[#D5DAE1] bg-white px-3 py-2 text-[0.9375rem] outline-none focus:border-jisan-ink/60"
 export const btnCls = "rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:opacity-50"
+
+/** 아이디만 넣으면 사무소 계정 이메일로 바꿈 (jisan1 → jisan1@jisanlaw.com) */
+const ADMIN_DOMAIN = "jisanlaw.com"
+export const toEmail = (id: string) => {
+  const v = id.trim().toLowerCase()
+  return v.includes("@") ? v : `${v}@${ADMIN_DOMAIN}`
+}
+/** 화면에 보일 때는 사무소 계정이면 아이디만 */
+export const showId = (email: string) => (email.endsWith(`@${ADMIN_DOMAIN}`) ? email.slice(0, -ADMIN_DOMAIN.length - 1) : email)

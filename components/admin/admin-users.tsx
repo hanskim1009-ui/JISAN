@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { sb, btnCls, inputCls, type Me } from "@/components/admin/shared"
+import { sb, btnCls, inputCls, showId, type Me } from "@/components/admin/shared"
 
 type Admin = { user_id: string; email: string; name: string; role: "writer" | "approver" }
 type Invite = { email: string; name: string; role: "writer" | "approver" }
@@ -33,12 +33,12 @@ export function AdminUsers({ me }: { me: Me }) {
           {admins.map((a) => (
             <li key={a.user_id} className="flex flex-wrap items-center gap-3 py-3">
               <span className="font-semibold">{a.name || "이름 없음"}</span>
-              <span className="text-sm text-jisan-ink/60">{a.email}</span>
+              <span className="text-sm text-jisan-ink/60">{showId(a.email)}</span>
               {a.user_id !== me.id && (
                 <button
                   className="ml-auto text-sm text-red-700"
                   onClick={async () => {
-                    if (!confirm(`${a.email} 의 관리 권한을 뺄까요?`)) return
+                    if (!confirm(`${showId(a.email)} 의 관리 권한을 뺄까요?`)) return
                     await sb().from("admins").delete().eq("user_id", a.user_id)
                     await sb().from("admin_invites").delete().eq("email", a.email)
                     load()
