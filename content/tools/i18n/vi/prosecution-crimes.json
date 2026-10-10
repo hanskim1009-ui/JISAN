@@ -51,9 +51,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 1 năm 6 tháng",
         "note": "Nếu thương tích từ 8 tuần trở lên mà chưa thỏa thuận được, có nhiều tiền án bạo lực, hoặc gây thương tích từ 4 tuần trở lên cho người yếu thế, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 4 tháng – 1 năm 6 tháng",
         "note": "Nếu thương tích từ 4 tuần trở lên mà chưa thỏa thuận được, hoặc từ 8 tuần trở lên, thông thường vụ việc được đưa ra xét xử chính thức chứ không dừng ở phạt tiền. Nếu thỏa thuận được, mức xử lý có thể nhẹ đi, như án treo."
       },
       {
@@ -123,9 +125,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 2 tháng – 10 tháng",
         "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, thì trên thực tế, khi lại dùng bạo lực, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 2 tháng – 10 tháng",
         "note": "Nếu có nhiều tiền án bạo lực (từ 2 lần trong 3 năm hoặc từ 4 lần trong 10 năm), tiêu chuẩn xử lý thông thường là đưa ra xét xử chính thức chứ không dừng ở phạt tiền."
       },
       {},
@@ -227,9 +231,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 1 năm 10 tháng",
         "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, thì trên thực tế, khi lại dùng bạo lực, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 4 tháng – 1 năm 10 tháng",
         "note": "Nếu có nhiều tiền án bạo lực (từ 2 lần trong 3 năm hoặc từ 4 lần trong 10 năm), tiêu chuẩn xử lý thông thường là đưa ra xét xử chính thức chứ không dừng ở phạt tiền."
       },
       {},
@@ -291,9 +297,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 2 tháng – 10 tháng",
         "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, việc điều tra có tạm giam sẽ được xem xét."
       },
       {
+        "sentence": "Tù 2 tháng – 10 tháng",
         "note": "Nếu có tiền án bạo lực, tiêu chuẩn xử lý thông thường là đưa ra xét xử chính thức."
       },
       {},
@@ -353,9 +361,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 1 năm 6 tháng",
         "note": "Nếu thương tích từ 6 tuần trở lên mà chưa thỏa thuận được, hoặc từ 8 tuần trở lên và có tiền án bạo lực, việc điều tra có tạm giam sẽ được xem xét."
       },
       {
+        "sentence": "Tù 4 tháng – 1 năm 6 tháng",
         "note": "Nếu thương tích từ 4 tuần trở lên mà chưa thỏa thuận được, hoặc từ 8 tuần trở lên, theo nguyên tắc vụ việc được đưa ra xét xử chính thức."
       },
       {
@@ -428,9 +438,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 2 tháng – 1 năm",
         "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, thì trên thực tế, khi lại dùng bạo lực, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 2 tháng – 1 năm",
         "note": "Nếu có nhiều tiền án bạo lực hoặc đã đe dọa để lấy tiền, lợi ích, thông thường vụ việc được đưa ra xét xử chính thức."
       },
       {},
@@ -472,9 +484,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 1 năm 6 tháng",
         "note": "Cầm vật nguy hiểm để đe dọa thì việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 4 tháng – 1 năm 6 tháng",
         "note": "Nếu có hoàn cảnh như đã thỏa thuận, bạn có thể được xét xử mà không bị tạm giam, nhưng theo nguyên tắc vụ việc được đưa ra xét xử chính thức chứ không dừng ở phạt tiền."
       }
     ],
@@ -525,8 +539,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "Tù 2 tháng – 1 năm"
+      },
+      {
+        "sentence": "Tù 2 tháng – 1 năm",
         "note": "Trừ khi người bị hại không muốn xử phạt, theo nguyên tắc vụ việc được đưa ra xét xử chính thức."
       },
       {},
@@ -563,9 +580,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm",
         "note": "Nếu có mục đích bất hợp pháp, phạm tội có kế hoạch hoặc là phương tiện để phạm tội khác, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 6 tháng – 1 năm",
         "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức."
       },
       {
@@ -607,6 +626,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm",
         "note": "Nếu mức độ thiệt hại nghiêm trọng, việc điều tra có tạm giam có thể được xem xét."
       },
       {
@@ -656,6 +676,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm",
         "note": "Nếu việc xâm nhập gắn với tội phạm bạo lực hoặc tội phạm về tài sản, việc điều tra có tạm giam có thể được xem xét."
       },
       {
@@ -705,6 +726,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 10 tháng",
         "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, thì trên thực tế, khi lại dùng bạo lực, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
@@ -756,8 +778,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "Tù 4 tháng – 10 tháng"
+      },
+      {
+        "sentence": "Tù 4 tháng – 10 tháng",
         "note": "Trừ khi người bị hại không muốn xử phạt, theo nguyên tắc vụ việc được đưa ra xét xử chính thức, và nếu cách hủy hoại quá khích thì có thể bị đề nghị từ 1 năm tù trở lên."
       },
       {
@@ -816,8 +841,12 @@
       }
     },
     "tiers": [
-      {},
-      {},
+      {
+        "sentence": "Tù 2 tháng – 10 tháng"
+      },
+      {
+        "sentence": "Tù 2 tháng – 10 tháng"
+      },
       {},
       {},
       {
@@ -938,6 +967,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu tính chất tội phạm xấu, dù chỉ một lần phạm tội, việc tạm giam vẫn được xem xét."
       },
       {
@@ -1108,9 +1138,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 2 năm",
         "note": "Nếu có tiền án cùng loại, thủ đoạn xấu hoặc gây ra tổn hại lần 2 (tổn hại thứ cấp) cho người bị hại, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 6 tháng – 2 năm",
         "note": "Nếu hành vi dâm ô nặng, thông thường sẽ bị đề nghị án tù tại phiên xét xử chính thức."
       },
       {
@@ -1167,9 +1199,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 2 năm",
         "note": "Nếu có tiền án cùng loại, thủ đoạn xấu hoặc gây ra tổn hại lần 2 (tổn hại thứ cấp) cho người bị hại, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 6 tháng – 2 năm",
         "note": "Nếu hành vi dâm ô nặng, thông thường sẽ bị đề nghị án tù tại phiên xét xử chính thức."
       },
       {
@@ -1213,12 +1247,15 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 5 năm – 7 năm",
         "note": "Nếu người bị hại bị thương, sẽ bị xử phạt nặng hơn về tội hiếp dâm gây thương tích (tù chung thân hoặc tù từ 5 năm trở lên), và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 3 năm – 5 năm",
         "note": "Việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 3 năm – 5 năm",
         "note": "Đây là tội vẫn bị xử phạt dù đã thỏa thuận, và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc. Tuy nhiên, việc thỏa thuận được xem xét khi quyết định mức xử phạt."
       }
     ],
@@ -1255,12 +1292,15 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 5 năm – 7 năm",
         "note": "Nếu người bị hại bị thương, sẽ bị xử phạt nặng hơn về tội hiếp dâm gây thương tích (tù chung thân hoặc tù từ 5 năm trở lên), và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 3 năm – 5 năm",
         "note": "Việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 3 năm – 5 năm",
         "note": "Đây là tội vẫn bị xử phạt dù đã thỏa thuận, và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc. Tuy nhiên, việc thỏa thuận được xem xét khi quyết định mức xử phạt."
       }
     ],
@@ -1349,6 +1389,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm",
         "note": "Nếu xét theo tính lặp lại hoặc nội dung hành vi mà tính chất tội phạm xấu, việc tạm giam sẽ được xem xét."
       },
       {
@@ -1390,6 +1431,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm",
         "note": "Nếu có tính thường xuyên, lặp lại hoặc có từ 2 người bị hại trở lên, việc tạm giam sẽ được xem xét."
       },
       {
@@ -1722,6 +1764,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 1 năm 8 tháng",
         "note": "Nếu xét theo tính lặp lại, mức độ dâm ô, tuổi của người bị hại… mà tính chất tội phạm xấu, việc tạm giam sẽ được xem xét."
       },
       {
@@ -1914,9 +1957,12 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 4 tháng",
         "note": "Nếu có từ 5 nhân viên trở lên, kinh doanh từ 1 năm trở lên (hoặc thu lợi bất chính từ 100 triệu won trở lên), có từ 2 tiền sử cùng loại trở lên hoặc đang trong thời gian án treo vì tội cùng loại, theo nguyên tắc sẽ bị tạm giam."
       },
-      {},
+      {
+        "sentence": "Tù 6 tháng – 1 năm 4 tháng"
+      },
       {
         "note": "Dù chỉ là môi giới đơn giản và phạm tội lần đầu, nếu có khả năng tái phạm thì vụ việc có thể bị đưa ra xét xử chính thức."
       },
@@ -1965,9 +2011,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm 6 tháng",
         "note": "Nếu người kia dưới 16 tuổi, là tái phạm hoặc tính chất tội phạm xấu, việc tạm giam sẽ được xem xét."
       },
       {
+        "sentence": "Tù 1 năm – 2 năm 6 tháng",
         "note": "Có xét đến hoàn cảnh, số lần mua dâm, tuổi của người kia…, nhưng theo nguyên tắc vụ việc được đưa ra xét xử chính thức."
       }
     ],
@@ -2001,6 +2049,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm 8 tháng",
         "note": "Nếu tái phạm và có liên quan đến thanh thiếu niên, việc tạm giam sẽ được xem xét."
       },
       {
@@ -2054,9 +2103,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm 6 tháng",
         "note": "Trộm cắp cùng nhiều người, có đột nhập hoặc mang hung khí, hoặc trộm cắp như một nghề, lặp đi lặp lại thì việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu có tiền án cùng loại hoặc thiệt hại đáng kể, thông thường vụ việc được đưa ra xét xử chính thức."
       },
       {},
@@ -2109,9 +2160,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm 6 tháng",
         "note": "Nếu phạm tội cùng nhiều người, có mang hung khí hoặc lặp đi lặp lại, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 1 năm – 2 năm 6 tháng",
         "note": "Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức."
       },
       {
@@ -2164,9 +2217,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 1 năm 6 tháng",
         "note": "Nếu phạm tội lặp đi lặp lại, như một nghề hoặc có tiền án cùng loại, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 1 năm – 1 năm 6 tháng",
         "note": "Việc từ 2 người trở lên cùng phạm tội hoặc mang hung khí tự nó đã là tình tiết được coi là nặng, nên khả năng bị tạm giam cao hơn trộm cắp thông thường. Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức."
       },
       {
@@ -2230,6 +2285,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu kinh doanh tài sản do phạm tội mà có có giá trị cao hoặc tái phạm, việc điều tra có tạm giam có thể được xem xét."
       },
       {
@@ -2281,9 +2337,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu thiệt hại từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu thiệt hại từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
       },
       {
@@ -2338,9 +2396,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu thiệt hại từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu thiệt hại từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
       },
       {
@@ -2447,11 +2507,14 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 1 năm – 3 năm"
+      },
       {
         "sentence": "Tù từ 10 tháng trở lên"
       },
       {
+        "sentence": "Tù 8 tháng – 2 năm",
         "note": "Với việc giao dịch tài khoản dùng cho lừa đảo qua điện thoại, theo nguyên tắc công tố viên đề nghị án tù tại phiên xét xử chính thức. Người phạm tội lần đầu với tình tiết đặc biệt nhẹ đôi khi bị đề nghị phạt tiền (khoảng 3 triệu won cho 1–10 tài khoản, 5 triệu won cho 11–20 tài khoản)."
       }
     ],
@@ -2688,9 +2751,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 1 năm 4 tháng",
         "note": "Nếu số tiền biển thủ từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 4 tháng – 1 năm 4 tháng",
         "note": "Nếu số tiền biển thủ từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
       },
       {
@@ -2743,9 +2808,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 1 năm 4 tháng",
         "note": "Nếu số tiền biển thủ từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 4 tháng – 1 năm 4 tháng",
         "note": "Nếu số tiền biển thủ từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
       },
       {
@@ -2799,9 +2866,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm",
         "note": "Nếu tổng số tiền đã lấy từ 10 triệu won trở lên hoặc tính chất tội phạm xấu, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 6 tháng – 1 năm",
         "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức."
       },
       {
@@ -2849,6 +2918,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm 6 tháng",
         "note": "Với việc mua bán, sử dụng ma túy đá, theo nguyên tắc là điều tra có tạm giam và xét xử chính thức."
       },
       {
@@ -2895,6 +2965,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 3 năm",
         "note": "Nếu có mục đích bán, trồng số lượng lớn hoặc tái phạm, việc tạm giam sẽ được xem xét."
       },
       {
@@ -2902,6 +2973,7 @@
         "note": "Theo tiêu chuẩn này, mức án đề nghị nhẹ hơn khoảng 6 tháng đến 1 năm so với mua bán ma túy đá."
       },
       {
+        "sentence": "Tù 8 tháng – 1 năm 6 tháng",
         "note": "Mức án đề nghị được quyết định tùy số lần hút, số lượng, tiền sử…"
       },
       {
@@ -3084,10 +3156,13 @@
         "sentence": "Tù từ 1 năm trở lên",
         "note": "Dù nồng độ từ 0,3% trở lên, nếu có hoàn cảnh đáng xem xét như chỉ lái một đoạn ngắn để đỗ xe, vẫn có thể chỉ bị phạt tiền."
       },
-      {},
-      {},
       {
-        "note": "Nếu lại lái xe khi say rượu, mức phạt tiền tối thiểu là 5 triệu won."
+        "sentence": "Tù 1 năm 4 tháng – 2 năm 8 tháng",
+        "note": "Nếu lái xe say rượu lần nữa trong vòng 10 năm, nguyên tắc là đưa ra xét xử chính thức. Nếu có tình tiết giảm nhẹ đáng kể, có thể chỉ bị phạt tiền (từ 5 triệu won trở lên)."
+      },
+      {
+        "sentence": "Tù 1 năm – 1 năm 4 tháng",
+        "note": "Nếu lái xe say rượu lần nữa trong vòng 10 năm, nguyên tắc là đưa ra xét xử chính thức. Nếu có tình tiết giảm nhẹ đáng kể, có thể chỉ bị phạt tiền (từ 5 triệu won trở lên)."
       },
       {},
       {},
@@ -3263,7 +3338,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù đến 1 năm"
+      },
       {
         "sentence": "Tù từ 6 tháng trở lên"
       },
@@ -3349,9 +3426,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 2 năm 6 tháng",
         "note": "Nếu thương tích từ 4 tuần trở lên mà chưa thỏa thuận được, hoặc từ 8 tuần trở lên, việc tạm giam sẽ được xem xét dù đã thỏa thuận hay chưa."
       },
       {
+        "sentence": "Tù 1 năm – 2 năm 6 tháng",
         "note": "Theo nguyên tắc là xét xử chính thức, và nếu không có cả thỏa thuận lẫn bảo hiểm thì là xét xử chính thức bất kể mức độ thương tích."
       },
       {
@@ -3473,9 +3552,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù không lao động 4 tháng – 1 năm",
         "note": "Dù chưa thỏa thuận được, nếu đã ký quỹ một khoản tiền đáng kể thì được xem xét gần như đã thỏa thuận."
       },
       {
+        "sentence": "Tù không lao động 4 tháng – 1 năm",
         "note": "Dù bị đưa ra xét xử chính thức, công tố viên vẫn có thể đề nghị phạt tiền."
       },
       {
@@ -3808,8 +3889,12 @@
       }
     },
     "tiers": [
-      {},
-      {},
+      {
+        "sentence": "Tù 1 năm 6 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 8 tháng – 2 năm"
+      },
       {
         "note": "Nếu đã nhận thù lao, mức phạt tiền sẽ cao hơn số tiền đó."
       },
@@ -3953,9 +4038,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 2 năm",
         "note": "Nếu đã dùng văn bản công làm giả để phạm cả tội khác, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 8 tháng – 2 năm",
         "note": "Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức. Nếu là giấy tờ quan trọng như bản án, hộ chiếu hoặc phạm tội có tổ chức thì nặng hơn."
       }
     ]
@@ -3994,9 +4081,12 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 2 năm",
         "note": "Nếu thiệt hại lớn và thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
       },
-      {},
+      {
+        "sentence": "Tù 6 tháng – 2 năm"
+      },
       {
         "note": "Nếu không có thiệt hại thực tế hoặc thiệt hại rất nhỏ, thông thường chỉ bị xử lý bằng phạt tiền."
       }
@@ -4086,6 +4176,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 2 năm",
         "note": "Nếu danh dự bị tổn hại nghiêm trọng do lan truyền thông tin sai sự thật vì mục đích vụ lợi hoặc có tổ chức, ác ý, việc điều tra có tạm giam có thể được xem xét."
       },
       {
@@ -4177,7 +4268,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 1 năm – 2 năm 8 tháng"
+      },
       {
         "sentence": "Tù từ 1 năm trở lên",
         "note": "Phỉ báng bằng thông tin sai sự thật theo nguyên tắc được đưa ra xét xử chính thức. Nếu bị đề nghị phạt tiền thì ở mức từ 5 triệu won trở lên."
@@ -4327,12 +4420,15 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu trực tiếp dùng vũ lực với cảnh sát… đang mặc đồng phục, hoặc có hung khí, nhiều người cùng làm, có tiền án cùng loại gần đây, việc điều tra có tạm giam có thể được xem xét."
       },
       {
         "note": "Việc cản trở cảnh sát… đang mặc đồng phục theo nguyên tắc được đưa ra xét xử chính thức, nhưng nếu nhẹ thì đôi khi bị đề nghị phạt tiền."
       },
-      {},
+      {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng"
+      },
       {
         "note": "Nếu bột phát và nhẹ, thông thường chỉ bị xử lý bằng phạt tiền."
       }
@@ -4361,9 +4457,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Người cầm đầu hoặc tích cực tham gia theo nguyên tắc bị điều tra có tạm giam."
       },
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức."
       }
     ],
@@ -4412,9 +4510,12 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Nếu có tiền án cùng loại, khai vì được trả công, hoặc lời khai sai đã ảnh hưởng lớn đến phiên xét xử, việc điều tra có tạm giam có thể được xem xét."
       },
-      {},
+      {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng"
+      },
       {
         "note": "Nếu không ảnh hưởng lớn đến kết quả xét xử và đã tự thú nhận, thông thường chỉ bị xử lý bằng phạt tiền."
       }
@@ -4471,9 +4572,12 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 2 năm",
         "note": "Nếu có tiền án cùng loại hoặc tố cáo sai lặp đi lặp lại, ác ý, việc điều tra có tạm giam có thể được xem xét."
       },
-      {},
+      {
+        "sentence": "Tù 6 tháng – 2 năm"
+      },
       {
         "note": "Nếu vụ việc không nặng, bạn đã tự thú nhận và rút đơn tố cáo, đôi khi chỉ bị xử lý bằng phạt tiền."
       }
@@ -4518,6 +4622,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 2 năm",
         "note": "Nếu đã che giấu người phạm tội nặng, nhận tiền công hoặc gây cản trở lớn cho việc điều tra, việc điều tra có tạm giam có thể được xem xét."
       },
       {
@@ -4615,9 +4720,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 1 năm 6 tháng",
         "note": "Với sòng bạc trên mạng, có từ 2 tiền án cùng loại trở lên, hoặc điều hành sòng bạc với tiền cược lớn, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 8 tháng – 1 năm 6 tháng",
         "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức, và có thể bị phạt tiền kèm theo."
       },
       {
@@ -4817,7 +4924,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 4 năm – 5 năm"
+      },
       {
         "sentence": "Tù từ 1 năm trở lên",
         "note": "Công tố viên đồng thời đề nghị phạt tiền tương đương 10% giá thị trường của hàng lậu."
@@ -4886,7 +4995,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 1 năm – 2 năm 4 tháng"
+      },
       {
         "sentence": "Tù từ 10 tháng trở lên",
         "note": "Công tố viên đồng thời đề nghị phạt tiền tương đương 10% giá thị trường của hàng lậu."
@@ -5012,6 +5123,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 1 năm 6 tháng",
         "note": "Nếu liên quan đến cấp phép, thi cử, có kế hoạch, gây ảnh hưởng lớn hoặc nhằm lợi ích cá nhân, việc điều tra có tạm giam hoặc xét xử chính thức sẽ được xem xét."
       },
       {}
@@ -5045,7 +5157,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 4 tháng – 10 tháng"
+      },
       {},
       {
         "note": "Nếu là vụ việc nhẹ, chỉ một lần và là người phạm tội lần đầu, có thể được tạm hoãn truy tố."
@@ -5087,8 +5201,12 @@
       }
     },
     "tiers": [
-      {},
-      {},
+      {
+        "sentence": "Tù 1 năm 6 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 8 tháng – 2 năm"
+      },
       {
         "note": "Nếu không có thiệt hại thực tế hoặc thiệt hại nhỏ, vụ việc được xử lý bằng phạt tiền."
       }
@@ -5118,6 +5236,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 1 năm 8 tháng",
         "note": "Nếu đi kèm với hành vi trái pháp luật khác, vụ việc có thể bị đưa ra xét xử chính thức."
       },
       {}
@@ -5170,7 +5289,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 1 năm 4 tháng – 3 năm"
+      },
       {}
     ],
     "notes": [
@@ -5235,9 +5356,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 10 tháng",
         "note": "Nếu tính chất hành vi nghiêm trọng, việc điều tra có tạm giam sẽ được xem xét."
       },
       {
+        "sentence": "Tù 4 tháng – 10 tháng",
         "note": "Nếu một lần đưa từ 5 triệu won hoặc tổng cộng từ 7 triệu won trở lên (hứa đưa: từ 10 triệu won trở lên) mà không hối hận, không hợp tác, theo nguyên tắc vụ việc được đưa ra xét xử chính thức."
       },
       {},
@@ -5328,6 +5451,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 3 năm",
         "note": "Nếu có tiền án cản trở tư pháp, phạm tội có tổ chức hoặc đã nhận tiền công…, việc điều tra có tạm giam sẽ được xem xét."
       },
       {
@@ -5636,6 +5760,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 1 năm",
         "note": "Nếu từ 1 tỷ won trở lên, hoặc phạm tội có tổ chức, che giấu người chủ mưu, theo nguyên tắc sẽ bị tạm giam."
       },
       {
@@ -5818,6 +5943,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 1 năm – 3 năm",
         "note": "Người đại diện của công ty có tính lừa đảo, lãnh đạo của công ty huy động từ 2 tỷ won trở lên, người tuyển nhà đầu tư cấp trên thu lợi từ 200 triệu won trở lên… sẽ bị xem xét tạm giam."
       },
       {
@@ -5870,8 +5996,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "Tù 10 tháng – 2 năm"
+      },
+      {
+        "sentence": "Tù 10 tháng – 2 năm",
         "note": "Thuộc diện đưa ra xét xử chính thức (thuộc phạm vi áp dụng tiêu chuẩn lượng hình)."
       },
       {},
@@ -5923,9 +6052,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 4 tháng – 1 năm 4 tháng",
         "note": "Nếu số tiền bội tín từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
       },
       {
+        "sentence": "Tù 4 tháng – 1 năm 4 tháng",
         "note": "Nếu số tiền bội tín từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
       },
       {
@@ -5967,9 +6098,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Theo nguyên tắc sẽ bị điều tra có tạm giam; nếu tái phạm trong vòng 1 năm sau khi ra tù, mức án đề nghị được cộng thêm 1–2 năm."
       },
       {
+        "sentence": "Tù 6 tháng – 1 năm 6 tháng",
         "note": "Theo nguyên tắc sẽ bị điều tra có tạm giam."
       },
       {
@@ -6005,12 +6138,15 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 7 năm",
         "note": "Nếu người bị hại bị thương, sẽ bị xử phạt rất nặng về tội cướp tài sản gây thương tích (tù chung thân hoặc tù từ 7 năm trở lên), và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 5 năm – 6 năm",
         "note": "Có thể thuộc tội cướp tài sản đặc biệt (tù chung thân hoặc tù từ 5 năm trở lên), và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
       },
       {
+        "sentence": "Tù 3 năm – 4 năm",
         "note": "Việc điều tra có tạm giam được xem xét gần như theo nguyên tắc. Tội này không có hình phạt tiền nên nếu bị truy tố thì sẽ bị xét xử chính thức."
       }
     ],
@@ -6046,9 +6182,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 5 năm – 6 năm",
         "note": "Theo nguyên tắc sẽ bị điều tra có tạm giam."
       },
       {
+        "sentence": "Tù 3 năm – 4 năm",
         "note": "Nếu việc trộm cắp nhẹ và hành hung, đe dọa cũng nhẹ, cũng có thể không bị tạm giam."
       }
     ],
@@ -6180,7 +6318,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 1 năm – 3 năm"
+      },
       {
         "sentence": "Tù từ 6 tháng trở lên"
       },
@@ -6459,6 +6599,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù không lao động 8 tháng – 1 năm 8 tháng",
         "note": "Nếu chưa thỏa thuận được và đã gây thương tích nặng do lỗi lớn, việc điều tra có tạm giam có thể được xem xét."
       },
       {
@@ -6505,6 +6646,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù không lao động 1 năm 4 tháng – 4 năm",
         "note": "Nếu chưa thỏa thuận được và lỗi nghiêm trọng, việc điều tra có tạm giam có thể được xem xét."
       },
       {
@@ -7096,6 +7238,7 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 8 tháng – 2 năm",
         "note": "Nếu dùng cách rất nguy hại cho cơ thể người hoặc có người chết, bị thương, việc tạm giam sẽ được xem xét."
       },
       {
@@ -7463,7 +7606,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 1 năm 8 tháng – 3 năm"
+      },
       {
         "sentence": "Tù từ 10 tháng trở lên"
       },
@@ -7506,7 +7651,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 3 năm"
+      },
       {
         "sentence": "Tù từ 10 tháng trở lên",
         "note": "Công tố viên cũng đề nghị kèm theo phạt tiền tương đương 30% số thuế trốn."
@@ -7707,8 +7854,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "Tù 2 năm – 3 năm 4 tháng"
+      },
+      {
+        "sentence": "Tù 2 năm – 3 năm 4 tháng",
         "note": "Theo nguyên tắc vụ việc được đưa ra xét xử chính thức, với tiền đề là công tố viên đề nghị án tù."
       }
     ],
@@ -8204,8 +8354,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "Tù 10 tháng – 2 năm"
+      },
+      {
+        "sentence": "Tù 10 tháng – 2 năm",
         "note": "Người tham gia tích cực như tái phạm, chủ quy mô lớn, nhà đầu tư, giám đốc đứng tên, nhân viên chủ chốt, theo nguyên tắc sẽ bị đưa ra xét xử chính thức."
       },
       {},
@@ -8246,8 +8399,12 @@
       }
     },
     "tiers": [
-      {},
-      {},
+      {
+        "sentence": "Tù 10 tháng – 2 năm"
+      },
+      {
+        "sentence": "Tù 10 tháng – 2 năm"
+      },
       {}
     ],
     "notes": [
@@ -8288,7 +8445,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Tù 1 năm – 3 năm"
+      },
       {
         "sentence": "Tù từ 1 năm trở lên"
       },
@@ -8540,9 +8699,11 @@
     },
     "tiers": [
       {
+        "sentence": "Tù 3 năm – 5 năm",
         "note": "Nếu biết có người ở bên trong mà vẫn phóng hỏa, theo nguyên tắc sẽ bị điều tra có tạm giam, bất kể có thiệt hại về người hay mức thiệt hại."
       },
       {
+        "sentence": "Tù 3 năm – 5 năm",
         "note": "Nếu do bột phát hoặc thiệt hại nhỏ và đã thỏa thuận, có thể được xét xử mà không bị tạm giam."
       }
     ],

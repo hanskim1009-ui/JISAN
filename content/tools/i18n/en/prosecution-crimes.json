@@ -52,9 +52,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 1 year 6 months in prison",
         "note": "If the diagnosis is 8 weeks or more and there is no settlement, if there are many prior violence convictions, or if a vulnerable person suffered an injury of 4 weeks or more, investigation in detention may be considered."
       },
       {
+        "sentence": "4 months to 1 year 6 months in prison",
         "note": "If the diagnosis is 4 weeks or more with no settlement, or 8 weeks or more, the case usually goes to a formal trial rather than ending with a fine. A settlement may lighten the outcome, for example to a suspended sentence."
       },
       {
@@ -124,9 +126,11 @@
     },
     "tiers": [
       {
+        "sentence": "2 months to 10 months in prison",
         "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is in practice treated almost as the rule when you use violence again."
       },
       {
+        "sentence": "2 months to 10 months in prison",
         "note": "With several prior violence convictions (2 or more within 3 years, or 4 or more within 10 years), the usual handling standard is to send the case to a formal trial instead of ending it with a fine."
       },
       {},
@@ -227,9 +231,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 1 year 10 months in prison",
         "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is in practice treated almost as the rule when you use violence again."
       },
       {
+        "sentence": "4 months to 1 year 10 months in prison",
         "note": "With several prior violence convictions (2 or more within 3 years, or 4 or more within 10 years), the usual handling standard is to send the case to a formal trial instead of ending it with a fine."
       },
       {},
@@ -288,9 +294,11 @@
     },
     "tiers": [
       {
+        "sentence": "2 months to 10 months in prison",
         "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is considered."
       },
       {
+        "sentence": "2 months to 10 months in prison",
         "note": "With a prior violence conviction, the usual handling standard is a formal trial."
       },
       {},
@@ -348,9 +356,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 1 year 6 months in prison",
         "note": "If the diagnosis is 6 weeks or more with no settlement, or 8 weeks or more with a prior violence conviction, investigation in detention is considered."
       },
       {
+        "sentence": "4 months to 1 year 6 months in prison",
         "note": "If the diagnosis is 4 weeks or more with no settlement, or 8 weeks or more, a formal trial is the rule."
       },
       {
@@ -422,9 +432,11 @@
     },
     "tiers": [
       {
+        "sentence": "2 months to 1 year in prison",
         "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is in practice treated almost as the rule when you use violence again."
       },
       {
+        "sentence": "2 months to 1 year in prison",
         "note": "With several prior violence convictions, or if the threat was used to get money or an advantage, a formal trial is usual."
       },
       {},
@@ -465,9 +477,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 1 year 6 months in prison",
         "note": "When the threat was made while holding a dangerous object, investigation in detention is treated almost as the rule."
       },
       {
+        "sentence": "4 months to 1 year 6 months in prison",
         "note": "With circumstances such as a settlement, you may be tried without detention, but a formal trial is the rule rather than ending with a fine."
       }
     ],
@@ -517,8 +531,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "2 months to 1 year in prison"
+      },
+      {
+        "sentence": "2 months to 1 year in prison",
         "note": "Unless the victim does not want punishment, a formal trial is the rule."
       },
       {},
@@ -555,9 +572,11 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year in prison",
         "note": "If there was an unlawful purpose, planning, or it was a means to another crime, investigation in detention may be considered."
       },
       {
+        "sentence": "6 months to 1 year in prison",
         "note": "A formal trial is the rule."
       },
       {
@@ -598,6 +617,7 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year in prison",
         "note": "If the harm is serious, investigation in detention may be considered."
       },
       {
@@ -646,6 +666,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 to 2 years in prison",
         "note": "If the entry was linked to a violent or property crime, investigation in detention may be considered."
       },
       {
@@ -695,6 +716,7 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 10 months in prison",
         "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is in practice treated almost as the rule when you use violence again."
       },
       {
@@ -745,8 +767,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "4 months to 10 months in prison"
+      },
+      {
+        "sentence": "4 months to 10 months in prison",
         "note": "Unless the victim does not want punishment, a formal trial is the rule, and if the damage was done violently, 1 year or more in prison may be requested."
       },
       {
@@ -803,8 +828,12 @@
       }
     },
     "tiers": [
-      {},
-      {},
+      {
+        "sentence": "2 months to 10 months in prison"
+      },
+      {
+        "sentence": "2 months to 10 months in prison"
+      },
       {},
       {},
       {
@@ -917,6 +946,7 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "If the offense is serious, detention is considered even for a single incident."
       },
       {
@@ -1081,9 +1111,11 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 2 years in prison",
         "note": "With a prior conviction of the same type, a bad method, or secondary harm to the victim, investigation in detention may be considered."
       },
       {
+        "sentence": "6 months to 2 years in prison",
         "note": "If the touching was serious, a prison sentence is usually requested at a formal trial."
       },
       {
@@ -1139,9 +1171,11 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 2 years in prison",
         "note": "With a prior conviction of the same type, a bad method, or secondary harm to the victim, investigation in detention may be considered."
       },
       {
+        "sentence": "6 months to 2 years in prison",
         "note": "If the touching was serious, a prison sentence is usually requested at a formal trial."
       },
       {
@@ -1183,12 +1217,15 @@
     },
     "tiers": [
       {
+        "sentence": "5 to 7 years in prison",
         "note": "If the victim was injured, it is punished more heavily as rape causing injury (life imprisonment or 5 years or more in prison), and investigation in detention is treated almost as the rule."
       },
       {
+        "sentence": "3 to 5 years in prison",
         "note": "Investigation in detention is treated almost as the rule."
       },
       {
+        "sentence": "3 to 5 years in prison",
         "note": "This crime is punished even after a settlement, and investigation in detention is treated almost as the rule. A settlement is still reflected in the level of punishment."
       }
     ],
@@ -1224,12 +1261,15 @@
     },
     "tiers": [
       {
+        "sentence": "5 to 7 years in prison",
         "note": "If the victim was injured, it is punished more heavily as rape causing injury (life imprisonment or 5 years or more in prison), and investigation in detention is treated almost as the rule."
       },
       {
+        "sentence": "3 to 5 years in prison",
         "note": "Investigation in detention is treated almost as the rule."
       },
       {
+        "sentence": "3 to 5 years in prison",
         "note": "This crime is punished even after a settlement, and investigation in detention is treated almost as the rule. A settlement is still reflected in the level of punishment."
       }
     ],
@@ -1306,6 +1346,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 to 2 years in prison",
         "note": "If the offense is serious in light of repetition or the nature of the act, detention is considered."
       },
       {
@@ -1345,6 +1386,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 to 2 years in prison",
         "note": "If it was habitual or repeated, or there are 2 or more victims, detention is considered."
       },
       {
@@ -1664,6 +1706,7 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 1 year 8 months in prison",
         "note": "If the offense is serious in light of repetition, the degree of obscenity, the victim's age, etc., detention is considered."
       },
       {
@@ -1849,9 +1892,12 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 4 months in prison",
         "note": "With 5 or more employees, 1 year or more of operation (or criminal proceeds of KRW 100 million or more), 2 or more prior records of the same type, or while on a suspended sentence for the same crime, detention is the rule."
       },
-      {},
+      {
+        "sentence": "6 months to 1 year 4 months in prison"
+      },
       {
         "note": "Even a first offense of simple arranging may go to a formal trial if there is a risk of repeat offending."
       },
@@ -1898,9 +1944,11 @@
     },
     "tiers": [
       {
+        "sentence": "1 year to 2 years 6 months in prison",
         "note": "If the other person was under 16, it is a repeat offense, or the offense is especially bad, detention is considered."
       },
       {
+        "sentence": "1 year to 2 years 6 months in prison",
         "note": "How it happened, how many times and the other person's age are considered, but as a rule the case goes to a formal trial."
       }
     ],
@@ -1933,6 +1981,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 year to 2 years 8 months in prison",
         "note": "If it is a repeat offense and a juvenile was involved, detention is considered."
       },
       {
@@ -1985,9 +2034,11 @@
     },
     "tiers": [
       {
+        "sentence": "1 year to 2 years 6 months in prison",
         "note": "Theft by several people together, with entry into a home or a weapon, or done professionally or repeatedly, may lead to investigation in detention."
       },
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "With a prior conviction of the same type or considerable damage, a formal trial is usual."
       },
       {},
@@ -2038,9 +2089,11 @@
     },
     "tiers": [
       {
+        "sentence": "1 year to 2 years 6 months in prison",
         "note": "If it was done by several people together, with a weapon, or repeatedly, investigation in detention may be considered."
       },
       {
+        "sentence": "1 year to 2 years 6 months in prison",
         "note": "This crime has no fine option, so if charged, the case goes to a formal trial."
       },
       {
@@ -2092,9 +2145,11 @@
     },
     "tiers": [
       {
+        "sentence": "1 year to 1 year 6 months in prison",
         "note": "If it was repeated or professional, or there is a prior conviction of the same type, investigation in detention may be considered."
       },
       {
+        "sentence": "1 year to 1 year 6 months in prison",
         "note": "Acting jointly with 2 or more people or carrying a weapon is itself treated as serious, so detention is more likely than for ordinary theft. This crime has no fine option, so if charged, the case goes to a formal trial."
       },
       {
@@ -2153,6 +2208,7 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "Handling expensive stolen goods as a business, or a repeat offense, may lead to investigation in detention."
       },
       {
@@ -2203,9 +2259,11 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "If the damage is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
       },
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "If the damage is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
       },
       {
@@ -2259,9 +2317,11 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "If the damage is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
       },
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "If the damage is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
       },
       {
@@ -2364,11 +2424,14 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "1 to 3 years in prison"
+      },
       {
         "sentence": "10 months or more in prison"
       },
       {
+        "sentence": "8 months to 2 years in prison",
         "note": "Dealing in accounts used for voice phishing, as a rule, leads to a request for a prison sentence at a formal trial. For an especially minor first offense, a fine (around KRW 3 million for 1 to 10 accounts, KRW 5 million for 11 to 20) is sometimes requested."
       }
     ],
@@ -2594,9 +2657,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 1 year 4 months in prison",
         "note": "If the amount embezzled is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
       },
       {
+        "sentence": "4 months to 1 year 4 months in prison",
         "note": "If the amount embezzled is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
       },
       {
@@ -2648,9 +2713,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 1 year 4 months in prison",
         "note": "If the amount embezzled is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
       },
       {
+        "sentence": "4 months to 1 year 4 months in prison",
         "note": "If the amount embezzled is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
       },
       {
@@ -2701,9 +2768,11 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year in prison",
         "note": "If the total extorted is KRW 10,000,000 or more or the offense is bad, investigation in detention may be considered."
       },
       {
+        "sentence": "6 months to 1 year in prison",
         "note": "A formal trial is the rule."
       },
       {
@@ -2748,6 +2817,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 year to 2 years 6 months in prison",
         "note": "Dealing or using methamphetamine leads, as a rule, to investigation in detention and a formal trial."
       },
       {
@@ -2793,6 +2863,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 to 3 years in prison",
         "note": "Selling, growing a large amount, or a repeat offense leads to detention being considered."
       },
       {
@@ -2800,6 +2871,7 @@
         "note": "The standard is to request 6 months to 1 year less than for dealing methamphetamine."
       },
       {
+        "sentence": "8 months to 1 year 6 months in prison",
         "note": "The request depends on how often and how much was smoked, prior records, etc."
       },
       {
@@ -2973,10 +3045,13 @@
         "sentence": "1 year or more in prison",
         "note": "Even at 0.3% or more, a fine is possible if there are circumstances worth considering, such as driving a short distance to park."
       },
-      {},
-      {},
       {
-        "note": "For a repeat drunk driving offense, the minimum fine is KRW 5 million."
+        "sentence": "1 year 4 months to 2 years 8 months in prison",
+        "note": "If you drive drunk again within 10 years, a formal trial is the rule. If there are strong mitigating circumstances, it may end with a fine (KRW 5 million or more)."
+      },
+      {
+        "sentence": "1 year to 1 year 4 months in prison",
+        "note": "If you drive drunk again within 10 years, a formal trial is the rule. If there are strong mitigating circumstances, it may end with a fine (KRW 5 million or more)."
       },
       {},
       {},
@@ -3146,7 +3221,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "Up to 1 year in prison"
+      },
       {
         "sentence": "6 months or more in prison"
       },
@@ -3228,9 +3305,11 @@
     },
     "tiers": [
       {
+        "sentence": "1 year to 2 years 6 months in prison",
         "note": "If the diagnosis is 4 weeks or more with no settlement, or 8 weeks or more regardless of settlement, detention is considered."
       },
       {
+        "sentence": "1 year to 2 years 6 months in prison",
         "note": "A formal trial is the rule, and with neither a settlement nor insurance, it is a formal trial regardless of how serious the injury is."
       },
       {
@@ -3344,9 +3423,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 1 year of imprisonment without labor",
         "note": "Even without a settlement, depositing a considerable amount with the court is treated similarly to a settlement."
       },
       {
+        "sentence": "4 months to 1 year of imprisonment without labor",
         "note": "Even if it goes to a formal trial, a fine may be requested."
       },
       {
@@ -3669,8 +3750,12 @@
       }
     },
     "tiers": [
-      {},
-      {},
+      {
+        "sentence": "1 year 6 months to 3 years in prison"
+      },
+      {
+        "sentence": "8 months to 2 years in prison"
+      },
       {
         "note": "If you received payment, a fine larger than that amount is imposed."
       },
@@ -3808,9 +3893,11 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 2 years in prison",
         "note": "If another crime was committed with the forged public document, investigation in detention may be considered."
       },
       {
+        "sentence": "8 months to 2 years in prison",
         "note": "This crime has no fine option, so if charged, the case goes to a formal trial. It is heavier for important documents such as court judgments or passports, or for organized crime."
       }
     ]
@@ -3849,9 +3936,12 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 2 years in prison",
         "note": "If the harm is large and the method was planned, investigation in detention may be considered."
       },
-      {},
+      {
+        "sentence": "6 months to 2 years in prison"
+      },
       {
         "note": "If there was no actual harm or very little, it is usually handled with a fine."
       }
@@ -3940,6 +4030,7 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 2 years in prison",
         "note": "If spreading false facts for profit or in an organized, malicious way seriously damaged someone's reputation, investigation in detention may be considered."
       },
       {
@@ -4027,7 +4118,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "1 year to 2 years 8 months in prison"
+      },
       {
         "sentence": "1 year or more in prison",
         "note": "Defamation by false facts goes, as a rule, to a formal trial. When a fine is requested, it is at the level of KRW 5 million or more."
@@ -4173,12 +4266,15 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "Using direct force against a uniformed police officer or similar, or using a weapon, acting with others or having a recent prior conviction of the same type, may lead to investigation in detention."
       },
       {
         "note": "Obstructing a uniformed police officer or similar goes, as a rule, to a formal trial, but if minor, a fine is sometimes requested."
       },
-      {},
+      {
+        "sentence": "6 months to 1 year 6 months in prison"
+      },
       {
         "note": "If spontaneous and minor, it is usually handled with a fine."
       }
@@ -4205,9 +4301,11 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "Those who led or actively took part are, as a rule, investigated in detention."
       },
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "A formal trial is the rule."
       }
     ],
@@ -4255,9 +4353,12 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "With a prior conviction of the same type, testimony given for payment, or false testimony that greatly affected the trial, investigation in detention may be considered."
       },
-      {},
+      {
+        "sentence": "6 months to 1 year 6 months in prison"
+      },
       {
         "note": "If it had little effect on the outcome of the trial and you confessed, it is usually handled with a fine."
       }
@@ -4314,9 +4415,12 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 2 years in prison",
         "note": "With a prior conviction of the same type, or a repeated or malicious false complaint, investigation in detention may be considered."
       },
-      {},
+      {
+        "sentence": "6 months to 2 years in prison"
+      },
       {
         "note": "If the case is not serious and you confessed and withdrew the complaint, it is sometimes handled with a fine."
       }
@@ -4360,6 +4464,7 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 2 years in prison",
         "note": "If you hid a serious offender, received payment or seriously hindered the investigation, investigation in detention may be considered."
       },
       {
@@ -4455,9 +4560,11 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 1 year 6 months in prison",
         "note": "Running an online gambling site, 2 or more prior convictions of the same type, or running a gambling place with large stakes leads to investigation in detention being treated almost as the rule."
       },
       {
+        "sentence": "8 months to 1 year 6 months in prison",
         "note": "A formal trial is the rule, and a fine may be added."
       },
       {
@@ -4648,7 +4755,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "4 to 5 years in prison"
+      },
       {
         "sentence": "1 year or more in prison",
         "note": "A fine equal to 10% of the market price of the smuggled goods is requested as well."
@@ -4713,7 +4822,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "1 year to 2 years 4 months in prison"
+      },
       {
         "sentence": "10 months or more in prison",
         "note": "A fine equal to 10% of the market price of the smuggled goods is requested as well."
@@ -4837,6 +4948,7 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 1 year 6 months in prison",
         "note": "If it was related to a permit or an exam, planned, of wide impact or aimed at personal gain, investigation in detention or a formal trial is considered."
       },
       {}
@@ -4869,7 +4981,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "4 months to 10 months in prison"
+      },
       {},
       {
         "note": "If it was a minor, one-time matter and a first offense, a suspension of indictment is possible."
@@ -4910,8 +5024,12 @@
       }
     },
     "tiers": [
-      {},
-      {},
+      {
+        "sentence": "1 year 6 months to 3 years in prison"
+      },
+      {
+        "sentence": "8 months to 2 years in prison"
+      },
       {
         "note": "If there was no actual harm or only a little, the case is handled with a fine."
       }
@@ -4940,6 +5058,7 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 1 year 8 months in prison",
         "note": "If it was combined with other illegal acts, the case may go to a formal trial."
       },
       {}
@@ -4992,7 +5111,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "1 year 4 months to 3 years in prison"
+      },
       {}
     ],
     "notes": [
@@ -5056,9 +5177,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 10 months in prison",
         "note": "If the offense is serious, investigation in detention is considered."
       },
       {
+        "sentence": "4 months to 10 months in prison",
         "note": "If you gave KRW 5 million at one time or KRW 7 million or more in total (KRW 10 million or more for a promise) and show no remorse or cooperation, a formal trial is the rule."
       },
       {},
@@ -5148,6 +5271,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 to 3 years in prison",
         "note": "If there is a prior conviction for obstructing justice, organized activity or payment, investigation in detention is considered."
       },
       {
@@ -5456,6 +5580,7 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 1 year in prison",
         "note": "For KRW 1 billion or more, or an organized offense or covering for the main offender, detention is the rule."
       },
       {
@@ -5637,6 +5762,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 to 3 years in prison",
         "note": "The representative of a fraudulent business, an executive of a business that raised KRW 2 billion or more, or an upper-level recruiter who gained KRW 200 million or more, among others, may be considered for detention."
       },
       {
@@ -5689,8 +5815,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "10 months to 2 years in prison"
+      },
+      {
+        "sentence": "10 months to 2 years in prison",
         "note": "The case goes to a formal trial (the sentencing guidelines apply)."
       },
       {},
@@ -5742,9 +5871,11 @@
     },
     "tiers": [
       {
+        "sentence": "4 months to 1 year 4 months in prison",
         "note": "If the amount is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
       },
       {
+        "sentence": "4 months to 1 year 4 months in prison",
         "note": "If the amount is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
       },
       {
@@ -5786,9 +5917,11 @@
     },
     "tiers": [
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "Investigation in detention is the rule, and if you reoffended within 1 year of release, 1 to 2 years are added to the request."
       },
       {
+        "sentence": "6 months to 1 year 6 months in prison",
         "note": "Investigation in detention is the rule."
       },
       {
@@ -5823,12 +5956,15 @@
     },
     "tiers": [
       {
+        "sentence": "7 years in prison",
         "note": "If the victim was injured, it is punished very heavily as robbery causing injury (life imprisonment or 7 years or more in prison), and investigation in detention is considered almost as the rule."
       },
       {
+        "sentence": "5 to 6 years in prison",
         "note": "It may count as aggravated robbery (life imprisonment or 5 years or more in prison), and investigation in detention is considered almost as the rule."
       },
       {
+        "sentence": "3 to 4 years in prison",
         "note": "Investigation in detention is considered almost as the rule. There is no fine for this crime, so if you are indicted you will face a formal trial."
       }
     ],
@@ -5863,9 +5999,11 @@
     },
     "tiers": [
       {
+        "sentence": "5 to 6 years in prison",
         "note": "Investigation in detention is the rule."
       },
       {
+        "sentence": "3 to 4 years in prison",
         "note": "If the theft was minor and the violence or threats were also minor, you may be investigated without detention."
       }
     ],
@@ -5995,7 +6133,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "1 to 3 years in prison"
+      },
       {
         "sentence": "6 months or more in prison"
       },
@@ -6273,6 +6413,7 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 1 year 8 months of imprisonment without labor",
         "note": "If there is no settlement and gross negligence caused a serious injury, investigation in detention may be considered."
       },
       {
@@ -6319,6 +6460,7 @@
     },
     "tiers": [
       {
+        "sentence": "1 year 4 months to 4 years of imprisonment without labor",
         "note": "If there is no settlement and the negligence was gross, investigation in detention may be considered."
       },
       {
@@ -6909,6 +7051,7 @@
     },
     "tiers": [
       {
+        "sentence": "8 months to 2 years in prison",
         "note": "If a method very harmful to the human body was used or someone was injured or killed, detention may be considered."
       },
       {
@@ -7275,7 +7418,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "1 year 8 months to 3 years in prison"
+      },
       {
         "sentence": "10 months or more in prison"
       },
@@ -7319,7 +7464,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "3 years in prison"
+      },
       {
         "sentence": "10 months or more in prison",
         "note": "A fine of about 30% of the evaded duty is also requested."
@@ -7521,8 +7668,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "2 years to 3 years 4 months in prison"
+      },
+      {
+        "sentence": "2 years to 3 years 4 months in prison",
         "note": "As a rule, the case goes to a formal trial with a prison sentence requested."
       }
     ],
@@ -8018,8 +8168,11 @@
       }
     },
     "tiers": [
-      {},
       {
+        "sentence": "10 months to 2 years in prison"
+      },
+      {
+        "sentence": "10 months to 2 years in prison",
         "note": "For active participants such as repeat offenders, large-scale operators, investors, nominal owners and key staff, a formal trial is the rule."
       },
       {},
@@ -8060,8 +8213,12 @@
       }
     },
     "tiers": [
-      {},
-      {},
+      {
+        "sentence": "10 months to 2 years in prison"
+      },
+      {
+        "sentence": "10 months to 2 years in prison"
+      },
       {}
     ],
     "notes": [
@@ -8102,7 +8259,9 @@
       }
     },
     "tiers": [
-      {},
+      {
+        "sentence": "1 to 3 years in prison"
+      },
       {
         "sentence": "1 year or more in prison"
       },
@@ -8355,9 +8514,11 @@
     },
     "tiers": [
       {
+        "sentence": "3 to 5 years in prison",
         "note": "If you set the fire knowing people were inside, investigation in detention is the rule regardless of casualties or the amount of damage."
       },
       {
+        "sentence": "3 to 5 years in prison",
         "note": "If it was unplanned, or the damage was small and you settled, you may stand trial without detention."
       }
     ],
