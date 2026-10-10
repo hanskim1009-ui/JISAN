@@ -32,6 +32,7 @@ export default function Page() {
       consultType="형사"
       notice="수사기관의 일반적인 처리 경향을 바탕으로 한 예상일 뿐입니다. 실제 처분과 구형은 합의·전과·범행 경위 같은 사건 사정과 담당 검사의 판단에 따라 다르고, 최종 형은 법원이 정합니다. 조사를 앞두고 있다면 결과만 믿지 말고 변호사와 먼저 상의하세요."
       related={[
+        { href: "/tools/sentencing", label: "선고형 예상 계산기 (양형기준)" },
         { href: "/tools/police-summons", label: "경찰 출석 요구 대응" },
         { href: "/crime", label: "형사 센터" },
       ]}
