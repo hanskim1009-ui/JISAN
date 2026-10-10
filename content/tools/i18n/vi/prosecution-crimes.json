@@ -1,0 +1,4899 @@
+{
+  "injury": {
+    "name": "Gây thương tích",
+    "aliases": [
+      "tội gây thương tích",
+      "đánh người bị thương",
+      "hành hung gây thương tích",
+      "giấy chẩn đoán thương tích"
+    ],
+    "statutory": "Tù đến 7 năm, đình chỉ tư cách đến 10 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 257 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "weeks": {
+        "label": "Thời gian điều trị theo chẩn đoán thương tích",
+        "help": "Là thời gian điều trị ghi trên giấy chẩn đoán của bệnh viện (điều trị ○ tuần).",
+        "unit": "tuần"
+      },
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "fault": {
+        "label": "Ai có lỗi nhiều hơn trong việc gây ra xô xát?",
+        "options": {
+          "victim": "Người bị hại có lỗi nhiều hơn",
+          "both": "Hai bên lỗi ngang nhau",
+          "none": "Người bị hại hầu như không có lỗi"
+        }
+      },
+      "violencePrior": {
+        "label": "Tiền án liên quan đến bạo lực (từ phạt tiền trở lên)",
+        "help": "Là số lần bị xử từ mức phạt tiền trở lên vì tội phạm bạo lực như gây thương tích, hành hung, đe dọa, hủy hoại tài sản. Không tính tạm hoãn truy tố.",
+        "options": {
+          "none": "Không có",
+          "some": "Có nhưng không thuộc các trường hợp dưới đây",
+          "ten4": "Từ 4 lần trở lên trong 10 năm",
+          "three2": "Từ 2 lần trở lên trong 3 năm (đều là phạt tiền)",
+          "three2s": "Từ 2 lần trở lên trong 3 năm (có án treo trở lên)"
+        }
+      },
+      "vulnerable": {
+        "label": "Có phải bạn đã làm việc này khi say rượu, không có lý do đặc biệt, với người yếu thế như người già, trẻ em, phụ nữ, người khuyết tật không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu thương tích từ 8 tuần trở lên mà chưa thỏa thuận được, có nhiều tiền án bạo lực, hoặc gây thương tích từ 4 tuần trở lên cho người yếu thế, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Nếu thương tích từ 4 tuần trở lên mà chưa thỏa thuận được, hoặc từ 8 tuần trở lên, thông thường vụ việc được đưa ra xét xử chính thức chứ không dừng ở phạt tiền. Nếu thỏa thuận được, mức xử lý có thể nhẹ đi, như án treo."
+      },
+      {
+        "note": "Nếu người bị hại hầu như không có lỗi, tiêu chuẩn thực tế là mức cơ bản 2 triệu won, cộng thêm 1 triệu won cho mỗi 1 tuần vượt quá 2 tuần. Nếu thỏa thuận được, mức này có thể giảm."
+      },
+      {
+        "note": "Nếu hai bên lỗi ngang nhau, tiêu chuẩn thực tế là mức cơ bản 1 triệu won, cộng thêm 500.000 won cho mỗi 1 tuần vượt quá 2 tuần. Nếu thỏa thuận được, mức này có thể giảm."
+      },
+      {
+        "note": "Nếu người bị hại có lỗi nhiều hơn, tiêu chuẩn thực tế là mức cơ bản 500.000 won, cộng thêm 300.000 won cho mỗi 1 tuần vượt quá 2 tuần."
+      },
+      {
+        "note": "Nếu người bị hại có lỗi nhiều hơn và đó là xô xát nhẹ gây thương tích từ 2 tuần trở xuống, có thể chỉ bị phạt tiền dưới 500.000 won hoặc được tạm hoãn truy tố."
+      }
+    ],
+    "notes": [
+      "Nếu dùng hung khí, nhắm vào người yếu thế hoặc có tiền án bạo lực trong vòng 1 năm, mức phạt tiền sẽ nặng hơn.",
+      "Nếu xảy ra thương tích nghiêm trọng khó lường trước, mức xử lý được định riêng, không áp dụng nguyên cách tính theo tuần.",
+      "Nếu bên kia tấn công trước và bạn chỉ chống đỡ, có thể bạn không bị xử phạt vì phòng vệ chính đáng."
+    ]
+  },
+  "assault": {
+    "name": "Hành hung",
+    "aliases": [
+      "tội hành hung",
+      "đánh người",
+      "túm cổ áo",
+      "xô đẩy"
+    ],
+    "statutory": "Tù đến 2 năm, phạt tiền đến 5 triệu won, câu lưu hoặc phạt tiền nhẹ",
+    "law": "Điều 260 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "agreement": {
+        "label": "Người bị hại có nói là không muốn xử phạt không? (thỏa thuận)",
+        "options": {
+          "yes": "Không muốn xử phạt (đã thỏa thuận)",
+          "no": "Muốn xử phạt (chưa thỏa thuận được)"
+        }
+      },
+      "degree": {
+        "label": "Mức độ hành hung",
+        "options": {
+          "minor": "Nhẹ (xô đẩy…)",
+          "normal": "Trung bình",
+          "serious": "Nặng (đánh nhiều lần…)"
+        }
+      },
+      "fault": {
+        "label": "Ai có lỗi nhiều hơn trong việc gây ra xô xát?",
+        "options": {
+          "victim": "Người bị hại có lỗi nhiều hơn",
+          "both": "Hai bên lỗi ngang nhau",
+          "none": "Người bị hại hầu như không có lỗi"
+        }
+      },
+      "violencePrior": {
+        "label": "Tiền án liên quan đến bạo lực (từ phạt tiền trở lên)",
+        "help": "Là số lần bị xử từ mức phạt tiền trở lên vì tội phạm bạo lực như gây thương tích, hành hung, đe dọa, hủy hoại tài sản. Không tính tạm hoãn truy tố.",
+        "options": {
+          "none": "Không có",
+          "some": "Có nhưng không thuộc các trường hợp dưới đây",
+          "ten4": "Từ 4 lần trở lên trong 10 năm",
+          "three2": "Từ 2 lần trở lên trong 3 năm (đều là phạt tiền)",
+          "three2s": "Từ 2 lần trở lên trong 3 năm (có án treo trở lên)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, thì trên thực tế, khi lại dùng bạo lực, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Nếu có nhiều tiền án bạo lực (từ 2 lần trong 3 năm hoặc từ 4 lần trong 10 năm), tiêu chuẩn xử lý thông thường là đưa ra xét xử chính thức chứ không dừng ở phạt tiền."
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "Hành hung là tội không thể xử phạt nếu người bị hại không muốn xử phạt (반의사불벌죄), nên nếu thỏa thuận được thì vụ việc kết thúc. Nếu người bị hại có lỗi lớn và hành hung nhẹ, cũng có thể được tạm hoãn truy tố hoặc chỉ bị phạt tiền nhỏ."
+      }
+    ],
+    "notes": [
+      "Nếu tính chất tội phạm nặng, như vào nhà người khác rồi đánh, vụ việc có thể bị đưa ra xét xử chính thức.",
+      "Nếu dùng vật nguy hiểm, nhắm vào người yếu thế hoặc có tiền án bạo lực trong vòng 1 năm, mức phạt tiền sẽ tăng."
+    ]
+  },
+  "special-injury": {
+    "name": "Gây thương tích đặc biệt",
+    "aliases": [
+      "gây thương tích bằng hung khí",
+      "gây thương tích bằng vật nguy hiểm",
+      "đâm chém"
+    ],
+    "statutory": "Tù từ 1 năm đến 10 năm",
+    "law": "Điều 258-2 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "weeks": {
+        "label": "Thời gian điều trị theo chẩn đoán thương tích",
+        "unit": "tuần"
+      },
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "prior": {
+        "label": "Bạn có tiền án cùng loại (bạo lực) không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 2 năm 6 tháng trở lên",
+        "note": "Gây thương tích bằng vật nguy hiểm thì việc điều tra có tạm giam được xem xét gần như theo nguyên tắc, và nếu có tiền án cùng loại thì mức án đề nghị nặng thêm 1–2 năm."
+      },
+      {
+        "sentence": "Tù từ 1 năm 6 tháng trở lên",
+        "note": "Gây thương tích bằng vật nguy hiểm thì việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "sentence": "Có thể đề nghị thấp hơn 1 năm 6 tháng tù",
+        "note": "Nếu không có tiền án cùng loại, thương tích từ 2 tuần trở xuống và đã thỏa thuận, mức án đề nghị có thể thấp hơn. Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức."
+      }
+    ],
+    "notes": [
+      "Là trường hợp gây thương tích bằng cách phô trương sức mạnh của nhóm, hoặc cầm vật nguy hiểm (dao, vật cùn, chai vỡ…)."
+    ]
+  },
+  "special-assault": {
+    "name": "Hành hung đặc biệt",
+    "aliases": [
+      "hành hung bằng hung khí",
+      "hành hung bằng vật nguy hiểm"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 261 Bộ luật Hình sự",
+    "questions": {
+      "degree": {
+        "label": "Mức độ hành hung",
+        "options": {
+          "minor": "Nhẹ (xô đẩy…)",
+          "normal": "Trung bình",
+          "serious": "Nặng (đánh nhiều lần…)"
+        }
+      },
+      "fault": {
+        "label": "Ai có lỗi nhiều hơn trong việc gây ra xô xát?",
+        "options": {
+          "victim": "Người bị hại có lỗi nhiều hơn",
+          "both": "Hai bên lỗi ngang nhau",
+          "none": "Người bị hại hầu như không có lỗi"
+        }
+      },
+      "violencePrior": {
+        "label": "Tiền án liên quan đến bạo lực (từ phạt tiền trở lên)",
+        "help": "Là số lần bị xử từ mức phạt tiền trở lên vì tội phạm bạo lực như gây thương tích, hành hung, đe dọa, hủy hoại tài sản. Không tính tạm hoãn truy tố.",
+        "options": {
+          "none": "Không có",
+          "some": "Có nhưng không thuộc các trường hợp dưới đây",
+          "ten4": "Từ 4 lần trở lên trong 10 năm",
+          "three2": "Từ 2 lần trở lên trong 3 năm (đều là phạt tiền)",
+          "three2s": "Từ 2 lần trở lên trong 3 năm (có án treo trở lên)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, thì trên thực tế, khi lại dùng bạo lực, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Nếu có nhiều tiền án bạo lực (từ 2 lần trong 3 năm hoặc từ 4 lần trong 10 năm), tiêu chuẩn xử lý thông thường là đưa ra xét xử chính thức chứ không dừng ở phạt tiền."
+      },
+      {},
+      {},
+      {},
+      {
+        "note": "Vì đã dùng vật nguy hiểm, mức phạt tiền thường cao hơn hành hung thông thường."
+      }
+    ],
+    "notes": [
+      "Mức phạt tiền ở trên là tiêu chuẩn của hành hung thông thường; vì đã dùng vật nguy hiểm nên thực tế có thể nặng hơn.",
+      "Khác với hành hung thông thường, đây là tội vẫn có thể bị xử phạt dù đã thỏa thuận. Tuy nhiên, nếu thỏa thuận được, mức phạt tiền có thể giảm."
+    ]
+  },
+  "joint-assault": {
+    "name": "Cùng nhau hành hung",
+    "aliases": [
+      "hai người cùng đánh",
+      "nhiều người cùng đánh",
+      "hành hung tập thể",
+      "vi phạm Luật Xử phạt Hành vi Bạo lực (cùng nhau hành hung)"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 7,5 triệu won (tăng nặng thêm đến 1/2 hình phạt của tội hành hung trong Bộ luật Hình sự)",
+    "law": "Điều 2 khoản 2 điểm 1 Luật Xử phạt Hành vi Bạo lực, Điều 260 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "severity": {
+        "label": "Mức độ hành hung",
+        "options": {
+          "minor": "Nhẹ (xô đẩy…)",
+          "normal": "Trung bình",
+          "severe": "Nặng (đánh nhiều lần…)"
+        }
+      },
+      "fault": {
+        "label": "Nguyên nhân xô xát",
+        "options": {
+          "victim": "Bên kia có lỗi nhiều hơn",
+          "both": "Cả hai bên đều có lỗi",
+          "none": "Bên kia không có lỗi"
+        }
+      },
+      "record": {
+        "label": "Tiền án bạo lực",
+        "help": "Là hồ sơ bị xử phạt vì hành hung, gây thương tích, đe dọa, xâm nhập nơi ở, hủy hoại tài sản…",
+        "options": {
+          "none": "Không có",
+          "once": "Có (không thuộc hai trường hợp dưới đây)",
+          "fine2": "Từ 2 lần trở lên từ mức phạt tiền trở lên trong 3 năm gần đây",
+          "jy2": "Từ 2 lần trở lên trong 3 năm gần đây, trong đó có án treo trở lên"
+        }
+      },
+      "settled": {
+        "label": "Thỏa thuận với người bị hại",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, việc điều tra có tạm giam sẽ được xem xét."
+      },
+      {
+        "note": "Nếu có tiền án bạo lực, tiêu chuẩn xử lý thông thường là đưa ra xét xử chính thức."
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "Nếu bên kia có lỗi nhiều hơn và hành hung nhẹ, vụ việc có thể được xử lý có xét đến hoàn cảnh."
+      }
+    ],
+    "notes": [
+      "Khác với hành hung đơn thuần, tội này vẫn có thể bị xử phạt dù người bị hại không muốn xử phạt.",
+      "Nếu thỏa thuận được, mức phạt tiền có thể giảm; nếu có tiền án cùng loại trong vòng 1 năm hoặc nhắm vào người yếu thế, mức xử lý sẽ nặng hơn.",
+      "Nếu tính chất tội phạm xấu, như đánh người già yếu nhiều lần hoặc vào nhà người khác để hành hung, vụ việc có thể bị đưa ra xét xử chính thức."
+    ]
+  },
+  "joint-injury": {
+    "name": "Cùng nhau gây thương tích",
+    "aliases": [
+      "nhiều người cùng đánh gây thương tích",
+      "gây thương tích tập thể",
+      "vi phạm Luật Xử phạt Hành vi Bạo lực (cùng nhau gây thương tích)"
+    ],
+    "statutory": "Tù đến 10 năm 6 tháng, đình chỉ tư cách đến 15 năm hoặc phạt tiền đến 15 triệu won (tăng nặng thêm đến 1/2 hình phạt của tội gây thương tích trong Bộ luật Hình sự)",
+    "law": "Điều 2 khoản 2 điểm 3 Luật Xử phạt Hành vi Bạo lực, Điều 257 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "weeks": {
+        "label": "Thời gian điều trị theo chẩn đoán thương tích",
+        "help": "Là thời gian điều trị ghi trên giấy chẩn đoán.",
+        "unit": "tuần"
+      },
+      "fault": {
+        "label": "Nguyên nhân xô xát",
+        "options": {
+          "victim": "Bên kia có lỗi nhiều hơn",
+          "both": "Cả hai bên đều có lỗi",
+          "none": "Bên kia không có lỗi"
+        }
+      },
+      "record": {
+        "label": "Tiền án bạo lực",
+        "help": "Là hồ sơ bị xử phạt vì hành hung, gây thương tích, đe dọa, xâm nhập nơi ở, hủy hoại tài sản…",
+        "options": {
+          "none": "Không có",
+          "once": "Có (không thuộc hai trường hợp dưới đây)",
+          "fine2": "Từ 2 lần trở lên từ mức phạt tiền trở lên trong 3 năm gần đây",
+          "jy2": "Từ 2 lần trở lên trong 3 năm gần đây, trong đó có án treo trở lên"
+        }
+      },
+      "settled": {
+        "label": "Thỏa thuận với người bị hại",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu thương tích từ 6 tuần trở lên mà chưa thỏa thuận được, hoặc từ 8 tuần trở lên và có tiền án bạo lực, việc điều tra có tạm giam sẽ được xem xét."
+      },
+      {
+        "note": "Nếu thương tích từ 4 tuần trở lên mà chưa thỏa thuận được, hoặc từ 8 tuần trở lên, theo nguyên tắc vụ việc được đưa ra xét xử chính thức."
+      },
+      {
+        "note": "Cách tính là cộng thêm 1 triệu won cho mỗi 1 tuần vượt quá 2 tuần."
+      },
+      {
+        "note": "Cách tính là cộng thêm 500.000 won cho mỗi 1 tuần vượt quá 2 tuần."
+      },
+      {
+        "note": "Cách tính là cộng thêm 300.000 won cho mỗi 1 tuần vượt quá 2 tuần."
+      }
+    ],
+    "notes": [
+      "Nếu thỏa thuận được, mức xử lý có thể được giảm nhẹ; nếu có tiền án cùng loại trong vòng 1 năm hoặc nhắm vào người yếu thế, mức xử lý sẽ nặng hơn.",
+      "Nếu say rượu và gây thương tích từ 4 tuần trở lên cho người yếu thế mà không có lý do, việc tạm giam vẫn được xem xét dù là phạm tội lần đầu hay đã thỏa thuận.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "threat": {
+    "name": "Đe dọa",
+    "aliases": [
+      "tội đe dọa",
+      "dọa nạt",
+      "hăm dọa",
+      "khủng bố tinh thần"
+    ],
+    "statutory": "Tù đến 3 năm, phạt tiền đến 5 triệu won, câu lưu hoặc phạt tiền nhẹ",
+    "law": "Điều 283 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "agreement": {
+        "label": "Người bị hại có nói là không muốn xử phạt không? (thỏa thuận)",
+        "options": {
+          "yes": "Không muốn xử phạt (đã thỏa thuận)",
+          "no": "Muốn xử phạt (chưa thỏa thuận được)"
+        }
+      },
+      "degree": {
+        "label": "Mức độ đe dọa",
+        "options": {
+          "minor": "Nhẹ (ít có khả năng làm thật)",
+          "normal": "Trung bình",
+          "serious": "Nặng (nhiều khả năng làm thật hoặc nhiều lần)"
+        }
+      },
+      "mitigating": {
+        "label": "Có lý do đáng để xem xét, như người bị hại đã gây ra nguyên nhân, không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "gain": {
+        "label": "Bạn có đe dọa để lấy tiền hoặc lợi ích không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "violencePrior": {
+        "label": "Tiền án liên quan đến bạo lực (từ phạt tiền trở lên)",
+        "help": "Là số lần bị xử từ mức phạt tiền trở lên vì tội phạm bạo lực như gây thương tích, hành hung, đe dọa, hủy hoại tài sản. Không tính tạm hoãn truy tố.",
+        "options": {
+          "none": "Không có",
+          "some": "Có nhưng không thuộc các trường hợp dưới đây",
+          "ten4": "Từ 4 lần trở lên trong 10 năm",
+          "three2": "Từ 2 lần trở lên trong 3 năm (đều là phạt tiền)",
+          "three2s": "Từ 2 lần trở lên trong 3 năm (có án treo trở lên)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, thì trên thực tế, khi lại dùng bạo lực, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Nếu có nhiều tiền án bạo lực hoặc đã đe dọa để lấy tiền, lợi ích, thông thường vụ việc được đưa ra xét xử chính thức."
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "Đe dọa là tội không thể xử phạt nếu người bị hại không muốn xử phạt (반의사불벌죄), nên nếu thỏa thuận được thì vụ việc kết thúc. Nếu đe dọa nhẹ và có lý do đáng xem xét, cũng có thể được tạm hoãn truy tố."
+      }
+    ]
+  },
+  "special-threat": {
+    "name": "Đe dọa đặc biệt",
+    "aliases": [
+      "đe dọa bằng hung khí",
+      "cầm dao dọa"
+    ],
+    "statutory": "Tù đến 7 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 284 Bộ luật Hình sự",
+    "questions": {
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "violencePrior": {
+        "label": "Tiền án liên quan đến bạo lực (từ phạt tiền trở lên)",
+        "help": "Là số lần bị xử từ mức phạt tiền trở lên vì tội phạm bạo lực như gây thương tích, hành hung, đe dọa, hủy hoại tài sản. Không tính tạm hoãn truy tố.",
+        "options": {
+          "none": "Không có",
+          "some": "Có nhưng không thuộc các trường hợp dưới đây",
+          "ten4": "Từ 4 lần trở lên trong 10 năm",
+          "three2": "Từ 2 lần trở lên trong 3 năm (đều là phạt tiền)",
+          "three2s": "Từ 2 lần trở lên trong 3 năm (có án treo trở lên)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Cầm vật nguy hiểm để đe dọa thì việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Nếu có hoàn cảnh như đã thỏa thuận, bạn có thể được xét xử mà không bị tạm giam, nhưng theo nguyên tắc vụ việc được đưa ra xét xử chính thức chứ không dừng ở phạt tiền."
+      }
+    ],
+    "notes": [
+      "Khác với đe dọa thông thường, đây là tội vẫn có thể bị xử phạt dù đã thỏa thuận."
+    ]
+  },
+  "joint-intimidation": {
+    "name": "Cùng nhau đe dọa",
+    "aliases": [
+      "nhiều người cùng đe dọa",
+      "vi phạm Luật Xử phạt Hành vi Bạo lực (cùng nhau đe dọa)"
+    ],
+    "statutory": "Tù đến 4 năm 6 tháng hoặc phạt tiền đến 7,5 triệu won (tăng nặng thêm đến 1/2 hình phạt của tội đe dọa trong Bộ luật Hình sự)",
+    "law": "Điều 2 khoản 2 điểm 1 Luật Xử phạt Hành vi Bạo lực, Điều 283 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "severity": {
+        "label": "Mức độ đe dọa",
+        "options": {
+          "minor": "Nhẹ (ít có khả năng làm thật)",
+          "normal": "Trung bình",
+          "severe": "Nặng (nhiều khả năng làm thật hoặc nhiều lần)"
+        }
+      },
+      "mitigating": {
+        "label": "Hoàn cảnh dẫn đến việc đe dọa có điều gì đáng xem xét không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      },
+      "wantsPunish": {
+        "label": "Người bị hại có muốn xử phạt không?",
+        "options": {
+          "no": "Không muốn",
+          "yes": "Muốn"
+        }
+      },
+      "record": {
+        "label": "Tiền án bạo lực",
+        "help": "Là hồ sơ bị xử phạt vì hành hung, gây thương tích, đe dọa, xâm nhập nơi ở, hủy hoại tài sản…",
+        "options": {
+          "none": "Không có",
+          "once": "Có (không thuộc hai trường hợp dưới đây)",
+          "fine2": "Từ 2 lần trở lên từ mức phạt tiền trở lên trong 3 năm gần đây",
+          "jy2": "Từ 2 lần trở lên trong 3 năm gần đây, trong đó có án treo trở lên"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "note": "Trừ khi người bị hại không muốn xử phạt, theo nguyên tắc vụ việc được đưa ra xét xử chính thức."
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "Nếu đe dọa nhẹ và hoàn cảnh có điều đáng xem xét, vụ việc được xử lý tùy theo hoàn cảnh."
+      }
+    ],
+    "notes": [
+      "Đây là tội vẫn có thể bị xử phạt dù người bị hại không muốn xử phạt.",
+      "Nếu thỏa thuận được, mức xử lý có thể được giảm nhẹ."
+    ]
+  },
+  "confinement": {
+    "name": "Bắt giữ, giam giữ người trái phép",
+    "aliases": [
+      "giam giữ người",
+      "giam người trái phép",
+      "nhốt người"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 7 triệu won",
+    "law": "Điều 276 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "nature": {
+        "label": "Tình huống như thế nào?",
+        "options": {
+          "planned": "Để phạm tội khác hoặc có kế hoạch từ trước",
+          "ordinary": "Trường hợp khác",
+          "impulsive": "Bột phát, ngắn và đơn giản"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có mục đích bất hợp pháp, phạm tội có kế hoạch hoặc là phương tiện để phạm tội khác, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức."
+      },
+      {
+        "note": "Trường hợp bột phát và đơn giản đôi khi chỉ bị xử lý bằng phạt tiền."
+      }
+    ]
+  },
+  "coercion": {
+    "name": "Cưỡng ép",
+    "aliases": [
+      "tội cưỡng ép",
+      "ép buộc người khác",
+      "bắt làm việc không muốn"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 324 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "harm": {
+        "label": "Thiệt hại có lớn và nghiêm trọng không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "mitigating": {
+        "label": "Hoàn cảnh có điều gì đặc biệt đáng xem xét không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu mức độ thiệt hại nghiêm trọng, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "sentence": "Tù từ 1 năm trở lên",
+        "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận được, mức xử lý có thể nhẹ đi."
+      },
+      {
+        "note": "Nếu có hoàn cảnh đặc biệt đáng xem xét, đôi khi chỉ bị xử lý bằng phạt tiền."
+      }
+    ],
+    "notes": [
+      "Nếu có tiền án bạo lực trong vòng 1 năm hoặc nhắm vào người yếu thế, mức xử lý sẽ nặng hơn."
+    ]
+  },
+  "trespass": {
+    "name": "Xâm nhập nơi ở",
+    "aliases": [
+      "tội xâm nhập nơi ở",
+      "xâm nhập công trình",
+      "không chịu rời đi",
+      "tự ý vào nhà người khác"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 5 triệu won",
+    "law": "Điều 319 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "linked": {
+        "label": "Có đi kèm với tội khác như hành hung, trộm cắp không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "danger": {
+        "label": "Có mục đích nguy hiểm như muốn làm hại người ở bên trong không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu việc xâm nhập gắn với tội phạm bạo lực hoặc tội phạm về tài sản, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {
+        "note": "Nếu là một lần xâm nhập bột phát, thông thường chỉ bị xử lý bằng phạt tiền."
+      },
+      {
+        "note": "Nếu là việc bột phát một lần và đã thỏa thuận, cũng có thể được xem xét tạm hoãn truy tố."
+      }
+    ]
+  },
+  "property-damage": {
+    "name": "Hủy hoại tài sản",
+    "aliases": [
+      "làm hư hỏng tài sản",
+      "đập phá đồ đạc",
+      "phá hoại đồ vật"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 7 triệu won",
+    "law": "Điều 366 Bộ luật Hình sự",
+    "questions": {
+      "amount": {
+        "label": "Số tiền thiệt hại",
+        "help": "Là chi phí sửa chữa hoặc giá trị của đồ vật bị hư hỏng.",
+        "unit": "× 10.000 won"
+      },
+      "agreement": {
+        "label": "Bạn đã bồi thường thiệt hại và thỏa thuận chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "violencePrior": {
+        "label": "Tiền án liên quan đến bạo lực (từ phạt tiền trở lên)",
+        "help": "Là số lần bị xử từ mức phạt tiền trở lên vì tội phạm bạo lực như gây thương tích, hành hung, đe dọa, hủy hoại tài sản. Không tính tạm hoãn truy tố.",
+        "options": {
+          "none": "Không có",
+          "some": "Có nhưng không thuộc các trường hợp dưới đây",
+          "ten4": "Từ 4 lần trở lên trong 10 năm",
+          "three2": "Từ 2 lần trở lên trong 3 năm (đều là phạt tiền)",
+          "three2s": "Từ 2 lần trở lên trong 3 năm (có án treo trở lên)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu trong 3 năm gần đây có từ 2 tiền án bạo lực trở lên, trong đó có án treo trở lên, thì trên thực tế, khi lại dùng bạo lực, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "sentence": "Tù từ 8 tháng trở lên",
+        "note": "Nếu thiệt hại từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức."
+      },
+      {},
+      {
+        "note": "Nếu đã bồi thường thiệt hại và thỏa thuận, có thể được xem xét tạm hoãn truy tố. Tùy hoàn cảnh, cũng có thể bị phạt tiền."
+      }
+    ]
+  },
+  "joint-property-damage": {
+    "name": "Cùng nhau hủy hoại tài sản",
+    "aliases": [
+      "nhiều người cùng đập phá",
+      "vi phạm Luật Xử phạt Hành vi Bạo lực (cùng nhau hủy hoại tài sản)"
+    ],
+    "statutory": "Tù đến 4 năm 6 tháng hoặc phạt tiền đến 10,5 triệu won (tăng nặng thêm đến 1/2 hình phạt của tội hủy hoại tài sản trong Bộ luật Hình sự)",
+    "law": "Điều 2 khoản 2 điểm 1 Luật Xử phạt Hành vi Bạo lực, Điều 366 Bộ luật Hình sự",
+    "questions": {
+      "damage": {
+        "label": "Số tiền thiệt hại",
+        "unit": "× 10.000 won"
+      },
+      "wantsPunish": {
+        "label": "Người bị hại có muốn xử phạt không?",
+        "options": {
+          "no": "Không muốn",
+          "yes": "Muốn"
+        }
+      },
+      "mitigating": {
+        "label": "Việc này có bột phát hoặc hoàn cảnh có điều gì đáng xem xét không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      },
+      "record": {
+        "label": "Tiền án bạo lực",
+        "help": "Là hồ sơ bị xử phạt vì hành hung, gây thương tích, đe dọa, xâm nhập nơi ở, hủy hoại tài sản…",
+        "options": {
+          "none": "Không có",
+          "once": "Có (không thuộc hai trường hợp dưới đây)",
+          "fine2": "Từ 2 lần trở lên từ mức phạt tiền trở lên trong 3 năm gần đây",
+          "jy2": "Từ 2 lần trở lên trong 3 năm gần đây, trong đó có án treo trở lên"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "note": "Trừ khi người bị hại không muốn xử phạt, theo nguyên tắc vụ việc được đưa ra xét xử chính thức, và nếu cách hủy hoại quá khích thì có thể bị đề nghị từ 1 năm tù trở lên."
+      },
+      {
+        "note": "Từ mức lớn hơn giữa 1/2 số tiền thiệt hại và 1 triệu won trở lên."
+      },
+      {
+        "note": "Từ mức lớn hơn giữa 1/2 số tiền thiệt hại và 500.000 won trở lên."
+      }
+    ],
+    "notes": [
+      "Nếu bồi thường thiệt hại hoặc thỏa thuận, mức xử lý có thể được giảm nhẹ."
+    ]
+  },
+  "driver-assault": {
+    "name": "Hành hung người lái xe đang điều khiển phương tiện",
+    "aliases": [
+      "hành hung tài xế taxi",
+      "hành hung tài xế xe buýt",
+      "đánh tài xế",
+      "hành hung tài xế lái hộ"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 20 triệu won (gây thương tích: tù có thời hạn từ 3 năm trở lên; gây chết người: tù chung thân hoặc tù từ 5 năm trở lên)",
+    "law": "Điều 5-10 khoản 1 Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định",
+    "questions": {
+      "danger": {
+        "label": "Nguy hiểm phát sinh do việc hành hung",
+        "options": {
+          "none": "Không có nguy cơ tai nạn",
+          "accident": "Đã xảy ra tai nạn giao thông hoặc phát sinh nguy hiểm cụ thể",
+          "others": "Người khác như hành khách bị thương hoặc nguy cơ tai nạn rất lớn"
+        }
+      },
+      "publicTransit": {
+        "label": "Người lái xe có phải là tài xế phương tiện công cộng chở nhiều người như xe buýt không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "record": {
+        "label": "Tiền án bạo lực",
+        "help": "Là hồ sơ bị xử phạt vì hành hung, gây thương tích, đe dọa, xâm nhập nơi ở, hủy hoại tài sản…",
+        "options": {
+          "none": "Không có",
+          "once": "Có (không thuộc hai trường hợp dưới đây)",
+          "fine2": "Từ 2 lần trở lên từ mức phạt tiền trở lên trong 3 năm gần đây",
+          "jy2": "Từ 2 lần trở lên trong 3 năm gần đây, trong đó có án treo trở lên"
+        }
+      },
+      "settled": {
+        "label": "Thỏa thuận với người bị hại",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "Đây là tiêu chuẩn cho trường hợp lần đầu, bột phát, không xảy ra tai nạn và đã thỏa thuận."
+      }
+    ],
+    "notes": [
+      "\"Đang điều khiển phương tiện\" bao gồm cả lúc tạm dừng để đón hoặc trả khách.",
+      "Tội này vẫn có thể bị xử phạt dù người bị hại không muốn xử phạt. Nếu không có hành khách khác, mức xử lý có thể được giảm nhẹ.",
+      "Nếu người lái xe hoặc người khác bị thương thì thành tội \"gây thương tích\", chỉ có hình phạt tù từ 3 năm trở lên nên nặng hơn nhiều."
+    ]
+  },
+  "domestic-violence": {
+    "name": "Bạo lực gia đình",
+    "aliases": [
+      "vợ chồng đánh nhau",
+      "chồng đánh vợ",
+      "vợ đánh chồng",
+      "hành hung người trong gia đình",
+      "Luật Xử phạt Tội phạm Bạo lực Gia đình",
+      "vụ việc bảo vệ gia đình"
+    ],
+    "statutory": "Theo khung hình phạt của tội tương ứng (ví dụ: hành hung là tù đến 2 năm, phạt tiền đến 5 triệu won; gây thương tích là tù đến 7 năm, đình chỉ tư cách đến 10 năm, phạt tiền đến 10 triệu won)",
+    "law": "Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Gia đình (hành hung, gây thương tích, đe dọa… theo Bộ luật Hình sự)",
+    "questions": {
+      "weapon": {
+        "label": "Bạn có cầm hung khí hoặc vật nguy hiểm, hoặc làm nhiều lần thành thói quen không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "priors": {
+        "label": "Số lần bạo lực gia đình trong 3 năm gần đây",
+        "help": "Tính cả những lần kết thúc mà không bị xử phạt (tạm hoãn truy tố, chuyển thành vụ việc bảo vệ gia đình, kết thúc vì người bị hại không muốn xử phạt).",
+        "unit": "lần"
+      },
+      "severity": {
+        "label": "Mức độ thiệt hại",
+        "options": {
+          "minor": "Nhẹ",
+          "serious": "Đến mức gia đình tan vỡ hoặc có nguy cơ cao gây hại lần nữa"
+        }
+      },
+      "counsel": {
+        "label": "Bạn có đồng ý tham gia tư vấn hoặc học tập không?",
+        "options": {
+          "no": "Không đồng ý",
+          "yes": "Đồng ý"
+        }
+      },
+      "victimAgrees": {
+        "label": "Người bị hại có muốn giữ gìn gia đình và không muốn xử phạt không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có hung khí hoặc tính thường xuyên, từ 2 lần trở lên trong 3 năm gần đây, hoặc có nguy cơ gây hại nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam sẽ được xem xét."
+      },
+      {
+        "note": "Nếu không nghiêm trọng và bạn đồng ý tham gia tư vấn, học tập, phương án tạm hoãn truy tố với điều kiện tham gia tư vấn hoặc học tập được xem xét trước tiên."
+      },
+      {
+        "note": "Có xét đến hoàn cảnh vụ việc và ý muốn của người bị hại, phương án chuyển thành vụ việc bảo vệ gia đình (biện pháp bảo vệ của Tòa án Gia đình) được tích cực xem xét. Nếu thiệt hại lớn hoặc người bị hại muốn xử phạt, vụ việc cũng có thể được đưa ra xét xử hình sự thông thường."
+      }
+    ],
+    "notes": [
+      "Dù người bị hại không muốn xử phạt, nếu có nguy cơ tái phạm thì vụ việc vẫn có thể được chuyển thành vụ việc bảo vệ gia đình.",
+      "Nếu người bị hại muốn giữ gìn gia đình và tiền phạt sẽ là gánh nặng cho chi tiêu gia đình, hướng tránh xử phạt tiền sẽ được cân nhắc.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "child-abuse": {
+    "name": "Ngược đãi trẻ em (ngược đãi thể chất, tinh thần, bỏ mặc)",
+    "aliases": [
+      "ngược đãi trẻ em",
+      "đánh con để dạy dỗ",
+      "bạo hành trẻ em",
+      "ngược đãi tinh thần",
+      "bỏ mặc con",
+      "bạo hành ở nhà trẻ",
+      "vi phạm Luật Phúc lợi Trẻ em"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 50 triệu won",
+    "law": "Điều 71 khoản 1 điểm 2, Điều 17 Luật Phúc lợi Trẻ em / Luật Đặc biệt về Xử phạt Tội phạm Ngược đãi Trẻ em",
+    "questions": {
+      "severity": {
+        "label": "Mức độ ngược đãi",
+        "options": {
+          "minor": "Nhẹ (đánh phạt hoặc chửi mắng một lần…)",
+          "moderate": "Lặp lại hoặc trẻ bị thương",
+          "serious": "Trẻ bị thương nặng hoặc lặp lại trong thời gian dài"
+        }
+      },
+      "weapon": {
+        "label": "Bạn có dùng hung khí hoặc vật nguy hiểm, hoặc làm nhiều lần thành thói quen không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "priors": {
+        "label": "Số lần ngược đãi trẻ em trong 3 năm gần đây",
+        "help": "Tính cả những lần kết thúc mà không bị xử phạt (tạm hoãn truy tố, chuyển thành vụ việc bảo vệ trẻ em…).",
+        "unit": "lần"
+      },
+      "counsel": {
+        "label": "Bạn có đồng ý tham gia tư vấn, học tập, điều trị không?",
+        "options": {
+          "no": "Không đồng ý",
+          "yes": "Đồng ý"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu tính chất tội phạm xấu, dù chỉ một lần phạm tội, việc tạm giam vẫn được xem xét."
+      },
+      {
+        "sentence": "Tù từ 1 năm 6 tháng trở lên",
+        "note": "Theo nguyên tắc, người có hành vi ngược đãi trẻ em bị đưa ra xét xử chính thức."
+      },
+      {
+        "note": "Nếu vụ việc không nghiêm trọng và bạn đồng ý tham gia tư vấn, học tập, điều trị, việc tạm hoãn truy tố có điều kiện hoặc chuyển thành vụ việc bảo vệ trẻ em (biện pháp bảo vệ của Tòa án Gia đình) sẽ được xem xét."
+      }
+    ],
+    "notes": [
+      "Do luật được sửa đổi sau năm 2016, mức phạt tiền tối đa đã tăng từ 30 triệu won lên 50 triệu won.",
+      "Người có hành vi ngược đãi trẻ em thường bị đề nghị thêm lệnh tham gia khóa học hoặc lệnh hoàn thành chương trình giáo dục.",
+      "Nếu người chăm sóc trẻ em như nhân viên nhà trẻ, trường học ngược đãi trẻ, hình phạt được tăng nặng thêm đến 1/2.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "new-stalking": {
+    "name": "Tội phạm theo dõi, đeo bám (스토킹)",
+    "aliases": [
+      "đeo bám",
+      "theo dõi",
+      "stalking",
+      "vi phạm Luật Xử phạt Tội phạm Theo dõi, Đeo bám",
+      "đeo bám có mang hung khí",
+      "đi theo người khác",
+      "quấy rối liên tục"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 30 triệu won (nếu mang theo hoặc sử dụng vật nguy hiểm như hung khí: tù đến 5 năm hoặc phạt tiền đến 50 triệu won)",
+    "law": "Điều 18 Luật Xử phạt Tội phạm Theo dõi, Đeo bám",
+    "questions": {
+      "type": {
+        "label": "Bạn có mang theo hung khí… không?",
+        "options": {
+          "general": "Không (đeo bám thông thường)",
+          "weapon": "Có (mang theo hoặc sử dụng vật nguy hiểm như hung khí)"
+        }
+      },
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Thỏa thuận hoặc người bị hại không muốn xử phạt, đã khắc phục thiệt hại, thành thật hối lỗi, phạm tội lần đầu… là hoàn cảnh giảm nhẹ; phạm tội có kế hoạch, thiệt hại lớn, có tiền án cùng loại… là hoàn cảnh tăng nặng.",
+        "options": {
+          "mitigated": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "basic": "Ngang nhau",
+          "aggravated": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 2 năm – 5 năm"
+      },
+      {
+        "sentence": "Tù 1 năm 4 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù đến 1 năm 8 tháng hoặc phạt tiền 3 triệu – 20 triệu won"
+      },
+      {
+        "sentence": "Tù 1 năm 8 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 2 năm hoặc phạt tiền 5 triệu – 20 triệu won"
+      },
+      {
+        "sentence": "Tù đến 1 năm 4 tháng hoặc phạt tiền 1 triệu – 10 triệu won"
+      }
+    ],
+    "notes": [
+      "Liên tục, lặp đi lặp lại việc tiếp cận hoặc đi theo người khác trái ý họ, chờ gần nhà hoặc nơi làm việc, liên lạc qua điện thoại, tin nhắn, ứng dụng nhắn tin… làm người đó lo lắng hoặc sợ hãi thì cấu thành tội phạm theo dõi, đeo bám.",
+      "Do luật sửa đổi năm 2023, tội này có thể bị xử phạt dù người bị hại không muốn xử phạt.",
+      "Trong quá trình điều tra, có thể bị áp dụng biện pháp như cấm tiếp cận, gắn thiết bị điện tử theo dõi vị trí, và nếu vi phạm sẽ bị xử phạt riêng."
+    ]
+  },
+  "new-stalking-order-violation": {
+    "name": "Vi phạm biện pháp tạm thời, biện pháp khẩn cấp đối với tội đeo bám",
+    "aliases": [
+      "vi phạm lệnh cấm tiếp cận",
+      "vi phạm biện pháp tạm thời",
+      "vi phạm biện pháp khẩn cấp",
+      "vi phạm lệnh cấm tiếp cận do đeo bám"
+    ],
+    "statutory": "Vi phạm biện pháp tạm thời: tù đến 2 năm hoặc phạt tiền đến 20 triệu won / Vi phạm biện pháp khẩn cấp: tù đến 1 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 20 khoản 2, khoản 3 Luật Xử phạt Tội phạm Theo dõi, Đeo bám",
+    "questions": {
+      "type": {
+        "label": "Bạn đã vi phạm biện pháp nào?",
+        "options": {
+          "emergency": "Biện pháp khẩn cấp của cảnh sát (cấm tiếp cận…)",
+          "interim": "Biện pháp tạm thời của tòa án (cấm tiếp cận trong phạm vi 100 m, cấm liên lạc)"
+        }
+      },
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Thỏa thuận hoặc người bị hại không muốn xử phạt, đã khắc phục thiệt hại, thành thật hối lỗi, phạm tội lần đầu… là hoàn cảnh giảm nhẹ; phạm tội có kế hoạch, thiệt hại lớn, có tiền án cùng loại… là hoàn cảnh tăng nặng.",
+        "options": {
+          "mitigated": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "basic": "Ngang nhau",
+          "aggravated": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 1 năm 8 tháng – 2 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 2 năm hoặc phạt tiền 3 triệu – 15 triệu won"
+      },
+      {
+        "sentence": "Tù đến 1 năm 4 tháng hoặc phạt tiền 1 triệu – 7 triệu won"
+      },
+      {
+        "sentence": "Tù 1 năm (mức tối đa của khung hình phạt) hoặc phạt tiền 5 triệu – 10 triệu won"
+      },
+      {
+        "sentence": "Tù 8 tháng – 1 năm hoặc phạt tiền 2 triệu – 6 triệu won"
+      },
+      {
+        "sentence": "Tù đến 1 năm hoặc phạt tiền 1 triệu – 3 triệu won"
+      }
+    ],
+    "notes": [
+      "Biện pháp khẩn cấp là biện pháp như cấm tiếp cận do cảnh sát trực tiếp áp dụng khi cấp bách; biện pháp tạm thời là biện pháp do tòa án áp dụng theo yêu cầu của công tố viên.",
+      "Nếu vi phạm biện pháp, có thể bị áp dụng biện pháp tạm thời mạnh hơn là giam giữ tại phòng tạm giữ hoặc trại tạm giam.",
+      "Tội này thường bị xử phạt cùng với tội phạm theo dõi, đeo bám."
+    ]
+  },
+  "indecent-assault": {
+    "name": "Cưỡng ép có hành vi dâm ô",
+    "aliases": [
+      "sờ soạng",
+      "quấy rối tình dục",
+      "dâm ô",
+      "tội cưỡng ép có hành vi dâm ô"
+    ],
+    "statutory": "Tù đến 10 năm hoặc phạt tiền đến 15 triệu won",
+    "law": "Điều 298 Bộ luật Hình sự",
+    "questions": {
+      "prior": {
+        "label": "Bạn có tiền án cùng loại (tội phạm tình dục) không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "degree": {
+        "label": "Mức độ hành vi dâm ô",
+        "options": {
+          "light": "Tương đối nhẹ (chạm thoáng qua bên ngoài quần áo…)",
+          "heavy": "Nặng"
+        }
+      },
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "youth": {
+        "label": "Người gây ra có phải là thanh thiếu niên (dưới 19 tuổi) và đang thành thật hối lỗi không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có tiền án cùng loại, thủ đoạn xấu hoặc gây ra tổn hại lần 2 (tổn hại thứ cấp) cho người bị hại, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Nếu hành vi dâm ô nặng, thông thường sẽ bị đề nghị án tù tại phiên xét xử chính thức."
+      },
+      {
+        "note": "Dù hành vi dâm ô không nặng, thông thường vẫn bị đề nghị phạt tiền (từ 5 triệu won trở lên) tại phiên xét xử chính thức."
+      },
+      {
+        "note": "Nếu không có tiền án cùng loại, vụ việc nhẹ và đã thỏa thuận, hoặc là thanh thiếu niên thành thật hối lỗi, có thể được tạm hoãn truy tố với điều kiện hoàn thành khóa giáo dục…"
+      }
+    ],
+    "notes": [
+      "Từ năm 2013, đây không còn là tội chỉ bị truy tố khi có tố cáo (친고죄), nên dù đã thỏa thuận vẫn có thể bị xử phạt. Tuy nhiên, việc thỏa thuận được xem xét rất nhiều khi quyết định xử lý.",
+      "Nếu người bị hại dưới 19 tuổi hoặc dưới 13 tuổi, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt.",
+      "Nếu bản án có tội có hiệu lực, có thể kèm theo các biện pháp như đăng ký thông tin cá nhân."
+    ]
+  },
+  "quasi-indecent-assault": {
+    "name": "Dâm ô lợi dụng tình trạng không thể kháng cự",
+    "aliases": [
+      "sờ soạng người say rượu",
+      "sờ soạng người đang ngủ",
+      "dâm ô người say"
+    ],
+    "statutory": "Tù đến 10 năm hoặc phạt tiền đến 15 triệu won",
+    "law": "Điều 299 Bộ luật Hình sự",
+    "questions": {
+      "prior": {
+        "label": "Bạn có tiền án cùng loại (tội phạm tình dục) không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "degree": {
+        "label": "Mức độ hành vi dâm ô",
+        "options": {
+          "light": "Tương đối nhẹ (chạm thoáng qua bên ngoài quần áo…)",
+          "heavy": "Nặng"
+        }
+      },
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "youth": {
+        "label": "Người gây ra có phải là thanh thiếu niên (dưới 19 tuổi) và đang thành thật hối lỗi không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có tiền án cùng loại, thủ đoạn xấu hoặc gây ra tổn hại lần 2 (tổn hại thứ cấp) cho người bị hại, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Nếu hành vi dâm ô nặng, thông thường sẽ bị đề nghị án tù tại phiên xét xử chính thức."
+      },
+      {
+        "note": "Dù hành vi dâm ô không nặng, thông thường vẫn bị đề nghị phạt tiền (từ 5 triệu won trở lên) tại phiên xét xử chính thức."
+      },
+      {
+        "note": "Nếu không có tiền án cùng loại, vụ việc nhẹ và đã thỏa thuận, hoặc là thanh thiếu niên thành thật hối lỗi, có thể được tạm hoãn truy tố với điều kiện hoàn thành khóa giáo dục…"
+      }
+    ],
+    "notes": [
+      "Là trường hợp lợi dụng tình trạng người khác say rượu hoặc đang ngủ, không thể kháng cự, để thực hiện hành vi dâm ô; được xử lý theo cùng tiêu chuẩn với tội cưỡng ép có hành vi dâm ô.",
+      "Từ năm 2013, đây không còn là tội chỉ bị truy tố khi có tố cáo (친고죄), nên dù đã thỏa thuận vẫn có thể bị xử phạt. Tuy nhiên, việc thỏa thuận được xem xét rất nhiều khi quyết định xử lý.",
+      "Nếu người bị hại dưới 19 tuổi hoặc dưới 13 tuổi, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt.",
+      "Nếu bản án có tội có hiệu lực, có thể kèm theo các biện pháp như đăng ký thông tin cá nhân."
+    ]
+  },
+  "rape": {
+    "name": "Hiếp dâm",
+    "aliases": [
+      "tội hiếp dâm",
+      "cưỡng hiếp",
+      "xâm hại tình dục"
+    ],
+    "statutory": "Tù có thời hạn từ 3 năm trở lên",
+    "law": "Điều 297 Bộ luật Hình sự",
+    "questions": {
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "injury": {
+        "label": "Người bị hại có bị thương không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu người bị hại bị thương, sẽ bị xử phạt nặng hơn về tội hiếp dâm gây thương tích (tù chung thân hoặc tù từ 5 năm trở lên), và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Đây là tội vẫn bị xử phạt dù đã thỏa thuận, và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc. Tuy nhiên, việc thỏa thuận được xem xét khi quyết định mức xử phạt."
+      }
+    ],
+    "notes": [
+      "Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức.",
+      "Nếu người bị hại dưới 19 tuổi hoặc dưới 13 tuổi, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt.",
+      "Nếu bản án có tội có hiệu lực, có thể kèm theo các biện pháp như đăng ký thông tin cá nhân."
+    ]
+  },
+  "quasi-rape": {
+    "name": "Giao cấu lợi dụng tình trạng không thể kháng cự",
+    "aliases": [
+      "giao cấu với người say rượu",
+      "hiếp dâm người say",
+      "hiếp dâm người đang ngủ"
+    ],
+    "statutory": "Tù có thời hạn từ 3 năm trở lên",
+    "law": "Điều 299 Bộ luật Hình sự",
+    "questions": {
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "injury": {
+        "label": "Người bị hại có bị thương không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu người bị hại bị thương, sẽ bị xử phạt nặng hơn về tội hiếp dâm gây thương tích (tù chung thân hoặc tù từ 5 năm trở lên), và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Đây là tội vẫn bị xử phạt dù đã thỏa thuận, và việc điều tra có tạm giam được xem xét gần như theo nguyên tắc. Tuy nhiên, việc thỏa thuận được xem xét khi quyết định mức xử phạt."
+      }
+    ],
+    "notes": [
+      "Là trường hợp lợi dụng tình trạng người khác say rượu hoặc đang ngủ, không thể kháng cự; được xử lý theo cùng tiêu chuẩn với tội hiếp dâm.",
+      "Nếu người bị hại dưới 19 tuổi hoặc dưới 13 tuổi, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt.",
+      "Nếu bản án có tội có hiệu lực, có thể kèm theo các biện pháp như đăng ký thông tin cá nhân."
+    ]
+  },
+  "p2-similar-rape": {
+    "name": "Hành vi tương tự hiếp dâm, kể cả khi lợi dụng tình trạng không thể kháng cự",
+    "aliases": [
+      "hành vi tương tự hiếp dâm",
+      "ép quan hệ tình dục bằng miệng",
+      "cưỡng ép hành vi tình dục"
+    ],
+    "statutory": "Tù có thời hạn từ 2 năm trở lên",
+    "law": "Điều 297-2, Điều 299 Bộ luật Hình sự",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Theo nguyên tắc là tạm giam",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      }
+    ],
+    "notes": [
+      "Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức.",
+      "Nếu người bị hại dưới 19 tuổi hoặc dưới 13 tuổi, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt."
+    ]
+  },
+  "p2-rape-injury": {
+    "name": "Hiếp dâm… gây thương tích",
+    "aliases": [
+      "hiếp dâm gây thương tích",
+      "dâm ô gây thương tích",
+      "cưỡng ép dâm ô gây thương tích"
+    ],
+    "statutory": "Tù chung thân hoặc tù từ 5 năm trở lên",
+    "law": "Điều 301 Bộ luật Hình sự",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Theo nguyên tắc là tạm giam",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      }
+    ],
+    "notes": [
+      "Là trường hợp gây thương tích cho người khác trong khi hiếp dâm, cưỡng ép có hành vi dâm ô… Cưỡng ép có hành vi dâm ô gây thương tích cũng bị xử phạt với cùng mức hình phạt.",
+      "Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức."
+    ]
+  },
+  "public-place-molestation": {
+    "name": "Dâm ô ở nơi công cộng đông người",
+    "aliases": [
+      "sờ soạng trên tàu điện ngầm",
+      "sờ soạng trên xe buýt",
+      "quấy rối tình dục trên tàu điện ngầm",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (dâm ô ở nơi công cộng đông người)"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 11 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "severity": {
+        "label": "Mức độ hành vi",
+        "options": {
+          "minor": "Tương đối nhẹ",
+          "normal": "Trung bình",
+          "bad": "Lặp lại hoặc hành vi nghiêm trọng"
+        }
+      },
+      "record": {
+        "label": "Tiền sử tội phạm tình dục",
+        "options": {
+          "none": "Không có",
+          "minor": "Đã từng bị tạm hoãn truy tố hoặc phạt tiền về tội cùng loại",
+          "serious": "Đã từng bị án tù về tội phạm tình dục hoặc bị xử phạt nhiều lần"
+        }
+      },
+      "settled": {
+        "label": "Thỏa thuận với người bị hại",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu xét theo tính lặp lại hoặc nội dung hành vi mà tính chất tội phạm xấu, việc tạm giam sẽ được xem xét."
+      },
+      {
+        "sentence": "Tù từ 8 tháng trở lên"
+      },
+      {},
+      {},
+      {
+        "note": "Nếu không có tiền sử, hành vi nhẹ và đã thỏa thuận với người bị hại, có thể được tạm hoãn truy tố với điều kiện tham gia khóa giáo dục…"
+      }
+    ],
+    "notes": [
+      "Do luật sửa đổi năm 2020, khung hình phạt đã tăng mạnh, nên việc xử lý thực tế có thể nặng hơn ước tính này.",
+      "Dù chỉ là phạt tiền, nếu bản án có tội có hiệu lực, bạn có thể thuộc diện phải đăng ký thông tin cá nhân."
+    ]
+  },
+  "workplace-sexual-coercion": {
+    "name": "Dâm ô bằng cách lợi dụng quyền lực trong công việc",
+    "aliases": [
+      "quấy rối tình dục nơi làm việc",
+      "cấp trên sờ soạng",
+      "lợi dụng quyền lực để dâm ô",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (dâm ô bằng cách lợi dụng quyền lực trong công việc)"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 15 triệu won",
+    "law": "Điều 10 khoản 1 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "victims": {
+        "label": "Số người bị hại",
+        "unit": "người"
+      },
+      "repeated": {
+        "label": "Bạn có làm nhiều lần không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có tính thường xuyên, lặp lại hoặc có từ 2 người bị hại trở lên, việc tạm giam sẽ được xem xét."
+      },
+      {
+        "sentence": "Tù từ 1 năm trở lên",
+        "note": "Đây là tội theo nguyên tắc được đưa ra xét xử chính thức."
+      }
+    ],
+    "notes": [
+      "Là hành vi dâm ô đối với người đang chịu sự bảo hộ, giám sát của mình do quan hệ công ty, quan hệ lao động…",
+      "Do luật sửa đổi năm 2018, khung hình phạt đã tăng (trước đây là tù đến 2 năm, phạt tiền đến 5 triệu won).",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "spycam": {
+    "name": "Quay phim, chụp ảnh lén bằng máy ảnh… (quay lén)",
+    "aliases": [
+      "quay lén",
+      "chụp lén",
+      "camera ẩn",
+      "quay trộm",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (quay phim, chụp ảnh bằng máy ảnh…)"
+    ],
+    "statutory": "Tù đến 7 năm hoặc phạt tiền đến 50 triệu won (nếu phạm tội thường xuyên thì tăng nặng thêm đến 1/2)",
+    "law": "Điều 14 khoản 1 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "body": {
+        "label": "Bộ phận cơ thể bị quay, chụp",
+        "options": {
+          "mild": "Bộ phận tương đối nhẹ (chân khi đang mặc quần áo…)",
+          "severe": "Bộ phận gây xấu hổ lớn về tình dục (khỏa thân, đồ lót, bên trong váy…)"
+        }
+      },
+      "identifiable": {
+        "label": "Có thể nhận ra người bị hại là ai không?",
+        "options": {
+          "no": "Không thể nhận ra",
+          "yes": "Có thể nhận ra"
+        }
+      },
+      "spread": {
+        "label": "Bạn có gửi cho người khác hoặc đăng tải những gì đã quay, chụp không?",
+        "options": {
+          "no": "Không phát tán",
+          "yes": "Đã phát tán"
+        }
+      },
+      "history": {
+        "label": "Tính lặp lại, tiền sử",
+        "options": {
+          "first": "Lần đầu",
+          "habitual": "Đã quay, chụp lặp lại nhiều lần",
+          "record": "Đã bị xử từ mức phạt tiền trở lên về tội phạm tình dục trong 3 năm gần đây"
+        }
+      },
+      "settled": {
+        "label": "Thỏa thuận với người bị hại",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 2 năm trở lên"
+      },
+      {
+        "sentence": "Tù từ 1 năm 6 tháng trở lên"
+      },
+      {},
+      {},
+      {
+        "note": "Nếu là lần đầu, quay, chụp bộ phận tương đối nhẹ và không thể nhận ra người bị hại hoặc đã thỏa thuận, đây là loại có thể được tạm hoãn truy tố, thường kèm điều kiện như tham gia khóa giáo dục. Trên thực tế cũng có khi bị đề nghị phạt tiền (đã thỏa thuận: 3 triệu won; chưa thỏa thuận: từ 5 triệu won trở lên)."
+      }
+    ],
+    "notes": [
+      "Do luật sửa đổi năm 2020, khung hình phạt đã tăng mạnh, nên việc xử lý thực tế có thể nặng hơn ước tính này.",
+      "Ảnh, video đã quay, chụp bị tịch thu, và nếu bản án có tội có hiệu lực, có thể kèm theo việc đăng ký thông tin cá nhân…",
+      "Nếu là thanh thiếu niên phạm tội lần đầu và thành thật hối lỗi, việc tạm hoãn truy tố có thể được xem xét."
+    ]
+  },
+  "intimate-image-distribution": {
+    "name": "Phát tán ảnh, video đã quay (kể cả ảnh, video quay có sự đồng ý)",
+    "aliases": [
+      "revenge porn",
+      "phát tán video",
+      "phát tán ảnh",
+      "tung clip nóng",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (phát tán ảnh, video quay bằng máy ảnh…)"
+    ],
+    "statutory": "Tù đến 7 năm hoặc phạt tiền đến 50 triệu won (nếu phát tán trên Internet vì mục đích vụ lợi: tù có thời hạn từ 3 năm trở lên)",
+    "law": "Điều 14 khoản 2 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "body": {
+        "label": "Nội dung ảnh, video đã phát tán",
+        "options": {
+          "mild": "Bộ phận tương đối nhẹ",
+          "severe": "Bộ phận gây xấu hổ lớn về tình dục (khỏa thân, quan hệ tình dục…)"
+        }
+      },
+      "identifiable": {
+        "label": "Có thể nhận ra người bị hại là ai không?",
+        "options": {
+          "no": "Không thể nhận ra",
+          "yes": "Có thể nhận ra"
+        }
+      },
+      "history": {
+        "label": "Tính lặp lại, tiền sử",
+        "options": {
+          "first": "Lần đầu",
+          "habitual": "Đã quay rồi phát tán nhiều lần",
+          "record": "Đã bị xử từ mức phạt tiền trở lên về tội phạm tình dục trong 3 năm gần đây"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 2 năm trở lên"
+      },
+      {
+        "sentence": "Tù từ 1 năm trở lên"
+      },
+      {}
+    ],
+    "notes": [
+      "Dù người bị quay đã đồng ý lúc quay, nếu sau đó phát tán mà không được cho phép thì vẫn bị xử phạt. Nếu phát tán thứ đã quay lén thì bị xử lý nặng hơn nhiều.",
+      "Do luật sửa đổi năm 2018 và 2020, khung hình phạt của loại này đã tăng mạnh (trước đây là tù đến 3 năm, phạt tiền đến 5 triệu won), nên việc xử lý thực tế có thể nặng hơn ước tính này."
+    ]
+  },
+  "new-illegal-footage-possession": {
+    "name": "Tàng trữ, mua, lưu trữ, xem ảnh, video quay lén",
+    "aliases": [
+      "tàng trữ video quay lén",
+      "xem video quay lén",
+      "tải video quay lén",
+      "giữ clip quay lén",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (tàng trữ ảnh, video quay bằng máy ảnh…)"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 14 khoản 4 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Thỏa thuận hoặc người bị hại không muốn xử phạt, đã khắc phục thiệt hại, thành thật hối lỗi, phạm tội lần đầu… là hoàn cảnh giảm nhẹ; phạm tội có kế hoạch, thiệt hại lớn, có tiền án cùng loại… là hoàn cảnh tăng nặng.",
+        "options": {
+          "mitigated": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "basic": "Ngang nhau",
+          "aggravated": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 1 năm 8 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 2 năm"
+      },
+      {
+        "sentence": "Tù đến 1 năm 4 tháng"
+      }
+    ],
+    "notes": [
+      "Đây là hành vi bắt đầu bị xử phạt từ khi luật được sửa đổi năm 2020. Chỉ cần biết đó là video quay lén hoặc video bị phát tán không có sự đồng ý mà vẫn tải về, giữ hoặc chỉ xem thôi cũng thuộc tội này.",
+      "Dù chỉ là phạt tiền, nếu bản án có tội có hiệu lực, bạn có thể thuộc diện phải đăng ký thông tin cá nhân."
+    ]
+  },
+  "new-deepfake": {
+    "name": "Biên tập, phát tán video giả mạo (deepfake)",
+    "aliases": [
+      "deepfake",
+      "video giả mạo",
+      "ghép ảnh khiêu dâm",
+      "ghép mặt người quen vào ảnh khiêu dâm",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (biên tập, phát tán video giả mạo…)"
+    ],
+    "statutory": "Biên tập, ghép, chỉnh sửa hoặc phát tán: tù đến 7 năm hoặc phạt tiền đến 50 triệu won / Phát tán qua mạng thông tin vì mục đích vụ lợi: tù có thời hạn từ 3 năm trở lên (nếu phạm tội thường xuyên thì tăng nặng thêm đến 1/2)",
+    "law": "Điều 14-2 khoản 1 đến khoản 3 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "type": {
+        "label": "Bạn đã làm hành vi nào?",
+        "options": {
+          "edit": "Biên tập, ghép mặt, cơ thể, giọng nói theo hướng tình dục",
+          "spread": "Phát tán sản phẩm ghép đó (gửi, đăng, bán…)",
+          "profit": "Phát tán trên Internet để kiếm tiền"
+        }
+      },
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Thỏa thuận hoặc người bị hại không muốn xử phạt, đã khắc phục thiệt hại, thành thật hối lỗi, phạm tội lần đầu… là hoàn cảnh giảm nhẹ; phạm tội có kế hoạch, thiệt hại lớn, có tiền án cùng loại… là hoàn cảnh tăng nặng.",
+        "options": {
+          "mitigated": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "basic": "Ngang nhau",
+          "aggravated": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 3 năm – 8 năm"
+      },
+      {
+        "sentence": "Tù 2 năm – 5 năm"
+      },
+      {
+        "sentence": "Tù 8 tháng – 2 năm 8 tháng"
+      },
+      {
+        "sentence": "Tù 1 năm 8 tháng – 5 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 3 năm"
+      },
+      {
+        "sentence": "Tù đến 1 năm 4 tháng"
+      },
+      {
+        "sentence": "Tù 1 năm 8 tháng – 5 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 3 năm"
+      },
+      {
+        "sentence": "Tù đến 1 năm 4 tháng"
+      }
+    ],
+    "notes": [
+      "Do luật sửa đổi năm 2024, dù không có mục đích phát tán, chỉ cần tạo ra là đã bị xử phạt, và khung hình phạt cũng tăng (trước đây là tù đến 5 năm).",
+      "Chỉ cần biết đó là sản phẩm ghép deepfake mà vẫn giữ, mua, lưu trữ hoặc chỉ xem thôi cũng bị xử phạt tù đến 3 năm hoặc phạt tiền đến 30 triệu won (quy định mới năm 2024).",
+      "Nếu đối tượng là trẻ em, thanh thiếu niên thì áp dụng mục \"tài liệu bóc lột tình dục trẻ em, thanh thiếu niên\", nặng hơn nhiều."
+    ]
+  },
+  "new-sexual-footage-threat": {
+    "name": "Đe dọa, cưỡng ép bằng ảnh, video quay hoặc sản phẩm ghép",
+    "aliases": [
+      "lừa đảo body cam",
+      "dọa tung video",
+      "đe dọa bằng ảnh nóng",
+      "tống tiền bằng clip nóng",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (đe dọa bằng ảnh, video quay…)",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (cưỡng ép bằng ảnh, video quay…)"
+    ],
+    "statutory": "Đe dọa: tù có thời hạn từ 1 năm trở lên / Cưỡng ép (đe dọa để bắt làm việc không có nghĩa vụ phải làm): tù có thời hạn từ 3 năm trở lên (nếu phạm tội thường xuyên thì tăng nặng thêm đến 1/2)",
+    "law": "Điều 14-3 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "type": {
+        "label": "Bạn đã làm đến mức nào?",
+        "options": {
+          "threat": "Chỉ đe dọa sẽ phát tán",
+          "coerce": "Đe dọa để đòi và đã nhận được tiền, video, việc gặp mặt…"
+        }
+      },
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Thỏa thuận hoặc người bị hại không muốn xử phạt, đã khắc phục thiệt hại, thành thật hối lỗi, phạm tội lần đầu… là hoàn cảnh giảm nhẹ; phạm tội có kế hoạch, thiệt hại lớn, có tiền án cùng loại… là hoàn cảnh tăng nặng.",
+        "options": {
+          "mitigated": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "basic": "Ngang nhau",
+          "aggravated": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 10 năm – 16 năm"
+      },
+      {
+        "sentence": "Tù 6 năm – 12 năm"
+      },
+      {
+        "sentence": "Tù 3 năm – 8 năm"
+      },
+      {
+        "sentence": "Tù 4 năm – 8 năm"
+      },
+      {
+        "sentence": "Tù 2 năm – 6 năm"
+      },
+      {
+        "sentence": "Tù 1 năm 6 tháng – 3 năm"
+      }
+    ],
+    "notes": [
+      "Đe dọa sẽ phát tán ảnh, video tình dục hoặc sản phẩm ghép deepfake thì thuộc tội này. Nếu đã thực sự phát tán thì tội phát tán cũng bị xem xét cùng.",
+      "Đây là tội không có hình phạt tiền."
+    ]
+  },
+  "obscene-communication": {
+    "name": "Gửi nội dung dâm ô qua phương tiện liên lạc",
+    "aliases": [
+      "tin nhắn dâm ô",
+      "nhắn tin khiêu dâm",
+      "gửi ảnh khiêu dâm qua DM",
+      "tin nhắn tình dục",
+      "vi phạm Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục (dâm ô qua phương tiện liên lạc)"
+    ],
+    "statutory": "Tù đến 2 năm hoặc phạt tiền đến 20 triệu won",
+    "law": "Điều 13 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "level": {
+        "label": "Mức độ dâm ô của nội dung",
+        "options": {
+          "low": "Thấp",
+          "high": "Cao (ảnh, video lộ liễu…)"
+        }
+      },
+      "frequency": {
+        "label": "Số lần gửi",
+        "options": {
+          "once": "Một lần",
+          "many": "Nhiều lần"
+        }
+      },
+      "record": {
+        "label": "Tiền sử tội phạm tình dục",
+        "options": {
+          "none": "Không có",
+          "minor": "Đã từng bị tạm hoãn truy tố hoặc phạt tiền về tội cùng loại",
+          "serious": "Đã từng bị án tù về tội phạm tình dục hoặc bị xử phạt nhiều lần"
+        }
+      },
+      "settled": {
+        "label": "Thỏa thuận với người bị hại",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu xét theo tính lặp lại, mức độ dâm ô, tuổi của người bị hại… mà tính chất tội phạm xấu, việc tạm giam sẽ được xem xét."
+      },
+      {
+        "sentence": "Tù từ 8 tháng trở lên"
+      },
+      {},
+      {},
+      {
+        "note": "Nếu không có tiền sử và chỉ gửi một lần chữ, ảnh có mức độ dâm ô thấp, hoặc đã thỏa thuận trong vụ việc nhẹ, có thể được tạm hoãn truy tố, thường kèm điều kiện như tham gia khóa giáo dục."
+      }
+    ],
+    "notes": [
+      "Do luật sửa đổi năm 2020, khung hình phạt đã tăng mạnh, nên việc xử lý thực tế có thể nặng hơn ước tính này.",
+      "Dù chỉ là phạt tiền, nếu bản án có tội có hiệu lực, bạn có thể thuộc diện phải đăng ký thông tin cá nhân."
+    ]
+  },
+  "public-indecency": {
+    "name": "Hành vi dâm ô nơi công cộng",
+    "aliases": [
+      "khoe bộ phận sinh dục",
+      "phơi bày cơ thể nơi công cộng",
+      "hành vi dâm ô"
+    ],
+    "statutory": "Tù đến 1 năm, phạt tiền đến 5 triệu won, câu lưu hoặc phạt tiền nhẹ",
+    "law": "Điều 245 Bộ luật Hình sự",
+    "questions": {
+      "repeat": {
+        "label": "Bạn có làm nhiều lần hoặc có tiền án cùng loại không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "serious": {
+        "label": "Mức độ dâm ô có nghiêm trọng không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 8 tháng trở lên"
+      },
+      {}
+    ]
+  },
+  "p2-sexual-intrusion": {
+    "name": "Xâm nhập nơi nhiều người sử dụng với mục đích tình dục",
+    "aliases": [
+      "xâm nhập nhà vệ sinh nữ",
+      "xâm nhập phòng thay đồ",
+      "xâm nhập nhà tắm công cộng",
+      "xâm nhập nơi nhiều người sử dụng vì mục đích tình dục"
+    ],
+    "statutory": "Tù đến 1 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 12 Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "questions": {
+      "bad": {
+        "label": "Bạn có làm lặp lại hoặc hành vi nghiêm trọng không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "record": {
+        "label": "Tiền sử tội phạm tình dục",
+        "options": {
+          "none": "Không có",
+          "minor": "Đã từng bị tạm hoãn truy tố hoặc phạt tiền về tội cùng loại",
+          "serious": "Đã từng bị án tù về tội phạm tình dục hoặc bị xử phạt nhiều lần"
+        }
+      },
+      "lowRisk": {
+        "label": "Xét theo địa điểm, cách thức, thời gian, mức nguy hiểm có rất thấp không, hoặc bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "Tù từ 8 tháng trở lên"
+      },
+      {},
+      {},
+      {
+        "note": "Nếu không có tiền sử và mức nguy hiểm thấp hoặc đã thỏa thuận, có thể được tạm hoãn truy tố với điều kiện tham gia khóa giáo dục…"
+      }
+    ],
+    "notes": [
+      "Là trường hợp xâm nhập nhà vệ sinh, nhà tắm, phòng thay đồ, phòng cho con bú… với mục đích thỏa mãn ham muốn tình dục, hoặc không chịu rời đi khi được yêu cầu.",
+      "Khung hình phạt đã tăng (trước đây là tù đến 1 năm, phạt tiền đến 3 triệu won)."
+    ]
+  },
+  "prostitution-purchase": {
+    "name": "Mua dâm",
+    "aliases": [
+      "mua dâm",
+      "mại dâm",
+      "John School",
+      "vi phạm Luật Xử phạt Hành vi Môi giới Mại dâm (mại dâm)",
+      "officetel mại dâm",
+      "tiệm massage"
+    ],
+    "statutory": "Tù đến 1 năm hoặc phạt tiền đến 3 triệu won, câu lưu hoặc phạt tiền nhẹ",
+    "law": "Điều 21 khoản 1 Luật Xử phạt Hành vi Môi giới Mại dâm",
+    "questions": {
+      "record": {
+        "label": "Số lần từng bị bắt vì mua bán dâm",
+        "options": {
+          "none": "Không có",
+          "some": "1–2 lần",
+          "many": "Từ 3 lần trở lên"
+        }
+      },
+      "type": {
+        "label": "Loại mua bán dâm",
+        "options": {
+          "normal": "Thông thường, trong nước",
+          "disabled": "Với người khuyết tật",
+          "overseas": "Ở nước ngoài"
+        }
+      },
+      "education": {
+        "label": "Bạn có đồng ý tham gia khóa giáo dục phòng ngừa tái phạm cho người mua dâm không?",
+        "options": {
+          "no": "Không đồng ý",
+          "yes": "Đồng ý"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Với việc mua dâm ở nước ngoài, nếu tính cả trong nước mà có từ 3 lần mua bán dâm trở lên, việc đưa ra xét xử chính thức sẽ được xem xét."
+      },
+      {
+        "note": "Với việc mua dâm người khuyết tật, theo nguyên tắc không áp dụng tạm hoãn truy tố có điều kiện tham gia khóa giáo dục."
+      },
+      {
+        "note": "Với việc mua dâm ở nước ngoài, dù là lần đầu, theo nguyên tắc vẫn bị phạt tiền theo thủ tục rút gọn."
+      },
+      {},
+      {
+        "note": "Nếu là lần đầu, thông thường sẽ được tạm hoãn truy tố với điều kiện hoàn thành khóa giáo dục phòng ngừa tái phạm cho người mua dâm (John School), hoặc được chuyển thành vụ việc bảo vệ liên quan đến mại dâm."
+      }
+    ],
+    "notes": [
+      "Nếu đã đồng ý tham gia khóa giáo dục mà không hoàn thành, việc điều tra sẽ được tiến hành lại và có thể bị xử lý như phạt tiền."
+    ]
+  },
+  "prostitution-brokering": {
+    "name": "Môi giới mại dâm (điều hành cơ sở…)",
+    "aliases": [
+      "môi giới mại dâm",
+      "cơ sở mại dâm",
+      "đường dây gái gọi",
+      "vi phạm Luật Xử phạt Hành vi Môi giới Mại dâm (môi giới mại dâm…)",
+      "cho thuê nhà để mại dâm"
+    ],
+    "statutory": "Môi giới: tù đến 3 năm hoặc phạt tiền đến 30 triệu won; môi giới như một nghề kinh doanh: tù đến 7 năm hoặc phạt tiền đến 70 triệu won",
+    "law": "Điều 19 Luật Xử phạt Hành vi Môi giới Mại dâm",
+    "questions": {
+      "role": {
+        "label": "Vai trò của bạn",
+        "options": {
+          "owner": "Chủ cơ sở (người điều hành)",
+          "manager": "Quản lý như trưởng ca, tham gia quản lý nhân viên và điều hành",
+          "recruiter": "Tuyển dụng, giới thiệu người bán dâm và nhận tiền công, hoặc cho thuê nhà",
+          "employee": "Nhân viên thông thường",
+          "simple": "Môi giới đơn giản một hai lần"
+        }
+      },
+      "staff": {
+        "label": "Số nhân viên nữ đã thuê",
+        "help": "Nếu không phải chủ cơ sở thì để là 0.",
+        "unit": "người"
+      },
+      "months": {
+        "label": "Thời gian kinh doanh",
+        "unit": "tháng"
+      },
+      "priors": {
+        "label": "Số lần từng bị xử phạt về tội cùng loại",
+        "unit": "lần"
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có từ 5 nhân viên trở lên, kinh doanh từ 1 năm trở lên (hoặc thu lợi bất chính từ 100 triệu won trở lên), có từ 2 tiền sử cùng loại trở lên hoặc đang trong thời gian án treo vì tội cùng loại, theo nguyên tắc sẽ bị tạm giam."
+      },
+      {},
+      {
+        "note": "Dù chỉ là môi giới đơn giản và phạm tội lần đầu, nếu có khả năng tái phạm thì vụ việc có thể bị đưa ra xét xử chính thức."
+      },
+      {
+        "note": "Nhân viên thông thường có thể chỉ bị phạt tiền theo thủ tục rút gọn."
+      }
+    ],
+    "notes": [
+      "Nếu vụ việc không thật sự nhẹ, ngoài án tù còn bị đề nghị phạt tiền, và tiền thu được từ mại dâm bị tịch thu hoặc truy thu.",
+      "Với việc môi giới mại dâm ở nước ngoài, theo nguyên tắc mức án đề nghị được tăng nặng thêm 1/2.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "child-prostitution-purchase": {
+    "name": "Mua dâm trẻ em, thanh thiếu niên",
+    "aliases": [
+      "mua dâm người chưa thành niên",
+      "mại dâm thanh thiếu niên",
+      "hẹn gặp có điều kiện",
+      "vi phạm Luật Bảo vệ Trẻ em và Thanh thiếu niên khỏi Xâm hại Tình dục (mua dâm…)"
+    ],
+    "statutory": "Tù từ 1 năm đến 10 năm hoặc phạt tiền từ 20 triệu đến 50 triệu won (nếu người bị hại dưới 16 tuổi thì tăng nặng thêm đến 1/2)",
+    "law": "Điều 13 khoản 1 Luật Bảo vệ Trẻ em và Thanh thiếu niên khỏi Xâm hại Tình dục",
+    "questions": {
+      "under16": {
+        "label": "Người kia có dưới 16 tuổi không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "record": {
+        "label": "Bạn có tiền sử cùng loại không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      },
+      "bad": {
+        "label": "Có hoàn cảnh khiến tính chất tội phạm xấu, như hành vi biến thái, không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu người kia dưới 16 tuổi, là tái phạm hoặc tính chất tội phạm xấu, việc tạm giam sẽ được xem xét."
+      },
+      {
+        "note": "Có xét đến hoàn cảnh, số lần mua dâm, tuổi của người kia…, nhưng theo nguyên tắc vụ việc được đưa ra xét xử chính thức."
+      }
+    ],
+    "notes": [
+      "Để ngăn tái phạm, thường bị đề nghị thêm lệnh tham gia khóa học hoặc lệnh hoàn thành chương trình điều trị tội phạm bạo lực tình dục.",
+      "Trẻ em, thanh thiếu niên là người chưa đến ngày 1 tháng 1 của năm tròn 19 tuổi.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "adult-ent-prostitution": {
+    "name": "Môi giới mại dâm tại cơ sở kinh doanh dịch vụ giải trí",
+    "aliases": [
+      "môi giới mại dâm ở quán karaoke",
+      "mại dâm ở quán bar, nhà hàng giải trí",
+      "vi phạm Luật Quản lý Kinh doanh Dịch vụ Ảnh hưởng đến Thuần phong Mỹ tục"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 10 khoản 1 Luật Quản lý Kinh doanh Dịch vụ Ảnh hưởng đến Thuần phong Mỹ tục",
+    "questions": {
+      "priors": {
+        "label": "Số lần từng bị xử phạt về tội cùng loại",
+        "unit": "lần"
+      },
+      "youth": {
+        "label": "Có liên quan đến thanh thiếu niên không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu tái phạm và có liên quan đến thanh thiếu niên, việc tạm giam sẽ được xem xét."
+      },
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {}
+    ],
+    "notes": [
+      "Là trường hợp môi giới mại dâm tại các cơ sở kinh doanh dịch vụ giải trí như phòng hát karaoke, quán rượu có tiếp viên, cơ sở lưu trú."
+    ]
+  },
+  "theft": {
+    "name": "Trộm cắp",
+    "aliases": [
+      "tội trộm cắp",
+      "ăn trộm",
+      "lấy trộm đồ",
+      "trộm ở cửa hàng tiện lợi"
+    ],
+    "statutory": "Tù đến 6 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 329 Bộ luật Hình sự",
+    "questions": {
+      "aggravated": {
+        "label": "Bạn có làm cùng từ 2 người trở lên, đột nhập nhà người khác, làm như một nghề như móc túi, hoặc làm lặp lại nhiều lần không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "prior": {
+        "label": "Bạn có tiền án cùng loại (trộm cắp) không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "recovered": {
+        "label": "Bạn đã trả lại đồ đã lấy hoặc bồi thường thiệt hại chưa?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "youth": {
+        "label": "Người gây ra có phải là người chưa thành niên (dưới 19 tuổi) hoặc học sinh, sinh viên không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Trộm cắp cùng nhiều người, có đột nhập hoặc mang hung khí, hoặc trộm cắp như một nghề, lặp đi lặp lại thì việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Nếu có tiền án cùng loại hoặc thiệt hại đáng kể, thông thường vụ việc được đưa ra xét xử chính thức."
+      },
+      {},
+      {
+        "note": "Nếu là lần đầu và đồ bị lấy đã được thu hồi, hoặc người gây ra là người chưa thành niên, học sinh, sinh viên, có thể được tạm hoãn truy tố."
+      }
+    ],
+    "notes": [
+      "Tội phạm về tài sản giữa người trong gia đình (họ hàng) chỉ bị xử phạt khi người bị hại tố cáo."
+    ]
+  },
+  "night-burglary": {
+    "name": "Xâm nhập nơi ở vào ban đêm để trộm cắp",
+    "aliases": [
+      "trộm nhà vắng chủ",
+      "trộm cắp ban đêm",
+      "đột nhập nhà ban đêm"
+    ],
+    "statutory": "Tù đến 10 năm",
+    "law": "Điều 330 Bộ luật Hình sự",
+    "questions": {
+      "aggravated": {
+        "label": "Bạn có làm cùng từ 2 người trở lên, cầm hung khí hoặc làm lặp lại nhiều lần không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "prior": {
+        "label": "Bạn có tiền án cùng loại (trộm cắp) không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "recovered": {
+        "label": "Bạn đã trả lại đồ đã lấy hoặc bồi thường thiệt hại chưa?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "youth": {
+        "label": "Người gây ra có phải là người chưa thành niên (dưới 19 tuổi) hoặc học sinh, sinh viên không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu phạm tội cùng nhiều người, có mang hung khí hoặc lặp đi lặp lại, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức."
+      },
+      {
+        "note": "Nếu là lần đầu và đồ bị lấy đã được thu hồi, hoặc người gây ra là người chưa thành niên, học sinh, sinh viên, có thể được tạm hoãn truy tố."
+      }
+    ],
+    "notes": [
+      "Là trường hợp vào nhà, công trình của người khác vào ban đêm để trộm cắp.",
+      "Tội phạm về tài sản giữa người trong gia đình (họ hàng) chỉ bị xử phạt khi người bị hại tố cáo."
+    ]
+  },
+  "special-theft": {
+    "name": "Trộm cắp đặc biệt",
+    "aliases": [
+      "trộm cắp có đồng bọn",
+      "trộm cắp có hung khí",
+      "cùng nhau trộm cắp"
+    ],
+    "statutory": "Tù từ 1 năm đến 10 năm",
+    "law": "Điều 331 Bộ luật Hình sự",
+    "questions": {
+      "repeat": {
+        "label": "Bạn có làm lặp lại nhiều lần hoặc dùng thủ đoạn như một nghề không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "prior": {
+        "label": "Bạn có tiền án cùng loại (trộm cắp) không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "recovered": {
+        "label": "Bạn đã trả lại đồ đã lấy hoặc bồi thường thiệt hại chưa?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "youth": {
+        "label": "Người gây ra có phải là người chưa thành niên (dưới 19 tuổi) hoặc học sinh, sinh viên không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu phạm tội lặp đi lặp lại, như một nghề hoặc có tiền án cùng loại, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Việc từ 2 người trở lên cùng phạm tội hoặc mang hung khí tự nó đã là tình tiết được coi là nặng, nên khả năng bị tạm giam cao hơn trộm cắp thông thường. Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức."
+      },
+      {
+        "note": "Nếu là lần đầu, đồ bị lấy đã được thu hồi và người gây ra là người chưa thành niên, học sinh, sinh viên, có thể được tạm hoãn truy tố."
+      }
+    ],
+    "notes": [
+      "Là trường hợp từ 2 người trở lên cùng trộm cắp, cầm hung khí, hoặc phá cửa, tường để vào trộm vào ban đêm.",
+      "Tội phạm về tài sản giữa người trong gia đình (họ hàng) chỉ bị xử phạt khi người bị hại tố cáo."
+    ]
+  },
+  "p2-lost-property-embezzlement": {
+    "name": "Chiếm giữ tài sản bị đánh rơi, thất lạc",
+    "aliases": [
+      "nhặt được của rơi không trả",
+      "giữ đồ thất lạc",
+      "nhặt được ví",
+      "nhặt được điện thoại",
+      "chiếm giữ đồ vật bị chôn giấu"
+    ],
+    "statutory": "Tù đến 1 năm, phạt tiền đến 3 triệu won hoặc phạt tiền nhẹ",
+    "law": "Điều 360 Bộ luật Hình sự",
+    "questions": {},
+    "tiers": [],
+    "notes": [
+      "Là trường hợp nhặt được đồ vật bị đánh rơi hoặc đã rời khỏi sự chiếm hữu của chủ sở hữu mà không trả lại, giữ làm của mình."
+    ]
+  },
+  "stolen-goods": {
+    "name": "Mua, nhận tài sản do người khác phạm tội mà có",
+    "aliases": [
+      "đồ ăn cắp",
+      "tiêu thụ đồ ăn cắp",
+      "cất giữ đồ ăn cắp",
+      "mua đồ trộm"
+    ],
+    "statutory": "Tù đến 7 năm hoặc phạt tiền đến 15 triệu won",
+    "law": "Điều 362 Bộ luật Hình sự",
+    "questions": {
+      "business": {
+        "label": "Bạn có làm lặp lại như buôn bán hoặc có tiền án cùng loại không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "expensive": {
+        "label": "Đồ vật có giá trị cao không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "known": {
+        "label": "Bạn có vốn giao dịch hoặc quen biết người đã lấy trộm không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu kinh doanh tài sản do phạm tội mà có có giá trị cao hoặc tái phạm, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "sentence": "Tù từ 1 năm trở lên"
+      },
+      {}
+    ],
+    "notes": [
+      "Là trường hợp biết rõ là đồ ăn cắp mà vẫn mua, nhận giữ, vận chuyển hoặc bán giúp."
+    ]
+  },
+  "fraud": {
+    "name": "Lừa đảo",
+    "aliases": [
+      "tội lừa đảo",
+      "lừa đảo vay tiền",
+      "lừa đảo mua bán đồ cũ",
+      "chiếm đoạt tài sản bằng thủ đoạn gian dối",
+      "lừa đảo chiếm đoạt tài sản"
+    ],
+    "statutory": "Tù đến 20 năm hoặc phạt tiền đến 50 triệu won",
+    "law": "Điều 347 Bộ luật Hình sự",
+    "questions": {
+      "amount": {
+        "label": "Số tiền thiệt hại (số tiền nhận được bằng thủ đoạn lừa dối)",
+        "unit": "× 10.000 won"
+      },
+      "agreement": {
+        "label": "Bạn đã bồi thường thiệt hại hoặc thỏa thuận chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "prior": {
+        "label": "Trong 5 năm gần đây, bạn có từng bị xử từ mức án treo trở lên về cùng tội không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "planned": {
+        "label": "Có phải ngay từ đầu bạn đã làm một cách có kế hoạch, chủ động không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu thiệt hại từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Nếu thiệt hại từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
+      },
+      {
+        "note": "Nếu chưa thỏa thuận được, tiêu chuẩn phạt tiền là từ 30% số tiền thiệt hại trở lên."
+      },
+      {
+        "note": "Nếu đã thỏa thuận, tiêu chuẩn phạt tiền là từ 10% số tiền thiệt hại trở lên."
+      }
+    ],
+    "notes": [
+      "Do sửa đổi tháng 12 năm 2025 (có hiệu lực từ tháng 9 năm 2026), khung hình phạt đã tăng mạnh lên tù đến 20 năm hoặc phạt tiền đến 50 triệu won, nên việc xử lý thực tế có thể nặng hơn mức này.",
+      "Nếu thiệt hại từ 500 triệu won trở lên, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt (Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt).",
+      "Dù số tiền nhỏ, nếu khả năng khắc phục thiệt hại thấp, mức phạt tiền có thể gần bằng toàn bộ số tiền thiệt hại.",
+      "Tội phạm về tài sản giữa người trong gia đình (họ hàng) chỉ bị xử phạt khi người bị hại tố cáo."
+    ]
+  },
+  "computer-fraud": {
+    "name": "Lừa đảo bằng máy tính…",
+    "aliases": [
+      "lừa đảo qua máy tính",
+      "chuyển khoản trái phép",
+      "thanh toán bằng thông tin thẻ của người khác"
+    ],
+    "statutory": "Tù đến 20 năm hoặc phạt tiền đến 50 triệu won",
+    "law": "Điều 347-2 Bộ luật Hình sự",
+    "questions": {
+      "amount": {
+        "label": "Số tiền thiệt hại",
+        "unit": "× 10.000 won"
+      },
+      "agreement": {
+        "label": "Bạn đã bồi thường thiệt hại hoặc thỏa thuận chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "prior": {
+        "label": "Trong 5 năm gần đây, bạn có từng bị xử từ mức án treo trở lên về cùng tội không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "planned": {
+        "label": "Có phải ngay từ đầu bạn đã làm một cách có kế hoạch, chủ động không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu thiệt hại từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Nếu thiệt hại từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
+      },
+      {
+        "note": "Nếu chưa thỏa thuận được, tiêu chuẩn phạt tiền là từ 30% số tiền thiệt hại trở lên."
+      },
+      {
+        "note": "Nếu đã thỏa thuận, tiêu chuẩn phạt tiền là từ 10% số tiền thiệt hại trở lên."
+      }
+    ],
+    "notes": [
+      "Là trường hợp nhập thông tin sai sự thật hoặc thông tin không có quyền vào máy tính, điện thoại di động… để lấy tiền.",
+      "Do sửa đổi tháng 12 năm 2025 (có hiệu lực từ tháng 9 năm 2026), khung hình phạt đã tăng mạnh lên tù đến 20 năm hoặc phạt tiền đến 50 triệu won, nên việc xử lý thực tế có thể nặng hơn mức này.",
+      "Nếu thiệt hại từ 500 triệu won trở lên, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt (Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt).",
+      "Dù số tiền nhỏ, nếu khả năng khắc phục thiệt hại thấp, mức phạt tiền có thể gần bằng toàn bộ số tiền thiệt hại.",
+      "Tội phạm về tài sản giữa người trong gia đình (họ hàng) chỉ bị xử phạt khi người bị hại tố cáo."
+    ]
+  },
+  "voice-phishing-member": {
+    "name": "Tham gia lừa đảo qua điện thoại (voice phishing)",
+    "aliases": [
+      "voice phishing",
+      "lừa đảo qua điện thoại",
+      "người đi thu tiền mặt",
+      "người rút tiền",
+      "người chuyển tiền",
+      "thu tiền mặt hộ",
+      "việc làm thêm lương cao"
+    ],
+    "statutory": "Lừa đảo: tù đến 20 năm hoặc phạt tiền đến 50 triệu won (nếu thiệt hại từ 500 triệu won trở lên: tù có thời hạn từ 3 năm trở lên; từ 5 tỷ won trở lên: tù chung thân hoặc tù từ 5 năm trở lên)",
+    "law": "Điều 347 Bộ luật Hình sự, Điều 3 Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt",
+    "questions": {
+      "role": {
+        "label": "Vai trò của bạn",
+        "options": {
+          "boss": "Kẻ cầm đầu",
+          "mid": "Người quản lý cấp trung",
+          "member": "Tham gia khác (thu, rút, chuyển tiền mặt; tìm tài khoản; tư vấn…)"
+        }
+      },
+      "amount": {
+        "label": "Tổng số tiền thiệt hại",
+        "unit": "× 10.000 won"
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 15 năm"
+      },
+      {
+        "sentence": "Tù từ 12 năm trở lên"
+      },
+      {
+        "sentence": "Tù từ 10 năm trở lên"
+      },
+      {
+        "sentence": "Tù từ 7 năm trở lên",
+        "note": "Mức án đề nghị được phân hóa đến 15 năm tùy số tiền thiệt hại và vai trò thực tế."
+      },
+      {
+        "sentence": "Tù từ 5 năm trở lên",
+        "note": "Theo tiêu chuẩn này, ngay cả người chỉ tham gia đơn giản cũng bị đề nghị mức án nặng. Mức án có thể nặng hơn tùy số tiền thiệt hại và mức độ tham gia."
+      }
+    ],
+    "notes": [
+      "Lừa đảo qua điện thoại được xếp vào loại tội phạm mà công tố viên đề nghị án tù thực tế và đề nghị mức án tăng nặng.",
+      "Tiêu chuẩn này được đặt ra khi mức tối đa của khung hình phạt tội lừa đảo còn là 10 năm. Do sửa đổi tháng 12 năm 2025 (có hiệu lực từ tháng 9 năm 2026), mức tối đa đã tăng lên 20 năm, nên mức án đề nghị thực tế có thể nặng hơn.",
+      "Mức án tuyên thực tế thường thấp hơn mức án đề nghị, và hoàn cảnh tham gia, việc khắc phục thiệt hại, việc hợp tác điều tra… được xem xét.",
+      "Nếu bạn đã giao sổ tài khoản, thẻ ghi nợ cho người khác, hãy xem mục \"Tài khoản ma (chuyển nhượng, cho mượn phương tiện truy cập)\"."
+    ]
+  },
+  "phone-scam-account": {
+    "name": "Tài khoản ma (chuyển nhượng, cho mượn phương tiện truy cập)",
+    "aliases": [
+      "tài khoản ma",
+      "cho mượn tài khoản ngân hàng",
+      "bán thẻ ghi nợ",
+      "bán tài khoản",
+      "vi phạm Luật Giao dịch Tài chính Điện tử"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 49 khoản 4, Điều 6 khoản 3 Luật Giao dịch Tài chính Điện tử",
+    "questions": {
+      "role": {
+        "label": "Việc bạn đã làm",
+        "options": {
+          "seller": "Bán hoặc cho mượn sổ tài khoản, thẻ",
+          "buyer": "Mua vào hoặc gom lại"
+        }
+      },
+      "count": {
+        "label": "Số tài khoản đã giao (đã gom)",
+        "unit": "cái"
+      },
+      "priors": {
+        "label": "Số lần từng bị xử phạt về tội cùng loại",
+        "unit": "lần"
+      },
+      "linked": {
+        "label": "Bạn có giao trực tiếp cho tổ chức lừa đảo qua điện thoại không, hoặc tài khoản đó có gây thiệt hại từ 10 triệu won trở lên không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {
+        "note": "Với việc giao dịch tài khoản dùng cho lừa đảo qua điện thoại, theo nguyên tắc công tố viên đề nghị án tù tại phiên xét xử chính thức. Người phạm tội lần đầu với tình tiết đặc biệt nhẹ đôi khi bị đề nghị phạt tiền (khoảng 3 triệu won cho 1–10 tài khoản, 5 triệu won cho 11–20 tài khoản)."
+      }
+    ],
+    "notes": [
+      "Nếu bạn đã biết tài khoản được dùng cho lừa đảo qua điện thoại, bạn cũng có thể bị điều tra về tội giúp sức lừa đảo.",
+      "Do luật sửa đổi năm 2020, khung hình phạt đã tăng (trước đây là tù đến 3 năm, phạt tiền đến 20 triệu won)."
+    ]
+  },
+  "efin-access-forgery": {
+    "name": "Làm giả, sửa đổi phương tiện truy cập",
+    "aliases": [
+      "làm giả thẻ ghi nợ",
+      "làm giả chứng thư số",
+      "vi phạm Luật Giao dịch Tài chính Điện tử"
+    ],
+    "statutory": "Tù đến 7 năm hoặc phạt tiền đến 50 triệu won (có thể áp dụng cả hai)",
+    "law": "Điều 49 khoản 2 điểm 1 Luật Giao dịch Tài chính Điện tử",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Tù từ 1 năm 6 tháng trở lên",
+        "note": "Đây là tội mà theo nguyên tắc việc điều tra có tạm giam được xem xét và công tố viên đề nghị án tù tại phiên xét xử chính thức. Nếu bị đề nghị phạt tiền thì ở mức từ 5 triệu won trở lên."
+      }
+    ],
+    "notes": [
+      "Phạm tội chưa đạt cũng bị xử phạt."
+    ]
+  },
+  "card-misuse": {
+    "name": "Sử dụng thẻ tín dụng bị mất hoặc bị trộm",
+    "aliases": [
+      "dùng thẻ nhặt được",
+      "dùng thẻ của người khác",
+      "đánh cắp thẻ",
+      "vi phạm Luật Kinh doanh Tài chính Tín dụng Chuyên ngành"
+    ],
+    "statutory": "Tù đến 7 năm hoặc phạt tiền đến 50 triệu won",
+    "law": "Điều 70 khoản 1 điểm 3, điểm 4 Luật Kinh doanh Tài chính Tín dụng Chuyên ngành",
+    "questions": {
+      "source": {
+        "label": "Cách bạn có được thẻ",
+        "options": {
+          "lost": "Nhặt được thẻ bị đánh rơi",
+          "stolen": "Lấy trộm, cướp hoặc lừa để có được"
+        }
+      },
+      "amount": {
+        "label": "Số tiền đã sử dụng",
+        "unit": "× 10.000 won"
+      },
+      "settled": {
+        "label": "Bạn đã trả lại số tiền đã dùng, ký quỹ (공탁) hoặc thỏa thuận chưa?",
+        "options": {
+          "no": "Chưa",
+          "yes": "Rồi"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 1 năm 6 tháng trở lên",
+        "note": "Nếu bị xử phạt cùng với trộm cắp, cướp…, mức án được cộng thêm 6 tháng đến 1 năm."
+      },
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {
+        "note": "Mức phạt tiền tương đương số tiền đã sử dụng."
+      },
+      {
+        "note": "Nếu trả lại hoặc ký quỹ, mức phạt có thể được giảm xuống khoảng một nửa số tiền đã sử dụng."
+      }
+    ],
+    "notes": [
+      "Bản thân hành vi lấy trộm hoặc nhặt thẻ (trộm cắp, chiếm giữ tài sản bị đánh rơi) và hành vi mua hàng (lừa đảo) cũng có thể bị xem xét cùng."
+    ]
+  },
+  "new-insurance-fraud": {
+    "name": "Gian lận bảo hiểm",
+    "aliases": [
+      "vi phạm Luật Đặc biệt về Phòng chống Gian lận Bảo hiểm",
+      "lừa đảo tiền bảo hiểm",
+      "giả bệnh để nằm viện",
+      "cố ý gây tai nạn",
+      "nhập viện giả"
+    ],
+    "statutory": "Tù đến 10 năm hoặc phạt tiền đến 50 triệu won / Tiền bảo hiểm từ 500 triệu won đến dưới 5 tỷ won: tù có thời hạn từ 3 năm trở lên / Từ 5 tỷ won trở lên: tù chung thân hoặc tù từ 5 năm trở lên",
+    "law": "Điều 8, Điều 11 Luật Đặc biệt về Phòng chống Gian lận Bảo hiểm",
+    "questions": {
+      "type": {
+        "label": "Số tiền bảo hiểm đã nhận hoặc giúp người khác nhận",
+        "options": {
+          "u100m": "Dưới 100 triệu won",
+          "u500m": "Từ 100 triệu won đến dưới 500 triệu won",
+          "u5b": "Từ 500 triệu won đến dưới 5 tỷ won",
+          "u30b": "Từ 5 tỷ won đến dưới 30 tỷ won",
+          "o30b": "Từ 30 tỷ won trở lên"
+        }
+      },
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Thỏa thuận hoặc người bị hại không muốn xử phạt, đã khắc phục thiệt hại, thành thật hối lỗi, phạm tội lần đầu… là hoàn cảnh giảm nhẹ; phạm tội có kế hoạch, thiệt hại lớn, có tiền án cùng loại… là hoàn cảnh tăng nặng.",
+        "options": {
+          "mitigated": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "basic": "Ngang nhau",
+          "aggravated": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 16 năm – 30 năm (có xem xét cả tù chung thân)"
+      },
+      {
+        "sentence": "Tù 12 năm – 22 năm"
+      },
+      {
+        "sentence": "Tù 10 năm – 18 năm"
+      },
+      {
+        "sentence": "Tù 12 năm – 22 năm"
+      },
+      {
+        "sentence": "Tù 10 năm – 18 năm"
+      },
+      {
+        "sentence": "Tù 6 năm – 12 năm"
+      },
+      {
+        "sentence": "Tù 8 năm – 16 năm"
+      },
+      {
+        "sentence": "Tù 6 năm – 12 năm"
+      },
+      {
+        "sentence": "Tù 3 năm – 8 năm"
+      },
+      {
+        "sentence": "Tù 5 năm – 10 năm"
+      },
+      {
+        "sentence": "Tù 2 năm – 8 năm"
+      },
+      {
+        "sentence": "Tù 1 năm 8 tháng – 5 năm"
+      },
+      {
+        "sentence": "Tù 2 năm – 5 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 3 năm"
+      },
+      {
+        "sentence": "Tù đến 2 năm"
+      }
+    ],
+    "notes": [
+      "Là trường hợp cố ý gây tai nạn hoặc thổi phồng tai nạn để lừa công ty bảo hiểm, nhận tiền bảo hiểm hoặc giúp người khác nhận. Phạm tội chưa đạt cũng bị xử phạt.",
+      "Người môi giới, rủ rê hoặc quảng cáo gian lận bảo hiểm cũng bị xử phạt với cùng mức hình phạt.",
+      "Việc trả lại tiền bảo hiểm đã nhận là hoàn cảnh giảm nhẹ, nhưng chỉ riêng việc đó không giúp tránh được xử phạt."
+    ]
+  },
+  "aggravated-fraud-500m": {
+    "name": "Lừa đảo, biển thủ, bội tín thuộc tội phạm kinh tế đặc biệt (từ 500 triệu won trở lên)",
+    "aliases": [
+      "Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt",
+      "lừa đảo từ 500 triệu won",
+      "biển thủ từ 500 triệu won",
+      "biển thủ trong công việc 500 triệu",
+      "bội tín 500 triệu",
+      "vi phạm Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt (lừa đảo)"
+    ],
+    "statutory": "Số tiền thu lợi từ 500 triệu won đến dưới 5 tỷ won: tù có thời hạn từ 3 năm trở lên / Từ 5 tỷ won trở lên: tù chung thân hoặc tù từ 5 năm trở lên (có thể bị phạt thêm tiền đến mức số tiền thu lợi)",
+    "law": "Điều 3 khoản 1 Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt",
+    "questions": {
+      "amount": {
+        "label": "Số tiền thiệt hại (số tiền thu lợi)",
+        "help": "Là tổng số tiền có được do lừa đảo, tống tiền, biển thủ, bội tín.",
+        "unit": "× 100 triệu won"
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 7 năm trở lên"
+      },
+      {
+        "sentence": "Tù từ 5 năm trở lên"
+      },
+      {
+        "sentence": "Tù từ 3 năm trở lên"
+      }
+    ],
+    "notes": [
+      "Theo nguyên tắc là điều tra có tạm giam và xét xử chính thức.",
+      "Mức độ khắc phục thiệt hại (trả nợ, thỏa thuận) và hoàn cảnh phạm tội được xem xét nhiều khi đề nghị mức án và khi tuyên án.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "embezzlement": {
+    "name": "Biển thủ",
+    "aliases": [
+      "tội biển thủ",
+      "tiêu tiền được giao giữ",
+      "chiếm đoạt tiền gửi giữ"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 15 triệu won",
+    "law": "Điều 355 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "amount": {
+        "label": "Số tiền biển thủ",
+        "unit": "× 10.000 won"
+      },
+      "agreement": {
+        "label": "Bạn đã bồi thường thiệt hại hoặc thỏa thuận chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "prior": {
+        "label": "Trong 5 năm gần đây, bạn có từng bị xử từ mức án treo trở lên về cùng tội không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "planned": {
+        "label": "Có phải ngay từ đầu bạn đã làm một cách có kế hoạch, chủ động không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu số tiền biển thủ từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Nếu số tiền biển thủ từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
+      },
+      {
+        "note": "Nếu chưa thỏa thuận được, tiêu chuẩn phạt tiền là từ 30% số tiền biển thủ trở lên."
+      },
+      {
+        "note": "Nếu đã thỏa thuận, tiêu chuẩn phạt tiền là từ 10% số tiền biển thủ trở lên."
+      }
+    ],
+    "notes": [
+      "Nếu số tiền biển thủ, bội tín từ 500 triệu won trở lên, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt (Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt).",
+      "Tội phạm về tài sản giữa người trong gia đình (họ hàng) chỉ bị xử phạt khi người bị hại tố cáo."
+    ]
+  },
+  "occupational-embezzlement": {
+    "name": "Biển thủ trong công việc",
+    "aliases": [
+      "biển thủ tiền công ty",
+      "biển thủ công quỹ",
+      "tham ô tiền công ty"
+    ],
+    "statutory": "Tù đến 10 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 356 Bộ luật Hình sự",
+    "questions": {
+      "amount": {
+        "label": "Số tiền biển thủ",
+        "unit": "× 10.000 won"
+      },
+      "agreement": {
+        "label": "Bạn đã bồi thường thiệt hại hoặc thỏa thuận chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "prior": {
+        "label": "Trong 5 năm gần đây, bạn có từng bị xử từ mức án treo trở lên về cùng tội không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "planned": {
+        "label": "Có phải ngay từ đầu bạn đã làm một cách có kế hoạch, chủ động không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu số tiền biển thủ từ 30 triệu won trở lên mà chưa thỏa thuận được, có tiền án cùng loại gần đây, hoặc thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Nếu số tiền biển thủ từ 10 triệu won trở lên mà chưa thỏa thuận được, thông thường vụ việc được đưa ra xét xử chính thức. Nếu thỏa thuận trong quá trình xét xử, công tố viên có thể đề nghị án treo."
+      },
+      {
+        "note": "Nếu chưa thỏa thuận được, tiêu chuẩn phạt tiền là từ 30% số tiền biển thủ trở lên."
+      },
+      {
+        "note": "Nếu đã thỏa thuận, tiêu chuẩn phạt tiền là từ 10% số tiền biển thủ trở lên."
+      }
+    ],
+    "notes": [
+      "Nếu số tiền biển thủ, bội tín từ 500 triệu won trở lên, sẽ bị xử phạt nặng hơn nhiều theo luật đặc biệt (Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt).",
+      "Tội phạm về tài sản giữa người trong gia đình (họ hàng) chỉ bị xử phạt khi người bị hại tố cáo."
+    ]
+  },
+  "extortion": {
+    "name": "Tống tiền",
+    "aliases": [
+      "tội tống tiền",
+      "cưỡng đoạt tài sản",
+      "đòi tiền bằng đe dọa",
+      "bắt nạt lấy tiền"
+    ],
+    "statutory": "Tù đến 10 năm hoặc phạt tiền đến 20 triệu won",
+    "law": "Điều 350 Bộ luật Hình sự",
+    "questions": {
+      "amount": {
+        "label": "Số tiền đã lấy được (cộng tất cả)",
+        "unit": "× 10.000 won"
+      },
+      "bad": {
+        "label": "Có phải là trường hợp có tính chất xấu, như băng nhóm tội phạm có tổ chức hoặc nhà báo giả mạo, không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "prior": {
+        "label": "Trong 5 năm gần đây, bạn có từng bị án treo về cùng tội không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "oneTime": {
+        "label": "Có phải là trường hợp nhận một khoản tiền nhỏ, một lần, một cách bột phát không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu tổng số tiền đã lấy từ 10 triệu won trở lên hoặc tính chất tội phạm xấu, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức."
+      },
+      {
+        "note": "Trường hợp nhận một khoản tiền nhỏ, một lần, một cách bột phát đôi khi chỉ bị xử lý bằng phạt tiền."
+      }
+    ],
+    "notes": [
+      "Người chưa thành niên theo nguyên tắc không bị tạm giam và được chuyển sang tòa án người chưa thành niên, nhưng nếu làm lặp lại ở khu vực quanh trường học thì cũng có thể bị tạm giam.",
+      "Tội phạm về tài sản giữa người trong gia đình (họ hàng) chỉ bị xử phạt khi người bị hại tố cáo."
+    ]
+  },
+  "methamphetamine": {
+    "name": "Sử dụng, tàng trữ, mua bán ma túy đá (methamphetamine)",
+    "aliases": [
+      "ma túy đá",
+      "methamphetamine",
+      "sử dụng ma túy",
+      "chất hướng thần",
+      "vi phạm Luật Quản lý Chất ma túy (chất hướng thần)",
+      "thuốc lắc",
+      "MDMA",
+      "đá"
+    ],
+    "statutory": "Tù đến 10 năm hoặc phạt tiền đến 100 triệu won (nếu phạm tội thường xuyên thì tăng nặng thêm đến 1/2; nếu đưa hoặc bán cho người chưa thành niên: tù chung thân hoặc tù từ 5 năm trở lên)",
+    "law": "Điều 60 khoản 1 điểm 2, Điều 4 khoản 1 Luật Quản lý Chất ma túy",
+    "questions": {
+      "act": {
+        "label": "Việc bạn đã làm",
+        "options": {
+          "use": "Sử dụng, tàng trữ (để tự dùng)",
+          "sale": "Mua bán, môi giới, đưa cho người khác"
+        }
+      },
+      "priors": {
+        "label": "Số lần từng bị xử phạt liên quan đến ma túy",
+        "unit": "lần"
+      },
+      "rehab": {
+        "label": "Có phải chỉ sử dụng đơn thuần và bạn có ý muốn điều trị, cai nghiện không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Với việc mua bán, sử dụng ma túy đá, theo nguyên tắc là điều tra có tạm giam và xét xử chính thức."
+      },
+      {
+        "note": "Nếu là lần đầu, chỉ sử dụng đơn thuần và có ý muốn cai nghiện, tiêu chuẩn xử lý thông thường là tạm hoãn truy tố với điều kiện điều trị (hoặc học tập)."
+      }
+    ],
+    "notes": [
+      "Các chất nguy hiểm hơn như LSD bị xử lý nặng hơn; các loại thuốc dùng trong y tế như propofol, thuốc ngủ bị xử lý nhẹ hơn.",
+      "Nếu đưa ma túy đá từ nước ngoài vào hoặc sản xuất thì nặng hơn nhiều, tù chung thân hoặc tù từ 5 năm trở lên, và nếu giá trị lớn thì áp dụng Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "cannabis": {
+    "name": "Hút, tàng trữ, mua bán cần sa",
+    "aliases": [
+      "cần sa",
+      "bồ đà",
+      "marijuana",
+      "tinh dầu cần sa",
+      "vi phạm Luật Quản lý Chất ma túy (cần sa)"
+    ],
+    "statutory": "Hút, tàng trữ: tù đến 5 năm hoặc phạt tiền đến 50 triệu won / Mua bán, môi giới: tù có thời hạn từ 1 năm trở lên",
+    "law": "Điều 61 khoản 1 điểm 4, điểm 6, Điều 59 khoản 1 điểm 7 Luật Quản lý Chất ma túy",
+    "questions": {
+      "act": {
+        "label": "Việc bạn đã làm",
+        "options": {
+          "smoke": "Hút, tàng trữ (để tự dùng)",
+          "sale": "Mua bán, môi giới",
+          "grow": "Trồng để bán hoặc trồng số lượng lớn"
+        }
+      },
+      "priors": {
+        "label": "Số lần từng bị xử phạt liên quan đến ma túy",
+        "unit": "lần"
+      },
+      "rehab": {
+        "label": "Có phải chỉ hút đơn thuần và bạn có ý muốn điều trị, cai nghiện không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có mục đích bán, trồng số lượng lớn hoặc tái phạm, việc tạm giam sẽ được xem xét."
+      },
+      {
+        "sentence": "Tù từ 1 năm trở lên",
+        "note": "Theo tiêu chuẩn này, mức án đề nghị nhẹ hơn khoảng 6 tháng đến 1 năm so với mua bán ma túy đá."
+      },
+      {
+        "note": "Mức án đề nghị được quyết định tùy số lần hút, số lượng, tiền sử…"
+      },
+      {
+        "note": "Nếu là lần đầu, chỉ hút đơn thuần và có ý muốn cai nghiện, tiêu chuẩn xử lý thông thường là tạm hoãn truy tố với điều kiện điều trị (hoặc học tập)."
+      }
+    ],
+    "notes": [
+      "Nếu đưa cho người chưa thành niên hoặc hút cùng họ thì bị xử phạt nặng, tù từ 1 năm trở lên.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "drug-narcotic-use": {
+    "name": "Sử dụng ma túy (cocaine…)",
+    "aliases": [
+      "sử dụng cocaine",
+      "sử dụng LSD",
+      "vi phạm Luật Quản lý Chất ma túy (chất gây nghiện)"
+    ],
+    "statutory": "Tù đến 10 năm hoặc phạt tiền đến 100 triệu won",
+    "law": "Điều 60 khoản 1 điểm 1, Điều 3 điểm 1 Luật Quản lý Chất ma túy",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Theo nguyên tắc là tạm giam",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      }
+    ],
+    "notes": [
+      "Nếu chỉ sử dụng đơn thuần và có ý muốn cai nghiện, đôi khi được tạm hoãn truy tố với điều kiện điều trị, học tập."
+    ]
+  },
+  "drug-narcotic-possession": {
+    "name": "Tàng trữ, trao nhận ma túy; tàng trữ, sử dụng heroin",
+    "aliases": [
+      "tàng trữ cocaine",
+      "sử dụng heroin",
+      "vi phạm Luật Quản lý Chất ma túy (chất gây nghiện)"
+    ],
+    "statutory": "Tù có thời hạn từ 1 năm trở lên",
+    "law": "Điều 59 khoản 1 điểm 3, điểm 9 Luật Quản lý Chất ma túy",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Theo nguyên tắc là tạm giam",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      }
+    ],
+    "notes": [
+      "Nếu giá trị ma túy từ 5 triệu won trở lên, sẽ bị xử phạt nặng hơn theo Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định.",
+      "Nếu chỉ sử dụng đơn thuần và có ý muốn cai nghiện, đôi khi được tạm hoãn truy tố với điều kiện điều trị, học tập."
+    ]
+  },
+  "drug-narcotic-trade": {
+    "name": "Xuất nhập khẩu, sản xuất, mua bán ma túy (cocaine, heroin…)",
+    "aliases": [
+      "buôn lậu cocaine",
+      "bán heroin",
+      "vi phạm Luật Quản lý Chất ma túy (chất gây nghiện)"
+    ],
+    "statutory": "Tù chung thân hoặc tù từ 5 năm trở lên",
+    "law": "Điều 58 khoản 1 điểm 1 Luật Quản lý Chất ma túy",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Theo nguyên tắc là tạm giam",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      }
+    ]
+  },
+  "drug-meth-import": {
+    "name": "Sản xuất, xuất nhập khẩu chất hướng thần như ma túy đá",
+    "aliases": [
+      "buôn lậu ma túy đá",
+      "sản xuất methamphetamine",
+      "buôn lậu MDMA",
+      "vi phạm Luật Quản lý Chất ma túy (chất hướng thần)"
+    ],
+    "statutory": "Tù chung thân hoặc tù từ 5 năm trở lên",
+    "law": "Điều 58 khoản 1 điểm 6, Điều 4 khoản 1 Luật Quản lý Chất ma túy",
+    "questions": {
+      "act": {
+        "label": "Việc bạn đã làm",
+        "options": {
+          "import": "Xuất nhập khẩu (buôn lậu)",
+          "make": "Sản xuất hoặc tàng trữ với mục đích đó"
+        }
+      },
+      "grams": {
+        "label": "Số lượng",
+        "unit": "g"
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 10 năm trở lên",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      },
+      {
+        "sentence": "Theo nguyên tắc là tạm giam",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      }
+    ],
+    "notes": [
+      "Tùy giá trị, có thể áp dụng Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định."
+    ]
+  },
+  "drug-cannabis-import": {
+    "name": "Xuất nhập khẩu cần sa",
+    "aliases": [
+      "buôn lậu cần sa",
+      "mua cần sa từ nước ngoài qua mạng",
+      "vi phạm Luật Quản lý Chất ma túy (cần sa)"
+    ],
+    "statutory": "Tù chung thân hoặc tù từ 5 năm trở lên",
+    "law": "Điều 58 khoản 1 điểm 5, Điều 3 điểm 7 Luật Quản lý Chất ma túy",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Theo nguyên tắc là tạm giam",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      }
+    ]
+  },
+  "drunk-driving": {
+    "name": "Lái xe khi say rượu",
+    "aliases": [
+      "say rượu lái xe",
+      "uống rượu rồi lái xe",
+      "lái xe sau khi uống bia",
+      "Luật Yoon Chang-ho",
+      "tái phạm lái xe khi say rượu",
+      "vi phạm Luật Giao thông Đường bộ (lái xe khi say rượu)",
+      "DUI"
+    ],
+    "statutory": "Nồng độ cồn trong máu từ 0,03% đến dưới 0,08%: tù đến 1 năm hoặc phạt tiền đến 5 triệu won / Từ 0,08% đến dưới 0,2%: tù từ 1 năm đến 2 năm hoặc phạt tiền từ 5 triệu đến 10 triệu won / Từ 0,2% trở lên: tù từ 2 năm đến 5 năm hoặc phạt tiền từ 10 triệu đến 20 triệu won. Nếu tái phạm trong vòng 10 năm: tù từ 1 năm đến 5 năm (từ 0,2% trở lên: tù từ 2 năm đến 6 năm) hoặc phạt tiền từ 5 triệu đến 20 triệu won (từ 0,2% trở lên: từ 10 triệu đến 30 triệu won)",
+    "law": "Điều 148-2 khoản 1, khoản 3, Điều 44 khoản 1 Luật Giao thông Đường bộ",
+    "questions": {
+      "bac": {
+        "label": "Nồng độ cồn trong máu",
+        "help": "Là con số ghi trong kết quả đo (ví dụ: 0.085).",
+        "unit": "%"
+      },
+      "priors": {
+        "label": "Số lần bị xử từ mức phạt tiền trở lên vì lái xe khi say rượu hoặc từ chối đo trong 10 năm gần đây",
+        "unit": "lần"
+      },
+      "recent": {
+        "label": "Thời điểm bị xử phạt gần nhất",
+        "options": {
+          "none": "Chưa từng bị xử phạt",
+          "y3": "Trong vòng 3 năm",
+          "y5": "Cách đây 3–5 năm",
+          "y10": "Cách đây 5–10 năm"
+        }
+      },
+      "probation": {
+        "label": "Bạn có đang trong thời gian án treo vì lái xe khi say rượu không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "unlicensed": {
+        "label": "Bạn có lái xe khi không có giấy phép (kể cả khi đang bị thu hồi, đình chỉ) không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 1 năm 6 tháng trở lên",
+        "note": "Nếu đang trong thời gian án treo vì lái xe khi say rượu, hoặc gần đây đã bị xử phạt nhiều lần và nồng độ cao, việc tạm giam sẽ được xem xét."
+      },
+      {
+        "sentence": "Tù từ 1 năm 6 tháng trở lên"
+      },
+      {
+        "sentence": "Tù từ 1 năm trở lên",
+        "note": "Dù nồng độ từ 0,3% trở lên, nếu có hoàn cảnh đáng xem xét như chỉ lái một đoạn ngắn để đỗ xe, vẫn có thể chỉ bị phạt tiền."
+      },
+      {},
+      {},
+      {
+        "note": "Nếu lại lái xe khi say rượu, mức phạt tiền tối thiểu là 5 triệu won."
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "notes": [
+      "Nếu gây tai nạn làm hư hỏng tài sản, lái xe hung hăng hoặc tái phạm trong vòng 5 năm, mức xử lý sẽ nặng hơn một bậc.",
+      "Nếu làm người khác bị thương, hãy xem mục \"Tai nạn do lái xe khi say rượu (gây thương tích, gây chết người)\". Lái xe không có giấy phép bị xử phạt riêng.",
+      "Nếu trong 5 năm gần đây đã lái xe khi say rượu từ 4 lần trở lên, hoặc đã có tiền sử mà gây tai nạn chết người, công tố viên có thể đề nghị tịch thu xe.",
+      "Người cùng đi trên xe mà xúi giục lái xe hoặc đưa chìa khóa xe cho người say rượu cũng có thể bị xử phạt là người giúp sức.",
+      "Với phương tiện di chuyển cá nhân như xe trượt điện, áp dụng quy định riêng chứ không phải quy định xử phạt này."
+    ]
+  },
+  "drunk-driving-refusal": {
+    "name": "Từ chối đo nồng độ cồn",
+    "aliases": [
+      "từ chối đo",
+      "không chịu thổi nồng độ cồn",
+      "vi phạm Luật Giao thông Đường bộ (từ chối đo nồng độ cồn)"
+    ],
+    "statutory": "Tù từ 1 năm đến 5 năm hoặc phạt tiền từ 5 triệu đến 20 triệu won (nếu tái phạm trong vòng 10 năm: tù từ 1 năm đến 6 năm hoặc phạt tiền từ 5 triệu đến 30 triệu won)",
+    "law": "Điều 148-2 khoản 2, Điều 44 khoản 2 Luật Giao thông Đường bộ",
+    "questions": {
+      "priors3": {
+        "label": "Số lần bị xử phạt vì lái xe khi say rượu hoặc từ chối đo trong 3 năm gần đây",
+        "unit": "lần"
+      },
+      "accident": {
+        "label": "Bạn có gây tai nạn giao thông không?",
+        "options": {
+          "no": "Không gây tai nạn",
+          "yes": "Có gây tai nạn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 1 năm 6 tháng trở lên"
+      },
+      {
+        "sentence": "Tù từ 1 năm trở lên"
+      },
+      {
+        "note": "Mức phạt tiền tối thiểu là 5 triệu won."
+      }
+    ],
+    "notes": [
+      "Nếu từ chối đo, dù nồng độ thực tế có thấp, vẫn bị xử phạt tương đương hoặc nặng hơn lái xe khi say rượu với nồng độ cao."
+    ]
+  },
+  "drunk-driving-accident": {
+    "name": "Tai nạn do lái xe khi say rượu (gây thương tích, gây chết người)",
+    "aliases": [
+      "tai nạn khi say rượu",
+      "say rượu gây tai nạn giao thông",
+      "lái xe nguy hiểm gây thương tích",
+      "lái xe nguy hiểm gây chết người",
+      "Luật Yoon Chang-ho",
+      "vi phạm Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định (lái xe nguy hiểm gây chết người, gây thương tích)"
+    ],
+    "statutory": "Bị xử phạt đồng thời về tội vi phạm Luật Đặc biệt về Xử lý Tai nạn Giao thông (gây chết người, gây thương tích): tù không lao động (금고) đến 5 năm hoặc phạt tiền đến 20 triệu won, và tội lái xe khi say rượu. Nếu do rượu mà đã ở trong tình trạng khó lái xe bình thường thì: lái xe nguy hiểm gây thương tích là tù từ 1 năm đến 15 năm hoặc phạt tiền từ 10 triệu đến 30 triệu won; lái xe nguy hiểm gây chết người là tù chung thân hoặc tù từ 3 năm trở lên",
+    "law": "Điều 3 Luật Đặc biệt về Xử lý Tai nạn Giao thông, Điều 5-11 Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định, Điều 148-2 Luật Giao thông Đường bộ",
+    "questions": {
+      "harm": {
+        "label": "Mức độ thiệt hại",
+        "help": "Nếu nhiều người bị thương thì tính theo người bị thương nặng nhất.",
+        "options": {
+          "0": "Bị thương (chẩn đoán dưới 4 tuần)",
+          "1": "Bị thương (4 – 7 tuần)",
+          "2": "Bị thương (8 – 11 tuần)",
+          "3": "Bị thương (từ 12 tuần trở lên, hoặc thương tích nặng không chữa được, khó chữa)",
+          "death": "Có người chết"
+        }
+      },
+      "bac": {
+        "label": "Nồng độ cồn trong máu",
+        "unit": "%"
+      },
+      "priors": {
+        "label": "Số lần từng bị xử phạt vì lái xe khi say rượu",
+        "help": "Phạt tiền chỉ tính trong 5 năm gần đây, án treo trở lên chỉ tính trong 10 năm gần đây.",
+        "unit": "lần"
+      },
+      "settle": {
+        "label": "Thỏa thuận, bảo hiểm",
+        "options": {
+          "0": "Đã thỏa thuận (hoặc người bị hại không muốn xử phạt)",
+          "1": "Chưa thỏa thuận được, có bảo hiểm toàn diện",
+          "2": "Chưa thỏa thuận được, không có bảo hiểm toàn diện"
+        }
+      },
+      "cause": {
+        "label": "Diễn biến tai nạn",
+        "options": {
+          "0": "Người bị hại có lỗi lớn (băng qua đường sai quy định…)",
+          "1": "Người bị hại cũng có chút lỗi",
+          "2": "Người bị hại không có lỗi",
+          "3": "Ngoài say rượu còn có lỗi nghiêm trọng như vượt đèn đỏ, lấn làn đường ngược chiều"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 5 năm trở lên",
+        "note": "Thuộc mức xử lý từ bậc 13 trở lên. Từ bậc 9 trở lên là tiêu chuẩn bắt buộc đề nghị án tù thực tế, nên ở mức này công tố viên không đề nghị án treo."
+      },
+      {
+        "sentence": "Tù 4 năm – 5 năm",
+        "note": "Thuộc mức xử lý từ bậc 11 trở lên. Từ bậc 9 trở lên là tiêu chuẩn bắt buộc đề nghị án tù thực tế, nên ở mức này công tố viên không đề nghị án treo."
+      },
+      {
+        "sentence": "Tù 3 năm – 4 năm",
+        "note": "Thuộc mức xử lý từ bậc 9 trở lên. Từ bậc 9 trở lên là tiêu chuẩn bắt buộc đề nghị án tù thực tế, nên ở mức này công tố viên không đề nghị án treo."
+      },
+      {
+        "sentence": "Tù 2 năm – 3 năm",
+        "note": "Thuộc mức xử lý từ bậc 7 trở lên. Từ bậc 6 trở lên là tiêu chuẩn để xem xét điều tra có tạm giam."
+      },
+      {
+        "sentence": "Tù 1 năm 6 tháng – 2 năm",
+        "note": "Thuộc mức xử lý từ bậc 6 trở lên. Từ bậc 6 trở lên là tiêu chuẩn để xem xét điều tra có tạm giam."
+      },
+      {
+        "sentence": "Tù 1 năm – 1 năm 6 tháng",
+        "note": "Thuộc mức xử lý từ bậc 5 trở lên. Từ bậc 4 trở lên là tiêu chuẩn để đưa ra xét xử chính thức."
+      },
+      {
+        "sentence": "Tù 9 tháng – 1 năm",
+        "note": "Thuộc mức xử lý từ bậc 4 trở lên. Từ bậc 4 trở lên là tiêu chuẩn để đưa ra xét xử chính thức."
+      },
+      {
+        "note": "Chưa đến tiêu chuẩn xét xử chính thức (bậc 4) nên tùy vụ việc có thể chỉ bị phạt tiền theo thủ tục rút gọn. Nếu xét xử chính thức thì ở mức tù 6 tháng – 9 tháng."
+      }
+    ],
+    "notes": [
+      "Cách tính là lấy bậc cơ bản (tai nạn gây thương tích là bậc 3, tai nạn chết người là bậc 10), rồi tăng hoặc giảm bậc tùy nồng độ cồn trong máu, mức độ thương tích, tiền sử say rượu, việc thỏa thuận và diễn biến tai nạn.",
+      "Nếu được xác định là do rượu nên đã ở trong tình trạng khó lái xe bình thường (lái xe nguy hiểm), tai nạn gây thương tích nặng thêm 1 bậc, tai nạn chết người nặng thêm 2 bậc.",
+      "Nếu có từ 3 người bị thương hoặc từ 2 người chết trở lên thì nặng hơn, và nếu là tài xế phương tiện công cộng như xe buýt thì nặng thêm 1 bậc.",
+      "Ký quỹ (공탁), người bị hại tự nguyện đi nhờ xe, phạm tội lần đầu, tự thú… là lý do giảm nhẹ; bỏ chạy, lái xe hung hăng, che giấu hành vi phạm tội… là lý do tăng nặng."
+    ]
+  },
+  "unlicensed-driving": {
+    "name": "Lái xe không có giấy phép",
+    "aliases": [
+      "lái xe không bằng lái",
+      "lái xe khi đang bị đình chỉ giấy phép",
+      "lái xe khi đã bị thu hồi giấy phép",
+      "vi phạm Luật Giao thông Đường bộ (lái xe không có giấy phép)"
+    ],
+    "statutory": "Tù đến 1 năm hoặc phạt tiền đến 3 triệu won (với xe đạp gắn động cơ: phạt tiền đến 300.000 won hoặc câu lưu)",
+    "law": "Điều 152 điểm 1, Điều 43 Luật Giao thông Đường bộ",
+    "questions": {
+      "priors": {
+        "label": "Số lần bị xử phạt vì lái xe không có giấy phép hoặc lái xe khi say rượu",
+        "unit": "lần"
+      },
+      "probation": {
+        "label": "Bạn có đang trong thời gian án treo vì lái xe không có giấy phép hoặc lái xe khi say rượu không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "habitual": {
+        "label": "Bạn có lái xe không có giấy phép nhiều lần liên tục không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "Tù từ 6 tháng trở lên"
+      },
+      {},
+      {
+        "note": "Ở mức 1 triệu – 1,5 triệu won."
+      },
+      {
+        "note": "Ở mức 700.000 – 1 triệu won."
+      }
+    ],
+    "notes": [
+      "Nếu lái xe để kiếm sống, hoàn cảnh này có thể được xem xét.",
+      "Nếu đồng thời lái xe khi say rượu thì bị xử phạt cả hai tội."
+    ]
+  },
+  "traffic-moped-unlicensed": {
+    "name": "Lái xe đạp gắn động cơ không có giấy phép",
+    "aliases": [
+      "lái xe máy không bằng lái",
+      "lái xe tay ga không bằng lái",
+      "xe 125cc không bằng lái",
+      "vi phạm Luật Giao thông Đường bộ (lái xe không có giấy phép)"
+    ],
+    "statutory": "Phạt tiền đến 300.000 won hoặc câu lưu",
+    "law": "Điều 154 điểm 2, Điều 43 Luật Giao thông Đường bộ",
+    "questions": {
+      "repeat": {
+        "label": "Bạn có tiền sử cùng loại hoặc đã gây tai nạn không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "note": "Người phạm tội lần đầu có thể được tạm hoãn truy tố."
+      }
+    ],
+    "notes": [
+      "Phương tiện di chuyển cá nhân như xe trượt điện không thuộc điều này mà thuộc diện bị phạt tiền vi phạm hành chính."
+    ]
+  },
+  "hit-and-run-injury": {
+    "name": "Gây tai nạn rồi bỏ chạy làm người bị thương",
+    "aliases": [
+      "bỏ chạy sau tai nạn",
+      "gây tai nạn rồi bỏ trốn",
+      "đâm người rồi bỏ chạy",
+      "vi phạm Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định (bỏ chạy gây thương tích)"
+    ],
+    "statutory": "Tù có thời hạn từ 1 năm trở lên hoặc phạt tiền từ 5 triệu đến 30 triệu won (nếu làm chết người rồi bỏ chạy: tù chung thân hoặc tù từ 5 năm trở lên)",
+    "law": "Điều 5-3 khoản 1 điểm 2 Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định",
+    "questions": {
+      "weeks": {
+        "label": "Thời gian điều trị theo chẩn đoán của người bị thương nặng nhất",
+        "help": "Nếu có nhiều người bị hại, lấy số tuần của người bị thương nặng nhất cộng với một nửa số tuần của người kế tiếp.",
+        "unit": "tuần"
+      },
+      "settled": {
+        "label": "Thỏa thuận với người bị hại",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "insured": {
+        "label": "Bạn có tham gia bảo hiểm toàn diện (quỹ tương trợ) không?",
+        "options": {
+          "no": "Không tham gia",
+          "yes": "Có tham gia"
+        }
+      },
+      "mitigating": {
+        "label": "Người bị hại có lỗi lớn và việc bạn rời hiện trường có hoàn cảnh đáng xem xét không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu thương tích từ 4 tuần trở lên mà chưa thỏa thuận được, hoặc từ 8 tuần trở lên, việc tạm giam sẽ được xem xét dù đã thỏa thuận hay chưa."
+      },
+      {
+        "note": "Theo nguyên tắc là xét xử chính thức, và nếu không có cả thỏa thuận lẫn bảo hiểm thì là xét xử chính thức bất kể mức độ thương tích."
+      },
+      {
+        "note": "Đây là trường hợp ngoại lệ có thể chỉ bị phạt tiền theo thủ tục rút gọn. Cứ mỗi tuần vượt quá 3 tuần, cộng thêm 1 triệu – 2 triệu won."
+      }
+    ],
+    "notes": [
+      "Tùy khả năng nộp phạt và mức độ lỗi, mức xử lý có thể được giảm đến một nửa.",
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "p2-hit-and-run-death": {
+    "name": "Gây tai nạn rồi bỏ chạy làm người chết",
+    "aliases": [
+      "bỏ chạy sau tai nạn chết người",
+      "đâm chết người rồi bỏ trốn",
+      "vi phạm Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định (bỏ chạy gây chết người)"
+    ],
+    "statutory": "Tù chung thân hoặc tù từ 5 năm trở lên",
+    "law": "Điều 5-3 khoản 1 điểm 1 Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Theo nguyên tắc là tạm giam",
+        "note": "Đây là tội có tính chất nghiêm trọng, theo nguyên tắc việc điều tra có tạm giam được xem xét."
+      }
+    ],
+    "notes": [
+      "Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức."
+    ]
+  },
+  "leaving-accident-scene": {
+    "name": "Không xử lý sau tai nạn (thiệt hại tài sản)",
+    "aliases": [
+      "không xử lý sau tai nạn",
+      "gây hư hỏng tài sản rồi bỏ đi",
+      "quẹt xe đang đỗ rồi bỏ đi",
+      "vi phạm Luật Giao thông Đường bộ (không xử lý sau tai nạn)"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 15 triệu won",
+    "law": "Điều 148, Điều 54 khoản 1 Luật Giao thông Đường bộ",
+    "questions": {
+      "severity": {
+        "label": "Mức độ tai nạn",
+        "options": {
+          "minor": "Nhẹ",
+          "serious": "Nghiêm trọng hoặc tính chất xấu"
+        }
+      },
+      "drunk": {
+        "label": "Có nghi ngờ lái xe khi say rượu không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {
+        "note": "Nếu có nghi ngờ lái xe khi say rượu, mức phạt tiền sẽ nặng hơn."
+      },
+      {}
+    ],
+    "notes": [
+      "Nếu có người bị thương mà bạn bỏ chạy, hãy xem mục \"Gây tai nạn rồi bỏ chạy làm người bị thương\".",
+      "Trường hợp rõ ràng chỉ làm hư hỏng xe đang đỗ hoặc dừng mà không để lại thông tin liên lạc thì không thuộc tội này mà thuộc diện chế tài khác như phạt tiền hành chính."
+    ]
+  },
+  "traffic-accident-injury": {
+    "name": "Tai nạn giao thông gây thương tích (Luật Đặc biệt về Xử lý Tai nạn Giao thông)",
+    "aliases": [
+      "tai nạn giao thông",
+      "tai nạn có người bị thương",
+      "12 lỗi nghiêm trọng",
+      "tai nạn do vượt đèn đỏ",
+      "tai nạn ở vạch qua đường",
+      "vi phạm Luật Đặc biệt về Xử lý Tai nạn Giao thông (gây thương tích)"
+    ],
+    "statutory": "Tù không lao động (금고) đến 5 năm hoặc phạt tiền đến 20 triệu won",
+    "law": "Điều 3 khoản 1, khoản 2, Điều 4 Luật Đặc biệt về Xử lý Tai nạn Giao thông",
+    "questions": {
+      "exception": {
+        "label": "Có thuộc 12 lỗi nghiêm trọng như vượt đèn đỏ, lấn làn đường ngược chiều, chạy quá tốc độ (vượt quá 20 km/h), vi phạm ở vạch qua đường, khu vực bảo vệ trẻ em… không?",
+        "help": "Với tai nạn do say rượu, hãy xem mục \"Tai nạn do lái xe khi say rượu\".",
+        "options": {
+          "no": "Không thuộc",
+          "yes": "Có thuộc"
+        }
+      },
+      "insured": {
+        "label": "Bạn có tham gia bảo hiểm toàn diện (quỹ tương trợ) không?",
+        "options": {
+          "no": "Không tham gia",
+          "yes": "Có tham gia"
+        }
+      },
+      "settled": {
+        "label": "Thỏa thuận với người bị hại",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "weeks": {
+        "label": "Thời gian điều trị theo chẩn đoán của người bị thương nặng nhất",
+        "help": "Nếu có nhiều người bị hại, lấy số tuần của người bị thương nặng nhất cộng với một nửa số tuần của người kế tiếp.",
+        "unit": "tuần"
+      },
+      "victimFault": {
+        "label": "Người bị hại có lỗi không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Dù chưa thỏa thuận được, nếu đã ký quỹ một khoản tiền đáng kể thì được xem xét gần như đã thỏa thuận."
+      },
+      {
+        "note": "Dù bị đưa ra xét xử chính thức, công tố viên vẫn có thể đề nghị phạt tiền."
+      },
+      {
+        "note": "Tiêu chuẩn là 500.000 won cho mỗi 1 tuần điều trị (nếu từ 4 tuần trở lên thì 500.000 – 700.000 won)."
+      },
+      {
+        "note": "Tiêu chuẩn là 300.000 won cho mỗi 1 tuần điều trị (nếu từ 4 tuần trở lên thì 300.000 – 500.000 won)."
+      },
+      {
+        "note": "Tiêu chuẩn là 500.000 won cho mỗi 1 tuần điều trị. Nếu có bảo hiểm trách nhiệm dân sự bắt buộc thì ở mức 300.000 won cho mỗi 1 tuần."
+      },
+      {
+        "note": "Nếu không thuộc 12 lỗi nghiêm trọng và đã tham gia bảo hiểm toàn diện, hoặc người bị hại không muốn xử phạt, theo nguyên tắc sẽ không bị xử phạt (không có quyền truy tố). Tuy nhiên, nếu người bị hại bị thương tích nghiêm trọng thì có thể khác."
+      }
+    ],
+    "notes": [
+      "Mức xử lý có thể được giảm nhẹ khi xem xét diễn biến, nguyên nhân tai nạn, tiền ký quỹ và mức độ lỗi."
+    ]
+  },
+  "traffic-accident-death": {
+    "name": "Tai nạn giao thông gây chết người (Luật Đặc biệt về Xử lý Tai nạn Giao thông)",
+    "aliases": [
+      "tai nạn chết người",
+      "tai nạn giao thông có người chết",
+      "vi phạm Luật Đặc biệt về Xử lý Tai nạn Giao thông (gây chết người)"
+    ],
+    "statutory": "Tù không lao động (금고) đến 5 năm hoặc phạt tiền đến 20 triệu won",
+    "law": "Điều 3 khoản 1 Luật Đặc biệt về Xử lý Tai nạn Giao thông",
+    "questions": {
+      "exception": {
+        "label": "Có thuộc 12 lỗi nghiêm trọng như vượt đèn đỏ, lấn làn đường ngược chiều, chạy quá tốc độ, vi phạm ở vạch qua đường… không?",
+        "help": "Với tai nạn do say rượu, hãy xem mục \"Tai nạn do lái xe khi say rượu\".",
+        "options": {
+          "no": "Không thuộc",
+          "yes": "Có thuộc"
+        }
+      },
+      "deaths": {
+        "label": "Số người chết",
+        "unit": "người"
+      },
+      "victimFault": {
+        "label": "Người đã chết có lỗi lớn không?",
+        "options": {
+          "no": "Không lớn",
+          "yes": "Lớn"
+        }
+      },
+      "settledOrInsured": {
+        "label": "Bạn đã thỏa thuận với gia đình người chết hoặc có tham gia bảo hiểm toàn diện không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 1 năm – 4 năm 6 tháng",
+        "note": "Nếu do 12 lỗi nghiêm trọng mà có từ 2 người chết trở lên, công tố viên đề nghị mức án cao hơn khung thông thường hai bậc."
+      },
+      {
+        "sentence": "Tù 1 năm – 3 năm",
+        "note": "Với tai nạn do 12 lỗi nghiêm trọng hoặc tai nạn có từ 2 người chết trở lên, việc tạm giam được tích cực xem xét bất kể đã thỏa thuận hay ký quỹ, và có xu hướng tránh đề nghị án treo."
+      },
+      {
+        "sentence": "Tù 8 tháng – 1 năm 6 tháng"
+      },
+      {
+        "note": "Đây là tiêu chuẩn cho trường hợp một người chết, người đó có lỗi lớn và bạn đã thỏa thuận hoặc có bảo hiểm toàn diện. Vụ việc cũng có thể bị yêu cầu xét xử chính thức."
+      }
+    ],
+    "notes": [
+      "Tạm giam chỉ được áp dụng khi có lý do luật định như nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, nên nhiều trường hợp dù thuộc tiêu chuẩn vẫn được điều tra, xét xử mà không bị tạm giam."
+    ]
+  },
+  "new-school-zone-accident": {
+    "name": "Tai nạn giao thông trong khu vực bảo vệ trẻ em (Luật Min-sik)",
+    "aliases": [
+      "Luật Min-sik",
+      "tai nạn ở khu vực trường học",
+      "school zone",
+      "gây thương tích trong khu vực bảo vệ trẻ em",
+      "gây chết người trong khu vực bảo vệ trẻ em",
+      "vi phạm Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định (gây thương tích trong khu vực bảo vệ trẻ em)"
+    ],
+    "statutory": "Trẻ em bị thương: tù từ 1 năm đến 15 năm hoặc phạt tiền từ 5 triệu đến 30 triệu won / Trẻ em chết: tù chung thân hoặc tù từ 3 năm trở lên",
+    "law": "Điều 5-13 Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định",
+    "questions": {
+      "type": {
+        "label": "Thiệt hại của trẻ em",
+        "options": {
+          "injury": "Bị thương",
+          "death": "Tử vong"
+        }
+      },
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Thỏa thuận hoặc người bị hại không muốn xử phạt, đã khắc phục thiệt hại, thành thật hối lỗi, phạm tội lần đầu… là hoàn cảnh giảm nhẹ; phạm tội có kế hoạch, thiệt hại lớn, có tiền án cùng loại… là hoàn cảnh tăng nặng.",
+        "options": {
+          "mitigated": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "basic": "Ngang nhau",
+          "aggravated": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 8 năm – 16 năm"
+      },
+      {
+        "sentence": "Tù 4 năm – 10 năm"
+      },
+      {
+        "sentence": "Tù 3 năm – 6 năm"
+      },
+      {
+        "sentence": "Tù 4 năm – 10 năm"
+      },
+      {
+        "sentence": "Tù 1 năm 8 tháng – 5 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 3 năm hoặc phạt tiền 3 triệu – 15 triệu won"
+      }
+    ],
+    "notes": [
+      "Là trường hợp trong khu vực bảo vệ trẻ em không tuân thủ tốc độ giới hạn (trong phạm vi 30 km/h…) hoặc không chú ý đến an toàn của trẻ em, làm trẻ em dưới 13 tuổi bị thương hoặc chết.",
+      "Dù đã tham gia bảo hiểm toàn diện hoặc đã thỏa thuận, vẫn bị xử phạt.",
+      "Nếu thương tích nhẹ hoặc người bị hại không muốn xử phạt, cũng có thể chọn hình phạt tiền."
+    ]
+  },
+  "illegal-alien-employment": {
+    "name": "Tuyển dụng người nước ngoài cư trú bất hợp pháp",
+    "aliases": [
+      "thuê người cư trú bất hợp pháp",
+      "thuê lao động bất hợp pháp",
+      "thuê người nước ngoài chưa đăng ký",
+      "vi phạm Luật Quản lý Xuất nhập cảnh"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 94 điểm 9, Điều 18 khoản 3 Luật Quản lý Xuất nhập cảnh",
+    "questions": {
+      "count": {
+        "label": "Số người nước ngoài cư trú bất hợp pháp đã tuyển dụng",
+        "unit": "người"
+      },
+      "venue": {
+        "label": "Ngành nghề",
+        "options": {
+          "normal": "Cơ sở kinh doanh, nhà máy thông thường",
+          "illegal": "Cơ sở bất hợp pháp như quán giải trí, mại dâm, massage"
+        }
+      },
+      "abuse": {
+        "label": "Bạn có đối xử bất công như nợ lương, hoặc thu được lợi ích lớn không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "priors": {
+        "label": "Số lần từng bị xử phạt về tội cùng loại",
+        "unit": "lần"
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu tuyển dụng hơn 10 người và đối xử bất công, tuyển dụng hơn 20 người và thu được lợi ích lớn, hoặc có từ 3 tiền sử từ mức xét xử chính thức trở lên, việc tạm giam sẽ được xem xét."
+      },
+      {
+        "sentence": "Tù từ 8 tháng trở lên"
+      },
+      {
+        "note": "Tiêu chuẩn là 2 triệu won cho mỗi 1 người."
+      },
+      {
+        "note": "Tiêu chuẩn là 1,5 triệu won cho mỗi 1 người."
+      }
+    ],
+    "notes": [
+      "Chỉ bị xử phạt khi cơ quan xuất nhập cảnh chuyển hồ sơ truy cứu (고발).",
+      "Nếu tuyển dụng ngắn hạn từ 1 tháng trở xuống trong ngành như sản xuất đang thiếu nhân lực, hoàn cảnh này có thể được xem xét.",
+      "Mức phạt tiền khác nhau tùy thời gian tuyển dụng, ngành nghề và việc có tái phạm hay không.",
+      "Do luật được sửa đổi sau năm 2016, mức phạt tiền tối đa đã tăng từ 20 triệu won lên 30 triệu won."
+    ]
+  },
+  "immig-employment-brokerage": {
+    "name": "Môi giới việc làm cho người nước ngoài cư trú bất hợp pháp",
+    "aliases": [
+      "môi giới việc làm cho người cư trú bất hợp pháp",
+      "vi phạm Luật Quản lý Xuất nhập cảnh"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 94 điểm 10, Điều 18 khoản 4 Luật Quản lý Xuất nhập cảnh",
+    "questions": {
+      "organized": {
+        "label": "Có quy mô lớn, có tổ chức, hoặc đã môi giới hơn 10 người vào cơ sở bất hợp pháp như mại dâm không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "repeat": {
+        "label": "Bạn có từng bị xử phạt về tội cùng loại không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {
+        "note": "Dự kiến bị phạt tiền, số tiền được định tùy hoàn cảnh."
+      }
+    ],
+    "notes": [
+      "Chỉ bị xử phạt khi cơ quan xuất nhập cảnh chuyển hồ sơ truy cứu (고발).",
+      "Theo nguyên tắc, mức phạt tiền không thấp hơn số tiền trong quyết định xử phạt theo thông báo (통고처분), và được định tùy ngành nghề môi giới và thời gian."
+    ]
+  },
+  "immig-false-invitation": {
+    "name": "Mời người nước ngoài vào Hàn Quốc theo diện giả",
+    "aliases": [
+      "mời giả",
+      "thư mời giả",
+      "bảo lãnh giả",
+      "vi phạm Luật Quản lý Xuất nhập cảnh"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 94 điểm 3, Điều 7-2 Luật Quản lý Xuất nhập cảnh",
+    "questions": {
+      "role": {
+        "label": "Bạn là ai trong vụ việc?",
+        "options": {
+          "broker": "Người môi giới hoặc người nước ngoài được mời",
+          "host": "Người Hàn Quốc đứng ra mời"
+        }
+      },
+      "profit": {
+        "label": "Bạn có làm để kiếm tiền hoặc thông đồng với người môi giới không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "count": {
+        "label": "Số người được mời giả",
+        "unit": "người"
+      }
+    },
+    "tiers": [
+      {
+        "note": "Người nước ngoài được mời có thể bị trục xuất (강제퇴거) thay vì bị tạm giam."
+      },
+      {
+        "sentence": "Tù từ 1 năm trở lên"
+      },
+      {
+        "note": "Tiêu chuẩn là 2 triệu won cho mỗi 1 người."
+      },
+      {}
+    ],
+    "notes": [
+      "Chỉ bị xử phạt khi cơ quan xuất nhập cảnh chuyển hồ sơ truy cứu (고발).",
+      "Mức phạt tiền tối đa đã tăng từ 20 triệu won lên 30 triệu won."
+    ]
+  },
+  "immig-smuggling-entry": {
+    "name": "Nhập cảnh trái phép",
+    "aliases": [
+      "vượt biên trái phép",
+      "nhập cảnh lậu",
+      "trốn kiểm tra nhập cảnh",
+      "vi phạm Luật Quản lý Xuất nhập cảnh"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 50 triệu won",
+    "law": "Điều 93-3 điểm 1, Điều 12 Luật Quản lý Xuất nhập cảnh",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Tù từ 1 năm trở lên",
+        "note": "Người môi giới nhập cảnh trái phép, người cung cấp tàu thuyền…, và cả bản thân người nhập cảnh trái phép đều có thể bị xem xét tạm giam."
+      }
+    ],
+    "notes": [
+      "Người môi giới nhập cảnh trái phép vì mục đích vụ lợi bị xử phạt nặng hơn."
+    ]
+  },
+  "p2-fake-marriage": {
+    "name": "Ghi sai sự thật vào hồ sơ điện tử công… (kết hôn giả…)",
+    "aliases": [
+      "kết hôn giả",
+      "đăng ký kết hôn giả",
+      "kết hôn giả để lấy visa",
+      "ghi sai sự thật vào hồ sơ điện tử công"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 228 khoản 1, Điều 229 Bộ luật Hình sự",
+    "questions": {
+      "role": {
+        "label": "Bạn đóng vai trò gì?",
+        "options": {
+          "broker": "Người môi giới, tuyển người",
+          "foreigner": "Người nước ngoài đã kết hôn",
+          "korean": "Người Hàn Quốc đã kết hôn"
+        }
+      },
+      "bad": {
+        "label": "Bạn có phạm tội khác như môi giới, chuyển tiền trái phép qua biên giới, hoặc có tiền án cùng loại mà vẫn nhận tiền công không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "paid": {
+        "label": "Số tiền đã nhận làm thù lao",
+        "unit": "× 10.000 won"
+      },
+      "harm": {
+        "label": "Có phát sinh thiệt hại về xã hội, kinh tế không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {},
+      {
+        "note": "Nếu đã nhận thù lao, mức phạt tiền sẽ cao hơn số tiền đó."
+      },
+      {
+        "note": "Nếu phạm tội lần đầu và tự thú nhận, thông thường bị phạt tiền từ 3 triệu won trở lên. Người nước ngoài nếu bị trục xuất cũng có thể được tạm hoãn truy tố."
+      }
+    ],
+    "notes": [
+      "Người nước ngoài và người Hàn Quốc chỉ đơn thuần kết hôn giả thường được điều tra mà không bị tạm giam."
+    ]
+  },
+  "foreignworker-intervention": {
+    "name": "Can thiệp vào việc tuyển chọn, môi giới lao động nước ngoài, không thực hiện biện pháp cho về nước, nhận tiền của…",
+    "aliases": [
+      "can thiệp môi giới lao động nước ngoài",
+      "vi phạm Luật về Tuyển dụng Lao động Nước ngoài",
+      "cản trở chuyển nơi làm việc",
+      "nhận tiền của lao động EPS"
+    ],
+    "statutory": "Tù đến 1 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 29 Luật về Tuyển dụng Lao động Nước ngoài",
+    "questions": {
+      "bad": {
+        "label": "Bạn có làm thường xuyên, như một nghề và có nhiều người bị hại không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 8 tháng trở lên"
+      },
+      {}
+    ]
+  },
+  "passport-fraud-issue": {
+    "name": "Xin cấp hộ chiếu gian dối (khai sai sự thật…)",
+    "aliases": [
+      "xin cấp hộ chiếu bằng thông tin giả",
+      "môi giới cấp hộ chiếu gian dối",
+      "vi phạm Luật Hộ chiếu"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 24 điểm 1, Điều 16 điểm 1 Luật Hộ chiếu",
+    "questions": {
+      "linked": {
+        "label": "Có đi kèm hoặc liên quan đến tội khác như giúp người phạm tội trốn tránh không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 10 tháng trở lên",
+        "note": "Nếu đi kèm hoặc liên quan đến tội khác, việc tạm giam sẽ được xem xét và vụ việc được đưa ra xét xử chính thức."
+      },
+      {}
+    ]
+  },
+  "passport-misuse-lend": {
+    "name": "Sử dụng hộ chiếu của người khác, chuyển nhượng hoặc cho mượn hộ chiếu",
+    "aliases": [
+      "dùng hộ chiếu của người khác",
+      "cho mượn hộ chiếu",
+      "mua bán hộ chiếu"
+    ],
+    "statutory": "Tù đến 2 năm hoặc phạt tiền đến 20 triệu won",
+    "law": "Điều 25, Điều 16 điểm 2, điểm 3 Luật Hộ chiếu",
+    "questions": {
+      "bad": {
+        "label": "Bạn có làm lặp lại hoặc cho mượn có tổ chức, như một nghề kinh doanh không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 10 tháng trở lên",
+        "note": "Phạm tội lặp lại hoặc cho mượn có tổ chức, như một nghề kinh doanh thì việc tạm giam sẽ được xem xét."
+      },
+      {}
+    ]
+  },
+  "passport-borrow": {
+    "name": "Nhận chuyển nhượng hoặc mượn hộ chiếu của người khác",
+    "aliases": [
+      "mượn hộ chiếu của người khác",
+      "mua hộ chiếu"
+    ],
+    "statutory": "Tù đến 1 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 26 điểm 1, Điều 16 điểm 4 Luật Hộ chiếu",
+    "questions": {
+      "times": {
+        "label": "Số lần",
+        "options": {
+          "1": "1 lần",
+          "2": "Từ 2 lần trở lên"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 6 tháng trở lên"
+      },
+      {
+        "note": "Theo nguyên tắc, vụ việc kết thúc bằng hình phạt tiền (truy tố theo thủ tục rút gọn)."
+      }
+    ]
+  },
+  "forgery-public-document": {
+    "name": "Làm giả, sử dụng văn bản công",
+    "aliases": [
+      "làm giả văn bản công",
+      "làm giả giấy tờ tùy thân",
+      "làm giả giấy chứng nhận",
+      "làm giả thẻ người nước ngoài"
+    ],
+    "statutory": "Tù đến 10 năm",
+    "law": "Điều 225, Điều 229 Bộ luật Hình sự",
+    "questions": {
+      "otherCrime": {
+        "label": "Bạn có dùng văn bản công làm giả để phạm tội khác không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "caught": {
+        "label": "Bạn bị phát hiện ngay tại chỗ khi định sử dụng nên không có thiệt hại thực tế phải không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu đã dùng văn bản công làm giả để phạm cả tội khác, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Tội này không có hình phạt tiền nên nếu bị truy tố sẽ phải ra xét xử chính thức. Nếu là giấy tờ quan trọng như bản án, hộ chiếu hoặc phạm tội có tổ chức thì nặng hơn."
+      }
+    ]
+  },
+  "forgery-private-document": {
+    "name": "Làm giả, sử dụng văn bản tư",
+    "aliases": [
+      "làm giả văn bản tư",
+      "làm giả hợp đồng",
+      "giả chữ ký"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 231, Điều 234 Bộ luật Hình sự",
+    "questions": {
+      "severe": {
+        "label": "Thiệt hại có lớn không, có dùng làm phương tiện phạm tội khác hoặc nộp cho cơ quan công không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "planned": {
+        "label": "Thủ đoạn có mang tính nghề nghiệp, có kế hoạch không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "damage": {
+        "label": "Việc làm giả có gây ra thiệt hại kinh tế thực tế không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu thiệt hại lớn và thủ đoạn có kế hoạch, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {},
+      {
+        "note": "Nếu không có thiệt hại thực tế hoặc thiệt hại rất nhỏ, thông thường chỉ bị xử lý bằng phạt tiền."
+      }
+    ],
+    "notes": [
+      "Nếu thực sự sử dụng văn bản đã làm giả thì cấu thành thêm tội sử dụng văn bản tư giả."
+    ]
+  },
+  "defamation": {
+    "name": "Phỉ báng (nêu sự thật)",
+    "aliases": [
+      "phỉ báng",
+      "xúc phạm danh dự bằng sự thật",
+      "nói xấu người khác"
+    ],
+    "statutory": "Tù hoặc tù không lao động (금고) đến 2 năm, hoặc phạt tiền đến 5 triệu won",
+    "law": "Điều 307 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "agreement": {
+        "label": "Người bị hại có nói là không muốn xử phạt không? (thỏa thuận)",
+        "options": {
+          "yes": "Không muốn xử phạt (đã thỏa thuận)",
+          "no": "Muốn xử phạt (chưa thỏa thuận được)"
+        }
+      },
+      "prior": {
+        "label": "Bạn có tiền án về tội phỉ báng không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "minor": {
+        "label": "Nội dung đã nói và phạm vi lan truyền có nhẹ xét một cách khách quan không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 6 tháng trở lên",
+        "note": "Nếu nội dung hoặc phạm vi lan truyền không nhẹ, theo nguyên tắc vụ việc được đưa ra xét xử chính thức."
+      },
+      {},
+      {
+        "note": "Đây là tội không thể xử phạt nếu người bị hại không muốn xử phạt (반의사불벌죄), nên nếu thỏa thuận được thì vụ việc kết thúc."
+      }
+    ],
+    "notes": [
+      "Nếu đăng trên Internet, mạng xã hội thì áp dụng luật khác (Luật Mạng Thông tin và Truyền thông) và bị xử phạt nặng hơn.",
+      "Nếu nói sự thật chỉ vì lợi ích công cộng thì có thể không bị xử phạt."
+    ]
+  },
+  "false-defamation": {
+    "name": "Phỉ báng bằng thông tin sai sự thật",
+    "aliases": [
+      "tung tin sai sự thật",
+      "tin đồn thất thiệt",
+      "bịa đặt nói xấu"
+    ],
+    "statutory": "Tù đến 5 năm, đình chỉ tư cách đến 10 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 307 khoản 2 Bộ luật Hình sự",
+    "questions": {
+      "agreement": {
+        "label": "Người bị hại có nói là không muốn xử phạt không? (thỏa thuận)",
+        "options": {
+          "yes": "Không muốn xử phạt (đã thỏa thuận)",
+          "no": "Muốn xử phạt (chưa thỏa thuận được)"
+        }
+      },
+      "malicious": {
+        "label": "Bạn có lan truyền để kiếm tiền, hoặc một cách có tổ chức, liên tục không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "minor": {
+        "label": "Nội dung đã nói và phạm vi lan truyền có nhẹ xét một cách khách quan không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu danh dự bị tổn hại nghiêm trọng do lan truyền thông tin sai sự thật vì mục đích vụ lợi hoặc có tổ chức, ác ý, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "sentence": "Tù từ 10 tháng trở lên",
+        "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức."
+      },
+      {},
+      {
+        "note": "Đây là tội không thể xử phạt nếu người bị hại không muốn xử phạt (반의사불벌죄), nên nếu thỏa thuận được thì vụ việc kết thúc."
+      }
+    ],
+    "notes": [
+      "Nếu đăng trên Internet, mạng xã hội thì áp dụng luật khác (Luật Mạng Thông tin và Truyền thông) và bị xử phạt nặng hơn."
+    ]
+  },
+  "insult": {
+    "name": "Lăng mạ",
+    "aliases": [
+      "tội lăng mạ",
+      "chửi bới",
+      "bình luận ác ý",
+      "xúc phạm người khác"
+    ],
+    "statutory": "Tù hoặc tù không lao động (금고) đến 1 năm, hoặc phạt tiền đến 2 triệu won",
+    "law": "Điều 311 Bộ luật Hình sự",
+    "questions": {
+      "complaint": {
+        "label": "Việc tố cáo của người bị hại thế nào?",
+        "options": {
+          "kept": "Vẫn giữ đơn tố cáo",
+          "withdrawn": "Đã rút đơn tố cáo (đã thỏa thuận)"
+        }
+      },
+      "pattern": {
+        "label": "Thuộc trường hợp nào?",
+        "options": {
+          "once": "Lăng mạ nhẹ một lần",
+          "persistent": "Lăng mạ cùng một người liên tục",
+          "prior": "Có tiền án về tội phỉ báng hoặc lăng mạ"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 6 tháng trở lên"
+      },
+      {},
+      {
+        "note": "Đây là tội chỉ bị xử phạt khi có tố cáo (친고죄), nên nếu rút đơn tố cáo thì vụ việc kết thúc."
+      }
+    ],
+    "notes": [
+      "Bình luận trên mạng nếu nhiều người có thể xem được thì cũng có thể cấu thành tội lăng mạ."
+    ]
+  },
+  "online-defamation": {
+    "name": "Phỉ báng qua mạng thông tin (phỉ báng trên Internet)",
+    "aliases": [
+      "phỉ báng trên Internet",
+      "phỉ báng trên mạng",
+      "bình luận ác ý",
+      "phỉ báng trên mạng xã hội",
+      "vi phạm Luật Mạng Thông tin và Truyền thông (phỉ báng)"
+    ],
+    "statutory": "Nêu sự thật: tù đến 3 năm hoặc phạt tiền đến 30 triệu won / Nêu thông tin sai sự thật: tù đến 7 năm, đình chỉ tư cách đến 10 năm hoặc phạt tiền đến 70 triệu won",
+    "law": "Điều 70 Luật Mạng Thông tin và Truyền thông",
+    "questions": {
+      "truth": {
+        "label": "Nội dung đã đăng",
+        "options": {
+          "fact": "Sự thật",
+          "false": "Thông tin sai sự thật"
+        }
+      },
+      "severity": {
+        "label": "Mức độ",
+        "options": {
+          "normal": "Trường hợp thông thường",
+          "repeat": "Đăng lặp lại nhiều lần vì cảm xúc cá nhân",
+          "grave": "Bịa đặt và lan truyền một cách ác ý, hoặc thiệt hại lớn đến mức khó khắc phục"
+        }
+      },
+      "wantsPunish": {
+        "label": "Người bị hại có muốn xử phạt không?",
+        "options": {
+          "no": "Không muốn",
+          "yes": "Muốn"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "Tù từ 1 năm trở lên",
+        "note": "Phỉ báng bằng thông tin sai sự thật theo nguyên tắc được đưa ra xét xử chính thức. Nếu bị đề nghị phạt tiền thì ở mức từ 5 triệu won trở lên."
+      },
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {},
+      {
+        "note": "Nếu người bị hại không muốn xử phạt thì không thể xử phạt (không có quyền truy tố). Nhiều trường hợp kết thúc bằng thỏa thuận trong quá trình điều tra."
+      }
+    ],
+    "notes": [
+      "Phải có mục đích bôi nhọ người khác; nếu vì lợi ích công cộng thì mục đích bôi nhọ có thể bị phủ nhận.",
+      "Do sửa đổi năm 2026, mức phạt tiền tối đa của tội phỉ báng bằng thông tin sai sự thật đã tăng lên 70 triệu won."
+    ]
+  },
+  "online-repeated-fear": {
+    "name": "Gửi lặp lại tin nhắn gây sợ hãi, bất an",
+    "aliases": [
+      "tin nhắn đe dọa",
+      "nhắn tin liên tục",
+      "nhắn KakaoTalk liên tục",
+      "vi phạm Luật Mạng Thông tin và Truyền thông (gây bất an)"
+    ],
+    "statutory": "Tù đến 1 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 74 khoản 1 điểm 3, Điều 44-7 khoản 1 điểm 3 Luật Mạng Thông tin và Truyền thông",
+    "questions": {
+      "long": {
+        "label": "Bạn có gửi lặp lại trong một thời gian khá dài không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      },
+      "record": {
+        "label": "Bạn có tiền án cùng loại không?",
+        "options": {
+          "no": "Không có",
+          "yes": "Có"
+        }
+      },
+      "wantsPunish": {
+        "label": "Người bị hại có muốn xử phạt không?",
+        "options": {
+          "no": "Không muốn",
+          "yes": "Muốn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 8 tháng trở lên"
+      },
+      {},
+      {
+        "note": "Nếu người bị hại không muốn xử phạt thì không thể xử phạt (không có quyền truy tố)."
+      }
+    ],
+    "notes": [
+      "Nếu có kèm hành vi khác như tìm đến hoặc theo dõi, có thể áp dụng Luật Xử phạt Tội phạm Theo dõi, Đeo bám nặng hơn, và công cụ này không tính đến điều đó."
+    ]
+  },
+  "obstruction-of-business": {
+    "name": "Cản trở công việc kinh doanh",
+    "aliases": [
+      "tội cản trở công việc",
+      "cản trở kinh doanh",
+      "gây rối ở cửa hàng",
+      "quậy phá quán"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 15 triệu won",
+    "law": "Điều 314 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "amount": {
+        "label": "Số tiền thiệt hại (ước tính)",
+        "help": "Nếu không biết chính xác, hãy nhập số tiền ước chừng; nếu không có thiệt hại về tiền, hãy nhập 0.",
+        "unit": "× 10.000 won"
+      },
+      "agreement": {
+        "label": "Bạn đã thỏa thuận với người bị hại chưa?",
+        "options": {
+          "yes": "Đã thỏa thuận",
+          "no": "Chưa thỏa thuận được"
+        }
+      },
+      "prior": {
+        "label": "Trong 5 năm gần đây, bạn có từng bị xử từ mức án treo trở lên về cùng tội không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 1 năm trở lên",
+        "note": "Nếu thiệt hại từ 30 triệu won trở lên mà chưa thỏa thuận được, hoặc có tiền án cùng loại gần đây, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {
+        "note": "Nếu thiệt hại tương đối nhẹ hoặc đã thỏa thuận, thông thường chỉ bị xử lý bằng phạt tiền."
+      }
+    ]
+  },
+  "obstruction-of-official-duty": {
+    "name": "Cản trở người thi hành công vụ",
+    "aliases": [
+      "hành hung cảnh sát",
+      "tội cản trở người thi hành công vụ",
+      "chống người thi hành công vụ"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 136 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "target": {
+        "label": "Bạn đã làm gì với ai?",
+        "options": {
+          "uniform-force": "Trực tiếp đánh hoặc xô đẩy cảnh sát, lính cứu hỏa, công chức phúc lợi tại hiện trường đang mặc đồng phục",
+          "uniform-other": "Chửi bới, đe dọa… cảnh sát, lính cứu hỏa… đang mặc đồng phục",
+          "other": "Công chức khác"
+        }
+      },
+      "aggravated": {
+        "label": "Bạn có dùng hung khí, làm cùng từ 2 người trở lên, hoặc gây thương tích từ 3 tuần trở lên không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "prior": {
+        "label": "Trong 5 năm gần đây, bạn có tiền án cùng loại không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "minor": {
+        "label": "Việc này có bột phát và mức độ cản trở nhẹ không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu trực tiếp dùng vũ lực với cảnh sát… đang mặc đồng phục, hoặc có hung khí, nhiều người cùng làm, có tiền án cùng loại gần đây, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "note": "Việc cản trở cảnh sát… đang mặc đồng phục theo nguyên tắc được đưa ra xét xử chính thức, nhưng nếu nhẹ thì đôi khi bị đề nghị phạt tiền."
+      },
+      {},
+      {
+        "note": "Nếu bột phát và nhẹ, thông thường chỉ bị xử lý bằng phạt tiền."
+      }
+    ],
+    "notes": [
+      "Việc đó xảy ra khi đang can người đi cùng hay là cùng nhau cản trở sẽ được xem xét thận trọng."
+    ]
+  },
+  "p2-special-obstruction": {
+    "name": "Cản trở người thi hành công vụ đặc biệt…",
+    "aliases": [
+      "cản trở người thi hành công vụ đặc biệt",
+      "cản trở công vụ bằng hung khí",
+      "làm hư hỏng tài sản công đặc biệt"
+    ],
+    "statutory": "Tăng nặng thêm đến 1/2 hình phạt quy định cho từng tội",
+    "law": "Điều 144 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "role": {
+        "label": "Bạn đóng vai trò gì?",
+        "options": {
+          "leader": "Cầm đầu hoặc tích cực tham gia",
+          "simple": "Chỉ đơn thuần làm theo"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Người cầm đầu hoặc tích cực tham gia theo nguyên tắc bị điều tra có tạm giam."
+      },
+      {
+        "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức."
+      }
+    ],
+    "notes": [
+      "Là trường hợp phô trương sức mạnh của nhiều người hoặc cầm vật nguy hiểm để cản trở người thi hành công vụ, làm hư hỏng tài sản công…"
+    ]
+  },
+  "perjury": {
+    "name": "Khai man trước tòa",
+    "aliases": [
+      "làm chứng gian",
+      "khai man",
+      "tội khai man"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 10 triệu won",
+    "law": "Điều 152 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "prior": {
+        "label": "Bạn có tiền án về tội khai man hoặc vu khống không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "paid": {
+        "label": "Bạn đã nhận hoặc hứa nhận tiền… để đổi lấy lời khai không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "impact": {
+        "label": "Lời khai sai có phải là nội dung có thể ảnh hưởng lớn đến kết quả xét xử không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "confessed": {
+        "label": "Bạn đã tự đính chính lời khai sai hoặc tự thú nhận chưa?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có tiền án cùng loại, khai vì được trả công, hoặc lời khai sai đã ảnh hưởng lớn đến phiên xét xử, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {},
+      {
+        "note": "Nếu không ảnh hưởng lớn đến kết quả xét xử và đã tự thú nhận, thông thường chỉ bị xử lý bằng phạt tiền."
+      }
+    ],
+    "notes": [
+      "Nếu tự thú nhận trước khi bản án có hiệu lực, hình phạt được giảm hoặc miễn."
+    ]
+  },
+  "false-accusation": {
+    "name": "Vu khống",
+    "aliases": [
+      "tố cáo sai sự thật",
+      "tội vu khống",
+      "vu cáo"
+    ],
+    "statutory": "Tù đến 10 năm hoặc phạt tiền đến 15 triệu won",
+    "law": "Điều 156 Bộ luật Hình sự",
+    "questions": {
+      "prior": {
+        "label": "Bạn có tiền án về tội khai man hoặc vu khống không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "pattern": {
+        "label": "Bạn có tố cáo cùng một người nhiều lần, tố cáo sai nhiều người, hoặc nhằm mục đích làm hại bên kia không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "indicted": {
+        "label": "Bên kia có thực sự bị truy tố vì đơn tố cáo sai đó không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "evade": {
+        "label": "Bạn có tố cáo để trốn tránh trách nhiệm của mình (nợ, bị xử phạt…) không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "confessed": {
+        "label": "Bạn đã tự thú nhận và rút đơn tố cáo chưa?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu có tiền án cùng loại hoặc tố cáo sai lặp đi lặp lại, ác ý, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {},
+      {
+        "note": "Nếu vụ việc không nặng, bạn đã tự thú nhận và rút đơn tố cáo, đôi khi chỉ bị xử lý bằng phạt tiền."
+      }
+    ],
+    "notes": [
+      "Nếu tự thú nhận trước khi bản án hoặc quyết định kỷ luật có hiệu lực, hình phạt được giảm hoặc miễn.",
+      "Người xúi giục người khác tố cáo sai bị coi là nặng hơn."
+    ]
+  },
+  "harboring-criminal": {
+    "name": "Giúp người phạm tội trốn tránh",
+    "aliases": [
+      "che giấu người phạm tội",
+      "nhận tội thay",
+      "đổi người lái xe",
+      "khai thay người khác"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 5 triệu won",
+    "law": "Điều 151 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "serious": {
+        "label": "Người được bạn che giấu có phạm tội nặng không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "paid": {
+        "label": "Bạn có nhận tiền công hoặc gây cản trở lớn cho việc điều tra, xét xử không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "early": {
+        "label": "Việc này có bị phát hiện ngay ở giai đoạn đầu điều tra nên mức cản trở nhẹ không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu đã che giấu người phạm tội nặng, nhận tiền công hoặc gây cản trở lớn cho việc điều tra, việc điều tra có tạm giam có thể được xem xét."
+      },
+      {
+        "sentence": "Tù từ 8 tháng trở lên"
+      },
+      {
+        "note": "Nếu bị phát hiện ở giai đoạn đầu điều tra nên mức cản trở nhẹ, và quan hệ với người phạm tội có điều đáng xem xét, đôi khi chỉ bị xử lý bằng phạt tiền."
+      }
+    ],
+    "notes": [
+      "Nếu người thân (họ hàng) hoặc người trong gia đình sống chung che giấu vì người đó thì không bị xử phạt.",
+      "Nếu nhờ người khác tự thú thay để che giấu tội của mình, người nhờ cũng có thể bị xử phạt."
+    ]
+  },
+  "gambling": {
+    "name": "Đánh bạc",
+    "aliases": [
+      "tội đánh bạc",
+      "cờ bạc trái phép",
+      "cờ bạc trên mạng",
+      "đánh bài ăn tiền"
+    ],
+    "statutory": "Phạt tiền đến 10 triệu won",
+    "law": "Điều 246 khoản 1 Bộ luật Hình sự",
+    "questions": {
+      "prior": {
+        "label": "Bạn có tiền án về tội đánh bạc không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "casual": {
+        "label": "Tiền cược ít, gần với giải trí nhất thời như chơi bài go-stop không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Nếu tái phạm, tiêu chuẩn là từ 1 triệu won trở lên."
+      },
+      {},
+      {
+        "note": "Nếu gần với giải trí nhất thời, có thể được tạm hoãn truy tố; nếu chỉ dừng ở mức giải trí nhất thời thì không bị xử phạt."
+      }
+    ],
+    "notes": [
+      "Đánh bạc trên mạng được quyết định dựa trên tiền án và quy mô số tiền đã đặt cược.",
+      "Nếu đánh bạc thường xuyên thì bị xử phạt nặng về tội thường xuyên đánh bạc (tù đến 3 năm hoặc phạt tiền đến 20 triệu won).",
+      "Cá cược thể thao bất hợp pháp có thể bị áp dụng thêm luật khác (Luật Thúc đẩy Thể thao Quốc dân)."
+    ]
+  },
+  "gambling-place": {
+    "name": "Tổ chức địa điểm đánh bạc",
+    "aliases": [
+      "mở sòng bạc",
+      "điều hành trang web cờ bạc",
+      "chứa chấp cờ bạc"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 30 triệu won",
+    "law": "Điều 247 Bộ luật Hình sự",
+    "questions": {
+      "role": {
+        "label": "Bạn đóng vai trò gì?",
+        "options": {
+          "operator": "Người điều hành, chủ mưu",
+          "helper": "Giúp điều hành",
+          "parttime": "Chỉ làm thêm, nhân viên đơn thuần"
+        }
+      },
+      "online": {
+        "label": "Có phải là sòng bạc trên mạng (trang web) không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "prior2": {
+        "label": "Bạn có từ 2 tiền án cùng loại trở lên không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      },
+      "large": {
+        "label": "Quy mô tiền cược có lớn và là loại có tính đỏ đen cao không?",
+        "options": {
+          "yes": "Có",
+          "no": "Không"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Với sòng bạc trên mạng, có từ 2 tiền án cùng loại trở lên, hoặc điều hành sòng bạc với tiền cược lớn, việc điều tra có tạm giam được xem xét gần như theo nguyên tắc."
+      },
+      {
+        "note": "Theo nguyên tắc, vụ việc được đưa ra xét xử chính thức, và có thể bị phạt tiền kèm theo."
+      },
+      {
+        "note": "Nếu có tiền án về đánh bạc, mức xử lý sẽ nặng hơn."
+      },
+      {
+        "note": "Nếu mức độ tham gia nhẹ như chỉ là làm thêm đơn thuần, có thể được tạm hoãn truy tố."
+      }
+    ]
+  },
+  "illegal-sports-betting": {
+    "name": "Cá cược thể thao bất hợp pháp (dùng trang Toto tư nhân)",
+    "aliases": [
+      "Toto tư nhân",
+      "Toto bất hợp pháp",
+      "cá độ bóng đá",
+      "cá cược thể thao",
+      "cờ bạc trên mạng",
+      "vi phạm Luật Thúc đẩy Thể thao Quốc dân (đánh bạc…)"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 50 triệu won",
+    "law": "Điều 48 điểm 3, Điều 26 khoản 1 Luật Thúc đẩy Thể thao Quốc dân",
+    "questions": {
+      "amount": {
+        "label": "Tổng số tiền đặt cược",
+        "help": "Là tổng số tiền đã thực sự đặt cược.",
+        "unit": "× 10.000 won"
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù từ 10 tháng trở lên"
+      },
+      {
+        "note": "Đây là mức tiền có thể bị đưa ra xét xử chính thức."
+      },
+      {},
+      {},
+      {},
+      {
+        "note": "Cũng có trường hợp kết thúc bằng tạm hoãn truy tố."
+      }
+    ],
+    "notes": [
+      "Tiêu chuẩn được áp dụng linh hoạt tùy tiền sử cùng loại, thời gian cá cược…",
+      "Nếu điều hành hoặc quảng bá trang web cờ bạc thì bị xử phạt nặng hơn nhiều."
+    ]
+  },
+  "labor-unpaid-wages": {
+    "name": "Nợ lương (không trả tiền lương, tiền trợ cấp ngừng việc, tiền làm thêm giờ)",
+    "aliases": [
+      "nợ lương",
+      "không trả lương",
+      "không thanh toán khi nghỉ việc",
+      "không trả tiền làm thêm giờ",
+      "vi phạm Luật Tiêu chuẩn Lao động"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến 50 triệu won",
+    "law": "Điều 107 khoản 1, Điều 36, Điều 43, Điều 46, Điều 56 Luật Tiêu chuẩn Lao động",
+    "questions": {
+      "type": {
+        "label": "Số tiền nợ lương",
+        "options": {
+          "t1": "Dưới 50 triệu won",
+          "t2": "Từ 50 triệu won đến dưới 100 triệu won",
+          "t3": "Từ 100 triệu won trở lên"
+        }
+      },
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Hãy so sánh các hoàn cảnh như thỏa thuận, hối lỗi, phạm tội lần đầu với các hoàn cảnh nặng như quy mô thiệt hại, tiền án rồi chọn.",
+        "options": {
+          "mit": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "same": "Ngang nhau",
+          "agg": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 1 năm – 2 năm"
+      },
+      {
+        "sentence": "Tù 8 tháng – 1 năm 4 tháng"
+      },
+      {
+        "sentence": "Tù đến 1 năm"
+      },
+      {
+        "sentence": "Tù 1 năm 4 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 2 năm"
+      },
+      {
+        "sentence": "Tù đến 1 năm 4 tháng"
+      },
+      {
+        "sentence": "Tù 2 năm 4 tháng – 5 năm"
+      },
+      {
+        "sentence": "Tù 1 năm 4 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 2 năm"
+      }
+    ],
+    "notes": [
+      "Nếu người lao động không muốn xử phạt thì không thể xử phạt (반의사불벌). Tuy nhiên, điều này không áp dụng nếu chủ doanh nghiệp nợ lương đã bị công khai danh sách lại nợ lương trong thời gian bị công khai.",
+      "Nếu trả hết số tiền nợ hoặc thỏa thuận, phần lớn vụ việc kết thúc bằng phạt tiền hoặc không bị xử phạt."
+    ]
+  },
+  "new-minimum-wage": {
+    "name": "Trả lương thấp hơn mức lương tối thiểu",
+    "aliases": [
+      "vi phạm Luật Lương Tối thiểu",
+      "không trả đủ lương tối thiểu",
+      "trả lương dưới mức tối thiểu"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến 20 triệu won (có thể áp dụng cả hai)",
+    "law": "Điều 28 khoản 1, Điều 6 khoản 1, khoản 2 Luật Lương Tối thiểu",
+    "questions": {
+      "type": {
+        "label": "Tổng tiền lương trả thiếu (cho tất cả người lao động)",
+        "options": {
+          "u50m": "Dưới 50 triệu won",
+          "u100m": "Từ 50 triệu won đến dưới 100 triệu won",
+          "o100m": "Từ 100 triệu won trở lên"
+        }
+      },
+      "circ": {
+        "label": "Hoàn cảnh",
+        "help": "Thỏa thuận hoặc người bị hại không muốn xử phạt, đã khắc phục thiệt hại, thành thật hối lỗi, phạm tội lần đầu… là hoàn cảnh giảm nhẹ; phạm tội có kế hoạch, thiệt hại lớn, có tiền án cùng loại… là hoàn cảnh tăng nặng.",
+        "options": {
+          "mitigated": "Hoàn cảnh giảm nhẹ nhiều hơn",
+          "basic": "Ngang nhau",
+          "aggravated": "Hoàn cảnh tăng nặng nhiều hơn"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "Tù 2 năm 4 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 1 năm 4 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 2 năm"
+      },
+      {
+        "sentence": "Tù 1 năm 4 tháng – 3 năm"
+      },
+      {
+        "sentence": "Tù 1 năm – 2 năm"
+      },
+      {
+        "sentence": "Tù đến 1 năm 4 tháng"
+      },
+      {
+        "sentence": "Tù 1 năm – 2 năm"
+      },
+      {
+        "sentence": "Tù 8 tháng – 1 năm 4 tháng"
+      },
+      {
+        "sentence": "Tù đến 1 năm"
+      }
+    ],
+    "notes": [
+      "Là trường hợp trả ít hơn mức lương tối thiểu, hoặc lấy lý do lương tối thiểu để cắt giảm tiền lương hiện có.",
+      "Việc trả phần lương còn thiếu là hoàn cảnh giảm nhẹ. Tội này thường bị xem xét cùng với nợ lương (Luật Tiêu chuẩn Lao động)."
+    ]
+  },
+  "customs-smuggling-import": {
+    "name": "Nhập lậu (nhập khẩu không khai báo hoặc khai báo hàng khác)",
+    "aliases": [
+      "buôn lậu",
+      "nhập lậu",
+      "nhập khẩu không khai báo",
+      "xách tay hàng lậu",
+      "buôn lậu hàng hiệu"
+    ],
+    "statutory": "Tù đến 5 năm hoặc phạt tiền đến mức cao hơn giữa 10 lần tiền thuế hải quan và giá gốc hàng hóa",
+    "law": "Điều 269 khoản 2 Luật Hải quan",
+    "questions": {
+      "cost": {
+        "label": "Giá gốc hàng hóa",
+        "unit": "× 10.000 won"
+      },
+      "multiple": {
+        "label": "Có nhiều vụ (nhiều tội) không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "Tù từ 1 năm trở lên",
+        "note": "Công tố viên đồng thời đề nghị phạt tiền tương đương 10% giá thị trường của hàng lậu."
+      },
+      {
+        "note": "Từ 20% giá gốc hàng hóa trở lên."
+      }
+    ],
+    "notes": [
+      "Nếu giá gốc hàng hóa từ 200 triệu won trở lên thì áp dụng Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định.",
+      "Hàng lậu nhất định bị tịch thu hoặc truy thu, và thông thường nếu giá gốc hàng hóa từ 20 triệu won trở lên thì hải quan sẽ chuyển hồ sơ truy cứu (고발)."
+    ]
+  },
+  "customs-contraband": {
+    "name": "Xuất nhập khẩu hàng cấm (buôn lậu)",
+    "aliases": [
+      "buôn lậu hàng cấm",
+      "buôn lậu văn hóa phẩm đồi trụy",
+      "buôn lậu tiền giả",
+      "buôn lậu súng"
+    ],
+    "statutory": "Tù đến 7 năm hoặc phạt tiền đến 70 triệu won",
+    "law": "Điều 269 khoản 1, Điều 234 Luật Hải quan",
+    "questions": {
+      "kind": {
+        "label": "Hàng hóa",
+        "options": {
+          "danger": "Hàng gây hại cho an ninh công cộng như vũ khí, tiền giả",
+          "obscene": "Hàng gây hại cho thuần phong mỹ tục như văn hóa phẩm đồi trụy"
+        }
+      },
+      "big": {
+        "label": "Có quy mô lớn không?",
+        "options": {
+          "no": "Không",
+          "yes": "Có"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "note": "Nếu là văn hóa phẩm đồi trụy… với quy mô nhỏ, có thể bị đề nghị phạt tiền."
+      },
+      {
+        "sentence": "Tù từ 2 năm trở lên"
+      }
+    ],
+    "notes": [
+      "Buôn lậu ma túy bị xử phạt nặng hơn theo Luật Quản lý Chất ma túy."
+    ]
+  },
+  "customs-smuggled-goods": {
+    "name": "Mua, chuyển nhượng, vận chuyển, cất giữ hàng lậu",
+    "aliases": [
+      "mua hàng lậu",
+      "vận chuyển hàng lậu",
+      "bán thuốc lá lậu"
+    ],
+    "statutory": "Tù đến 3 năm hoặc phạt tiền đến mức giá gốc hàng hóa",
+    "law": "Điều 274 khoản 1 Luật Hải quan",
+    "questions": {
+      "cost": {
+        "label": "Giá gốc hàng hóa",
+        "unit": "× 10.000 won"
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "Tù từ 10 tháng trở lên",
+        "note": "Công tố viên đồng thời đề nghị phạt tiền tương đương 10% giá thị trường của hàng lậu."
+      },
+      {
+        "note": "Từ 20% giá gốc hàng hóa trở lên, và có thể tăng tùy thủ đoạn."
+      }
+    ]
+  }
+}

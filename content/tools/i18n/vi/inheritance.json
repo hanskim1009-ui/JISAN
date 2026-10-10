@@ -1,0 +1,106 @@
+{
+  "page": {
+    "title": "Tính phần thừa kế",
+    "description": "Nhập những người thừa kế như vợ/chồng, con, cha mẹ, anh chị em để tính phần thừa kế theo pháp luật của từng người, dưới dạng phân số và số tiền, theo hàng thừa kế của Bộ luật Dân sự và quy tắc vợ/chồng được 1,5 lần.",
+    "lead": "Tính phần do luật quy định (phần thừa kế theo pháp luật, 법정상속분) khi không có di chúc. Nhập người thừa kế và giá trị tài sản để xem ngay tỷ lệ và số tiền mỗi người được nhận.",
+    "notice": "Đây là kết quả tính tham khảo theo tỷ lệ do Bộ luật Dân sự (민법) quy định. Phần thực tế được nhận có thể khác tùy di chúc, việc từ bỏ thừa kế, tài sản đã nhận trước (lợi ích đặc biệt, 특별수익) và phần đóng góp (기여분). Hãy trao đổi với luật sư trước khi quyết định."
+  },
+  "heirs": {
+    "title": "Người thừa kế",
+    "desc": "Lấy người đã mất (người để lại di sản) làm mốc, hãy nhập những người trong gia đình còn sống vào ngày người đó mất.",
+    "spouse": "Vợ/chồng",
+    "spouseHelp": "Chỉ áp dụng cho vợ/chồng đã đăng ký kết hôn. Vợ/chồng đã ly hôn hoặc vợ/chồng chung sống không đăng ký kết hôn không phải là người thừa kế.",
+    "children": "Con",
+    "childrenDesc": "Con nuôi, con sinh ra ngoài giá thú đã được nhận là con cũng như vậy. Nếu có người con đã mất trước người để lại di sản, hãy chọn \"Đã mất trước\" rồi nhập con và vợ/chồng của người con đó.",
+    "child": "Con",
+    "childKids": "Con của người con đó (cháu)",
+    "hasDescNote": "Nếu có con (hoặc cháu nhận thay), cha mẹ và anh chị em không trở thành người thừa kế.",
+    "ascendants": "Người thân trực hệ bậc trên (cha mẹ, ông bà)",
+    "ascendantsDesc": "Trở thành người thừa kế khi không có con. Chỉ tính những người ở bậc gần nhất. Nếu còn ít nhất một trong hai cha mẹ thì chỉ nhập cha mẹ; nếu cả hai đều không còn thì nhập ông bà.",
+    "ascendantsCount": "Số người thân trực hệ bậc trên",
+    "hasAscNote": "Nếu có cha mẹ (người thân trực hệ bậc trên), anh chị em không trở thành người thừa kế.",
+    "spouseOnlyNote": "Nếu không có con và cha mẹ, vợ/chồng thừa kế một mình. Anh chị em không trở thành người thừa kế.",
+    "siblings": "Anh chị em",
+    "siblingsDesc": "Trở thành người thừa kế khi không có con, cha mẹ và vợ/chồng. Nếu có anh chị em đã mất trước, con (cháu) và vợ/chồng của người đó nhận thay.",
+    "sibling": "Anh chị em",
+    "siblingKids": "Con của anh chị em đó (cháu)",
+    "collaterals": "Người thân bàng hệ trong phạm vi 4 đời",
+    "collateralsDesc": "Trở thành người thừa kế khi không có ai trong những người ở trên. Hãy nhập số người ở bậc gần nhất trong số họ hàng tách ra từ cùng tổ tiên, như chú, bác, cô, dì (họ hàng bậc 3), anh chị em họ (họ hàng bậc 4).",
+    "collateralsCount": "Số người thân bàng hệ",
+    "item": "{label} {n}",
+    "state": "Tình trạng của {item}",
+    "alive": "Còn sống",
+    "deceased": "Đã mất trước",
+    "kidCount": "Số con của {item}",
+    "theirSpouse": "Vợ/chồng của người đó",
+    "spouseOf": "Vợ/chồng của {item}",
+    "lost": "Nếu không có ai nhận thay, phần này sẽ chuyển sang những người thừa kế khác.",
+    "add": "+ Thêm {label}"
+  },
+  "names": {
+    "spouse": "Vợ/chồng",
+    "child": "Con",
+    "sibling": "Anh chị em",
+    "ascendant": "Người thân trực hệ bậc trên",
+    "collateral": "Người thân bàng hệ",
+    "grandchild": "Con",
+    "nephew": "Con (cháu)",
+    "item": "{label} {n}",
+    "spouseOf": "Vợ/chồng của {name}",
+    "kidOf": "{kid} {n} của {name}"
+  },
+  "ranks": {
+    "descendant": "Hàng thứ 1: con cháu trực hệ như con (cùng với vợ/chồng)",
+    "ascendant": "Hàng thứ 2: người thân trực hệ bậc trên như cha mẹ (cùng với vợ/chồng)",
+    "spouseOnly": "Vợ/chồng thừa kế một mình",
+    "sibling": "Hàng thứ 3: anh chị em",
+    "collateral": "Hàng thứ 4: người thân bàng hệ trong phạm vi 4 đời"
+  },
+  "ui": {
+    "estateTitle": "Tài sản thừa kế (không bắt buộc)",
+    "estateLabel": "Giá trị tài sản cần chia",
+    "estateHelp": "Nếu nhập, công cụ sẽ hiển thị cả số tiền của từng người. Nếu có nợ, hãy nhập số tiền sau khi đã trừ nợ.",
+    "result": "Phần thừa kế theo pháp luật",
+    "colHeir": "Người thừa kế",
+    "colShare": "Phần thừa kế",
+    "colRatio": "Tỷ lệ",
+    "colAmount": "Số tiền",
+    "rounding": "Số tiền được làm tròn đến đơn vị won nên tổng có thể chênh lệch vài won.",
+    "via": "Nhận thay phần của {name} đã mất trước (thừa kế thế vị)",
+    "stepRank": "Hàng thừa kế: {rank}. Nếu có người ở hàng trước thì người ở hàng sau không được nhận.",
+    "stepSpouse": "Vợ/chồng được nhận gấp 1,5 lần phần của một người con (hoặc cha mẹ) cùng thừa kế. Vì vậy, chia theo tỷ lệ vợ/chồng 3, mỗi người còn lại 2.",
+    "stepEqual": "Những người thừa kế cùng hàng được chia đều nhau.",
+    "stepSubst": "Phần của người đã mất trước do con và vợ/chồng của người đó nhận thay (thừa kế thế vị), và trong phần đó lại chia theo tỷ lệ vợ/chồng 1,5 : con 1.",
+    "stepDen": "Tất cả các phần được quy về cùng mẫu số ({den}). Giá trị trong ngoặc là phân số đã rút gọn.",
+    "notIncluded": "Những điều không được tính trong kết quả này"
+  },
+  "notIncluded": [
+    "Nếu có di chúc thì di chúc được ưu tiên. Tuy nhiên, nếu phần tối thiểu được luật bảo đảm (phần di sản bắt buộc, 유류분) bị thiếu thì có thể yêu cầu riêng.",
+    "Người đã từ bỏ thừa kế được coi như ngay từ đầu không phải là người thừa kế. Hãy bỏ người đó ra và tính lại.",
+    "Tài sản đã nhận trước (lợi ích đặc biệt) hoặc phần công chăm sóc, phụng dưỡng lâu dài (phần đóng góp) được xem xét riêng khi thực sự phân chia.",
+    "Công cụ này không tính được trường hợp cả cháu cũng đã mất trước (thế vị lần hai) hoặc thai nhi."
+  ],
+  "terms": [
+    [
+      "Phần thừa kế",
+      "Là tỷ lệ do luật quy định mà mỗi người thừa kế được chia."
+    ],
+    [
+      "Người để lại di sản",
+      "Là người đã mất và để lại tài sản."
+    ],
+    [
+      "Con cháu trực hệ · người thân trực hệ bậc trên",
+      "Là những người cùng huyết thống nối xuống phía dưới như con, cháu, và những người cùng huyết thống nối lên phía trên như cha mẹ, ông bà."
+    ],
+    [
+      "Thừa kế thế vị",
+      "Là việc khi người con hoặc anh chị em lẽ ra là người thừa kế đã mất trước, con và vợ/chồng của người đó thừa kế thay."
+    ]
+  ],
+  "errors": {
+    "oneSpouse": "Chỉ có thể nhập một vợ/chồng.",
+    "noHeir": "Hãy nhập ít nhất một người thừa kế.",
+    "sum": "Tổng các phần thừa kế không bằng 1."
+  }
+}

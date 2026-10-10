@@ -1,0 +1,138 @@
+{
+  "_note": "Bản tiếng Việt của văn bản giao diện công cụ ước tính mức án công tố viên đề nghị. Dịch ngày 10/10/2026, chưa qua luật sư kiểm duyệt.",
+  "meta": {
+    "title": "Ước tính mức án công tố viên đề nghị",
+    "description": "Chọn tội danh và hoàn cảnh vụ việc để xem ngay bước xử lý dự kiến (tạm hoãn truy tố, phạt tiền theo thủ tục rút gọn, xét xử chính thức, tạm giam) và mức án đề nghị, mức phạt tiền, dựa trên xu hướng xử lý chung của cơ quan điều tra.",
+    "lead": "Chọn tội danh và trả lời vài câu hỏi để xem bước xử lý dự kiến, mức án đề nghị (구형: mức hình phạt công tố viên đề nghị tòa án tại phiên xét xử) và mức phạt tiền.",
+    "notice": "Đây chỉ là ước tính dựa trên xu hướng xử lý chung của cơ quan điều tra. Quyết định xử lý và mức án đề nghị thực tế khác nhau tùy hoàn cảnh vụ việc như thỏa thuận với người bị hại, tiền án, quá trình phạm tội, và tùy đánh giá của công tố viên phụ trách; mức án cuối cùng do tòa án quyết định. Nếu sắp phải đến làm việc với cơ quan điều tra, đừng chỉ dựa vào kết quả này mà hãy trao đổi với luật sư trước.",
+    "relatedSentencing": "Ước tính mức án tuyên (Tiêu chuẩn lượng hình)",
+    "relatedPoliceSummons": "Ứng phó khi cảnh sát yêu cầu đến làm việc",
+    "relatedCrimeCenter": "Trung tâm Hình sự"
+  },
+  "steps": {
+    "family-court": {
+      "short": "Tòa án Gia đình",
+      "label": "Có thể chuyển sang Tòa án Gia đình",
+      "desc": "Vụ việc bảo vệ gia đình, bảo vệ người chưa thành niên: thủ tục trong đó, thay cho xử phạt hình sự, Tòa án Gia đình áp dụng biện pháp bảo vệ như tư vấn, hạn chế tiếp cận, lao động phục vụ cộng đồng"
+    },
+    "suspension": {
+      "short": "Tạm hoãn truy tố",
+      "label": "Có thể tạm hoãn truy tố",
+      "desc": "Tạm hoãn truy tố (기소유예): quyết định trong đó lỗi được thừa nhận, nhưng xét nhiều hoàn cảnh, công tố viên kết thúc vụ việc mà không đưa ra xét xử"
+    },
+    "summary": {
+      "short": "Phạt tiền rút gọn",
+      "label": "Phạt tiền theo thủ tục rút gọn",
+      "desc": "Truy tố theo thủ tục rút gọn (약식기소): thủ tục định mức phạt tiền dựa trên hồ sơ, không cần ra tòa xét xử"
+    },
+    "trial": {
+      "short": "Xét xử chính thức",
+      "label": "Xét xử chính thức",
+      "desc": "Xét xử chính thức (구공판): thủ tục trong đó công tố viên yêu cầu tòa án xét xử, và bị cáo phải ra tòa trước thẩm phán"
+    },
+    "detention": {
+      "short": "Xem xét tạm giam",
+      "label": "Xem xét tạm giam",
+      "desc": "Tạm giam (구속): khi có nguy cơ bỏ trốn hoặc tiêu hủy chứng cứ, được tòa án cấp lệnh để giam giữ người đó trong lúc điều tra, xét xử"
+    }
+  },
+  "levels": {
+    "detention": "Xem xét tạm giam",
+    "trial": "Xét xử chính thức (đề nghị án tù)",
+    "trial-fine": "Xét xử chính thức (đề nghị phạt tiền)",
+    "summary": "Phạt tiền theo thủ tục rút gọn",
+    "suspension": "Có thể tạm hoãn truy tố",
+    "family-court": "Có thể chuyển sang Tòa án Gia đình"
+  },
+  "browser": {
+    "preparing": "Đang chuẩn bị danh sách tội danh. Nếu có việc gấp, hãy nhắn tin hỏi chúng tôi trước.",
+    "searchLabel": "Tìm tội danh",
+    "searchPlaceholder": "Tìm tội danh, luật, điều luật (ví dụ: lừa đảo)",
+    "found": "Tìm thấy {n}",
+    "noMatch": "Không có tội danh phù hợp. Hãy thử tìm bằng từ khác hoặc nhắn tin hỏi chúng tôi.",
+    "more": "Xem thêm (còn {n})",
+    "popular": "Tội danh hay được tìm",
+    "all": "Tất cả tội danh",
+    "viewLabel": "Cách chia danh sách",
+    "byGroup": "Theo nhóm",
+    "byLaw": "Theo luật"
+  },
+  "form": {
+    "pickOther": "Chọn tội danh khác",
+    "loadError": "Không tải được thông tin tội danh. Hãy thử lại hoặc tải lại trang.",
+    "retry": "Thử lại",
+    "loading": "Đang tải câu hỏi…",
+    "noResult": "Không có kết quả dự kiến phù hợp với lựa chọn này. Hãy nhắn tin hỏi chúng tôi.",
+    "progress": "Trả lời hết {total} câu hỏi để xem ngay kết quả dự kiến. ({done}/{total})",
+    "choose": "Hãy chọn",
+    "range": "{min}–{max} {unit}",
+    "rangeError": "Hãy nhập trong khoảng {range}.",
+    "numberError": "Hãy nhập một con số phù hợp."
+  },
+  "result": {
+    "heading": "Xử lý dự kiến",
+    "barLabel": "Bước thứ {n} trong năm bước xử lý: {label}",
+    "light": "Nhẹ",
+    "heavy": "Nặng",
+    "sentence": "Mức án đề nghị dự kiến",
+    "rule": "Tiêu chuẩn xử lý",
+    "fineSummary": "Mức phạt tiền dự kiến",
+    "fineTrial": "Mức án đề nghị dự kiến (phạt tiền)",
+    "fineAtLeast": "Từ {amount} trở lên",
+    "noPenaltySuspension": "Có khả năng vụ việc kết thúc mà không bị đưa ra xét xử.",
+    "noPenaltyFamilyCourt": "Có khả năng vụ việc được chuyển sang thủ tục của Tòa án Gia đình thay cho xét xử hình sự.",
+    "statutory": "Khung hình phạt",
+    "law": "Điều luật căn cứ",
+    "disclaimer": "Đây chỉ là ước tính dựa trên xu hướng xử lý chung của cơ quan điều tra; quyết định xử lý và mức án đề nghị thực tế khác nhau tùy hoàn cảnh vụ việc và đánh giá của công tố viên phụ trách. Mức án cuối cùng do tòa án quyết định.",
+    "refLead": "Tội danh này không có tiêu chuẩn riêng để ước tính mức án đề nghị. Hãy xem ở công cụ ước tính mức án tuyên.",
+    "consultOnlyLead": "Tội danh này không có tiêu chuẩn đề nghị mức án cố định. Tùy tình tiết sự việc, không chỉ mức án đề nghị mà cả khung hình phạt được áp dụng cũng có thể khác, vì vậy hãy hỏi luật sư.",
+    "consultOnlyButton": "Hỏi luật sư",
+    "stepGuide": "Ý nghĩa của các bước xử lý"
+  },
+  "intl": {
+    "otherCrimes": "Bản tiếng nước ngoài chỉ có những tội danh thường gặp trong vụ việc của người nước ngoài. Với tội danh không có ở đây, hãy nhắn tin hỏi chúng tôi.",
+    "otherCrimesLink": "Nhắn tin hỏi"
+  },
+  "groups": {
+    "폭력": "Bạo lực",
+    "성범죄": "Tội phạm tình dục",
+    "재산": "Tài sản",
+    "금융": "Tài chính",
+    "마약": "Ma túy",
+    "교통": "Giao thông",
+    "기타": "Khác",
+    "노동": "Lao động",
+    "공무": "Công vụ",
+    "명예": "Danh dự",
+    "사이버": "Không gian mạng"
+  },
+  "laws": {
+    "형법": "Bộ luật Hình sự",
+    "폭력행위 등 처벌에 관한 법률": "Luật Xử phạt Hành vi Bạo lực",
+    "특정범죄 가중처벌 등에 관한 법률": "Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định",
+    "가정폭력범죄의 처벌 등에 관한 특례법": "Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Gia đình",
+    "아동복지법": "Luật Phúc lợi Trẻ em",
+    "스토킹처벌법": "Luật Xử phạt Tội phạm Theo dõi, Đeo bám",
+    "성폭력범죄의 처벌 등에 관한 특례법": "Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "성폭력처벌법": "Luật Đặc biệt về Xử phạt Tội phạm Bạo lực Tình dục",
+    "성매매알선 등 행위의 처벌에 관한 법률": "Luật Xử phạt Hành vi Môi giới Mại dâm",
+    "아동·청소년의 성보호에 관한 법률": "Luật Bảo vệ Trẻ em và Thanh thiếu niên khỏi Xâm hại Tình dục",
+    "풍속영업의 규제에 관한 법률": "Luật Quản lý Kinh doanh Dịch vụ Ảnh hưởng đến Thuần phong Mỹ tục",
+    "전자금융거래법": "Luật Giao dịch Tài chính Điện tử",
+    "여신전문금융업법": "Luật Kinh doanh Tài chính Tín dụng Chuyên ngành",
+    "보험사기방지 특별법": "Luật Đặc biệt về Phòng chống Gian lận Bảo hiểm",
+    "특정경제범죄 가중처벌 등에 관한 법률": "Luật Tăng nặng Hình phạt đối với Tội phạm Kinh tế Đặc biệt",
+    "마약류 관리에 관한 법률": "Luật Quản lý Chất ma túy",
+    "도로교통법": "Luật Giao thông Đường bộ",
+    "교통사고처리 특례법": "Luật Đặc biệt về Xử lý Tai nạn Giao thông",
+    "특정범죄가중법": "Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định",
+    "출입국관리법": "Luật Quản lý Xuất nhập cảnh",
+    "외국인근로자의 고용 등에 관한 법률": "Luật về Tuyển dụng Lao động Nước ngoài",
+    "여권법": "Luật Hộ chiếu",
+    "정보통신망 이용촉진 및 정보보호 등에 관한 법률": "Luật Mạng Thông tin và Truyền thông",
+    "국민체육진흥법": "Luật Thúc đẩy Thể thao Quốc dân",
+    "근로기준법": "Luật Tiêu chuẩn Lao động",
+    "최저임금법": "Luật Lương Tối thiểu",
+    "관세법": "Luật Hải quan"
+  }
+}

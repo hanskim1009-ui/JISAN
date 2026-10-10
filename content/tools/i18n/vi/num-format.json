@@ -1,0 +1,18 @@
+{
+  "_note": "Định dạng số tiền, thời hạn cho bản tiếng Việt (vi). Dịch ngày 10/10/2026, chưa qua luật sư kiểm duyệt.",
+  "locale": "vi",
+  "decimal": ",",
+  "group": ".",
+  "money": {
+    "system": "million",
+    "small": "{n} won",
+    "million": "{n} triệu won",
+    "billion": "{n} tỷ won"
+  },
+  "period": {
+    "year": { "other": "{n} năm" },
+    "month": { "other": "{n} tháng" },
+    "day": { "other": "{n} ngày" },
+    "sep": " "
+  }
+}

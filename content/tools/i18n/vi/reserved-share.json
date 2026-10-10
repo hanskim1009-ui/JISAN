@@ -1,0 +1,58 @@
+{
+  "page": {
+    "title": "Tính phần di sản bắt buộc",
+    "description": "Nhập người thừa kế, tài sản thừa kế, tài sản đã tặng cho khi còn sống và các khoản nợ để tính tài sản làm căn cứ tính phần di sản bắt buộc, cùng tỷ lệ và số tiền phần di sản bắt buộc của từng người thừa kế. Theo quyết định của Tòa án Hiến pháp năm 2024, anh chị em không được tính phần di sản bắt buộc.",
+    "lead": "Phần di sản bắt buộc (유류분) là phần tối thiểu mà luật bảo đảm cho người thừa kế, ngay cả khi có di chúc hoặc tặng cho khi còn sống. Nhập người thừa kế và tài sản để tính số tiền được bảo đảm cho từng người.",
+    "notice": "Đây là kết quả tính tham khảo theo tỷ lệ do Bộ luật Dân sự (민법) quy định. Việc tính những khoản tặng cho nào, định giá tài sản bao nhiêu và số tiền thiếu thực sự được đòi lại là bao nhiêu được đánh giá khác nhau tùy từng vụ việc. Thời hạn yêu cầu cũng ngắn, vì vậy hãy trao đổi với luật sư trước khi quyết định."
+  },
+  "ui": {
+    "siblingTitle": "Anh chị em không có phần di sản bắt buộc",
+    "siblingBody": "Ngày 25/4/2024, Tòa án Hiến pháp quyết định Điều 1112 điểm 4 Bộ luật Dân sự, quy định về phần di sản bắt buộc của anh chị em, là vi hiến, nên điều này mất hiệu lực từ ngày đó; ngày 20/9/2024, Bộ luật Dân sự được sửa đổi và điều này bị xóa bỏ. Vì vậy, anh chị em (kể cả cháu nhận thay anh chị em đã mất trước) không thể yêu cầu phần di sản bắt buộc.",
+    "assets": "Tài sản",
+    "assetsDesc": "Hãy nhập giá trị tính tại ngày người để lại di sản mất. Bất động sản được tính theo giá thị trường vào ngày đó.",
+    "estate": "Tài sản để lại (tài sản thừa kế)",
+    "estateHelp": "Là tài sản người đó có khi mất. Tài sản để lại cho người khác bằng di chúc (di tặng) cũng nhập vào đây.",
+    "gifts": "Tài sản đã cho khi còn sống (tặng cho)",
+    "giftsHelp": "Tài sản người thừa kế được tặng cho thì nhập cả những khoản đã lâu. Tài sản người không phải người thừa kế được tặng cho thì chỉ nhập những khoản trong vòng 1 năm trước khi mất, nhưng những khoản tặng cho dù biết là gây thiệt hại cho người thừa kế khác thì nhập cả khoản trước 1 năm. Phần được cho để đền đáp việc phụng dưỡng đặc biệt như sống cùng và chăm sóc lâu dài, hoặc việc làm tăng tài sản, có thể được loại ra (phần ngoại lệ Điều 1008 Bộ luật Dân sự sửa đổi ngày 17/3/2026).",
+    "debts": "Nợ (nợ thừa kế)",
+    "debtsHelp": "Là toàn bộ khoản nợ còn lại khi người đó mất.",
+    "base": "Tài sản làm căn cứ tính phần di sản bắt buộc",
+    "noBase": "Nợ nhiều hơn tài sản nên không có số tiền nào được nhận theo phần di sản bắt buộc.",
+    "collateralNone": "Người thân bàng hệ trong phạm vi 4 đời ngay từ đầu không có phần di sản bắt buộc.",
+    "colRatio": "Tỷ lệ phần di sản bắt buộc",
+    "colReserved": "Phần di sản bắt buộc",
+    "total": "Tổng phần di sản bắt buộc",
+    "step1": "Tài sản làm căn cứ tính phần di sản bắt buộc = tài sản để lại + tài sản đã cho khi còn sống − nợ",
+    "step2": "Tính phần thừa kế theo pháp luật theo hàng thừa kế ({rank}). Cách chia chi tiết có thể xem tại {link}.",
+    "step3": "Nhân phần thừa kế theo pháp luật với tỷ lệ phần di sản bắt buộc. Con (cháu) và vợ/chồng là 1/2, người thân trực hệ bậc trên như cha mẹ là 1/3 (Điều 1112 Bộ luật Dân sự).",
+    "step4": "Phần di sản bắt buộc = tài sản làm căn cứ × phần thừa kế theo pháp luật × tỷ lệ phần di sản bắt buộc",
+    "shortfallTitle": "Số tiền thực sự có thể đòi lại (phần thiếu)",
+    "shortfallBody": "Số tiền trên là phần luật bảo đảm. Số tiền thực sự có thể yêu cầu là phần còn thiếu sau khi trừ đi những gì người đó đã được tặng cho, di tặng và phần nhận được từ thừa kế (trừ phần nợ phải gánh). Phép tính này cần xem xét từng tài sản mỗi người đã nhận nên không có trong công cụ này.",
+    "lawTitle": "Quyết định của Tòa án Hiến pháp năm 2024 và các thay đổi luật sau đó",
+    "limitation": "Không thể yêu cầu phần di sản bắt buộc khi đã quá 1 năm kể từ ngày biết việc thừa kế bắt đầu và biết có khoản tặng cho, di tặng cần đòi lại, hoặc quá 10 năm kể từ ngày thừa kế bắt đầu (Điều 1117 Bộ luật Dân sự)."
+  },
+  "lawChanges": [
+    "Phần di sản bắt buộc của anh chị em đã bị bãi bỏ (quyết định vi hiến ngày 25/4/2024, Bộ luật Dân sự sửa đổi ngày 20/9/2024).",
+    "Người thừa kế vi phạm nghiêm trọng nghĩa vụ phụng dưỡng đối với người đã mất, hoặc phạm tội nghiêm trọng, đối xử hết sức bất công với người đó, có thể mất quyền thừa kế theo tuyên bố tước quyền thừa kế của Tòa án Gia đình, và khi đó cũng không được nhận phần di sản bắt buộc (Điều 1004-2 Bộ luật Dân sự).",
+    "Khoản tặng cho, di tặng nhận được để đền đáp việc phụng dưỡng đặc biệt hoặc làm tăng tài sản không bị coi là phần đã nhận trước, trong phạm vi đóng góp đó (áp dụng cho các trường hợp thừa kế bắt đầu từ sau ngày 25/4/2024).",
+    "Với các trường hợp thừa kế bắt đầu từ sau ngày 17/3/2026, theo nguyên tắc, phần di sản bắt buộc còn thiếu được đòi lại bằng tiền chứ không phải bằng chính tài sản (Điều 1115 Bộ luật Dân sự)."
+  ],
+  "terms": [
+    [
+      "Phần di sản bắt buộc",
+      "Là phần tối thiểu mà luật bảo đảm cho người thừa kế, ngay cả khi có di chúc hoặc tặng cho."
+    ],
+    [
+      "Tài sản làm căn cứ tính phần di sản bắt buộc",
+      "Là số tiền làm căn cứ để tính phần di sản bắt buộc: lấy tài sản để lại cộng với tài sản đã tặng cho khi còn sống rồi trừ nợ."
+    ],
+    [
+      "Di tặng",
+      "Là việc chuyển giao tài sản cho người khác bằng di chúc."
+    ],
+    [
+      "Phần thừa kế theo pháp luật",
+      "Là tỷ lệ do luật quy định mà mỗi người thừa kế được chia khi không có di chúc."
+    ]
+  ]
+}

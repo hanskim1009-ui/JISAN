@@ -1,0 +1,237 @@
+{
+  "page": {
+    "title": "Tính thời hạn theo luật",
+    "description": "Chọn ngày nhận tống đạt bản án, quyết định hoặc ngày tuyên án và thủ tục (kháng cáo dân sự 2 tuần, kháng cáo hình sự 7 ngày, kháng cáo ngay, kháng cáo lên Tòa án Tối cao, phản đối…) để tính ngày hết hạn có tính cả ngày lễ và ngày nghỉ bù.",
+    "lead": "Tính xem thời hạn do luật quy định như kháng cáo, kháng cáo lên Tòa án Tối cao, phản đối kết thúc vào ngày nào. Không tính ngày đầu tiên, và nếu ngày cuối cùng rơi vào cuối tuần hoặc ngày lễ thì dời sang ngày hôm sau.",
+    "notice": "Đây là ngày tham khảo theo cách tính chung của luật. Nếu bạn nhớ sai ngày nhận tống đạt hoặc có quy định đặc biệt thì ngày hết hạn sẽ khác. Quá thời hạn thì rất khó tranh chấp lại, vì vậy nếu sắp hết hạn, hãy trao đổi ngay với luật sư."
+  },
+  "ui": {
+    "procedure": "Thủ tục",
+    "option": "{label} ({period})",
+    "otherGroup": "Khác",
+    "custom": "Tự nhập thời hạn",
+    "baseCustom": "Ngày bắt đầu tính thời hạn",
+    "baseHint": "Ngày nhận tống đạt hoặc được thông báo bản án, quyết định",
+    "period": "Thời hạn {period}",
+    "fixed": "Thời hạn bất biến",
+    "daysLabel": "Thời hạn (ngày)",
+    "daysUnit": "ngày",
+    "zeroHour": "Tống đạt có hiệu lực từ 0 giờ ngày hôm đó (ví dụ văn bản tố tụng điện tử không được mở xem trong 1 tuần nên được coi là đã tống đạt) — tính cả ngày đầu tiên",
+    "dueOf": "Ngày hết hạn: {label}",
+    "due": "Ngày hết hạn",
+    "left": "Còn {n} ngày kể từ hôm nay.",
+    "today": "Hôm nay là ngày hết hạn.",
+    "passed": "Đã quá hạn {n} ngày.",
+    "arrive": "Giấy tờ phải đến tòa án chậm nhất vào ngày hết hạn (nếu gửi bưu điện thì tính theo ngày đến nơi, không phải ngày gửi).",
+    "colKind": "Mục",
+    "colDate": "Ngày",
+    "baseDay": "Ngày căn cứ",
+    "firstZero": "Ngày đầu tiên (tống đạt lúc 0 giờ nên tính từ ngày đó)",
+    "firstNext": "Ngày đầu tiên (tính từ ngày hôm sau)",
+    "nthDay": "Ngày thứ {n}",
+    "skip": "{reason}, dời sang ngày hôm sau",
+    "fixedNote": "Thời hạn bất biến là thời hạn mà ngay cả tòa án cũng không thể kéo dài. Theo nguyên tắc, chỉ cần quá một ngày là mất cơ hội tranh chấp, vì vậy hãy nộp sớm.",
+    "outside": "Ngày lễ chỉ được tính trong khoảng {from} – {to}. Ngoài khoảng này chỉ tính thứ Bảy và Chủ nhật, vì vậy hãy kiểm tra lại ngày lễ trên lịch.",
+    "method": "Cách tính: không tính ngày đầu tiên của thời hạn mà tính từ ngày hôm sau (Điều 157 Bộ luật Dân sự (민법), Điều 66 khoản 1 Luật Tố tụng hình sự (형사소송법)). Nếu ngày cuối cùng là thứ Bảy, Chủ nhật hoặc ngày lễ thì thời hạn kéo dài đến ngày hôm sau (Điều 161 Bộ luật Dân sự, Điều 66 khoản 3 Luật Tố tụng hình sự). Ngày lễ là các ngày lễ và ngày nghỉ bù theo Quy định về ngày nghỉ lễ của cơ quan nhà nước.",
+    "error": "Hãy kiểm tra lại thông tin đã nhập.",
+    "badDate": "Hãy kiểm tra lại ngày.",
+    "badDays": "Hãy kiểm tra lại thời hạn."
+  },
+  "groups": {
+    "civil": "Tố tụng dân sự, hành chính",
+    "exec": "Thi hành án dân sự",
+    "family": "Gia sự",
+    "criminal": "Hình sự",
+    "admin": "Hành chính, hiến pháp"
+  },
+  "procedures": {
+    "civil-appeal": {
+      "label": "Kháng cáo (항소)",
+      "period": "2 tuần",
+      "from": "Ngày nhận tống đạt bản án",
+      "basis": "Điều 396 khoản 1 Luật Tố tụng Dân sự (áp dụng tương tự cho tố tụng hành chính theo Điều 8 Luật Tố tụng hành chính)"
+    },
+    "civil-final": {
+      "label": "Kháng cáo lên Tòa án Tối cao (상고)",
+      "period": "2 tuần",
+      "from": "Ngày nhận tống đạt bản án phúc thẩm",
+      "basis": "Điều 425, Điều 396 khoản 1 Luật Tố tụng Dân sự"
+    },
+    "civil-appeal-brief": {
+      "label": "Nộp bản nêu lý do kháng cáo",
+      "period": "40 ngày",
+      "from": "Ngày nhận thông báo đã tiếp nhận hồ sơ kháng cáo",
+      "basis": "Điều 402-2 khoản 1 Luật Tố tụng Dân sự",
+      "note": "Có thể được kéo dài một lần, tối đa 1 tháng, theo quyết định của tòa án (khoản 2 cùng điều)."
+    },
+    "civil-final-brief": {
+      "label": "Nộp bản nêu lý do kháng cáo lên Tòa án Tối cao",
+      "period": "20 ngày",
+      "from": "Ngày nhận thông báo đã tiếp nhận hồ sơ kháng cáo lên Tòa án Tối cao",
+      "basis": "Điều 427 Luật Tố tụng Dân sự"
+    },
+    "civil-immediate": {
+      "label": "Kháng cáo ngay (즉시항고)",
+      "period": "1 tuần",
+      "from": "Ngày được thông báo quyết định, lệnh",
+      "basis": "Điều 444 Luật Tố tụng Dân sự"
+    },
+    "civil-special": {
+      "label": "Kháng cáo đặc biệt (특별항고)",
+      "period": "1 tuần",
+      "from": "Ngày được thông báo quyết định, lệnh",
+      "basis": "Điều 449 khoản 2 Luật Tố tụng Dân sự"
+    },
+    "civil-reconcile": {
+      "label": "Phản đối quyết định khuyến nghị thỏa thuận",
+      "period": "2 tuần",
+      "from": "Ngày nhận tống đạt bản chính quyết định",
+      "basis": "Điều 226 khoản 1 Luật Tố tụng Dân sự"
+    },
+    "civil-small": {
+      "label": "Phản đối quyết định khuyến nghị thực hiện nghĩa vụ",
+      "period": "2 tuần",
+      "from": "Ngày nhận tống đạt bản sao quyết định khuyến nghị thực hiện nghĩa vụ",
+      "basis": "Điều 5-4 khoản 1 Luật Xét xử Vụ việc Giá trị Nhỏ"
+    },
+    "civil-payment": {
+      "label": "Phản đối lệnh thanh toán",
+      "period": "2 tuần",
+      "from": "Ngày nhận tống đạt lệnh thanh toán",
+      "basis": "Điều 470 khoản 1 Luật Tố tụng Dân sự"
+    },
+    "civil-mediation": {
+      "label": "Phản đối quyết định thay cho hòa giải",
+      "period": "2 tuần",
+      "from": "Ngày nhận tống đạt bản chính biên bản quyết định",
+      "basis": "Điều 34 khoản 1 Luật Hòa giải Dân sự"
+    },
+    "civil-answer": {
+      "label": "Nộp bản trả lời (답변서)",
+      "period": "30 ngày",
+      "from": "Ngày nhận tống đạt bản sao đơn khởi kiện",
+      "basis": "Điều 256 khoản 1 Luật Tố tụng Dân sự",
+      "note": "Đây không phải thời hạn bất biến, nhưng nếu quá hạn, tòa án có thể tuyên nguyên đơn thắng kiện mà không mở phiên tranh luận."
+    },
+    "exec-immediate": {
+      "label": "Kháng cáo ngay đối với quyết định của tòa án thi hành án",
+      "period": "1 tuần",
+      "from": "Ngày được thông báo quyết định",
+      "basis": "Điều 15 khoản 2 Luật Thi hành án Dân sự"
+    },
+    "exec-brief": {
+      "label": "Nộp bản nêu lý do kháng cáo ngay",
+      "period": "10 ngày",
+      "from": "Ngày nộp đơn kháng cáo",
+      "basis": "Điều 15 khoản 3 Luật Thi hành án Dân sự"
+    },
+    "family-appeal": {
+      "label": "Kháng cáo vụ án gia sự",
+      "period": "14 ngày",
+      "from": "Ngày nhận tống đạt bản chính bản án",
+      "basis": "Điều 19 khoản 1 Luật Tố tụng Gia sự"
+    },
+    "family-immediate": {
+      "label": "Kháng cáo ngay đối với quyết định trong vụ việc phi tố tụng gia sự",
+      "period": "14 ngày",
+      "from": "Ngày được thông báo quyết định",
+      "basis": "Điều 43 khoản 5 Luật Tố tụng Gia sự",
+      "note": "Ngày bắt đầu tính có thể khác nhau tùy người kháng cáo là ai (Quy tắc Tố tụng Gia sự)."
+    },
+    "crim-appeal": {
+      "label": "Kháng cáo hình sự",
+      "period": "7 ngày",
+      "from": "Ngày tuyên án",
+      "basis": "Điều 358, Điều 343 khoản 2 Luật Tố tụng hình sự"
+    },
+    "crim-final": {
+      "label": "Kháng cáo hình sự lên Tòa án Tối cao",
+      "period": "7 ngày",
+      "from": "Ngày tuyên bản án phúc thẩm",
+      "basis": "Điều 374, Điều 343 khoản 2 Luật Tố tụng hình sự"
+    },
+    "crim-appeal-brief": {
+      "label": "Nộp bản nêu lý do kháng cáo hình sự",
+      "period": "20 ngày",
+      "from": "Ngày nhận thông báo đã tiếp nhận hồ sơ vụ án",
+      "basis": "Điều 361-3 khoản 1 Luật Tố tụng hình sự"
+    },
+    "crim-final-brief": {
+      "label": "Nộp bản nêu lý do kháng cáo hình sự lên Tòa án Tối cao",
+      "period": "20 ngày",
+      "from": "Ngày nhận thông báo đã tiếp nhận hồ sơ vụ án",
+      "basis": "Điều 379 khoản 1 Luật Tố tụng hình sự"
+    },
+    "crim-summary": {
+      "label": "Yêu cầu xét xử chính thức đối với lệnh xử phạt rút gọn (약식명령)",
+      "period": "7 ngày",
+      "from": "Ngày được thông báo (tống đạt) lệnh xử phạt rút gọn",
+      "basis": "Điều 453 khoản 1 Luật Tố tụng hình sự"
+    },
+    "crim-immediate": {
+      "label": "Kháng cáo ngay trong vụ án hình sự",
+      "period": "7 ngày",
+      "from": "Ngày thông báo quyết định",
+      "basis": "Điều 405, Điều 343 khoản 2 Luật Tố tụng hình sự"
+    },
+    "admin-trial": {
+      "label": "Yêu cầu khiếu nại hành chính (행정심판)",
+      "period": "90 ngày",
+      "from": "Ngày biết có quyết định hành chính",
+      "basis": "Điều 27 khoản 1 Luật Khiếu nại hành chính",
+      "note": "Không thể yêu cầu khi đã quá 180 ngày kể từ ngày có quyết định (khoản 3 cùng điều)."
+    },
+    "admin-suit": {
+      "label": "Khởi kiện yêu cầu hủy quyết định hành chính",
+      "period": "90 ngày",
+      "from": "Ngày biết có quyết định (nếu đã qua khiếu nại hành chính thì là ngày nhận tống đạt bản chính quyết định giải quyết khiếu nại)",
+      "basis": "Điều 20 khoản 1 Luật Tố tụng hành chính",
+      "note": "Không thể khởi kiện khi đã quá 1 năm kể từ ngày có quyết định (ngày có quyết định giải quyết khiếu nại) (khoản 2 cùng điều)."
+    },
+    "const-complaint": {
+      "label": "Yêu cầu xét xử khiếu nại hiến pháp (헌법소원)",
+      "period": "90 ngày",
+      "from": "Ngày biết có sự việc xâm phạm quyền cơ bản",
+      "basis": "Điều 69 khoản 1 Luật Tòa án Hiến pháp",
+      "note": "Đồng thời phải tuân thủ cả thời hạn 1 năm kể từ ngày có sự việc đó."
+    }
+  },
+  "weekdays": {
+    "sat": "Thứ Bảy",
+    "sun": "Chủ nhật"
+  },
+  "holidays": {
+    "1월 1일": "Tết Dương lịch (1/1)",
+    "임시공휴일": "Ngày nghỉ lễ tạm thời",
+    "설날 전날": "Ngày trước Seollal (Tết Âm lịch)",
+    "설날": "Seollal (Tết Âm lịch)",
+    "설날 다음 날": "Ngày sau Seollal (Tết Âm lịch)",
+    "삼일절": "Ngày Phong trào Độc lập 1/3",
+    "삼일절 대체공휴일": "Ngày nghỉ bù Ngày Phong trào Độc lập 1/3",
+    "어린이날 · 부처님 오신 날": "Ngày Thiếu nhi · Lễ Phật đản",
+    "대체공휴일": "Ngày nghỉ bù",
+    "대통령 선거일(임시공휴일)": "Ngày bầu cử Tổng thống (ngày nghỉ lễ tạm thời)",
+    "현충일": "Ngày Tưởng niệm Liệt sĩ",
+    "광복절": "Ngày Giải phóng",
+    "개천절": "Ngày Lập quốc",
+    "추석 전날": "Ngày trước Chuseok (Tết Trung thu)",
+    "추석": "Chuseok (Tết Trung thu)",
+    "추석 다음 날": "Ngày sau Chuseok (Tết Trung thu)",
+    "추석 대체공휴일": "Ngày nghỉ bù Chuseok",
+    "한글날": "Ngày Hangeul",
+    "기독탄신일": "Lễ Giáng sinh",
+    "노동절": "Ngày Quốc tế Lao động",
+    "어린이날": "Ngày Thiếu nhi",
+    "부처님 오신 날": "Lễ Phật đản",
+    "부처님 오신 날 대체공휴일": "Ngày nghỉ bù Lễ Phật đản",
+    "지방선거일": "Ngày bầu cử địa phương",
+    "제헌절": "Ngày Lập hiến",
+    "광복절 대체공휴일": "Ngày nghỉ bù Ngày Giải phóng",
+    "개천절 대체공휴일": "Ngày nghỉ bù Ngày Lập quốc",
+    "설날 대체공휴일": "Ngày nghỉ bù Seollal",
+    "노동절 대체공휴일": "Ngày nghỉ bù Ngày Quốc tế Lao động",
+    "제헌절 대체공휴일": "Ngày nghỉ bù Ngày Lập hiến",
+    "한글날 대체공휴일": "Ngày nghỉ bù Ngày Hangeul",
+    "기독탄신일 대체공휴일": "Ngày nghỉ bù Lễ Giáng sinh"
+  }
+}

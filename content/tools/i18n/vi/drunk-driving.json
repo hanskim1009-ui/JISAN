@@ -1,0 +1,175 @@
+{
+  "page": {
+    "title": "Mức xử phạt lái xe khi say rượu",
+    "description": "Chọn nồng độ cồn trong máu, tiền sử lái xe khi say rượu trong 10 năm, việc từ chối đo và việc có gây tai nạn hay không để xem ngay khung hình phạt theo Điều 148-2 Luật Giao thông Đường bộ hiện hành, khung hình phạt liên quan đến tai nạn như lái xe nguy hiểm gây thương tích, việc đình chỉ, thu hồi giấy phép lái xe và thời gian không được cấp lại giấy phép.",
+    "keywords": [
+      "mức phạt lái xe khi say rượu Hàn Quốc",
+      "phạt tiền lái xe khi say rượu",
+      "tái phạm lái xe khi say rượu",
+      "từ chối đo nồng độ cồn",
+      "thời gian không được cấp lại giấy phép lái xe",
+      "lái xe nguy hiểm gây thương tích",
+      "nồng độ cồn trong máu"
+    ],
+    "lead": "Chỉ cần chọn vài mục, bạn sẽ thấy khung hình phạt (phạm vi hình phạt do luật quy định) và tiêu chuẩn xử lý giấy phép lái xe. Công cụ này không dự đoán mức án bạn sẽ thực sự nhận.",
+    "notice": "Kết quả tham khảo dựa trên Luật Giao thông Đường bộ (도로교통법) và Phụ lục 28 Quy tắc thi hành Luật Giao thông Đường bộ, Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định (특정범죄 가중처벌 등에 관한 법률), Luật Đặc biệt về Xử lý Tai nạn Giao thông (교통사고처리 특례법) hiện hành vào tháng 10 năm 2026. Điều khoản và biện pháp xử lý thực tế khác nhau tùy hoàn cảnh cụ thể như quá trình đo, ngày bản án trước có hiệu lực, nội dung tai nạn…, vì vậy hãy trao đổi với luật sư trước khi quyết định."
+  },
+  "ui": {
+    "testQ": "Việc đo nồng độ cồn diễn ra thế nào?",
+    "testOpts": {
+      "measured": "Đã đo (hơi thở hoặc máu)",
+      "refused": "Đã từ chối đo",
+      "obstructed": "Đã cản trở việc đo"
+    },
+    "bacLabel": "Nồng độ cồn trong máu",
+    "bacHelp": "Là con số ghi trên giấy tờ bạn nhận khi bị kiểm tra. Nếu đã đo lại bằng máu, hãy nhập con số đó.",
+    "bacBad": "Hãy nhập một số từ 0 đến dưới 1, dùng dấu chấm, ví dụ 0.000.",
+    "refusedExplain": "Từ chối đo là trường hợp có lý do đáng kể để cho rằng bạn đã say rượu nhưng bạn không chịu cho cảnh sát đo qua hơi thở.",
+    "obstructedExplain": "Cản trở việc đo là trường hợp sau khi lái xe, bạn uống thêm rượu hoặc dùng thuốc… ảnh hưởng đến nồng độ cồn trong máu để gây khó khăn cho việc đo (Điều 44 khoản 5 Luật Giao thông Đường bộ).",
+    "priorQ": "Trước đây bạn đã từng bị phát hiện lái xe khi say rượu, từ chối đo hoặc cản trở việc đo chưa?",
+    "priorHelp": "\"Trong 10 năm\" là trường hợp lần lái xe này xảy ra trong vòng 10 năm kể từ ngày bản án từ mức phạt tiền trở lên của vụ trước có hiệu lực. Vẫn tính cả khi hình phạt đó đã mất hiệu lực trong khoảng thời gian này. Nếu đã quá 10 năm, hoặc vụ trước kết thúc ở mức nhẹ hơn phạt tiền như tạm hoãn truy tố, hãy chọn \"Trường hợp khác\".",
+    "priorOpts": {
+      "none": "Không có",
+      "recent": "Có · trong 10 năm",
+      "old": "Có · trường hợp khác"
+    },
+    "within5Q": "Lần lái xe này có xảy ra trong vòng 5 năm kể từ ngày vi phạm trước không?",
+    "priorAccidentQ": "Lần lái xe khi say rượu trước đây bạn cũng gây tai nạn giao thông phải không?",
+    "accidentQ": "Lần này có xảy ra tai nạn không?",
+    "accidentOpts": {
+      "none": "Không có tai nạn",
+      "property": "Chỉ hư hỏng tài sản",
+      "injury": "Có người bị thương",
+      "death": "Có người chết"
+    },
+    "fledQ": "Sau tai nạn, bạn có rời hiện trường mà không cứu giúp nạn nhân hoặc không để lại thông tin liên lạc không?",
+    "vehicleNote": "Đây là tiêu chuẩn cho trường hợp lái ô tô, xe máy (xe đạp gắn động cơ) hoặc máy móc xây dựng. Với phương tiện di chuyển cá nhân như xe trượt điện, hoặc xe đạp, quy định xử phạt khác: phạt tiền đến 200.000 won, câu lưu hoặc phạt tiền nhẹ (Điều 156 điểm 11 Luật Giao thông Đường bộ); nếu lái xe không có giấy phép, tiêu chuẩn về thời gian không được cấp lại giấy phép cũng khác.",
+    "tier": "Mức áp dụng",
+    "criminal": "Xử phạt hình sự (khung hình phạt)",
+    "underLimit": "Chưa đạt mức bị xử phạt vì lái xe khi say rượu (0,03%).",
+    "accidentCrimes": "Các tội cũng bị xem xét do tai nạn",
+    "license": "Xử lý giấy phép lái xe",
+    "disqualification": "Thời gian không được cấp lại giấy phép (결격기간): {years}",
+    "years": "{n} năm",
+    "notes": "Điều nên biết thêm",
+    "lawFoot": "Khung hình phạt là phạm vi hình phạt do luật quy định; mức án thực tế được quyết định trong phạm vi này dựa trên hoàn cảnh lái xe, việc khắc phục thiệt hại, tiền án…",
+    "lawFootLink": "Bạn có thể xem riêng kết quả xử lý dự kiến tại {link}.",
+    "empty": "Nhập nồng độ cồn trong máu để xem ngay khung hình phạt và việc xử lý giấy phép lái xe."
+  },
+  "msg": {
+    "band": {
+      "under": "Dưới 0,03%",
+      "low": "Từ 0,03% đến dưới 0,08%",
+      "mid": "Từ 0,08% đến dưới 0,2%",
+      "high": "Từ 0,2% trở lên",
+      "lowMid": "Từ 0,03% đến dưới 0,2%"
+    },
+    "test": {
+      "refused": "Từ chối đo",
+      "obstructed": "Cản trở việc đo nồng độ cồn",
+      "refusedLabel": "Từ chối đo nồng độ cồn",
+      "obstructedLabel": "Cản trở việc đo nồng độ cồn (sau khi lái xe uống thêm rượu… để gây khó khăn cho việc đo)"
+    },
+    "repeat": "{base} · tái vi phạm trong 10 năm",
+    "noBac": "Chưa nhập nồng độ cồn trong máu",
+    "penalty": {
+      "y1to6f500to3000": "Tù từ 1 năm đến 6 năm hoặc phạt tiền từ 5 triệu đến 30 triệu won",
+      "y1to5f500to2000": "Tù từ 1 năm đến 5 năm hoặc phạt tiền từ 5 triệu đến 20 triệu won",
+      "y2to6f1000to3000": "Tù từ 2 năm đến 6 năm hoặc phạt tiền từ 10 triệu đến 30 triệu won",
+      "y2to5f1000to2000": "Tù từ 2 năm đến 5 năm hoặc phạt tiền từ 10 triệu đến 20 triệu won",
+      "y1to2f500to1000": "Tù từ 1 năm đến 2 năm hoặc phạt tiền từ 5 triệu đến 10 triệu won",
+      "y1f500": "Tù đến 1 năm hoặc phạt tiền đến 5 triệu won",
+      "propertyDamage": "Tù không lao động (금고) đến 2 năm hoặc phạt tiền đến 5 triệu won",
+      "dangerDeath": "Tù chung thân hoặc tù từ 3 năm trở lên",
+      "dangerInjury": "Tù từ 1 năm đến 15 năm hoặc phạt tiền từ 10 triệu đến 30 triệu won",
+      "negligence": "Tù không lao động (금고) đến 5 năm hoặc phạt tiền đến 20 triệu won",
+      "fledDeath": "Tù chung thân hoặc tù từ 5 năm trở lên",
+      "fledInjury": "Tù có thời hạn từ 1 năm trở lên hoặc phạt tiền từ 5 triệu đến 30 triệu won",
+      "fledProperty": "Tù đến 5 năm hoặc phạt tiền đến 15 triệu won"
+    },
+    "label": {
+      "propertyDamage": "Tai nạn chỉ làm hư hỏng tài sản (hủy hoại tài sản do sơ suất trong công việc)",
+      "dangerDeath": "Lái xe nguy hiểm gây chết người",
+      "dangerInjury": "Lái xe nguy hiểm gây thương tích",
+      "negligenceDeath": "Tai nạn giao thông: vô ý làm chết người do sơ suất trong công việc",
+      "negligenceInjury": "Tai nạn giao thông: vô ý gây thương tích do sơ suất trong công việc",
+      "fledDeath": "Bỏ chạy gây chết người (rời đi mà không cứu giúp)",
+      "fledInjury": "Bỏ chạy gây thương tích (rời đi mà không cứu giúp)",
+      "fledProperty": "Không xử lý sau tai nạn (thiệt hại tài sản)"
+    },
+    "law": {
+      "rta148_2_1_1": "Điều 148-2 khoản 1 điểm 1 Luật Giao thông Đường bộ",
+      "rta148_2_1_2": "Điều 148-2 khoản 1 điểm 2 Luật Giao thông Đường bộ",
+      "rta148_2_1_3": "Điều 148-2 khoản 1 điểm 3 Luật Giao thông Đường bộ",
+      "rta148_2_2_1": "Điều 148-2 khoản 2 điểm 1 Luật Giao thông Đường bộ",
+      "rta148_2_2_2": "Điều 148-2 khoản 2 điểm 2 Luật Giao thông Đường bộ",
+      "rta148_2_3_1": "Điều 148-2 khoản 3 điểm 1 Luật Giao thông Đường bộ",
+      "rta148_2_3_2": "Điều 148-2 khoản 3 điểm 2 Luật Giao thông Đường bộ",
+      "rta148_2_3_3": "Điều 148-2 khoản 3 điểm 3 Luật Giao thông Đường bộ",
+      "rta151": "Điều 151 Luật Giao thông Đường bộ",
+      "spca5_11": "Điều 5-11 khoản 1 Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định",
+      "tsa3_1": "Điều 3 khoản 1 Luật Đặc biệt về Xử lý Tai nạn Giao thông",
+      "spca5_3": "Điều 5-3 khoản 1 Luật Tăng nặng Hình phạt đối với Tội phạm Đặc định",
+      "rta148_54": "Điều 148, Điều 54 khoản 1 Luật Giao thông Đường bộ",
+      "licNone": "Điều 44 khoản 4, Điều 93 khoản 1 Luật Giao thông Đường bộ",
+      "licSuspend": "Điều 93 khoản 1 điểm 1 Luật Giao thông Đường bộ, Phụ lục 28 điểm 3 mục a Quy tắc thi hành",
+      "licBase": "Điều 93 khoản 1 Luật Giao thông Đường bộ",
+      "licRefused": "Điều 93 khoản 1 điểm 3 Luật Giao thông Đường bộ, Phụ lục 28 điểm 2 Quy tắc thi hành",
+      "licObstructed": "Điều 93 khoản 1 điểm 3-2 Luật Giao thông Đường bộ, Phụ lục 28 điểm 2 Quy tắc thi hành",
+      "licPrior": "Điều 93 khoản 1 điểm 2 Luật Giao thông Đường bộ, Phụ lục 28 điểm 2 Quy tắc thi hành",
+      "licFirst": "Điều 93 khoản 1 điểm 1 Luật Giao thông Đường bộ, Phụ lục 28 điểm 2 Quy tắc thi hành",
+      "dq3a": "Điều 82 khoản 2 điểm 3 mục a Luật Giao thông Đường bộ",
+      "dq3b": "Điều 82 khoản 2 điểm 3 mục b Luật Giao thông Đường bộ",
+      "dq3c": "Điều 82 khoản 2 điểm 3 mục c Luật Giao thông Đường bộ",
+      "dq3d": "Điều 82 khoản 2 điểm 3 mục d Luật Giao thông Đường bộ",
+      "dq5": "Điều 82 khoản 2 điểm 5 Luật Giao thông Đường bộ",
+      "dq6a": "Điều 82 khoản 2 điểm 6 mục a Luật Giao thông Đường bộ",
+      "dq6b": "Điều 82 khoản 2 điểm 6 mục b Luật Giao thông Đường bộ",
+      "dq6c": "Điều 82 khoản 2 điểm 6 mục c Luật Giao thông Đường bộ",
+      "dq7": "Điều 82 khoản 2 điểm 7 Luật Giao thông Đường bộ"
+    },
+    "note": {
+      "propertyDamage": "Nếu chỉ có thiệt hại về tài sản, khi người bị hại không muốn xử phạt hoặc khi bạn đã tham gia bảo hiểm toàn diện…, phần này không thể bị truy tố (Điều 3 khoản 2 phần chính, Điều 4 Luật Đặc biệt về Xử lý Tai nạn Giao thông). Việc xử phạt lái xe khi say rượu được tiến hành riêng.",
+      "danger": "Áp dụng khi được xác định là do rượu nên đã ở trong tình trạng khó lái xe bình thường. Nếu cho rằng chưa đến mức đó thì áp dụng Luật Đặc biệt về Xử lý Tai nạn Giao thông dưới đây.",
+      "negligenceDrunk": "Tai nạn có kèm lái xe khi say rượu hoặc từ chối, cản trở việc đo vẫn có thể bị truy tố dù đã tham gia bảo hiểm toàn diện hoặc đã thỏa thuận với người bị hại (Điều 3 khoản 2 phần ngoại lệ, Điều 4 khoản 1 của cùng luật).",
+      "fled": "Nếu đưa người bị hại khỏi nơi xảy ra tai nạn, bỏ mặc rồi bỏ chạy thì áp dụng Điều 5-3 khoản 2 nặng hơn.",
+      "fledProperty": "Trường hợp rõ ràng chỉ làm hư hỏng xe đang đỗ hoặc dừng mà không để lại thông tin liên lạc thì bị phạt tiền đến 200.000 won, câu lưu hoặc phạt tiền nhẹ (Điều 156 điểm 10 của cùng luật)."
+    },
+    "lic": {
+      "noneTitle": "Không bị xử lý giấy phép lái xe vì lái xe khi say rượu",
+      "noneUnder": "Nồng độ cồn trong máu dưới 0,03% chưa đạt tiêu chuẩn của trạng thái say rượu nên không thuộc diện xử lý giấy phép vì lái xe khi say rượu.",
+      "noneAccident": "Nếu đã gây tai nạn, điểm phạt và biện pháp xử lý theo hậu quả tai nạn và việc có xử lý sau tai nạn hay không vẫn có thể được áp dụng riêng (Phụ lục 28 điểm 3 mục b Quy tắc thi hành).",
+      "suspendTitle": "Đình chỉ giấy phép (100 điểm phạt)",
+      "suspend100": "Nồng độ cồn trong máu từ 0,03% đến dưới 0,08% bị 100 điểm phạt. Theo nguyên tắc, thời gian đình chỉ được tính 1 điểm phạt là 1 ngày, tức 100 ngày (Phụ lục 28 điểm 1 mục c).",
+      "suspendEdu": "Nếu hoàn thành khóa giáo dục an toàn giao thông đặc biệt theo quy định, thời gian đình chỉ được giảm 20 ngày, và nếu hoàn thành thêm khóa giáo dục tham gia thực tế thì có thể được giảm thêm 30 ngày (Phụ lục 28 điểm 1 mục d).",
+      "suspendAccident": "Có thể bị cộng thêm điểm phạt do hậu quả tai nạn hoặc do không xử lý sau tai nạn, và nếu điểm phạt tích lũy trong 1 năm từ 121 điểm trở lên thì giấy phép bị thu hồi (Phụ lục 28 điểm 1 mục c).",
+      "revokeTitle": "Thu hồi giấy phép",
+      "revokeRefused": "Nếu có lý do đáng kể để cho rằng bạn đã say rượu mà bạn không chịu đo thì giấy phép bắt buộc bị thu hồi.",
+      "revokeObstructed": "Nếu sau khi lái xe có hành vi cản trở việc đo nồng độ cồn thì giấy phép bắt buộc bị thu hồi.",
+      "revokePrior": "Người trước đây đã từng lái xe khi say rượu, từ chối đo hoặc cản trở việc đo mà lại lái xe với nồng độ từ 0,03% trở lên thì giấy phép bắt buộc bị thu hồi, bất kể đã cách bao lâu.",
+      "revokeHigh": "Nồng độ cồn trong máu từ 0,08% trở lên thuộc tiêu chuẩn thu hồi.",
+      "revokeInjury": "Lái xe với nồng độ từ 0,03% trở lên mà làm người khác bị thương hoặc chết thì thuộc tiêu chuẩn thu hồi.",
+      "revokeEdu": "Dù đã hết thời gian không được cấp lại giấy phép, bạn vẫn phải học khóa giáo dục bắt buộc về an toàn giao thông đặc biệt thì mới được cấp lại giấy phép (Điều 82 khoản 3 Luật Giao thông Đường bộ).",
+      "conditional": "Nếu giấy phép bị thu hồi vì tái vi phạm trong vòng 5 năm kể từ ngày vi phạm trước, để lái xe lại bạn phải được cấp giấy phép lái xe có điều kiện, kèm theo thiết bị chống lái xe khi say rượu. Thiết bị được gắn từ ngày tiếp theo ngày hết thời gian không được cấp lại giấy phép, trong khoảng thời gian bằng thời gian đó (Điều 80-2 Luật Giao thông Đường bộ).",
+      "reduction": "Nếu lái xe là phương tiện quan trọng để duy trì sinh kế của gia đình, trong vòng 60 ngày kể từ ngày bị xử lý, bạn có thể nộp đơn phản đối lên Giám đốc Sở Cảnh sát tỉnh, thành phố nơi cư trú để xin {effect}. Việc có chấp nhận hay không do Ủy ban Thẩm tra Phản đối Quyết định Hành chính về Giấy phép Lái xe quyết định (Phụ lục 28 điểm 1 mục e Quy tắc thi hành).",
+      "reductionRevoke": "chuyển từ thu hồi sang đình chỉ với 110 điểm phạt",
+      "reductionSuspend": "giảm một nửa thời gian đình chỉ"
+    },
+    "dq": {
+      "fled": "Uống rượu rồi lái xe, làm người khác bị thương hoặc chết, sau đó rời đi mà không thực hiện các biện pháp cần thiết và không trình báo",
+      "death": "Uống rượu rồi lái xe làm người khác chết",
+      "twoAccidents": "Gây tai nạn giao thông từ 2 lần trở lên khi lái xe say rượu (kể cả từ chối, cản trở việc đo)",
+      "accident": "Gây tai nạn giao thông khi lái xe say rượu (kể cả từ chối, cản trở việc đo)",
+      "repeat": "Lái xe khi say rượu, từ chối đo hoặc cản trở việc đo từ 2 lần trở lên",
+      "other": "Giấy phép bị thu hồi vì lý do khác"
+    },
+    "notes": {
+      "under": "Nồng độ cồn trong máu dưới 0,03% chưa đạt tiêu chuẩn của trạng thái say rượu nên không bị xử phạt vì lái xe khi say rượu (Điều 44 khoản 4 Luật Giao thông Đường bộ). Tuy nhiên, điều bị xử phạt là nồng độ tại thời điểm lái xe, nên khoảng cách giữa giờ đo và giờ lái xe có thể trở thành vấn đề tranh cãi.",
+      "recent": "10 năm được tính từ ngày bản án từ mức phạt tiền trở lên của vụ trước có hiệu lực, và vẫn tính cả khi hình phạt đó đã mất hiệu lực trong khoảng thời gian này (Điều 148-2 khoản 1 Luật Giao thông Đường bộ).",
+      "old": "Nếu tiền sử không thuộc mốc 10 năm thì khung hình phạt giống như lần đầu, nhưng khi quyết định biện pháp xử lý và mức án thực tế, tiền sử này vẫn được xem xét như tiền sử cùng loại.",
+      "concurrent": "Tội lái xe khi say rượu và các tội liên quan đến tai nạn có thể cùng cấu thành, và khi xử phạt nhiều tội cùng lúc thì phạm vi hình phạt có thể rộng hơn.",
+      "refused": "Nếu không đồng ý với kết quả đo qua hơi thở, bạn có thể được đo lại bằng cách lấy máu… với sự đồng ý của bạn (Điều 44 khoản 3 Luật Giao thông Đường bộ). Nếu từ chối ngay cả việc đo qua hơi thở thì có thể bị coi là từ chối đo."
+    },
+    "appeal": "Đình chỉ, thu hồi giấy phép là quyết định hành chính, được tiến hành riêng với thủ tục hình sự. Nếu muốn khiếu nại, phải yêu cầu khiếu nại hành chính (행정심판) trong vòng 90 ngày kể từ ngày biết có quyết định (Điều 27 Luật Khiếu nại hành chính), và chỉ được khởi kiện hành chính sau khi đã qua khiếu nại hành chính (Điều 142 Luật Giao thông Đường bộ). Nếu vụ án hình sự có bản án vô tội đã có hiệu lực, hoặc có quyết định không chuyển hồ sơ hay không truy tố vì không có căn cứ (혐의없음) hoặc không cấu thành tội phạm (죄가안됨), thì quyết định xử lý bị hủy và điểm phạt được xóa (Phụ lục 28 điểm 1 mục đ Quy tắc thi hành). Nếu kết thúc bằng hình phạt nhẹ hơn phạt tiền, hoãn tuyên án hoặc tạm hoãn truy tố, bạn có thể được cấp lại giấy phép ngay cả khi còn trong thời gian không được cấp lại (Điều 82 khoản 2 phần ngoại lệ Luật Giao thông Đường bộ)."
+  }
+}

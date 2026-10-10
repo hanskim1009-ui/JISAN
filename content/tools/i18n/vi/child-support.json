@@ -1,0 +1,85 @@
+{
+  "page": {
+    "title": "Tính tiền cấp dưỡng nuôi con",
+    "description": "Nhập tuổi của con và thu nhập hằng tháng của cả cha và mẹ để tính ngay tiền cấp dưỡng tiêu chuẩn theo Bảng tiêu chuẩn tính tiền cấp dưỡng nuôi con năm 2021, và số tiền cấp dưỡng hằng tháng mà bên không nuôi con phải trả, chia theo tỷ lệ thu nhập.",
+    "lead": "Nhập tuổi của con và thu nhập hằng tháng trước thuế của cha mẹ để tính số tiền cấp dưỡng mà bên cha hoặc mẹ sống riêng phải gửi mỗi tháng, theo Bảng tiêu chuẩn tính tiền cấp dưỡng nuôi con (양육비 산정기준표) của tòa án.",
+    "notice": "Đây là kết quả tính tham khảo theo bảng tiêu chuẩn của tòa án. Tiền cấp dưỡng thực tế có thể được tòa án quyết định khác đi tùy hoàn cảnh như mức sống của con, tài sản và nợ của cha mẹ, hình thức nuôi con. Hãy trao đổi với luật sư trước khi quyết định."
+  },
+  "ui": {
+    "signLabel": "Cộng hoặc trừ {label}",
+    "plus": "Cộng (tăng thêm)",
+    "minus": "Trừ (giảm bớt)",
+    "kidsHintOne": "Nếu chỉ có 1 con, số tiền thường được định cao hơn một chút (tăng thêm) so với số tiền trong bảng.",
+    "kidsHintMany": "Nếu có từ 3 con trở lên, số tiền thường được định thấp hơn một chút (giảm bớt) so với số tiền trong bảng.",
+    "kidsHintTwo": "Bảng được lập theo tiêu chuẩn 2 con, nên nếu có 2 con thường không tăng hay giảm.",
+    "kidsTitle": "Con",
+    "kidsDesc": "Nhập tuổi tròn của con sẽ được nhận tiền cấp dưỡng. Công cụ tính cho trẻ từ 0 đến {max} tuổi (trước khi thành niên ở tuổi 19).",
+    "kid": "Con {n}",
+    "agePlaceholder": "Tuổi",
+    "ageUnit": "tuổi",
+    "badAge": "Hãy nhập tuổi là số nguyên từ 0 đến {max}.",
+    "addKid": "+ Thêm con",
+    "incomeTitle": "Thu nhập hằng tháng của cha mẹ (trước thuế)",
+    "incomeDesc": "Là số tiền một tháng trước khi trừ thuế, cộng tất cả tiền lương, thu nhập kinh doanh, thu nhập cho thuê, tiền lãi, lương hưu… Cũng tính cả tiền trợ cấp của chính phủ.",
+    "carer": "Bên nuôi con (cha hoặc mẹ sống cùng con)",
+    "other": "Bên không nuôi con (cha hoặc mẹ sống riêng với con)",
+    "adjTitle": "Tăng thêm, giảm bớt (không bắt buộc)",
+    "expand": "Mở rộng",
+    "adjDesc": "Tiền cấp dưỡng tiêu chuẩn là số tiền cho mỗi con, tính theo gia đình có cha mẹ và hai con. Tùy hoàn cảnh gia đình, tòa án có thể tăng (tăng thêm) hoặc giảm (giảm bớt) số tiền. Nếu bạn biết số tiền đó, hãy nhập theo số tiền một tháng cho mỗi con.",
+    "adjKids": "Tăng thêm, giảm bớt theo số con",
+    "adjOther": "Tăng thêm, giảm bớt khác",
+    "adjOtherHelp": "Là các hoàn cảnh như nơi sinh sống (thành thị hay nông thôn, làng chài), tài sản của cha mẹ, có đang trong thủ tục phục hồi cá nhân hay không.",
+    "emptyAge": "Nhập tuổi của con để tính ngay.",
+    "emptyIncome": "Nhập thu nhập của cha mẹ để tính ngay.",
+    "resultTitle": "Tiền cấp dưỡng bên không nuôi con trả mỗi tháng",
+    "resultTitleMany": "Tiền cấp dưỡng bên không nuôi con trả mỗi tháng (tổng cho {n} con)",
+    "income": "Tổng thu nhập của cha mẹ",
+    "bandNote": "(mức {band})",
+    "ratio": "Tỷ lệ thu nhập của bên không nuôi con",
+    "total": "Tổng tiền cấp dưỡng",
+    "totalAdj": "Tổng tiền cấp dưỡng (đã tăng, giảm)",
+    "carerShare": "Phần bên nuôi con chịu",
+    "colKid": "Con",
+    "colStandard": "Tiền cấp dưỡng tiêu chuẩn",
+    "colAdjusted": "Sau khi tăng, giảm",
+    "colOther": "Phần của bên không nuôi con",
+    "ageRow": "{age} tuổi · ô {band}",
+    "ageBand": "{a}–{b} tuổi",
+    "range": "Khoảng {lo} – {hi}",
+    "rangeOpen": "Khoảng từ {lo} trở lên",
+    "bandRange": "{lo}–{hi} KRW",
+    "bandFrom": "Từ {lo} KRW trở lên",
+    "bandTo": "Đến {hi} KRW",
+    "step1": "Tổng thu nhập của hai người là {income}, thuộc ô {band} trong bảng tiêu chuẩn.",
+    "step2": "Với mỗi con, tìm tiền cấp dưỡng tiêu chuẩn (số tiền cấp dưỡng trung bình một tháng cho mỗi con) ở ô phù hợp với tuổi rồi cộng lại.",
+    "step2Adj": "Với mỗi con, tìm tiền cấp dưỡng tiêu chuẩn (số tiền cấp dưỡng trung bình một tháng cho mỗi con) ở ô phù hợp với tuổi rồi cộng lại. Cộng hoặc trừ số tiền tăng thêm, giảm bớt cho từng con.",
+    "step3": "Chia tổng tiền cấp dưỡng theo tỷ lệ thu nhập của hai người. Phần của bên không nuôi con = tiền cấp dưỡng × thu nhập của bên không nuôi con ÷ tổng thu nhập ({pct}).",
+    "highIncome": "Ô tổng thu nhập từ 12 triệu won một tháng trở lên không có giới hạn trên, nên tòa án có thể xem xét thêm thu nhập, tài sản, mức sống và định số tiền cao hơn số tiền trong bảng.",
+    "tableHead": "Bảng công cụ này sử dụng",
+    "tableName": "Bảng tiêu chuẩn tính tiền cấp dưỡng nuôi con năm 2021 (Tòa án Gia đình Seoul, công bố ngày 22/12/2021)",
+    "tableBody": "{table}. Đây là số tiền cấp dưỡng trung bình một tháng cho mỗi con, tính theo hộ gia đình có cha mẹ và hai con. Tòa án lấy bảng này làm điểm xuất phát, đồng thời xem xét các hoàn cảnh như mức sống của con, tài sản và nợ của cha mẹ, nơi sinh sống, hình thức nuôi con để quyết định số tiền."
+  },
+  "terms": [
+    [
+      "Bên nuôi con · bên không nuôi con",
+      "Sau khi ly hôn, cha hoặc mẹ sống cùng và nuôi con là bên nuôi con (양육자), người sống riêng là bên không nuôi con (비양육자). Thông thường bên không nuôi con gửi tiền cấp dưỡng."
+    ],
+    [
+      "Tiền cấp dưỡng tiêu chuẩn",
+      "Là số tiền trung bình được định theo thu nhập của cha mẹ và tuổi của con trong Bảng tiêu chuẩn tính tiền cấp dưỡng nuôi con do tòa án lập."
+    ],
+    [
+      "Tăng thêm · giảm bớt",
+      "Là việc cộng thêm hoặc trừ bớt vào tiền cấp dưỡng tiêu chuẩn tùy hoàn cảnh."
+    ],
+    [
+      "Thu nhập trước thuế",
+      "Là thu nhập trước khi trừ thuế và phí 4 loại bảo hiểm xã hội bắt buộc."
+    ]
+  ],
+  "errors": {
+    "badAge": "Hãy nhập tuổi của con từ 0 đến 18.",
+    "noRow": "Không có tiêu chuẩn tính tiền cấp dưỡng cho độ tuổi và mức thu nhập này.",
+    "noChild": "Hãy nhập ít nhất một con."
+  }
+}

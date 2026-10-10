@@ -1,0 +1,331 @@
+{
+  "page": {
+    "title": "Danh sách kiểm tra khi cảnh sát yêu cầu đến làm việc",
+    "description": "Nếu cảnh sát liên lạc qua điện thoại, tin nhắn hoặc gửi Giấy yêu cầu đến làm việc, hãy chọn tình huống của bạn rồi đánh dấu từng việc cần làm trước khi đến, trong ngày lấy lời khai và sau đó. Danh sách tổng hợp theo Luật Tố tụng hình sự và Quy chế điều tra chung hiện hành: xin hoãn, luật sư bào chữa đi cùng, quyền từ chối khai báo, nộp điện thoại di động, xem và sửa biên bản.",
+    "keywords": [
+      "cảnh sát yêu cầu đến làm việc",
+      "chuẩn bị lấy lời khai tại cảnh sát",
+      "Giấy yêu cầu đến làm việc",
+      "xin hoãn ngày đến làm việc",
+      "quyền từ chối khai báo",
+      "luật sư tham gia buổi lấy lời khai",
+      "xem biên bản lấy lời khai người bị nghi vấn",
+      "lấy lời khai người làm chứng",
+      "cảnh sát Hàn Quốc gọi lên làm việc"
+    ],
+    "lead": "Khi bạn chọn tình huống hiện tại, các mục cần kiểm tra sẽ thay đổi cho phù hợp. Nội dung đã đánh dấu được lưu trên trình duyệt này, và bạn có thể in ra để mang theo khi đến làm việc.",
+    "notice": "Đây là danh sách tham khảo tổng hợp các thủ tục và quyền chung. Danh sách dựa trên Luật Tố tụng hình sự (형사소송법), Quy định về hợp tác giữa công tố viên và cảnh sát tư pháp và quy chế điều tra chung (Quy chế điều tra chung, 수사준칙) và Quy tắc điều tra của cảnh sát (경찰수사규칙) có hiệu lực từ ngày 2/10/2026; việc lấy lời khai tại cơ quan điều tra khác như Cơ quan Điều tra Tội phạm Nghiêm trọng có thể áp dụng quy định khác. Vụ việc thực tế khác nhau tùy hoàn cảnh, vì vậy hãy trao đổi với luật sư trước buổi lấy lời khai."
+  },
+  "ui": {
+    "checked": "Đã kiểm tra",
+    "progressLabel": "Tiến độ danh sách kiểm tra",
+    "print": "In",
+    "reset": "Làm lại từ đầu",
+    "resetConfirm": "Xóa hết các mục đã đánh dấu và tình huống đã chọn?",
+    "step1Intro": "Các mục kiểm tra bên dưới thay đổi theo lựa chọn của bạn. Nội dung đã đánh dấu chỉ được lưu trên trình duyệt này.",
+    "urgent": "Làm trước"
+  },
+  "steps": {
+    "1": "Tình huống hiện tại",
+    "2": "Cần kiểm tra trước khi đến",
+    "3": "Ngày lấy lời khai",
+    "4": "Sau khi lấy lời khai"
+  },
+  "questions": {
+    "role": {
+      "label": "Bạn có biết mình được gọi đến với tư cách gì không?",
+      "help": "Người bị nghi vấn (피의자) là người bị điều tra vì bị nghi phạm tội; người làm chứng (참고인) là người không bị nghi phạm tội, đến để khai về điều mình đã thấy hoặc đã nghe.",
+      "options": {
+        "unknown": "Không rõ",
+        "suspect": "Người bị nghi vấn",
+        "witness": "Người làm chứng",
+        "victim": "Người bị hại hoặc người tố cáo"
+      }
+    },
+    "days": {
+      "label": "Số ngày còn lại đến ngày phải đến",
+      "options": {
+        "soon": "Hôm nay hoặc ngày mai",
+        "week": "2–7 ngày",
+        "later": "8 ngày trở lên",
+        "unset": "Chưa định ngày"
+      }
+    },
+    "via": {
+      "label": "Bạn nhận được liên lạc bằng cách nào?",
+      "options": {
+        "call": "Điện thoại hoặc tin nhắn",
+        "letter": "Giấy yêu cầu đến làm việc (qua bưu điện…)"
+      }
+    },
+    "arrest": {
+      "label": "Bạn có lo bị bắt không?",
+      "help": "Nếu bạn đã nhiều lần không đến theo yêu cầu, hoặc được cho biết vụ việc nghiêm trọng, hãy chọn \"Có lo\".",
+      "options": {
+        "no": "Không",
+        "yes": "Có lo"
+      }
+    },
+    "counsel": {
+      "label": "Bạn có định đi cùng luật sư bào chữa không?",
+      "options": {
+        "no": "Không hoặc chưa biết",
+        "yes": "Có"
+      }
+    },
+    "phone": {
+      "label": "Bạn có được yêu cầu mang theo hoặc nộp điện thoại di động không?",
+      "options": {
+        "no": "Không",
+        "yes": "Có"
+      }
+    }
+  },
+  "summary": {
+    "role": "Tư cách: {v}",
+    "days": "Đến ngày phải đến: {v}",
+    "via": "Liên lạc: {v}",
+    "arrest": "Lo bị bắt: {v}",
+    "arrestYes": "Có",
+    "arrestNo": "Không",
+    "counsel": "Luật sư đi cùng: {v}",
+    "counselYes": "Có",
+    "counselNo": "Không hoặc chưa định",
+    "phone": "Yêu cầu nộp điện thoại: {v}",
+    "phoneYes": "Có",
+    "phoneNo": "Không"
+  },
+  "items": {
+    "verify-caller": {
+      "title": "Xác nhận đúng là đồn cảnh sát liên lạc",
+      "desc": "Nếu là số lạ, hãy tự liên lạc lại qua số tổng đài của đồn cảnh sát đó để xác nhận tên bộ phận và tên điều tra viên. Nếu bị yêu cầu chuyển tiền, cài ứng dụng, cung cấp tài khoản hoặc mật khẩu thì đó không phải là liên lạc của cơ quan điều tra."
+    },
+    "case-info": {
+      "title": "Ghi lại số vụ việc và điều tra viên phụ trách",
+      "desc": "Ghi vào một chỗ số vụ việc, bộ phận phụ trách, tên và số liên lạc của điều tra viên, ngày giờ và địa điểm phải đến."
+    },
+    "ask-role": {
+      "title": "Hỏi xem mình là người bị nghi vấn hay người làm chứng",
+      "desc": "Giấy yêu cầu đến làm việc gửi cho người bị nghi vấn và cho người không phải người bị nghi vấn có mẫu riêng. Việc cần chuẩn bị khác nhau tùy tư cách, vì vậy hãy xác nhận trước.",
+      "basis": "Điều 34 Quy tắc điều tra của cảnh sát"
+    },
+    "ask-charge": {
+      "title": "Hỏi đó là vụ việc gì, bị nghi phạm tội gì",
+      "desc": {
+        "call": "Theo nguyên tắc, yêu cầu đến làm việc phải bằng Giấy yêu cầu đến làm việc ghi cụ thể lý do phải đến, như tóm tắt sự việc bị nghi vấn; chỉ khi gấp mới được dùng điện thoại hoặc tin nhắn. Nếu được báo qua điện thoại, hãy hỏi bạn bị nghi phạm tội gì và ai đã tố cáo.",
+        "letter": "Giấy yêu cầu đến làm việc phải ghi cụ thể lý do phải đến, như tóm tắt sự việc bị nghi vấn. Hãy đọc lại nội dung đã ghi và hỏi điều tra viên về những phần chưa hiểu."
+      },
+      "basis": "Điều 19 khoản 3 Quy chế điều tra chung"
+    },
+    "ask-topic": {
+      "title": "Hỏi họ muốn hỏi về điều gì",
+      "desc": {
+        "victim": "Nếu hỏi trước họ muốn xác nhận thêm phần nào và có tài liệu nào cần mang theo không thì sẽ dễ chuẩn bị hơn.",
+        "witness": "Hỏi đó là vụ việc gì, ai là người bị nghi vấn, và họ muốn hỏi phần nào trong những điều bạn đã thấy hoặc đã nghe."
+      }
+    },
+    "complaint-copy": {
+      "title": "Nếu là vụ có tố cáo, cân nhắc xin xem và sao chụp đơn tố cáo",
+      "desc": "Người bị nghi vấn có thể nêu lý do cần thiết và xin xem, sao chụp phần sự việc bị nghi vấn liên quan đến mình trong đơn tố cáo (고소장). Biết rõ người ta đang cáo buộc điều gì sẽ giúp bạn chuẩn bị nhanh hơn.",
+      "basis": "Điều 69 khoản 3 Quy chế điều tra chung"
+    },
+    "phone-brief": {
+      "title": "Không giải thích dài dòng về vụ việc qua điện thoại",
+      "desc": "Nội dung cuộc nói chuyện qua điện thoại cũng có thể được ghi vào báo cáo điều tra. Bạn có thể nói sẽ trình bày chi tiết khi đến làm việc và chỉ thống nhất lịch hẹn."
+    },
+    "reschedule-now": {
+      "title": "Nếu chưa chuẩn bị xong, xin hoãn ngay hôm nay",
+      "desc": "Khi người bị nghi vấn xin dời ngày giờ đến làm việc, quy định yêu cầu điều chỉnh trừ khi có lý do đặc biệt. Hãy chủ động liên lạc trước khi đến ngày, nêu lý do và hai, ba ngày bạn có thể đến, rồi xin xác nhận ngày mới bằng tin nhắn. Người làm chứng và những người khác không phải người bị nghi vấn cũng vậy.",
+      "basis": "Điều 19 khoản 1 điểm 3, khoản 6 Quy chế điều tra chung"
+    },
+    "reschedule": {
+      "title": "Nếu ngày hẹn không phù hợp, xin hoãn",
+      "desc": "Yêu cầu đến làm việc phải dành đủ thời gian để không ảnh hưởng đến công việc mưu sinh, và khi có đề nghị hoãn thì phải điều chỉnh trừ khi có lý do đặc biệt. Hãy xin xác nhận ngày mới thêm một lần nữa bằng tin nhắn.",
+      "basis": "Điều 19 khoản 1 điểm 3, khoản 6 Quy chế điều tra chung"
+    },
+    "schedule-agree": {
+      "title": "Thỏa thuận để định ngày giờ và địa điểm lấy lời khai",
+      "desc": {
+        "counsel": "Điều tra viên phải thỏa thuận về ngày giờ và địa điểm lấy lời khai, và nếu bạn có luật sư bào chữa thì phải thỏa thuận cả với luật sư. Khi lịch đã định, hãy xin xác nhận bằng tin nhắn.",
+        "default": "Điều tra viên phải thỏa thuận với người bị nghi vấn về ngày giờ và địa điểm lấy lời khai. Khi lịch đã định, hãy xin xác nhận bằng tin nhắn."
+      },
+      "basis": "Điều 19 khoản 2, khoản 6 Quy chế điều tra chung"
+    },
+    "alt-method": {
+      "title": "Hỏi có nhất thiết phải đến không, có cách khác không",
+      "desc": "Nếu chỉ là xác nhận sự việc đơn giản, quy định yêu cầu trước hết cân nhắc cách thay cho việc đến trực tiếp, như khai qua bưu điện, thư điện tử hoặc điện thoại. Nếu vì đang điều trị bệnh… mà rất khó đến đồn cảnh sát, việc lấy lời khai cũng có thể làm ở ngoài đồn.",
+      "basis": "Điều 19 khoản 1 điểm 1, khoản 5 Quy chế điều tra chung"
+    },
+    "no-show": {
+      "title": "Đừng để xảy ra việc không đến mà không báo trước",
+      "desc": "Nếu người bị nghi vấn không đến theo yêu cầu mà không có lý do chính đáng, hoặc có khả năng sẽ không đến, cảnh sát có thể yêu cầu ra lệnh bắt (체포영장). Nếu không thể đến, nhất định phải liên lạc trước và định ngày mới.",
+      "basis": "Điều 200-2 khoản 1 Luật Tố tụng hình sự"
+    },
+    "witness-voluntary": {
+      "title": "Biết rằng người làm chứng không bị bắt buộc phải đến",
+      "desc": "Người không phải người bị nghi vấn có thể tự quyết định có đến và có khai hay không. Tuy nhiên, nếu người được xác định rõ ràng là biết sự việc thật sự cần thiết cho việc điều tra mà từ chối đến hoặc từ chối khai, công tố viên có thể yêu cầu thẩm phán thẩm vấn người đó với tư cách nhân chứng trước phiên xét xử đầu tiên.",
+      "basis": "Điều 221 khoản 1, Điều 221-2 Luật Tố tụng hình sự"
+    },
+    "arrest-family": {
+      "title": "Báo cho gia đình biết tình hình và số liên lạc của luật sư",
+      "desc": "Khi bắt người, cảnh sát phải cho biết tóm tắt sự việc bị nghi vấn, lý do bắt và quyền được chọn luật sư bào chữa. Vợ/chồng, người thân trực hệ, anh chị em cũng có thể tự chọn luật sư bào chữa, và nếu trong vòng 48 giờ kể từ lúc bắt mà không yêu cầu ra lệnh tạm giam thì phải thả người.",
+      "basis": "Điều 200-5, Điều 30 khoản 2, Điều 200-2 khoản 5 Luật Tố tụng hình sự…"
+    },
+    "counsel-right": {
+      "title": "Biết rằng bạn có thể được lấy lời khai cùng luật sư bào chữa",
+      "desc": "Nếu người bị nghi vấn, luật sư bào chữa, người đại diện theo pháp luật, vợ/chồng, người thân trực hệ hoặc anh chị em đề nghị, cảnh sát phải cho luật sư tham gia buổi hỏi cung trừ khi có lý do chính đáng.",
+      "basis": "Điều 243-2 khoản 1 Luật Tố tụng hình sự"
+    },
+    "counsel-right-nonsuspect": {
+      "title": "Biết rằng luật sư cũng có thể đi cùng khi lấy lời khai người làm chứng, người bị hại",
+      "desc": "Nguyên tắc cho phép luật sư ngồi bên cạnh để tư vấn và ghi chép cũng áp dụng khi lấy lời khai hoặc gặp những người liên quan đến vụ việc như người làm chứng, người bị hại.",
+      "basis": "Điều 13 khoản 3 Quy chế điều tra chung"
+    },
+    "counsel-papers": {
+      "title": "Nộp giấy chọn luật sư và đơn xin tham gia trước buổi lấy lời khai",
+      "desc": "Để luật sư tham gia buổi hỏi cung, phải nộp giấy chọn luật sư bào chữa và đơn xin cho luật sư tham gia trước buổi lấy lời khai. Thông thường luật sư tự nộp và sắp xếp lịch với điều tra viên.",
+      "basis": "Điều 12 khoản 2 Quy tắc điều tra của cảnh sát"
+    },
+    "silence-right": {
+      "title": "Hiểu quyền từ chối khai báo và quyết định sẽ nói đến đâu",
+      "desc": "Bạn có thể không trả lời tất cả hoặc chỉ một số câu hỏi, và không bị bất lợi vì điều đó. Tuy nhiên, những gì bạn đã khai mà không từ chối có thể được dùng làm chứng cứ buộc tội tại tòa. Tùy vụ việc, có khi giải thích sẽ tốt hơn, vì vậy hãy quyết định trước.",
+      "basis": "Điều 244-3 khoản 1 Luật Tố tụng hình sự"
+    },
+    "timeline": {
+      "title": "Ghi những điều bạn nhớ theo thứ tự ngày tháng trên một tờ giấy",
+      "desc": "Viết tập trung vào ngày giờ, địa điểm, người có mặt và các khoản tiền đã qua lại. Đánh dấu riêng những phần bạn không nhớ rõ."
+    },
+    "evidence": {
+      "title": "Không xóa mà thu thập tin nhắn, lịch sử cuộc gọi, lịch sử chuyển tiền, ảnh",
+      "desc": "Lưu toàn bộ phòng trò chuyện bằng chức năng xuất dữ liệu sẽ tốt hơn là chụp màn hình chỉ phần có lợi. CCTV của cửa hàng hay bãi đỗ xe bị ghi đè sau một thời gian, nên nếu cần hãy sớm nhờ họ lưu giữ."
+    },
+    "no-contact": {
+      "title": "Không thống nhất lời khai với bên kia hoặc người liên quan",
+      "desc": "Việc đó có thể bị coi là tìm cách tiêu hủy chứng cứ. Vì cùng lý do, cũng tránh đổi điện thoại hoặc rời khỏi phòng trò chuyện."
+    },
+    "phone-submit": {
+      "title": {
+        "phone": "Nếu được yêu cầu nộp điện thoại, trước hết hãy xác định phạm vi",
+        "default": "Chuẩn bị cho trường hợp được yêu cầu nộp điện thoại"
+      },
+      "desc": "Nếu được yêu cầu nộp mà không có lệnh, đó là yêu cầu tự nguyện nộp (임의제출), bạn có thể tự quyết định có nộp hay không. Tuy nhiên, đồ vật tự nguyện nộp có thể bị thu giữ mà không cần lệnh, vì vậy nếu nộp, hãy ghi rõ trên giấy tờ là nộp dữ liệu nào, trong khoảng thời gian nào, và trao đổi với luật sư trước.",
+      "basis": "Điều 218 Luật Tố tụng hình sự"
+    },
+    "phone-forensic": {
+      "title": "Nếu đã nộp điện thoại, nói rõ ý muốn tham gia giám định kỹ thuật số (포렌식)",
+      "desc": "Bạn và luật sư có thể tham gia toàn bộ quá trình sao chép, tìm kiếm và in dữ liệu, và ý kiến đưa ra khi tham gia phải được ghi vào biên bản. Trên giấy tờ hỏi có tham gia hay không, hãy đánh dấu muốn tham gia.",
+      "basis": "Điều 42 khoản 4, khoản 5 Quy chế điều tra chung"
+    },
+    "victim-trusted": {
+      "title": "Nếu lo lắng, đề nghị được đi cùng người bạn tin tưởng",
+      "desc": "Người bị hại có thể đề nghị cho người giúp mình ổn định tâm lý và giao tiếp, như người trong gia đình, ngồi cùng khi lấy lời khai.",
+      "basis": "Điều 221 khoản 3 Luật Tố tụng hình sự, Điều 24 Quy chế điều tra chung"
+    },
+    "bring": {
+      "title": "Chuẩn bị đồ cần mang",
+      "desc": "Mang theo giấy tờ tùy thân, Giấy yêu cầu đến làm việc hoặc tin nhắn đã nhận, ghi chép sắp xếp theo ngày, bản sao các tài liệu sẽ nộp. Bản gốc hãy tự giữ."
+    },
+    "arrival-time": {
+      "title": "Ghi lại giờ đến và giờ bắt đầu, kết thúc lấy lời khai",
+      "desc": "Cảnh sát phải ghi giờ bạn đến nơi lấy lời khai, giờ bắt đầu và kết thúc lấy lời khai vào biên bản hoặc văn bản riêng. Sau này hãy đối chiếu xem có khác với ghi chép của bạn không.",
+      "basis": "Điều 244-4 Luật Tố tụng hình sự, Điều 26 Quy chế điều tra chung"
+    },
+    "rights-notice": {
+      "title": "Nghe thông báo về quyền từ chối khai báo và quyền được luật sư hỗ trợ rồi trả lời",
+      "desc": "Trước khi hỏi cung, cảnh sát phải cho bạn biết các quyền này, và câu hỏi bạn có dùng quyền đó không cùng câu trả lời của bạn được ghi vào biên bản. Hãy kiểm tra xem câu trả lời của bạn có được ghi đúng không.",
+      "basis": "Điều 244-3 Luật Tố tụng hình sự"
+    },
+    "role-change": {
+      "title": "Nếu câu hỏi chuyển sang hỏi trách nhiệm của bạn, hãy hỏi lại tư cách",
+      "desc": "Dù được gọi với tư cách người làm chứng, nếu trong lúc lấy lời khai lộ ra nghi vấn và việc điều tra bắt đầu thì bạn có thể trở thành người bị nghi vấn. Khi đó bạn phải được thông báo về quyền từ chối khai báo và quyền được luật sư hỗ trợ, và bạn có thể xin tạm dừng để trao đổi với luật sư."
+    },
+    "counsel-seat": {
+      "title": "Luật sư có thể ngồi bên cạnh để tư vấn và ghi chép",
+      "desc": "Luật sư có thể ngồi ở chỗ thuận lợi để thực sự giúp bạn, tư vấn và ghi chép. Luật sư có thể phản đối cách hỏi không đúng mà không cần xin phép, và nội dung phản đối được ghi vào biên bản.",
+      "basis": "Điều 13 khoản 1, Điều 14 khoản 3, khoản 4 Quy chế điều tra chung"
+    },
+    "recording": {
+      "title": "Nếu cần, đề nghị ghi âm lời khai",
+      "desc": "Nếu người bị nghi vấn hoặc luật sư đề nghị, cảnh sát phải ghi âm lời khai của người bị nghi vấn, dù buổi đó được gọi là lấy lời khai, gặp mặt hay tên gọi khác. Khi ghi âm xong, bản gốc được niêm phong, và bạn có thể xin nghe lại.",
+      "basis": "Điều 244-6 Luật Tố tụng hình sự"
+    },
+    "trusted-suspect": {
+      "title": "Nếu khó giao tiếp vì khuyết tật, tuổi tác hoặc quốc tịch, hãy đề nghị có người ngồi cùng",
+      "desc": "Khi có hoàn cảnh như vậy, bạn có thể đề nghị cho người có quan hệ tin cậy, như người trong gia đình, ngồi cùng trong buổi hỏi cung.",
+      "basis": "Điều 244-5 Luật Tố tụng hình sự"
+    },
+    "time-limits": {
+      "title": "Biết giới hạn thời gian lấy lời khai và quyền xin nghỉ",
+      "desc": "Theo nguyên tắc, không lấy lời khai từ 9 giờ tối đến 6 giờ sáng. Tổng thời gian lấy lời khai, kể cả thời gian chờ, nghỉ và ăn, không được quá 12 giờ, thời gian thực sự lấy lời khai không quá 8 giờ, và nếu kéo dài thì cứ 2 giờ phải cho nghỉ từ 10 phút trở lên. Nếu mệt, hãy xin nghỉ.",
+      "basis": "Điều 21 đến Điều 23 Quy chế điều tra chung"
+    },
+    "dont-guess": {
+      "title": "Điều gì không nhớ thì nói là không nhớ",
+      "desc": "Nói tách bạch điều mình trực tiếp thấy, điều nghe người khác kể và điều mình đoán. Đừng đoán để điền ngày tháng và số tiền."
+    },
+    "submit-materials": {
+      "title": "Nộp tài liệu, ý kiến trước khi kết thúc buổi lấy lời khai",
+      "desc": "Trước khi kết thúc buổi lấy lời khai, cảnh sát phải hỏi bạn có muốn nộp tài liệu hoặc ý kiến không, và tài liệu, ý kiến đã nộp được đưa vào hồ sơ điều tra.",
+      "basis": "Điều 25 Quy chế điều tra chung"
+    },
+    "read-record": {
+      "title": "Đọc hết biên bản và đề nghị sửa những chỗ ghi sai",
+      "desc": "Bạn ký biên bản sau khi tự đọc hoặc được đọc cho nghe. Những phần không ghi đúng như bạn nói hoặc khác với sự thật, bạn có thể đề nghị thêm, bớt hoặc sửa, và cảnh sát phải ghi bổ sung nội dung đó vào biên bản. Đặc biệt chú ý ngày tháng, số tiền, tên người và những cách diễn đạt như \"đã biết\".",
+      "basis": "Điều 244 khoản 2 Luật Tố tụng hình sự"
+    },
+    "read-time": {
+      "title": "Không ký vì bị thời gian thúc ép",
+      "desc": "Việc đọc biên bản đã lập xong có thể làm đến trước nửa đêm, và thời gian đọc biên bản khi bạn đề nghị bằng văn bản là ngoại lệ của giới hạn tổng thời gian lấy lời khai 12 giờ. Hãy ký sau khi đã kiểm tra rằng phần sửa đã được ghi vào.",
+      "basis": "Điều 21 khoản 1 phần ngoại lệ, Điều 22 khoản 1 điểm 1 Quy chế điều tra chung"
+    },
+    "memo-after": {
+      "title": "Ghi lại ngay những câu đã được hỏi và câu trả lời của bạn",
+      "desc": "Ghi lại khi trí nhớ còn rõ. Đánh dấu riêng những câu bạn chưa trả lời được hoặc trả lời qua loa."
+    },
+    "copy-record": {
+      "title": "Xin xem và sao chụp biên bản ghi lời khai của bạn",
+      "desc": "Với vụ việc đang được điều tra, bạn có thể xin xem và sao chụp phần ghi lời khai của chính mình và giấy tờ mình đã nộp. Thủ trưởng cơ quan cảnh sát phải quyết định có cho xem hay không trong vòng 10 ngày kể từ ngày nhận đơn, và nếu bạn xin biên bản của mình ngay trong ngày lấy lời khai thì phải xem xét không chậm trễ.",
+      "basis": "Điều 69 khoản 1 Quy chế điều tra chung, Điều 87 Quy tắc điều tra của cảnh sát"
+    },
+    "opinion": {
+      "title": "Điều cần giải thích thêm thì nộp trước khi có quyết định chuyển hồ sơ",
+      "desc": "Những phần chưa nói đủ khi lấy lời khai hoặc tài liệu tìm được sau đó thì nộp kèm bản ý kiến. Với vụ có tố cáo, tố giác, cảnh sát phải quyết định có chuyển hồ sơ (송치) hay không trong vòng 3 tháng kể từ ngày thụ lý, vì vậy hãy chuẩn bị kịp thời.",
+      "basis": "Điều 238 Luật Tố tụng hình sự"
+    },
+    "result-notice": {
+      "title": "Giữ lại tin nhắn, văn bản thông báo kết quả điều tra",
+      "desc": "Khi cảnh sát ra quyết định như chuyển hồ sơ hay không chuyển hồ sơ, họ phải thông báo cho người tố cáo… và người bị nghi vấn, trong vòng 7 ngày kể từ ngày chuyển hồ sơ vụ việc hoặc gửi hồ sơ đi. Thông báo có ghi số vụ việc và nơi vụ việc được chuyển đến, vì vậy đừng xóa.",
+      "basis": "Điều 53 khoản 1 Quy chế điều tra chung, Điều 97 khoản 1 Quy tắc điều tra của cảnh sát"
+    },
+    "after-referral": {
+      "title": "Nếu hồ sơ được chuyển, chuẩn bị trong khi chờ công tố viên của Văn phòng Công tố (Viện Kiểm sát) quyết định",
+      "desc": "Nếu cảnh sát thấy có căn cứ nghi vấn, họ chuyển hồ sơ vụ việc cho công tố viên của Văn phòng Công tố (공소청, Viện Kiểm sát). Trước khi công tố viên quyết định có truy tố hay không, bạn có thể nộp bản ý kiến, văn bản thỏa thuận…",
+      "basis": "Điều 245-5 khoản 1 điểm 1 Luật Tố tụng hình sự"
+    },
+    "keep-after-nonreferral": {
+      "title": "Dù có quyết định không chuyển hồ sơ, đừng vứt tài liệu",
+      "desc": "Dù có quyết định không chuyển hồ sơ (불송치), nếu người tố cáo nộp đơn phản đối thì vụ việc sẽ được chuyển cho công tố viên. Hãy giữ tài liệu để chuẩn bị ý kiến khi đó.",
+      "basis": "Điều 245-7 Luật Tố tụng hình sự"
+    },
+    "victim-progress": {
+      "title": "Nhận thông báo về tiến độ điều tra",
+      "desc": "Người tố cáo, người bị hại… phải được thông báo tiến độ trong vòng 7 ngày kể từ ngày bắt đầu điều tra, vào ngày tròn 3 tháng sau đó, và sau đó cứ mỗi 1 tháng. Nếu muốn nhận thông báo theo cách nào, hãy nói trước với điều tra viên.",
+      "basis": "Điều 11 Quy tắc điều tra của cảnh sát"
+    },
+    "victim-objection": {
+      "title": "Nếu nhận thông báo không chuyển hồ sơ, cân nhắc nộp đơn phản đối trong vòng 3 tháng",
+      "desc": "Khi quyết định không chuyển hồ sơ, cảnh sát phải gửi văn bản nêu lý do, quyết định và hướng dẫn nộp đơn phản đối trong vòng 7 ngày. Nếu nộp đơn phản đối trong vòng 3 tháng kể từ ngày nhận thông báo, vụ việc sẽ được chuyển cho công tố viên, và để nộp đơn phản đối, bạn cũng có thể xin xem, sao chép hồ sơ điều tra.",
+      "basis": "Điều 245-6, Điều 245-7, Điều 245-12 Luật Tố tụng hình sự"
+    },
+    "phone-return": {
+      "title": "Nhận danh mục dữ liệu điện thoại và giấy xác nhận xóa, trả lại",
+      "desc": "Khi phân tích xong, bạn phải được nhận danh mục thông tin điện tử bị thu giữ, và thông tin không có trong danh mục phải được xóa, hủy hoặc trả lại rồi cấp giấy xác nhận cho bạn. Với thiết bị không cần tiếp tục thu giữ hoặc bạn cần tiếp tục sử dụng, bạn có thể yêu cầu trả lại hoặc tạm trả lại (환부·가환부).",
+      "basis": "Điều 42 khoản 1, khoản 2 Quy chế điều tra chung, Điều 218-2 Luật Tố tụng hình sự"
+    }
+  },
+  "print": {
+    "title": "Danh sách kiểm tra khi cảnh sát yêu cầu đến làm việc",
+    "date": "Ngày in {date}",
+    "foot": "Đây là danh sách tham khảo tổng hợp các thủ tục chung. Mỗi vụ việc có hoàn cảnh khác nhau, vì vậy hãy trao đổi với luật sư về cách ứng phó cụ thể. Căn cứ: Luật Tố tụng hình sự, Quy định về hợp tác giữa công tố viên và cảnh sát tư pháp và quy chế điều tra chung (Quy chế điều tra chung), Quy tắc điều tra của cảnh sát (theo quy định có hiệu lực từ ngày 2/10/2026)."
+  }
+}

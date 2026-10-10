@@ -1,0 +1,84 @@
+{
+  "shell": {
+    "crumb": "Công cụ tính toán và tự kiểm tra",
+    "notice": "Kết quả chỉ để tham khảo theo tiêu chuẩn chung. Vụ việc thực tế có thể khác nhiều tùy hoàn cảnh cụ thể, vì vậy hãy trao đổi với luật sư trước khi quyết định.",
+    "ctaTitle": "Nếu muốn xem xét lại cho đúng với vụ việc của mình",
+    "ctaLead": "Hãy gửi tin nhắn cho chúng tôi về tình huống của bạn. Luật sư sẽ xem xét và trả lời.",
+    "ctaButton": "Nhắn tin hỏi",
+    "related": "Trang nên xem cùng"
+  },
+  "list": {
+    "title": "Công cụ tính toán và tự kiểm tra",
+    "lead": "Hãy tự tính trước những điều cần xem xét trong vụ việc của bạn. Kết quả chỉ để tham khảo; để có đánh giá chính xác, hãy trao đổi với luật sư.",
+    "seoTitle": "Công cụ tính toán và tự kiểm tra",
+    "seoDescription": "Các công cụ giúp bạn tự tính trước những điều cần xem xét đầu tiên trong vụ việc pháp lý tại Hàn Quốc. Kết quả chỉ để tham khảo."
+  },
+  "groups": {
+    "criminal": "Hình sự",
+    "family": "Gia đình và thừa kế",
+    "civil": "Dân sự và thời hạn"
+  },
+  "tools": {
+    "prosecution": {
+      "title": "Ước tính mức án công tố viên đề nghị",
+      "desc": "Chọn tội danh và hoàn cảnh để xem bước xử lý dự kiến và mức án, mức phạt tiền mà công tố viên có thể đề nghị."
+    },
+    "sentencing": {
+      "title": "Ước tính mức án tuyên (Tiêu chuẩn lượng hình)",
+      "desc": "Chọn tội phạm, loại và các yếu tố lượng hình để xem khung hình phạt khuyến nghị và việc có khuyến nghị án treo hay không theo Tiêu chuẩn lượng hình năm 2026."
+    },
+    "drunk-driving": {
+      "title": "Mức xử phạt lái xe khi say rượu",
+      "desc": "Khung hình phạt, xử lý giấy phép lái xe và thời gian không được cấp lại giấy phép theo nồng độ cồn trong máu, tiền sử vi phạm và việc có gây tai nạn hay không."
+    },
+    "police-summons": {
+      "title": "Danh sách kiểm tra khi cảnh sát yêu cầu đến làm việc",
+      "desc": "Từng việc cần chuẩn bị trước khi đến, trong ngày lấy lời khai và sau đó, theo đúng tình huống của bạn."
+    },
+    "child-support": {
+      "title": "Tính tiền cấp dưỡng nuôi con",
+      "desc": "Tiền cấp dưỡng tiêu chuẩn và phần mỗi bên phải chịu theo Bảng tiêu chuẩn tính tiền cấp dưỡng nuôi con năm 2021."
+    },
+    "inheritance": {
+      "title": "Tính phần thừa kế",
+      "desc": "Phần thừa kế theo luật của từng người dựa trên hàng thừa kế và quy tắc vợ/chồng được 1,5 lần."
+    },
+    "reserved-share": {
+      "title": "Tính phần di sản bắt buộc",
+      "desc": "Tài sản làm căn cứ tính phần di sản bắt buộc và số tiền của từng người thừa kế. Đã phản ánh quyết định của Tòa án Hiến pháp năm 2024."
+    },
+    "interest": {
+      "title": "Tính tiền lãi chậm trả",
+      "desc": "Tiền lãi theo từng giai đoạn và tổng cộng theo lãi suất luật định, lãi suất theo Luật Đặc biệt về Thúc đẩy Tố tụng hoặc lãi suất thỏa thuận."
+    },
+    "court-fees": {
+      "title": "Tính chi phí tố tụng",
+      "desc": "Lệ phí (tem án phí) và phí tống đạt theo giá trị vụ kiện, loại vụ việc và cấp xét xử."
+    },
+    "deadline": {
+      "title": "Tính thời hạn theo luật",
+      "desc": "Tính ngày hết hạn kháng cáo, kháng cáo ngay, kháng cáo lên Tòa án Tối cao… có tính cả ngày lễ."
+    },
+    "interest-cap": {
+      "title": "Kiểm tra lãi suất tối đa",
+      "desc": "Tiền lãi của khoản vay có vượt lãi suất tối đa theo luật (20% một năm) hay không và vượt bao nhiêu."
+    }
+  },
+  "units": {
+    "won": "{n} KRW",
+    "wonUnit": "KRW",
+    "percent": "{n}%",
+    "people": "{n} người"
+  },
+  "words": {
+    "yes": "Có",
+    "no": "Không",
+    "have": "Có",
+    "none": "Không có",
+    "remove": "Bỏ",
+    "howCalculated": "Cách chúng tôi tính",
+    "calcFailed": "Không thể tính được.",
+    "decrease": "Giảm {label}",
+    "increase": "Tăng {label}"
+  }
+}
