@@ -6,6 +6,33 @@ import type { Cond, Crime, FineRule, Level, Tier } from "./prosecution-types"
 
 export type { Cond, Crime, FineRule, Level, Question, Tier } from "./prosecution-types"
 
+/** 처음 페이지에 넘기는 가벼운 목록 한 줄. 죄명 데이터는 chunk 주소(/tools/prosecution/data/{chunk})에서 받음 */
+export type CrimeSummary = {
+  id: string
+  name: string
+  group: string
+  /** 법률 이름 (예: "형법", "도로교통법"). 데이터에 없으면 law 에서 뽑음 */
+  lawName: string
+  /** 근거 조문 (조문 번호 검색용) */
+  law: string
+  aliases?: string[]
+  chunk: string
+}
+
+/** 묶음 보여 주는 순서 (없는 묶음은 뒤에 가나다순, 기타는 맨 뒤) */
+export const GROUP_ORDER = ["폭력", "성범죄", "재산", "교통", "마약", "사이버", "명예", "공무", "기타"]
+
+export const groupRank = (g: string) => (g === "기타" ? 999 : GROUP_ORDER.includes(g) ? GROUP_ORDER.indexOf(g) : 500)
+
+/** 법률 이름 다듬기: 가운뎃점(ㆍ)을 ·로, 띄어쓰기 하나로 */
+export const tidyLawName = (s: string) => s.replace(/ㆍ/g, "·").replace(/\s+/g, " ").trim()
+
+/** 근거 조문에서 법률 이름 뽑기: "도로교통법 제148조의2 제1항" → "도로교통법" */
+export function lawNameOf(law: string): string {
+  const m = law.trim().match(/^(.+?)(?=\s*(?:제\s*\d|\(|,|\/|$))/)
+  return tidyLawName(m?.[1] ?? "") || "기타"
+}
+
 /** 사용자의 답. 숫자 질문은 number, 선택 질문은 string. 아직 안 답한 것은 없음 */
 export type Answers = Record<string, string | number | undefined>
 

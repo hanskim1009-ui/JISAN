@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { ToolShell } from "@/components/tools/tool-shell"
 import { ProsecutionCalculator } from "@/components/tools/prosecution/prosecution-calculator"
-import { loadCrimes } from "@/lib/tools/prosecution-data"
+import { loadIndex } from "@/lib/tools/prosecution-data"
 
 const TITLE = "구형 예상 계산기"
 const DESC = "죄명과 사건 사정을 고르면 수사기관의 일반적인 처리 경향에 비추어 예상되는 처리 단계(기소유예·약식 벌금·정식재판·구속)와 구형·벌금을 바로 보여 드립니다."
@@ -13,18 +13,8 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  // 빌드 때 읽고, 화면이 쓰는 필드만 넘김 (데이터에 다른 필드가 붙어 있어도 빼고)
-  const crimes = loadCrimes().map(({ id, name, law, group, statutory, aliases, questions, tiers, notes }) => ({
-    id,
-    name,
-    law,
-    group,
-    statutory,
-    aliases,
-    questions,
-    tiers,
-    notes,
-  }))
+  // 처음엔 죄명 목록(이름·묶음·법률·조문)만 넘기고, 고른 죄명 데이터는 /tools/prosecution/data/{조각} 에서 받음
+  const crimes = loadIndex()
   return (
     <ToolShell
       title={TITLE}
