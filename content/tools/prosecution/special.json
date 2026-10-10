@@ -37,9 +37,10 @@
       {
         "level": "detention",
         "when": [[{ "q": "record", "op": "eq", "value": "jy2" }]],
+        "sentence": "징역 2월 ~ 10월",
         "note": "최근 3년 안에 집행유예 이상이 포함된 폭력 전과가 2회 이상이면 구속 수사가 검토됩니다."
       },
-      { "level": "trial", "when": [[{ "q": "record", "op": "in", "value": ["once", "fine2"] }]], "note": "폭력 전과가 있으면 정식재판으로 넘어가는 것이 일반적인 처리 기준입니다." },
+      { "level": "trial", "when": [[{ "q": "record", "op": "in", "value": ["once", "fine2"] }]], "sentence": "징역 2월 ~ 10월", "note": "폭력 전과가 있으면 정식재판으로 넘어가는 것이 일반적인 처리 기준입니다." },
       {
         "level": "summary",
         "when": [[{ "q": "fault", "op": "eq", "value": "none" }, { "q": "severity", "op": "eq", "value": "severe" }]],
@@ -115,6 +116,7 @@
           [{ "q": "weeks", "op": "gte", "value": 6 }, { "q": "settled", "op": "eq", "value": "no" }, { "q": "fault", "op": "eq", "value": "none" }],
           [{ "q": "weeks", "op": "gte", "value": 8 }, { "q": "record", "op": "in", "value": ["once", "fine2"] }]
         ],
+        "sentence": "징역 4월 ~ 1년 6월",
         "note": "진단 6주 이상인데 합의가 안 됐거나, 8주 이상이면서 폭력 전과가 있으면 구속 수사가 검토됩니다."
       },
       {
@@ -124,6 +126,7 @@
           [{ "q": "weeks", "op": "gte", "value": 8 }],
           [{ "q": "weeks", "op": "gte", "value": 4 }, { "q": "settled", "op": "eq", "value": "no" }]
         ],
+        "sentence": "징역 4월 ~ 1년 6월",
         "note": "진단 4주 이상인데 합의가 안 됐거나 8주 이상이면 정식재판이 원칙입니다."
       },
       {
@@ -195,10 +198,11 @@
       }
     ],
     "tiers": [
-      { "level": "detention", "when": [[{ "q": "record", "op": "eq", "value": "jy2" }]] },
+      { "level": "detention", "when": [[{ "q": "record", "op": "eq", "value": "jy2" }]], "sentence": "징역 2월 ~ 1년" },
       {
         "level": "trial",
         "when": [[{ "q": "wantsPunish", "op": "eq", "value": "yes" }], [{ "q": "record", "op": "eq", "value": "fine2" }]],
+        "sentence": "징역 2월 ~ 1년",
         "note": "피해자가 처벌을 원하지 않는 경우가 아니면 정식재판이 원칙입니다."
       },
       {
@@ -255,10 +259,11 @@
       }
     ],
     "tiers": [
-      { "level": "detention", "when": [[{ "q": "record", "op": "eq", "value": "jy2" }]] },
+      { "level": "detention", "when": [[{ "q": "record", "op": "eq", "value": "jy2" }]], "sentence": "징역 4월 ~ 10월" },
       {
         "level": "trial",
         "when": [[{ "q": "wantsPunish", "op": "eq", "value": "yes" }], [{ "q": "record", "op": "eq", "value": "fine2" }]],
+        "sentence": "징역 4월 ~ 10월",
         "note": "피해자가 처벌을 원하지 않는 경우가 아니면 정식재판이 원칙이고, 손괴 방법이 과격하면 징역 1년 이상이 구형될 수 있습니다."
       },
       {
@@ -315,14 +320,15 @@
       { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] }
     ],
     "tiers": [
-      { "level": "detention", "when": [[{ "q": "danger", "op": "eq", "value": "others" }], [{ "q": "record", "op": "eq", "value": "jy2" }]] },
+      { "level": "detention", "when": [[{ "q": "danger", "op": "eq", "value": "others" }], [{ "q": "record", "op": "eq", "value": "jy2" }]], "sentence": "징역 2월 ~ 10월" },
       {
         "level": "trial",
         "when": [
           [{ "q": "danger", "op": "eq", "value": "accident" }],
           [{ "q": "publicTransit", "op": "eq", "value": "yes" }],
           [{ "q": "record", "op": "eq", "value": "fine2" }]
-        ]
+        ],
+        "sentence": "징역 2월 ~ 10월"
       },
       {
         "level": "summary",
@@ -467,6 +473,7 @@
           [{ "q": "weapon", "op": "eq", "value": "yes" }],
           [{ "q": "priors", "op": "gte", "value": 2 }]
         ],
+        "sentence": "징역 6월 ~ 1년 6월",
         "note": "죄질이 나쁘면 한 번의 범행이라도 구속이 검토됩니다."
       },
       {
@@ -653,7 +660,7 @@
       { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] }
     ],
     "tiers": [
-      { "level": "detention", "when": [[{ "q": "severity", "op": "eq", "value": "bad" }]], "note": "반복성이나 행위 내용으로 보아 죄질이 나쁘면 구속이 검토됩니다." },
+      { "level": "detention", "when": [[{ "q": "severity", "op": "eq", "value": "bad" }]], "sentence": "징역 1년 ~ 2년", "note": "반복성이나 행위 내용으로 보아 죄질이 나쁘면 구속이 검토됩니다." },
       { "level": "trial", "when": [[{ "q": "record", "op": "eq", "value": "serious" }]], "sentence": "징역 8월 이상" },
       { "level": "trial-fine", "when": [[{ "q": "record", "op": "eq", "value": "minor" }]], "fine": { "base": 2000000, "atLeast": true } },
       {
@@ -701,6 +708,7 @@
       {
         "level": "detention",
         "when": [[{ "q": "level", "op": "eq", "value": "high" }, { "q": "frequency", "op": "eq", "value": "many" }]],
+        "sentence": "징역 8월 ~ 1년 8월",
         "note": "반복성, 음란한 정도, 피해자 나이 등으로 보아 죄질이 나쁘면 구속이 검토됩니다."
       },
       { "level": "trial", "when": [[{ "q": "record", "op": "eq", "value": "serious" }]], "sentence": "징역 8월 이상" },
@@ -732,6 +740,7 @@
       {
         "level": "detention",
         "when": [[{ "q": "victims", "op": "gte", "value": 2 }], [{ "q": "repeated", "op": "eq", "value": "yes" }]],
+        "sentence": "징역 1년 ~ 2년",
         "note": "상습적·반복적이거나 피해자가 2명 이상이면 구속이 검토됩니다."
       },
       { "level": "trial", "when": [], "sentence": "징역 1년 이상", "note": "정식재판이 원칙인 범죄입니다." }
@@ -772,9 +781,10 @@
           [{ "q": "record", "op": "eq", "value": "yes" }],
           [{ "q": "bad", "op": "eq", "value": "yes" }]
         ],
+        "sentence": "징역 1년 ~ 2년 6월",
         "note": "상대가 16세 미만이거나 재범이거나 죄질이 나쁘면 구속이 검토됩니다."
       },
-      { "level": "trial", "when": [], "note": "성매매 경위·횟수·상대 나이 등을 고려하되 원칙적으로 정식재판에 넘겨집니다." }
+      { "level": "trial", "when": [], "sentence": "징역 1년 ~ 2년 6월", "note": "성매매 경위·횟수·상대 나이 등을 고려하되 원칙적으로 정식재판에 넘겨집니다." }
     ],
     "notes": [
       "재범을 막기 위해 수강명령이나 성폭력 치료프로그램 이수명령이 함께 구형됩니다.",
@@ -863,6 +873,7 @@
           [{ "q": "role", "op": "eq", "value": "owner" }, { "q": "months", "op": "gte", "value": 12 }],
           [{ "q": "role", "op": "neq", "value": "employee" }, { "q": "priors", "op": "gte", "value": 2 }]
         ],
+        "sentence": "징역 6월 ~ 1년 4월",
         "note": "종업원 5명 이상, 영업 1년 이상(또는 범죄수익 1억원 이상), 같은 전력 2회 이상이거나 같은 범죄로 집행유예 중이면 구속이 원칙입니다."
       },
       {
@@ -870,7 +881,8 @@
         "when": [
           [{ "q": "role", "op": "in", "value": ["owner", "manager", "recruiter"] }],
           [{ "q": "role", "op": "eq", "value": "simple" }, { "q": "priors", "op": "gte", "value": 1 }]
-        ]
+        ],
+        "sentence": "징역 6월 ~ 1년 4월"
       },
       {
         "level": "summary",
@@ -989,20 +1001,16 @@
         "note": "수치가 0.3% 이상이라도 주차를 위한 짧은 거리 운전처럼 참작할 사정이 있으면 벌금이 될 수 있습니다."
       },
       {
-        "level": "summary",
-        "when": [[{ "q": "priors", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.15 }]],
-        "fine": { "base": 14000000, "atLeast": true, "max": 20000000 }
-      },
-      {
-        "level": "summary",
+        "level": "trial",
         "when": [[{ "q": "priors", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.08 }]],
-        "fine": { "base": 11000000, "atLeast": true, "max": 20000000 }
+        "sentence": "징역 1년 4월 ~ 2년 8월",
+        "note": "10년 안에 다시 음주운전을 하면 정식재판이 원칙입니다. 참작할 사정이 크면 벌금(500만원 이상)이 될 수도 있습니다."
       },
       {
-        "level": "summary",
+        "level": "trial",
         "when": [[{ "q": "priors", "op": "gte", "value": 1 }]],
-        "fine": { "base": 5000000, "atLeast": true, "max": 20000000 },
-        "note": "다시 음주운전을 하면 벌금 하한이 500만원입니다."
+        "sentence": "징역 1년 ~ 1년 4월",
+        "note": "10년 안에 다시 음주운전을 하면 정식재판이 원칙입니다. 참작할 사정이 크면 벌금(500만원 이상)이 될 수도 있습니다."
       },
       { "level": "summary", "when": [[{ "q": "bac", "op": "gte", "value": 0.25 }]], "fine": { "base": 14000000, "atLeast": true, "max": 20000000 } },
       { "level": "summary", "when": [[{ "q": "bac", "op": "gte", "value": 0.2 }]], "fine": { "base": 10000000, "atLeast": true, "max": 20000000 } },
@@ -2968,7 +2976,8 @@
         "when": [
           [{ "q": "probation", "op": "eq", "value": "yes" }],
           [{ "q": "habitual", "op": "eq", "value": "yes" }, { "q": "priors", "op": "gte", "value": 2 }]
-        ]
+        ],
+        "sentence": "징역 1년 이하"
       },
       { "level": "trial", "when": [[{ "q": "priors", "op": "gte", "value": 3 }]], "sentence": "징역 6월 이상" },
       { "level": "summary", "when": [[{ "q": "priors", "op": "gte", "value": 2 }]], "fine": { "base": 1500000, "max": 3000000 } },
@@ -3018,6 +3027,7 @@
       {
         "level": "detention",
         "when": [[{ "q": "weeks", "op": "gte", "value": 8 }], [{ "q": "weeks", "op": "gte", "value": 4 }, { "q": "settled", "op": "eq", "value": "no" }]],
+        "sentence": "징역 1년 ~ 2년 6월",
         "note": "진단 4주 이상인데 합의가 안 됐거나, 8주 이상이면 합의와 관계없이 구속이 검토됩니다."
       },
       {
@@ -3026,6 +3036,7 @@
           [{ "q": "mitigating", "op": "eq", "value": "no" }],
           [{ "q": "settled", "op": "eq", "value": "no" }, { "q": "insured", "op": "eq", "value": "no" }]
         ],
+        "sentence": "징역 1년 ~ 2년 6월",
         "note": "정식재판이 원칙이며, 합의도 보험도 없으면 다친 정도와 관계없이 정식재판입니다."
       },
       {
@@ -3129,6 +3140,7 @@
             { "q": "weeks", "op": "gt", "value": 10 }
           ]
         ],
+        "sentence": "금고 4월 ~ 1년",
         "note": "합의가 안 됐어도 상당한 금액을 공탁하면 합의에 준해 고려됩니다."
       },
       {
@@ -3155,6 +3167,7 @@
             { "q": "weeks", "op": "gte", "value": 6 }
           ]
         ],
+        "sentence": "금고 4월 ~ 1년",
         "note": "정식재판으로 가더라도 벌금이 구형될 수 있습니다."
       },
       {
@@ -3271,6 +3284,7 @@
       {
         "level": "detention",
         "when": [[{ "q": "act", "op": "eq", "value": "sale" }], [{ "q": "priors", "op": "gte", "value": 1 }], [{ "q": "rehab", "op": "eq", "value": "no" }]],
+        "sentence": "징역 1년 ~ 2년 6월",
         "note": "필로폰 매매·투약은 구속 수사와 정식재판이 원칙입니다."
       },
       { "level": "suspension", "when": [], "note": "처음이고 단순 투약이며 재활 의지가 있으면 치료(또는 교육)를 조건으로 한 기소유예를 활용하는 것이 일반적인 처리 기준입니다." }
@@ -3307,10 +3321,11 @@
       {
         "level": "detention",
         "when": [[{ "q": "act", "op": "eq", "value": "grow" }], [{ "q": "priors", "op": "gte", "value": 1 }]],
+        "sentence": "징역 1년 ~ 3년",
         "note": "판매 목적·대량 재배이거나 재범이면 구속이 검토됩니다."
       },
       { "level": "trial", "when": [[{ "q": "act", "op": "eq", "value": "sale" }]], "sentence": "징역 1년 이상", "note": "필로폰 매매보다는 6월~1년 가볍게 구형하는 기준입니다." },
-      { "level": "trial", "when": [[{ "q": "rehab", "op": "eq", "value": "no" }]], "note": "구형은 흡연 횟수·양·전력 등에 따라 정해집니다." },
+      { "level": "trial", "when": [[{ "q": "rehab", "op": "eq", "value": "no" }]], "sentence": "징역 8월 ~ 1년 6월", "note": "구형은 흡연 횟수·양·전력 등에 따라 정해집니다." },
       { "level": "suspension", "when": [], "note": "처음이고 단순 흡연이며 재활 의지가 있으면 치료(또는 교육)를 조건으로 한 기소유예를 활용하는 것이 일반적인 처리 기준입니다." }
     ],
     "notes": ["미성년자에게 주거나 함께 흡연하면 1년 이상의 징역으로 무겁게 처벌됩니다.", "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."]
@@ -3418,7 +3433,8 @@
           [{ "q": "linked", "op": "eq", "value": "yes" }],
           [{ "q": "priors", "op": "gte", "value": 2 }],
           [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "count", "op": "gte", "value": 20 }]
-        ]
+        ],
+        "sentence": "징역 1년 ~ 3년"
       },
       {
         "level": "trial",
@@ -3428,6 +3444,7 @@
       {
         "level": "trial",
         "when": [],
+        "sentence": "징역 8월 ~ 2년",
         "note": "보이스피싱에 쓰이는 통장 거래는 원칙적으로 정식재판에서 징역형을 구형합니다. 특별히 가벼운 초범은 벌금(통장 1~10개 300만원, 11~20개 500만원 수준)이 구형되기도 합니다."
       }
     ],
@@ -3622,7 +3639,8 @@
             { "q": "severity", "op": "eq", "value": "grave" },
             { "q": "wantsPunish", "op": "eq", "value": "yes" }
           ]
-        ]
+        ],
+        "sentence": "징역 1년 ~ 2년 8월"
       },
       {
         "level": "trial",
@@ -3730,7 +3748,7 @@
       }
     ],
     "tiers": [
-      { "level": "detention", "when": [[{ "q": "scale", "op": "eq", "value": "many" }], [{ "q": "commercial", "op": "eq", "value": "yes" }]] },
+      { "level": "detention", "when": [[{ "q": "scale", "op": "eq", "value": "many" }], [{ "q": "commercial", "op": "eq", "value": "yes" }]], "sentence": "징역 1년 ~ 3년" },
       { "level": "trial", "when": [[{ "q": "wantsPunish", "op": "eq", "value": "yes" }]], "sentence": "징역 1년 이상" },
       { "level": "summary", "when": [], "fine": { "base": 7000000, "atLeast": true } }
     ],
@@ -3771,6 +3789,7 @@
           [{ "q": "count", "op": "gte", "value": 5000 }],
           [{ "q": "record", "op": "eq", "value": "many" }, { "q": "commercial", "op": "eq", "value": "yes" }]
         ],
+        "sentence": "징역 8월 ~ 1년 6월",
         "note": "5년 안에 같은 전력 2회 이상이면서 이익이 1천만원 이상이거나, 5천 건 이상 올리면 정식재판이 원칙입니다."
       },
       {
