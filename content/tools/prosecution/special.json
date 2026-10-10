@@ -1,0 +1,3891 @@
+[
+  {
+    "id": "joint-assault",
+    "name": "공동폭행",
+    "law": "폭력행위 등 처벌에 관한 법률 제2조 제2항 제1호, 형법 제260조 제1항",
+    "group": "폭력",
+    "statutory": "3년 이하의 징역 또는 750만원 이하의 벌금 (형법 폭행죄 형의 2분의 1까지 가중)",
+    "aliases": ["폭처법 폭행", "2명이 때림", "여럿이 폭행", "폭력행위처벌법위반(공동폭행)"],
+    "questions": [
+      {
+        "id": "severity",
+        "label": "폭행 정도",
+        "type": "select",
+        "options": [{ "value": "minor", "label": "가벼움 (밀치기 등)" }, { "value": "normal", "label": "보통" }, { "value": "severe", "label": "심함 (여러 차례 때림 등)" }]
+      },
+      {
+        "id": "fault",
+        "label": "다툼의 원인",
+        "type": "select",
+        "options": [{ "value": "victim", "label": "상대방 잘못이 더 큼" }, { "value": "both", "label": "양쪽 모두 잘못" }, { "value": "none", "label": "상대방은 잘못 없음" }]
+      },
+      {
+        "id": "record",
+        "label": "폭력 전과",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "없음" },
+          { "value": "once", "label": "있음 (아래 두 경우는 아님)" },
+          { "value": "fine2", "label": "최근 3년 안에 벌금 이상 2회 이상" },
+          { "value": "jy2", "label": "최근 3년 안에 2회 이상, 그중 집행유예 이상 있음" }
+        ],
+        "help": "폭행·상해·협박·주거침입·재물손괴 등으로 처벌받은 기록입니다."
+      },
+      { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "record", "op": "eq", "value": "jy2" }]],
+        "note": "최근 3년 안에 집행유예 이상이 포함된 폭력 전과가 2회 이상이면 구속 수사가 검토됩니다."
+      },
+      { "level": "trial", "when": [[{ "q": "record", "op": "in", "value": ["once", "fine2"] }]], "note": "폭력 전과가 있으면 정식재판으로 넘어가는 것이 일반적인 처리 기준입니다." },
+      {
+        "level": "summary",
+        "when": [[{ "q": "fault", "op": "eq", "value": "none" }, { "q": "severity", "op": "eq", "value": "severe" }]],
+        "fine": { "base": 3000000, "atLeast": true, "max": 7500000 }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [{ "q": "fault", "op": "eq", "value": "both" }, { "q": "severity", "op": "eq", "value": "severe" }],
+          [{ "q": "fault", "op": "eq", "value": "none" }, { "q": "severity", "op": "eq", "value": "normal" }]
+        ],
+        "fine": { "base": 2000000, "atLeast": true, "max": 7500000 }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [{ "q": "fault", "op": "eq", "value": "victim" }, { "q": "severity", "op": "eq", "value": "severe" }],
+          [{ "q": "fault", "op": "eq", "value": "both" }, { "q": "severity", "op": "eq", "value": "normal" }],
+          [{ "q": "fault", "op": "eq", "value": "none" }, { "q": "severity", "op": "eq", "value": "minor" }]
+        ],
+        "fine": { "base": 1000000, "atLeast": true, "max": 7500000 }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [{ "q": "fault", "op": "eq", "value": "victim" }, { "q": "severity", "op": "eq", "value": "normal" }],
+          [{ "q": "fault", "op": "eq", "value": "both" }, { "q": "severity", "op": "eq", "value": "minor" }]
+        ],
+        "fine": { "base": 500000, "atLeast": true, "max": 7500000 }
+      },
+      { "level": "suspension", "when": [], "note": "상대방 잘못이 더 크고 폭행이 가벼우면 사정을 참작해 처리될 수 있습니다." }
+    ],
+    "notes": [
+      "단순 폭행과 달리 피해자가 처벌을 원하지 않아도 처벌될 수 있습니다.",
+      "합의하면 벌금이 줄어들 수 있고, 1년 안에 같은 종류 전과가 있거나 약자를 상대로 한 경우에는 무거워집니다.",
+      "노약자를 반복해 때리거나 남의 집에 들어가 폭행한 경우처럼 죄질이 나쁘면 정식재판으로 갈 수 있습니다."
+    ]
+  },
+  {
+    "id": "joint-injury",
+    "name": "공동상해",
+    "law": "폭력행위 등 처벌에 관한 법률 제2조 제2항 제3호, 형법 제257조 제1항",
+    "group": "폭력",
+    "statutory": "10년 6월 이하의 징역, 15년 이하의 자격정지 또는 1,500만원 이하의 벌금 (형법 상해죄 형의 2분의 1까지 가중)",
+    "aliases": ["폭처법 상해", "여럿이 때려 다치게 함", "폭력행위처벌법위반(공동상해)"],
+    "questions": [
+      { "id": "weeks", "label": "상해 진단 기간", "type": "number", "unit": "주", "min": 0, "max": 52, "step": 1, "help": "진단서에 적힌 치료 기간입니다." },
+      {
+        "id": "fault",
+        "label": "다툼의 원인",
+        "type": "select",
+        "options": [{ "value": "victim", "label": "상대방 잘못이 더 큼" }, { "value": "both", "label": "양쪽 모두 잘못" }, { "value": "none", "label": "상대방은 잘못 없음" }]
+      },
+      {
+        "id": "record",
+        "label": "폭력 전과",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "없음" },
+          { "value": "once", "label": "있음 (아래 두 경우는 아님)" },
+          { "value": "fine2", "label": "최근 3년 안에 벌금 이상 2회 이상" },
+          { "value": "jy2", "label": "최근 3년 안에 2회 이상, 그중 집행유예 이상 있음" }
+        ],
+        "help": "폭행·상해·협박·주거침입·재물손괴 등으로 처벌받은 기록입니다."
+      },
+      { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "record", "op": "eq", "value": "jy2" }],
+          [{ "q": "weeks", "op": "gte", "value": 6 }, { "q": "settled", "op": "eq", "value": "no" }, { "q": "fault", "op": "eq", "value": "none" }],
+          [{ "q": "weeks", "op": "gte", "value": 8 }, { "q": "record", "op": "in", "value": ["once", "fine2"] }]
+        ],
+        "note": "진단 6주 이상인데 합의가 안 됐거나, 8주 이상이면서 폭력 전과가 있으면 구속 수사가 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "record", "op": "eq", "value": "fine2" }],
+          [{ "q": "weeks", "op": "gte", "value": 8 }],
+          [{ "q": "weeks", "op": "gte", "value": 4 }, { "q": "settled", "op": "eq", "value": "no" }]
+        ],
+        "note": "진단 4주 이상인데 합의가 안 됐거나 8주 이상이면 정식재판이 원칙입니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "fault", "op": "eq", "value": "none" }]],
+        "fine": { "base": 2000000, "perUnit": { "q": "weeks", "over": 2, "amount": 1000000 }, "max": 15000000, "atLeast": true },
+        "note": "2주를 넘는 1주마다 100만원씩 더해지는 방식입니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "fault", "op": "eq", "value": "both" }]],
+        "fine": { "base": 1000000, "perUnit": { "q": "weeks", "over": 2, "amount": 500000 }, "max": 15000000, "atLeast": true },
+        "note": "2주를 넘는 1주마다 50만원씩 더해지는 방식입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": { "base": 500000, "perUnit": { "q": "weeks", "over": 2, "amount": 300000 }, "max": 15000000, "atLeast": true },
+        "note": "2주를 넘는 1주마다 30만원씩 더해지는 방식입니다."
+      }
+    ],
+    "notes": [
+      "합의하면 감경될 수 있고, 1년 안에 같은 종류 전과가 있거나 약자를 상대로 한 경우 무거워집니다.",
+      "약자를 상대로 이유 없이 술에 취해 4주 이상 다치게 한 경우에는 초범이거나 합의했더라도 구속이 검토됩니다.",
+      "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."
+    ]
+  },
+  {
+    "id": "joint-intimidation",
+    "name": "공동협박",
+    "law": "폭력행위 등 처벌에 관한 법률 제2조 제2항 제1호, 형법 제283조 제1항",
+    "group": "폭력",
+    "statutory": "4년 6월 이하의 징역 또는 750만원 이하의 벌금 (형법 협박죄 형의 2분의 1까지 가중)",
+    "aliases": ["여럿이 협박", "폭력행위처벌법위반(공동협박)"],
+    "questions": [
+      {
+        "id": "severity",
+        "label": "협박 정도",
+        "type": "select",
+        "options": [
+          { "value": "minor", "label": "가벼움 (실제로 할 가능성 낮음)" },
+          { "value": "normal", "label": "보통" },
+          { "value": "severe", "label": "심함 (실제로 할 가능성 높거나 여러 번)" }
+        ]
+      },
+      {
+        "id": "mitigating",
+        "label": "협박하게 된 경위에 참작할 사정이 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }]
+      },
+      {
+        "id": "wantsPunish",
+        "label": "피해자가 처벌을 원하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "원하지 않음" }, { "value": "yes", "label": "원함" }]
+      },
+      {
+        "id": "record",
+        "label": "폭력 전과",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "없음" },
+          { "value": "once", "label": "있음 (아래 두 경우는 아님)" },
+          { "value": "fine2", "label": "최근 3년 안에 벌금 이상 2회 이상" },
+          { "value": "jy2", "label": "최근 3년 안에 2회 이상, 그중 집행유예 이상 있음" }
+        ],
+        "help": "폭행·상해·협박·주거침입·재물손괴 등으로 처벌받은 기록입니다."
+      }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "record", "op": "eq", "value": "jy2" }]] },
+      {
+        "level": "trial",
+        "when": [[{ "q": "wantsPunish", "op": "eq", "value": "yes" }], [{ "q": "record", "op": "eq", "value": "fine2" }]],
+        "note": "피해자가 처벌을 원하지 않는 경우가 아니면 정식재판이 원칙입니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "severity", "op": "eq", "value": "severe" }, { "q": "mitigating", "op": "eq", "value": "no" }]],
+        "fine": { "base": 3000000, "atLeast": true }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [{ "q": "severity", "op": "eq", "value": "severe" }],
+          [{ "q": "severity", "op": "eq", "value": "normal" }, { "q": "mitigating", "op": "eq", "value": "no" }]
+        ],
+        "fine": { "base": 2000000, "atLeast": true }
+      },
+      { "level": "summary", "when": [[{ "q": "severity", "op": "eq", "value": "normal" }]], "fine": { "base": 1000000, "atLeast": true } },
+      { "level": "summary", "when": [[{ "q": "mitigating", "op": "eq", "value": "no" }]], "fine": { "base": 500000, "atLeast": true } },
+      { "level": "suspension", "when": [], "note": "가벼운 협박이고 경위에 참작할 사정이 있으면 사정에 따라 처리됩니다." }
+    ],
+    "notes": ["피해자가 처벌을 원하지 않아도 처벌될 수 있는 죄입니다.", "합의하면 감경될 수 있습니다."]
+  },
+  {
+    "id": "joint-property-damage",
+    "name": "공동재물손괴",
+    "law": "폭력행위 등 처벌에 관한 법률 제2조 제2항 제1호, 형법 제366조",
+    "group": "폭력",
+    "statutory": "4년 6월 이하의 징역 또는 1,050만원 이하의 벌금 (형법 재물손괴죄 형의 2분의 1까지 가중)",
+    "aliases": ["여럿이 부숨", "폭력행위처벌법위반(공동재물손괴등)"],
+    "questions": [
+      { "id": "damage", "label": "피해액", "type": "number", "unit": "만원", "min": 0, "max": 100000, "step": 10 },
+      {
+        "id": "wantsPunish",
+        "label": "피해자가 처벌을 원하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "원하지 않음" }, { "value": "yes", "label": "원함" }]
+      },
+      {
+        "id": "mitigating",
+        "label": "우발적이거나 경위에 참작할 사정이 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }]
+      },
+      {
+        "id": "record",
+        "label": "폭력 전과",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "없음" },
+          { "value": "once", "label": "있음 (아래 두 경우는 아님)" },
+          { "value": "fine2", "label": "최근 3년 안에 벌금 이상 2회 이상" },
+          { "value": "jy2", "label": "최근 3년 안에 2회 이상, 그중 집행유예 이상 있음" }
+        ],
+        "help": "폭행·상해·협박·주거침입·재물손괴 등으로 처벌받은 기록입니다."
+      }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "record", "op": "eq", "value": "jy2" }]] },
+      {
+        "level": "trial",
+        "when": [[{ "q": "wantsPunish", "op": "eq", "value": "yes" }], [{ "q": "record", "op": "eq", "value": "fine2" }]],
+        "note": "피해자가 처벌을 원하지 않는 경우가 아니면 정식재판이 원칙이고, 손괴 방법이 과격하면 징역 1년 이상이 구형될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "mitigating", "op": "eq", "value": "no" }]],
+        "fine": { "base": 1000000, "perUnit": { "q": "damage", "over": 200, "amount": 5000 }, "max": 10500000, "atLeast": true },
+        "note": "피해액의 2분의 1 또는 100만원 중 큰 금액 이상입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": { "base": 500000, "perUnit": { "q": "damage", "over": 100, "amount": 5000 }, "max": 10500000, "atLeast": true },
+        "note": "피해액의 2분의 1 또는 50만원 중 큰 금액 이상입니다."
+      }
+    ],
+    "notes": ["피해를 갚거나 합의하면 감경될 수 있습니다."]
+  },
+  {
+    "id": "driver-assault",
+    "name": "운행 중 운전자 폭행",
+    "law": "특정범죄 가중처벌 등에 관한 법률 제5조의10 제1항",
+    "group": "폭력",
+    "statutory": "5년 이하의 징역 또는 2천만원 이하의 벌금 (다치게 하면 3년 이상의 유기징역, 사망하면 무기 또는 5년 이상의 징역)",
+    "aliases": ["택시기사 폭행", "버스기사 폭행", "운전자폭행", "특가법 운전자폭행", "대리기사 폭행"],
+    "questions": [
+      {
+        "id": "danger",
+        "label": "폭행으로 생긴 위험",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "사고 위험 없었음" },
+          { "value": "accident", "label": "교통사고가 나거나 구체적 위험이 생김" },
+          { "value": "others", "label": "승객 등 다른 사람이 다치거나 사고 위험이 매우 컸음" }
+        ]
+      },
+      {
+        "id": "publicTransit",
+        "label": "버스 등 여러 사람이 타는 대중교통 운전자였나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      {
+        "id": "record",
+        "label": "폭력 전과",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "없음" },
+          { "value": "once", "label": "있음 (아래 두 경우는 아님)" },
+          { "value": "fine2", "label": "최근 3년 안에 벌금 이상 2회 이상" },
+          { "value": "jy2", "label": "최근 3년 안에 2회 이상, 그중 집행유예 이상 있음" }
+        ],
+        "help": "폭행·상해·협박·주거침입·재물손괴 등으로 처벌받은 기록입니다."
+      },
+      { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "danger", "op": "eq", "value": "others" }], [{ "q": "record", "op": "eq", "value": "jy2" }]] },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "danger", "op": "eq", "value": "accident" }],
+          [{ "q": "publicTransit", "op": "eq", "value": "yes" }],
+          [{ "q": "record", "op": "eq", "value": "fine2" }]
+        ]
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "settled", "op": "eq", "value": "no" }, { "q": "record", "op": "eq", "value": "once" }]],
+        "fine": { "base": 2000000, "atLeast": true }
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "settled", "op": "eq", "value": "no" }], [{ "q": "record", "op": "eq", "value": "once" }]],
+        "fine": { "base": 1500000, "atLeast": true }
+      },
+      { "level": "summary", "when": [], "fine": { "base": 1000000, "atLeast": true }, "note": "처음이고 우발적이며 사고 없이 합의된 경우의 기준입니다." }
+    ],
+    "notes": [
+      "운행 중에는 손님을 태우거나 내리려고 잠시 멈춘 때도 포함됩니다.",
+      "피해자가 처벌을 원하지 않아도 처벌될 수 있습니다. 다른 승객이 없었으면 감경될 수 있습니다.",
+      "운전자나 다른 사람이 다치면 '치상'으로 3년 이상의 징역형만 있어 훨씬 무거워집니다."
+    ]
+  },
+  {
+    "id": "domestic-violence",
+    "name": "가정폭력",
+    "law": "가정폭력범죄의 처벌 등에 관한 특례법 (형법상 폭행·상해·협박 등)",
+    "group": "폭력",
+    "statutory": "해당 범죄의 법정형에 따름 (예: 폭행 2년 이하의 징역·500만원 이하의 벌금, 상해 7년 이하의 징역·10년 이하의 자격정지·1천만원 이하의 벌금)",
+    "aliases": ["부부싸움 폭행", "가정폭력처벌법", "가정보호사건", "배우자 폭행", "가족 폭행"],
+    "questions": [
+      {
+        "id": "weapon",
+        "label": "흉기나 위험한 물건을 들었거나 상습적이었나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      {
+        "id": "priors",
+        "label": "최근 3년 안의 가정폭력 전력",
+        "type": "number",
+        "unit": "회",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "help": "처벌받지 않고 끝난 경우(기소유예, 가정보호사건 송치, 피해자가 원하지 않아 끝난 경우)도 셉니다."
+      },
+      {
+        "id": "severity",
+        "label": "피해 정도",
+        "type": "select",
+        "options": [{ "value": "minor", "label": "가벼움" }, { "value": "serious", "label": "가정이 깨질 정도이거나 또 해칠 위험이 큼" }]
+      },
+      {
+        "id": "counsel",
+        "label": "상담이나 교육을 받는 데 동의하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "동의 안 함" }, { "value": "yes", "label": "동의함" }]
+      },
+      {
+        "id": "victimAgrees",
+        "label": "피해자가 가정 유지를 원하고 처벌을 원하지 않나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니다" }, { "value": "yes", "label": "그렇다" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "weapon", "op": "eq", "value": "yes" }],
+          [{ "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "severity", "op": "eq", "value": "serious" }]
+        ],
+        "note": "흉기·상습, 최근 3년 안 전력 2회 이상, 심각한 위해 우려가 있으면 원칙적으로 구속 수사가 검토됩니다."
+      },
+      {
+        "level": "suspension",
+        "when": [
+          [
+            { "q": "severity", "op": "eq", "value": "minor" },
+            { "q": "counsel", "op": "eq", "value": "yes" },
+            { "q": "victimAgrees", "op": "eq", "value": "yes" }
+          ]
+        ],
+        "note": "중하지 않고 상담·교육에 동의하면 상담이나 교육을 받는 조건으로 기소유예하는 방안이 먼저 검토됩니다."
+      },
+      {
+        "level": "family-court",
+        "when": [],
+        "note": "사건 경위와 피해자 의사를 고려해 가정보호사건(가정법원 보호처분)으로 보내는 방안이 적극 검토됩니다. 피해가 크거나 피해자가 처벌을 원하면 일반 형사재판으로 갈 수도 있습니다."
+      }
+    ],
+    "notes": [
+      "피해자가 처벌을 원하지 않아도 재범 위험이 있으면 가정보호사건으로 보내질 수 있습니다.",
+      "피해자가 가정 유지를 원하고 벌금이 가계에 부담이 되는 경우에는 벌금 처분을 피하는 방향이 고려됩니다.",
+      "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."
+    ]
+  },
+  {
+    "id": "child-abuse",
+    "name": "아동학대 (신체적·정서적 학대, 방임)",
+    "law": "아동복지법 제71조 제1항 제2호, 제17조 / 아동학대범죄의 처벌 등에 관한 특례법",
+    "group": "폭력",
+    "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+    "aliases": ["아동학대", "훈육 체벌", "정서적 학대", "방임", "어린이집 학대", "아동복지법위반"],
+    "questions": [
+      {
+        "id": "severity",
+        "label": "학대 정도",
+        "type": "select",
+        "options": [
+          { "value": "minor", "label": "가벼움 (한 번의 체벌·폭언 등)" },
+          { "value": "moderate", "label": "반복되었거나 아이가 다침" },
+          { "value": "serious", "label": "크게 다치거나 오래 반복됨" }
+        ]
+      },
+      {
+        "id": "weapon",
+        "label": "흉기나 위험한 물건을 썼거나 상습적이었나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      {
+        "id": "priors",
+        "label": "최근 3년 안의 아동학대 전력",
+        "type": "number",
+        "unit": "회",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "help": "처벌받지 않고 끝난 경우(기소유예, 아동보호사건 송치 등)도 셉니다."
+      },
+      {
+        "id": "counsel",
+        "label": "상담·교육·치료를 받는 데 동의하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "동의 안 함" }, { "value": "yes", "label": "동의함" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "severity", "op": "eq", "value": "serious" }],
+          [{ "q": "weapon", "op": "eq", "value": "yes" }],
+          [{ "q": "priors", "op": "gte", "value": 2 }]
+        ],
+        "note": "죄질이 나쁘면 한 번의 범행이라도 구속이 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "severity", "op": "eq", "value": "moderate" }],
+          [{ "q": "counsel", "op": "eq", "value": "no" }],
+          [{ "q": "priors", "op": "gte", "value": 1 }]
+        ],
+        "sentence": "징역 1년 6월 이상",
+        "note": "아동학대 행위자는 원칙적으로 정식재판에 넘겨집니다."
+      },
+      { "level": "suspension", "when": [], "note": "중하지 않은 사안이고 상담·교육·치료에 동의하면 조건부 기소유예나 아동보호사건(가정법원 보호처분) 송치가 검토됩니다." }
+    ],
+    "notes": [
+      "2016년 이후 법 개정으로 벌금 상한이 3천만원에서 5천만원으로 올랐습니다.",
+      "아동학대 행위자에게는 수강명령이나 이수명령이 함께 구형됩니다.",
+      "어린이집·학교 등 아동을 돌보는 사람이 학대하면 형이 2분의 1까지 가중됩니다.",
+      "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."
+    ]
+  },
+  {
+    "id": "spycam",
+    "name": "카메라등이용촬영 (불법촬영)",
+    "law": "성폭력범죄의 처벌 등에 관한 특례법 제14조 제1항",
+    "group": "성범죄",
+    "statutory": "7년 이하의 징역 또는 5천만원 이하의 벌금 (상습이면 2분의 1까지 가중)",
+    "aliases": ["몰카", "불법촬영", "도촬", "성폭력처벌법위반(카메라등이용촬영)"],
+    "questions": [
+      {
+        "id": "body",
+        "label": "찍힌 신체 부위",
+        "type": "select",
+        "options": [{ "value": "mild", "label": "비교적 가벼운 부위 (옷 입은 다리 등)" }, { "value": "severe", "label": "성적 수치심이 큰 부위 (나체·속옷·치마 속 등)" }]
+      },
+      {
+        "id": "identifiable",
+        "label": "피해자가 누구인지 알아볼 수 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "알아볼 수 없음" }, { "value": "yes", "label": "알아볼 수 있음" }]
+      },
+      {
+        "id": "spread",
+        "label": "찍은 것을 다른 사람에게 보내거나 올렸나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "안 퍼뜨림" }, { "value": "yes", "label": "퍼뜨림" }]
+      },
+      {
+        "id": "history",
+        "label": "반복·전력",
+        "type": "select",
+        "options": [
+          { "value": "first", "label": "처음" },
+          { "value": "habitual", "label": "여러 번 반복해서 찍음" },
+          { "value": "record", "label": "최근 3년 안에 성범죄로 벌금 이상 처벌받음" }
+        ]
+      },
+      { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "history", "op": "eq", "value": "habitual" }, { "q": "body", "op": "eq", "value": "severe" }],
+          [
+            { "q": "identifiable", "op": "eq", "value": "yes" },
+            { "q": "body", "op": "eq", "value": "severe" },
+            { "q": "spread", "op": "eq", "value": "yes" }
+          ]
+        ],
+        "sentence": "징역 2년 이상"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "history", "op": "eq", "value": "record" }],
+          [{ "q": "body", "op": "eq", "value": "severe" }],
+          [{ "q": "history", "op": "eq", "value": "habitual" }],
+          [{ "q": "identifiable", "op": "eq", "value": "yes" }, { "q": "spread", "op": "eq", "value": "yes" }]
+        ],
+        "sentence": "징역 1년 6월 이상"
+      },
+      {
+        "level": "trial-fine",
+        "when": [
+          [{ "q": "settled", "op": "eq", "value": "no" }, { "q": "identifiable", "op": "eq", "value": "yes" }],
+          [{ "q": "settled", "op": "eq", "value": "no" }, { "q": "spread", "op": "eq", "value": "yes" }]
+        ],
+        "fine": { "base": 5000000, "atLeast": true }
+      },
+      { "level": "trial-fine", "when": [[{ "q": "spread", "op": "eq", "value": "yes" }]], "fine": { "base": 3000000, "atLeast": true } },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "처음이고 가벼운 부위를 찍었으며 피해자를 알아볼 수 없거나 합의한 경우 기소유예가 가능한 유형입니다. 보통 교육 등을 조건으로 합니다. 실제로는 벌금(합의 300만원·미합의 500만원 이상)이 구형되기도 합니다."
+      }
+    ],
+    "notes": [
+      "2020년 법 개정으로 법정형이 크게 올라, 실제 처리는 이 예상보다 무거울 수 있습니다.",
+      "찍은 사진·영상은 몰수되고, 유죄가 확정되면 신상정보 등록 등이 따를 수 있습니다.",
+      "청소년이 처음 저지르고 깊이 반성하는 경우 기소유예가 검토될 수 있습니다."
+    ]
+  },
+  {
+    "id": "intimate-image-distribution",
+    "name": "촬영물 유포 (동의 촬영물 포함)",
+    "law": "성폭력범죄의 처벌 등에 관한 특례법 제14조 제2항",
+    "group": "성범죄",
+    "statutory": "7년 이하의 징역 또는 5천만원 이하의 벌금 (영리 목적으로 인터넷에 유포하면 3년 이상의 유기징역)",
+    "aliases": ["리벤지포르노", "영상 유포", "사진 유포", "동영상 유포", "성폭력처벌법위반(카메라등이용촬영물반포등)"],
+    "questions": [
+      {
+        "id": "body",
+        "label": "퍼뜨린 사진·영상의 내용",
+        "type": "select",
+        "options": [{ "value": "mild", "label": "비교적 가벼운 부위" }, { "value": "severe", "label": "성적 수치심이 큰 부위 (나체·성관계 등)" }]
+      },
+      {
+        "id": "identifiable",
+        "label": "피해자가 누구인지 알아볼 수 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "알아볼 수 없음" }, { "value": "yes", "label": "알아볼 수 있음" }]
+      },
+      {
+        "id": "history",
+        "label": "반복·전력",
+        "type": "select",
+        "options": [
+          { "value": "first", "label": "처음" },
+          { "value": "habitual", "label": "여러 번 찍어 퍼뜨림" },
+          { "value": "record", "label": "최근 3년 안에 성범죄로 벌금 이상 처벌받음" }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "history", "op": "eq", "value": "habitual" }],
+          [{ "q": "identifiable", "op": "eq", "value": "yes" }, { "q": "body", "op": "eq", "value": "severe" }]
+        ],
+        "sentence": "징역 2년 이상"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "history", "op": "eq", "value": "record" }],
+          [{ "q": "body", "op": "eq", "value": "severe" }],
+          [{ "q": "identifiable", "op": "eq", "value": "yes" }]
+        ],
+        "sentence": "징역 1년 이상"
+      },
+      { "level": "trial-fine", "when": [], "fine": { "base": 3000000, "atLeast": true } }
+    ],
+    "notes": [
+      "찍을 때는 동의했어도 나중에 허락 없이 퍼뜨리면 처벌됩니다. 몰래 찍은 것을 퍼뜨리면 훨씬 무겁게 다뤄집니다.",
+      "2018·2020년 법 개정으로 이 유형의 법정형이 크게 올라(종전 3년 이하 징역·500만원 이하 벌금), 실제 처리는 이 예상보다 무거울 수 있습니다."
+    ]
+  },
+  {
+    "id": "public-place-molestation",
+    "name": "공중밀집장소추행",
+    "law": "성폭력범죄의 처벌 등에 관한 특례법 제11조",
+    "group": "성범죄",
+    "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": ["지하철 추행", "버스 추행", "지하철 성추행", "성폭력처벌법위반(공중밀집장소에서의추행)"],
+    "questions": [
+      {
+        "id": "severity",
+        "label": "행위 정도",
+        "type": "select",
+        "options": [{ "value": "minor", "label": "비교적 가벼움" }, { "value": "normal", "label": "보통" }, { "value": "bad", "label": "반복되었거나 행위가 심함" }]
+      },
+      {
+        "id": "record",
+        "label": "성범죄 전력",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "없음" },
+          { "value": "minor", "label": "같은 종류로 기소유예·벌금 받은 적 있음" },
+          { "value": "serious", "label": "성범죄로 징역형을 받았거나 여러 번 처벌받음" }
+        ]
+      },
+      { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "severity", "op": "eq", "value": "bad" }]], "note": "반복성이나 행위 내용으로 보아 죄질이 나쁘면 구속이 검토됩니다." },
+      { "level": "trial", "when": [[{ "q": "record", "op": "eq", "value": "serious" }]], "sentence": "징역 8월 이상" },
+      { "level": "trial-fine", "when": [[{ "q": "record", "op": "eq", "value": "minor" }]], "fine": { "base": 2000000, "atLeast": true } },
+      {
+        "level": "trial-fine",
+        "when": [[{ "q": "settled", "op": "eq", "value": "no" }], [{ "q": "severity", "op": "eq", "value": "normal" }]],
+        "fine": { "base": 1500000, "atLeast": true }
+      },
+      { "level": "suspension", "when": [], "note": "전력이 없고 가벼우며 피해자와 합의하면 교육 등을 조건으로 한 기소유예가 가능합니다." }
+    ],
+    "notes": ["2020년 법 개정으로 법정형이 크게 올라, 실제 처리는 이 예상보다 무거울 수 있습니다.", "벌금형이라도 유죄가 확정되면 신상정보 등록 대상이 될 수 있습니다."]
+  },
+  {
+    "id": "obscene-communication",
+    "name": "통신매체이용음란",
+    "law": "성폭력범죄의 처벌 등에 관한 특례법 제13조",
+    "group": "성범죄",
+    "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+    "aliases": ["음란 메시지", "음란 문자", "음란 DM", "성적 메시지", "성폭력처벌법위반(통신매체이용음란)"],
+    "questions": [
+      {
+        "id": "level",
+        "label": "내용의 음란한 정도",
+        "type": "select",
+        "options": [{ "value": "low", "label": "낮음" }, { "value": "high", "label": "높음 (노골적인 사진·영상 등)" }]
+      },
+      {
+        "id": "frequency",
+        "label": "보낸 횟수",
+        "type": "select",
+        "options": [{ "value": "once", "label": "한 번" }, { "value": "many", "label": "여러 번" }]
+      },
+      {
+        "id": "record",
+        "label": "성범죄 전력",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "없음" },
+          { "value": "minor", "label": "같은 종류로 기소유예·벌금 받은 적 있음" },
+          { "value": "serious", "label": "성범죄로 징역형을 받았거나 여러 번 처벌받음" }
+        ]
+      },
+      { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "level", "op": "eq", "value": "high" }, { "q": "frequency", "op": "eq", "value": "many" }]],
+        "note": "반복성, 음란한 정도, 피해자 나이 등으로 보아 죄질이 나쁘면 구속이 검토됩니다."
+      },
+      { "level": "trial", "when": [[{ "q": "record", "op": "eq", "value": "serious" }]], "sentence": "징역 8월 이상" },
+      { "level": "trial-fine", "when": [[{ "q": "record", "op": "eq", "value": "minor" }]], "fine": { "base": 3000000, "atLeast": true } },
+      {
+        "level": "trial-fine",
+        "when": [
+          [{ "q": "level", "op": "eq", "value": "high" }],
+          [{ "q": "settled", "op": "eq", "value": "no" }, { "q": "frequency", "op": "eq", "value": "many" }]
+        ],
+        "fine": { "base": 2000000, "atLeast": true }
+      },
+      { "level": "suspension", "when": [], "note": "전력이 없고 음란한 정도가 낮은 글·사진을 한 번 보냈거나 가벼운 사안에서 합의한 경우 기소유예가 가능합니다. 보통 교육 등을 조건으로 합니다." }
+    ],
+    "notes": ["2020년 법 개정으로 법정형이 크게 올라, 실제 처리는 이 예상보다 무거울 수 있습니다.", "벌금형이라도 유죄가 확정되면 신상정보 등록 대상이 될 수 있습니다."]
+  },
+  {
+    "id": "workplace-sexual-coercion",
+    "name": "업무상위력등에의한추행",
+    "law": "성폭력범죄의 처벌 등에 관한 특례법 제10조 제1항",
+    "group": "성범죄",
+    "statutory": "3년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": ["직장 내 성추행", "상사 성추행", "업무상 위력 추행", "성폭력처벌법위반(업무상위력등에의한추행)"],
+    "questions": [
+      { "id": "victims", "label": "피해자 수", "type": "number", "unit": "명", "min": 1, "max": 50, "step": 1 },
+      { "id": "repeated", "label": "여러 차례 반복했나요", "type": "select", "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }] }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "victims", "op": "gte", "value": 2 }], [{ "q": "repeated", "op": "eq", "value": "yes" }]],
+        "note": "상습적·반복적이거나 피해자가 2명 이상이면 구속이 검토됩니다."
+      },
+      { "level": "trial", "when": [], "sentence": "징역 1년 이상", "note": "정식재판이 원칙인 범죄입니다." }
+    ],
+    "notes": [
+      "회사·고용 관계 등으로 보호·감독을 받는 사람을 상대로 한 추행입니다.",
+      "2018년 법 개정으로 법정형이 올랐습니다(종전 2년 이하 징역·500만원 이하 벌금).",
+      "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."
+    ]
+  },
+  {
+    "id": "child-prostitution-purchase",
+    "name": "아동·청소년 성매수",
+    "law": "아동ㆍ청소년의 성보호에 관한 법률 제13조 제1항",
+    "group": "성범죄",
+    "statutory": "1년 이상 10년 이하의 징역 또는 2천만원 이상 5천만원 이하의 벌금 (16세 미만이면 2분의 1까지 가중)",
+    "aliases": ["미성년자 성매매", "청소년 성매매", "조건만남", "청소년성보호법위반(성매수등)"],
+    "questions": [
+      {
+        "id": "under16",
+        "label": "상대가 16세 미만이었나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      { "id": "record", "label": "같은 종류 전력이 있나요", "type": "select", "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }] },
+      {
+        "id": "bad",
+        "label": "변태적 행위 등 죄질이 나쁜 사정이 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "under16", "op": "eq", "value": "yes" }],
+          [{ "q": "record", "op": "eq", "value": "yes" }],
+          [{ "q": "bad", "op": "eq", "value": "yes" }]
+        ],
+        "note": "상대가 16세 미만이거나 재범이거나 죄질이 나쁘면 구속이 검토됩니다."
+      },
+      { "level": "trial", "when": [], "note": "성매매 경위·횟수·상대 나이 등을 고려하되 원칙적으로 정식재판에 넘겨집니다." }
+    ],
+    "notes": [
+      "재범을 막기 위해 수강명령이나 성폭력 치료프로그램 이수명령이 함께 구형됩니다.",
+      "만 19세가 되는 해의 1월 1일 전까지가 아동·청소년입니다.",
+      "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."
+    ]
+  },
+  {
+    "id": "prostitution-purchase",
+    "name": "성매매 (성구매)",
+    "law": "성매매알선 등 행위의 처벌에 관한 법률 제21조 제1항",
+    "group": "성범죄",
+    "statutory": "1년 이하의 징역이나 300만원 이하의 벌금·구류 또는 과료",
+    "aliases": ["성매매", "성구매", "존스쿨", "성매매처벌법위반(성매매)", "오피", "안마방"],
+    "questions": [
+      {
+        "id": "record",
+        "label": "성매매로 단속된 전력",
+        "type": "select",
+        "options": [{ "value": "none", "label": "없음" }, { "value": "some", "label": "1~2회" }, { "value": "many", "label": "3회 이상" }]
+      },
+      {
+        "id": "type",
+        "label": "성매매 유형",
+        "type": "select",
+        "options": [{ "value": "normal", "label": "국내 일반" }, { "value": "disabled", "label": "장애인을 상대로 함" }, { "value": "overseas", "label": "해외에서 함" }]
+      },
+      {
+        "id": "education",
+        "label": "성구매자 재범방지 교육을 받는 데 동의하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "동의 안 함" }, { "value": "yes", "label": "동의함" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [[{ "q": "type", "op": "eq", "value": "overseas" }, { "q": "record", "op": "eq", "value": "many" }]],
+        "note": "해외 성구매는 국내를 포함해 성매매 전력이 3회 이상이면 정식재판이 검토됩니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "type", "op": "eq", "value": "disabled" }]],
+        "fine": { "base": 2000000, "atLeast": true },
+        "note": "장애인 상대 성구매는 교육 조건부 기소유예를 하지 않는 것이 원칙입니다."
+      },
+      { "level": "summary", "when": [[{ "q": "type", "op": "eq", "value": "overseas" }]], "note": "해외 성구매는 처음이라도 약식 벌금이 원칙입니다." },
+      {
+        "level": "summary",
+        "when": [[{ "q": "record", "op": "in", "value": ["some", "many"] }], [{ "q": "education", "op": "eq", "value": "no" }]],
+        "fine": { "base": 1500000, "atLeast": true }
+      },
+      { "level": "suspension", "when": [], "note": "처음이면 성구매자 재범방지 교육(존스쿨) 이수를 조건으로 한 기소유예나 성매매 보호사건 송치가 일반적입니다." }
+    ],
+    "notes": ["교육에 동의하고도 이수하지 않으면 다시 수사가 시작되어 벌금 등으로 처리됩니다."]
+  },
+  {
+    "id": "prostitution-brokering",
+    "name": "성매매알선 (업소 운영 등)",
+    "law": "성매매알선 등 행위의 처벌에 관한 법률 제19조",
+    "group": "성범죄",
+    "statutory": "알선 3년 이하의 징역 또는 3천만원 이하의 벌금, 영업으로 알선 7년 이하의 징역 또는 7천만원 이하의 벌금",
+    "aliases": ["성매매 알선", "성매매업소", "보도방", "성매매처벌법위반(성매매알선등)", "건물 임대 성매매"],
+    "questions": [
+      {
+        "id": "role",
+        "label": "맡은 역할",
+        "type": "select",
+        "options": [
+          { "value": "owner", "label": "업주(운영자)" },
+          { "value": "manager", "label": "실장 등 종업원 관리·운영 관여" },
+          { "value": "recruiter", "label": "성매매할 사람 모집·소개하고 대가 받음, 또는 건물 임대" },
+          { "value": "employee", "label": "단순 종업원" },
+          { "value": "simple", "label": "한두 번 단순 알선" }
+        ]
+      },
+      { "id": "staff", "label": "고용한 여성 종업원 수", "type": "number", "unit": "명", "min": 0, "max": 200, "step": 1, "help": "업주가 아니면 0으로 두세요." },
+      { "id": "months", "label": "영업 기간", "type": "number", "unit": "개월", "min": 0, "max": 240, "step": 1 },
+      { "id": "priors", "label": "같은 종류 처벌 전력", "type": "number", "unit": "회", "min": 0, "max": 20, "step": 1 }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "role", "op": "eq", "value": "owner" }, { "q": "staff", "op": "gte", "value": 5 }],
+          [{ "q": "role", "op": "eq", "value": "owner" }, { "q": "months", "op": "gte", "value": 12 }],
+          [{ "q": "role", "op": "neq", "value": "employee" }, { "q": "priors", "op": "gte", "value": 2 }]
+        ],
+        "note": "종업원 5명 이상, 영업 1년 이상(또는 범죄수익 1억원 이상), 같은 전력 2회 이상이거나 같은 범죄로 집행유예 중이면 구속이 원칙입니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "role", "op": "in", "value": ["owner", "manager", "recruiter"] }],
+          [{ "q": "role", "op": "eq", "value": "simple" }, { "q": "priors", "op": "gte", "value": 1 }]
+        ]
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "role", "op": "eq", "value": "simple" }]],
+        "fine": { "base": 3000000, "atLeast": true },
+        "note": "단순 알선 초범이라도 재범 가능성이 있으면 정식재판으로 갈 수 있습니다."
+      },
+      { "level": "summary", "when": [], "note": "단순 종업원은 약식 벌금으로 처리될 수 있습니다." }
+    ],
+    "notes": [
+      "사안이 아주 가볍지 않으면 징역형과 함께 벌금도 구형되고, 성매매로 번 돈은 몰수·추징됩니다.",
+      "해외 성매매 알선은 2분의 1 가중해 구형하는 것이 원칙입니다.",
+      "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."
+    ]
+  },
+  {
+    "id": "drunk-driving",
+    "name": "음주운전",
+    "law": "도로교통법 제148조의2 제1항·제3항, 제44조 제1항",
+    "group": "교통",
+    "statutory": "혈중알코올농도 0.03% 이상 0.08% 미만: 1년 이하의 징역 또는 500만원 이하의 벌금 / 0.08% 이상 0.2% 미만: 1년 이상 2년 이하의 징역 또는 500만원 이상 1천만원 이하의 벌금 / 0.2% 이상: 2년 이상 5년 이하의 징역 또는 1천만원 이상 2천만원 이하의 벌금. 10년 안에 다시 하면 1년 이상 5년 이하(0.2% 이상은 2년 이상 6년 이하)의 징역 또는 500만원 이상 2천만원 이하(0.2% 이상은 1천만원 이상 3천만원 이하)의 벌금",
+    "aliases": ["음주", "술 마시고 운전", "윤창호법", "음주 재범", "도로교통법위반(음주운전)"],
+    "questions": [
+      {
+        "id": "bac",
+        "label": "혈중알코올농도",
+        "type": "number",
+        "unit": "%",
+        "min": 0.03,
+        "max": 0.5,
+        "step": 0.001,
+        "help": "측정 결과에 적힌 수치입니다 (예: 0.085)."
+      },
+      { "id": "priors", "label": "최근 10년 안에 음주운전·측정거부로 벌금 이상 처벌받은 횟수", "type": "number", "unit": "회", "min": 0, "max": 10, "step": 1 },
+      {
+        "id": "recent",
+        "label": "가장 최근 처벌 시기",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "처벌받은 적 없음" },
+          { "value": "y3", "label": "3년 안" },
+          { "value": "y5", "label": "3년~5년 전" },
+          { "value": "y10", "label": "5년~10년 전" }
+        ]
+      },
+      {
+        "id": "probation",
+        "label": "음주운전으로 집행유예 기간 중인가요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      {
+        "id": "unlicensed",
+        "label": "면허 없이(취소·정지 중 포함) 운전했나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "probation", "op": "eq", "value": "yes" }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "recent", "op": "eq", "value": "y3" }, { "q": "bac", "op": "gte", "value": 0.15 }],
+          [
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "recent", "op": "in", "value": ["y3", "y5"] },
+            { "q": "bac", "op": "gte", "value": 0.2 }
+          ],
+          [
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "recent", "op": "in", "value": ["y3", "y5"] },
+            { "q": "bac", "op": "gte", "value": 0.15 },
+            { "q": "unlicensed", "op": "eq", "value": "yes" }
+          ],
+          [
+            { "q": "priors", "op": "gte", "value": 3 },
+            { "q": "recent", "op": "in", "value": ["y3", "y5"] },
+            { "q": "bac", "op": "gte", "value": 0.15 }
+          ]
+        ],
+        "sentence": "징역 1년 6월 이상",
+        "note": "음주운전으로 집행유예 중이거나, 최근 여러 번 처벌받고 수치가 높으면 구속이 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "recent", "op": "eq", "value": "y3" }, { "q": "bac", "op": "gte", "value": 0.08 }],
+          [
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "recent", "op": "in", "value": ["y3", "y5"] },
+            { "q": "bac", "op": "gte", "value": 0.15 }
+          ],
+          [
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "recent", "op": "in", "value": ["y3", "y5"] },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "unlicensed", "op": "eq", "value": "yes" }
+          ],
+          [
+            { "q": "priors", "op": "gte", "value": 3 },
+            { "q": "recent", "op": "in", "value": ["y3", "y5"] },
+            { "q": "bac", "op": "gte", "value": 0.08 }
+          ]
+        ],
+        "sentence": "징역 1년 6월 이상"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "unlicensed", "op": "eq", "value": "yes" }],
+          [{ "q": "bac", "op": "gte", "value": 0.3 }]
+        ],
+        "sentence": "징역 1년 이상",
+        "note": "수치가 0.3% 이상이라도 주차를 위한 짧은 거리 운전처럼 참작할 사정이 있으면 벌금이 될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "priors", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.15 }]],
+        "fine": { "base": 14000000, "atLeast": true, "max": 20000000 }
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "priors", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.08 }]],
+        "fine": { "base": 11000000, "atLeast": true, "max": 20000000 }
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "priors", "op": "gte", "value": 1 }]],
+        "fine": { "base": 5000000, "atLeast": true, "max": 20000000 },
+        "note": "다시 음주운전을 하면 벌금 하한이 500만원입니다."
+      },
+      { "level": "summary", "when": [[{ "q": "bac", "op": "gte", "value": 0.25 }]], "fine": { "base": 14000000, "atLeast": true, "max": 20000000 } },
+      { "level": "summary", "when": [[{ "q": "bac", "op": "gte", "value": 0.2 }]], "fine": { "base": 10000000, "atLeast": true, "max": 20000000 } },
+      { "level": "summary", "when": [[{ "q": "bac", "op": "gte", "value": 0.15 }]], "fine": { "base": 7500000, "atLeast": true, "max": 10000000 } },
+      { "level": "summary", "when": [[{ "q": "bac", "op": "gte", "value": 0.08 }]], "fine": { "base": 5000000, "atLeast": true, "max": 10000000 } },
+      { "level": "summary", "when": [[{ "q": "bac", "op": "gte", "value": 0.05 }]], "fine": { "base": 2500000, "atLeast": true, "max": 5000000 } },
+      { "level": "summary", "when": [], "fine": { "base": 1500000, "atLeast": true, "max": 5000000 } }
+    ],
+    "notes": [
+      "물건을 부수는 사고를 냈거나 난폭하게 운전했거나 5년 안에 다시 한 경우에는 한 단계 무겁게 다뤄집니다.",
+      "사람을 다치게 했다면 '음주운전 사고(치상·치사)' 항목을 보세요. 무면허운전은 따로 처벌됩니다.",
+      "최근 5년 안에 4회 이상 음주운전을 했거나 전력이 있는데 사망사고를 내면 차량 몰수가 구형될 수 있습니다.",
+      "음주운전 차에 같이 타서 운전을 권하거나 차 열쇠를 건넨 사람도 방조범으로 처벌될 수 있습니다.",
+      "전동킥보드 등 개인형 이동장치는 이 처벌 규정이 아니라 별도 규정이 적용됩니다."
+    ]
+  },
+  {
+    "id": "drunk-driving-refusal",
+    "name": "음주측정거부",
+    "law": "도로교통법 제148조의2 제2항, 제44조 제2항",
+    "group": "교통",
+    "statutory": "1년 이상 5년 이하의 징역 또는 500만원 이상 2천만원 이하의 벌금 (10년 안에 다시 하면 1년 이상 6년 이하의 징역 또는 500만원 이상 3천만원 이하의 벌금)",
+    "aliases": ["측정거부", "음주측정 불응", "도로교통법위반(음주측정거부)"],
+    "questions": [
+      { "id": "priors3", "label": "최근 3년 안에 음주운전·측정거부로 처벌받은 횟수", "type": "number", "unit": "회", "min": 0, "max": 10, "step": 1 },
+      { "id": "accident", "label": "교통사고를 냈나요", "type": "select", "options": [{ "value": "no", "label": "안 냈음" }, { "value": "yes", "label": "냈음" }] }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "priors3", "op": "gte", "value": 2 }]], "sentence": "징역 1년 6월 이상" },
+      {
+        "level": "trial",
+        "when": [[{ "q": "priors3", "op": "gte", "value": 1 }], [{ "q": "accident", "op": "eq", "value": "yes" }]],
+        "sentence": "징역 1년 이상"
+      },
+      { "level": "summary", "when": [], "fine": { "base": 5000000, "atLeast": true, "max": 20000000 }, "note": "벌금 하한이 500만원입니다." }
+    ],
+    "notes": ["측정을 거부하면 실제 수치가 낮았더라도 높은 수치의 음주운전과 비슷하거나 더 무겁게 처벌됩니다."]
+  },
+  {
+    "id": "drunk-driving-accident",
+    "name": "음주운전 사고 (치상·치사)",
+    "law": "교통사고처리 특례법 제3조, 특정범죄 가중처벌 등에 관한 법률 제5조의11, 도로교통법 제148조의2",
+    "group": "교통",
+    "statutory": "교통사고처리특례법위반(치사상) 5년 이하의 금고 또는 2천만원 이하의 벌금과 음주운전죄가 함께 처벌됨. 음주로 정상적인 운전이 곤란한 상태였다면 위험운전치상 1년 이상 15년 이하의 징역 또는 1천만원 이상 3천만원 이하의 벌금, 위험운전치사 무기 또는 3년 이상의 징역",
+    "aliases": ["음주사고", "음주 교통사고", "위험운전치상", "위험운전치사", "윤창호법", "특가법위반(위험운전치사상)"],
+    "questions": [
+      {
+        "id": "harm",
+        "label": "피해 정도",
+        "type": "select",
+        "options": [
+          { "value": "0", "label": "다침 (진단 4주 미만)" },
+          { "value": "1", "label": "다침 (4주 ~ 7주)" },
+          { "value": "2", "label": "다침 (8주 ~ 11주)" },
+          { "value": "3", "label": "다침 (12주 이상, 또는 불치·난치의 중상해)" },
+          { "value": "death", "label": "사람이 숨짐" }
+        ],
+        "help": "여러 명이 다쳤으면 가장 많이 다친 사람 기준입니다."
+      },
+      { "id": "bac", "label": "혈중알코올농도", "type": "number", "unit": "%", "min": 0.03, "max": 0.5, "step": 0.001 },
+      {
+        "id": "priors",
+        "label": "음주운전 처벌 전력",
+        "type": "number",
+        "unit": "회",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "help": "벌금은 최근 5년, 집행유예 이상은 최근 10년 안의 것만 셉니다."
+      },
+      {
+        "id": "settle",
+        "label": "합의·보험",
+        "type": "select",
+        "options": [{ "value": "0", "label": "합의함 (또는 처벌불원)" }, { "value": "1", "label": "합의 못 함, 종합보험 가입" }, { "value": "2", "label": "합의 못 함, 종합보험 미가입" }]
+      },
+      {
+        "id": "cause",
+        "label": "사고 경위",
+        "type": "select",
+        "options": [
+          { "value": "0", "label": "피해자 과실이 큼 (무단횡단 등)" },
+          { "value": "1", "label": "피해자에게도 조금 과실 있음" },
+          { "value": "2", "label": "피해자 과실 없음" },
+          { "value": "3", "label": "음주 말고도 신호위반·중앙선침범 등 중대 과실 있음" }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ]
+        ],
+        "sentence": "징역 5년 이상",
+        "note": "처리 13등급 이상에 해당합니다. 9등급 이상은 반드시 실형을 구하는 기준(필요적 실형)이라 집행유예를 구형하지 않는 수준입니다."
+      },
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "eq", "value": "death" },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 5년",
+        "note": "처리 11등급 이상에 해당합니다. 9등급 이상은 반드시 실형을 구하는 기준(필요적 실형)이라 집행유예를 구형하지 않는 수준입니다."
+      },
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "eq", "value": "death" }, { "q": "bac", "op": "gte", "value": 0.2 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 4년",
+        "note": "처리 9등급 이상에 해당합니다. 9등급 이상은 반드시 실형을 구하는 기준(필요적 실형)이라 집행유예를 구형하지 않는 수준입니다."
+      },
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "harm", "op": "eq", "value": "death" }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }]
+        ],
+        "sentence": "징역 2년 ~ 3년",
+        "note": "처리 7등급 이상에 해당합니다. 6등급 이상은 구속 수사가 검토되는 기준입니다."
+      },
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "harm", "op": "eq", "value": "death" }],
+          [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 3 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 4 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 3 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 1 }]
+        ],
+        "sentence": "징역 1년 6월 ~ 2년",
+        "note": "처리 6등급 이상에 해당합니다. 6등급 이상은 구속 수사가 검토되는 기준입니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "harm", "op": "eq", "value": "death" }],
+          [{ "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 2 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 2 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 2 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.2 }]
+        ],
+        "sentence": "징역 1년 ~ 1년 6월",
+        "note": "처리 5등급 이상에 해당합니다. 4등급 이상은 정식재판에 넘기는 기준입니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "harm", "op": "eq", "value": "death" }],
+          [{ "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "priors", "op": "gte", "value": 4 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 3 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "priors", "op": "gte", "value": 4 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "settle", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "cause", "op": "gte", "value": 1 }
+          ],
+          [
+            { "q": "harm", "op": "gte", "value": 1 },
+            { "q": "bac", "op": "gte", "value": 0.08 },
+            { "q": "priors", "op": "gte", "value": 1 },
+            { "q": "settle", "op": "gte", "value": 1 }
+          ],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 1 }, { "q": "bac", "op": "gte", "value": 0.2 }, { "q": "priors", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "cause", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "settle", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 1 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.08 }, { "q": "priors", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 2 }, { "q": "bac", "op": "gte", "value": 0.2 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "cause", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "settle", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "priors", "op": "gte", "value": 1 }],
+          [{ "q": "harm", "op": "gte", "value": 3 }, { "q": "bac", "op": "gte", "value": 0.08 }]
+        ],
+        "sentence": "징역 9월 ~ 1년",
+        "note": "처리 4등급 이상에 해당합니다. 4등급 이상은 정식재판에 넘기는 기준입니다."
+      },
+      { "level": "summary", "when": [], "note": "정식재판 기준(4등급)에 못 미쳐 사안에 따라 약식 벌금으로 처리될 수 있습니다. 정식재판이면 징역 6월 ~ 9월 수준입니다." }
+    ],
+    "notes": [
+      "기본 등급(다친 사고 3등급, 사망 사고 10등급)에서 혈중알코올농도·다친 정도·음주 전력·합의·사고 경위에 따라 등급을 올리고 내려 정하는 방식입니다.",
+      "음주로 정상적인 운전이 곤란한 상태(위험운전)로 인정되면 다친 사고는 1등급, 사망 사고는 2등급 더 무거워집니다.",
+      "다친 사람이 3명 이상이거나 숨진 사람이 2명 이상이면 더 무거워지고, 버스 등 대중교통 운전자면 1등급 더 무거워집니다.",
+      "공탁, 호의동승, 초범, 자수 등은 감경 사유이고 도주, 난폭운전, 범행 은폐 등은 가중 사유입니다."
+    ]
+  },
+  {
+    "id": "unlicensed-driving",
+    "name": "무면허운전",
+    "law": "도로교통법 제152조 제1호, 제43조",
+    "group": "교통",
+    "statutory": "1년 이하의 징역 또는 300만원 이하의 벌금 (원동기장치자전거는 30만원 이하의 벌금이나 구류)",
+    "aliases": ["면허 없이 운전", "면허정지 중 운전", "면허취소 중 운전", "도로교통법위반(무면허운전)"],
+    "questions": [
+      { "id": "priors", "label": "무면허운전·음주운전으로 처벌받은 횟수", "type": "number", "unit": "회", "min": 0, "max": 20, "step": 1 },
+      {
+        "id": "probation",
+        "label": "무면허·음주운전으로 집행유예 기간 중인가요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      {
+        "id": "habitual",
+        "label": "면허 없이 여러 번 계속 운전해 왔나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "probation", "op": "eq", "value": "yes" }],
+          [{ "q": "habitual", "op": "eq", "value": "yes" }, { "q": "priors", "op": "gte", "value": 2 }]
+        ]
+      },
+      { "level": "trial", "when": [[{ "q": "priors", "op": "gte", "value": 3 }]], "sentence": "징역 6월 이상" },
+      { "level": "summary", "when": [[{ "q": "priors", "op": "gte", "value": 2 }]], "fine": { "base": 1500000, "max": 3000000 } },
+      {
+        "level": "summary",
+        "when": [[{ "q": "priors", "op": "gte", "value": 1 }]],
+        "fine": { "base": 1000000, "max": 3000000 },
+        "note": "100만원 ~ 150만원 수준입니다."
+      },
+      { "level": "summary", "when": [], "fine": { "base": 700000, "max": 3000000 }, "note": "70만원 ~ 100만원 수준입니다." }
+    ],
+    "notes": ["생계를 위한 운전이었다면 사정이 참작될 수 있습니다.", "음주운전과 함께 했으면 두 죄가 함께 처벌됩니다."]
+  },
+  {
+    "id": "hit-and-run-injury",
+    "name": "뺑소니 (도주치상)",
+    "law": "특정범죄 가중처벌 등에 관한 법률 제5조의3 제1항 제2호",
+    "group": "교통",
+    "statutory": "1년 이상의 유기징역 또는 500만원 이상 3천만원 이하의 벌금 (숨지게 하고 도주하면 무기 또는 5년 이상의 징역)",
+    "aliases": ["뺑소니", "도주치상", "사고 후 도주", "특가법위반(도주치상)"],
+    "questions": [
+      {
+        "id": "weeks",
+        "label": "가장 많이 다친 사람의 진단 기간",
+        "type": "number",
+        "unit": "주",
+        "min": 0,
+        "max": 52,
+        "step": 1,
+        "help": "피해자가 여럿이면 가장 많이 다친 사람의 주수에 다음 사람 주수의 절반을 더합니다."
+      },
+      { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] },
+      {
+        "id": "insured",
+        "label": "종합보험(공제)에 가입되어 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "미가입" }, { "value": "yes", "label": "가입" }]
+      },
+      {
+        "id": "mitigating",
+        "label": "피해자 과실이 크고, 현장을 떠난 데 참작할 사정이 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "weeks", "op": "gte", "value": 8 }], [{ "q": "weeks", "op": "gte", "value": 4 }, { "q": "settled", "op": "eq", "value": "no" }]],
+        "note": "진단 4주 이상인데 합의가 안 됐거나, 8주 이상이면 합의와 관계없이 구속이 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "mitigating", "op": "eq", "value": "no" }],
+          [{ "q": "settled", "op": "eq", "value": "no" }, { "q": "insured", "op": "eq", "value": "no" }]
+        ],
+        "note": "정식재판이 원칙이며, 합의도 보험도 없으면 다친 정도와 관계없이 정식재판입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": { "base": 5000000, "perUnit": { "q": "weeks", "over": 3, "amount": 1000000 }, "max": 30000000, "atLeast": true },
+        "note": "예외적으로 약식 벌금이 가능한 경우입니다. 3주를 넘는 1주마다 100만~200만원이 더해집니다."
+      }
+    ],
+    "notes": ["벌금 낼 능력, 과실 정도에 따라 절반까지 감경될 수 있습니다.", "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."]
+  },
+  {
+    "id": "leaving-accident-scene",
+    "name": "사고 후 미조치 (물적 피해)",
+    "law": "도로교통법 제148조, 제54조 제1항",
+    "group": "교통",
+    "statutory": "5년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": ["사고후미조치", "물피 도주", "주차 차량 긁고 도주", "도로교통법위반(사고후미조치)"],
+    "questions": [
+      {
+        "id": "severity",
+        "label": "사고 정도",
+        "type": "select",
+        "options": [{ "value": "minor", "label": "가벼움" }, { "value": "serious", "label": "중대하거나 죄질이 나쁨" }]
+      },
+      { "id": "drunk", "label": "음주운전 의심이 있나요", "type": "select", "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }] }
+    ],
+    "tiers": [
+      { "level": "trial", "when": [[{ "q": "severity", "op": "eq", "value": "serious" }]], "sentence": "징역 10월 이상" },
+      {
+        "level": "summary",
+        "when": [[{ "q": "drunk", "op": "eq", "value": "yes" }]],
+        "fine": { "base": 1000000, "atLeast": true, "max": 15000000 },
+        "note": "음주운전이 의심되면 벌금이 더 무거워집니다."
+      },
+      { "level": "summary", "when": [], "fine": { "base": 1000000, "atLeast": true, "max": 15000000 } }
+    ],
+    "notes": ["사람이 다쳤는데 도주했다면 '뺑소니(도주치상)' 항목을 보세요.", "주차·정차된 차만 손괴한 것이 분명한 경우 연락처를 남기지 않은 것은 이 죄가 아니라 과태료 등 다른 제재 대상입니다."]
+  },
+  {
+    "id": "traffic-accident-injury",
+    "name": "교통사고 치상 (교통사고처리특례법)",
+    "law": "교통사고처리 특례법 제3조 제1항·제2항, 제4조",
+    "group": "교통",
+    "statutory": "5년 이하의 금고 또는 2천만원 이하의 벌금",
+    "aliases": ["교통사고", "인사사고", "12대 중과실", "신호위반 사고", "횡단보도 사고", "교통사고처리특례법위반(치상)"],
+    "questions": [
+      {
+        "id": "exception",
+        "label": "신호위반·중앙선침범·과속(20km/h 초과)·횡단보도·어린이보호구역 등 12대 중과실에 해당하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "해당 안 함" }, { "value": "yes", "label": "해당함" }],
+        "help": "음주 사고는 '음주운전 사고' 항목을 보세요."
+      },
+      {
+        "id": "insured",
+        "label": "종합보험(공제)에 가입되어 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "미가입" }, { "value": "yes", "label": "가입" }]
+      },
+      { "id": "settled", "label": "피해자와 합의", "type": "select", "options": [{ "value": "yes", "label": "합의함" }, { "value": "no", "label": "합의 못 함" }] },
+      {
+        "id": "weeks",
+        "label": "가장 많이 다친 사람의 진단 기간",
+        "type": "number",
+        "unit": "주",
+        "min": 0,
+        "max": 52,
+        "step": 1,
+        "help": "피해자가 여럿이면 가장 많이 다친 사람의 주수에 다음 사람 주수의 절반을 더합니다."
+      },
+      {
+        "id": "victimFault",
+        "label": "피해자에게도 잘못이 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            { "q": "exception", "op": "eq", "value": "yes" },
+            { "q": "victimFault", "op": "eq", "value": "no" },
+            { "q": "insured", "op": "eq", "value": "yes" },
+            { "q": "settled", "op": "eq", "value": "no" },
+            { "q": "weeks", "op": "gte", "value": 12 }
+          ],
+          [
+            { "q": "exception", "op": "eq", "value": "yes" },
+            { "q": "victimFault", "op": "eq", "value": "no" },
+            { "q": "insured", "op": "eq", "value": "no" },
+            { "q": "settled", "op": "eq", "value": "no" },
+            { "q": "weeks", "op": "gte", "value": 8 }
+          ],
+          [
+            { "q": "exception", "op": "eq", "value": "no" },
+            { "q": "insured", "op": "eq", "value": "no" },
+            { "q": "settled", "op": "eq", "value": "no" },
+            { "q": "weeks", "op": "gt", "value": 10 }
+          ]
+        ],
+        "note": "합의가 안 됐어도 상당한 금액을 공탁하면 합의에 준해 고려됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            { "q": "exception", "op": "eq", "value": "yes" },
+            { "q": "victimFault", "op": "eq", "value": "no" },
+            { "q": "insured", "op": "eq", "value": "yes" },
+            { "q": "settled", "op": "eq", "value": "no" },
+            { "q": "weeks", "op": "gte", "value": 8 }
+          ],
+          [
+            { "q": "exception", "op": "eq", "value": "yes" },
+            { "q": "victimFault", "op": "eq", "value": "no" },
+            { "q": "insured", "op": "eq", "value": "no" },
+            { "q": "settled", "op": "eq", "value": "no" },
+            { "q": "weeks", "op": "gte", "value": 4 }
+          ],
+          [
+            { "q": "exception", "op": "eq", "value": "no" },
+            { "q": "insured", "op": "eq", "value": "no" },
+            { "q": "settled", "op": "eq", "value": "no" },
+            { "q": "weeks", "op": "gte", "value": 6 }
+          ]
+        ],
+        "note": "정식재판으로 가더라도 벌금이 구형될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            { "q": "exception", "op": "eq", "value": "yes" },
+            { "q": "settled", "op": "eq", "value": "no" },
+            { "q": "insured", "op": "eq", "value": "no" }
+          ]
+        ],
+        "fine": { "base": 0, "perUnit": { "q": "weeks", "over": 0, "amount": 500000 }, "max": 20000000, "atLeast": true },
+        "note": "진단 1주당 50만원(4주 이상이면 50만~70만원) 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "exception", "op": "eq", "value": "yes" }]],
+        "fine": { "base": 0, "perUnit": { "q": "weeks", "over": 0, "amount": 300000 }, "max": 20000000, "atLeast": true },
+        "note": "진단 1주당 30만원(4주 이상이면 30만~50만원) 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "settled", "op": "eq", "value": "no" }, { "q": "insured", "op": "eq", "value": "no" }]],
+        "fine": { "base": 0, "perUnit": { "q": "weeks", "over": 0, "amount": 500000 }, "max": 20000000, "atLeast": true },
+        "note": "진단 1주당 50만원 기준입니다. 책임보험에 가입되어 있으면 1주당 30만원 수준입니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "12대 중과실이 아니고 종합보험에 가입했거나 피해자가 처벌을 원하지 않으면 원칙적으로 처벌하지 않습니다(공소권 없음). 다만 피해자가 크게 다친 중상해면 달라질 수 있습니다."
+      }
+    ],
+    "notes": ["사고 경위와 원인, 공탁금, 과실 정도를 참작해 감경될 수 있습니다."]
+  },
+  {
+    "id": "traffic-accident-death",
+    "name": "교통사고 치사 (교통사고처리특례법)",
+    "law": "교통사고처리 특례법 제3조 제1항",
+    "group": "교통",
+    "statutory": "5년 이하의 금고 또는 2천만원 이하의 벌금",
+    "aliases": ["사망사고", "교통사고 사망", "교통사고처리특례법위반(치사)"],
+    "questions": [
+      {
+        "id": "exception",
+        "label": "신호위반·중앙선침범·과속·횡단보도 등 12대 중과실에 해당하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "해당 안 함" }, { "value": "yes", "label": "해당함" }],
+        "help": "음주 사고는 '음주운전 사고' 항목을 보세요."
+      },
+      { "id": "deaths", "label": "숨진 사람 수", "type": "number", "unit": "명", "min": 1, "max": 50, "step": 1 },
+      {
+        "id": "victimFault",
+        "label": "숨진 분의 과실이 큰가요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "크지 않음" }, { "value": "yes", "label": "큼" }]
+      },
+      {
+        "id": "settledOrInsured",
+        "label": "유족과 합의했거나 종합보험에 가입되어 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니다" }, { "value": "yes", "label": "그렇다" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "exception", "op": "eq", "value": "yes" }, { "q": "deaths", "op": "gte", "value": 2 }]],
+        "sentence": "징역 1년 ~ 4년 6월",
+        "note": "12대 중과실로 2명 이상 숨지면 일반 범위보다 두 단계 올려 구형합니다."
+      },
+      {
+        "level": "detention",
+        "when": [[{ "q": "exception", "op": "eq", "value": "yes" }], [{ "q": "deaths", "op": "gte", "value": 2 }]],
+        "sentence": "징역 1년 ~ 3년",
+        "note": "12대 중과실 사고나 2명 이상 숨진 사고는 합의·공탁과 관계없이 구속이 적극 검토되고, 집행유예 구형을 피하는 경향입니다."
+      },
+      {
+        "level": "trial",
+        "when": [[{ "q": "victimFault", "op": "eq", "value": "no" }], [{ "q": "settledOrInsured", "op": "eq", "value": "no" }]],
+        "sentence": "징역 8월 ~ 1년 6월"
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": { "base": 5000000, "atLeast": true, "max": 20000000 },
+        "note": "한 명이 숨졌고 그분의 과실이 크며 합의했거나 종합보험에 가입한 경우의 기준입니다. 정식재판이 청구될 수도 있습니다."
+      }
+    ],
+    "notes": ["구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."]
+  },
+  {
+    "id": "methamphetamine",
+    "name": "필로폰 투약·소지·매매",
+    "law": "마약류 관리에 관한 법률 제60조 제1항 제2호, 제4조 제1항",
+    "group": "마약",
+    "statutory": "10년 이하의 징역 또는 1억원 이하의 벌금 (상습이면 2분의 1까지 가중, 미성년자에게 주거나 팔면 무기 또는 5년 이상의 징역)",
+    "aliases": ["필로폰", "메트암페타민", "마약 투약", "향정", "마약류관리법위반(향정)", "엑스터시", "MDMA"],
+    "questions": [
+      {
+        "id": "act",
+        "label": "한 일",
+        "type": "select",
+        "options": [{ "value": "use", "label": "투약·소지 (자기가 쓰려고)" }, { "value": "sale", "label": "사고팔기·알선·남에게 건넴" }]
+      },
+      { "id": "priors", "label": "마약 관련 처벌 전력", "type": "number", "unit": "회", "min": 0, "max": 20, "step": 1 },
+      {
+        "id": "rehab",
+        "label": "단순 투약이고 치료·재활을 받을 의지가 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "act", "op": "eq", "value": "sale" }], [{ "q": "priors", "op": "gte", "value": 1 }], [{ "q": "rehab", "op": "eq", "value": "no" }]],
+        "note": "필로폰 매매·투약은 구속 수사와 정식재판이 원칙입니다."
+      },
+      { "level": "suspension", "when": [], "note": "처음이고 단순 투약이며 재활 의지가 있으면 치료(또는 교육)를 조건으로 한 기소유예를 활용하는 것이 일반적인 처리 기준입니다." }
+    ],
+    "notes": [
+      "LSD 등 더 위험한 약물은 더 무겁게, 프로포폴·수면제 등 의료용 약물은 더 가볍게 다뤄집니다.",
+      "필로폰을 외국에서 들여오거나 만들면 무기 또는 5년 이상의 징역으로 훨씬 무겁고, 가액이 크면 특정범죄가중법이 적용됩니다.",
+      "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."
+    ]
+  },
+  {
+    "id": "cannabis",
+    "name": "대마 흡연·소지·매매",
+    "law": "마약류 관리에 관한 법률 제61조 제1항 제4호·제6호, 제59조 제1항 제7호",
+    "group": "마약",
+    "statutory": "흡연·소지 5년 이하의 징역 또는 5천만원 이하의 벌금 / 매매·알선 1년 이상의 유기징역",
+    "aliases": ["대마", "대마초", "마리화나", "액상대마", "마약류관리법위반(대마)"],
+    "questions": [
+      {
+        "id": "act",
+        "label": "한 일",
+        "type": "select",
+        "options": [{ "value": "smoke", "label": "흡연·소지 (자기가 쓰려고)" }, { "value": "sale", "label": "사고팔기·알선" }, { "value": "grow", "label": "팔려고 또는 많이 재배" }]
+      },
+      { "id": "priors", "label": "마약 관련 처벌 전력", "type": "number", "unit": "회", "min": 0, "max": 20, "step": 1 },
+      {
+        "id": "rehab",
+        "label": "단순 흡연이고 치료·재활을 받을 의지가 있나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "act", "op": "eq", "value": "grow" }], [{ "q": "priors", "op": "gte", "value": 1 }]],
+        "note": "판매 목적·대량 재배이거나 재범이면 구속이 검토됩니다."
+      },
+      { "level": "trial", "when": [[{ "q": "act", "op": "eq", "value": "sale" }]], "sentence": "징역 1년 이상", "note": "필로폰 매매보다는 6월~1년 가볍게 구형하는 기준입니다." },
+      { "level": "trial", "when": [[{ "q": "rehab", "op": "eq", "value": "no" }]], "note": "구형은 흡연 횟수·양·전력 등에 따라 정해집니다." },
+      { "level": "suspension", "when": [], "note": "처음이고 단순 흡연이며 재활 의지가 있으면 치료(또는 교육)를 조건으로 한 기소유예를 활용하는 것이 일반적인 처리 기준입니다." }
+    ],
+    "notes": ["미성년자에게 주거나 함께 흡연하면 1년 이상의 징역으로 무겁게 처벌됩니다.", "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."]
+  },
+  {
+    "id": "aggravated-fraud-500m",
+    "name": "특정경제범죄 사기·횡령·배임 (5억원 이상)",
+    "law": "특정경제범죄 가중처벌 등에 관한 법률 제3조 제1항",
+    "group": "재산",
+    "statutory": "이득액 5억원 이상 50억원 미만: 3년 이상의 유기징역 / 50억원 이상: 무기 또는 5년 이상의 징역 (이득액 이하의 벌금을 함께 물릴 수 있음)",
+    "aliases": ["특경법", "특경법 사기", "특경법 횡령", "업무상 횡령 5억", "배임 5억", "특정경제범죄가중처벌등에관한법률위반(사기)"],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "피해액(이득액)",
+        "type": "number",
+        "unit": "억원",
+        "min": 5,
+        "max": 10000,
+        "step": 0.1,
+        "help": "사기·공갈·횡령·배임으로 얻은 금액 합계입니다."
+      }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "amount", "op": "gte", "value": 50 }]], "sentence": "징역 7년 이상" },
+      { "level": "detention", "when": [[{ "q": "amount", "op": "gte", "value": 20 }]], "sentence": "징역 5년 이상" },
+      { "level": "detention", "when": [], "sentence": "징역 3년 이상" }
+    ],
+    "notes": ["구속 수사와 정식재판이 원칙입니다.", "피해 회복(변제·합의) 정도와 범행 경위가 구형과 선고에 크게 반영됩니다.", "구속은 도망하거나 증거를 없앨 우려 등 법이 정한 사유가 있어야 하므로, 기준에 해당해도 불구속으로 진행되는 경우가 많습니다."]
+  },
+  {
+    "id": "voice-phishing-member",
+    "name": "보이스피싱 가담 (사기)",
+    "law": "형법 제347조, 특정경제범죄 가중처벌 등에 관한 법률 제3조",
+    "group": "재산",
+    "statutory": "사기: 20년 이하의 징역 또는 5천만원 이하의 벌금 (피해액 5억원 이상이면 3년 이상의 유기징역, 50억원 이상이면 무기 또는 5년 이상의 징역)",
+    "aliases": ["보이스피싱", "전화금융사기", "수거책", "인출책", "전달책", "현금 수거", "고액알바"],
+    "questions": [
+      {
+        "id": "role",
+        "label": "맡은 역할",
+        "type": "select",
+        "options": [
+          { "value": "boss", "label": "총책" },
+          { "value": "mid", "label": "중간 관리책" },
+          { "value": "member", "label": "그 외 가담 (현금 수거·인출·전달, 통장 모집, 상담 등)" }
+        ]
+      },
+      { "id": "amount", "label": "전체 피해액", "type": "number", "unit": "만원", "min": 0, "max": 10000000, "step": 10 }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [[{ "q": "role", "op": "eq", "value": "boss" }, { "q": "amount", "op": "gte", "value": 500000 }]],
+        "sentence": "징역 15년"
+      },
+      {
+        "level": "trial",
+        "when": [[{ "q": "role", "op": "eq", "value": "boss" }, { "q": "amount", "op": "gte", "value": 50000 }]],
+        "sentence": "징역 12년 이상"
+      },
+      { "level": "trial", "when": [[{ "q": "role", "op": "eq", "value": "boss" }]], "sentence": "징역 10년 이상" },
+      {
+        "level": "trial",
+        "when": [[{ "q": "role", "op": "eq", "value": "mid" }]],
+        "sentence": "징역 7년 이상",
+        "note": "피해액과 실제로 한 역할에 따라 15년까지 차등 구형됩니다."
+      },
+      { "level": "trial", "when": [], "sentence": "징역 5년 이상", "note": "단순 가담자도 무겁게 구형하는 기준입니다. 피해액과 가담 정도에 따라 더 무거워질 수 있습니다." }
+    ],
+    "notes": [
+      "보이스피싱은 실형을 구하는 대상으로 분류되어 가중해 구형하는 범죄입니다.",
+      "총책 '10년 이상'은 사기죄 최고형이 10년이던 때의 기준입니다. 2025년 개정으로 사기죄 법정형이 20년 이하로 올라 실제 구형은 더 무거울 수 있습니다.",
+      "실제 선고는 구형보다 낮은 경우가 많고, 가담 경위·피해 회복·수사 협조 등이 반영됩니다.",
+      "통장·체크카드를 넘긴 경우는 '대포통장(접근매체 양도)' 항목을 보세요."
+    ]
+  },
+  {
+    "id": "phone-scam-account",
+    "name": "대포통장 (접근매체 양도·대여)",
+    "law": "전자금융거래법 제49조 제4항, 제6조 제3항",
+    "group": "재산",
+    "statutory": "5년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": ["대포통장", "통장 대여", "체크카드 양도", "통장 판매", "전자금융거래법위반"],
+    "questions": [
+      {
+        "id": "role",
+        "label": "한 일",
+        "type": "select",
+        "options": [{ "value": "seller", "label": "통장·카드를 팔거나 빌려줌" }, { "value": "buyer", "label": "사들이거나 모음" }]
+      },
+      { "id": "count", "label": "넘긴(모은) 통장 수", "type": "number", "unit": "개", "min": 1, "max": 500, "step": 1 },
+      { "id": "priors", "label": "같은 종류 처벌 전력", "type": "number", "unit": "회", "min": 0, "max": 20, "step": 1 },
+      {
+        "id": "linked",
+        "label": "보이스피싱 조직에 직접 넘겼거나, 그 통장으로 1천만원 이상 피해가 났나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니다" }, { "value": "yes", "label": "그렇다" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "linked", "op": "eq", "value": "yes" }],
+          [{ "q": "priors", "op": "gte", "value": 2 }],
+          [{ "q": "priors", "op": "gte", "value": 1 }, { "q": "count", "op": "gte", "value": 20 }]
+        ]
+      },
+      {
+        "level": "trial",
+        "when": [[{ "q": "priors", "op": "gte", "value": 1 }], [{ "q": "role", "op": "eq", "value": "buyer" }], [{ "q": "count", "op": "gte", "value": 20 }]],
+        "sentence": "징역 10월 이상"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "note": "보이스피싱에 쓰이는 통장 거래는 원칙적으로 정식재판에서 징역형을 구형합니다. 특별히 가벼운 초범은 벌금(통장 1~10개 300만원, 11~20개 500만원 수준)이 구형되기도 합니다."
+      }
+    ],
+    "notes": ["보이스피싱에 쓰인 사실을 알았다면 사기 방조로도 수사받을 수 있습니다.", "2020년 법 개정으로 법정형이 올랐습니다(종전 3년 이하 징역·2천만원 이하 벌금)."]
+  },
+  {
+    "id": "bad-check",
+    "name": "부정수표 발행 (부도수표)",
+    "law": "부정수표 단속법 제2조",
+    "group": "재산",
+    "statutory": "5년 이하의 징역 또는 수표금액의 10배 이하의 벌금",
+    "aliases": ["부도수표", "당좌수표 부도", "가계수표 부도", "부정수표단속법위반"],
+    "questions": [
+      {
+        "id": "kind",
+        "label": "수표 종류",
+        "type": "select",
+        "options": [{ "value": "current", "label": "당좌수표" }, { "value": "household", "label": "가계수표" }]
+      },
+      { "id": "unrecovered", "label": "회수하지 못한 금액", "type": "number", "unit": "만원", "min": 0, "max": 1000000, "step": 10 },
+      { "id": "rate", "label": "회수율", "type": "number", "unit": "%", "min": 0, "max": 100, "step": 1, "help": "부도 금액 가운데 회수(변제)한 비율입니다." }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "kind", "op": "eq", "value": "current" }, { "q": "unrecovered", "op": "gte", "value": 30000 }]],
+        "sentence": "징역 2년 이상"
+      },
+      {
+        "level": "detention",
+        "when": [
+          [{ "q": "kind", "op": "eq", "value": "current" }, { "q": "unrecovered", "op": "gte", "value": 20000 }],
+          [
+            { "q": "kind", "op": "eq", "value": "current" },
+            { "q": "unrecovered", "op": "gte", "value": 10000 },
+            { "q": "rate", "op": "lt", "value": 50 }
+          ],
+          [{ "q": "kind", "op": "eq", "value": "household" }, { "q": "unrecovered", "op": "gte", "value": 10000 }]
+        ],
+        "sentence": "징역 1년 6월 이상"
+      },
+      {
+        "level": "trial",
+        "when": [[{ "q": "kind", "op": "eq", "value": "current" }, { "q": "unrecovered", "op": "gte", "value": 10000 }]],
+        "sentence": "징역 1년 6월 이상"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "kind", "op": "eq", "value": "current" }, { "q": "unrecovered", "op": "gte", "value": 5000 }],
+          [{ "q": "kind", "op": "eq", "value": "household" }, { "q": "unrecovered", "op": "gte", "value": 3000 }]
+        ],
+        "sentence": "징역 1년 이상"
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "unrecovered", "op": "gte", "value": 2500 }]],
+        "fine": { "base": 4000000, "perUnit": { "q": "unrecovered", "over": 2500, "amount": 1000 } },
+        "note": "400만원 + (미회수액 - 2,500만원)의 10%입니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "unrecovered", "op": "gte", "value": 500 }]],
+        "fine": { "base": 1000000, "perUnit": { "q": "unrecovered", "over": 500, "amount": 1500 } },
+        "note": "100만원 + (미회수액 - 500만원)의 15%입니다."
+      },
+      { "level": "summary", "when": [], "fine": { "base": 0, "perUnit": { "q": "unrecovered", "over": 0, "amount": 2000 } }, "note": "미회수액의 20%입니다." }
+    ],
+    "notes": ["부도 경위, 사업장 규모 등에 따라 탄력적으로 적용되고, 회수율이 80% 이상이면 감경될 수 있습니다.", "예금 부족 등으로 부도가 난 경우, 수표를 회수했거나 수표를 가진 사람이 처벌을 원하지 않으면 처벌할 수 없습니다(공소권 없음)."]
+  },
+  {
+    "id": "card-misuse",
+    "name": "분실·도난 신용카드 사용",
+    "law": "여신전문금융업법 제70조 제1항 제3호·제4호",
+    "group": "재산",
+    "statutory": "7년 이하의 징역 또는 5천만원 이하의 벌금",
+    "aliases": ["주운 카드 사용", "남의 카드 사용", "카드 도용", "여신전문금융업법위반"],
+    "questions": [
+      {
+        "id": "source",
+        "label": "카드를 얻은 방법",
+        "type": "select",
+        "options": [{ "value": "lost", "label": "잃어버린 카드를 주움" }, { "value": "stolen", "label": "훔치거나 빼앗거나 속여서 얻음" }]
+      },
+      { "id": "amount", "label": "사용한 금액", "type": "number", "unit": "만원", "min": 0, "max": 100000, "step": 1 },
+      {
+        "id": "settled",
+        "label": "사용액을 갚았거나 공탁·합의했나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니다" }, { "value": "yes", "label": "그렇다" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            { "q": "source", "op": "eq", "value": "stolen" },
+            { "q": "amount", "op": "gte", "value": 500 },
+            { "q": "settled", "op": "eq", "value": "no" }
+          ],
+          [
+            { "q": "source", "op": "eq", "value": "lost" },
+            { "q": "amount", "op": "gte", "value": 1000 },
+            { "q": "settled", "op": "eq", "value": "no" }
+          ]
+        ],
+        "sentence": "징역 1년 6월 이상",
+        "note": "절도·강도 등과 함께 처벌되면 6월~1년이 더해집니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            { "q": "source", "op": "eq", "value": "lost" },
+            { "q": "amount", "op": "gte", "value": 500 },
+            { "q": "settled", "op": "eq", "value": "no" }
+          ]
+        ],
+        "sentence": "징역 10월 이상"
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "settled", "op": "eq", "value": "no" }]],
+        "fine": { "base": 0, "perUnit": { "q": "amount", "over": 0, "amount": 10000 }, "max": 50000000 },
+        "note": "사용한 금액 상당의 벌금입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": { "base": 0, "perUnit": { "q": "amount", "over": 0, "amount": 5000 }, "max": 50000000 },
+        "note": "갚거나 공탁하면 사용액의 절반 수준으로 감경될 수 있습니다."
+      }
+    ],
+    "notes": ["카드를 훔치거나 주운 행위 자체(절도·점유이탈물횡령)와 물건을 산 행위(사기)도 함께 문제될 수 있습니다."]
+  },
+  {
+    "id": "card-kkang",
+    "name": "카드깡 (신용카드 매출전표 자금융통)",
+    "law": "여신전문금융업법 제70조 제3항 제2호",
+    "group": "재산",
+    "statutory": "3년 이하의 징역 또는 2천만원 이하의 벌금",
+    "aliases": ["카드깡", "카드 현금화", "가짜 매출", "여신전문금융업법위반"],
+    "questions": [
+      { "id": "total", "label": "총 거래액", "type": "number", "unit": "만원", "min": 0, "max": 1000000, "step": 10 },
+      { "id": "priors", "label": "같은 종류 전과가 있나요", "type": "select", "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }] }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "total", "op": "gte", "value": 30000 }, { "q": "priors", "op": "eq", "value": "yes" }]] },
+      { "level": "trial", "when": [[{ "q": "total", "op": "gte", "value": 10000 }]], "sentence": "징역 1년 이상" },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": { "base": 0, "perUnit": { "q": "total", "over": 0, "amount": 2000 }, "max": 20000000, "atLeast": true },
+        "note": "거래액의 20% 이상입니다."
+      }
+    ],
+    "notes": ["다른 가맹점 이름으로 매출전표를 만든 경우도 같은 기준이며, 세금 추징이 함께 이루어질 수 있습니다."]
+  },
+  {
+    "id": "online-defamation",
+    "name": "정보통신망 명예훼손 (인터넷 명예훼손)",
+    "law": "정보통신망 이용촉진 및 정보보호 등에 관한 법률 제70조",
+    "group": "사이버",
+    "statutory": "사실을 적시한 경우 3년 이하의 징역 또는 3천만원 이하의 벌금 / 거짓 사실이면 7년 이하의 징역, 10년 이하의 자격정지 또는 7천만원 이하의 벌금",
+    "aliases": ["인터넷 명예훼손", "사이버 명예훼손", "악플", "SNS 명예훼손", "정보통신망법위반(명예훼손)"],
+    "questions": [
+      { "id": "truth", "label": "올린 내용", "type": "select", "options": [{ "value": "fact", "label": "사실" }, { "value": "false", "label": "거짓 사실" }] },
+      {
+        "id": "severity",
+        "label": "정도",
+        "type": "select",
+        "options": [
+          { "value": "normal", "label": "일반적인 경우" },
+          { "value": "repeat", "label": "개인적 감정으로 여러 번 반복해 올림" },
+          { "value": "grave", "label": "악의적으로 지어내 퍼뜨렸거나 회복이 어려울 만큼 피해가 큼" }
+        ]
+      },
+      {
+        "id": "wantsPunish",
+        "label": "피해자가 처벌을 원하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "원하지 않음" }, { "value": "yes", "label": "원함" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            { "q": "truth", "op": "eq", "value": "false" },
+            { "q": "severity", "op": "eq", "value": "grave" },
+            { "q": "wantsPunish", "op": "eq", "value": "yes" }
+          ]
+        ]
+      },
+      {
+        "level": "trial",
+        "when": [[{ "q": "truth", "op": "eq", "value": "false" }, { "q": "wantsPunish", "op": "eq", "value": "yes" }]],
+        "sentence": "징역 1년 이상",
+        "note": "거짓 사실 명예훼손은 정식재판이 원칙입니다. 벌금이 구형되는 경우 500만원 이상 수준입니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "severity", "op": "eq", "value": "repeat" }, { "q": "wantsPunish", "op": "eq", "value": "yes" }],
+          [{ "q": "severity", "op": "eq", "value": "grave" }, { "q": "wantsPunish", "op": "eq", "value": "yes" }]
+        ],
+        "sentence": "징역 10월 이상"
+      },
+      { "level": "summary", "when": [[{ "q": "wantsPunish", "op": "eq", "value": "yes" }]], "fine": { "base": 2000000, "atLeast": true } },
+      { "level": "suspension", "when": [], "note": "피해자가 처벌을 원하지 않으면 처벌할 수 없습니다(공소권 없음). 수사 중 합의로 끝나는 경우가 많습니다." }
+    ],
+    "notes": ["사람을 비방할 목적이 있어야 하고, 공공의 이익을 위한 것이면 비방할 목적이 부정될 수 있습니다.", "2026년 개정으로 거짓 사실 명예훼손의 벌금 상한이 7천만원으로 올랐습니다."]
+  },
+  {
+    "id": "online-obscenity",
+    "name": "정보통신망 음란물 유포",
+    "law": "정보통신망 이용촉진 및 정보보호 등에 관한 법률 제74조 제1항 제2호, 제44조의7 제1항 제1호",
+    "group": "사이버",
+    "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": ["음란물 유포", "야동 업로드", "정보통신망법위반(음란물유포)"],
+    "questions": [
+      {
+        "id": "commercial",
+        "label": "돈을 벌 목적으로 많이 올렸나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      { "id": "record", "label": "같은 종류 전과가 있나요", "type": "select", "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }] }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "commercial", "op": "eq", "value": "yes" }]] },
+      { "level": "trial", "when": [[{ "q": "record", "op": "eq", "value": "yes" }]], "sentence": "징역 8월 이상" },
+      { "level": "summary", "when": [], "fine": { "base": 2000000, "atLeast": true } }
+    ],
+    "notes": ["아동·청소년이 나오는 성착취물이나 불법촬영물이면 훨씬 무거운 다른 법이 적용됩니다."]
+  },
+  {
+    "id": "online-repeated-fear",
+    "name": "공포심·불안감 유발 문자 반복 전송",
+    "law": "정보통신망 이용촉진 및 정보보호 등에 관한 법률 제74조 제1항 제3호, 제44조의7 제1항 제3호",
+    "group": "사이버",
+    "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": ["협박 문자", "반복 문자", "카톡 반복", "정보통신망법위반(불안감조성)"],
+    "questions": [
+      {
+        "id": "long",
+        "label": "상당한 기간 동안 반복해서 보냈나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      { "id": "record", "label": "같은 종류 전과가 있나요", "type": "select", "options": [{ "value": "no", "label": "없음" }, { "value": "yes", "label": "있음" }] },
+      {
+        "id": "wantsPunish",
+        "label": "피해자가 처벌을 원하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "원하지 않음" }, { "value": "yes", "label": "원함" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "long", "op": "eq", "value": "yes" }, { "q": "wantsPunish", "op": "eq", "value": "yes" }],
+          [{ "q": "record", "op": "eq", "value": "yes" }, { "q": "wantsPunish", "op": "eq", "value": "yes" }]
+        ],
+        "sentence": "징역 8월 이상"
+      },
+      { "level": "summary", "when": [[{ "q": "wantsPunish", "op": "eq", "value": "yes" }]], "fine": { "base": 2000000, "atLeast": true } },
+      { "level": "suspension", "when": [], "note": "피해자가 처벌을 원하지 않으면 처벌할 수 없습니다(공소권 없음)." }
+    ],
+    "notes": ["찾아가거나 지켜보는 등 다른 행동이 함께 있었다면 더 무거운 스토킹처벌법이 적용될 수 있고, 이 계산기에는 반영되지 않았습니다."]
+  },
+  {
+    "id": "personal-info-leak",
+    "name": "개인정보 무단 제공·유출",
+    "law": "개인정보 보호법 제71조",
+    "group": "사이버",
+    "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+    "aliases": ["개인정보 유출", "개인정보 판매", "개인정보 무단 제공", "개인정보보호법위반"],
+    "questions": [
+      {
+        "id": "scale",
+        "label": "제공·유출한 정보",
+        "type": "select",
+        "options": [{ "value": "few", "label": "소수의 정보" }, { "value": "many", "label": "여러 사람의 정보 (특별한 이유 없이)" }]
+      },
+      {
+        "id": "commercial",
+        "label": "돈을 벌 목적으로 반복해서 제공했나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      {
+        "id": "wantsPunish",
+        "label": "정보 주인이 처벌을 원하나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "원하지 않음" }, { "value": "yes", "label": "원함" }]
+      }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "scale", "op": "eq", "value": "many" }], [{ "q": "commercial", "op": "eq", "value": "yes" }]] },
+      { "level": "trial", "when": [[{ "q": "wantsPunish", "op": "eq", "value": "yes" }]], "sentence": "징역 1년 이상" },
+      { "level": "summary", "when": [], "fine": { "base": 7000000, "atLeast": true } }
+    ],
+    "notes": ["동의 없는 제공, 목적 외 이용, 업무상 알게 된 정보 누설 등이 여기에 해당합니다."]
+  },
+  {
+    "id": "copyright-uploader",
+    "name": "저작권 침해 (불법 업로드)",
+    "law": "저작권법 제136조 제1항, 제140조",
+    "group": "사이버",
+    "statutory": "7년 이하의 징역 또는 1억원 이하의 벌금 (함께 물릴 수 있음)",
+    "aliases": ["저작권", "불법 다운로드 업로드", "웹하드 업로드", "토렌트", "저작권법위반", "헤비업로더"],
+    "questions": [
+      { "id": "count", "label": "올린 파일 수", "type": "number", "unit": "건", "min": 0, "max": 100000, "step": 1 },
+      {
+        "id": "commercial",
+        "label": "돈을 벌 목적이었거나 계속 반복해서 올렸나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      {
+        "id": "record",
+        "label": "같은 종류 처벌 전력",
+        "type": "select",
+        "options": [{ "value": "none", "label": "없음" }, { "value": "once", "label": "1회" }, { "value": "many", "label": "2회 이상" }]
+      },
+      {
+        "id": "withdrawn",
+        "label": "고소가 취소되었나요 (합의)",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아님" }, { "value": "yes", "label": "취소됨" }]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "count", "op": "gte", "value": 5000 }],
+          [{ "q": "record", "op": "eq", "value": "many" }, { "q": "commercial", "op": "eq", "value": "yes" }]
+        ],
+        "note": "5년 안에 같은 전력 2회 이상이면서 이익이 1천만원 이상이거나, 5천 건 이상 올리면 정식재판이 원칙입니다."
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "commercial", "op": "eq", "value": "yes" }, { "q": "count", "op": "gte", "value": 4000 }]],
+        "fine": { "base": 6000000 }
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "commercial", "op": "eq", "value": "yes" }, { "q": "count", "op": "gte", "value": 3000 }]],
+        "fine": { "base": 5000000 }
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "commercial", "op": "eq", "value": "yes" }, { "q": "count", "op": "gte", "value": 2000 }]],
+        "fine": { "base": 4000000 }
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "commercial", "op": "eq", "value": "yes" }, { "q": "count", "op": "gte", "value": 1000 }]],
+        "fine": { "base": 3000000 }
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "commercial", "op": "eq", "value": "yes" }, { "q": "count", "op": "gte", "value": 100 }]],
+        "fine": { "base": 2000000 }
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "record", "op": "neq", "value": "none" }, { "q": "withdrawn", "op": "eq", "value": "no" }]],
+        "fine": { "base": 500000, "atLeast": true }
+      },
+      { "level": "suspension", "when": [], "note": "성인 초범은 저작권 교육을 조건으로 한 기소유예가 일반적이고, 고소가 취소되면 처벌하지 않습니다(공소권 없음)." }
+    ],
+    "notes": [
+      "돈을 벌 목적이거나 상습이 아니면 고소가 있어야 처벌하는 죄라 합의로 끝나는 경우가 많습니다.",
+      "돈을 벌 목적이었으면 실제 얻은 이익의 30% 이상이 기준이 되고, 같은 전력이 있으면 한 단계 무거워집니다.",
+      "미성년자 초범은 처벌 없이 끝나는 경우가 많습니다.",
+      "2026년 개정으로 법정형이 7년 이하 징역·1억원 이하 벌금으로 올라, 실제 처리는 이 예상보다 무거울 수 있습니다."
+    ]
+  },
+  {
+    "id": "illegal-sports-betting",
+    "name": "불법 스포츠도박 (사설토토 이용)",
+    "law": "국민체육진흥법 제48조 제3호, 제26조 제1항",
+    "group": "기타",
+    "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+    "aliases": ["사설토토", "불법토토", "스포츠도박", "인터넷 도박", "국민체육진흥법위반(도박등)"],
+    "questions": [{ "id": "amount", "label": "총 베팅 금액", "type": "number", "unit": "만원", "min": 0, "max": 1000000, "step": 10, "help": "실제로 건 돈의 합계입니다." }],
+    "tiers": [
+      { "level": "trial", "when": [[{ "q": "amount", "op": "gte", "value": 20000 }]], "sentence": "징역 10월 이상" },
+      {
+        "level": "summary",
+        "when": [[{ "q": "amount", "op": "gte", "value": 10000 }]],
+        "fine": { "base": 7000000, "atLeast": true },
+        "note": "정식재판으로 넘어갈 수도 있는 금액대입니다."
+      },
+      { "level": "summary", "when": [[{ "q": "amount", "op": "gte", "value": 5000 }]], "fine": { "base": 5000000 } },
+      { "level": "summary", "when": [[{ "q": "amount", "op": "gte", "value": 3000 }]], "fine": { "base": 3000000 } },
+      { "level": "summary", "when": [[{ "q": "amount", "op": "gte", "value": 1000 }]], "fine": { "base": 2000000 } },
+      { "level": "summary", "when": [], "fine": { "base": 1000000 }, "note": "기소유예로 끝나는 경우도 있습니다." }
+    ],
+    "notes": ["같은 전력, 베팅 기간 등에 따라 탄력적으로 적용됩니다.", "도박 사이트를 운영하거나 홍보한 경우는 훨씬 무겁게 처벌됩니다."]
+  },
+  {
+    "id": "illegal-alien-employment",
+    "name": "불법체류 외국인 고용",
+    "law": "출입국관리법 제94조 제9호, 제18조 제3항",
+    "group": "기타",
+    "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": ["불법체류자 고용", "미등록 외국인 고용", "출입국관리법위반"],
+    "questions": [
+      { "id": "count", "label": "고용한 불법체류 외국인 수", "type": "number", "unit": "명", "min": 1, "max": 500, "step": 1 },
+      {
+        "id": "venue",
+        "label": "업종",
+        "type": "select",
+        "options": [{ "value": "normal", "label": "일반 업소·공장" }, { "value": "illegal", "label": "유흥·성매매·마사지 등 불법 업소" }]
+      },
+      {
+        "id": "abuse",
+        "label": "임금 체불 등 부당하게 대우했거나 큰 이익을 얻었나요",
+        "type": "select",
+        "options": [{ "value": "no", "label": "아니오" }, { "value": "yes", "label": "예" }]
+      },
+      { "id": "priors", "label": "같은 종류 처벌 전력", "type": "number", "unit": "회", "min": 0, "max": 20, "step": 1 }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [[{ "q": "count", "op": "gt", "value": 10 }, { "q": "abuse", "op": "eq", "value": "yes" }], [{ "q": "priors", "op": "gte", "value": 3 }]],
+        "note": "10명 넘게 고용해 부당하게 대우했거나, 20명 넘게 고용해 큰 이익을 얻었거나, 정식재판 이상 전력이 3회 이상이면 구속이 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [{ "q": "count", "op": "gt", "value": 10 }],
+          [{ "q": "count", "op": "gt", "value": 5 }, { "q": "venue", "op": "eq", "value": "illegal" }],
+          [{ "q": "priors", "op": "gte", "value": 1 }]
+        ],
+        "sentence": "징역 8월 이상"
+      },
+      {
+        "level": "summary",
+        "when": [[{ "q": "venue", "op": "eq", "value": "illegal" }]],
+        "fine": { "base": 0, "perUnit": { "q": "count", "over": 0, "amount": 2000000 } },
+        "note": "1명당 200만원 기준입니다."
+      },
+      { "level": "summary", "when": [], "fine": { "base": 0, "perUnit": { "q": "count", "over": 0, "amount": 1500000 } }, "note": "1명당 150만원 기준입니다." }
+    ],
+    "notes": [
+      "출입국 당국의 고발이 있어야 처벌할 수 있습니다.",
+      "구인난을 겪는 제조업 등에서 1개월 이하로 짧게 고용한 경우 참작될 수 있습니다.",
+      "고용 기간, 업종, 재범 여부에 따라 벌금이 달라집니다.",
+      "2016년 이후 법 개정으로 벌금 상한이 2천만원에서 3천만원으로 올랐습니다."
+    ]
+  }
+]
