@@ -22,7 +22,7 @@ export function DeadlinePage({ lang }: { lang: Lang }) {
   const t = toolText(lang, "deadline")
   if (!t || !toolText(lang, "common")) notFound()
   return (
-    <ToolShell lang={lang} title={t.page.title} lead={t.page.lead} notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
+    <ToolShell toolId="deadline" lang={lang} title={t.page.title} lead={t.page.lead} notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
       <DeadlineCalculator lang={lang} t={t} />
     </ToolShell>
   )

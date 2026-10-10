@@ -23,7 +23,7 @@ export function PoliceSummonsPage({ lang }: { lang: Lang }) {
   const t = toolText(lang, "police-summons")
   if (!t || !toolText(lang, "common")) notFound()
   return (
-    <ToolShell lang={lang} title={t.page.title} lead={t.page.lead} consultType="형사" notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
+    <ToolShell toolId="police-summons" lang={lang} title={t.page.title} lead={t.page.lead} consultType="형사" notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
       <PoliceSummonsChecklist lang={lang} t={t} brand={brandName(lang)} />
     </ToolShell>
   )

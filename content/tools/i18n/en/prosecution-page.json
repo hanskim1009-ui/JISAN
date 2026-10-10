@@ -1,0 +1,44 @@
+{
+  "_note": "English text for the per-crime information pages (/en/tools/prosecution/<crime id>) and the crime index. Same shape as ko/prosecution-page.json. Do not name the source of the handling standards. Translated 2026-10-10; not yet reviewed by a lawyer.",
+  "meta": {
+    "title": "{name}: statutory penalty and likely requested sentence",
+    "titleConsult": "{name}: statutory penalty",
+    "description": "{name} ({law}): the statutory penalty and the likely handling of the case depending on circumstances such as a settlement, prior convictions and the extent of the harm. Answer a few questions to calculate it right away.",
+    "descriptionConsult": "{name} ({law}): the statutory penalty. There is no set standard for the prosecutor's request for this crime, so the level of punishment depends on the facts of the case."
+  },
+  "crumb": "Prosecution Request Estimator",
+  "lead": "The statutory penalty for {name} and the likely handling of the case depending on your circumstances. The results are for reference only.",
+  "leadConsult": "The statutory penalty for {name}. There is no set standard for the prosecutor's request for this crime, so the level of punishment depends on the facts of the case.",
+  "facts": {
+    "statutory": "Statutory penalty",
+    "law": "Legal basis",
+    "group": "Category"
+  },
+  "calcTitle": "Calculate with your own circumstances",
+  "tiersTitle": "Handling standards at a glance",
+  "tiersLead": "Listed from heaviest to lightest. The actual decision depends on the results of the investigation and your circumstances.",
+  "sentence": "Likely requested sentence",
+  "criterion": "Handling standard",
+  "fine": "Likely fine",
+  "fineFrom": "From {amount} (higher depending on the circumstances)",
+  "notesTitle": "Notes",
+  "faqTitle": "Frequently asked questions",
+  "faq": {
+    "statutoryQ": "{name}: what is the statutory penalty?",
+    "statutoryA": "Legal basis: {law}. Statutory penalty: {statutory}.",
+    "outcomeQ": "{name}: how is the case usually handled?",
+    "outcomeA": "Depending on the circumstances, it may be handled as follows: {levels}. Enter your circumstances in the calculator above to see which one applies.",
+    "consultQ": "{name}: can I find out the likely requested sentence?",
+    "consultA": "There is no set standard for the prosecutor's request for this crime, and the request and the level of punishment depend on the facts of the case. If you send us your situation by message, a lawyer will review it."
+  },
+  "listSep": ", ",
+  "related": "Other crimes in the same category",
+  "allCrimes": "See the full list of crimes",
+  "detailLink": "Information page for this crime",
+  "index": {
+    "title": "Prosecution Request Estimator: list of crimes",
+    "description": "The {n} crimes you can look up in the Prosecution Request Estimator, grouped by category. Choose a crime to see its statutory penalty and the likely handling of the case.",
+    "lead": "Choose a crime to see its statutory penalty and the likely handling of the case depending on the circumstances.",
+    "openCalc": "Search in the calculator"
+  }
+}

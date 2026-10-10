@@ -149,6 +149,14 @@ export function loadIndex(): CrimeSummary[] {
   }))
 }
 
+let indexId: string | null = null
+
+/** 목록 정적 JSON 의 조각 id (index-내용해시). 목록이 바뀌면 주소도 바뀌어 오래 캐시해도 됨 */
+export function loadIndexId(): string {
+  indexId ??= `index-${createHash("sha1").update(JSON.stringify(loadIndex())).digest("hex").slice(0, 8)}`
+  return indexId
+}
+
 export function loadChunkIds(): string[] {
   return [...load().chunks.keys()]
 }

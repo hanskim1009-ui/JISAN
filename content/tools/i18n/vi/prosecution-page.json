@@ -1,0 +1,44 @@
+{
+  "_note": "Bản tiếng Việt cho trang thông tin từng tội danh (/vi/tools/prosecution/<mã tội danh>) và trang danh sách tội danh. Cùng cấu trúc với ko/prosecution-page.json. Không ghi tên tài liệu nguồn của tiêu chuẩn xử lý. Dịch ngày 10/10/2026, chưa qua luật sư kiểm duyệt.",
+  "meta": {
+    "title": "{name}: khung hình phạt và mức án đề nghị dự kiến",
+    "titleConsult": "{name}: khung hình phạt",
+    "description": "{name} ({law}): khung hình phạt và cách xử lý dự kiến tùy theo hoàn cảnh như thỏa thuận với người bị hại, tiền án, mức độ thiệt hại. Trả lời vài câu hỏi để tính ngay.",
+    "descriptionConsult": "{name} ({law}): khung hình phạt. Tội danh này không có tiêu chuẩn đề nghị mức án cố định, nên mức xử phạt khác nhau tùy tình tiết sự việc."
+  },
+  "crumb": "Ước tính mức án công tố viên đề nghị",
+  "lead": "{name}: khung hình phạt và cách xử lý dự kiến tùy theo hoàn cảnh vụ việc. Kết quả chỉ để tham khảo.",
+  "leadConsult": "{name}: khung hình phạt. Tội danh này không có tiêu chuẩn đề nghị mức án cố định, nên mức xử phạt khác nhau tùy tình tiết sự việc.",
+  "facts": {
+    "statutory": "Khung hình phạt",
+    "law": "Điều luật căn cứ",
+    "group": "Nhóm"
+  },
+  "calcTitle": "Tính theo hoàn cảnh của bạn",
+  "tiersTitle": "Tóm tắt tiêu chuẩn xử lý",
+  "tiersLead": "Xếp từ nặng đến nhẹ, từ trên xuống. Quyết định thực tế khác nhau tùy kết quả điều tra và hoàn cảnh vụ việc.",
+  "sentence": "Mức án đề nghị dự kiến",
+  "criterion": "Tiêu chuẩn xử lý",
+  "fine": "Mức phạt tiền dự kiến",
+  "fineFrom": "Từ {amount} (có thể tăng tùy hoàn cảnh)",
+  "notesTitle": "Lưu ý",
+  "faqTitle": "Câu hỏi thường gặp",
+  "faq": {
+    "statutoryQ": "{name}: khung hình phạt là bao nhiêu?",
+    "statutoryA": "Theo {law}, khung hình phạt là: {statutory}.",
+    "outcomeQ": "{name}: vụ việc thường được xử lý thế nào?",
+    "outcomeA": "Tùy hoàn cảnh, vụ việc có thể được xử lý theo các hướng sau: {levels}. Hãy nhập hoàn cảnh của bạn vào công cụ tính ở trên để xem mình thuộc trường hợp nào.",
+    "consultQ": "{name}: có thể biết trước mức án công tố viên đề nghị không?",
+    "consultA": "Tội danh này không có tiêu chuẩn đề nghị mức án cố định; mức án đề nghị và mức xử phạt khác nhau tùy tình tiết sự việc. Nếu bạn nhắn tin cho chúng tôi về hoàn cảnh của mình, luật sư sẽ xem xét."
+  },
+  "listSep": ", ",
+  "related": "Tội danh khác cùng nhóm",
+  "allCrimes": "Xem toàn bộ danh sách tội danh",
+  "detailLink": "Trang thông tin về tội danh này",
+  "index": {
+    "title": "Danh sách tội danh: Ước tính mức án công tố viên đề nghị",
+    "description": "{n} tội danh có thể tra cứu trong công cụ ước tính mức án công tố viên đề nghị, sắp xếp theo nhóm. Chọn một tội danh để xem khung hình phạt và cách xử lý dự kiến.",
+    "lead": "Chọn một tội danh để xem khung hình phạt và cách xử lý dự kiến tùy theo hoàn cảnh.",
+    "openCalc": "Tìm trong công cụ tính"
+  }
+}

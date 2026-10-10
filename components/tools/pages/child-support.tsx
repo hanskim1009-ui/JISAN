@@ -23,7 +23,7 @@ export function ChildSupportPage({ lang }: { lang: Lang }) {
   const c = toolText(lang, "common")
   if (!t || !c) notFound()
   return (
-    <ToolShell lang={lang} title={t.page.title} lead={t.page.lead} consultType="이혼" notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
+    <ToolShell toolId="child-support" lang={lang} title={t.page.title} lead={t.page.lead} consultType="이혼" notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
       <ChildSupportCalculator lang={lang} t={t} c={c} />
     </ToolShell>
   )

@@ -7,6 +7,7 @@ import { allCenterPages } from "@/lib/center-pages"
 import { TOOLS } from "@/lib/tools/registry"
 import { toolsFor } from "@/components/tools/pages/tools-list"
 import { visaList } from "@/lib/visa"
+import { crimePageIds, crimePageLangs } from "@/lib/tools/prosecution-page"
 import { regions, regionBase } from "@/lib/regions"
 import { LANGS } from "@/lib/langs"
 
@@ -56,6 +57,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             { url: url(`/${l}/tools`), changeFrequency: "monthly" as const, priority: 0.6 },
             ...list.map((x) => ({ url: url(`/${l}${x.href}`), changeFrequency: "monthly" as const, priority: 0.6 })),
           ]
+    }),
+    // 구형 계산기 죄명 안내 페이지와 죄명 모음 (외국어는 번역된 죄명만)
+    ...crimePageLangs().flatMap((l) => {
+      const pre = l === "ko" ? "" : `/${l}`
+      return [
+        { url: url(`${pre}/tools/prosecution/crimes`), changeFrequency: "monthly" as const, priority: 0.6 },
+        ...crimePageIds(l).map((id) => ({ url: url(`${pre}/tools/prosecution/${id}`), changeFrequency: "monthly" as const, priority: 0.5 })),
+      ]
     }),
     ...LANGS.flatMap((l) => {
       const list = visaList(l)

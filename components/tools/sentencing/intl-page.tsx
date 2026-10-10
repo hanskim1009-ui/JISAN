@@ -26,7 +26,7 @@ export function SentencingIntlPage({ lang }: { lang: ForeignLang }) {
     { href: L(lang, "/crime"), label: u.meta.relatedCrimeCenter },
   ]
   return (
-    <ToolShell lang={lang} title={u.meta.title} lead={u.meta.lead} notice={u.meta.notice} related={related}>
+    <ToolShell toolId="sentencing" lang={lang} title={u.meta.title} lead={u.meta.lead} notice={u.meta.notice} related={related}>
       <SentencingCalculator
         groups={s.index}
         intl={{ lang, ui: u, num: s.num, dataBase: L(lang, "/tools/sentencing/data"), consultHref: L(lang, "/consult") }}

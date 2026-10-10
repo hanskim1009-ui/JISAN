@@ -17,6 +17,9 @@ import type koDeadline from "@/content/tools/i18n/ko/deadline.json"
 import type koChild from "@/content/tools/i18n/ko/child-support.json"
 import type koInheritance from "@/content/tools/i18n/ko/inheritance.json"
 import type koReserved from "@/content/tools/i18n/ko/reserved-share.json"
+import type koInterest from "@/content/tools/i18n/ko/interest.json"
+import type koCourtFees from "@/content/tools/i18n/ko/court-fees.json"
+import type koInterestCap from "@/content/tools/i18n/ko/interest-cap.json"
 
 /** 사전 이름 → 모양 (다른 도구는 toolText 의 결과를 직접 형 변환해서 씀) */
 export type ToolTexts = {
@@ -27,6 +30,9 @@ export type ToolTexts = {
   "child-support": typeof koChild
   inheritance: typeof koInheritance
   "reserved-share": typeof koReserved
+  interest: typeof koInterest
+  "court-fees": typeof koCourtFees
+  "interest-cap": typeof koInterestCap
 }
 
 const DIR = path.join(process.cwd(), "content", "tools", "i18n")

@@ -1,5 +1,6 @@
 "use client"
 
+import { trackEvent } from "@/components/analytics"
 import { useEffect, useMemo, useRef, useState } from "react"
 import {
   SENTENCING_UI_KO,
@@ -135,6 +136,12 @@ export function SentencingCalculator({ groups, intl }: { groups: GroupSummary[];
   const crime: SentCrime | undefined = group && group.id === gid ? (group.crimes.find((c) => c.id === cid) ?? group.crimes[0]) : undefined
   const tNo = typeNo ?? (crime?.types.length === 1 ? crime.types[0].no : undefined)
   const result = crime && tNo ? evaluate(crime, tNo, { aggravating: idsOf(special, "agg"), mitigating: idsOf(special, "mit") }, tx) : null
+  // 결과가 처음 나왔을 때 한 번 분석 이벤트 (어느 범죄에서 계산을 끝까지 하는지)
+  const shown = !!result
+  useEffect(() => {
+    if (shown && crime) trackEvent("tool_result", { tool: "sentencing", group: gid ?? "", crime: crime.id })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shown, crime?.id])
 
   const pf = group && crime ? probationFactors(group, crime) : undefined
   const probGroups =

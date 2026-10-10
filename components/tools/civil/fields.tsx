@@ -6,6 +6,9 @@ import { formatNumber, parseAmount, toISODate } from "@/lib/tools/civil/format"
 
 /** 민사 계산기 공통 입력 부품 */
 
+/** 칸 오른쪽 단위 글자("원", "KRW", "people")가 숫자와 겹치지 않게 비워 둘 오른쪽 여백 */
+const unitPad = (unit: string) => (unit.length <= 1 ? "pr-9" : unit.length <= 3 ? "pr-14" : "pr-20")
+
 export function Field({ label, hint, children, htmlFor }: { label: string; hint?: string; children: React.ReactNode; htmlFor?: string }) {
   return (
     <div className="min-w-0 space-y-2">
@@ -18,8 +21,22 @@ export function Field({ label, hint, children, htmlFor }: { label: string; hint?
   )
 }
 
-/** 금액 입력: 쓰는 대로 천 단위 쉼표 */
-export function MoneyInput({ id, value, onChange, placeholder }: { id?: string; value: number | null; onChange: (v: number | null) => void; placeholder?: string }) {
+/** 금액 입력: 쓰는 대로 천 단위 쉼표. unit·locale 은 외국어판용 (사전 common units.wonUnit, TOOL_LOCALE) */
+export function MoneyInput({
+  id,
+  value,
+  onChange,
+  placeholder,
+  unit = "원",
+  locale,
+}: {
+  id?: string
+  value: number | null
+  onChange: (v: number | null) => void
+  placeholder?: string
+  unit?: string
+  locale?: string
+}) {
   return (
     <div className="relative">
       <Input
@@ -27,11 +44,11 @@ export function MoneyInput({ id, value, onChange, placeholder }: { id?: string; 
         inputMode="numeric"
         autoComplete="off"
         placeholder={placeholder}
-        value={value === null ? "" : formatNumber(value)}
+        value={value === null ? "" : locale ? value.toLocaleString(locale) : formatNumber(value)}
         onChange={(e) => onChange(parseAmount(e.target.value))}
-        className="pr-9 text-right tabular-nums"
+        className={`${unitPad(unit)} text-right tabular-nums`}
       />
-      <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-[#6B717B]">원</span>
+      <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-[#6B717B]">{unit}</span>
     </div>
   )
 }
@@ -68,7 +85,7 @@ export function NumberInput({
           const n = Math.floor(Number(e.target.value))
           onChange(Number.isFinite(n) ? Math.min(Math.max(n, min), max) : min)
         }}
-        className={suffix ? "pr-9 text-right tabular-nums" : "text-right tabular-nums"}
+        className={suffix ? `${unitPad(suffix)} text-right tabular-nums` : "text-right tabular-nums"}
       />
       {suffix && <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-[#6B717B]">{suffix}</span>}
     </div>

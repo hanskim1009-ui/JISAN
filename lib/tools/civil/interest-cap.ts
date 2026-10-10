@@ -1,6 +1,7 @@
 /**
  * 최고이자율 확인 — 사무소 사건관리 프로그램의 이자제한법·대부업법 최고이율 표를 그대로 옮김.
  * 받은(받기로 한) 이자를 연 이율로 환산해 계약 당시 최고이율과 비교합니다.
+ * 화면 문구(빌려준 사람 이름, 조문 표기, 입력 오류)는 content/tools/i18n/{언어}/interest-cap.json 의 lenders·laws·ui.errors.
  */
 import rates from "../../../content/tools/civil/rates.json"
 import { diffDays, parseISODate, roundHalfUp } from "./format"
@@ -22,11 +23,26 @@ export type LenderKind = "personal" | "registered" | "unregistered"
 /** 이 날 이후 불법사금융업자(미등록 대부업자 등)와 맺은 계약은 이자 약정 전부 무효 (대부업법 제11조 제1항, 2025. 1. 21. 개정 부칙 제3조) */
 export const ILLEGAL_LENDER_NO_INTEREST_FROM = "2025-07-22"
 
-export const LENDER_KINDS: { value: LenderKind; label: string; law: string; penalty: string }[] = [
-  { value: "personal", label: "개인 사이 등 일반 금전거래", law: "이자제한법 제2조", penalty: "이자제한법 제8조" },
-  { value: "registered", label: "등록된 대부업자·금융회사", law: "대부업법 제8조", penalty: "대부업법 제19조" },
-  { value: "unregistered", label: "등록하지 않은 대부업자", law: "대부업법 제11조, 이자제한법 제2조", penalty: "대부업법 제19조" },
+/**
+ * 조문 표기 (사전 laws 의 키). interestAct2 = 이자제한법 제2조, lendingAct8 = 대부업법 제8조,
+ * lendingAct11InterestAct2 = 대부업법 제11조·이자제한법 제2조, lendingAct11p1 = 대부업법 제11조 제1항,
+ * interestAct8 = 이자제한법 제8조, lendingAct19 = 대부업법 제19조
+ */
+export type CapLaw = "interestAct2" | "lendingAct8" | "lendingAct11InterestAct2" | "lendingAct11p1" | "interestAct8" | "lendingAct19"
+
+/** 빌려준 사람 종류 (이름은 사전 lenders) */
+export const LENDER_KINDS: { value: LenderKind; law: CapLaw; penalty: CapLaw }[] = [
+  { value: "personal", law: "interestAct2", penalty: "interestAct8" },
+  { value: "registered", law: "lendingAct8", penalty: "lendingAct19" },
+  { value: "unregistered", law: "lendingAct11InterestAct2", penalty: "lendingAct19" },
 ]
+
+/** 입력 오류 (code 는 사전 ui.errors 의 키) */
+export class InterestCapError extends Error {
+  constructor(public code: "principal" | "interest" | "prepaidTooBig" | "badDate" | "endNotAfterStart" | "tooOld") {
+    super(code)
+  }
+}
 
 /** 계약일 기준 이자제한법 최고이율(%) */
 export function interestCapOn(day: string): { from: string | null; to: string | null; rate: number } {
@@ -71,9 +87,9 @@ export type InterestCapResult = {
   /** 연 환산 이율(%) — 표시용 */
   annualPercent: number
   capPercent: number
-  capLaw: string
+  capLaw: CapLaw
   /** 최고이율을 넘겨 받으면 처벌하는 조문 */
-  penaltyLaw: string
+  penaltyLaw: CapLaw
   /** 최고이율로 계산한 이 기간의 이자 한도 (원 미만 버림) */
   maxInterest: number
   over: boolean
@@ -85,14 +101,14 @@ export type InterestCapResult = {
 
 export function calcInterestCap(input: InterestCapInput): InterestCapResult {
   const prepaid = Math.max(0, input.prepaid ?? 0)
-  if (!Number.isSafeInteger(input.principal) || input.principal <= 0) throw new Error("빌려준 돈을 입력하세요.")
-  if (!Number.isSafeInteger(input.interest) || input.interest < 0) throw new Error("이자를 입력하세요.")
-  if (prepaid >= input.principal) throw new Error("선이자가 빌려준 돈보다 많습니다.")
-  if (parseISODate(input.start) === null || parseISODate(input.end) === null) throw new Error("날짜를 확인해 주세요.")
+  if (!Number.isSafeInteger(input.principal) || input.principal <= 0) throw new InterestCapError("principal")
+  if (!Number.isSafeInteger(input.interest) || input.interest < 0) throw new InterestCapError("interest")
+  if (prepaid >= input.principal) throw new InterestCapError("prepaidTooBig")
+  if (parseISODate(input.start) === null || parseISODate(input.end) === null) throw new InterestCapError("badDate")
   const days = diffDays(input.start, input.end)
-  if (days <= 0) throw new Error("갚는 날은 빌려준 날보다 뒤여야 합니다.")
+  if (days <= 0) throw new InterestCapError("endNotAfterStart")
   const contractDate = input.contractDate && parseISODate(input.contractDate) !== null ? input.contractDate : input.start
-  if (contractDate < CAP_TABLE_FLOOR) throw new Error("2018. 2. 8. 전에 맺은 계약은 당시 최고이율이 달라 이 계산기로 확인할 수 없습니다.")
+  if (contractDate < CAP_TABLE_FLOOR) throw new InterestCapError("tooOld")
 
   // 선이자를 뗀 경우 실제 받은 돈을 원금으로 본다 (이자제한법 제3조)
   const principal = input.principal - prepaid
@@ -100,13 +116,13 @@ export function calcInterestCap(input: InterestCapInput): InterestCapResult {
 
   const kind = LENDER_KINDS.find((k) => k.value === input.lender) ?? LENDER_KINDS[0]
   let capPercent: number
-  let capLaw = kind.law
+  let capLaw: CapLaw = kind.law
   if (input.lender === "registered") capPercent = lenderCapOn(contractDate).registered
   else if (input.lender === "unregistered") {
     // 2025. 7. 22. 이후 계약은 이자를 아예 받을 수 없음 (사건관리 프로그램 표에는 없는 개정 반영)
     if (contractDate >= ILLEGAL_LENDER_NO_INTEREST_FROM) {
       capPercent = 0
-      capLaw = "대부업법 제11조 제1항"
+      capLaw = "lendingAct11p1"
     } else capPercent = lenderCapOn(contractDate).unregistered
   } else capPercent = interestCapOn(contractDate).rate
 

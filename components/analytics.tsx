@@ -2,6 +2,7 @@
 
 import { useEffect } from "react"
 import Script from "next/script"
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next"
 import { siteConfig } from "@/lib/site-config"
 
 type Gtag = (...args: unknown[]) => void
@@ -29,7 +30,13 @@ export function trackEvent(name: string, params: Record<string, string> = {}) {
   window.gtag?.("event", name, { ...params, page_path: location.pathname })
 }
 
-/** 구글 애널리틱스 4 + 네이버 애널리틱스. ID가 없으면 아무것도 넣지 않음 */
+/**
+ * Vercel 웹 분석(쿠키 없음): Vercel 대시보드에서 Analytics 를 켠 뒤 환경변수 NEXT_PUBLIC_VERCEL_ANALYTICS=1 로 켬
+ * (켜지 않은 채 넣으면 스크립트 주소가 404 라서 기본은 끔). 관리 화면은 세지 않음
+ */
+const VERCEL_ANALYTICS = process.env.NEXT_PUBLIC_VERCEL_ANALYTICS === "1"
+
+/** 구글 애널리틱스 4 + 네이버 애널리틱스 + Vercel 웹 분석. ID가 없거나 꺼져 있으면 아무것도 넣지 않음 */
 export function Analytics() {
   const { gaId, naverAnalyticsId } = siteConfig.seo
 
@@ -50,6 +57,7 @@ export function Analytics() {
 
   return (
     <>
+      {VERCEL_ANALYTICS && <VercelAnalytics beforeSend={(e) => (new URL(e.url).pathname.startsWith("/admin") ? null : e)} />}
       {gaId && (
         <>
           <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />

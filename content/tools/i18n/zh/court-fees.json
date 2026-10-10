@@ -1,0 +1,93 @@
+{
+  "page": {
+    "title": "诉讼费用计算器",
+    "description": "选择诉讼标的额、案件种类和审级，即可计算起诉状、上诉状、上告状应贴的印花费（已反映电子诉讼10%减免）以及需预交的送达费。",
+    "lead": "计算提起诉讼时向法院缴纳的费用（印花费和送达费）。可选择民事诉讼、支付命令、调解，以及离婚等家事诉讼。",
+    "notice": "这只是计算最初向法院缴纳的费用的参考金额。不包括律师费、鉴定费、证人费用；合并或变更请求时金额也会变化。实际金额由受理的法院确定，提起诉讼前请先与律师商量。"
+  },
+  "ui": {
+    "kind": "案件种类",
+    "soga": "诉讼标的额",
+    "sogaHint": "请求支付金钱时，诉讼标的额通常就是所请求的本金。利息、迟延损害金不计入。",
+    "instance": "审级",
+    "filing": "提交方式",
+    "electronic": "电子诉讼（印花费减免10%）",
+    "paper": "以纸质文件提交",
+    "creditors": "债权人人数",
+    "applicants": "申请人人数",
+    "debtors": "债务人人数",
+    "opponents": "对方当事人人数",
+    "defendants": "被告（对方当事人）人数",
+    "appellees": "对方当事人（被上诉人·被上告人）人数",
+    "personUnit": "人",
+    "result": "{case} · 最初需缴纳的费用",
+    "summary": "印花费 {stamp} + 预交送达费 {delivery}",
+    "colStep": "计算步骤",
+    "colExpr": "算式",
+    "colAmount": "金额",
+    "deliveryRow": "预交送达费",
+    "sum": "合计",
+    "floorNote": "不足100韩元的部分舍去",
+    "fixedExpr": "定额",
+    "deliveryExpr": "{unit} × {who} {n}人 × {rounds}次",
+    "caseInstance": "{kind} {instance}",
+    "note": "印花费是贴在起诉状、申请书上的手续费；送达费是预先缴纳的、供法院寄送文件使用的邮费（每次{unit}）。剩余的送达费在案件结束后退还。同时提出多项请求或对方当事人较多时，金额可能不同，实际金额由受理的法院确定。",
+    "error": "请确认输入的内容。",
+    "errors": {
+      "kind": "请选择案件种类。",
+      "soga": "请输入诉讼标的额。"
+    }
+  },
+  "kinds": {
+    "civil": "民事诉讼",
+    "payment-order": "申请支付命令",
+    "mediation": "申请民事调解",
+    "family-fixed": "离婚等家事诉讼（甲类·乙类）",
+    "family-damages": "精神损害赔偿等家事诉讼（丙类）",
+    "family-division": "财产分割审判"
+  },
+  "hints": {
+    "civil": "诉讼标的额在{limit}以下的一审案件，视为小额案件计算送达费。",
+    "payment-order": "由法院命令对方还款的简便程序。对方提出异议的，转为诉讼。",
+    "mediation": "在法官或调解委员面前促成双方达成协议的程序。",
+    "family-fixed": "像裁判离婚、婚姻无效这样不以金钱数额为标准的家事诉讼。印花费为固定金额。",
+    "family-damages": "像离婚精神损害赔偿这样请求支付金钱的家事诉讼。按民事费率的一半计算。",
+    "family-division": "单独请求财产分割的情形。诉讼标的额为所请求的金额。"
+  },
+  "instances": {
+    "1": "一审",
+    "2": "上诉",
+    "3": "上告"
+  },
+  "divisionInstances": {
+    "1": "一审",
+    "2": "抗告",
+    "3": "再抗告"
+  },
+  "cases": {
+    "civilSmall": "民事一审小额案件",
+    "civilFirst": "民事一审独任·合议案件",
+    "civilAppeal": "民事上诉",
+    "civilFinal": "民事上告"
+  },
+  "steps": {
+    "first": "一审印花费（以纸质提交为准）",
+    "appeal": "上诉审（1.5倍）",
+    "final": "上告审（2倍）",
+    "elec": "电子诉讼减免（10%）",
+    "mediation": "调解申请（1/10）",
+    "paymentOrder": "支付命令（1/10）",
+    "familyFixed": "家事诉讼定额（以纸质提交为准）",
+    "familyHalf": "家事一审（民事费率 × 1/2）",
+    "appealElec": "上诉审（1.5倍）·电子诉讼减免",
+    "finalElec": "上告审（2倍）·电子诉讼减免"
+  },
+  "who": {
+    "defendant": "被告",
+    "appellee": "被上诉人",
+    "finalAppellee": "被上告人",
+    "poParties": "债权人·债务人",
+    "medParties": "申请人·对方当事人",
+    "opponent": "对方当事人"
+  }
+}

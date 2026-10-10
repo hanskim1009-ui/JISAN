@@ -24,7 +24,7 @@ export function ReservedSharePage({ lang }: { lang: Lang }) {
   const c = toolText(lang, "common")
   if (!t || !it || !c) notFound()
   return (
-    <ToolShell lang={lang} title={t.page.title} lead={t.page.lead} consultType="상속" notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
+    <ToolShell toolId="reserved-share" lang={lang} title={t.page.title} lead={t.page.lead} consultType="상속" notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
       <ReservedShareCalculator lang={lang} t={t} it={it} c={c} />
     </ToolShell>
   )

@@ -1,0 +1,93 @@
+{
+  "page": {
+    "title": "Tính chi phí tố tụng",
+    "description": "Chọn giá trị vụ kiện, loại vụ việc và cấp xét xử để tính tiền tem án phí phải dán vào đơn khởi kiện, đơn kháng cáo, đơn kháng cáo lên Tòa án Tối cao (đã trừ 10% khi nộp qua tố tụng điện tử) và phí tống đạt phải nộp trước.",
+    "lead": "Tính số tiền nộp cho tòa án khi bắt đầu vụ kiện (tem án phí và phí tống đạt). Có thể chọn vụ kiện dân sự, lệnh thanh toán, hòa giải, hoặc vụ án gia sự như ly hôn.",
+    "notice": "Đây là số tiền tham khảo, chỉ tính chi phí nộp cho tòa án lúc ban đầu. Chưa bao gồm thù lao luật sư, phí giám định, chi phí nhân chứng; nếu gộp hoặc thay đổi yêu cầu thì số tiền cũng thay đổi. Số tiền thực tế do tòa án nơi nộp đơn quyết định, vì vậy hãy trao đổi với luật sư trước khi khởi kiện."
+  },
+  "ui": {
+    "kind": "Loại vụ việc",
+    "soga": "Giá trị vụ kiện",
+    "sogaHint": "Khi đòi tiền, giá trị vụ kiện thường là số tiền gốc bạn yêu cầu. Không tính tiền lãi và tiền bồi thường do chậm trả.",
+    "instance": "Cấp xét xử",
+    "filing": "Cách nộp đơn",
+    "electronic": "Tố tụng điện tử (giảm 10% tem án phí)",
+    "paper": "Nộp bằng hồ sơ giấy",
+    "creditors": "Số người có quyền (chủ nợ)",
+    "applicants": "Số người yêu cầu",
+    "debtors": "Số người có nghĩa vụ (con nợ)",
+    "opponents": "Số người phía bên kia",
+    "defendants": "Số bị đơn (phía bên kia)",
+    "appellees": "Số người phía bên kia (bị kháng cáo)",
+    "personUnit": "người",
+    "result": "{case} · Chi phí nộp ban đầu",
+    "summary": "Tem án phí {stamp} + phí tống đạt nộp trước {delivery}",
+    "colStep": "Bước tính",
+    "colExpr": "Công thức",
+    "colAmount": "Số tiền",
+    "deliveryRow": "Phí tống đạt nộp trước",
+    "sum": "Tổng cộng",
+    "floorNote": "bỏ phần lẻ dưới 100 won",
+    "fixedExpr": "Mức cố định",
+    "deliveryExpr": "{unit} × {n} {who} × {rounds} lần",
+    "caseInstance": "{kind} – {instance}",
+    "note": "Tem án phí là lệ phí dán vào đơn khởi kiện, đơn yêu cầu; phí tống đạt là tiền bưu phí nộp trước để tòa án gửi giấy tờ (mỗi lần {unit}). Phí tống đạt còn thừa sẽ được trả lại khi vụ việc kết thúc. Nếu nộp nhiều yêu cầu cùng lúc hoặc có nhiều người phía bên kia thì số tiền có thể khác, và số tiền thực tế do tòa án nơi nộp đơn quyết định.",
+    "error": "Hãy kiểm tra lại thông tin đã nhập.",
+    "errors": {
+      "kind": "Hãy chọn loại vụ việc.",
+      "soga": "Hãy nhập giá trị vụ kiện."
+    }
+  },
+  "kinds": {
+    "civil": "Vụ kiện dân sự",
+    "payment-order": "Yêu cầu ra lệnh thanh toán",
+    "mediation": "Yêu cầu hòa giải dân sự",
+    "family-fixed": "Vụ án gia sự như ly hôn (loại Ga, Na)",
+    "family-damages": "Vụ án gia sự đòi bồi thường như tổn thất tinh thần (loại Da)",
+    "family-division": "Yêu cầu phân chia tài sản"
+  },
+  "hints": {
+    "civil": "Vụ việc sơ thẩm có giá trị vụ kiện từ {limit} trở xuống được coi là vụ việc giá trị nhỏ khi tính phí tống đạt.",
+    "payment-order": "Thủ tục đơn giản trong đó tòa án ra lệnh cho phía bên kia trả tiền. Nếu phía bên kia phản đối thì chuyển sang vụ kiện.",
+    "mediation": "Thủ tục giúp hai bên đạt được thỏa thuận trước thẩm phán hoặc hòa giải viên.",
+    "family-fixed": "Vụ án gia sự không lấy số tiền làm căn cứ, như ly hôn theo phán quyết của tòa án, hôn nhân vô hiệu. Tem án phí là mức cố định.",
+    "family-damages": "Vụ án gia sự đòi tiền, như tiền bồi thường tổn thất tinh thần do ly hôn. Mức phí bằng một nửa mức phí dân sự.",
+    "family-division": "Trường hợp yêu cầu phân chia tài sản riêng. Giá trị vụ kiện là số tiền bạn yêu cầu."
+  },
+  "instances": {
+    "1": "Sơ thẩm",
+    "2": "Kháng cáo",
+    "3": "Kháng cáo lên Tòa án Tối cao"
+  },
+  "divisionInstances": {
+    "1": "Sơ thẩm",
+    "2": "Kháng cáo quyết định",
+    "3": "Kháng cáo lần hai lên Tòa án Tối cao"
+  },
+  "cases": {
+    "civilSmall": "Vụ việc dân sự giá trị nhỏ, sơ thẩm",
+    "civilFirst": "Vụ việc dân sự sơ thẩm (một thẩm phán hoặc hội đồng xét xử)",
+    "civilAppeal": "Kháng cáo dân sự",
+    "civilFinal": "Kháng cáo dân sự lên Tòa án Tối cao"
+  },
+  "steps": {
+    "first": "Tem án phí sơ thẩm (tính theo hồ sơ giấy)",
+    "appeal": "Phúc thẩm (gấp 1,5 lần)",
+    "final": "Tòa án Tối cao (gấp 2 lần)",
+    "elec": "Giảm cho tố tụng điện tử (10%)",
+    "mediation": "Yêu cầu hòa giải (1/10)",
+    "paymentOrder": "Lệnh thanh toán (1/10)",
+    "familyFixed": "Mức cố định của vụ án gia sự (tính theo hồ sơ giấy)",
+    "familyHalf": "Gia sự sơ thẩm (mức phí dân sự × 1/2)",
+    "appealElec": "Phúc thẩm (gấp 1,5 lần) và giảm cho tố tụng điện tử",
+    "finalElec": "Tòa án Tối cao (gấp 2 lần) và giảm cho tố tụng điện tử"
+  },
+  "who": {
+    "defendant": "bị đơn",
+    "appellee": "người bị kháng cáo",
+    "finalAppellee": "người bị kháng cáo lên Tòa án Tối cao",
+    "poParties": "chủ nợ và con nợ",
+    "medParties": "người yêu cầu và phía bên kia",
+    "opponent": "phía bên kia"
+  }
+}

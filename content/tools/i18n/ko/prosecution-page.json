@@ -1,0 +1,44 @@
+{
+  "_note": "죄명별 안내 페이지(/tools/prosecution/{죄명id})와 죄명 모음(/tools/prosecution/crimes) 문구. 외국어는 같은 모양으로 {언어}/prosecution-page.json (없으면 그 언어 죄명 페이지는 만들지 않음). 출처(기준 문서 이름)는 쓰지 않음.",
+  "meta": {
+    "title": "{name} 법정형·예상 구형",
+    "titleConsult": "{name} 법정형",
+    "description": "{name}({law})의 법정형과, 합의·전과·피해 정도 같은 사정에 따라 예상되는 처리 결과를 정리했습니다. 질문에 답하면 바로 계산해 볼 수 있습니다.",
+    "descriptionConsult": "{name}({law})의 법정형을 정리했습니다. 정해진 구형 기준이 없어 사실관계에 따라 처벌 수위가 달라집니다."
+  },
+  "crumb": "구형 예상 계산기",
+  "lead": "{name} 사건의 법정형과, 사정에 따라 예상되는 처리 결과를 정리했습니다. 결과는 참고용입니다.",
+  "leadConsult": "{name} 사건의 법정형을 정리했습니다. 정해진 구형 기준이 없어 사실관계에 따라 처벌 수위가 달라집니다.",
+  "facts": {
+    "statutory": "법정형",
+    "law": "근거 조문",
+    "group": "분류"
+  },
+  "calcTitle": "내 사정으로 계산해 보기",
+  "tiersTitle": "처리 기준 한눈에",
+  "tiersLead": "위에서부터 무거운 순서입니다. 실제 처분은 수사 결과와 사정에 따라 달라집니다.",
+  "sentence": "예상 구형",
+  "criterion": "처리 기준",
+  "fine": "예상 벌금",
+  "fineFrom": "{amount}부터 (사정에 따라 늘어남)",
+  "notesTitle": "참고",
+  "faqTitle": "자주 묻는 질문",
+  "faq": {
+    "statutoryQ": "{name}의 법정형은 어떻게 되나요?",
+    "statutoryA": "{law}에 따라 {statutory}입니다.",
+    "outcomeQ": "{name} 사건은 보통 어떻게 처리되나요?",
+    "outcomeA": "사정에 따라 {levels} 등으로 처리될 수 있습니다. 위 계산기에 사정을 넣어 보면 어디에 해당하는지 볼 수 있습니다.",
+    "consultQ": "{name}의 예상 구형을 알 수 있나요?",
+    "consultA": "이 죄명은 정해진 구형 기준이 없고, 사실관계에 따라 구형과 처벌 수위가 달라집니다. 사정을 알려 주시면 변호사가 확인합니다."
+  },
+  "listSep": ", ",
+  "related": "같은 분야의 다른 죄명",
+  "allCrimes": "죄명 모음 전체 보기",
+  "detailLink": "이 죄명 안내 페이지",
+  "index": {
+    "title": "구형 예상 계산기 죄명 모음",
+    "description": "구형 예상 계산기에서 찾을 수 있는 죄명 {n}개를 분야별로 모았습니다. 죄명을 누르면 법정형과 예상 처리 결과를 볼 수 있습니다.",
+    "lead": "죄명을 누르면 법정형과, 사정에 따라 예상되는 처리 결과를 볼 수 있습니다.",
+    "openCalc": "계산기에서 검색하기"
+  }
+}

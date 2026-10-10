@@ -2,27 +2,12 @@
 
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react"
 import type { Crime, Question } from "@/lib/tools/prosecution-types"
-import { PROSECUTION_UI_KO, evaluate, groupRank, isComplete, type Answers, type CrimeSummary, type ProsecutionIntl, type ProsecutionUI } from "@/lib/tools/prosecution"
+import { POPULAR_CRIMES, PROSECUTION_UI_KO, evaluate, groupRank, isComplete, type Answers, type CrimeSummary, type ProsecutionIntl, type ProsecutionUI } from "@/lib/tools/prosecution"
 import { fmt } from "@/lib/i18n/fmt"
 import { searchCrimes, searchCrimesIntl } from "./search"
 import { RefCard, ConsultOnlyCard, ResultCard, StepGuide } from "./result-card"
 import { OtherCrimes } from "./other-crimes"
-
-/** 자주 찾는 죄명 (목록에 없는 id 는 건너뜀) */
-const POPULAR = [
-  "injury",
-  "assault",
-  "fraud",
-  "drunk-driving",
-  "theft",
-  "indecent-assault",
-  "spycam",
-  "defamation",
-  "insult",
-  "embezzlement",
-  "methamphetamine",
-  "unlicensed-driving",
-]
+import { trackEvent } from "@/components/analytics"
 
 /** 검색 결과 한 번에 보여 주는 개수 */
 const PAGE = 40
@@ -88,10 +73,49 @@ function toAnswers(crime: Crime, raw: Record<string, string>): Answers {
   return a
 }
 
-/** 구형 예상 계산기: 죄명 찾기 → 질문 → 결과 (답을 바꾸면 바로 다시 계산). intl 이 있으면 외국어판 */
-export function ProsecutionCalculator({ crimes, intl }: { crimes: CrimeSummary[]; intl?: ProsecutionIntl }) {
+/**
+ * 구형 예상 계산기: 죄명 찾기 → 질문 → 결과 (답을 바꾸면 바로 다시 계산). intl 이 있으면 외국어판.
+ * 목록이 큰 한국어판은 indexUrl(정적 JSON)에서 목록을 받고, 받기 전에는 seed(자주 찾는 죄명)만 보여 줌
+ */
+export function ProsecutionCalculator({
+  crimes: given,
+  indexUrl,
+  seed = [],
+  intl,
+  detail,
+}: {
+  crimes?: CrimeSummary[]
+  indexUrl?: string
+  seed?: CrimeSummary[]
+  intl?: ProsecutionIntl
+  /** 고른 죄명의 안내 페이지 링크 (주소 앞부분과 링크 문구). 그 언어 죄명 페이지가 있을 때만 */
+  detail?: { base: string; label: string }
+}) {
   const u = intl?.ui ?? PROSECUTION_UI_KO
   const lb = useMemo(() => labelers(intl), [intl])
+  const [fetched, setFetched] = useState<CrimeSummary[] | null>(null)
+  const [indexError, setIndexError] = useState(false)
+  const [indexRetry, setIndexRetry] = useState(0)
+  const full = given ?? fetched
+  const crimes = full ?? seed
+
+  // 목록 받기 (한국어판)
+  useEffect(() => {
+    if (given || !indexUrl) return
+    let live = true
+    setIndexError(false)
+    fetch(indexUrl)
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status))
+        return r.json() as Promise<CrimeSummary[]>
+      })
+      .then((list) => live && setFetched(list))
+      .catch(() => live && setIndexError(true))
+    return () => {
+      live = false
+    }
+  }, [given, indexUrl, indexRetry])
+
   const [id, setId] = useState<string | null>(null)
   const [raw, setRaw] = useState<Record<string, string>>({})
   const [loaded, setLoaded] = useState<Crime | null>(null)
@@ -139,7 +163,7 @@ export function ProsecutionCalculator({ crimes, intl }: { crimes: CrimeSummary[]
 
   const crime = loaded && loaded.id === id ? loaded : undefined
 
-  if (crimes.length === 0) {
+  if (full && full.length === 0) {
     return <p className="rounded-xl bg-[#F4F5F7] px-5 py-4 text-[0.9375rem] text-[#4A505A]">{u.browser.preparing}</p>
   }
 
@@ -147,7 +171,15 @@ export function ProsecutionCalculator({ crimes, intl }: { crimes: CrimeSummary[]
     <div ref={top} className="min-w-0 scroll-mt-24">
       {/* 고르는 화면은 숨기기만 해서 돌아왔을 때 검색어·펼친 칸이 그대로 */}
       <div hidden={!!summary}>
-        <CrimeBrowser crimes={crimes} byId={byId} onPick={pick} intl={intl} />
+        <CrimeBrowser
+          crimes={crimes}
+          ready={!!full}
+          error={indexError}
+          onRetry={() => setIndexRetry((n) => n + 1)}
+          byId={byId}
+          onPick={pick}
+          intl={intl}
+        />
       </div>
       {summary && (
         <div>
@@ -159,6 +191,11 @@ export function ProsecutionCalculator({ crimes, intl }: { crimes: CrimeSummary[]
               </p>
               <h2 className="mt-0.5 text-xl font-bold text-jisan-ink [overflow-wrap:anywhere]">{summary.name}</h2>
               {summary.law && <p className="mt-0.5 text-xs text-[#8A9099] [overflow-wrap:anywhere]">{summary.law}</p>}
+              {detail && (
+                <a href={`${detail.base}/${encodeURIComponent(summary.id)}`} className="mt-1.5 inline-block text-xs text-[#4A505A] underline underline-offset-4 hover:text-jisan-ink">
+                  {detail.label}
+                </a>
+              )}
             </div>
             <button
               type="button"
@@ -203,6 +240,14 @@ export function ProsecutionCalculator({ crimes, intl }: { crimes: CrimeSummary[]
   )
 }
 
+/** 죄명 하나만 계산 (죄명 안내 페이지에 넣음). 데이터를 페이지에서 바로 받아 따로 받지 않음 */
+export function SingleCrimeCalculator({ crime, intl }: { crime: Crime; intl?: ProsecutionIntl }) {
+  const [raw, setRaw] = useState<Record<string, string>>({})
+  if (crime.consultOnly) return <ConsultOnlyCard crime={crime} intl={intl} />
+  if (crime.ref) return <RefCard crime={crime} intl={intl} />
+  return <CrimeForm crime={crime} raw={raw} setRaw={setRaw} intl={intl} />
+}
+
 /** 질문 → 결과. 질문이 없는 죄명은 결과만 바로 */
 function CrimeForm({
   crime,
@@ -220,6 +265,12 @@ function CrimeForm({
   const done = isComplete(crime, answers)
   const result = done ? evaluate(crime, answers, intl) : null
   const answered = crime.questions.filter((q) => answers[q.id] !== undefined).length
+  // 결과가 처음 나왔을 때 한 번 분석 이벤트 (어느 죄명에서 계산을 끝까지 하는지)
+  const shown = !!result
+  useEffect(() => {
+    if (shown) trackEvent("tool_result", { tool: "prosecution", crime: crime.id, level: result!.level })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shown, crime.id])
   const empty = (
     <div className="rounded-2xl border border-dashed border-[#D5DAE1] px-5 py-8 text-center text-[0.9375rem] text-[#6B717B]">
       {done ? u.form.noResult : fmt(u.form.progress, { total: crime.questions.length, done: answered })}
@@ -253,11 +304,18 @@ const chip =
 /** 죄명 고르기: 검색 → (검색어 없으면) 자주 찾는 죄명 + 묶음별·법률별 접힌 목록 */
 function CrimeBrowser({
   crimes,
+  ready,
+  error,
+  onRetry,
   byId,
   onPick,
   intl,
 }: {
   crimes: CrimeSummary[]
+  /** 전체 목록을 받았는지 (받기 전에는 자주 찾는 죄명만) */
+  ready: boolean
+  error: boolean
+  onRetry: () => void
   byId: Map<string, CrimeSummary>
   onPick: (id: string) => void
   intl?: ProsecutionIntl
@@ -273,7 +331,7 @@ function CrimeBrowser({
 
   const hits = useMemo(() => (q ? (intl ? searchCrimesIntl(crimes, q, lb) : searchCrimes(crimes, q)) : []), [crimes, q, intl, lb])
   const sections = useMemo(() => (view === "group" ? byGroup(crimes) : byLaw(crimes)), [crimes, view])
-  const popular = useMemo(() => POPULAR.map((id) => byId.get(id)).filter((c): c is CrimeSummary => !!c), [byId])
+  const popular = useMemo(() => POPULAR_CRIMES.map((id) => byId.get(id)).filter((c): c is CrimeSummary => !!c), [byId])
 
   const toggle = (key: string) =>
     setOpen((s) => {
@@ -303,7 +361,9 @@ function CrimeBrowser({
         />
       </label>
 
-      {q ? (
+      {q && !ready ? (
+        <IndexStatus error={error} onRetry={onRetry} u={u} />
+      ) : q ? (
         <div className="mt-6">
           <p className="text-sm text-[#6B717B]" aria-live="polite">
             {hits.length > 0 ? fmt(u.browser.found, { n: hits.length.toLocaleString(loc) }) : u.browser.noMatch}
@@ -349,6 +409,9 @@ function CrimeBrowser({
             </section>
           )}
 
+          {!ready ? (
+            <IndexStatus error={error} onRetry={onRetry} u={u} />
+          ) : (
           <section className="mt-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h2 className="text-sm font-bold text-jisan-ink">
@@ -411,9 +474,32 @@ function CrimeBrowser({
               })}
             </ul>
           </section>
+          )}
         </div>
       )}
       {intl && <OtherCrimes text={u.intl.otherCrimes} link={u.intl.otherCrimesLink} href={intl.consultHref} />}
+    </div>
+  )
+}
+
+/** 전체 목록을 받는 중이거나 못 받았을 때 */
+function IndexStatus({ error, onRetry, u }: { error: boolean; onRetry: () => void; u: ProsecutionUI }) {
+  return (
+    <div aria-busy={!error} className="mt-8 rounded-2xl border border-dashed border-[#D5DAE1] px-5 py-8 text-center text-[0.9375rem] text-[#6B717B]">
+      {error ? (
+        <>
+          <p>{u.form.loadError}</p>
+          <button
+            type="button"
+            onClick={onRetry}
+            className="mt-4 rounded-full border border-[#D5DAE1] bg-white px-4 py-2 text-sm text-jisan-ink hover:border-jisan-ink"
+          >
+            {u.form.retry}
+          </button>
+        </>
+      ) : (
+        <p>{u.form.loading}</p>
+      )}
     </div>
   )
 }

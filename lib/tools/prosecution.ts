@@ -16,6 +16,22 @@ export type ProsecutionUI = typeof KO_UI
 export const PROSECUTION_UI_KO: ProsecutionUI = KO_UI
 
 /** 외국어판 설정 (없으면 한국어 화면) */
+/** 자주 찾는 죄명 (목록에 없는 id 는 건너뜀). 한국어판은 전체 목록을 받기 전에 이것만 먼저 보여 줌 */
+export const POPULAR_CRIMES = [
+  "injury",
+  "assault",
+  "fraud",
+  "drunk-driving",
+  "theft",
+  "indecent-assault",
+  "spycam",
+  "defamation",
+  "insult",
+  "embezzlement",
+  "methamphetamine",
+  "unlicensed-driving",
+]
+
 export type ProsecutionIntl = {
   lang: string
   ui: ProsecutionUI

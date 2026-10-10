@@ -17,6 +17,9 @@
 | `child-support.json` | 양육비 계산기 | 약 1,800자 |
 | `inheritance.json` | 상속분 계산기 (상속인 입력 칸·순위 이름은 유류분 계산기도 같이 씀) | 약 2,000자 |
 | `reserved-share.json` | 유류분 계산기 | 약 1,800자 |
+| `interest.json` | 지연이자 계산기 (이율 종류·설명, 결과 표, 소송촉진법 이율 기록) | 약 1,100자 |
+| `court-fees.json` | 소송비용(인지액·송달료) 계산기 (사건 종류·심급 이름, 계산 단계 이름, 식의 낱말) | 약 1,300자 |
+| `interest-cap.json` | 최고이자율 확인 (입력 칸, 결과 문장, 빌려준 사람 종류, 조문 표기) | 약 1,250자 |
 
 - `common.json` 이 없으면 그 언어의 계산기 페이지는 하나도 생기지 않습니다.
 - 도구 파일이 있고 **모든 키가 빈칸 없이** 있어야 그 도구 페이지가 생깁니다. 하나라도 빠지면 한국어로 채우지 않고 그 페이지를 만들지 않습니다.
@@ -84,6 +87,21 @@
 - `ranks` 는 상속 순위 이름입니다.
 - 분수(1/3), 백분율은 프로그램이 넣습니다.
 
+### interest.json · court-fees.json · interest-cap.json (민사 계산기)
+- 금액(`{interest}`, `{amount}`, `{unit}`, `{stamp}`, `{delivery}`), 백분율(`{rate}`, `{cap}`), 날짜(`{date}`, `{from}`, `{to}`), 일수(`{days}` 자리에는 `ui.days` 문장이 들어감)는 프로그램이 그 언어 방식으로 넣습니다. "원", "%", "년·월·일"을 따로 붙이지 마세요.
+- `interest.json` 의 `ui.method` 와 `ui.methodSplit` 은 따로 쓰입니다. `methodSplit` 은 `method` 문장 뒤에 "합계가 1원 정도 다를 수 있다"는 문장을 이어 붙인 **전체 문장**입니다.
+- `interest.json` 의 `ui.kinds.civil`·`commercial` 의 `{rate}` 에는 "5%"처럼 백분율이 들어갑니다 (en "Civil statutory rate, {rate} a year").
+- `court-fees.json`
+  - `hints.civil` 의 `{limit}` 에는 소액사건 상한 금액이 들어갑니다 (한국어 "3,000만원", 외국어 "KRW 30,000,000").
+  - `ui.deliveryExpr` 는 송달료 식입니다: `{unit}`(1회 송달료 금액) × `{who}`(사람 구분, 사전 `who`) `{n}`(사람 수) × `{rounds}`(횟수). 순서는 그 언어에 맞게 (en `"{unit} × {n} {who} × {rounds} services"`).
+  - `ui.caseInstance` 는 결과 제목의 "{사건 종류} {심급}" (예: "재산분할 심판 항고"). `divisionInstances` 는 재산분할 심판의 심급(1심·항고·재항고), `instances` 는 그 밖의 심급(1심·항소·상고)입니다.
+  - 식의 숫자 부분("30,000,000 × 45/10,000 + 5,000")은 프로그램이 만들고 숫자 표기만 언어별로 바꿉니다. 사전에는 식의 낱말(`ui.fixedExpr` "정액", `ui.floorNote` "100원 미만 버림")만 있습니다.
+  - `ui.personUnit` 은 사람 수 칸 오른쪽에 붙는 짧은 단위입니다 (zh "人", ru "чел.", en "person(s)").
+- `interest-cap.json`
+  - `laws` 는 조문 표기, `lenders` 는 빌려준 사람 종류입니다. 대부업법(대부업 등의 등록 및 금융이용자 보호에 관한 법률)의 영어 이름은 법제처 영문 "Act on the Registration of Credit Business and Protection of Finance Users", 이자제한법은 "Interest Limitation Act".
+  - `ui.noInterest` 의 `{date}` 는 2025. 7. 22. (이날 이후 계약), `ui.errors.tooOld` 의 `{date}` 는 2018. 2. 8. (이날 전 계약)입니다.
+- 원문의 "최고이율·최고이자율"은 법이 정한 **상한 이율**이라는 뜻입니다. "best"가 아니라 "maximum rate"(zh 最高利率, vi lãi suất tối đa, ru предельная ставка, mn дээд хязгаар)로 옮기세요.
+
 ## 4. 외국어판에서 바꾸는 것 (중요)
 
 외국어 사이트는 **전화·신청서 없이 메신저 채팅으로만** 상담합니다.
@@ -109,6 +127,10 @@
 | 교통사고처리 특례법 | Act on Special Cases Concerning the Settlement of Traffic Accidents |
 | 행정심판법 / 행정소송법 | Administrative Appeals Act / Administrative Litigation Act |
 | 민법 / 민사소송법 / 민사집행법 / 민사조정법 | Civil Act / Civil Procedure Act / Civil Execution Act / Civil Conciliation Act |
+| 상법 | Commercial Act |
+| 소송촉진 등에 관한 특례법 (소송촉진법) | Act on Special Cases Concerning Expedition of Legal Proceedings (짧게 Litigation Promotion Act) |
+| 이자제한법 | Interest Limitation Act |
+| 대부업 등의 등록 및 금융이용자 보호에 관한 법률 (대부업법) | Act on the Registration of Credit Business and Protection of Finance Users |
 | 가사소송법 | Family Litigation Act |
 
 - 조문 표기는 기존 번역과 같게:

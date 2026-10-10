@@ -1,8 +1,9 @@
 /**
  * 인지액·송달료 계산 — 사무소 사건관리 프로그램(전자소송 계산기와 같은 단계별 절사)을 그대로 옮김.
  * 홈페이지에는 자주 묻는 사건 종류만 둡니다.
+ * 화면 문구(사건 종류·단계 이름, 식의 낱말, 입력 오류)는 content/tools/i18n/{언어}/court-fees.json.
+ * 식(expr)은 숫자 자리표시자가 든 틀과 숫자로 돌려주고, 화면에서 언어별 숫자 표기로 채웁니다.
  */
-import { formatNumber } from "./format"
 
 /** 1회 송달료 (2026. 7. 1.부터, 국내 통상우편 요금 인상 반영) */
 export const DELIVERY_UNIT = 5_640
@@ -10,7 +11,12 @@ export const DELIVERY_UNIT = 5_640
 /** 소액사건 상한 (소액사건심판규칙 제1조의2) */
 export const SMALL_CLAIM_LIMIT = 30_000_000
 
-export type FeeStep = { label: string; expr: string; value: number; note?: string }
+/** 계산 단계 이름 (사전 steps 의 키) */
+export type FeeStepKey = "first" | "appeal" | "final" | "elec" | "mediation" | "paymentOrder" | "familyFixed" | "familyHalf" | "appealElec" | "finalElec"
+/** 식: "{s} × {r}/{d}" 같은 틀 + 자리표시자 숫자. "fixed" 는 정액(사전 ui.fixedExpr) */
+export type FeeExpr = { t: string; v: Record<string, number> } | "fixed"
+/** floored: 100원 미만을 버린 단계 (사전 ui.floorNote 를 붙임) */
+export type FeeStep = { label: FeeStepKey; expr: FeeExpr; value: number; floored: boolean }
 export type Stamp = { amount: number; steps: FeeStep[] }
 
 /** 100원 미만 절사 (민사소송 등 인지법 제2조 제2항) */
@@ -32,20 +38,28 @@ export function sb(s: number): number {
   return s * 0.0035 + 555_000
 }
 
-export function sogaRateExpr(soga: number): string {
-  const amt = formatNumber(soga)
-  if (soga < 10_000_000) return `${amt} × 50/10,000`
-  if (soga < 100_000_000) return `${amt} × 45/10,000 + 5,000`
-  if (soga < 1_000_000_000) return `${amt} × 40/10,000 + 55,000`
-  return `${amt} × 35/10,000 + 555,000`
+/** 1심 소장 인지 요율 식 (sb 와 같은 구간) */
+export function sogaRateExpr(soga: number): { t: string; v: Record<string, number> } {
+  const d = 10_000
+  if (soga < 10_000_000) return { t: "{s} × {r}/{d}", v: { s: soga, r: 50, d } }
+  if (soga < 100_000_000) return { t: "{s} × {r}/{d} + {a}", v: { s: soga, r: 45, d, a: 5000 } }
+  if (soga < 1_000_000_000) return { t: "{s} × {r}/{d} + {a}", v: { s: soga, r: 40, d, a: 55_000 } }
+  return { t: "{s} × {r}/{d} + {a}", v: { s: soga, r: 35, d, a: 555_000 } }
 }
 
-const NOTE_FLOOR = "100원 미만 버림"
+/** 요율 식을 괄호로 묶어 뒤에 연산을 붙임: "({s} × …) × 1/10" */
+function rateThen(soga: number, tail: string): FeeExpr {
+  const r = sogaRateExpr(soga)
+  return { t: `(${r.t}) ${tail}`, v: r.v }
+}
+
+/** "{p} × {m}" (배수·할인율) */
+const times = (p: number, m: number): FeeExpr => ({ t: "{p} × {m}", v: { p, m } })
 
 function elecStep(paper: number, electronic: boolean): { final: number; step?: FeeStep } {
   if (!electronic) return { final: paper }
   const final = floor100(paper * 0.9)
-  return { final, step: { label: "전자소송 할인(10%)", expr: `${formatNumber(paper)} × 0.9`, value: final, note: NOTE_FLOOR } }
+  return { final, step: { label: "elec", expr: times(paper, 0.9), value: final, floored: true } }
 }
 
 function withElec(steps: FeeStep[], paper: number, electronic: boolean): Stamp {
@@ -56,7 +70,7 @@ function withElec(steps: FeeStep[], paper: number, electronic: boolean): Stamp {
 /** 1심 소장 */
 export function stampFirst(soga: number, electronic = true): Stamp {
   const paper = paperFloor(sb(soga))
-  return withElec([{ label: "1심 인지(종이 기준)", expr: sogaRateExpr(soga), value: paper, note: NOTE_FLOOR }], paper, electronic)
+  return withElec([{ label: "first", expr: sogaRateExpr(soga), value: paper, floored: true }], paper, electronic)
 }
 
 /** 항소장: 1심 종이 인지 × 1.5 */
@@ -65,8 +79,8 @@ export function stampAppeal(soga: number, electronic = true): Stamp {
   const inst = floor100(paper * 1.5)
   return withElec(
     [
-      { label: "1심 인지(종이 기준)", expr: sogaRateExpr(soga), value: paper, note: NOTE_FLOOR },
-      { label: "항소심(1.5배)", expr: `${formatNumber(paper)} × 1.5`, value: inst, note: NOTE_FLOOR },
+      { label: "first", expr: sogaRateExpr(soga), value: paper, floored: true },
+      { label: "appeal", expr: times(paper, 1.5), value: inst, floored: true },
     ],
     inst,
     electronic,
@@ -79,8 +93,8 @@ export function stampFinal(soga: number, electronic = true): Stamp {
   const inst = floor100(paper * 2)
   return withElec(
     [
-      { label: "1심 인지(종이 기준)", expr: sogaRateExpr(soga), value: paper, note: NOTE_FLOOR },
-      { label: "상고심(2배)", expr: `${formatNumber(paper)} × 2`, value: inst, note: NOTE_FLOOR },
+      { label: "first", expr: sogaRateExpr(soga), value: paper, floored: true },
+      { label: "final", expr: times(paper, 2), value: inst, floored: true },
     ],
     inst,
     electronic,
@@ -90,27 +104,27 @@ export function stampFinal(soga: number, electronic = true): Stamp {
 /** 민사조정 신청: 소장 요율 × 1/10 */
 export function stampMediation(soga: number, electronic = true): Stamp {
   const paper = paperFloor(sb(soga) * 0.1)
-  return withElec([{ label: "조정 신청(1/10)", expr: `(${sogaRateExpr(soga)}) × 1/10`, value: paper, note: NOTE_FLOOR }], paper, electronic)
+  return withElec([{ label: "mediation", expr: rateThen(soga, "× 1/10"), value: paper, floored: true }], paper, electronic)
 }
 
 /** 지급명령 신청: 소장 요율 ÷ 10 */
 export function stampPaymentOrder(soga: number, electronic = true): Stamp {
   const paper = paperFloor(sb(soga) / 10)
-  return withElec([{ label: "지급명령(1/10)", expr: `(${sogaRateExpr(soga)}) ÷ 10`, value: paper, note: NOTE_FLOOR }], paper, electronic)
+  return withElec([{ label: "paymentOrder", expr: rateThen(soga, "÷ 10"), value: paper, floored: true }], paper, electronic)
 }
 
-function instanceLabel(multiplier: number): string {
-  return multiplier === 1.5 ? "항소심(1.5배)" : "상고심(2배)"
+function instanceLabel(multiplier: number): "appeal" | "final" {
+  return multiplier === 1.5 ? "appeal" : "final"
 }
 
 /** 가사 가류·나류(정액 20,000원). 항소 ×1.5, 상고 ×2 */
 export function stampFamilyFixed(multiplier: number, electronic = true): Stamp {
   const paper = 20_000
-  const steps: FeeStep[] = [{ label: "가사소송 정액(종이 기준)", expr: "정액", value: paper }]
+  const steps: FeeStep[] = [{ label: "familyFixed", expr: "fixed", value: paper, floored: false }]
   let inst = paper
   if (multiplier !== 1) {
     inst = floor100(paper * multiplier)
-    steps.push({ label: instanceLabel(multiplier), expr: `${formatNumber(paper)} × ${multiplier === 1.5 ? "1.5" : "2"}`, value: inst, note: NOTE_FLOOR })
+    steps.push({ label: instanceLabel(multiplier), expr: times(paper, multiplier === 1.5 ? 1.5 : 2), value: inst, floored: true })
   }
   return withElec(steps, inst, electronic)
 }
@@ -121,16 +135,16 @@ export function stampFamilyFixed(multiplier: number, electronic = true): Stamp {
  */
 export function stampFamilyHalf(soga: number, multiplier: number, electronic = true): Stamp {
   const paper = paperFloor(sb(soga) * 0.5)
-  const steps: FeeStep[] = [{ label: "가사 1심(민사 요율 × 1/2)", expr: `(${sogaRateExpr(soga)}) × 1/2`, value: paper, note: NOTE_FLOOR }]
+  const steps: FeeStep[] = [{ label: "familyHalf", expr: rateThen(soga, "× 1/2"), value: paper, floored: true }]
   if (multiplier === 1) return withElec(steps, paper, electronic)
-  const mul = multiplier === 1.5 ? "1.5" : "2"
+  const mul = multiplier === 1.5 ? 1.5 : 2
   if (electronic) {
     const final = floor100(paper * multiplier * 0.9)
-    steps.push({ label: `${instanceLabel(multiplier)}·전자소송 할인`, expr: `${formatNumber(paper)} × ${mul} × 0.9`, value: final, note: NOTE_FLOOR })
+    steps.push({ label: multiplier === 1.5 ? "appealElec" : "finalElec", expr: { t: "{p} × {m} × {e}", v: { p: paper, m: mul, e: 0.9 } }, value: final, floored: true })
     return { amount: final, steps }
   }
   const final = floor100(paper * multiplier)
-  steps.push({ label: instanceLabel(multiplier), expr: `${formatNumber(paper)} × ${mul}`, value: final, note: NOTE_FLOOR })
+  steps.push({ label: instanceLabel(multiplier), expr: times(paper, mul), value: final, floored: true })
   return { amount: final, steps }
 }
 
@@ -146,14 +160,31 @@ export type CaseKind =
 
 export type Instance = 1 | 2 | 3
 
-export const CASE_KINDS: { value: CaseKind; label: string; hasInstance: boolean; needsSoga: boolean; parties: "opponent" | "both" }[] = [
-  { value: "civil", label: "민사 소송", hasInstance: true, needsSoga: true, parties: "opponent" },
-  { value: "payment-order", label: "지급명령 신청", hasInstance: false, needsSoga: true, parties: "both" },
-  { value: "mediation", label: "민사조정 신청", hasInstance: false, needsSoga: true, parties: "both" },
-  { value: "family-fixed", label: "이혼 등 가사소송(가류·나류)", hasInstance: true, needsSoga: false, parties: "opponent" },
-  { value: "family-damages", label: "위자료 등 가사소송(다류)", hasInstance: true, needsSoga: true, parties: "opponent" },
-  { value: "family-division", label: "재산분할 심판", hasInstance: true, needsSoga: true, parties: "opponent" },
+/** 사건 종류 (이름은 사전 kinds) */
+export const CASE_KINDS: { value: CaseKind; hasInstance: boolean; needsSoga: boolean; parties: "opponent" | "both" }[] = [
+  { value: "civil", hasInstance: true, needsSoga: true, parties: "opponent" },
+  { value: "payment-order", hasInstance: false, needsSoga: true, parties: "both" },
+  { value: "mediation", hasInstance: false, needsSoga: true, parties: "both" },
+  { value: "family-fixed", hasInstance: true, needsSoga: false, parties: "opponent" },
+  { value: "family-damages", hasInstance: true, needsSoga: true, parties: "opponent" },
+  { value: "family-division", hasInstance: true, needsSoga: true, parties: "opponent" },
 ]
+
+/** 송달료를 낼 사람 구분 (사전 who 의 키): 피고, 피항소인, 피상고인, 채권자·채무자, 신청인·상대방, 상대방 */
+export type DeliveryWho = "defendant" | "appellee" | "finalAppellee" | "poParties" | "medParties" | "opponent"
+
+/**
+ * 결과 제목의 사건 이름: key 가 사건 종류(CaseKind)면 사전 kinds, 아니면 사전 cases.
+ * instance 가 있으면 "{사건 종류} {심급}" (재산분할은 1심·항고·재항고, 그 밖은 1심·항소·상고)
+ */
+export type CaseName = { key: CaseKind | "civilSmall" | "civilFirst" | "civilAppeal" | "civilFinal"; instance?: Instance }
+
+/** 입력 오류 (code 는 사전 ui.errors 의 키) */
+export class CourtFeeError extends Error {
+  constructor(public code: "kind" | "soga") {
+    super(code)
+  }
+}
 
 export type CourtFeeInput = {
   kind: CaseKind
@@ -167,15 +198,16 @@ export type CourtFeeInput = {
 }
 
 export type CourtFeeResult = {
-  caseLabel: string
+  caseName: CaseName
   stamp: Stamp
-  delivery: { amount: number; rounds: number; persons: number; expr: string; personsLabel: string }
+  /** 송달료 = DELIVERY_UNIT × persons × rounds */
+  delivery: { amount: number; rounds: number; persons: number; who: DeliveryWho }
   total: number
 }
 
-function delivery(persons: number, rounds: number, personsLabel: string) {
+function delivery(persons: number, rounds: number, who: DeliveryWho) {
   const amount = DELIVERY_UNIT * persons * rounds
-  return { amount, rounds, persons, personsLabel, expr: `${formatNumber(DELIVERY_UNIT)}원 × ${personsLabel} ${persons}명 × ${rounds}회` }
+  return { amount, rounds, persons, who }
 }
 
 export function calcCourtFees(input: CourtFeeInput): CourtFeeResult {
@@ -183,58 +215,58 @@ export function calcCourtFees(input: CourtFeeInput): CourtFeeResult {
   const df = Math.max(1, Math.floor(input.opponents))
   const pl = Math.max(1, Math.floor(input.applicants))
   const meta = CASE_KINDS.find((k) => k.value === kind)
-  if (!meta) throw new Error("사건 종류를 고르세요.")
-  if (meta.needsSoga && (!Number.isSafeInteger(soga) || soga <= 0)) throw new Error("소송목적의 값(소가)을 입력하세요.")
+  if (!meta) throw new CourtFeeError("kind")
+  if (meta.needsSoga && (!Number.isSafeInteger(soga) || soga <= 0)) throw new CourtFeeError("soga")
   const mul = instance === 1 ? 1 : instance === 2 ? 1.5 : 2
 
   let stamp: Stamp
   let dl: CourtFeeResult["delivery"]
-  let caseLabel = meta.label
+  let caseName: CaseName = { key: kind }
 
   switch (kind) {
     case "civil":
       if (instance === 1) {
         stamp = stampFirst(soga, electronic)
         if (soga <= SMALL_CLAIM_LIMIT) {
-          caseLabel = "민사 1심 소액사건"
-          dl = delivery(df, 10, "피고")
+          caseName = { key: "civilSmall" }
+          dl = delivery(df, 10, "defendant")
         } else {
-          caseLabel = "민사 1심 단독·합의사건"
-          dl = delivery(df, 15, "피고")
+          caseName = { key: "civilFirst" }
+          dl = delivery(df, 15, "defendant")
         }
       } else if (instance === 2) {
         stamp = stampAppeal(soga, electronic)
-        caseLabel = "민사 항소"
-        dl = delivery(df, 12, "피항소인")
+        caseName = { key: "civilAppeal" }
+        dl = delivery(df, 12, "appellee")
       } else {
         stamp = stampFinal(soga, electronic)
-        caseLabel = "민사 상고"
-        dl = delivery(df, 8, "피상고인")
+        caseName = { key: "civilFinal" }
+        dl = delivery(df, 8, "finalAppellee")
       }
       break
     case "payment-order":
       stamp = stampPaymentOrder(soga, electronic)
-      dl = delivery(pl + df, 6, "채권자·채무자")
+      dl = delivery(pl + df, 6, "poParties")
       break
     case "mediation":
       stamp = stampMediation(soga, electronic)
-      dl = delivery(pl + df, 5, "신청인·상대방")
+      dl = delivery(pl + df, 5, "medParties")
       break
     case "family-fixed":
     case "family-damages": {
       stamp = kind === "family-fixed" ? stampFamilyFixed(mul, electronic) : stampFamilyHalf(soga, mul, electronic)
-      const who = instance === 1 ? "피고" : instance === 2 ? "피항소인" : "피상고인"
+      const who: DeliveryWho = instance === 1 ? "defendant" : instance === 2 ? "appellee" : "finalAppellee"
       dl = delivery(df, instance === 1 ? 15 : instance === 2 ? 12 : 8, who)
-      caseLabel = `${meta.label} ${instance === 1 ? "1심" : instance === 2 ? "항소" : "상고"}`
+      caseName = { key: kind, instance }
       break
     }
     case "family-division":
       // 재산분할 항고는 1.5배, 재항고는 2배
       stamp = stampFamilyHalf(soga, mul, electronic)
-      dl = delivery(df, 12, "상대방")
-      caseLabel = `재산분할 심판 ${instance === 1 ? "1심" : instance === 2 ? "항고" : "재항고"}`
+      dl = delivery(df, 12, "opponent")
+      caseName = { key: kind, instance }
       break
   }
 
-  return { caseLabel, stamp, delivery: dl, total: stamp.amount + dl.amount }
+  return { caseName, stamp, delivery: dl, total: stamp.amount + dl.amount }
 }

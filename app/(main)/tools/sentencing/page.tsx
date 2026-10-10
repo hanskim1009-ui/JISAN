@@ -16,7 +16,7 @@ export default function Page() {
   // 처음엔 범죄군 이름·세부 범죄 이름만 넘기고, 고른 범죄군 데이터는 /tools/sentencing/data/{id} 에서 받음
   const groups = loadIndex()
   return (
-    <ToolShell
+    <ToolShell toolId="sentencing"
       title={U.meta.title}
       lead={U.meta.lead}
       consultType="형사"

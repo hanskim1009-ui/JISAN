@@ -1,0 +1,200 @@
+{
+  "prosecution": [
+    {
+      "q": "What is a requested sentence, and is it the sentence I will actually receive?",
+      "a": "The requested sentence (구형) is the penalty the prosecutor asks the court to impose at trial. The final sentence is decided by the court, so the request and the actual sentence can differ."
+    },
+    {
+      "q": "What is the difference between a suspension of indictment, a summary fine and a formal trial?",
+      "a": "A suspension of indictment (기소유예) means the wrongdoing is recognized, but the prosecutor takes various circumstances into account and closes the case without sending it to trial. A summary indictment (약식기소) sets a fine on the documents without a trial in a courtroom, while in a formal trial (구공판) the prosecutor asks the court for a trial and you stand before a judge in a courtroom."
+    },
+    {
+      "q": "Will settling with the victim make the punishment lighter?",
+      "a": "A settlement is one of the main circumstances considered in deciding how a case is handled, along with prior convictions, the extent of the harm and how the crime happened, which is why the calculator asks about it for many crimes. How much a settlement affects the result depends on the crime and the other circumstances."
+    },
+    {
+      "q": "How reliable is the estimated result?",
+      "a": "It is only an estimate based on how investigative agencies usually handle cases; the actual decision and request depend on the facts of the case and the judgment of the prosecutor in charge. This version covers only crimes that often come up in cases involving foreign nationals, so for other crimes, please send us a message. If you are about to be questioned, do not rely on the result alone and talk to a lawyer first."
+    }
+  ],
+  "sentencing": [
+    {
+      "q": "What are the Sentencing Guidelines, and do judges have to follow them?",
+      "a": "The Sentencing Guidelines are recommendations set by the Sentencing Commission that judges refer to when deciding a sentence. This calculator shows the recommended range under the 2026 Sentencing Guidelines (Sentencing Commission), and the actual sentence may differ."
+    },
+    {
+      "q": "How is the mitigated, basic or aggravated range decided?",
+      "a": "The special sentencing factors are compared: if the aggravating factors weigh more, the aggravated range is recommended; if the mitigating factors weigh more, the mitigated range; otherwise, the basic range. When the numbers are equal, conduct factors (about the crime itself) weigh more than offender & other factors (about the defendant's circumstances and the like), and the victim not wanting punishment may be given the same weight as a conduct factor."
+    },
+    {
+      "q": "Can I get a suspended sentence?",
+      "a": "A suspended sentence can only be given with a prison sentence of 3 years or less. The guidelines recommend a suspended sentence if there are at least 2 more major positive factors than major negative factors, and an actual prison term if there are at least 2 more major negative factors. Otherwise, or if the difference in general factors on the other side is larger, the judge compares all the factors and decides."
+    },
+    {
+      "q": "Are there cases where the Sentencing Guidelines do not apply?",
+      "a": "They do not apply where a fine is chosen (except for election, traffic, stalking and animal protection crimes), to attempts (except attempted murder), to aiding and abetting, to defendants under 19, or where the crime is tried together with a crime already finally judged. If several crimes are tried together, the range changes under the rules for multiple crimes, but this calculator looks at one crime only."
+    }
+  ],
+  "drunk-driving": [
+    {
+      "q": "What is the penalty for drunk driving at 0.03%?",
+      "a": "At a blood alcohol level of 0.03% or more but under 0.08%, with no prior record within 10 years, the statutory penalty is up to 1 year in prison or a fine of up to KRW 5 million (Road Traffic Act, Article 148-2(3)(3)). The license is suspended with 100 penalty points, and the suspension period is, as a rule, 100 days. However, if someone was injured or you have a previous record of drunk driving or test refusal, the license is revoked."
+    },
+    {
+      "q": "How much heavier is the penalty above 0.08% or 0.2%?",
+      "a": "With no prior record within 10 years, 0.08% or more but under 0.2% means 1 to 2 years in prison or a fine of KRW 5 million to 10 million, and 0.2% or more means 2 to 5 years in prison or a fine of KRW 10 million to 20 million. A level of 0.08% or more meets the standard for license revocation, and if there was no prior record and no accident, you cannot get a new license for 1 year (the disqualification period)."
+    },
+    {
+      "q": "What happens if I refuse an alcohol test?",
+      "a": "Refusing a test when there are reasonable grounds to believe you were drunk is punishable by 1 to 5 years in prison or a fine of KRW 5 million to 20 million, and the license must be revoked. If you do not accept the breath test result, you can be tested again, for example by taking a blood sample with your consent, but refusing the breath test itself may count as test refusal."
+    },
+    {
+      "q": "How is a repeat drunk driving offense punished?",
+      "a": "If you offend again within 10 years of the date a fine or heavier sentence in the earlier case became final, 0.2% or more means 2 to 6 years in prison or a fine of KRW 10 million to 30 million, and 0.03% or more but under 0.2% means 1 to 5 years in prison or a fine of KRW 5 million to 20 million. If you have ever driven drunk, refused a test or obstructed a test before, the license is revoked however long ago that was, and without an accident the disqualification period is 2 years."
+    }
+  ],
+  "police-summons": [
+    {
+      "q": "Can I postpone the date of a police summons?",
+      "a": "If you ask to postpone the appointment, the rules say it should be adjusted unless there are special circumstances (Investigation Rules, Article 19). Contact the investigator before the date, give your reason and possible dates, and get the new date confirmed by text. If a suspect does not appear without a justifiable reason, an arrest warrant may be requested."
+    },
+    {
+      "q": "Can a lawyer come with me to police questioning?",
+      "a": "If the suspect, their lawyer, spouse, lineal relative, sibling or the like asks, the police must let the lawyer take part in the questioning unless there is a justifiable reason not to (Criminal Procedure Act, Article 243-2(1)). A lawyer may also sit next to witnesses and victims, give advice and take notes (Investigation Rules, Article 13(3)). For the lawyer to take part, a letter of appointment and a request to participate must be submitted before the questioning."
+    },
+    {
+      "q": "I was summoned as a witness. Do I have to go?",
+      "a": "A person who is not a suspect may decide for themselves whether to appear and make a statement. However, if a person clearly recognized as knowing facts essential to the investigation refuses, the prosecutor may ask a judge to examine them as a witness before the first trial date (Criminal Procedure Act, Article 221-2), and if suspicion arises during questioning, a witness can become a suspect."
+    },
+    {
+      "q": "Will I be disadvantaged if I remain silent during police questioning?",
+      "a": "You may refuse to answer all questions or only some, and you will not be disadvantaged for doing so (Criminal Procedure Act, Article 244-3). But anything you say instead of refusing can be used as evidence of guilt in court, so decide in advance how much you will say."
+    }
+  ],
+  "child-support": [
+    {
+      "q": "How is child support calculated?",
+      "a": "The standard child support per child is found in the 2021 Child Support Guidelines using the parents' combined monthly income before tax and the child's age. That amount is divided by the ratio of the parents' incomes: non-custodial parent's share = child support × non-custodial parent's income ÷ combined income."
+    },
+    {
+      "q": "Is income counted before or after tax?",
+      "a": "Before tax. Enter the monthly total before tax of salary, business income, rental income, interest, pensions and so on, including government benefits."
+    },
+    {
+      "q": "Does the amount change with 1 child or with 3 or more children?",
+      "a": "The table gives an amount per child for a household of two parents and two children. So with 1 child the amount is often set a little higher (an increase) and with 3 or more children a little lower (a decrease), and circumstances such as where you live or the parents' assets can also lead to an increase or decrease."
+    },
+    {
+      "q": "Will child support be set at the amount the calculator shows?",
+      "a": "The table amount is the court's starting point; the actual child support is set by the court after also looking at the child's standard of living, the parents' assets and debts, where they live and the custody arrangement. If the parents' combined income is KRW 12 million or more a month, the table has no upper limit, so the amount may be set higher than the table."
+    }
+  ],
+  "inheritance": [
+    {
+      "q": "What is the order of heirs?",
+      "a": "The 1st rank is children and other lineal descendants, the 2nd rank is parents and other lineal ascendants, the 3rd rank is siblings and the 4th rank is collateral blood relatives within the fourth degree; if there is an heir of an earlier rank, later ranks do not inherit (Civil Act, Article 1000). The spouse inherits together with the 1st or 2nd rank, and inherits alone if there are no children and no parents (Civil Act, Article 1003)."
+    },
+    {
+      "q": "What is the spouse's statutory share?",
+      "a": "The spouse receives 1.5 times the share of each child (or parent) inheriting together (Civil Act, Article 1009). For example, with a spouse and 2 children the estate is divided 3 : 2 : 2, so the spouse receives 3/7 and each child 2/7."
+    },
+    {
+      "q": "What happens to the share of a child who died before the parent?",
+      "a": "That child's share goes to the child's own children and spouse in their place (inheritance by representation, Civil Act, Articles 1001 and 1010), and within that share it is divided again 1.5 for the spouse to 1 for each child. If there is no one to inherit in their place, that share goes to the other heirs."
+    },
+    {
+      "q": "Can a common-law spouse or a divorced spouse inherit?",
+      "a": "Only a legally registered spouse is an heir. A divorced spouse or a common-law (unregistered) spouse is not an heir."
+    }
+  ],
+  "reserved-share": [
+    {
+      "q": "Who can claim a reserved share?",
+      "a": "Children who are heirs (including grandchildren inheriting in their place) and the spouse have a reserved share of 1/2 of their statutory share, and parents and other lineal ascendants 1/3 (Civil Act, Article 1112). Siblings lost their reserved share through the Constitutional Court decision of April 25, 2024 and the amendment to the Civil Act on September 20, 2024, and collateral blood relatives within the fourth degree never had one."
+    },
+    {
+      "q": "How is the reserved share calculated?",
+      "a": "The base estate for the reserved share (property left behind + property given during lifetime − debts) is multiplied by the statutory share and the reserved share ratio. The money you can actually claim is the shortfall after subtracting the gifts and bequests the person already received and the share they receive by inheritance."
+    },
+    {
+      "q": "Are gifts made long ago included in the calculation?",
+      "a": "Gifts received by heirs are included even if made long ago. Gifts received by non-heirs are included only if made within 1 year before death, but gifts made knowing they would harm the other heirs are included even if made earlier. The part given as compensation for special support or for increasing the decedent's property may be excluded."
+    },
+    {
+      "q": "What is the time limit for a reserved share claim?",
+      "a": "A claim can no longer be made 1 year after learning that the inheritance began and that there was a gift or bequest to be recovered, or 10 years after the inheritance began (Civil Act, Article 1117). The period is short, so talk to a lawyer as soon as you learn of the gift."
+    }
+  ],
+  "interest": [
+    {
+      "q": "What is the statutory interest rate for late payment?",
+      "a": "An ordinary debt with no agreed rate carries the civil statutory rate of 5% a year (Civil Act, Article 379), and a debt arising from trade or business carries the commercial statutory rate of 6% a year (Commercial Act, Article 54). If the contract sets a rate, you can also calculate with that agreed rate."
+    },
+    {
+      "q": "Since when does the 12% Litigation Promotion Act rate apply?",
+      "a": "The rate under the Act on Special Cases Concerning Expedition of Legal Proceedings has been 12% a year since June 1, 2019; it was 15% from October 1, 2015 to May 31, 2019, and 20% from June 1, 2003 to September 30, 2015. A judgment usually orders it from the day after the copy of the complaint is served, and in cases where the hearings at first instance had already closed when the rate changed, the rate before the change continues to apply."
+    },
+    {
+      "q": "How is late payment interest calculated?",
+      "a": "It is calculated as principal × annual rate × days ÷ 365, rounded to the nearest won. You can count the start date as a day too, as when a judgment orders payment “from [date] until the day of full payment”, and if the period spans a date on which the rate changed, it is calculated in separate parts."
+    },
+    {
+      "q": "What if part of the debt has already been repaid?",
+      "a": "This calculator works out interest on one principal over one period, so if part was repaid or a judgment set a different period or rate, the actual amount will differ. In that case, list the dates and amounts repaid and talk to a lawyer."
+    }
+  ],
+  "court-fees": [
+    {
+      "q": "How is the court stamp fee calculated?",
+      "a": "The first-instance stamp fee is 0.5% of the amount in dispute if it is under KRW 10 million, 0.45% + KRW 5,000 if under KRW 100 million, 0.4% + KRW 55,000 if under KRW 1 billion, and 0.35% + KRW 555,000 if KRW 1 billion or more, with amounts under KRW 100 dropped (Act on Stamps Attached for Civil Litigation, Etc., Article 2). Filing by e-litigation reduces the stamp fee by 10%."
+    },
+    {
+      "q": "How much is the stamp fee for an appeal or a final appeal?",
+      "a": "An appeal costs 1.5 times the first-instance stamp fee and a final appeal 2 times, less 10% for e-litigation. An application for a payment order or for civil conciliation costs 1/10 of the rate for a complaint."
+    },
+    {
+      "q": "How much service fee is paid in advance?",
+      "a": "The service fee is postage paid in advance so that the court can send documents: KRW 5,640 per service (from July 1, 2026) multiplied by a number of services set for each type of case and by the number of parties. A civil first-instance case uses 10 services if it is a small claims case (amount in dispute of KRW 30 million or less) and 15 otherwise, an appeal 12 and a final appeal 8. Any service fee left over is returned when the case ends."
+    },
+    {
+      "q": "How much is the stamp fee for a divorce lawsuit?",
+      "a": "Family litigation in which the claim is not measured by an amount of money, such as a judicial divorce (Class A/B), has a fixed stamp fee of KRW 20,000 (paper filing basis), with 10% off for e-litigation. Family litigation claiming money, such as damages for emotional distress caused by a divorce (Class C), is charged at half the civil rate. The amount can differ if you file several claims together, and lawyer's fees and appraisal costs are not included."
+    }
+  ],
+  "deadline": [
+    {
+      "q": "When does the period for an appeal start?",
+      "a": "A civil appeal must be filed within 2 weeks of the date you were served with the written judgment, and a criminal appeal within 7 days of the date the judgment was pronounced. The first day is not counted and counting starts the next day (Civil Act, Article 157; Criminal Procedure Act, Article 66(1)), but if service took effect at 00:00 that day, as when an e-litigation document is deemed served because it was not opened for 1 week, the first day is counted."
+    },
+    {
+      "q": "What if the deadline falls on a Saturday or a public holiday?",
+      "a": "If the last day is a Saturday, Sunday or public holiday, the period is extended to the following day (Civil Act, Article 161; Criminal Procedure Act, Article 66(3)). Public holidays include substitute holidays."
+    },
+    {
+      "q": "If I send documents by mail, does the date I send them count?",
+      "a": "Documents must reach the court by the deadline, and for mail what counts is the date it arrives, not the date it was sent. A peremptory period such as the appeal period cannot be extended even by the court, and as a rule missing it by even one day means losing the chance to challenge the decision, so file with time to spare."
+    },
+    {
+      "q": "By when must I object to a payment order or a decision recommending performance?",
+      "a": "An objection to a payment order (Civil Procedure Act, Article 470(1)) or to a decision recommending performance (Small Claims Adjudication Act, Article 5-4(1)) must be filed within 2 weeks of the date you were served. Objections to a decision recommending settlement or to a decision in lieu of conciliation also have a 2-week period, and all of these are peremptory periods."
+    }
+  ],
+  "interest-cap": [
+    {
+      "q": "What is the legal maximum interest rate?",
+      "a": "For contracts made on or after July 7, 2021, the maximum rate is 20% a year under both the Interest Limitation Act and the Act on the Registration of Credit Business and Protection of Finance Users; for contracts made from February 8, 2018 to July 6, 2021, it is 24% a year. The maximum rate is set by the date the interest was agreed (the contract date)."
+    },
+    {
+      "q": "Can I get back interest I already paid above the maximum rate?",
+      "a": "Interest above the maximum rate has no effect, and if it has already been paid, it can be counted as repayment of the principal, or you can ask for it to be returned (Interest Limitation Act, Article 2(3) and (4); Act on the Registration of Credit Business and Protection of Finance Users, Article 8(4) and (5)). Receiving interest above the maximum rate can also be subject to criminal punishment (Interest Limitation Act, Article 8; Act on the Registration of Credit Business and Protection of Finance Users, Article 19)."
+    },
+    {
+      "q": "Do interest deducted in advance and fees count as interest?",
+      "a": "Any money received in return for the loan counts as interest, even if it is called a fee, a thank-you payment or a discount (Interest Limitation Act, Article 4). If interest was deducted in advance, the amount actually received is treated as the principal (Interest Limitation Act, Article 3)."
+    },
+    {
+      "q": "Do I have to pay interest on a loan from an unregistered (illegal) lender?",
+      "a": "A loan contract made on or after July 22, 2025 with an unregistered lender has no effect as to any of the interest agreed (Act on the Registration of Credit Business and Protection of Finance Users, Article 11(1)). For contracts made before that date, interest above the maximum rate has no effect."
+    }
+  ]
+}

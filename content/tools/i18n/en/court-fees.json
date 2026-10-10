@@ -1,0 +1,93 @@
+{
+  "page": {
+    "title": "Court Costs Calculator",
+    "description": "Choose the amount in dispute (the value of the claim), the type of case and the level of court to calculate the stamp fee for a complaint, appeal or final appeal (with the 10% e-litigation discount) and the service fees to pay in advance.",
+    "lead": "Calculates the money you pay to the court when you start a lawsuit (the stamp fee and service fees). You can choose a civil lawsuit, a payment order, conciliation, or a family case such as divorce.",
+    "notice": "This is a reference amount that covers only the costs you first pay to the court. It does not include lawyer's fees, appraisal fees or witness costs, and the amount changes if claims are combined or changed. The actual amount is set by the court where you file, so talk to a lawyer before filing a lawsuit."
+  },
+  "ui": {
+    "kind": "Type of case",
+    "soga": "Amount in dispute (value of the claim)",
+    "sogaHint": "For a money claim, the amount in dispute is usually the principal you are claiming. Do not include interest or damages for late payment.",
+    "instance": "Level of court",
+    "filing": "How you file",
+    "electronic": "E-litigation (10% off the stamp fee)",
+    "paper": "Filing on paper",
+    "creditors": "Number of creditors",
+    "applicants": "Number of applicants",
+    "debtors": "Number of debtors",
+    "opponents": "Number of opposing parties",
+    "defendants": "Number of defendants (opposing parties)",
+    "appellees": "Number of opposing parties (appellees or respondents in the final appeal)",
+    "personUnit": "person(s)",
+    "result": "{case} · Costs to pay first",
+    "summary": "Stamp fee {stamp} + service fee deposit {delivery}",
+    "colStep": "Step",
+    "colExpr": "Formula",
+    "colAmount": "Amount",
+    "deliveryRow": "Service fee deposit",
+    "sum": "Total",
+    "floorNote": "rounded down to the nearest KRW 100",
+    "fixedExpr": "Flat fee",
+    "deliveryExpr": "{unit} × {n} {who} × {rounds} services",
+    "caseInstance": "{kind}, {instance}",
+    "note": "The stamp fee is the fee attached to a complaint or application. The service fee is postage paid in advance so that the court can send documents ({unit} per service). Any service fee left over is returned when the case ends. The amount can differ if you file several claims together or there are many opposing parties, and the actual amount is set by the court where you file.",
+    "error": "Please check what you entered.",
+    "errors": {
+      "kind": "Choose the type of case.",
+      "soga": "Enter the amount in dispute (value of the claim)."
+    }
+  },
+  "kinds": {
+    "civil": "Civil lawsuit",
+    "payment-order": "Application for a payment order",
+    "mediation": "Application for civil conciliation",
+    "family-fixed": "Divorce and similar family litigation (Class A/B)",
+    "family-damages": "Family litigation for damages, such as for emotional distress (Class C)",
+    "family-division": "Property division proceedings"
+  },
+  "hints": {
+    "civil": "A first-instance case with an amount in dispute of {limit} or less is treated as a small claims case when calculating service fees.",
+    "payment-order": "A simple procedure in which the court orders the other party to pay. If the other party objects, the case moves to a lawsuit.",
+    "mediation": "A procedure for reaching an agreement before a judge or a conciliation commissioner.",
+    "family-fixed": "Family litigation in which the claim is not measured by an amount of money, such as a judicial divorce or nullity of marriage. The stamp fee is a fixed amount.",
+    "family-damages": "Family litigation claiming money, such as damages for emotional distress caused by a divorce. The rate is half the civil rate.",
+    "family-division": "When property division is claimed on its own. The amount in dispute is the amount you claim."
+  },
+  "instances": {
+    "1": "First instance",
+    "2": "Appeal",
+    "3": "Final appeal"
+  },
+  "divisionInstances": {
+    "1": "First instance",
+    "2": "Appeal against the ruling",
+    "3": "Re-appeal to the Supreme Court"
+  },
+  "cases": {
+    "civilSmall": "Civil small claims case, first instance",
+    "civilFirst": "Civil case before a single judge or panel, first instance",
+    "civilAppeal": "Civil appeal",
+    "civilFinal": "Civil final appeal"
+  },
+  "steps": {
+    "first": "First-instance stamp fee (paper filing basis)",
+    "appeal": "Appeal (1.5 times)",
+    "final": "Final appeal (2 times)",
+    "elec": "E-litigation discount (10%)",
+    "mediation": "Conciliation application (1/10)",
+    "paymentOrder": "Payment order (1/10)",
+    "familyFixed": "Family litigation flat fee (paper filing basis)",
+    "familyHalf": "Family case, first instance (civil rate × 1/2)",
+    "appealElec": "Appeal (1.5 times) with e-litigation discount",
+    "finalElec": "Final appeal (2 times) with e-litigation discount"
+  },
+  "who": {
+    "defendant": "defendant(s)",
+    "appellee": "appellee(s)",
+    "finalAppellee": "respondent(s) in the final appeal",
+    "poParties": "creditor(s) and debtor(s)",
+    "medParties": "applicant(s) and opposing party(ies)",
+    "opponent": "opposing party(ies)"
+  }
+}

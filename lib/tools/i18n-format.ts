@@ -24,9 +24,9 @@ export function money(lang: Lang, c: Pick<CommonText, "units">, n: number): stri
   return fmt(c.units.won, { n: num(lang, n) })
 }
 
-/** 백분율: 숫자는 그대로(소수점 표기만 언어별) */
-export function percent(lang: Lang, c: Pick<CommonText, "units">, n: number): string {
-  return fmt(c.units.percent, { n: lang === "ko" ? String(n) : n.toLocaleString(TOOL_LOCALE[lang], { maximumFractionDigits: 2 }) })
+/** 백분율: 숫자는 그대로(소수점 표기만 언어별). digits: 외국어 표기의 소수 자릿수 상한 (약정 이율처럼 넷째 자리까지 받는 값) */
+export function percent(lang: Lang, c: Pick<CommonText, "units">, n: number, digits = 2): string {
+  return fmt(c.units.percent, { n: lang === "ko" ? String(n) : n.toLocaleString(TOOL_LOCALE[lang], { maximumFractionDigits: digits }) })
 }
 
 /** 날짜: 한국어는 "2026. 10. 10.(토)", 그 밖은 Intl */

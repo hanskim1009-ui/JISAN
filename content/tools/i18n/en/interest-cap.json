@@ -1,0 +1,62 @@
+{
+  "page": {
+    "title": "Maximum Interest Rate Check",
+    "description": "Enter the amount lent, the interest and the period to convert the interest into an annual rate and see whether it exceeds the maximum rate under the Interest Limitation Act or the Act on the Registration of Credit Business and Protection of Finance Users (currently 20% a year), and by how much.",
+    "lead": "Checks whether the interest agreed when lending or borrowing money exceeds the maximum rate allowed by law. Interest deducted in advance and fees are counted as interest.",
+    "notice": "This is a reference calculation based on the maximum rate at the time of the contract. Late-payment interest, partial repayment or an extension of the contract can change the result. To get back interest you have already paid, or to have it deducted from the principal, talk to a lawyer."
+  },
+  "ui": {
+    "principal": "Amount lent (borrowed)",
+    "interest": "Total interest agreed",
+    "interestHint": "Any money received in return for the loan counts as interest, even if it is called a fee, a thank-you payment or a discount (Interest Limitation Act, Article 4).",
+    "start": "Date the money was lent",
+    "end": "Agreed repayment date (or date repaid)",
+    "prepaid": "Interest deducted in advance (taken off before the money was handed over)",
+    "prepaidHint": "Leave blank if there was none. If interest was deducted in advance, the amount actually received is treated as the principal (Interest Limitation Act, Article 3).",
+    "contract": "Contract date (only if different from the date lent)",
+    "contractHint": "The maximum rate is determined as of the time the interest was agreed.",
+    "lender": "Who lent the money",
+    "annual": "As an annual rate",
+    "noInterest": "A loan contract made on or after {date} with an unregistered lender (an illegal private lender) has no effect as to any of the interest agreed (Act on the Registration of Credit Business and Protection of Finance Users, Article 11(1)). There is no obligation to pay the interest of {amount}.",
+    "over": "This exceeds the maximum rate of {cap} a year. The excess interest of {amount} has no effect. If it has already been paid, it can be counted as repayment of the principal, or you can ask for it to be returned ({law}).",
+    "overLawLender": "Act on the Registration of Credit Business and Protection of Finance Users, Article 8(4) and (5)",
+    "overLawPersonal": "Interest Limitation Act, Article 2(3) and (4)",
+    "notOver": "This does not exceed the maximum rate of {cap} a year.",
+    "colItem": "Item",
+    "colValue": "Details",
+    "rowPrincipal": "Amount treated as principal",
+    "rowInterest": "Amount treated as interest",
+    "rowPeriod": "Period",
+    "periodValue": "{from} – {to} ({days})",
+    "days": "{n} day(s)",
+    "rowCap": "Maximum rate applied",
+    "capValue": "{cap} a year (contract of {date} · {law})",
+    "rowMax": "Interest limit for this period",
+    "rowExcess": "Interest above the limit",
+    "method": "Annual rate = interest ÷ principal ÷ days × 365. Days are counted from the day after the money was lent. The interest limit is rounded down to the nearest won.",
+    "smallLoan": "If the amount borrowed is less than {amount}, the maximum rate under the Interest Limitation Act does not apply (Interest Limitation Act, Article 2(5)).",
+    "penalty": "Receiving interest above the maximum rate can be subject to criminal punishment ({law}).",
+    "error": "Please check what you entered.",
+    "errors": {
+      "principal": "Enter the amount lent.",
+      "interest": "Enter the interest.",
+      "prepaidTooBig": "The interest deducted in advance is larger than the amount lent.",
+      "badDate": "Please check the dates.",
+      "endNotAfterStart": "The repayment date must be after the date the money was lent.",
+      "tooOld": "For contracts made before {date}, the maximum rate at the time was different, so they cannot be checked with this calculator."
+    }
+  },
+  "lenders": {
+    "personal": "Ordinary loan, such as between individuals",
+    "registered": "Registered lender or financial company",
+    "unregistered": "Unregistered lender"
+  },
+  "laws": {
+    "interestAct2": "Interest Limitation Act, Article 2",
+    "interestAct8": "Interest Limitation Act, Article 8",
+    "lendingAct8": "Act on the Registration of Credit Business and Protection of Finance Users, Article 8",
+    "lendingAct11InterestAct2": "Act on the Registration of Credit Business and Protection of Finance Users, Article 11; Interest Limitation Act, Article 2",
+    "lendingAct11p1": "Act on the Registration of Credit Business and Protection of Finance Users, Article 11(1)",
+    "lendingAct19": "Act on the Registration of Credit Business and Protection of Finance Users, Article 19"
+  }
+}

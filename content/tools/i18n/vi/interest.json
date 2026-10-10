@@ -1,0 +1,56 @@
+{
+  "page": {
+    "title": "Tính tiền lãi chậm trả",
+    "description": "Nhập tiền gốc, khoảng thời gian và lãi suất (dân sự 5%/năm, thương mại 6%/năm, lãi suất theo Luật Đặc biệt về Thúc đẩy Tố tụng hoặc lãi suất thỏa thuận) để tính tiền lãi theo từng giai đoạn và tổng cộng. Nếu khoảng thời gian đi qua ngày lãi suất thay đổi thì được tính tách riêng.",
+    "lead": "Tính tiền lãi phát sinh khi trả tiền chậm (tiền bồi thường do chậm trả). Nhập tiền gốc, khoảng thời gian và lãi suất là thấy ngay tiền lãi theo từng giai đoạn và tổng cộng.",
+    "notice": "Đây là kết quả tính để tham khảo, dựa trên lãi suất luật định. Nếu đã trả một phần, hoặc bản án đã xác định riêng thời gian, lãi suất thì số tiền thực tế sẽ khác. Hãy trao đổi với luật sư trước khi xác định số tiền sẽ đòi hoặc sẽ trả."
+  },
+  "ui": {
+    "principal": "Tiền gốc",
+    "start": "Ngày bắt đầu tính lãi",
+    "end": "Ngày cuối cùng tính lãi",
+    "endHint": "Ngày đã trả hết nợ, hoặc ngày bạn muốn tính đến, chẳng hạn hôm nay",
+    "rate": "Lãi suất",
+    "kinds": {
+      "civil": "Lãi suất luật định dân sự {rate}/năm",
+      "commercial": "Lãi suất luật định thương mại {rate}/năm",
+      "sochok": "Lãi suất theo Luật Thúc đẩy Tố tụng",
+      "custom": "Tự nhập lãi suất thỏa thuận"
+    },
+    "hints": {
+      "civil": "Lãi suất áp dụng cho khoản nợ thông thường khi không có thỏa thuận riêng về lãi suất (Điều 379 Bộ luật Dân sự).",
+      "commercial": "Lãi suất áp dụng cho khoản nợ phát sinh từ hoạt động buôn bán, kinh doanh (Điều 54 Luật Thương mại).",
+      "sochok": "Lãi suất theo Luật Đặc biệt về Thúc đẩy Tố tụng (소송촉진 등에 관한 특례법). Thông thường phần quyết định của bản án ghi áp dụng từ ngày sau ngày bị đơn nhận bản sao đơn khởi kiện. Nếu khoảng thời gian đi qua ngày lãi suất thay đổi thì được tính tách riêng.",
+      "custom": "Hãy nhập lãi suất (theo năm) ghi trong hợp đồng. Muốn biết lãi suất có vượt mức tối đa hay không, hãy dùng công cụ Kiểm tra lãi suất tối đa."
+    },
+    "custom": "Lãi suất thỏa thuận (theo năm)",
+    "customPlaceholder": "VD: 12",
+    "includeFirst": "Tính cả ngày bắt đầu là một ngày (khi tính theo cách phần quyết định của bản án ghi “từ ngày ○○ đến ngày trả hết”)",
+    "total": "Tổng tiền gốc và tiền lãi",
+    "summary": "Tiền lãi {interest} · tổng {days}",
+    "days": "{n} ngày",
+    "range": "{from} ~ {to}",
+    "colPeriod": "Giai đoạn",
+    "colDays": "Số ngày",
+    "colRate": "Lãi suất năm",
+    "colInterest": "Tiền lãi",
+    "sum": "Tổng cộng",
+    "method": "Tính theo công thức tiền gốc × lãi suất năm × số ngày ÷ 365, phần lẻ dưới 1 won được làm tròn.",
+    "methodSplit": "Tính theo công thức tiền gốc × lãi suất năm × số ngày ÷ 365, phần lẻ dưới 1 won được làm tròn. Tổng cộng được cộng từ số tiền của từng giai đoạn trước khi làm tròn, nên có thể chênh khoảng 1 won so với tổng tiền lãi của các giai đoạn.",
+    "oldRate": "Giai đoạn đến hết ngày {date} áp dụng lãi suất khác ({rate}/năm), nên số tiền thực tế có thể khác với bảng này.",
+    "historyTitle": "Lịch sử thay đổi lãi suất theo Luật Thúc đẩy Tố tụng",
+    "colApplied": "Thời gian áp dụng",
+    "colAnnual": "Lãi suất năm",
+    "until": "Đến {date}",
+    "since": "Từ {date}",
+    "historyNote": "Vụ án đã kết thúc phần tranh luận ở sơ thẩm vào thời điểm lãi suất thay đổi thì vẫn áp dụng lãi suất trước khi thay đổi (điều khoản bổ sung của từng văn bản sửa đổi).",
+    "error": "Hãy kiểm tra lại thông tin đã nhập.",
+    "errors": {
+      "principal": "Hãy nhập tiền gốc.",
+      "badStart": "Hãy kiểm tra lại ngày bắt đầu.",
+      "badEnd": "Hãy kiểm tra lại ngày kết thúc.",
+      "endBeforeStart": "Ngày kết thúc sớm hơn ngày bắt đầu.",
+      "badCustom": "Hãy nhập lãi suất thỏa thuận."
+    }
+  }
+}

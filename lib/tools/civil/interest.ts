@@ -1,6 +1,7 @@
 /**
  * 지연이자(지연손해금) 계산 — 사무소 사건관리 프로그램의 이자 계산식을 그대로 옮김.
  * 원금 × 연이율 × 일수 ÷ 365, 원 미만 반올림. 소송촉진법 이율은 바뀐 날을 기준으로 기간을 나눕니다.
+ * 화면 문구는 content/tools/i18n/{언어}/interest.json (입력 오류는 InterestError.code → 사전 ui.errors).
  */
 import rates from "../../../content/tools/civil/rates.json"
 import { addDays, diffDays, parseISODate, percentToMicro, roundHalfUp } from "./format"
@@ -49,13 +50,20 @@ export type InterestInput = {
   includeFirst?: boolean
 }
 
+/** 입력 오류 (code 는 사전 ui.errors 의 키) */
+export class InterestError extends Error {
+  constructor(public code: "principal" | "badStart" | "badEnd" | "endBeforeStart" | "badCustom") {
+    super(code)
+  }
+}
+
 const DEN_YEAR = BigInt(365)
 const DEN_MICRO = BigInt(1_000_000)
 
 /** 기간 일수. includeFirst 면 시작일도 하루로 셈 */
 export function periodDays(start: string, end: string, includeFirst: boolean): number {
   const d = diffDays(start, end)
-  if (d < 0) throw new Error("끝나는 날이 시작일보다 빠릅니다.")
+  if (d < 0) throw new InterestError("endBeforeStart")
   return Math.max(d + (includeFirst ? 1 : 0), 0)
 }
 
@@ -81,10 +89,10 @@ function rawNumerator(principal: number, rateMicro: number, days: number): bigin
 export function calcInterest(input: InterestInput): InterestResult {
   const { principal, start, end, kind } = input
   const includeFirst = input.includeFirst ?? true
-  if (!Number.isSafeInteger(principal) || principal <= 0) throw new Error("원금을 입력하세요.")
-  if (parseISODate(start) === null) throw new Error("시작일을 확인해 주세요.")
-  if (parseISODate(end) === null) throw new Error("끝나는 날을 확인해 주세요.")
-  if (end < start) throw new Error("끝나는 날이 시작일보다 빠릅니다.")
+  if (!Number.isSafeInteger(principal) || principal <= 0) throw new InterestError("principal")
+  if (parseISODate(start) === null) throw new InterestError("badStart")
+  if (parseISODate(end) === null) throw new InterestError("badEnd")
+  if (end < start) throw new InterestError("endBeforeStart")
 
   const den = DEN_YEAR * DEN_MICRO
   const segments: InterestSegment[] = []
@@ -115,7 +123,7 @@ export function calcInterest(input: InterestInput): InterestResult {
     let rate: number
     if (kind === "custom") {
       const micro = percentToMicro(input.customPercent ?? "")
-      if (micro === null || micro <= 0) throw new Error("약정 이율을 입력하세요.")
+      if (micro === null || micro <= 0) throw new InterestError("badCustom")
       rate = micro
     } else {
       rate = presetMicro(kind)

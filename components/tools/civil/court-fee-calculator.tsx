@@ -1,41 +1,40 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { calcCourtFees, CASE_KINDS, DELIVERY_UNIT, SMALL_CLAIM_LIMIT, type CaseKind, type Instance } from "@/lib/tools/civil/court-fees"
-import { formatNumber, formatWon } from "@/lib/tools/civil/format"
+import type { Lang } from "@/lib/langs"
+import { calcCourtFees, CASE_KINDS, CourtFeeError, DELIVERY_UNIT, SMALL_CLAIM_LIMIT, type CaseKind, type CaseName, type FeeExpr, type Instance } from "@/lib/tools/civil/court-fees"
+import { formatNumber } from "@/lib/tools/civil/format"
+import { fmt, money, num, TOOL_LOCALE, type CommonText } from "@/lib/tools/i18n-format"
+import { rich } from "@/components/tools/rich"
+import type koText from "@/content/tools/i18n/ko/court-fees.json"
 import { Choice, DataTable, ErrorNote, Field, FormBox, MoneyInput, NumberInput, ResultBox, Select } from "./fields"
 
-const KIND_HINT: Record<CaseKind, string> = {
-  civil: `소가가 ${formatNumber(SMALL_CLAIM_LIMIT / 10_000)}만원 이하인 1심은 소액사건으로 보고 송달료를 계산합니다.`,
-  "payment-order": "법원이 상대방에게 돈을 갚으라고 명령하는 간단한 절차입니다. 상대방이 이의하면 소송으로 넘어갑니다.",
-  mediation: "판사나 조정위원 앞에서 합의를 이끌어 내는 절차입니다.",
-  "family-fixed": "재판상 이혼, 혼인 무효처럼 돈 액수가 기준이 되지 않는 가사소송입니다. 인지액이 정해져 있습니다.",
-  "family-damages": "이혼 위자료처럼 돈을 청구하는 가사소송입니다. 민사 요율의 절반입니다.",
-  "family-division": "재산분할을 따로 청구하는 경우입니다. 소가는 청구하는 금액입니다.",
-}
+export type CourtFeesText = typeof koText
 
-function instanceOptions(kind: CaseKind): { value: string; label: string }[] {
-  if (kind === "family-division") {
-    return [
-      { value: "1", label: "1심" },
-      { value: "2", label: "항고" },
-      { value: "3", label: "재항고" },
-    ]
-  }
-  return [
-    { value: "1", label: "1심" },
-    { value: "2", label: "항소" },
-    { value: "3", label: "상고" },
-  ]
-}
+const INSTANCES = ["1", "2", "3"] as const
 
-export function CourtFeeCalculator() {
+/** 인지·송달료 계산기. 문구는 사전(t·c), 금액·식의 숫자 표기는 언어별 */
+export function CourtFeeCalculator({ lang, t, c }: { lang: Lang; t: CourtFeesText; c: CommonText }) {
   const [kind, setKind] = useState<CaseKind>("civil")
   const [soga, setSoga] = useState<number | null>(30_000_000)
   const [instance, setInstance] = useState<string>("1")
   const [electronic, setElectronic] = useState<"e" | "p">("e")
   const [opponents, setOpponents] = useState(1)
   const [applicants, setApplicants] = useState(1)
+
+  const ui = t.ui
+  const won = (n: number) => money(lang, c, n)
+  /** 식 안의 숫자 (소수 배율 0.9·1.5 포함): 언어별 자릿수·소수점 표기 */
+  const n = (x: number) => x.toLocaleString(TOOL_LOCALE[lang], { maximumFractionDigits: 4 })
+  const exprText = (e: FeeExpr) => (e === "fixed" ? ui.fixedExpr : fmt(e.t, Object.fromEntries(Object.entries(e.v).map(([k, v]) => [k, n(v)]))))
+  const caseText = (cn: CaseName) => {
+    if (cn.key === "civilSmall" || cn.key === "civilFirst" || cn.key === "civilAppeal" || cn.key === "civilFinal") return t.cases[cn.key]
+    if (!cn.instance) return t.kinds[cn.key]
+    const names = cn.key === "family-division" ? t.divisionInstances : t.instances
+    return fmt(ui.caseInstance, { kind: t.kinds[cn.key], instance: names[String(cn.instance) as "1" | "2" | "3"] })
+  }
+  /** 소액사건 상한: 한국어는 "3,000만원", 그 밖은 원 단위 금액 */
+  const smallLimit = lang === "ko" ? `${formatNumber(SMALL_CLAIM_LIMIT / 10_000)}만원` : won(SMALL_CLAIM_LIMIT)
 
   const meta = CASE_KINDS.find((k) => k.value === kind) ?? CASE_KINDS[0]
 
@@ -53,83 +52,99 @@ export function CourtFeeCalculator() {
         }),
       }
     } catch (e) {
-      return { error: e instanceof Error ? e.message : "입력값을 확인해 주세요." }
+      return { error: e instanceof CourtFeeError ? ui.errors[e.code] : ui.error }
     }
-  }, [kind, soga, instance, electronic, opponents, applicants, meta])
+  }, [kind, soga, instance, electronic, opponents, applicants, meta, ui])
 
   const opponentLabel =
-    kind === "payment-order" ? "채무자 수" : kind === "mediation" ? "상대방 수" : instance === "1" || !meta.hasInstance ? "피고(상대방) 수" : "상대방(피항소인·피상고인) 수"
+    kind === "payment-order" ? ui.debtors : kind === "mediation" ? ui.opponents : instance === "1" || !meta.hasInstance ? ui.defendants : ui.appellees
+  const instanceNames = kind === "family-division" ? t.divisionInstances : t.instances
 
   return (
     <div>
       <FormBox>
-        <Field label="사건 종류" htmlFor="fee-kind" hint={KIND_HINT[kind]}>
+        <Field label={ui.kind} htmlFor="fee-kind" hint={fmt(t.hints[kind], { limit: smallLimit })}>
           <Select id="fee-kind" value={kind} onChange={setKind}>
             {CASE_KINDS.map((k) => (
               <option key={k.value} value={k.value}>
-                {k.label}
+                {t.kinds[k.value]}
               </option>
             ))}
           </Select>
         </Field>
         {meta.needsSoga ? (
-          <Field label="소가 (소송목적의 값)" htmlFor="fee-soga" hint="돈을 청구하면 보통 청구하는 원금이 소가입니다. 이자·지연손해금은 넣지 않습니다.">
-            <MoneyInput id="fee-soga" value={soga} onChange={setSoga} placeholder="30,000,000" />
+          <Field label={ui.soga} htmlFor="fee-soga" hint={ui.sogaHint}>
+            <MoneyInput
+              id="fee-soga"
+              value={soga}
+              onChange={setSoga}
+              placeholder={num(lang, 30_000_000)}
+              unit={c.units.wonUnit}
+              locale={lang === "ko" ? undefined : TOOL_LOCALE[lang]}
+            />
           </Field>
         ) : (
           <div className="hidden sm:block" />
         )}
         {meta.hasInstance && (
           <div className="sm:col-span-2">
-            <Choice name="fee-instance" label="심급" value={instance} onChange={setInstance} options={instanceOptions(kind)} />
+            <Choice name="fee-instance" label={ui.instance} value={instance} onChange={setInstance} options={INSTANCES.map((v) => ({ value: v, label: instanceNames[v] }))} />
           </div>
         )}
         <div className="sm:col-span-2">
           <Choice
             name="fee-elec"
-            label="접수 방법"
+            label={ui.filing}
             value={electronic}
             onChange={setElectronic}
             options={[
-              { value: "e", label: "전자소송 (인지액 10% 할인)" },
-              { value: "p", label: "종이 서류로 접수" },
+              { value: "e", label: ui.electronic },
+              { value: "p", label: ui.paper },
             ]}
           />
         </div>
         {meta.parties === "both" && (
-          <Field label={kind === "payment-order" ? "채권자 수" : "신청인 수"} htmlFor="fee-app">
-            <NumberInput id="fee-app" value={applicants} onChange={setApplicants} suffix="명" />
+          <Field label={kind === "payment-order" ? ui.creditors : ui.applicants} htmlFor="fee-app">
+            <NumberInput id="fee-app" value={applicants} onChange={setApplicants} suffix={ui.personUnit} />
           </Field>
         )}
         <Field label={opponentLabel} htmlFor="fee-opp">
-          <NumberInput id="fee-opp" value={opponents} onChange={setOpponents} suffix="명" />
+          <NumberInput id="fee-opp" value={opponents} onChange={setOpponents} suffix={ui.personUnit} />
         </Field>
       </FormBox>
 
       {out?.error && <ErrorNote message={out.error} />}
       {out?.ok && (
         <ResultBox
-          label={`${out.ok.caseLabel} · 처음 낼 비용`}
-          value={formatWon(out.ok.total)}
-          sub={
-            <>
-              인지액 <strong className="text-jisan-ink">{formatWon(out.ok.stamp.amount)}</strong> + 송달료 예납액{" "}
-              <strong className="text-jisan-ink">{formatWon(out.ok.delivery.amount)}</strong>
-            </>
-          }
+          label={fmt(ui.result, { case: caseText(out.ok.caseName) })}
+          value={won(out.ok.total)}
+          sub={rich(ui.summary, {
+            stamp: <strong className="text-jisan-ink">{won(out.ok.stamp.amount)}</strong>,
+            delivery: <strong className="text-jisan-ink">{won(out.ok.delivery.amount)}</strong>,
+          })}
         >
           <DataTable
-            head={["계산 단계", "식", "금액"]}
+            head={[ui.colStep, ui.colExpr, ui.colAmount]}
             rows={[
-              ...out.ok.stamp.steps.map((s) => [s.label, <span key="e" className="whitespace-nowrap">{s.expr}{s.note ? ` (${s.note})` : ""}</span>, formatWon(s.value)]),
-              ["송달료 예납", <span key="d" className="whitespace-nowrap">{out.ok.delivery.expr}</span>, formatWon(out.ok.delivery.amount)],
+              ...out.ok.stamp.steps.map((s) => [
+                t.steps[s.label],
+                <span key="e" className="whitespace-nowrap">
+                  {exprText(s.expr)}
+                  {s.floored ? ` (${ui.floorNote})` : ""}
+                </span>,
+                won(s.value),
+              ]),
+              [
+                ui.deliveryRow,
+                <span key="d" className="whitespace-nowrap">
+                  {fmt(ui.deliveryExpr, { unit: won(DELIVERY_UNIT), who: t.who[out.ok.delivery.who], n: num(lang, out.ok.delivery.persons), rounds: num(lang, out.ok.delivery.rounds) })}
+                </span>,
+                won(out.ok.delivery.amount),
+              ],
             ]}
-            foot={["합계", "", formatWon(out.ok.total)]}
+            foot={[ui.sum, "", won(out.ok.total)]}
           />
-          <p className="mt-3 text-xs leading-relaxed text-[#6B717B]">
-            인지액은 소장·신청서에 붙이는 수수료이고, 송달료는 법원이 서류를 보내는 데 쓸 우편료를 미리 내는 돈입니다(1회 {formatWon(DELIVERY_UNIT)}). 남은 송달료는 사건이 끝나면
-            돌려받습니다. 여러 청구를 함께 내거나 상대방이 많으면 금액이 달라질 수 있고, 실제 금액은 접수하는 법원에서 정합니다.
-          </p>
+          <p className="mt-3 text-xs leading-relaxed text-[#6B717B]">{fmt(ui.note, { unit: won(DELIVERY_UNIT) })}</p>
         </ResultBox>
       )}
     </div>

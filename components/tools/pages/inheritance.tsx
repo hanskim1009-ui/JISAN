@@ -23,7 +23,7 @@ export function InheritancePage({ lang }: { lang: Lang }) {
   const c = toolText(lang, "common")
   if (!t || !c) notFound()
   return (
-    <ToolShell lang={lang} title={t.page.title} lead={t.page.lead} consultType="상속" notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
+    <ToolShell toolId="inheritance" lang={lang} title={t.page.title} lead={t.page.lead} consultType="상속" notice={t.page.notice} related={relatedLinks(lang, RELATED)}>
       <InheritanceCalculator lang={lang} t={t} c={c} />
     </ToolShell>
   )

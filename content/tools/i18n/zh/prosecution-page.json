@@ -1,0 +1,44 @@
+{
+  "_note": "罪名介绍页（/zh/tools/prosecution/{罪名id}）和罪名汇总页的文字（中文简体）。2026-10 翻译，律师审核前。不写出处（标准文件名称）。",
+  "meta": {
+    "title": "{name}的法定刑·预计求刑",
+    "titleConsult": "{name}的法定刑",
+    "description": "整理了{name}（{law}）的法定刑，以及根据和解·前科·损失程度等情况预计的处理结果。回答问题即可马上计算。",
+    "descriptionConsult": "整理了{name}（{law}）的法定刑。这个罪名没有固定的求刑标准，处罚轻重会因事实关系而不同。"
+  },
+  "crumb": "求刑预测计算器",
+  "lead": "整理了{name}案件的法定刑，以及根据具体情况预计的处理结果。结果仅供参考。",
+  "leadConsult": "整理了{name}案件的法定刑。这个罪名没有固定的求刑标准，处罚轻重会因事实关系而不同。",
+  "facts": {
+    "statutory": "法定刑",
+    "law": "依据条文",
+    "group": "分类"
+  },
+  "calcTitle": "按自己的情况计算一下",
+  "tiersTitle": "处理标准一览",
+  "tiersLead": "从上往下按由重到轻排列。实际处分会因侦查结果和具体情况而不同。",
+  "sentence": "预计求刑",
+  "criterion": "处理标准",
+  "fine": "预计罚金",
+  "fineFrom": "{amount}起（视情况增加）",
+  "notesTitle": "参考",
+  "faqTitle": "常见问题",
+  "faq": {
+    "statutoryQ": "{name}的法定刑是什么？",
+    "statutoryA": "根据{law}，法定刑为{statutory}。",
+    "outcomeQ": "{name}案件通常会怎样处理？",
+    "outcomeA": "视具体情况，可能按{levels}等处理。在上面的计算器中输入您的情况，就能看到属于哪一种。",
+    "consultQ": "能知道{name}的预计求刑吗？",
+    "consultA": "这个罪名没有固定的求刑标准，求刑和处罚轻重会因事实关系而不同。请通过消息告诉我们您的情况，律师会进行确认。"
+  },
+  "listSep": "、",
+  "related": "同一领域的其他罪名",
+  "allCrimes": "查看全部罪名",
+  "detailLink": "这个罪名的介绍页",
+  "index": {
+    "title": "求刑预测计算器罪名汇总",
+    "description": "按领域整理了求刑预测计算器中可以查到的{n}个罪名。点击罪名，可以查看法定刑和预计的处理结果。",
+    "lead": "点击罪名，可以查看法定刑，以及根据具体情况预计的处理结果。",
+    "openCalc": "在计算器中搜索"
+  }
+}

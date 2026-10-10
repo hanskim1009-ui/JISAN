@@ -25,10 +25,10 @@ export const TOOLS: ToolEntry[] = [
   entry("child-support", "가사·상속", "child-support"),
   entry("inheritance", "가사·상속", "inheritance"),
   entry("reserved-share", "가사·상속", "reserved-share"),
-  entry("interest", "민사·기한"),
-  entry("court-fees", "민사·기한"),
+  entry("interest", "민사·기한", "interest"),
+  entry("court-fees", "민사·기한", "court-fees"),
   entry("deadline", "민사·기한", "deadline"),
-  entry("interest-cap", "민사·기한"),
+  entry("interest-cap", "민사·기한", "interest-cap"),
 ]
 
 export const toolById = (id: ToolId) => TOOLS.find((t) => t.id === id)

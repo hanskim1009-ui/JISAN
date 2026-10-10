@@ -1,0 +1,62 @@
+{
+  "page": {
+    "title": "Kiểm tra lãi suất tối đa",
+    "description": "Nhập số tiền cho vay, tiền lãi và thời hạn để quy đổi ra lãi suất năm, xem có vượt mức lãi suất tối đa theo Luật Hạn chế Lãi suất và Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính (hiện là 20%/năm) hay không, và tiền lãi vượt là bao nhiêu.",
+    "lead": "Kiểm tra tiền lãi đã thỏa thuận khi cho vay hoặc đi vay có vượt mức lãi suất tối đa mà pháp luật cho phép hay không. Tiền lãi trừ trước và các khoản phí cũng được tính vào tiền lãi.",
+    "notice": "Đây là kết quả tính để tham khảo, dựa trên lãi suất tối đa tại thời điểm ký hợp đồng. Nếu có lãi quá hạn, trả một phần hoặc gia hạn hợp đồng thì kết quả có thể khác. Nếu muốn đòi lại tiền lãi đã trả hoặc trừ vào tiền gốc, hãy trao đổi với luật sư."
+  },
+  "ui": {
+    "principal": "Số tiền cho vay (đi vay)",
+    "interest": "Tổng tiền lãi đã thỏa thuận",
+    "interestHint": "Dù được gọi là phí, tiền cảm ơn hay tiền chiết khấu, mọi khoản tiền nhận được để đổi lấy việc cho vay đều được coi là tiền lãi (Điều 4 Luật Hạn chế Lãi suất).",
+    "start": "Ngày cho vay",
+    "end": "Ngày hẹn trả (ngày đã trả)",
+    "prepaid": "Tiền lãi trừ trước (tiền lãi đã khấu trừ ngay khi giao tiền)",
+    "prepaidHint": "Nếu không có thì để trống. Nếu đã trừ trước tiền lãi thì số tiền thực nhận được coi là tiền gốc (Điều 3 Luật Hạn chế Lãi suất).",
+    "contract": "Ngày ký hợp đồng (chỉ khi khác ngày cho vay)",
+    "contractHint": "Lãi suất tối đa được xác định theo thời điểm thỏa thuận về tiền lãi.",
+    "lender": "Người cho vay",
+    "annual": "Quy đổi ra lãi suất năm",
+    "noInterest": "Hợp đồng cho vay ký từ ngày {date} trở đi với người kinh doanh cho vay chưa đăng ký (người cho vay tư nhân bất hợp pháp) thì toàn bộ thỏa thuận về tiền lãi không có hiệu lực (Điều 11 khoản 1 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính). Bạn không có nghĩa vụ trả khoản lãi {amount}.",
+    "over": "Vượt mức lãi suất tối đa {cap}/năm. Phần tiền lãi vượt {amount} không có hiệu lực; nếu đã trả thì có thể coi là đã trả vào tiền gốc hoặc yêu cầu trả lại ({law}).",
+    "overLawLender": "Điều 8 khoản 4, 5 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính",
+    "overLawPersonal": "Điều 2 khoản 3, 4 Luật Hạn chế Lãi suất",
+    "notOver": "Không vượt mức lãi suất tối đa {cap}/năm.",
+    "colItem": "Mục",
+    "colValue": "Nội dung",
+    "rowPrincipal": "Số tiền được coi là tiền gốc",
+    "rowInterest": "Số tiền được coi là tiền lãi",
+    "rowPeriod": "Thời hạn",
+    "periodValue": "{from} ~ {to} ({days})",
+    "days": "{n} ngày",
+    "rowCap": "Lãi suất tối đa áp dụng",
+    "capValue": "{cap}/năm (hợp đồng ngày {date} · {law})",
+    "rowMax": "Mức lãi tối đa trong thời hạn này",
+    "rowExcess": "Tiền lãi vượt mức tối đa",
+    "method": "Lãi suất năm = tiền lãi ÷ tiền gốc ÷ số ngày × 365. Số ngày được tính từ ngày hôm sau ngày cho vay. Mức lãi tối đa đã bỏ phần lẻ dưới 1 won.",
+    "smallLoan": "Nếu số tiền vay dưới {amount} thì không áp dụng lãi suất tối đa theo Luật Hạn chế Lãi suất (Điều 2 khoản 5 Luật Hạn chế Lãi suất).",
+    "penalty": "Thu tiền lãi vượt mức lãi suất tối đa có thể bị xử lý hình sự ({law}).",
+    "error": "Hãy kiểm tra lại thông tin đã nhập.",
+    "errors": {
+      "principal": "Hãy nhập số tiền cho vay.",
+      "interest": "Hãy nhập tiền lãi.",
+      "prepaidTooBig": "Tiền lãi trừ trước nhiều hơn số tiền cho vay.",
+      "badDate": "Hãy kiểm tra lại ngày.",
+      "endNotAfterStart": "Ngày trả phải sau ngày cho vay.",
+      "tooOld": "Hợp đồng ký trước ngày {date} có mức lãi suất tối đa khác vào thời điểm đó nên không thể kiểm tra bằng công cụ này."
+    }
+  },
+  "lenders": {
+    "personal": "Vay mượn thông thường, như giữa cá nhân với nhau",
+    "registered": "Người kinh doanh cho vay đã đăng ký, công ty tài chính",
+    "unregistered": "Người kinh doanh cho vay chưa đăng ký"
+  },
+  "laws": {
+    "interestAct2": "Điều 2 Luật Hạn chế Lãi suất",
+    "interestAct8": "Điều 8 Luật Hạn chế Lãi suất",
+    "lendingAct8": "Điều 8 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính",
+    "lendingAct11InterestAct2": "Điều 11 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính, Điều 2 Luật Hạn chế Lãi suất",
+    "lendingAct11p1": "Điều 11 khoản 1 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính",
+    "lendingAct19": "Điều 19 Luật về Đăng ký Kinh doanh Cho vay và Bảo vệ Người sử dụng Tài chính"
+  }
+}

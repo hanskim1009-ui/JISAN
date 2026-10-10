@@ -1,0 +1,56 @@
+{
+  "page": {
+    "title": "Late Payment Interest Calculator",
+    "description": "Enter the principal, the period and the interest rate (civil 5% a year, commercial 6% a year, the Litigation Promotion Act rate or an agreed rate) to calculate the interest for each period and the total. If the period spans a date on which the rate changed, it is calculated in separate parts.",
+    "lead": "Calculates the interest added when money is paid late (damages for late payment). Enter the principal, the period and the interest rate to see the interest for each period and the total right away.",
+    "notice": "This is a reference calculation based on statutory interest rates. If part of the debt has been paid, or if a judgment set a different period or rate, the actual amount will differ. Talk to a lawyer before deciding how much to claim or to pay."
+  },
+  "ui": {
+    "principal": "Principal",
+    "start": "Date interest starts",
+    "end": "Last day of the calculation",
+    "endHint": "The day the debt was paid in full, or any day you want to calculate up to, such as today",
+    "rate": "Interest rate",
+    "kinds": {
+      "civil": "Civil statutory rate, {rate} a year",
+      "commercial": "Commercial statutory rate, {rate} a year",
+      "sochok": "Litigation Promotion Act rate",
+      "custom": "Enter an agreed rate"
+    },
+    "hints": {
+      "civil": "The rate for an ordinary debt when no rate was agreed (Civil Act, Article 379).",
+      "commercial": "The rate for a debt arising from trade or business (Commercial Act, Article 54).",
+      "sochok": "The rate under the Act on Special Cases Concerning Expedition of Legal Proceedings (소송촉진 등에 관한 특례법). A judgment usually orders it from the day after the copy of the complaint is served on the defendant. If the period spans a date on which the rate changed, it is calculated in separate parts.",
+      "custom": "Enter the annual rate written in the contract. To see whether it exceeds the legal maximum rate, use the Maximum Interest Rate Check."
+    },
+    "custom": "Agreed rate (per year)",
+    "customPlaceholder": "e.g. 12",
+    "includeFirst": "Count the start date as a day too (as when a judgment orders payment “from [date] until the day of full payment”)",
+    "total": "Principal plus interest",
+    "summary": "Interest {interest} · {days} in total",
+    "days": "{n} day(s)",
+    "range": "{from} – {to}",
+    "colPeriod": "Period",
+    "colDays": "Days",
+    "colRate": "Annual rate",
+    "colInterest": "Interest",
+    "sum": "Total",
+    "method": "Calculated as principal × annual rate × days ÷ 365, rounded to the nearest won.",
+    "methodSplit": "Calculated as principal × annual rate × days ÷ 365, rounded to the nearest won. The total adds up the period amounts before they are rounded, so it may differ by about KRW 1 from the sum of the interest shown for each period.",
+    "oldRate": "For the period up to {date}, the rate was different ({rate} a year), so the actual amount may differ from this table.",
+    "historyTitle": "Changes to the Litigation Promotion Act rate",
+    "colApplied": "Period applied",
+    "colAnnual": "Annual rate",
+    "until": "Until {date}",
+    "since": "From {date}",
+    "historyNote": "In cases where the hearings at first instance had already closed when the rate changed, the rate before the change continues to apply (addenda to each amending regulation).",
+    "error": "Please check what you entered.",
+    "errors": {
+      "principal": "Enter the principal.",
+      "badStart": "Please check the start date.",
+      "badEnd": "Please check the end date.",
+      "endBeforeStart": "The end date is earlier than the start date.",
+      "badCustom": "Enter the agreed rate."
+    }
+  }
+}

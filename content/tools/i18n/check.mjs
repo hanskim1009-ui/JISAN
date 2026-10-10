@@ -93,7 +93,7 @@ if (!lang || !LANGS.includes(lang)) {
   process.exit(2)
 }
 /** 이 스크립트가 기본으로 보는 사전 (구형·양형 계산기 사전은 check-crimes.mjs 가 따로 검사. 이름을 주면 어느 사전이든 같은 기준으로 봄) */
-const TOOLS = ["common", "police-summons", "drunk-driving", "deadline", "child-support", "inheritance", "reserved-share"]
+const TOOLS = ["common", "police-summons", "drunk-driving", "deadline", "child-support", "inheritance", "reserved-share", "interest", "court-fees", "interest-cap"]
 const koFiles = readdirSync(path.join(DIR, "ko")).filter((f) => f.endsWith(".json")).map((f) => f.replace(/\.json$/, "")).sort()
 let tools = only ? [only, ...(DEPS[only] ?? []), "common"] : TOOLS.filter((t) => koFiles.includes(t))
 tools = [...new Set(tools)]
