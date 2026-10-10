@@ -12,6 +12,12 @@ import { LogoSvg } from "@/components/brand-logo"
 import { LangSwitch } from "@/components/intl/intl-header"
 
 export type CenterLink = { slug: string; name: string; href: string }
+/** 추가 메뉴 한 칸. menu 가 있으면 마우스를 올렸을 때 아래로 목록이 펼쳐짐 (계산기) */
+export type ExtraLink = {
+  label: string
+  href: string
+  menu?: { all: string; groups: { title: string; items: { label: string; href: string }[] }[] }
+}
 export type HeaderFlags = {
   showCases: boolean
   showDiary: boolean
@@ -20,7 +26,7 @@ export type HeaderFlags = {
   dict?: Dict
   centerLinks?: CenterLink[]
   /** 서버에서 정해 넘기는 추가 메뉴 (계산기, 체류자격 안내 등) */
-  extraLinks?: { label: string; href: string }[]
+  extraLinks?: ExtraLink[]
 }
 
 /** 메인 사이트 헤더: 남색 바탕 + 흰 로고 + 메뉴 + '업무영역' 펼침 메뉴 (외국어 사이트도 같은 틀) */
@@ -63,7 +69,7 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
     { label: t("법인 소개"), href: L(lang, "/about") },
     { label: t("구성원"), href: L(lang, "/lawyers") },
   ]
-  const after = [
+  const after: ExtraLink[] = [
     ...(!ko && foreigner ? [{ label: foreigner.name, href: foreigner.href }] : []),
     ...(showCases ? [{ label: t("업무사례"), href: L(lang, "/cases") }] : []),
     ...(showColumns ? [{ label: t("칼럼"), href: L(lang, "/column") }] : []),
@@ -102,11 +108,15 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
               >
                 {t("업무영역")} <ChevronDown className={`h-4 w-4 transition-transform ${megaOpen ? "rotate-180" : ""}`} />
               </button>
-              {after.map((l) => (
-                <Link key={l.href} href={l.href} className={navLink}>
-                  {l.label}
-                </Link>
-              ))}
+              {after.map((l) =>
+                l.menu ? (
+                  <HoverMenu key={l.href} link={l} menu={l.menu} className={navLink} />
+                ) : (
+                  <Link key={l.href} href={l.href} className={navLink}>
+                    {l.label}
+                  </Link>
+                ),
+              )}
               <LangSwitch current={lang} className="-mx-2" />
               <Link href={L(lang, "/consult")} className="whitespace-nowrap border border-white/70 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white hover:text-brand transition-colors">
                 {t("상담 신청")}
@@ -166,11 +176,28 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
         {mobileOpen && (
           <div className={`${longNav ? "2xl:hidden" : "xl:hidden"} border-t border-white/10 bg-white text-jisan-ink max-h-[calc(100dvh-4rem)] overflow-y-auto`}>
             <div className="flex flex-col px-5 py-4">
-              {[...before, ...after].map((l) => (
-                <Link key={l.href} href={l.href} onClick={close} className="border-b border-[#E4E6E9] py-3 text-base text-jisan-ink">
-                  {l.label}
-                </Link>
-              ))}
+              {[...before, ...after].map((l: ExtraLink) =>
+                l.menu ? (
+                  <div key={l.href} className="border-b border-[#E4E6E9] py-3">
+                    <Link href={l.href} onClick={close} className="text-base text-jisan-ink">
+                      {l.label}
+                    </Link>
+                    <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5 pl-3 text-sm text-[#4A505A]">
+                      {l.menu.groups.flatMap((g) => g.items).map((it) => (
+                        <li key={it.href}>
+                          <Link href={it.href} onClick={close} className="hover:text-jisan-ink">
+                            {it.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <Link key={l.href} href={l.href} onClick={close} className="border-b border-[#E4E6E9] py-3 text-base text-jisan-ink">
+                    {l.label}
+                  </Link>
+                ),
+              )}
               {(ko ? centerLinks.length > 0 : centerLinks.length > 1) && (
                 <>
                   <p className="mt-5 text-sm font-bold text-jisan-ink">{t("센터")}</p>
@@ -194,5 +221,55 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
         )}
       </header>
     </>
+  )
+}
+
+/**
+ * 마우스를 올리거나(키보드로 옮겨 오면) 아래로 펼쳐지는 메뉴 (계산기 목록). 살짝 내려오며 나타남.
+ * 목록 위쪽 여백(pt-4)이 링크와 목록 사이를 이어 줘서 마우스를 옮기는 동안 닫히지 않음.
+ * 메뉴가 헤더 오른쪽에 있어 목록은 링크 오른쪽 끝에 맞춰 왼쪽으로 펼침 (긴 언어도 화면 밖으로 넘치지 않게)
+ */
+function HoverMenu({ link, menu, className }: { link: ExtraLink; menu: NonNullable<ExtraLink["menu"]>; className: string }) {
+  // 누른 뒤에는 포커스를 풀어 목록이 열린 채로 남지 않게
+  const blur = () => (document.activeElement as HTMLElement | null)?.blur()
+  const show =
+    "group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-has-[:focus-visible]/menu:visible group-has-[:focus-visible]/menu:translate-y-0 group-has-[:focus-visible]/menu:opacity-100"
+  return (
+    <div className="group/menu relative">
+      <Link href={link.href} onClick={blur} aria-haspopup="true" className={`${className} inline-flex items-center gap-1 group-hover/menu:text-white`}>
+        {link.label}
+        <ChevronDown className="h-4 w-4 transition-transform duration-200 group-hover/menu:rotate-180 group-has-[:focus-visible]/menu:rotate-180 motion-reduce:transition-none" />
+      </Link>
+      <div
+        className={`invisible absolute -right-6 top-full z-50 translate-y-2 pt-4 opacity-0 transition-[opacity,transform,visibility] duration-200 ease-out motion-reduce:transition-none ${show}`}
+      >
+        <div className="relative rounded-2xl border border-[#E4E6E9] bg-white p-6 text-jisan-ink shadow-[0_18px_40px_rgba(12,30,54,0.16)]">
+          <span aria-hidden className="absolute -top-1.5 right-12 h-3 w-3 rotate-45 border-l border-t border-[#E4E6E9] bg-white" />
+          <div className="flex gap-8">
+            {menu.groups.map((g) => (
+              <div key={g.title} className="w-48">
+                <p className="border-b border-jisan-ink pb-2 text-sm font-bold">{g.title}</p>
+                <ul className="mt-2">
+                  {g.items.map((it) => (
+                    <li key={it.href}>
+                      <Link
+                        href={it.href}
+                        onClick={blur}
+                        className="-mx-2 block rounded-md px-2 py-1.5 text-sm text-[#4A505A] transition-colors hover:bg-[#F4F5F7] hover:text-jisan-ink"
+                      >
+                        {it.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <Link href={link.href} onClick={blur} className="mt-4 inline-block text-sm font-semibold text-brand-accent underline underline-offset-4">
+            {menu.all} →
+          </Link>
+        </div>
+      </div>
+    </div>
   )
 }

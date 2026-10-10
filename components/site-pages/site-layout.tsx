@@ -9,9 +9,10 @@ import { L } from "@/lib/i18n/t"
 import { HEADER_KEYS, clientDict } from "@/lib/i18n/client-keys"
 import { centerText } from "@/lib/center-i18n"
 import { centerBase, centers, getCenter } from "@/lib/centers"
-import type { CenterLink } from "@/components/main/site-header"
+import type { CenterLink, ExtraLink } from "@/components/main/site-header"
 import { toolText } from "@/lib/tools/i18n"
 import { toolsFor } from "@/components/tools/pages/tools-list"
+import { GROUP_KEY, TOOL_GROUPS } from "@/lib/tools/registry"
 
 /** 메인 사이트(법인 전체) 공통 틀. 한국어(/)와 외국어(/en 등)가 같은 틀을 씁니다. 글이 없는 메뉴는 숨깁니다 */
 export async function SiteLayout({ lang, children }: { lang: Lang; children: React.ReactNode }) {
@@ -35,9 +36,28 @@ export async function SiteLayout({ lang, children }: { lang: Lang; children: Rea
           const c = intl(k)
           return c ? [{ slug, name: c.name, href: centerBase(c) }] : []
         })
-  /** 추가 메뉴: 계산기 (그 언어 목록이 있을 때만. 외국어 체류자격 안내는 메뉴가 넘쳐서 바닥글에) */
-  const toolsNav = toolText(lang, "common")?.list.nav
-  const extraLinks = toolsNav && toolsFor(lang).length > 0 ? [{ label: toolsNav, href: L(lang, "/tools") }] : []
+  /**
+   * 추가 메뉴: 계산기 (그 언어 목록이 있을 때만. 외국어 체류자격 안내는 메뉴가 넘쳐서 바닥글에).
+   * 마우스를 올리면 펼쳐지는 목록은 묶음(형사·가사·민사)별 도구 이름
+   */
+  const common = toolText(lang, "common")
+  const tools = toolsFor(lang)
+  const extraLinks: ExtraLink[] =
+    common && tools.length > 0
+      ? [
+          {
+            label: common.list.nav,
+            href: L(lang, "/tools"),
+            menu: {
+              all: common.list.title,
+              groups: TOOL_GROUPS.map((g) => ({
+                title: common.groups[GROUP_KEY[g]],
+                items: tools.filter((x) => x.group === g).map((x) => ({ label: common.tools[x.id].title, href: L(lang, x.href) })),
+              })).filter((g) => g.items.length > 0),
+            },
+          },
+        ]
+      : []
   const body = (
     <>
       {lang !== "ko" && <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(HREFLANG[lang])}` }} />}
