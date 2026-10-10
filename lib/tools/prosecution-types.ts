@@ -83,4 +83,14 @@ export type Crime = {
   tiers: Tier[]
   /** 죄명 공통 참고 (예: "합의 여부가 처분에 크게 영향") */
   notes?: string[]
+  /**
+   * 기준을 어디서 왔는지 (화면에 문서 이름은 쓰지 않음)
+   * - 없음: 수사기관 처리 기준
+   * - "guideline-x2": 처리 기준이 없어 2026 양형기준 권고범위의 2배(법정형 상한 이내)로 추정
+   */
+  basis?: "guideline-x2"
+  /** 구형 기준이 없어 다른 계산기로 안내하는 죄명 (이때 questions·tiers 는 비어 있어도 됨) */
+  ref?: { href: string; label: string }
+  /** 특별법 법률 이름 (묶음·검색용, 예: "도로교통법") */
+  lawName?: string
 }
