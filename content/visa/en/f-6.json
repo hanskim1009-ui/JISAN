@@ -1,0 +1,98 @@
+{
+  "code": "F-6",
+  "slug": "f-6",
+  "name": "Marriage Migrant",
+  "group": "family",
+  "summary": "Spouses of Korean nationals, parents raising a child with a Korean national, and marriage migrants whose marriage has ended",
+  "seo": {
+    "title": "F-6 Marriage Visa | Separation, Divorce, F-6-3, Domestic Violence",
+    "description": "What happens to an F-6 marriage migrant's stay after separation, divorce (F-6-3), raising a child (F-6-2), domestic violence, or a fine or suspended sentence."
+  },
+  "about": [
+    "Marriage Migrant (F-6) is the status of stay for spouses of Korean nationals, parents raising a child born from a marriage (including a common-law marriage) with a Korean national, and people who can no longer keep up a normal marriage because their Korean spouse died or went missing or for other reasons that are not their fault (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2). In practice, these are called F-6-1, F-6-2 and F-6-3.",
+    "With Marriage Migrant status, you can work without the employment limits that come with other statuses of stay (Enforcement Decree Article 23(2))."
+  ],
+  "impact": {
+    "lead": "For marriage migrants, divorce and criminal cases are family problems and, at the same time, problems with your stay. Being the spouse of a Korean national does not by itself exempt you from the deportation rules.",
+    "items": [
+      {
+        "title": "If you receive a criminal penalty",
+        "body": "If you are sentenced to imprisonment (with or without labor), the ground for deportation can become an issue, just as for other foreign nationals (Immigration Act [출입국관리법] Article 46(1)(13)). A fine also counts against you in reviews for extending your stay, Permanent Residency (F-5) and naturalization. If you want to change from another status of stay to spouse of a Korean national (F-6-1) inside Korea, people who received a criminal penalty heavier than a simple fine are, as a rule, not allowed to change (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼])."
+      },
+      {
+        "title": "If you are separated or in a divorce lawsuit",
+        "body": "Even if you are separated from your spouse or in a divorce lawsuit (including preparing for one), there is a procedure to apply for an extension of stay as the spouse of a Korean national (F-6-1) by submitting documents that show the reason (Ministry of Justice guidance manual). Documents such as a report of a spouse leaving home (가출신고서), a medical certificate, a certificate of admission to a shelter or a certificate of lawsuit filing (소제기 증명원) are used."
+      },
+      {
+        "title": "After a divorce",
+        "body": "If the main fault for the breakdown of the marriage lies with your Korean spouse, you can keep staying with marriage breakdown (F-6-3) status. The Supreme Court sees 'reasons that are not their fault' as cases where the main responsibility for the breakdown lies with the Korean spouse, and does not require the foreign spouse to be completely free of fault (Supreme Court Decision 2018Du66869, July 4, 2019). If you are raising a child you had with your Korean spouse, we look at child-raising (F-6-2) status."
+      },
+      {
+        "title": "If you are a victim of domestic violence",
+        "body": "A spouse of a Korean national who is going through a trial, an investigation or another remedy procedure because of domestic violence can have their stay extended until that procedure ends (Immigration Act Article 25-2). Police report records and medical certificates are used both for your stay and for your divorce case."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "Divorce by agreement and divorce by court ruling",
+      "body": [
+        "Divorce by agreement is quick, but it leaves no record of whose fault ended the marriage, so to stay with F-6-3 you have to prove the fault separately. In a divorce by court ruling, if the court finds that your Korean spouse was at fault, the judgment becomes an important document in the review of your stay.",
+        "The guidance lists documents used in the F-6-3 review, such as a report that the Korean spouse left home, a medical certificate for an assault, the prosecution's decision not to indict, a confirmation from a women's organization, and a confirmation from the spouse's relatives within the fourth degree or from the local neighborhood head (Ministry of Justice guidance manual)."
+      ]
+    },
+    {
+      "title": "If you are raising a child",
+      "body": [
+        "After the marriage ends, if you are raising in Korea a minor child born to you and a Korean national, you can stay with child-raising (F-6-2) status, and when you extend you submit documents showing that you are still raising the child, such as receipts for school fees or hospital bills. Even if you do not raise the child yourself, there is a special rule that allows you to stay if your visitation rights have not been restricted and you keep in contact with your child (Ministry of Justice guidance manual)."
+      ]
+    },
+    {
+      "title": "If you do not qualify for F-6-3",
+      "body": [
+        "Even if you do not qualify for marriage breakdown (F-6-3), if you must stay in Korea to divide property or settle family affairs, there is a way to stay for a short time with family affairs settlement (F-1-6) status (Ministry of Justice guidance manual). You need to fit the schedule of your divorce and property division to your stay."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I have to leave Korea as soon as I get divorced?",
+      "a": "You do not have to leave right away. If the main fault for the breakdown lies with your Korean spouse, you can keep staying with F-6-3, and if you are raising a Korean child, with F-6-2. If neither applies, we look at family affairs settlement (F-1-6) for things like property division. Before deciding how to divorce, first gather evidence that shows who was at fault."
+    },
+    {
+      "q": "Which is better for my stay: divorce by agreement or by court ruling?",
+      "a": "It depends on the situation, but in a divorce by court ruling, if the court finds that your Korean spouse was at fault, the judgment becomes an important document in the review of your stay. Divorce by agreement leaves no record of fault, so you have to prove it separately in the F-6-3 review."
+    },
+    {
+      "q": "My husband will not cooperate with the documents for my extension.",
+      "a": "If you are separated or in a divorce lawsuit, there is a procedure to apply for an extension by submitting documents that show the reason. The documents you need differ, such as a report of a spouse leaving home, a medical certificate or a certificate of lawsuit filing, so check well before your expiry date."
+    },
+    {
+      "q": "Will reporting domestic violence hurt my stay?",
+      "a": "A spouse of a Korean national who is going through an investigation or trial because of domestic violence can have their stay extended until that procedure ends (Immigration Act Article 25-2). Police report records and medical certificates also show your spouse's fault in the F-6-3 review and in the divorce case. If you are in danger, make yourself safe first."
+    },
+    {
+      "q": "I got a fine. Will it affect my application for permanent residency or naturalization?",
+      "a": "It can. In the Permanent Residency (F-5) review, the Ministry of Justice standards treat people for whom 3 years have not passed since they paid a fine as not meeting the good conduct requirement, and the naturalization review also looks at conduct. Before deciding when to apply, check your penalty record and the dates."
+    }
+  ],
+  "consultWhen": [
+    "You have started living apart from your Korean spouse, or you have filed or been served with a divorce lawsuit",
+    "Your F-6-3 or F-6-2 extension was refused after a divorce",
+    "You are a victim of domestic violence but are holding back from reporting it because you are worried about your stay",
+    "You are about to be questioned by the police, or you received a fine or a suspended sentence"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "marriage-migrant-divorce" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "family" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 25-2 and 46",
+    "Enforcement Decree of the Immigration Act Article 23, Appended Table 1-2",
+    "Supreme Court Decision 2018Du66869, July 4, 2019",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Marriage Migrant (F-6), Permanent Residency (F-5)"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "code": "E-7",
+  "slug": "e-7",
+  "name": "Specially Designated Activities",
+  "group": "work",
+  "summary": "Foreign nationals working under contract in occupations designated by the Minister of Justice",
+  "seo": {
+    "title": "E-7 Visa and Legal Problems | Job Change, Other Duties, Crime",
+    "description": "What happens when an E-7 holder changes companies, does work outside the contract or gets a fine or suspended sentence, and the effect on extensions, F-2 and F-5."
+  },
+  "about": [
+    "Specially Designated Activities (E-7) is the status of stay for foreign nationals who sign a contract with a public institution, company or other organization in Korea and work in an occupation specially designated by the Minister of Justice (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2). The requirements for education, experience and pay differ by occupation, such as managers, technical staff, office and service jobs, and skilled workers (E-7-4).",
+    "Your stay assumes that you work in the permitted occupation at the permitted workplace, so if you change companies or your work changes, you must go through the right procedure."
+  ],
+  "impact": {
+    "lead": "For E-7, 'where you work and what you do' is the basis of your stay. A criminal record is checked not only when you extend your stay but also later, when you apply to change to Residence (F-2) or Permanent Residency (F-5).",
+    "items": [
+      {
+        "title": "If you receive a criminal penalty",
+        "body": "If you are sentenced to imprisonment (with or without labor), the ground for deportation can become an issue (Immigration Act [출입국관리법] Article 46(1)(13)). A fine is not a ground for deportation, but it counts against you when you apply to extend your stay, and if the violation is serious your stay permit can be cancelled (Article 89(1)(5))."
+      },
+      {
+        "title": "If you change workplaces without permission",
+        "body": "To change or add a workplace, you must get permission in advance or, depending on your occupation, report it within 15 days of the change (Immigration Act Article 21(1)). If your occupation requires permission and you move without it, you can face punishment (Article 95(6)) and deportation (Article 46(1)(9))."
+      },
+      {
+        "title": "If you do work outside your permitted occupation",
+        "body": "This is an activity outside the scope of your status of stay and can be punished (Immigration Act Article 17(1) and Article 94(7)), and your stay permit can be cancelled or an extension refused. Even if your company tells you to do it, you yourself are also responsible if the work differs from what was permitted."
+      },
+      {
+        "title": "When you later change to Residence (F-2) or Permanent Residency (F-5)",
+        "body": "After staying with E-7 for 5 years or more, you may be eligible to apply for Permanent Residency (F-5) (Enforcement Decree Appended Table 1-3), and the good conduct requirement is reviewed at that time. Under the Ministry of Justice standards, you do not meet the requirement if 3 years have not passed since you paid a fine, or if 5 years have not passed since a suspended sentence of imprisonment without labor or heavier became final (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼])."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "When you quit or change companies",
+      "body": [
+        "When a foreign worker leaves, the company must report it to the immigration office within 15 days (Immigration Act Article 19). Depending on your occupation, moving to a new workplace either needs permission in advance or only a report afterward.",
+        "The guidance says that if you were dismissed through your own fault or quit in the middle of your contract, you cannot move with just a report unless your original employer agrees (Ministry of Justice guidance manual). If there are reasons on the company's side, such as the business being suspended or closed or unpaid wages, documents showing this can be used instead, so collect them in advance."
+      ]
+    },
+    {
+      "title": "When you are told to do work outside your contract",
+      "body": [
+        "If your company keeps making you do work that differs from your contract and your permitted occupation, keep records of it (work instruction messages, work schedules). These records protect your own stay and also show why you need to change companies."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I have to leave Korea as soon as I quit?",
+      "a": "You do not have to leave on the day you quit. During your remaining period of stay, you can look for a new workplace and go through the workplace change procedure, or, if you meet the requirements, consider changing to Job Seeking (D-10) status. However, which procedure you can use depends on why you left and whether your original employer agrees, so check before you quit."
+    },
+    {
+      "q": "When I change workplaces, do I need permission or just a report?",
+      "a": "It depends on your occupation. Some occupations with a set limit on the number of foreign hires, and skilled workers (E-7-4), need permission in advance. Other E-7 occupations only need a report within 15 days of the move (Immigration Act Article 21; Ministry of Justice guidance manual)."
+    },
+    {
+      "q": "If I get a fine, will my extension be refused?",
+      "a": "The law does not set a standard based on the amount of the fine, and the review looks at what happened together with your life in Korea. However, when you later change to Residence (F-2) or Permanent Residency (F-5), specific standards apply, such as how much time has passed since you paid the fine, so it is important to get a lighter outcome while the case is still under investigation."
+    },
+    {
+      "q": "My company makes me do work outside my contract, and I am worried I will be fired if I refuse.",
+      "a": "If you do work outside your permitted occupation, you yourself also risk punishment or cancellation of your stay permit. Keep records of the work instructions; if you need to change companies, those records show the reason for the change of workplace. If you were unfairly dismissed, you can also consider applying to the Labor Relations Commission for a remedy."
+    }
+  ],
+  "consultWhen": [
+    "You are about to be questioned by the police, or you received a fine or a suspended sentence",
+    "You were dismissed or want to quit, but you do not yet know how you will stay in Korea next",
+    "Your company keeps making you do work outside what was permitted",
+    "You received a notice refusing your extension of stay or change of workplace"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "stay-refusal-notice" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 17, 19, 21, 46, 89, 94 and 95",
+    "Enforcement Decree of the Immigration Act, Appended Tables 1-2 and 1-3",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Specially Designated Activities (E-7), Permanent Residency (F-5)"
+  ]
+}

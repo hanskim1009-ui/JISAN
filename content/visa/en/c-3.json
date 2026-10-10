@@ -1,0 +1,81 @@
+{
+  "code": "C-3",
+  "slug": "c-3",
+  "name": "Short-term Visit",
+  "group": "short",
+  "summary": "Foreign nationals staying up to 90 days for tourism, visiting relatives, business contacts and similar purposes",
+  "seo": {
+    "title": "C-3 Short-term Visit Visa | Illegal Work, Overstay, Crime",
+    "description": "What happens when a C-3 visitor works, overstays or faces a criminal case in Korea, and why changing to another status of stay inside Korea is difficult."
+  },
+  "about": [
+    "Short-term Visit (C-3) is the status of stay for people staying no more than 90 days for business activities such as market research, business contacts or signing contracts, or for tourism, visiting relatives, attending events, medical treatment and similar purposes. You cannot do any activity to earn money (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1).",
+    "An extension of stay is granted, within 90 days from your date of entry, only when you prove that an extension is truly necessary, such as having no transportation to leave or an unexpected accident or illness (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼])."
+  ],
+  "impact": {
+    "lead": "A short-term visit is short and allows only limited activities, so a single violation can easily lead straight to having to leave Korea and to restrictions on entering again later.",
+    "items": [
+      {
+        "title": "If you are caught working",
+        "body": "C-3 is not a status that allows employment, so working violates Article 18(1) of the Immigration Act (출입국관리법) and is punishable by imprisonment of up to 3 years or a fine of up to KRW 30 million (Article 94(8)), and it is a ground for deportation (Article 46(1)(8)). The person who hired you can also be punished (Article 94(9))."
+      },
+      {
+        "title": "If you overstay",
+        "body": "Staying past your permitted period can lead to punishment and deportation (Immigration Act Articles 25, 46(1)(8) and 94(17)). If you leave Korea under a deportation order, you can be banned from entering Korea for 5 years after that (Article 11(1)(6))."
+      },
+      {
+        "title": "If you are involved in a criminal case",
+        "body": "A foreign national under investigation or on trial can be placed under an exit ban, which stops them from leaving Korea (Immigration Act Article 29), and if your period of stay ends in the meantime, you need to apply for an extension separately. If you are sentenced to imprisonment (with or without labor), the ground for deportation can become an issue, and your criminal record is also checked when you apply for your next visa."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "Changing to another status of stay",
+      "body": [
+        "As a rule, people who entered on a short-term status such as Short-term Visit cannot change to a long-term status inside Korea; they must leave Korea, get a visa at a Korean embassy or consulate abroad and come back (Ministry of Justice guidance manual). The same applies to changing to Marriage Migrant (F-6) after marrying a Korean national, and exceptions are accepted after review only when there are unavoidable circumstances, such as pregnancy, childbirth or raising a child."
+      ]
+    },
+    {
+      "title": "If someone offers you a job",
+      "body": [
+        "Turn down offers to let you work after you entered for tourism or to visit family. If you are caught, the person who worked can face punishment, deportation and later entry restrictions, and even if you are not paid for your work, your immigration problems make it harder to respond."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I work for a short time after entering on C-3?",
+      "a": "No. Short-term Visit is a status that does not allow any activity to earn money, so even working for a short time violates the Immigration Act and can lead to deportation and entry restrictions."
+    },
+    {
+      "q": "Something has come up and I need to stay longer than 90 days.",
+      "a": "You must apply to the immigration office for an extension before your period of stay ends. You have to show with documents that an extension is truly necessary, such as having no transportation or an unexpected accident or illness, and it is granted within 90 days from your date of entry."
+    },
+    {
+      "q": "I married a Korean national. Can I change directly from C-3 to F-6?",
+      "a": "As a rule, you must leave Korea, get a marriage migrant visa at a Korean embassy or consulate abroad and come back. If there are circumstances that make a change inside Korea unavoidable, such as pregnancy, childbirth or raising your child together, an exception may be accepted after review (Ministry of Justice guidance manual)."
+    },
+    {
+      "q": "I am being questioned by the police, and my planned departure date is coming up.",
+      "a": "A foreign national under investigation or on trial can be placed under an exit ban, and when your period of stay ends you need to go through the extension procedure. If you received a notice of an exit ban, you can file an objection within 10 days from the day you received it or learned of it. Plan your response around both your period of stay and your departure schedule."
+    }
+  ],
+  "consultWhen": [
+    "You were caught working and are going to be investigated by the immigration office",
+    "You are going to be questioned by the police in Korea, or you received a notice of an exit ban",
+    "You have overstayed, or are about to overstay, because of circumstances you could not avoid"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "immigration-penalty-notice" },
+    { "center": "foreigner", "guide": "departure-or-deportation-order" },
+    { "center": "foreigner", "guide": "police-summons-foreigner" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 4-5, 11, 18, 25, 29, 46 and 94",
+    "Enforcement Decree of the Immigration Act, Appended Table 1",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Short-term Visit (C-3), Marriage Migrant (F-6)"
+  ]
+}

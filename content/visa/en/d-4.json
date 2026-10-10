@@ -1,0 +1,87 @@
+{
+  "code": "D-4",
+  "slug": "d-4",
+  "name": "General Training",
+  "group": "study",
+  "summary": "Foreign nationals receiving education or training, such as Korean language students at language institutes",
+  "seo": {
+    "title": "D-4 Language Training Visa | Attendance, Part-time Work, Fines",
+    "description": "What happens when a D-4 language student has low attendance, works without permission, changes schools or gets a fine, and how it affects extensions and D-2."
+  },
+  "about": [
+    "General Training (D-4) is the status of stay for foreign nationals who take Korean language training (D-4-1) or foreign language training (D-4-7) at a university-affiliated language institute, or who receive education or training at other educational institutions, companies or organizations set by the Ministry of Justice (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2). People who receive pay above their living costs from the training institution do not fall under this status.",
+    "This guide focuses on Korean language students (D-4-1), the largest group."
+  ],
+  "impact": {
+    "lead": "For language students, attendance and part-time work permission decide whether you can stay. Your school tracks your attendance and reports it to the immigration office, and those records are used directly in reviews for extending your stay and for entering a university as a Student (D-2).",
+    "items": [
+      {
+        "title": "If your attendance is low or you stop your training",
+        "body": "Your school must report to the immigration office within 15 days if a student stops training or cannot be located, and it also tracks and reports attendance and course completion (Immigration Act [출입국관리법] Article 19-4; Enforcement Decree Article 24-8). When extending your stay, you must show with documents such as an attendance certificate that you are training normally, and if you stop for personal reasons, extension is restricted (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼])."
+      },
+      {
+        "title": "If you are caught working without permission",
+        "body": "This counts as working without permission for activities outside your status of stay and can be punished (Immigration Act Article 20 and Article 94(12)). The same handling standards as for university students apply: if it is your first time and the violation is minor, you pay an immigration fine and are allowed to stay, but the standard for illegal work in construction is a departure order, and for being caught a second time it is deportation (Ministry of Justice guidance manual)."
+      },
+      {
+        "title": "If you receive a criminal penalty",
+        "body": "If you are sentenced to imprisonment (with or without labor), the ground for deportation can become an issue (Immigration Act Article 46(1)(13)). A fine also counts against you in reviews for extending your stay and changing to Student (D-2) status."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "Part-time work permission",
+      "body": [
+        "Language students can apply for part-time work permission only after 6 months have passed since they received language training status (or since the date of entry, if they entered with a visa). Permission is restricted if your average attendance over all completed semesters is below 90%, the permission period is up to 6 months within your period of stay, and you can work at only 1 workplace (Ministry of Justice guidance manual)."
+      ]
+    },
+    {
+      "title": "If you want to change language schools",
+      "body": [
+        "As a rule, to change schools, a language student must leave Korea, get a visa for the new school and come back. The guidance says you can change schools inside Korea only as an exception: when you must move through no fault of your own, for example because your language institute closes, or when you have a Korean language score of level 3 or higher and a legitimate reason is accepted (Ministry of Justice guidance manual)."
+      ]
+    },
+    {
+      "title": "When you enter a university (D-2)",
+      "body": [
+        "When you change from language training to Student (D-2), your grades and attendance in your previous course are checked. In other words, your attendance and any penalties during language training carry over to your stay after you enter university."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can language students work part-time?",
+      "a": "If 6 months have passed since you received language training status and you meet requirements such as attendance, you can get part-time work permission and work. Working without permission can lead to punishment and being made to leave Korea, so be sure to get permission first."
+    },
+    {
+      "q": "What happens if my attendance is low?",
+      "a": "Your school tracks your attendance and reports it to the immigration office, and it is checked with an attendance certificate when you extend your stay. If your average attendance is below 90%, part-time work permission is restricted, and if it looks like you are not training normally, extending your stay may become difficult."
+    },
+    {
+      "q": "Can I move to another language school?",
+      "a": "As a rule, you must leave Korea, get a visa for the new school and come back. There are exceptions if the move is not your fault, such as the institute closing, or if you have Korean language level 3 or higher and a legitimate reason is accepted."
+    },
+    {
+      "q": "If I am caught working without permission, do I have to leave right away?",
+      "a": "Under the Ministry of Justice handling standards, if it is your first time and the violation is minor, you pay an immigration fine and are allowed to stay. If you worked in construction, the standard is a departure order, and being caught a second time leads to deportation, so write down what happened before the investigation."
+    }
+  ],
+  "consultWhen": [
+    "You were caught working without permission and the immigration office asked you to come in",
+    "You are about to be questioned by the police, or you received a summary order (a fine without a trial)",
+    "Your extension of stay was refused because of low attendance or stopping your training"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "immigration-penalty-notice" },
+    { "center": "foreigner", "guide": "stay-refusal-notice" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 19-4, 20, 46 and 94",
+    "Enforcement Decree of the Immigration Act Article 24-8, Appended Table 1-2",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Student (D-2), General Training (D-4)"
+  ]
+}

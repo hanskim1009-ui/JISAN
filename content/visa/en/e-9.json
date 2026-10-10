@@ -1,0 +1,100 @@
+{
+  "code": "E-9",
+  "slug": "e-9",
+  "name": "Non-professional Employment",
+  "group": "work",
+  "summary": "Foreign workers employed at a company that holds a permit under the Employment Permit System",
+  "seo": {
+    "title": "E-9 Visa and Legal Problems | Job Change, Unpaid Wages, Crime",
+    "description": "What happens to an E-9 worker's stay after a fine or suspended sentence, a workplace change, unpaid wages or a work injury, under Korean immigration and employment law."
+  },
+  "about": [
+    "Non-professional Employment (E-9) is the status of stay for foreign workers who come to Korea through the Employment Permit System (고용허가제) under the Act on the Employment of Foreign Workers (외국인근로자의 고용 등에 관한 법률) and work at a company that has received an employment permit (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2). As a rule, you work at the workplace that first received the permit, and moving to another workplace requires specific reasons and procedures.",
+    "You can work for 3 years from the date you entered Korea. If your employer requests re-employment, this can be extended once, for less than 2 years (Act on the Employment of Foreign Workers Articles 18 and 18-2)."
+  ],
+  "impact": {
+    "lead": "For E-9 workers, criminal cases and labor problems quickly become problems with your stay. Missing the steps for changing workplaces, or working somewhere else without permission, is itself a violation of the Immigration Act (출입국관리법).",
+    "items": [
+      {
+        "title": "If you receive a criminal penalty",
+        "body": "If you are sentenced to imprisonment (with or without labor), the ground for deportation can become an issue (Immigration Act Article 46(1)(13)). A fine is not a ground for deportation, but it counts against you when you apply to extend your stay or change to another status of stay. For example, in the review for changing to skilled worker (E-7-4) status, you cannot apply if you received a fine of KRW 3 million or more in the last 10 years, and smaller fines also lower your points (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼])."
+      },
+      {
+        "title": "If you change companies without permission",
+        "body": "If you start working at a new company before you receive permission to change workplace, you can be punished for violating Article 21 of the Immigration Act (Article 95(6)) and can become subject to deportation (Article 46(1)(9)). Even after your new company is decided, start working only after the permission comes through."
+      },
+      {
+        "title": "If you stop going to work without notice",
+        "body": "If an employer cannot find out where a foreign worker is, the employer must report this to the immigration office within 15 days (Immigration Act Article 19(1)(2)). Once such a report is made, it can become hard to change workplaces or keep your stay, so keep a record of why you want to leave the company and of your contact with it."
+      },
+      {
+        "title": "If you miss the deadline to change workplaces",
+        "body": "If you do not apply to change workplaces within 1 month after your employment contract ends, or do not receive permission to change workplace within 3 months after applying, you must leave Korea. If you could not apply because of a work injury, illness, pregnancy or childbirth, the period is counted from the day that reason ended (Act on the Employment of Foreign Workers Article 25(3))."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "When you want to change companies",
+      "body": [
+        "You can apply to change workplaces in cases such as: the employer ends or refuses to renew your contract for a legitimate reason; the business is suspended or closed; or it becomes hard to keep working for reasons that are not your fault, such as violations of working conditions or unfair treatment, as set out in a public notice by the Minister of Employment and Labor (Act on the Employment of Foreign Workers Article 25(1)).",
+        "As a rule, you can change workplaces up to 3 times during the first 3 years and up to 2 times during the period extended by re-employment. Changes for reasons that are not your fault are not counted (Article 25(4) of the same Act)."
+      ]
+    },
+    {
+      "title": "When you have not been paid wages or severance pay",
+      "body": [
+        "Whatever your status of stay, you can claim pay for the work you did and severance pay. We look at a petition to the Labor Office, a civil lawsuit and provisional attachment (a procedure that freezes the employer's property in advance) together.",
+        "Severance pay is paid through Departure Guarantee Insurance (출국만기보험) that your employer has signed up for, and the insurance money is paid within 14 days after you leave Korea (Act on the Employment of Foreign Workers Article 13). If wages keep going unpaid, this can also be a reason to change workplaces, so collect your bank statements and work records."
+      ]
+    },
+    {
+      "title": "When you are injured at work",
+      "body": [
+        "If you are injured or become ill because of your work, you can apply for industrial accident insurance benefits whatever your status of stay. While you are being treated, the deadline for changing workplaces is counted from the day that reason ends.",
+        "If treatment takes a long time and your period of stay ends, you can change to Miscellaneous (G-1) status to continue treatment, and if you still have time left under the maximum period of stay, there is a procedure to return to E-9 status after treatment (Ministry of Justice guidance manual)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I change companies if my boss will not agree?",
+      "a": "Your boss's consent is not always needed. If there is a reason that is not your fault, such as the business being suspended or closed, or violations of working conditions or unfair treatment like unpaid wages or violence, you can apply to change workplaces. But you have to show that reason with evidence, so first collect things like bank statements, medical certificates and messages."
+    },
+    {
+      "q": "What happens if I quit and cannot find a new company within 3 months?",
+      "a": "If you do not receive permission to change workplace within 3 months from the day you applied to change workplaces, you must leave Korea (Act on the Employment of Foreign Workers Article 25(3)). If this is because of a work injury, illness, pregnancy or childbirth, the period is counted differently, so prepare proof such as a medical certificate."
+    },
+    {
+      "q": "If I get a fine, will I be unable to get re-employment or an extension of stay?",
+      "a": "The law does not set a standard based on the amount of the fine. However, a fine counts against you in reviews for extending your stay and changing your status of stay, and some reviews look closely at your fine history, such as a change to skilled worker (E-7-4) status. This is why it is important to get a lighter outcome while the case is still under investigation."
+    },
+    {
+      "q": "I reported that I was not paid, and now my company says it will report me for workplace desertion.",
+      "a": "Claiming your wages is your right as a worker, and unpaid wages can be a reason to apply for a change of workplace. Keep a record of why you could not go to work and of your contact with the company. Filing a petition with the Labor Office first also gives you a basis for explaining that you did not desert your workplace."
+    },
+    {
+      "q": "Can I change from E-9 to another status of stay?",
+      "a": "There are many limits. A person who has worked legally for a certain period and meets the points requirements may change to skilled worker (E-7-4) status, but this review also looks at fines, the number of Immigration Act violations and any history of illegal stay. The guidance says that changing from E-9 to Student (D-2) status inside Korea is not allowed (Ministry of Justice guidance manual)."
+    }
+  ],
+  "consultWhen": [
+    "The police contacted you to come in for questioning, or you received a summary order (a fine)",
+    "Your boss will not agree to a change of workplace or says they will report you for workplace desertion",
+    "Your employment contract has ended and you do not know what to do within the 1-month deadline",
+    "You have not been paid wages or severance pay, or you were injured at work, and your period of stay is about to end"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "eps-worker-changing-workplace" },
+    { "center": "foreigner", "guide": "unpaid-wages-foreign-worker" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 19, 21, 46 and 95",
+    "Enforcement Decree of the Immigration Act, Appended Table 1-2",
+    "Act on the Employment of Foreign Workers Articles 13, 18, 18-2 and 25",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Non-professional Employment (E-9), Specially Designated Activities (E-7-4)"
+  ]
+}

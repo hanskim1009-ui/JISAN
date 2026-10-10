@@ -1,0 +1,98 @@
+{
+  "code": "D-2",
+  "slug": "d-2",
+  "name": "Student",
+  "group": "study",
+  "summary": "International students in degree programs or doing research at a university or graduate school",
+  "seo": {
+    "title": "D-2 Student Visa and Legal Problems | Part-time Work, Fines",
+    "description": "What happens when a D-2 student works without permission, stops studying or gets a fine, and how it affects extensions and a later D-10 or work visa."
+  },
+  "about": [
+    "Student (D-2) is the status of stay for foreign nationals who take regular courses or do specific research at a university, graduate school or other educational or academic research institution that meets the Ministry of Justice requirements (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2). It is divided into bachelor's, master's and doctoral programs, research programs, exchange students and so on.",
+    "Because studying is the main purpose, you must get part-time work permission (permission for activities outside your status of stay) in advance before you take a part-time job, as required by Article 20 of the Immigration Act (출입국관리법)."
+  ],
+  "impact": {
+    "lead": "For international students, working part-time without permission and stopping their studies are the most common problems with their stay. A criminal record is checked again when you change to Job Seeking (D-10) or a work visa after graduation.",
+    "items": [
+      {
+        "title": "If you are caught working without permission",
+        "body": "This counts as working without permission for activities outside your status of stay and can be punished (Immigration Act Article 20 and Article 94(12)). Under the Ministry of Justice handling standards, if it is your first time and the violation is minor, you pay an immigration fine and are allowed to stay. However, illegal work in construction always leads to a departure order, and being caught a second time leads to deportation (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼])."
+      },
+      {
+        "title": "If you break the conditions of your permission",
+        "body": "Even with permission, if you break the permitted hours or workplace, you can get a warning the first time, a ban on part-time work for the rest of your studies the second time, and even cancellation of your student status the third time (Ministry of Justice guidance manual). If your workplace (employer) changes, you must get new permission before you start working there."
+      },
+      {
+        "title": "If you receive a criminal penalty",
+        "body": "If you are sentenced to imprisonment (with or without labor), the ground for deportation can become an issue (Immigration Act Article 46(1)(13)). A fine also counts against you in reviews for extending your stay. In the points system for Job Seeking (D-10) after graduation, points are taken off based on your total fines and immigration fines in the 5 years before you apply, and you cannot apply if you received a fine of KRW 3 million or more in the last 3 years (Ministry of Justice guidance manual)."
+      },
+      {
+        "title": "If you stop studying",
+        "body": "Your school must report to the immigration office within 15 days if an international student does not register, takes a leave of absence or is expelled, and it also tracks and reports your attendance and credits (Immigration Act Article 19-4; Enforcement Decree Article 24-8). If you stop studying for personal reasons or because of poor grades, extending your stay is restricted; only unavoidable reasons such as illness or an accident are treated as exceptions (Ministry of Justice guidance manual)."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "Part-time work permission",
+      "body": [
+        "The hours you can work on weekdays depend on your degree program, your year, your Korean language level and whether your school is certified, and there are separate standards for weekends, public holidays and school vacations. Keep to the hours and workplace written on your permission.",
+        "Your permission may be limited if your average grade last semester was below C (2.0), or if you were recently punished for breaking the conditions of your permission. Special types of work such as parcel delivery or delivery app rider jobs, work through staffing agencies or subcontracting, and construction are not allowed, and for manufacturing you need Korean language ability equivalent to level 4 or higher (Ministry of Justice guidance manual)."
+      ]
+    },
+    {
+      "title": "When you change schools or take a leave of absence",
+      "body": [
+        "If you change schools, you must report the change in your alien registration details within 15 days (Immigration Act Article 35; Enforcement Rules of the Immigration Act [출입국관리법 시행규칙] Article 49-2). A leave of absence for family reasons or to delay graduation is not accepted, so it may be hard to extend your stay."
+      ]
+    },
+    {
+      "title": "If you want to work in Korea after graduation",
+      "body": [
+        "When you change to Job Seeking (D-10) or a work visa after graduation, the review looks at your grades and Korean language ability as well as any criminal penalties and Immigration Act violations. A fine or immigration fine while you are in school can affect your plans after graduation."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How many hours a week can I work part-time?",
+      "a": "The weekday hours allowed depend on your degree program, your year, your Korean language level and whether your school is certified by the Ministry of Justice, and there are separate standards for weekends, public holidays and vacations. Going beyond the hours and workplace set when you get permission breaks its conditions, so be sure to check what your permission says."
+    },
+    {
+      "q": "I was caught working part-time without permission. Will I be deported?",
+      "a": "Under the Ministry of Justice handling standards, if it is your first time and the violation is minor, you pay an immigration fine and are allowed to stay. However, if you worked in construction, the standard is a departure order without exception, and being caught a second time leads to deportation. Before the investigation, write down where, for how long and how you came to work."
+    },
+    {
+      "q": "Can I work as a delivery rider or in a factory?",
+      "a": "Special types of work, such as delivery app rider or parcel delivery driver jobs, are not allowed as part-time work. Manufacturing is allowed only as an exception for students with Korean language ability equivalent to level 4 or higher, and construction is not allowed (Ministry of Justice guidance manual)."
+    },
+    {
+      "q": "If I get a fine, will it be hard to get a Job Seeking (D-10) visa after graduation?",
+      "a": "The Job Seeking (D-10) points system takes off points based on your total fines and immigration fines in the 5 years before you apply, and you cannot apply if you received a fine of KRW 3 million or more in the last 3 years (Ministry of Justice guidance manual). The amount of the fine directly affects your plans after graduation, so if you received a summary order (an order that sets a fine without a trial), consider requesting a formal trial within 7 days."
+    },
+    {
+      "q": "What happens to my stay if I take a leave of absence?",
+      "a": "Your school reports students who take a leave of absence to the immigration office. If you stop studying for personal reasons or poor grades, extending your stay is restricted, and only unavoidable reasons such as illness or an accident are treated as exceptions. Before taking leave, check when your period of stay ends and what documents can show your reason."
+    }
+  ],
+  "consultWhen": [
+    "You were caught working without permission and the immigration office asked you to come in",
+    "You are about to be questioned by the police, or you received a summary order (a fine)",
+    "Your extension of stay was refused, or a process to cancel your student status has started",
+    "Your school is about to expel you or put you on leave, and you are worried about your stay"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "immigration-penalty-notice" },
+    { "center": "foreigner", "guide": "police-summons-foreigner" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 19-4, 20, 35, 46 and 94",
+    "Enforcement Decree of the Immigration Act Articles 24-8 and 25, Appended Table 1-2",
+    "Enforcement Rules of the Immigration Act Article 49-2",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Student (D-2), Job Seeking (D-10)"
+  ]
+}

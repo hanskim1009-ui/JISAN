@@ -1,0 +1,93 @@
+{
+  "code": "H-2",
+  "slug": "h-2",
+  "name": "Working Visit",
+  "group": "work",
+  "summary": "A status that lets ethnic Koreans with foreign citizenship work in designated industries (no new visas issued)",
+  "seo": {
+    "title": "H-2 Working Visit Visa | Job Reports, Fines and Change to F-4",
+    "description": "How unreported work, non-permitted industries, fines and suspended sentences affect H-2 holders and a change to F-4 or F-5, and the end of new H-2 visas on February 12, 2026."
+  },
+  "about": [
+    "Working Visit (H-2) is a status of stay that lets ethnic Koreans with foreign citizenship (외국국적동포) stay in Korea and work in the industries set out in Appended Table 1-2 of the Enforcement Decree of the Immigration Act (출입국관리법 시행령). Most people with this status came from China and the CIS (Commonwealth of Independent States) region, and working outside the permitted industries means going beyond the scope of your status of stay.",
+    "Since February 12, 2026, the statuses of stay for ethnic Koreans have been merged into Overseas Korean (F-4), and new H-2 visas are no longer issued. People who entered with an H-2 visa before then can keep staying under the set stay management procedures (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼], Sept. 2026)."
+  ],
+  "impact": {
+    "lead": "For H-2 holders, employment reports, permitted industries and the immigration fine standards are directly tied to your stay. A criminal record comes up again when you try to change to Overseas Korean (F-4) or Permanent Residency (F-5).",
+    "items": [
+      {
+        "title": "If you receive a criminal penalty",
+        "body": "If you are sentenced to imprisonment (with or without labor), the ground for deportation can become an issue (Immigration Act [출입국관리법] Article 46(1)(13)). A fine also counts against you in reviews for extending your stay. You cannot get Overseas Korean (F-4) status if a set period has not passed since you received a sentence of imprisonment without labor or heavier (including a suspended sentence), or if your total fines are above a set amount. The detailed standards are in the Overseas Korean (F-4) guide."
+      },
+      {
+        "title": "If you violate the Immigration Act",
+        "body": "Under the Ministry of Justice handling standards, your stay is not permitted and you are made to leave Korea if you are a first-time violator with an immigration fine of KRW 5 million or more, or a repeat violator whose immigration fines in the last 3 years total KRW 7 million or more. The same applies, whatever the amount, if you received immigration fines 3 or more times in the last 3 years (Ministry of Justice guidance manual)."
+      },
+      {
+        "title": "If you do not report your employment",
+        "body": "When you start working for the first time or change workplaces, you must report it to the immigration office within 15 days (Immigration Act Article 35; Enforcement Rules of the Immigration Act [출입국관리법 시행규칙] Article 49-2). If you do not, you can be charged an administrative fine (과태료). If a report of start of employment has been made to the Ministry of Employment and Labor, it counts as your report."
+      },
+      {
+        "title": "If you work in a non-permitted industry",
+        "body": "The industries you can work in with H-2 are set out in the Enforcement Decree. Working in any other industry is an activity outside the scope of your status of stay, so you can be punished with an immigration fine or other penalties, and your stay can end under the handling standards above."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "When you want to change to Overseas Korean (F-4)",
+      "body": [
+        "Since the statuses for ethnic Koreans were merged, changing to F-4 is the usual path. You submit a criminal record certificate from abroad and proof of your Korean language ability, and your criminal penalties and immigration fines in Korea are reviewed.",
+        "As a rule, F-4 holders cannot work in fields set by Ministry of Justice public notice, such as simple labor. If you want to keep working at the workplace where you reported starting employment as an H-2 holder, the guidance describes a procedure to change to F-4 and then get permission for activities outside your status of stay (Ministry of Justice guidance manual)."
+      ]
+    },
+    {
+      "title": "When you have not been paid or were injured at work",
+      "body": [
+        "Whatever your status of stay, you can claim pay for your work, severance pay and industrial accident insurance benefits. While you file a petition with the Labor Office and pursue a civil lawsuit, you need to plan the order of steps around the date your period of stay ends.",
+        "If you need to stay past your period of stay for treatment or a lawsuit, we also look at changing to Miscellaneous (G-1) status."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "New H-2 visas are no longer issued. What happens to my stay now?",
+      "a": "People who entered with an H-2 visa before February 12, 2026 can complete alien registration and keep staying under the set procedures. You cannot change from another status of stay to H-2, and from now on the option to look at is changing to Overseas Korean (F-4) (Ministry of Justice guidance manual)."
+    },
+    {
+      "q": "I changed companies. What do I need to do?",
+      "a": "You must report the change of workplace to the immigration office within 15 days from the day you changed. You can report online through HiKorea, by fax or in person, and if a report of start of employment was made to the Ministry of Employment and Labor, that counts as your report."
+    },
+    {
+      "q": "I got a fine for drunk driving. Can I change to F-4?",
+      "a": "Under the Ministry of Justice standards, if your total fines in Korea are KRW 7 million or more, you can get F-4 only after 3 years have passed since you finished paying those fines. If you received a sentence of imprisonment without labor or heavier for drunk driving repeated 3 or more times, it is treated as a serious social crime and restricted separately (Ministry of Justice guidance manual). Even a lighter record can be considered in the review, so put your record and dates in order and then decide when to apply."
+    },
+    {
+      "q": "What happens if I am caught working in a non-permitted industry?",
+      "a": "In many cases, after an investigation by the immigration office, you receive a notice to pay an immigration fine. Depending on the amount and the number of immigration fines in the last 3 years, your stay may not be permitted and you may be made to leave Korea, so before the investigation, write down how and for how long you worked."
+    },
+    {
+      "q": "I want to change to skilled worker (E-7-4) status, but I have a past fine.",
+      "a": "In the E-7-4 review, you cannot apply if you received a fine of KRW 3 million or more or violated the Immigration Act 4 or more times in the last 10 years, and lighter records lower your points (Ministry of Justice guidance manual). Check your record and then go through the requirements."
+    }
+  ],
+  "consultWhen": [
+    "You are about to be questioned by the police, or you received a fine or a suspended sentence",
+    "The immigration office asked you to come in, or you received a notice to pay an immigration fine",
+    "Your change to Overseas Korean (F-4) or your extension of stay was refused",
+    "You have not been paid or were injured at work, and your period of stay is about to end"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "immigration-penalty-notice" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner", "guide": "unpaid-wages-foreign-worker" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 35, 46 and 102",
+    "Enforcement Decree of the Immigration Act Article 23, Appended Table 1-2",
+    "Enforcement Rules of the Immigration Act Article 49-2",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): ethnic Koreans with foreign citizenship, Specially Designated Activities (E-7-4)"
+  ]
+}

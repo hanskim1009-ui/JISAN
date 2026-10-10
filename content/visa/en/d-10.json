@@ -1,0 +1,84 @@
+{
+  "code": "D-10",
+  "slug": "d-10",
+  "name": "Job Seeking",
+  "group": "study",
+  "summary": "Foreign nationals looking for work in fields covered by work visas, or preparing to start a business",
+  "seo": {
+    "title": "D-10 Job Seeker Visa and Legal Problems | Points, Work, Fines",
+    "description": "How fines and immigration fines affect D-10 points and extensions, the risks of working without permission, and when to change your visa after a job offer."
+  },
+  "about": [
+    "Job Seeking (D-10) is the status of stay for people doing training or looking for work in fields covered by the statuses from Professor (E-1) to Specially Designated Activities (E-7), people preparing to start a technology business, and others (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2). General job seekers (D-10-1) are reviewed with a points system that scores things like age, education and Korean language ability.",
+    "Job seeking includes short-term internships paid with a training allowance before formal employment, but regular employment is not allowed. Once you have a job, you must change to the status of stay that fits that job before you start working."
+  ],
+  "impact": {
+    "lead": "Because Job Seeking (D-10) is reviewed with a points system, fines and immigration fines directly affect your score. The period of stay for this status is short, so if a criminal case drags on, it can become hard to move on to the next step.",
+    "items": [
+      {
+        "title": "If you receive a fine or an immigration fine",
+        "body": "The points system for general job seekers takes off points based on your total immigration fines for violating the Immigration Act (출입국관리법) and criminal fines in the 5 years before you apply. You are not eligible if, in the last 3 years, your stay permit was restricted because of an immigration fine or you received a fine of KRW 3 million or more (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼]). The points system is applied again when you extend your stay."
+      },
+      {
+        "title": "If you are sentenced to imprisonment",
+        "body": "The ground for deportation ('a person sentenced to imprisonment without labor or a heavier sentence and released') can become an issue (Immigration Act Article 46(1)(13)). A suspended sentence is still a sentence of imprisonment (with or without labor), so the same problem can arise."
+      },
+      {
+        "title": "If you work without permission",
+        "body": "D-10 is not a status that allows employment, so working without permission can be punished as a violation of the Immigration Act (Articles 18 and 94), and the resulting immigration fine lowers your score again in your next points review."
+      },
+      {
+        "title": "If you start work before changing your status",
+        "body": "Even if you have a job offer, starting the new job before you receive permission to change your status of stay is a violation of Article 24 of the Immigration Act. Start working only after you receive permission."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "If you need part-time work",
+      "body": [
+        "Among general job seekers (D-10-1), people such as those who received a degree from a Korean university less than 3 years ago and meet the Korean language requirement (completing level 4 or higher of the Social Integration Program, KIIP, or TOPIK level 4 or higher) can get permission for activities outside their status of stay and work part-time in set fields. Manufacturing work is allowed only for those who completed KIIP level 4 or higher (Ministry of Justice guidance manual)."
+      ]
+    },
+    {
+      "title": "When you extend your stay",
+      "body": [
+        "To extend, you submit a job-seeking plan, proof of where you live, proof that you can cover your living costs and other documents, and you are scored again under the points system (Ministry of Justice guidance manual). Any fines or immigration fines you received in the meantime can change your score, so work it out in advance."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I work part-time on a Job Seeking (D-10) visa?",
+      "a": "Not without permission. General job seekers and some others who graduated from a Korean university less than 3 years ago and meet the Korean language requirement can get permission for activities outside their status of stay and work part-time in set fields."
+    },
+    {
+      "q": "Can I do an internship?",
+      "a": "The activities allowed for general job seekers (D-10-1) include short-term internships paid with a training allowance before formal employment. However, internships are restricted for technology start-up preparation (D-10-2), and doing what is really a regular job under the name of an internship can cause problems."
+    },
+    {
+      "q": "I got a fine. Can I still extend my stay?",
+      "a": "The points system also applies when you extend, and points are taken off based on your total fines and immigration fines in the 5 years before you apply. If you received a fine of KRW 3 million or more in the last 3 years, you are not eligible, so if you received a summary order (an order that sets a fine without a trial), consider whether to request a formal trial within 7 days."
+    },
+    {
+      "q": "I got a job offer. Can I start working right away?",
+      "a": "You must start only after you receive permission to change to the status of stay that fits the job (for example, Specially Designated Activities, E-7). Starting work before you have permission is a violation of the Immigration Act and also hurts your change-of-status review."
+    }
+  ],
+  "consultWhen": [
+    "You received a summary order (a fine) or a notice to pay an immigration fine and are worried about your points",
+    "You were caught working without permission and were asked to come in",
+    "Your extension of stay or your change to a work visa was refused"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "stay-refusal-notice" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 18, 20, 24, 46 and 94",
+    "Enforcement Decree of the Immigration Act, Appended Table 1-2",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Job Seeking (D-10)"
+  ]
+}

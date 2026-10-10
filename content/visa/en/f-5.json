@@ -1,0 +1,91 @@
+{
+  "code": "F-5",
+  "slug": "f-5",
+  "name": "Permanent Residency",
+  "group": "family",
+  "summary": "Permanent residents who live in Korea with no limits on their activities or period of stay",
+  "seo": {
+    "title": "F-5 Permanent Residency | Cancellation, Deportation, Fines",
+    "description": "When a criminal penalty can cancel F-5 permanent residency, the special deportation rule, losing status after a long stay abroad, and good conduct rules for applicants."
+  },
+  "about": [
+    "Permanent Residency (F-5) is a status of stay with no limits on your activities or your period of stay (Immigration Act [출입국관리법] Article 10-3(1)). To get permanent residency, you must fall under the categories set by Presidential Decree, show good conduct such as obeying the law, be able to support yourself, and have basic knowledge such as the Korean language and an understanding of Korean society (paragraph 2 of the same Article).",
+    "The residence card issued to permanent residents (permanent residence card) is valid for 10 years, and you must have it reissued before it expires (Article 33(3) and (4))."
+  ],
+  "impact": {
+    "lead": "Permanent residents face narrower standards for deportation and cancellation of status than other foreign nationals. Even so, if a sentence of imprisonment (with or without labor) of a certain length or longer becomes final for crimes set by law, your permanent residency can be cancelled.",
+    "items": [
+      {
+        "title": "When permanent residency can be cancelled",
+        "body": "Permanent residency can be cancelled if: you obtained it by lying or other wrongful means (in which case it must be cancelled); a sentence of imprisonment (with or without labor) of 2 years or more becomes final for crimes under laws set by Ministry of Justice ordinance, such as the Criminal Act (형법) and the Act on Special Cases Concerning the Punishment of Sexual Crimes (성폭력처벌법); the final prison terms you were sentenced to in the last 5 years add up to 3 years or more; you break a condition of your permanent residency, such as keeping an investment; or you act against the national interest (Immigration Act Article 89-2(1))."
+      },
+      {
+        "title": "Special deportation rule",
+        "body": "As a rule, permanent residents are not deported. Exceptions include people who committed insurrection or crimes related to foreign aggression; people sentenced to imprisonment (with or without labor) of 5 years or more for crimes set by Ministry of Justice ordinance, such as murder, rape, robbery, sexual violence and drug crimes, and then released; and people who provided or arranged ships, passports or the like for foreigners' illegal entry or exit, or hid foreigners who entered illegally (Immigration Act Article 46(2); Enforcement Rules of the Immigration Act [출입국관리법 시행규칙] Article 54)."
+      },
+      {
+        "title": "If it is cancelled",
+        "body": "If your permanent residency is cancelled, you can become subject to a departure order (Immigration Act Article 68(1)(3-2)). However, if the need to keep staying is accepted and you meet the requirements for a general status of stay, you can apply for and receive a general status of stay (Article 89-2(2)). Before cancellation, you may be given a chance to appear and state your opinion (Article 89-2(3) and Article 89)."
+      },
+      {
+        "title": "If you receive a fine",
+        "body": "A fine alone does not fall under the cancellation reasons above (imprisonment with or without labor). However, it can count against you in other reviews that look at conduct, such as naturalization."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "Criminal cases before you apply for permanent residency",
+      "body": [
+        "In the permanent residency review, the Ministry of Justice standards treat people as not meeting the good conduct requirement if, for example, 3 years have not passed since they paid a fine, 5 years have not passed since a suspended sentence of imprisonment without labor or heavier became final, or 5 years have not passed since they finished serving a prison sentence of imprisonment without labor or heavier. The same applies if 5 years have not passed since they left Korea under a departure order, or 7 years since they left under a deportation order (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼]).",
+        "So if a criminal case comes up before you apply for permanent residency, you need to think about not only the amount of the fine but also when the decision is made."
+      ]
+    },
+    {
+      "title": "When you stay abroad for a long time",
+      "body": [
+        "Permanent residents do not need a re-entry permit if they come back within 2 years of leaving Korea (Enforcement Rules Article 44-2). If you do not come back within this period, or within the period of a separate re-entry permit, you can lose your permanent residency (Ministry of Justice guidance manual). If you plan a long stay abroad, check the re-entry permit rules before you leave."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can permanent residents be deported?",
+      "a": "As a rule, they are not deported, but there are exceptions. These include insurrection or crimes related to foreign aggression, and being sentenced to imprisonment (with or without labor) of 5 years or more for crimes set by Ministry of Justice ordinance, such as murder, rape, robbery, sexual violence and drug crimes, and then released (Immigration Act Article 46(2)). Also, if your permanent residency is cancelled because, for example, a sentence of imprisonment of 2 years or more became final, you can become subject to a departure order."
+    },
+    {
+      "q": "Will my permanent residency be cancelled if I get a fine?",
+      "a": "A fine alone does not fall under the cancellation reasons set by law. The cancellation reasons are based on sentences of imprisonment (with or without labor). However, other reviews, such as a naturalization application, look at conduct, so a fine can count against you there."
+    },
+    {
+      "q": "I am preparing to apply for permanent residency, and I got a fine.",
+      "a": "The Ministry of Justice standards treat people for whom 3 years have not passed since they paid a fine as not meeting the good conduct requirement. If you are at the summary order stage (an order that sets a fine without a trial), it is worth considering whether you can seek a suspended sentencing (선고유예, where the court holds off on sentencing) in a formal trial. Decide when to apply based on the date of the decision and the date you paid."
+    },
+    {
+      "q": "I need to stay abroad for more than 2 years.",
+      "a": "The re-entry permit exemption lasts 2 years from the date you leave Korea. If you need to stay longer, check your options before you leave, such as getting a re-entry permit. If you do not come back within the period, you can lose your permanent residency."
+    },
+    {
+      "q": "What should I do if I get a notice about cancelling my permanent residency?",
+      "a": "If you are given a chance to appear and state your opinion before cancellation, start preparing documents from that point. We show your life in Korea and your family ties, and also look at whether you can apply for a general status of stay even if your permanent residency is cancelled. A cancellation decision can be challenged through an administrative appeal and an administrative lawsuit."
+    }
+  ],
+  "consultWhen": [
+    "You are being investigated or tried in a criminal case that could lead to imprisonment",
+    "You received a notice to appear for a hearing on cancelling your permanent residency",
+    "You received a fine or a suspended indictment (기소유예, a decision not to charge you) before applying for permanent residency",
+    "Your stay abroad is getting long and you are worried about the re-entry deadline"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "permit-cancellation-hearing" },
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 10-3, 33, 46(2), 68, 89 and 89-2",
+    "Enforcement Decree of the Immigration Act (출입국관리법 시행령) Article 12-2, Appended Table 1-3",
+    "Enforcement Rules of the Immigration Act Articles 44-2 and 54",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Permanent Residency (F-5)"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "code": "F-2",
+  "slug": "f-2",
+  "name": "Residence",
+  "group": "family",
+  "summary": "Family of permanent residents, recognized refugees, talented professionals under the points system, long-term residents and others",
+  "seo": {
+    "title": "F-2 Residence Visa | Good Conduct Rules, Fines, Sentences",
+    "description": "How fines and suspended sentences affect F-2 extensions and a change to F-5: good conduct standards, law-abiding citizen education, foreign criminal records and unpaid taxes."
+  },
+  "about": [
+    "Residence (F-2) is a long-term status of stay that groups several types together. It includes spouses and minor children of permanent residents (F-5), recognized refugees, people who have invested at least a set amount, people who have lived in Korea for 5 years or more and built a life here, talented professionals who meet points-system standards for age, education and income, and people settling in depopulation areas (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2).",
+    "What work you can do depends on your type. Most types have no employment limits tied to the status of stay, but for the investor and long-term resident types, the limits are lifted only if you keep working in the field you were already in (Enforcement Decree Article 23(2))."
+  ],
+  "impact": {
+    "lead": "Residence (F-2) is often the step before Permanent Residency (F-5), so a criminal record affects not only extensions but also the change to permanent residency. The Ministry of Justice sets specific conduct standards for many F-2 types.",
+    "items": [
+      {
+        "title": "Ministry of Justice good conduct standards",
+        "body": "The review standards for many F-2 types list disqualifying reasons such as: being sentenced to imprisonment without labor or heavier (including a suspended sentence) in the 5 years before you apply; being sentenced to a fine of KRW 3 million or more in the last 3 years; violating the Immigration Act (출입국관리법) 3 or more times in the last 3 years with immigration fines totaling KRW 5 million or more; and submitting false documents in the last 3 years (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼]). The standards differ slightly by type, so you need to check the ones for your type."
+      },
+      {
+        "title": "Law-abiding citizen education",
+        "body": "If a record of breaking Korean law is found, you may have to complete law-abiding citizen education (준법시민교육) when you change to or extend F-2. People with no more than 1 violation who received a decision not to indict, or a fine, immigration fine or administrative fine of KRW 1 million or less, among others, do not have to take it (Ministry of Justice guidance manual)."
+      },
+      {
+        "title": "Deportation rules",
+        "body": "Unlike Permanent Residency (F-5), Residence (F-2) has no special rule that limits deportation, so if you are sentenced to imprisonment (with or without labor) and released, the ground for deportation can become an issue just as for other foreign nationals (Immigration Act Article 46(1)(13))."
+      },
+      {
+        "title": "If you have unpaid taxes",
+        "body": "Unpaid taxes and similar debts can restrict your stay permit, and some types, such as the long-term resident type, treat unpaid taxes as a reason to hold back a change of status (Ministry of Justice guidance manual). Along with any criminal case, you should also sort out your tax issues."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "When you want to change to Permanent Residency (F-5)",
+      "body": [
+        "After staying with Residence (F-2) for 5 years or more, you may be eligible to apply for Permanent Residency (F-5), and some types, such as talented professionals under the points system, have a shorter required period (Enforcement Decree Appended Table 1-3). The conduct standards for permanent residency are set as, for example, 3 years from the date you paid a fine and 5 years from the date a suspended sentence became final, so when you were punished decides when you can apply (Ministry of Justice guidance manual)."
+      ]
+    },
+    {
+      "title": "Criminal record certificates from abroad",
+      "body": [
+        "In the F-2 review, you may be asked for a criminal record certificate issued by your home country's government with an apostille or consular legalization. Penalties received abroad can also be disqualifying reasons under the standards (Ministry of Justice guidance manual)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "I got a fine of KRW 1 million. Can I extend my F-2?",
+      "a": "It is not decided by the amount of the fine alone; the review looks at the conduct standards for your F-2 type together with the number of violations. There is a standard that excludes a single minor violation from law-abiding citizen education, but cases set as disqualifying reasons, such as a fine of KRW 3 million or more, are different. Check your decision document and the date you paid."
+    },
+    {
+      "q": "Will I lose my F-2 if I get a suspended sentence?",
+      "a": "A suspended sentence is still a sentence of imprisonment (with or without labor), so the ground for deportation can become an issue, and the conduct standards for many F-2 types treat a sentence of imprisonment without labor or heavier (including a suspended sentence) in the 5 years before you apply as a disqualifying reason. At the trial stage, you first need to look at whether you can seek a fine or a suspended sentencing (선고유예, where the court holds off on sentencing) instead."
+    },
+    {
+      "q": "I want to change from F-2 to Permanent Residency (F-5), but I have a past fine.",
+      "a": "In the permanent residency review, the Ministry of Justice standards treat people for whom 3 years have not passed since they paid a fine as not meeting the good conduct requirement. Check the date you paid, decide when to apply, and be careful not to break any other law in the meantime."
+    },
+    {
+      "q": "Can F-2 holders be deported?",
+      "a": "Yes, they can. Permanent Residency (F-5) has a special rule that narrows deportation (Immigration Act Article 46(2)), but Residence (F-2) follows the same standards as other foreign nationals."
+    }
+  ],
+  "consultWhen": [
+    "You are about to be questioned by the police, or you received a fine or a suspended sentence",
+    "You received a notice refusing your F-2 extension or your change to Permanent Residency (F-5)",
+    "You received a notice to appear for a hearing on cancelling your stay permit"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner", "guide": "stay-refusal-notice" },
+    { "center": "foreigner", "guide": "permit-cancellation-hearing" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Article 46",
+    "Enforcement Decree of the Immigration Act Article 23, Appended Tables 1-2 and 1-3",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Residence (F-2), Permanent Residency (F-5)"
+  ]
+}

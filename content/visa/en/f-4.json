@@ -1,0 +1,89 @@
+{
+  "code": "F-4",
+  "slug": "f-4",
+  "name": "Overseas Korean",
+  "group": "family",
+  "summary": "Ethnic Koreans with foreign citizenship who once held Korean nationality, and their descendants",
+  "seo": {
+    "title": "F-4 Overseas Korean Visa and Legal Problems | Work Limits, Fines",
+    "description": "How fines and suspended sentences affect F-4 eligibility and extensions, simple labor limits and exceptions, and a change to F-5, after the 2026 ethnic Korean visa merger."
+  },
+  "about": [
+    "Overseas Korean (F-4) is the status of stay for ethnic Koreans with foreign citizenship as defined in the Act on the Immigration and Legal Status of Overseas Koreans (재외동포의 출입국과 법적 지위에 관한 법률), that is, people who once held Korean nationality, or their direct descendants, who have acquired a foreign nationality (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2). To stay longer than 90 days, you file a report of domestic residence (거소신고) within 90 days of entering Korea.",
+    "Since February 12, 2026, the statuses of stay for ethnic Koreans, which used to be split with Working Visit (H-2), have been merged into F-4. The range of allowed activities is broad, but as a rule you cannot work in fields set by Ministry of Justice public notice, such as simple labor (Enforcement Decree Article 23(3); Ministry of Justice public notice)."
+  ],
+  "impact": {
+    "lead": "For F-4, the Ministry of Justice guidance sets out specific standards for refusing the status or restricting extensions based on your criminal record. The date you were punished and your total fines become the standards for your next extension.",
+    "items": [
+      {
+        "title": "When the status or an extension is restricted",
+        "body": "The Ministry of Justice standards restrict, among others: people sentenced for specified violent crimes while staying in Korea; people who received a sentence of imprisonment without labor or heavier for drug crimes, voice phishing or habitual (3 or more times) drunk driving; people who received a sentence of imprisonment without labor or heavier, or a suspended sentence, for other crimes, if 5 years have not passed since the sentence was completed or the judgment became final; and people whose fines total KRW 7 million or more, if 3 years have not passed since they finished paying those fines (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼])."
+      },
+      {
+        "title": "When immigration fines add up",
+        "body": "If your immigration fines for violating the Immigration Act (출입국관리법) total KRW 7 million or more, you are also restricted until 3 years have passed since you finished paying them. There is also a standard that shortens this period to 1 year if a certain record of volunteer work is confirmed (Ministry of Justice guidance manual)."
+      },
+      {
+        "title": "Deportation rules",
+        "body": "Even overseas Koreans have no special rule that limits deportation unless they hold Permanent Residency (F-5), so if you are sentenced to imprisonment (with or without labor) and released, the ground for deportation can become an issue (Immigration Act Article 46(1)(13))."
+      },
+      {
+        "title": "If you work in a restricted field",
+        "body": "Working in a restricted field, such as simple labor, gambling businesses or adult entertainment establishments, is an activity outside the scope of your status of stay, and you can face disadvantages such as an immigration fine and refusal of your extension of stay (Ministry of Justice guidance manual)."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "Limits on simple labor, and exceptions",
+      "body": [
+        "F-4 holders cannot work in simple labor, at places against good morals such as gambling businesses or adult entertainment bars, or in other fields set by Ministry of Justice public notice (Enforcement Decree Article 23(3); Enforcement Rules of the Immigration Act [출입국관리법 시행규칙] Article 27-2).",
+        "As exceptions, if you meet the requirements in the public notice, such as having your residence in a depopulation area designated by the Ministry of Justice, the simple labor limit does not apply to you, and if you want to keep working at the workplace where you reported starting employment as a Working Visit (H-2) holder, you can get permission for activities outside your status of stay (Ministry of Justice public notice and guidance manual). Before you start any work, check whether it is allowed."
+      ]
+    },
+    {
+      "title": "When you want to change to Permanent Residency (F-5)",
+      "body": [
+        "If you have stayed in Korea continuously with F-4 for 2 years or more and meet requirements such as income and assets, you can apply for Permanent Residency (F-5) (Enforcement Decree Appended Table 1-3). The conduct standards for permanent residency are set as, for example, 3 years from the date you paid a fine and 5 years from the date a suspended sentence became final (Ministry of Justice guidance manual)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I work in a factory or at a construction site with F-4?",
+      "a": "As a rule, you cannot do work that counts as simple labor. However, there are exceptions, such as the depopulation area exception, and permission for activities outside your status of stay if you keep working at the workplace you reported as a Working Visit (H-2) holder. First check whether the work you want to do is on the list of simple labor jobs."
+    },
+    {
+      "q": "I got a fine for drunk driving. Can I extend my stay?",
+      "a": "If your total fines reach KRW 7 million or more, you are restricted until 3 years have passed since you finished paying them. If you received a sentence of imprisonment without labor or heavier for drunk driving repeated 3 or more times, it is treated as a serious social crime and restricted separately. Even a lighter record can be considered in the review, so keep your penalty record in order."
+    },
+    {
+      "q": "I got a suspended sentence. Will my F-4 be cancelled?",
+      "a": "Under the Ministry of Justice standards, if you receive a suspended sentence of imprisonment without labor or heavier, granting the status is restricted for 5 years from the date the judgment became final. An extension of your current status can also be refused, and the ground for deportation can become an issue, so you need to prepare from before the judgment."
+    },
+    {
+      "q": "Can I get permanent residency (F-5) from F-4?",
+      "a": "You can apply if you have stayed continuously with F-4 for 2 years or more and meet requirements such as the ability to support yourself. The good conduct requirement looks at your fines and suspended sentences and their dates, so check them before you apply."
+    }
+  ],
+  "consultWhen": [
+    "You are about to be questioned by the police, or you received a fine or a suspended sentence",
+    "You received a notice refusing your F-4 extension or change of status",
+    "The immigration office asked you to come in because you worked in a restricted field"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "criminal-sentence-and-visa" },
+    { "center": "foreigner", "guide": "stay-refusal-notice" },
+    { "center": "foreigner", "guide": "immigration-penalty-notice" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Article 46",
+    "Enforcement Decree of the Immigration Act Article 23(3), Appended Tables 1-2 and 1-3",
+    "Enforcement Rules of the Immigration Act Article 27-2",
+    "Act on the Immigration and Legal Status of Overseas Koreans Article 2",
+    "Ministry of Justice public notice on the scope of employment restrictions for Overseas Korean (F-4) status (재외동포(F-4) 자격의 취업활동 제한범위, effective February 12, 2026)",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): ethnic Koreans with foreign citizenship, Permanent Residency (F-5)"
+  ]
+}

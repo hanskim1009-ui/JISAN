@@ -1,0 +1,82 @@
+{
+  "code": "G-1",
+  "slug": "g-1",
+  "name": "Miscellaneous",
+  "group": "short",
+  "summary": "Foreign nationals staying for special reasons such as work injury treatment, lawsuits, unpaid wages or refugee applications",
+  "seo": {
+    "title": "G-1 Visa | Staying for Work Injury, Lawsuits, Unpaid Wages",
+    "description": "Whether G-1 holders (injury treatment, lawsuits, unpaid wages, refugee claims, humanitarian stay) can work, what happens when the reason ends, and how penalties affect their stay."
+  },
+  "about": [
+    "Miscellaneous (G-1) is the status of stay for people who do not fit any other status but whom the Minister of Justice recognizes as needing to stay in Korea (Enforcement Decree of the Immigration Act [출입국관리법 시행령], Appended Table 1-2). It covers people being treated for an industrial accident and their families, people being treated for an illness or accident, people with an ongoing lawsuit, people whose unpaid wages are being mediated by the labor office, refugee applicants, people granted humanitarian stay, and others (Ministry of Justice guidance manual [법무부 체류민원 자격별 안내 매뉴얼]).",
+    "Because this status is for staying due to a specific situation, the basis for your stay can end when that situation ends. As a rule, you cannot work, and only some groups can work after getting permission in advance."
+  ],
+  "impact": {
+    "lead": "G-1 holders often stay to protect their rights, such as through treatment, a lawsuit or recovering from harm, so documents showing how that process is going become the basis for continuing your stay.",
+    "items": [
+      {
+        "title": "If you work without permission",
+        "body": "G-1 is not a status that allows employment, so working without permission can lead to punishment and deportation as a violation of the Immigration Act (출입국관리법) (Articles 18, 20 and 46). Even people who have permission to work must get new permission if their workplace changes (Ministry of Justice guidance manual)."
+      },
+      {
+        "title": "If you receive a criminal penalty",
+        "body": "If you are sentenced to imprisonment (with or without labor), the ground for deportation can become an issue (Immigration Act Article 46(1)(13)). A fine also counts against you in reviews for extending your stay and for later changing to another status of stay."
+      },
+      {
+        "title": "When the reason ends",
+        "body": "When your treatment ends or your lawsuit or mediation is finished, you may no longer have a basis to stay with G-1. Settle the money and property owed to you, and check in advance whether you can change to another status of stay. If you overstay, you can face punishment and deportation."
+      }
+    ]
+  },
+  "issues": [
+    {
+      "title": "When you need to stay for treatment, a lawsuit or unpaid wages",
+      "body": [
+        "You must apply to change to G-1 or to extend before your original period of stay ends. Prepare documents that show why you need to stay, such as an industrial accident claim and medical certificate, a complaint or other case documents, or proof that the labor office received your petition. The longest period of stay you can get at one time is 1 year (Ministry of Justice guidance manual).",
+        "If a Non-professional Employment (E-9) worker received G-1 for work injury treatment and still has time left under the maximum period of stay, the guidance describes a procedure to return to E-9 status after treatment."
+      ]
+    },
+    {
+      "title": "When you can work",
+      "body": [
+        "Some G-1 groups that need humanitarian consideration, such as victims of sexual violence or families of people who died in accidents, as well as refugee applicants (for example, once 6 months have passed since applying) and people granted humanitarian stay, can work within set limits if they get permission for activities outside their status of stay in advance. Adult entertainment establishments, gambling businesses and the like are not allowed, and refugee applicants also cannot work in construction (Ministry of Justice guidance manual)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I keep staying in Korea while my lawsuit is ongoing?",
+      "a": "People with an ongoing lawsuit may qualify for G-1. However, it is not granted automatically; you have to show with documents that the case is actually ongoing and why you need to stay in Korea. Apply before your original period of stay ends."
+    },
+    {
+      "q": "What happens if my E-9 period of stay ends while I am being treated for a work injury?",
+      "a": "You can change to G-1 and continue treatment. If you still have time left under the maximum period of stay after treatment, there is a procedure to return to E-9 status, so keep good track of your treatment period and medical certificates."
+    },
+    {
+      "q": "Can I work with G-1?",
+      "a": "As a rule, no. Some groups with humanitarian reasons, refugee applicants for whom 6 months have passed since applying, people granted humanitarian stay and others can work within set limits if they get permission for activities outside their status of stay in advance. Working without permission can lead to punishment and being made to leave Korea."
+    },
+    {
+      "q": "Do I have to leave Korea as soon as my treatment or lawsuit ends?",
+      "a": "When the situation that gave you G-1 ends, you may no longer have a basis to stay. Settle the wages, compensation or deposits owed to you, and check in advance whether there is a way to change to another status of stay. If you need time to prepare to leave, get advice before your period of stay ends."
+    }
+  ],
+  "consultWhen": [
+    "You need to stay because of a work injury, unpaid wages or a lawsuit, but your original period of stay is about to end",
+    "Your G-1 extension was refused, or you received a notice with a departure deadline",
+    "You are going to be investigated by the immigration office for working without permission"
+  ],
+  "related": [
+    { "center": "foreigner", "guide": "unpaid-wages-foreign-worker" },
+    { "center": "foreigner", "guide": "before-leaving-korea" },
+    { "center": "foreigner", "guide": "stay-refusal-notice" },
+    { "center": "foreigner" },
+    { "center": "crime" }
+  ],
+  "laws": [
+    "Immigration Act Articles 18, 20 and 46",
+    "Enforcement Decree of the Immigration Act, Appended Table 1-2",
+    "Ministry of Justice guidance manual on stay permits by visa type (Sept. 2026): Miscellaneous (G-1), Non-professional Employment (E-9)"
+  ]
+}

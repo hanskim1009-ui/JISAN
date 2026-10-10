@@ -1,0 +1,60 @@
+{
+  "ui": {
+    "listTitle": "Guide by Visa Type",
+    "listLead": "When a legal problem comes up, the effect on your stay depends on your status of stay (visa type). Choose your visa to see what it means for you.",
+    "listSeoTitle": "Korean Visa Guide by Type | Criminal Cases, Divorce and Work",
+    "listSeoDescription": "How criminal penalties, divorce, unpaid wages and unauthorized work affect extensions, permanent residency and deportation for E-9, H-2, E-7, D-2, D-4, D-10, F-6, F-2, F-4, F-5, C-3 and G-1 visas.",
+    "groups": {
+      "work": "Work visas",
+      "study": "Study, training and job seeking",
+      "family": "Family and long-term residence",
+      "short": "Short-term visits and other"
+    },
+    "home": "Home",
+    "crumb": "Guide by Visa Type",
+    "about": "About this status of stay",
+    "impact": "How a legal problem affects your stay",
+    "issues": "Common problems with this visa",
+    "faq": "Frequently asked questions",
+    "consultWhen": "Get advice right away if",
+    "related": "Related guides",
+    "laws": "Legal basis",
+    "basis": "This guide is based on the Immigration Act (출입국관리법) and its Enforcement Decree and Enforcement Rules in force as of October 2026, and on the Ministry of Justice guidance manual on stay permits by visa type (법무부 체류민원 자격별 안내 매뉴얼, Sept. 2026). Ministry of Justice review standards can change at any time.",
+    "notice": "This guide is for reference only. The immigration office decides whether you can stay by looking at what happened in your case together with your life in Korea, so the same decision can lead to different results depending on your situation.",
+    "readMore": "Read more",
+    "otherVisas": "Other visa types",
+    "ctaTitle": "Want to know how this could affect your stay?",
+    "ctaLead": "Send us a message with what happened, your current visa type and its expiry date. A lawyer will review it and reply.",
+    "ctaButton": "Message us"
+  },
+  "common": {
+    "title": "What happens to your stay, depending on the outcome of your case",
+    "lead": "Whatever your status of stay, the outcome of a criminal case leads to a review of your stay. Below is a summary based mainly on the standards set by law. The actual decision is made by the immigration office, which looks at what happened in your case together with your life in Korea.",
+    "items": [
+      {
+        "title": "Case not referred to prosecutors, or suspended indictment",
+        "body": "These are not criminal penalties, so they do not count as 'imprisonment without labor or a heavier sentence', which is a ground for deportation. However, under the Act on the Lapse of Criminal Sentences (형의 실효 등에 관한 법률), a suspended indictment (기소유예, where prosecutors decide not to charge you) and some decisions not to refer a case to prosecutors (불송치) stay in investigation history records for a certain period, and these can be checked when needed for a foreigner's naturalization or stay permit (Article 6(1)(6) and Article 8-2). How long they stay depends on the legal penalty for the offense. Reviews that look at your conduct, such as for Residence (F-2) and Permanent Residency (F-5), also check this kind of case history."
+      },
+      {
+        "title": "Fine (including a summary order)",
+        "body": "A fine does not count as 'imprisonment without labor or a heavier sentence', which is a ground for deportation. However, it counts against you in reviews for extending your stay, changing your status of stay, permanent residency and naturalization, and if the violation is serious your stay permit can be cancelled (Immigration Act Article 89(1)(5)). The Ministry of Justice review standards have many items that look at the amount of the fine and how much time has passed since you paid it. Under the Criminal Procedure Act (형사소송법), if you received a summary order (약식명령, an order that sets a fine without a trial), you can request a formal trial within 7 days of receiving it (Article 453)."
+      },
+      {
+        "title": "Suspended sentence of imprisonment",
+        "body": "A suspended sentence (집행유예) is still a sentence of imprisonment with or without labor, so the ground for deportation ('a person sentenced to imprisonment without labor or a heavier sentence and released', Immigration Act Article 46(1)(13)) can become an issue. The review standards for Residence (F-2), Permanent Residency (F-5), Overseas Korean (F-4) and other statuses treat even a suspended sentence as a disqualifying reason for a set period from the date the judgment becomes final."
+      },
+      {
+        "title": "Prison sentence",
+        "body": "You can become subject to deportation when you are released after serving your sentence, and the prison warden must notify the immigration office about a foreigner whose release has been decided (Immigration Act Article 84(2)). Deportation proceedings can also go ahead while you are still serving your sentence (Article 85). If you leave Korea under a deportation order, you can be banned from entering Korea for 5 years after that (Article 11(1)(6))."
+      },
+      {
+        "title": "Immigration Act violations (overstaying, working without permission, etc.)",
+        "body": "After an investigation by the immigration office, you may receive a notice to pay an immigration fine (범칙금, money paid in place of a criminal fine) or be reported for prosecution (Immigration Act Articles 102 and 105), and this can then lead to a departure order or deportation. A record of immigration fines also counts as a record of breaking the law in later reviews of your stay."
+      },
+      {
+        "title": "Departure orders and deportation orders",
+        "body": "A departure order tells you to leave Korea on your own by a set deadline, and the deadline is set within 30 days from the date the order is issued (Immigration Act Article 68; Enforcement Rules Article 65). For a deportation order, you can file an objection with the Minister of Justice within 7 days of receiving the order (Article 60). Filing an administrative appeal or an administrative lawsuit does not stop the order from taking effect, so you also need to apply for a stay of execution."
+      }
+    ]
+  }
+}
