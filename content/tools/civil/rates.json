@@ -1,0 +1,17 @@
+{
+  "civil": 5,
+  "commercial": 6,
+  "sochok": [
+    { "from": null, "to": "2015-09-30", "rate": 20 },
+    { "from": "2015-10-01", "to": "2019-05-31", "rate": 15 },
+    { "from": "2019-06-01", "to": null, "rate": 12 }
+  ],
+  "interestCap": [
+    { "from": null, "to": "2021-07-06", "rate": 24 },
+    { "from": "2021-07-07", "to": null, "rate": 20 }
+  ],
+  "lenderCap": [
+    { "from": null, "to": "2021-07-06", "registered": 24, "unregistered": 24 },
+    { "from": "2021-07-07", "to": null, "registered": 20, "unregistered": 20 }
+  ]
+}
