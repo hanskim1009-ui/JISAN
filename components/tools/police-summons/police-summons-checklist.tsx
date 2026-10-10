@@ -1,15 +1,18 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
+import type { Lang } from "@/lib/langs"
 import {
   DEFAULT_SITUATION,
-  QUESTIONS,
-  STEPS,
+  QUESTION_OPTIONS,
+  STEP_NUMS,
+  itemText,
   itemsFor,
   parseSituation,
   situationSummary,
-  textOf,
   type Item,
+  type PoliceSummonsText,
+  type QuestionKey,
   type Situation,
 } from "@/lib/tools/police-summons"
 import { printChecklist } from "./print"
@@ -46,8 +49,8 @@ function ordered(list: Item[], s: Situation) {
   return [...list].sort((a, b) => Number(!!b.urgent?.(s)) - Number(!!a.urgent?.(s)))
 }
 
-/** 경찰 출석요구 체크리스트: 상황 고르기 → 단계별 확인 (체크는 이 브라우저에 저장) */
-export function PoliceSummonsChecklist() {
+/** 경찰 출석요구 체크리스트: 상황 고르기 → 단계별 확인 (체크는 이 브라우저에 저장). 문구는 사전(t)에서 */
+export function PoliceSummonsChecklist({ lang, t, brand }: { lang: Lang; t: PoliceSummonsText; brand: string }) {
   const [s, setS] = useState<Situation>(DEFAULT_SITUATION)
   const [done, setDone] = useState<Set<string>>(new Set())
   const [loaded, setLoaded] = useState(false)
@@ -79,7 +82,7 @@ export function PoliceSummonsChecklist() {
     })
 
   const reset = () => {
-    if (window.confirm("체크한 항목과 고른 상황을 모두 지울까요?")) {
+    if (window.confirm(t.ui.resetConfirm)) {
       setS(DEFAULT_SITUATION)
       setDone(new Set())
     }
@@ -97,7 +100,7 @@ export function PoliceSummonsChecklist() {
             <span className="font-bold text-jisan-ink tabular-nums">
               {checked} / {total}
             </span>{" "}
-            확인함
+            {t.ui.checked}
           </p>
           <div
             className="h-2 min-w-[6rem] flex-1 overflow-hidden rounded-full bg-[#E3E6EB]"
@@ -105,24 +108,24 @@ export function PoliceSummonsChecklist() {
             aria-valuenow={pct}
             aria-valuemin={0}
             aria-valuemax={100}
-            aria-label="체크리스트 진행률"
+            aria-label={t.ui.progressLabel}
           >
             <div className="h-full rounded-full bg-brand-accent transition-[width]" style={{ width: `${pct}%` }} />
           </div>
           <div className="flex gap-2">
             <button
               type="button"
-              onClick={() => printChecklist(s, items, done)}
+              onClick={() => printChecklist(lang, t, brand, s, items, done)}
               className="rounded-full bg-jisan-ink px-4 py-2 text-sm font-semibold text-white hover:bg-jisan-ink/90"
             >
-              인쇄하기
+              {t.ui.print}
             </button>
             <button
               type="button"
               onClick={reset}
               className="rounded-full border border-[#D5DAE1] px-4 py-2 text-sm text-[#4A505A] hover:border-jisan-ink hover:text-jisan-ink"
             >
-              처음부터
+              {t.ui.reset}
             </button>
           </div>
         </div>
@@ -130,21 +133,22 @@ export function PoliceSummonsChecklist() {
 
       {/* 1단계: 지금 상황 */}
       <section aria-labelledby="ps-step-1">
-        <StepHeading n={1} id="ps-step-1" title={STEPS[0].title} />
-        <p className="mt-2 text-[0.9375rem] text-[#4A505A]">고르는 대로 아래 확인 항목이 바뀝니다. 체크한 내용은 이 브라우저에만 저장됩니다.</p>
+        <StepHeading n={1} id="ps-step-1" title={t.steps["1"]} />
+        <p className="mt-2 text-[0.9375rem] text-[#4A505A]">{t.ui.step1Intro}</p>
         <div className="mt-5 grid gap-6 md:grid-cols-2">
-          <Choice q={QUESTIONS.role} value={s.role} onChange={(v) => set("role", v as Situation["role"])} />
-          <Choice q={QUESTIONS.days} value={s.days} onChange={(v) => set("days", v as Situation["days"])} />
-          <Choice q={QUESTIONS.via} value={s.via} onChange={(v) => set("via", v as Situation["via"])} />
-          {suspectSide && <Choice q={QUESTIONS.arrest} value={s.arrest ? "yes" : "no"} onChange={(v) => set("arrest", v === "yes")} />}
-          <Choice q={QUESTIONS.counsel} value={s.counsel ? "yes" : "no"} onChange={(v) => set("counsel", v === "yes")} />
-          <Choice q={QUESTIONS.phone} value={s.phone ? "yes" : "no"} onChange={(v) => set("phone", v === "yes")} />
+          <Choice q={question(t, "role")} value={s.role} onChange={(v) => set("role", v as Situation["role"])} />
+          <Choice q={question(t, "days")} value={s.days} onChange={(v) => set("days", v as Situation["days"])} />
+          <Choice q={question(t, "via")} value={s.via} onChange={(v) => set("via", v as Situation["via"])} />
+          {suspectSide && <Choice q={question(t, "arrest")} value={s.arrest ? "yes" : "no"} onChange={(v) => set("arrest", v === "yes")} />}
+          <Choice q={question(t, "counsel")} value={s.counsel ? "yes" : "no"} onChange={(v) => set("counsel", v === "yes")} />
+          <Choice q={question(t, "phone")} value={s.phone ? "yes" : "no"} onChange={(v) => set("phone", v === "yes")} />
         </div>
-        <p className="mt-5 rounded-xl bg-[#F4F5F7] px-4 py-3 text-sm text-[#4A505A]">{situationSummary(s)}</p>
+        <p className="mt-5 rounded-xl bg-[#F4F5F7] px-4 py-3 text-sm text-[#4A505A]">{situationSummary(t, s)}</p>
       </section>
 
       {/* 2~4단계 */}
-      {STEPS.slice(1).map((st) => {
+      {STEP_NUMS.slice(1).map((n) => {
+        const st = { n, title: t.steps[String(n) as "2" | "3" | "4"] }
         const list = ordered(
           items.filter((i) => i.step === st.n),
           s,
@@ -160,7 +164,7 @@ export function PoliceSummonsChecklist() {
             </div>
             <ul className="mt-4 divide-y divide-[#E9ECF0] rounded-2xl border border-[#D5DAE1] bg-white">
               {list.map((it) => (
-                <CheckRow key={it.id} item={it} s={s} checked={done.has(it.id)} onToggle={() => toggle(it.id)} />
+                <CheckRow key={it.id} item={it} s={s} t={t} checked={done.has(it.id)} onToggle={() => toggle(it.id)} />
               ))}
             </ul>
           </section>
@@ -180,6 +184,12 @@ function StepHeading({ n, id, title }: { n: number; id: string; title: string })
 }
 
 type Q = { label: string; help?: string; options: readonly { value: string; label: string }[] }
+
+/** 사전 문구 + 선택지 값 순서 → 질문 하나 */
+function question(t: PoliceSummonsText, k: QuestionKey): Q {
+  const q = t.questions[k] as { label: string; help?: string; options: Record<string, string> }
+  return { label: q.label, help: q.help, options: QUESTION_OPTIONS[k].map((value) => ({ value, label: q.options[value] ?? value })) }
+}
 
 function Choice({ q, value, onChange }: { q: Q; value: string; onChange: (v: string) => void }) {
   const name = `ps-${q.label}`
@@ -201,9 +211,10 @@ function Choice({ q, value, onChange }: { q: Q; value: string; onChange: (v: str
   )
 }
 
-function CheckRow({ item, s, checked, onToggle }: { item: Item; s: Situation; checked: boolean; onToggle: () => void }) {
+function CheckRow({ item, s, t, checked, onToggle }: { item: Item; s: Situation; t: PoliceSummonsText; checked: boolean; onToggle: () => void }) {
   const id = `ps-item-${item.id}`
   const urgent = item.urgent?.(s)
+  const x = itemText(t, item, s)
   return (
     <li className="px-4 py-4 md:px-5">
       <div className="flex gap-3">
@@ -217,14 +228,14 @@ function CheckRow({ item, s, checked, onToggle }: { item: Item; s: Situation; ch
         <div className="min-w-0">
           <label htmlFor={id} className="cursor-pointer">
             <span className={`text-[0.9375rem] font-semibold [overflow-wrap:anywhere] ${checked ? "text-[#8A9099] line-through decoration-1" : "text-jisan-ink"}`}>
-              {textOf(item.title, s)}
+              {x.title}
             </span>
             {urgent && !checked && (
-              <span className="ml-2 inline-block rounded-full bg-brand-accent/10 px-2 py-0.5 align-middle text-xs font-semibold text-brand-accent">먼저</span>
+              <span className="ml-2 inline-block rounded-full bg-brand-accent/10 px-2 py-0.5 align-middle text-xs font-semibold text-brand-accent">{t.ui.urgent}</span>
             )}
           </label>
-          <p className="mt-1 text-sm leading-relaxed text-[#4A505A]">{textOf(item.desc, s)}</p>
-          {item.basis && <p className="mt-1 text-xs text-[#8A9099]">{item.basis}</p>}
+          <p className="mt-1 text-sm leading-relaxed text-[#4A505A]">{x.desc}</p>
+          {x.basis && <p className="mt-1 text-xs text-[#8A9099]">{x.basis}</p>}
         </div>
       </div>
     </li>

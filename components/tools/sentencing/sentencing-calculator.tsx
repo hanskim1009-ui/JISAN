@@ -2,55 +2,62 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import {
+  SENTENCING_UI_KO,
   decideProbation,
   evaluate,
   filterSet,
   probationFactors,
   probationFits,
-  rangeText,
+  rangeShow,
+  txOf,
   type Factor,
   type FactorSet,
   type GroupSummary,
   type ProbationFactors,
   type SentCrime,
   type SentencingGroup,
+  type SentencingIntl,
+  type SentencingUI,
 } from "@/lib/tools/sentencing"
+import { fmt } from "@/lib/i18n/fmt"
 import { filterGroups } from "./search"
 import { CheckGroup, type CheckItem } from "./check-list"
 import { ResultCard, RulesGuide } from "./result-card"
+import { OtherCrimes } from "@/components/tools/prosecution/other-crimes"
 
 /** 범죄군 데이터는 고를 때 정적 주소에서 한 번만 받아 둠 */
 const groupCache = new Map<string, Promise<SentencingGroup>>()
 
-function fetchGroup(id: string): Promise<SentencingGroup> {
-  let p = groupCache.get(id)
+function fetchGroup(id: string, base = "/tools/sentencing/data"): Promise<SentencingGroup> {
+  const url = `${base}/${encodeURIComponent(id)}`
+  let p = groupCache.get(url)
   if (!p) {
-    p = fetch(`/tools/sentencing/data/${encodeURIComponent(id)}`).then((r) => {
+    p = fetch(url).then((r) => {
       if (!r.ok) throw new Error(String(r.status))
       return r.json() as Promise<SentencingGroup>
     })
-    p.catch(() => groupCache.delete(id))
-    groupCache.set(id, p)
+    p.catch(() => groupCache.delete(url))
+    groupCache.set(url, p)
   }
   return p
 }
 
-const toItems = (prefix: string, list: Factor[]): CheckItem[] =>
-  list.map((f) => ({ key: `${prefix}:${f.id}`, label: f.label, desc: f.desc, badge: f.actWeight ? "행위인자와 같은 무게" : undefined }))
+const toItems = (prefix: string, list: Factor[], u: SentencingUI): CheckItem[] =>
+  list.map((f) => ({ key: `${prefix}:${f.id}`, label: f.label, desc: f.desc, badge: f.actWeight ? u.form.actWeight : undefined }))
 
 /** 고른 key 들 중 한쪽(prefix) id 만 */
 const idsOf = (picked: ReadonlySet<string>, prefix: string) => [...picked].filter((k) => k.startsWith(`${prefix}:`)).map((k) => k.slice(prefix.length + 1))
 
-const PROB_KEYS: { key: keyof ProbationFactors; title: string }[] = [
-  { key: "negativeMajor", title: "주요 사유 · 실형 쪽(부정적)" },
-  { key: "positiveMajor", title: "주요 사유 · 집행유예 쪽(긍정적)" },
-  { key: "negativeGeneral", title: "일반 사유 · 실형 쪽(부정적)" },
-  { key: "positiveGeneral", title: "일반 사유 · 집행유예 쪽(긍정적)" },
+const PROB_KEYS: { key: keyof ProbationFactors; title: (u: SentencingUI) => string }[] = [
+  { key: "negativeMajor", title: (u) => u.form.probationNegativeMajor },
+  { key: "positiveMajor", title: (u) => u.form.probationPositiveMajor },
+  { key: "negativeGeneral", title: (u) => u.form.probationNegativeGeneral },
+  { key: "positiveGeneral", title: (u) => u.form.probationPositiveGeneral },
 ]
 
-/** 집행유예 참작사유: key 는 "칸:순번". 다른 세부 범죄 전용 사유는 뺌 */
-function probationItems(pf: ProbationFactors, key: keyof ProbationFactors, crimeName: string, names: string[]): CheckItem[] {
-  return (pf[key] ?? []).map((label, i) => ({ key: `${key}:${i}`, label })).filter((it) => probationFits(it.label, crimeName, names))
+/** 집행유예 참작사유: key 는 "칸:순번". 다른 세부 범죄 전용 사유는 뺌 (외국어판 데이터는 서버에서 이미 골라 둠) */
+function probationItems(pf: ProbationFactors, key: keyof ProbationFactors, crimeName: string, names: string[], intl: boolean): CheckItem[] {
+  return (pf[key] ?? []).map((label, i) => ({ key: `${key}:${i}`, label })).filter((it) => intl || probationFits(it.label, crimeName, names))
 }
 
 function toggle(set: ReadonlySet<string>, key: string) {
@@ -60,8 +67,10 @@ function toggle(set: ReadonlySet<string>, key: string) {
   return next
 }
 
-/** 양형 계산기: 범죄 찾기 → 유형 → 특별양형인자 → 결과(영역·범위·특별 조정·집행유예) */
-export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
+/** 양형 계산기: 범죄 찾기 → 유형 → 특별양형인자 → 결과(영역·범위·특별 조정·집행유예). intl 이 있으면 외국어판 */
+export function SentencingCalculator({ groups, intl }: { groups: GroupSummary[]; intl?: SentencingIntl }) {
+  const u = intl?.ui ?? SENTENCING_UI_KO
+  const tx = useMemo(() => txOf(intl), [intl])
   const [query, setQuery] = useState("")
   const [gid, setGid] = useState<string | null>(null)
   const [cid, setCid] = useState<string | null>(null)
@@ -88,7 +97,7 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
     if (!gid) return
     let live = true
     setStatus("loading")
-    fetchGroup(gid)
+    fetchGroup(gid, intl?.dataBase)
       .then((g) => {
         if (!live) return
         setGroup(g)
@@ -98,7 +107,7 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
     return () => {
       live = false
     }
-  }, [gid])
+  }, [gid, intl?.dataBase])
 
   const reset = () => {
     setTypeNo(undefined)
@@ -121,34 +130,38 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
     if (scroll) top.current?.scrollIntoView({ block: "start", behavior: "smooth" })
   }
 
-  const list = useMemo(() => filterGroups(groups, query), [groups, query])
+  const list = useMemo(() => filterGroups(groups, query, !!intl), [groups, query, intl])
 
   const crime: SentCrime | undefined = group && group.id === gid ? (group.crimes.find((c) => c.id === cid) ?? group.crimes[0]) : undefined
   const tNo = typeNo ?? (crime?.types.length === 1 ? crime.types[0].no : undefined)
-  const result = crime && tNo ? evaluate(crime, tNo, { aggravating: idsOf(special, "agg"), mitigating: idsOf(special, "mit") }) : null
+  const result = crime && tNo ? evaluate(crime, tNo, { aggravating: idsOf(special, "agg"), mitigating: idsOf(special, "mit") }, tx) : null
 
   const pf = group && crime ? probationFactors(group, crime) : undefined
-  const probGroups = pf && crime && group ? PROB_KEYS.map((k) => ({ ...k, items: probationItems(pf, k.key, crime.name, group.crimes.map((c) => c.name)) })) : []
+  const probGroups =
+    pf && crime && group ? PROB_KEYS.map((k) => ({ key: k.key, title: k.title(u), items: probationItems(pf, k.key, crime.name, group.crimes.map((c) => c.name), !!intl) })) : []
   const probCount = (key: keyof ProbationFactors) => probGroups.find((g) => g.key === key)?.items.filter((it) => prob.has(it.key)).length ?? 0
   const probation =
     pf && result?.probationOpen
-      ? decideProbation({
-          positiveMajor: probCount("positiveMajor"),
-          negativeMajor: probCount("negativeMajor"),
-          positiveGeneral: probCount("positiveGeneral"),
-          negativeGeneral: probCount("negativeGeneral"),
-        })
+      ? decideProbation(
+          {
+            positiveMajor: probCount("positiveMajor"),
+            negativeMajor: probCount("negativeMajor"),
+            positiveGeneral: probCount("positiveGeneral"),
+            negativeGeneral: probCount("negativeGeneral"),
+          },
+          tx,
+        )
       : undefined
 
   if (groups.length === 0) {
-    return <p className="rounded-xl bg-[#F4F5F7] px-5 py-4 text-[0.9375rem] text-[#4A505A]">범죄 목록을 준비하고 있습니다. 급한 일이면 상담 신청으로 먼저 물어보세요.</p>
+    return <p className="rounded-xl bg-[#F4F5F7] px-5 py-4 text-[0.9375rem] text-[#4A505A]">{u.browser.preparing}</p>
   }
 
   if (!gid) {
     return (
       <div ref={top} className="min-w-0 scroll-mt-24">
         <label className="flex items-center gap-2 rounded-xl border border-[#D5DAE1] bg-white px-4 py-3 focus-within:border-jisan-ink">
-          <span className="sr-only">범죄 찾기</span>
+          <span className="sr-only">{u.browser.searchLabel}</span>
           <svg aria-hidden viewBox="0 0 20 20" className="h-4 w-4 shrink-0 text-jisan-ink/40" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="9" cy="9" r="6" />
             <path d="m14 14 4 4" />
@@ -157,13 +170,13 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="범죄 찾기 (예: 사기, 상해, ㅅㄱ)"
+            placeholder={u.browser.searchPlaceholder}
             className="w-full min-w-0 bg-transparent text-[0.9375rem] text-jisan-ink outline-none placeholder:text-jisan-ink/40"
           />
         </label>
 
         {list.length === 0 ? (
-          <p className="mt-6 text-sm text-[#4A505A]">맞는 범죄가 없습니다. 다른 말로 찾아보시거나 상담 신청으로 물어보세요.</p>
+          <p className="mt-6 text-sm text-[#4A505A]">{u.browser.noMatch}</p>
         ) : (
           <div className="mt-6 space-y-6">
             {list.map((g) => (
@@ -188,6 +201,7 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
             ))}
           </div>
         )}
+        {intl && <OtherCrimes text={u.intl.otherCrimes} link={u.intl.otherCrimesLink} href={intl.consultHref} />}
       </div>
     )
   }
@@ -207,12 +221,12 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
           onClick={() => pick(null, null)}
           className="shrink-0 rounded-full border border-[#D5DAE1] px-4 py-2 text-sm text-[#4A505A] hover:border-jisan-ink hover:text-jisan-ink"
         >
-          다른 범죄 고르기
+          {u.form.pickOther}
         </button>
       </div>
 
       {group && crime && group.crimes.length > 1 && (
-        <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${group.name}의 세부 범죄`}>
+        <ul className="mt-4 flex flex-wrap gap-2" aria-label={fmt(u.form.subCrimes, { group: group.name })}>
           {group.crimes.map((c) => (
             <li key={c.id} className="min-w-0 max-w-full">
               <button
@@ -230,7 +244,7 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
 
       {!crime ? (
         <p className="mt-6 rounded-xl bg-[#F4F5F7] px-5 py-4 text-[0.9375rem] text-[#4A505A]">
-          {status === "error" ? "기준을 불러오지 못했습니다. 잠시 뒤 다시 열어 주세요." : "기준을 불러오는 중입니다…"}
+          {status === "error" ? u.form.loadError : u.form.loading}
         </p>
       ) : (
         <>
@@ -238,8 +252,8 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
             <div className="min-w-0 space-y-8">
               {/* 1. 유형 */}
               <fieldset>
-                <legend className="text-[0.9375rem] font-semibold text-jisan-ink">1. 유형 고르기</legend>
-                <p className="mt-1 text-sm text-[#6B717B]">범행의 규모·결과에 따라 나눈 유형입니다. 유형마다 기본이 되는 형량 범위가 다릅니다.</p>
+                <legend className="text-[0.9375rem] font-semibold text-jisan-ink">{u.form.typeTitle}</legend>
+                <p className="mt-1 text-sm text-[#6B717B]">{u.form.typeDesc}</p>
                 <div className="mt-2.5 space-y-1.5">
                   {crime.types.map((t) => (
                     <label
@@ -255,10 +269,10 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
                         className="mt-0.5 h-4 w-4 shrink-0 accent-jisan-blue"
                       />
                       <span className="min-w-0 leading-relaxed [overflow-wrap:anywhere]">
-                        {crime.types.length > 1 && <span className="font-semibold text-jisan-ink">제{t.no}유형 </span>}
+                        {crime.types.length > 1 && <span className="font-semibold text-jisan-ink">{fmt(u.form.typeNo, { no: t.no })} </span>}
                         <span className="text-jisan-ink">{t.name}</span>
                         {t.desc && <span className="mt-0.5 block text-xs text-[#6B717B]">{t.desc}</span>}
-                        <span className="mt-0.5 block text-xs text-[#8A9099]">기본 {rangeText(t.basic)}</span>
+                        <span className="mt-0.5 block text-xs text-[#8A9099]">{fmt(u.form.typeBasic, { range: rangeShow(t.basic, tx) })}</span>
                       </span>
                     </label>
                   ))}
@@ -267,37 +281,31 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
 
               {/* 2. 특별양형인자 */}
               <section>
-                <h3 className="text-[0.9375rem] font-semibold text-jisan-ink">2. 특별양형인자 고르기</h3>
-                <p className="mt-1 text-sm text-[#6B717B]">
-                  특별양형인자는 감경·기본·가중 가운데 어느 범위를 쓸지 정하는 주요 사정입니다. 행위인자는 범행 자체에 관한 사정, 행위자/기타인자는 피고인의 사정 등입니다. 해당하는 것만 고르세요.
-                </p>
+                <h3 className="text-[0.9375rem] font-semibold text-jisan-ink">{u.form.specialTitle}</h3>
+                <p className="mt-1 text-sm text-[#6B717B]">{u.form.specialDesc}</p>
                 <div className="mt-3 space-y-5">
-                  <FactorBlock title="감경요소 (형을 줄이는 사정)" prefix="mit" set={filterSet(crime.special.mitigating, tNo)} picked={special} onToggle={(k) => setSpecial((s) => toggle(s, k))} />
-                  <FactorBlock title="가중요소 (형을 늘리는 사정)" prefix="agg" set={filterSet(crime.special.aggravating, tNo)} picked={special} onToggle={(k) => setSpecial((s) => toggle(s, k))} />
+                  <FactorBlock u={u} title={u.form.specialMitigating} prefix="mit" set={filterSet(crime.special.mitigating, tNo)} picked={special} onToggle={(k) => setSpecial((s) => toggle(s, k))} />
+                  <FactorBlock u={u} title={u.form.specialAggravating} prefix="agg" set={filterSet(crime.special.aggravating, tNo)} picked={special} onToggle={(k) => setSpecial((s) => toggle(s, k))} />
                 </div>
               </section>
 
               {/* 3. 일반양형인자 (계산에는 안 씀) */}
               <details className="group rounded-xl border border-[#E3E6EB] bg-[#F7F8FA] px-4 py-3">
                 <summary className="cursor-pointer list-none text-[0.9375rem] font-semibold text-jisan-ink">
-                  3. 일반양형인자 살펴보기 <span className="font-normal text-[#8A9099] group-open:hidden">(펼치기)</span>
+                  {u.form.generalTitle} <span className="font-normal text-[#8A9099] group-open:hidden">{u.form.generalOpen}</span>
                 </summary>
-                <p className="mt-2 text-sm leading-relaxed text-[#6B717B]">
-                  정해진 범위 안에서 구체적인 형을 정할 때 함께 고려되는 사정입니다. 범위를 바꾸지는 않아 이 계산에는 반영하지 않습니다.
-                </p>
+                <p className="mt-2 text-sm leading-relaxed text-[#6B717B]">{u.form.generalDesc}</p>
                 <div className="mt-3 space-y-5">
-                  <FactorBlock title="감경요소" prefix="mit" set={filterSet(crime.general.mitigating, tNo)} picked={general} onToggle={(k) => setGeneral((s) => toggle(s, k))} />
-                  <FactorBlock title="가중요소" prefix="agg" set={filterSet(crime.general.aggravating, tNo)} picked={general} onToggle={(k) => setGeneral((s) => toggle(s, k))} />
+                  <FactorBlock u={u} title={u.form.generalMitigating} prefix="mit" set={filterSet(crime.general.mitigating, tNo)} picked={general} onToggle={(k) => setGeneral((s) => toggle(s, k))} />
+                  <FactorBlock u={u} title={u.form.generalAggravating} prefix="agg" set={filterSet(crime.general.aggravating, tNo)} picked={general} onToggle={(k) => setGeneral((s) => toggle(s, k))} />
                 </div>
               </details>
 
               {/* 4. 집행유예 참작사유 (하한 3년 이하일 때만) */}
               {result?.probationOpen && pf && (
                 <section>
-                  <h3 className="text-[0.9375rem] font-semibold text-jisan-ink">4. 집행유예 참작사유 고르기</h3>
-                  <p className="mt-1 text-sm text-[#6B717B]">
-                    집행유예는 징역형을 선고하되 일정 기간 그 집행을 미루고, 그 기간을 무사히 지나면 형을 살지 않게 하는 제도입니다. 주요 사유를 일반 사유보다 무겁게 봅니다.
-                  </p>
+                  <h3 className="text-[0.9375rem] font-semibold text-jisan-ink">{u.form.probationTitle}</h3>
+                  <p className="mt-1 text-sm text-[#6B717B]">{u.form.probationDesc}</p>
                   <div className="mt-3 space-y-4">
                     {probGroups.map((g) => (
                       <CheckGroup key={g.key} title={g.title} items={g.items} checked={prob} onToggle={(k) => setProb((s) => toggle(s, k))} />
@@ -316,18 +324,17 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
                   generalCount={{ aggravating: idsOf(general, "agg").length, mitigating: idsOf(general, "mit").length }}
                   single={crime.types.length === 1}
                   notes={[...(crime.notes ?? []), ...(group?.notes ?? [])]}
+                  intl={intl}
                 />
               ) : (
-                <div className="rounded-2xl border border-dashed border-[#D5DAE1] px-5 py-8 text-center text-[0.9375rem] text-[#6B717B]">
-                  유형을 고르면 권고 형량범위가 바로 나옵니다. 특별양형인자를 고를 때마다 다시 계산합니다.
-                </div>
+                <div className="rounded-2xl border border-dashed border-[#D5DAE1] px-5 py-8 text-center text-[0.9375rem] text-[#6B717B]">{u.form.resultEmpty}</div>
               )}
             </div>
           </div>
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <RulesGuide />
-            <Notes />
+            <RulesGuide intl={intl} />
+            <Notes u={u} />
           </div>
         </>
       )}
@@ -337,12 +344,14 @@ export function SentencingCalculator({ groups }: { groups: GroupSummary[] }) {
 
 /** 감경 또는 가중 한쪽: 행위 / 행위자·기타 */
 function FactorBlock({
+  u,
   title,
   prefix,
   set,
   picked,
   onToggle,
 }: {
+  u: SentencingUI
   title: string
   prefix: "agg" | "mit"
   set: FactorSet
@@ -353,11 +362,11 @@ function FactorBlock({
     <div className="min-w-0">
       <p className="text-sm font-bold text-jisan-ink">{title}</p>
       {set.act.length + set.actor.length === 0 ? (
-        <p className="mt-1.5 text-sm text-[#8A9099]">이 유형에 해당하는 인자가 없습니다.</p>
+        <p className="mt-1.5 text-sm text-[#8A9099]">{u.form.noFactors}</p>
       ) : (
         <div className="mt-2 space-y-3">
-          <CheckGroup title="행위" items={toItems(prefix, set.act)} checked={picked} onToggle={onToggle} />
-          <CheckGroup title="행위자·기타" items={toItems(prefix, set.actor)} checked={picked} onToggle={onToggle} />
+          <CheckGroup title={u.form.act} items={toItems(prefix, set.act, u)} checked={picked} onToggle={onToggle} />
+          <CheckGroup title={u.form.actor} items={toItems(prefix, set.actor, u)} checked={picked} onToggle={onToggle} />
         </div>
       )}
     </div>
@@ -365,17 +374,12 @@ function FactorBlock({
 }
 
 /** 모든 범죄에 공통인 안내 (경합범, 처단형, 적용 제외) */
-function Notes() {
-  const all = [
-    "여러 범죄를 함께 저질렀다면(경합범: 판결이 확정되지 않은 여러 죄를 한꺼번에 재판받는 경우) 다수범죄 처리 기준에 따라 범위가 달라집니다. 이 계산은 한 가지 범죄만 따집니다.",
-    "법률상 감경·가중(자수, 누범 등)으로 법에서 정한 형의 범위(처단형)가 달라지면, 권고 범위가 그 밖으로 나가는 부분은 처단형의 상한·하한에 맞춥니다.",
-    "벌금형을 고르는 경우(선거·교통·스토킹·동물보호 범죄는 제외), 미수범(살인미수는 제외), 방조범, 19세 미만 피고인, 이미 판결이 확정된 죄와 함께 재판받는 경우에는 양형기준이 적용되지 않습니다.",
-  ]
+function Notes({ u }: { u: SentencingUI }) {
   return (
     <div className="min-w-0">
-      <p className="text-sm font-semibold text-jisan-ink">함께 알아 둘 것</p>
+      <p className="text-sm font-semibold text-jisan-ink">{u.notes.title}</p>
       <ul className="mt-3 space-y-2">
-        {all.map((n) => (
+        {u.notes.items.map((n) => (
           <li key={n} className="flex gap-2 rounded-xl bg-[#F7F8FA] px-4 py-3 text-sm leading-relaxed text-[#4A505A]">
             <span aria-hidden className="mt-[0.6em] h-1 w-1 shrink-0 rounded-full bg-[#8A9099]" />
             <span className="min-w-0">{n}</span>

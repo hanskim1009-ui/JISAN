@@ -63,6 +63,11 @@ export type Tier = {
   fine?: FineRule
   /** 이 결과에 덧붙일 설명 (짧게, 쉬운 말) */
   note?: string
+  /**
+   * 외국어판 데이터에만: sentence 가 형량 문장인지(true) 처리 기준 문장인지(false).
+   * 번역하면 한국어 낱말로 가릴 수 없어 원문으로 미리 정해 둠 (원본 데이터에는 쓰지 않음)
+   */
+  penalty?: boolean
 }
 
 export type Crime = {

@@ -3,8 +3,34 @@
  * 데이터 읽기(fs)는 서버 전용인 lib/tools/prosecution-data.ts 에 있습니다.
  */
 import type { Cond, Crime, FineRule, Level, Tier } from "./prosecution-types"
+import KO_UI from "@/content/tools/i18n/ko/prosecution-ui.json"
+import { fmt } from "@/lib/i18n/fmt"
+import { formatWonIntl, type NumFmt } from "./tool-num-fmt"
 
 export type { Cond, Crime, FineRule, Level, Question, Tier } from "./prosecution-types"
+
+/** 화면 문구 사전 (원문: content/tools/i18n/ko/prosecution-ui.json, 외국어: content/tools/i18n/{lang}/prosecution-ui.json) */
+export type ProsecutionUI = typeof KO_UI
+
+/** 한국어 화면 문구 */
+export const PROSECUTION_UI_KO: ProsecutionUI = KO_UI
+
+/** 외국어판 설정 (없으면 한국어 화면) */
+export type ProsecutionIntl = {
+  lang: string
+  ui: ProsecutionUI
+  num: NumFmt
+  /** 죄명 데이터 조각 주소 앞부분 (예: "/en/tools/prosecution/data") */
+  dataBase: string
+  /** 문의 주소 (예: "/en/consult") */
+  consultHref: string
+}
+
+/** 형량이 들어 있는 문장인지 ("징역 1년", "벌금 300만원"). 아니면 "구속 원칙" 같은 처리 기준으로 봄 */
+export const HAS_PENALTY = /징역|금고|벌금|구류|과료|사형|무기|자격|\d\s*(년|월|만원|원)/
+
+/** 예상 구형 문장의 이름: 형량이면 "예상 구형", 아니면 "처리 기준" (외국어판은 원문으로 미리 정해 둔 tier.penalty 를 씀) */
+export const isPenaltySentence = (tier: Tier) => tier.penalty ?? (!!tier.sentence && HAS_PENALTY.test(tier.sentence))
 
 /** 처음 페이지에 넘기는 가벼운 목록 한 줄. 죄명 데이터는 chunk 주소(/tools/prosecution/data/{chunk})에서 받음 */
 export type CrimeSummary = {
@@ -17,6 +43,8 @@ export type CrimeSummary = {
   law: string
   aliases?: string[]
   chunk: string
+  /** 외국어판에만: 한국어 죄명 (한국어로 찾아도 나오게) */
+  ko?: string
 }
 
 /** 묶음 보여 주는 순서 (없는 묶음은 뒤에 가나다순, 기타는 맨 뒤) */
@@ -56,54 +84,23 @@ export type Evaluation = {
   note?: string
 }
 
-/** 단계 막대: 가벼운 것 → 무거운 것 (trial·trial-fine 은 같은 칸) */
-export const STEPS: { key: string; short: string; label: string; desc: string; levels: Level[] }[] = [
-  {
-    key: "family-court",
-    short: "가정법원",
-    label: "가정법원 송치 가능",
-    desc: "가정보호·소년보호 사건: 형사처벌 대신 가정법원이 상담·접근 제한·사회봉사 같은 보호처분을 내리는 절차",
-    levels: ["family-court"],
-  },
-  {
-    key: "suspension",
-    short: "기소유예",
-    label: "기소유예 가능",
-    desc: "기소유예: 잘못은 인정되지만 여러 사정을 참작해 검사가 재판에 넘기지 않고 끝내는 처분",
-    levels: ["suspension"],
-  },
-  {
-    key: "summary",
-    short: "약식벌금",
-    label: "약식 벌금",
-    desc: "약식기소: 법정에 나가는 재판 없이 서류로 벌금을 정하는 절차",
-    levels: ["summary"],
-  },
-  {
-    key: "trial",
-    short: "정식재판",
-    label: "정식재판",
-    desc: "정식재판(구공판): 검사가 법원에 재판을 청구해 법정에서 판사 앞에 서는 절차",
-    levels: ["trial", "trial-fine"],
-  },
-  {
-    key: "detention",
-    short: "구속검토",
-    label: "구속 검토",
-    desc: "구속: 도망하거나 증거를 없앨 우려가 있을 때 법원 영장을 받아 가둔 채 수사·재판하는 것",
-    levels: ["detention"],
-  },
+/** 단계 막대: 가벼운 것 → 무거운 것 (trial·trial-fine 은 같은 칸). 이름·설명은 화면 문구 사전에서 */
+const STEP_LEVELS: { key: keyof ProsecutionUI["steps"]; levels: Level[] }[] = [
+  { key: "family-court", levels: ["family-court"] },
+  { key: "suspension", levels: ["suspension"] },
+  { key: "summary", levels: ["summary"] },
+  { key: "trial", levels: ["trial", "trial-fine"] },
+  { key: "detention", levels: ["detention"] },
 ]
 
+export const STEPS: { key: keyof ProsecutionUI["steps"]; short: string; label: string; desc: string; levels: Level[] }[] = STEP_LEVELS.map((s) => ({
+  key: s.key,
+  ...KO_UI.steps[s.key],
+  levels: s.levels,
+}))
+
 /** 결과 제목에 쓰는 단계 이름 (trial-fine 은 따로) */
-export const LEVEL_LABEL: Record<Level, string> = {
-  detention: "구속 검토",
-  trial: "정식재판 (징역형 구형)",
-  "trial-fine": "정식재판 (벌금형 구형)",
-  summary: "약식 벌금",
-  suspension: "기소유예 가능",
-  "family-court": "가정법원 송치 가능",
-}
+export const LEVEL_LABEL: Record<Level, string> = KO_UI.levels
 
 const toNum = (v: unknown): number | undefined => {
   if (typeof v === "number") return Number.isFinite(v) ? v : undefined
@@ -177,6 +174,12 @@ export function formatFine(rule: FineRule, answers: Answers): { amount: number; 
   return { amount, text: formatWon(amount) + (rule.atLeast ? " 이상" : "") }
 }
 
+function formatFineIntl(rule: FineRule, answers: Answers, tx: ProsecutionTx): { amount: number; text: string } {
+  const amount = calcFine(rule, answers)
+  const text = formatWonIntl(amount, tx.num)
+  return { amount, text: rule.atLeast ? fmt(tx.ui.result.fineAtLeast, { amount: text }) : text }
+}
+
 /** 모든 질문에 답했는지 */
 export function isComplete(crime: Crime, answers: Answers): boolean {
   return crime.questions.every((q) => {
@@ -185,8 +188,11 @@ export function isComplete(crime: Crime, answers: Answers): boolean {
   })
 }
 
-/** 첫 번째로 맞는 tier 를 결과로. 맞는 것이 없으면 null */
-export function evaluate(crime: Crime, answers: Answers): Evaluation | null {
+/** 외국어 표기: 단계 이름·설명은 사전에서, 벌금은 언어별 금액 표기로 */
+export type ProsecutionTx = { ui: ProsecutionUI; num: NumFmt }
+
+/** 첫 번째로 맞는 tier 를 결과로. 맞는 것이 없으면 null. tx 를 주면 그 언어로 */
+export function evaluate(crime: Crime, answers: Answers, tx?: ProsecutionTx): Evaluation | null {
   const tierIndex = crime.tiers.findIndex((t) => matchWhen(t.when, answers))
   if (tierIndex < 0) return null
   const tier = crime.tiers[tierIndex]
@@ -195,14 +201,14 @@ export function evaluate(crime: Crime, answers: Answers): Evaluation | null {
     STEPS.findIndex((s) => s.levels.includes(tier.level)),
   )
   // 금액 비례 벌금에 0 을 넣으면 "0원 이상"이 되므로 금액이 없으면 벌금 줄을 숨김
-  const fineRaw = tier.fine ? formatFine(tier.fine, answers) : undefined
+  const fineRaw = tier.fine ? (tx ? formatFineIntl(tier.fine, answers, tx) : formatFine(tier.fine, answers)) : undefined
   const fine = fineRaw && fineRaw.amount > 0 ? fineRaw : undefined
   return {
     tier,
     tierIndex,
     level: tier.level,
-    levelLabel: LEVEL_LABEL[tier.level] ?? tier.level,
-    levelDesc: STEPS[step].desc,
+    levelLabel: (tx ? tx.ui.levels[tier.level] : LEVEL_LABEL[tier.level]) ?? tier.level,
+    levelDesc: tx ? tx.ui.steps[STEPS[step].key].desc : STEPS[step].desc,
     step,
     sentence: tier.sentence,
     fineAmount: fine?.amount,

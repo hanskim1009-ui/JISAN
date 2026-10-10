@@ -4,8 +4,42 @@
  * 규칙은 양형기준 공통원칙: 형량범위의 결정방법(❶❷❸), 권고 형량범위의 특별 조정, 집행유예 기준.
  */
 import type { Factor, FactorSet, ProbationFactors, Range, SentCrime, SentType, SentencingGroup } from "./sentencing-types"
+import KO_UI from "@/content/tools/i18n/ko/sentencing-ui.json"
+import { fmt } from "@/lib/i18n/fmt"
+import { formatMonthsIntl, formatWonIntl, type NumFmt } from "./tool-num-fmt"
 
 export type { Factor, FactorSet, ProbationFactors, Range, SentCrime, SentType, SentencingGroup } from "./sentencing-types"
+
+/** 화면·설명 문구 사전 (원문: content/tools/i18n/ko/sentencing-ui.json, 외국어: content/tools/i18n/{lang}/sentencing-ui.json) */
+export type SentencingUI = typeof KO_UI
+
+/** 한국어 화면 문구 */
+export const SENTENCING_UI_KO: SentencingUI = KO_UI
+
+/** 계산 설명 문장 틀 (사전의 engine) */
+type EngineText = SentencingUI["engine"]
+
+const KO_E: EngineText = KO_UI.engine
+
+/**
+ * 외국어 표기: 설명 문장은 사전에서, 형량 범위는 언어별 금액·기간 표기로 새로 만듦.
+ * 넘기지 않으면 한국어 (원래 표기 그대로)
+ */
+export type SentencingTx = { e: EngineText; num: NumFmt }
+
+/** 외국어판 설정 (없으면 한국어 화면) */
+export type SentencingIntl = {
+  lang: string
+  ui: SentencingUI
+  num: NumFmt
+  /** 범죄군 데이터 주소 앞부분 (예: "/en/tools/sentencing/data") */
+  dataBase: string
+  /** 문의 주소 (예: "/en/consult") */
+  consultHref: string
+}
+
+/** 화면 설정에서 계산 표기만 */
+export const txOf = (intl?: { ui: SentencingUI; num: NumFmt }): SentencingTx | undefined => (intl ? { e: intl.ui.engine, num: intl.num } : undefined)
 
 /** 페이지에 처음 넘기는 가벼운 목록 (범죄군 id·이름·세부 범죄 이름) */
 export type GroupSummary = { id: string; name: string; crimes: { id: string; name: string }[] }
@@ -14,7 +48,11 @@ export type Zone = "mitigated" | "basic" | "aggravated"
 
 export const ZONES: Zone[] = ["mitigated", "basic", "aggravated"]
 
-export const ZONE_LABEL: Record<Zone, string> = { mitigated: "감경영역", basic: "기본영역", aggravated: "가중영역" }
+export const ZONE_LABEL: Record<Zone, string> = { mitigated: KO_E.zoneMitigated, basic: KO_E.zoneBasic, aggravated: KO_E.zoneAggravated }
+
+/** 영역 이름 (tx 가 있으면 그 언어로) */
+export const zoneLabel = (z: Zone, tx?: SentencingTx) =>
+  tx ? (z === "mitigated" ? tx.e.zoneMitigated : z === "basic" ? tx.e.zoneBasic : tx.e.zoneAggravated) : ZONE_LABEL[z]
 
 /* ---------- 표기 ---------- */
 
@@ -38,20 +76,60 @@ export function formatWon(n: number): string {
   return `${parts.length ? parts.join(" ") : "0"} 원`
 }
 
-function amount(r: Range, n: number) {
+function amount(r: Range, n: number, tx?: SentencingTx) {
+  if (tx) return r.unit === "fine" ? formatWonIntl(n, tx.num) : formatMonthsIntl(n, tx.num)
   return r.unit === "fine" ? formatWon(n) : formatMonths(n)
 }
 
-/** 범위를 쉬운 표기로: "1년 ~ 4년", "1년 이하", "11년 이상, 무기" (벌금이면 앞에 "벌금") */
-export function rangeLabel(r: Range): string {
+/** 범위 본문 ("1년 ~ 4년", "1년 이하", "11년 이상, 무기"). 벌금 표시는 붙이지 않음 */
+function rangeBody(r: Range, tx?: SentencingTx): string {
+  const e = tx?.e ?? KO_E
   let s: string
   if (r.min == null && r.max == null) s = r.life || r.death ? "" : r.text
-  else if (r.min == null) s = `${amount(r, r.max!)} 이하`
-  else if (r.max == null) s = `${amount(r, r.min)} 이상`
-  else s = r.min === r.max ? amount(r, r.min) : `${amount(r, r.min)} ~ ${amount(r, r.max)}`
-  const extra = [r.life ? "무기" : "", r.death ? "사형" : ""].filter(Boolean)
-  const body = [s, ...extra].filter(Boolean).join(", ")
-  return r.unit === "fine" ? `벌금 ${body}` : body
+  else if (r.min == null) s = fmt(e.atMost, { a: amount(r, r.max!, tx) })
+  else if (r.max == null) s = fmt(e.atLeast, { a: amount(r, r.min, tx) })
+  else s = r.min === r.max ? amount(r, r.min, tx) : fmt(e.between, { a: amount(r, r.min, tx), b: amount(r, r.max, tx) })
+  const extra = [r.life ? e.life : "", r.death ? e.death : ""].filter(Boolean)
+  return [s, ...extra].filter(Boolean).join(e.listSep)
+}
+
+/** 범위를 쉬운 표기로: "1년 ~ 4년", "1년 이하", "11년 이상, 무기" (벌금이면 앞에 "벌금"). tx 가 있으면 그 언어로 */
+export function rangeLabel(r: Range, tx?: SentencingTx): string {
+  const body = rangeBody(r, tx)
+  return r.unit === "fine" ? fmt((tx?.e ?? KO_E).fine, { x: body }) : body
+}
+
+/** "1,000만 원", "1억 5,000만 원" → 원 */
+function parseWon(s: string): number | null {
+  const m = s.replace(/[\s,]/g, "").match(/^(?:(\d+)억)?(?:(\d+)만)?(\d+)?원?$/)
+  if (!m || (!m[1] && !m[2] && !m[3])) return null
+  return Number(m[1] ?? 0) * 100_000_000 + Number(m[2] ?? 0) * 10_000 + Number(m[3] ?? 0)
+}
+
+/** 징역·벌금이 같이 있는 칸의 벌금 부분 ("- 8월 / 100만 원 - 700만 원" → 100만~700만). 못 읽으면 null */
+export function mixedFine(r: Range): Range | null {
+  const part = r.text.split(/\s*\/\s*|,\s+/).find((x) => /원/.test(x))
+  if (!part) return null
+  // "100만 원 - 700만 원", "- 700만 원" (하한 없음). "-" 가 없으면 한 값
+  const m = part.match(/^(.*?)\s*-\s*(.*)$/)
+  const [lo, hi] = m ? [m[1], m[2]] : [part, part]
+  const min = lo.trim() ? parseWon(lo) : null
+  const max = hi.trim() ? parseWon(hi) : null
+  if ((lo.trim() && min === null) || (hi.trim() && max === null) || (min === null && max === null)) return null
+  return { text: part, min, max, unit: "fine" }
+}
+
+/**
+ * 화면에 보여 줄 범위.
+ * 한국어는 원문 표기 그대로(rangeText), 외국어는 언어별 표기로 새로 만듦 (징역·벌금이 같이 있으면 둘 다)
+ */
+export function rangeShow(r: Range, tx?: SentencingTx): string {
+  if (!tx) return rangeText(r)
+  if (isMixedRange(r)) {
+    const f = mixedFine(r)
+    if (f) return fmt(tx.e.mixed, { prison: rangeBody(r, tx), fine: rangeBody(f, tx) })
+  }
+  return rangeLabel(r, tx)
 }
 
 /** 한 칸에 징역과 벌금이 같이 있는 범위인지 (예: "- 8월, 100만 원 - 700만 원"). 이때 min/max 는 징역만 */
@@ -70,7 +148,7 @@ export function rangeHint(r: Range): string | undefined {
   if (r.unit === "fine") return undefined
   const label = rangeLabel(r)
   const plain = (x: string) => x.replace(/[\s~\-]/g, "")
-  if (isMixedRange(r)) return `징역 부분: ${label}`
+  if (isMixedRange(r)) return fmt(KO_E.prisonPart, { label })
   return plain(label) === plain(r.text) ? undefined : label
 }
 
@@ -118,8 +196,8 @@ export function tally(set: FactorSet, picked: readonly string[], typeNo: string 
   return t
 }
 
-const kinds = (act: number, actor: number) =>
-  [act ? `행위인자 ${act}개` : "", actor ? `행위자/기타인자 ${actor}개` : ""].filter(Boolean).join(", ")
+const kinds = (act: number, actor: number, e: EngineText) =>
+  [act ? fmt(e.kindAct, { n: act }) : "", actor ? fmt(e.kindActor, { n: actor }) : ""].filter(Boolean).join(e.kindSep)
 
 export type ZoneDecision = {
   /** 정해진 영역. null 이면 ❶❷로 정해지지 않아 법관이 종합해 정함(❸) */
@@ -139,38 +217,34 @@ export type ZoneDecision = {
  * ❸ 그래도 안 정해지면 법관이 종합 판단
  * 가중요소가 크면 가중, 감경요소가 크면 감경, 그 밖에는 기본.
  */
-export function decideZone(agg: Tally, mit: Tally): ZoneDecision {
+export function decideZone(agg: Tally, mit: Tally, tx?: SentencingTx): ZoneDecision {
+  const e = tx?.e ?? KO_E
+  const k = (act: number, actor: number) => kinds(act, actor, e)
   const base = { aggravating: agg, mitigating: mit }
-  const weightNote =
-    agg.actWeight + mit.actWeight > 0 ? ["처벌불원(또는 실질적 피해 회복)처럼 행위인자와 같은 무게로 볼 수 있는 인자는 행위인자로 셌습니다."] : []
+  const weightNote = agg.actWeight + mit.actWeight > 0 ? [e.weightNote] : []
 
-  if (agg.total === 0 && mit.total === 0)
-    return { ...base, zone: "basic", candidates: ["basic"], reasons: ["고른 특별양형인자가 없어 기본영역입니다."] }
+  if (agg.total === 0 && mit.total === 0) return { ...base, zone: "basic", candidates: ["basic"], reasons: [e.none] }
   if (mit.total === 0)
     return {
       ...base,
       zone: "aggravated",
       candidates: ["aggravated"],
-      reasons: [`특별가중인자만 있어(${kinds(agg.act, agg.actor)}) 가중요소가 큽니다.`, ...weightNote],
+      reasons: [fmt(e.onlyAggravating, { kinds: k(agg.act, agg.actor) }), ...weightNote],
     }
   if (agg.total === 0)
     return {
       ...base,
       zone: "mitigated",
       candidates: ["mitigated"],
-      reasons: [`특별감경인자만 있어(${kinds(mit.act, mit.actor)}) 감경요소가 큽니다.`, ...weightNote],
+      reasons: [fmt(e.onlyMitigating, { kinds: k(mit.act, mit.actor) }), ...weightNote],
     }
 
   // ❷ 같은 종류끼리 서로 지우고 남은 것으로 비교
   const dAct = agg.act - mit.act
   const dActor = agg.actor - mit.actor
-  const reasons = [
-    `가중요소(${kinds(agg.act, agg.actor)})와 감경요소(${kinds(mit.act, mit.actor)})가 함께 있습니다.`,
-    ...weightNote,
-  ]
+  const reasons = [fmt(e.both, { agg: k(agg.act, agg.actor), mit: k(mit.act, mit.actor) }), ...weightNote]
   const cancelled = Math.min(agg.act, mit.act) + Math.min(agg.actor, mit.actor) > 0
-  if (cancelled) reasons.push("같은 종류의 인자끼리는 같은 무게로 보아 같은 수만큼 서로 지웁니다.")
-  const leftWord = cancelled ? "남습니다" : "있습니다"
+  if (cancelled) reasons.push(e.cancel)
   const left = {
     agg: { act: Math.max(dAct, 0), actor: Math.max(dActor, 0) },
     mit: { act: Math.max(-dAct, 0), actor: Math.max(-dActor, 0) },
@@ -178,46 +252,34 @@ export function decideZone(agg: Tally, mit: Tally): ZoneDecision {
   const aggLeft = left.agg.act + left.agg.actor
   const mitLeft = left.mit.act + left.mit.actor
 
-  if (aggLeft === 0 && mitLeft === 0)
-    return { ...base, zone: "basic", candidates: ["basic"], reasons: [...reasons, "지우고 나면 남는 것이 없어 양쪽 무게가 같으므로 기본영역입니다."] }
+  if (aggLeft === 0 && mitLeft === 0) return { ...base, zone: "basic", candidates: ["basic"], reasons: [...reasons, e.even] }
   if (mitLeft === 0)
-    return { ...base, zone: "aggravated", candidates: ["aggravated"], reasons: [...reasons, `가중요소만 남아(${kinds(left.agg.act, left.agg.actor)}) 가중요소가 큽니다.`] }
+    return { ...base, zone: "aggravated", candidates: ["aggravated"], reasons: [...reasons, fmt(e.aggravatingLeft, { kinds: k(left.agg.act, left.agg.actor) })] }
   if (aggLeft === 0)
-    return { ...base, zone: "mitigated", candidates: ["mitigated"], reasons: [...reasons, `감경요소만 남아(${kinds(left.mit.act, left.mit.actor)}) 감경요소가 큽니다.`] }
+    return { ...base, zone: "mitigated", candidates: ["mitigated"], reasons: [...reasons, fmt(e.mitigatingLeft, { kinds: k(left.mit.act, left.mit.actor) })] }
 
   // 한쪽엔 행위인자, 다른 쪽엔 행위자/기타인자가 남은 경우
   const actSide: "agg" | "mit" = left.agg.act > 0 ? "agg" : "mit"
   const actorSide = actSide === "agg" ? "mit" : "agg"
   const a = left[actSide].act
   const r = left[actorSide].actor
-  const sideName = (s: "agg" | "mit") => (s === "agg" ? "가중요소" : "감경요소")
+  const sideName = (s: "agg" | "mit") => (s === "agg" ? e.sideAggravating : e.sideMitigating)
   const sideZone = (s: "agg" | "mit"): Zone => (s === "agg" ? "aggravated" : "mitigated")
-  const remain = `${sideName(actSide)}에는 행위인자 ${a}개, ${sideName(actorSide)}에는 행위자/기타인자 ${r}개가 ${leftWord}.`
+  const remain = fmt(cancelled ? e.remainLeft : e.remainHave, { actSide: sideName(actSide), actorSide: sideName(actorSide), a, r })
   if (a >= r) {
     const zone = sideZone(actSide)
     return {
       ...base,
       zone,
       candidates: [zone],
-      reasons: [
-        ...reasons,
-        remain,
-        a === r
-          ? `같은 숫자라면 행위인자가 행위자/기타인자보다 무거우므로 ${sideName(actSide)}가 큽니다.`
-          : `행위인자 쪽이 숫자도 많고 더 무거우므로 ${sideName(actSide)}가 큽니다.`,
-      ],
+      reasons: [...reasons, remain, fmt(a === r ? e.sameNumber : e.moreAct, { side: sideName(actSide) })],
     }
   }
   return {
     ...base,
     zone: null,
     candidates: ["mitigated", "aggravated"],
-    reasons: [
-      ...reasons,
-      remain,
-      "행위인자는 더 무겁지만 숫자는 행위자/기타인자 쪽이 많아, 이 원칙만으로는 어느 쪽이 큰지 정해지지 않습니다. 이때는 법관이 인자들을 종합해 비교한 뒤 정합니다.",
-      "어느 쪽이 크다고 보느냐에 따라 감경영역 또는 가중영역이 되고, 비슷하다고 보면 기본영역이 됩니다. 이때는 인자 수 차이가 2개 이상이어도 특별 조정이 자동으로 따라오지 않습니다.",
-    ],
+    reasons: [...reasons, remain, e.undecided, e.undecidedZone],
   }
 }
 
@@ -246,48 +308,42 @@ export type Adjustment = {
  * 감경영역: 반대면 하한 × 1/2
  * 원문에 개월 미만 처리 규칙이 없어, 징역은 범위를 넓히는 쪽으로 개월 단위에 맞춤 (하한 내림, 상한 올림)
  */
-export function specialAdjust(zone: Zone, range: Range, aggCount: number, mitCount: number): Adjustment | null {
+export function specialAdjust(zone: Zone, range: Range, aggCount: number, mitCount: number, tx?: SentencingTx): Adjustment | null {
   // 특별 조정은 징역(개월) 칸에만
   if (range.unit === "fine") return null
-  const fine = false
-  const fmt = (n: number) => amount(range, n)
+  const e = tx?.e ?? KO_E
+  const f = (n: number) => amount(range, n, tx)
   if (zone === "aggravated" && aggCount - mitCount >= 2) {
-    const reason =
-      mitCount === 0
-        ? `가중영역에서 특별가중인자만 ${aggCount}개 있어 상한을 1/2까지 늘릴 수 있습니다.`
-        : `가중영역에서 특별가중인자가 특별감경인자보다 ${aggCount - mitCount}개 많아 상한을 1/2까지 늘릴 수 있습니다.`
-    if (range.max == null)
-      return { zone, kind: "upper", range, changed: false, rounded: false, reason: `${reason} 다만 이 범위는 상한이 정해져 있지 않아 달라지지 않습니다.` }
+    const reason = mitCount === 0 ? fmt(e.upperOnly, { n: aggCount }) : fmt(e.upperMore, { n: aggCount - mitCount })
+    if (range.max == null) return { zone, kind: "upper", range, changed: false, rounded: false, reason: fmt(e.upperNone, { reason }) }
     const exact = range.max * 1.5
-    const max = fine ? exact : Math.ceil(exact - 1e-9)
+    const max = Math.ceil(exact - 1e-9)
     const to: Range = { ...range, max }
+    const formula = fmt(e.upperFormula, { from: f(range.max), exact: f(exact) })
     return {
       zone,
       kind: "upper",
-      range: { ...to, text: rangeLabel(to) },
+      range: { ...to, text: rangeLabel(to, tx) },
       changed: true,
       rounded: max !== exact,
-      formula: `상한 ${fmt(range.max)} × 1.5 = ${fmt(exact)}${max !== exact ? ` → ${fmt(max)}(개월 단위로 올림)` : ""}`,
+      formula: max !== exact ? fmt(e.upperRounded, { formula, to: f(max) }) : formula,
       reason,
     }
   }
   if (zone === "mitigated" && mitCount - aggCount >= 2) {
-    const reason =
-      aggCount === 0
-        ? `감경영역에서 특별감경인자만 ${mitCount}개 있어 하한을 1/2까지 낮출 수 있습니다.`
-        : `감경영역에서 특별감경인자가 특별가중인자보다 ${mitCount - aggCount}개 많아 하한을 1/2까지 낮출 수 있습니다.`
-    if (range.min == null)
-      return { zone, kind: "lower", range, changed: false, rounded: false, reason: `${reason} 다만 이 범위는 하한이 정해져 있지 않아 달라지지 않습니다.` }
+    const reason = aggCount === 0 ? fmt(e.lowerOnly, { n: mitCount }) : fmt(e.lowerMore, { n: mitCount - aggCount })
+    if (range.min == null) return { zone, kind: "lower", range, changed: false, rounded: false, reason: fmt(e.lowerNone, { reason }) }
     const exact = range.min / 2
-    const min = fine ? exact : Math.floor(exact + 1e-9)
+    const min = Math.floor(exact + 1e-9)
     const to: Range = { ...range, min }
+    const formula = fmt(e.lowerFormula, { from: f(range.min), exact: f(exact) })
     return {
       zone,
       kind: "lower",
-      range: { ...to, text: rangeLabel(to) },
+      range: { ...to, text: rangeLabel(to, tx) },
       changed: true,
       rounded: min !== exact,
-      formula: `하한 ${fmt(range.min)} × 1/2 = ${fmt(exact)}${min !== exact ? ` → ${fmt(min)}(개월 단위로 내림)` : ""}`,
+      formula: min !== exact ? fmt(e.lowerRounded, { formula, to: f(min) }) : formula,
       reason,
     }
   }
@@ -312,9 +368,9 @@ export type ProbationCounts = { positiveMajor: number; negativeMajor: number; po
 export type ProbationVerdict = "suspend" | "prison" | "judge"
 
 export const PROBATION_LABEL: Record<ProbationVerdict, string> = {
-  suspend: "집행유예 권고",
-  prison: "실형 권고",
-  judge: "법관이 종합해 정함",
+  suspend: KO_E.probationSuspend,
+  prison: KO_E.probationPrison,
+  judge: KO_E.probationJudge,
 }
 
 export type ProbationResult = { verdict: ProbationVerdict; label: string; rule: 1 | 2 | 3; reasons: string[] }
@@ -325,32 +381,28 @@ export type ProbationResult = { verdict: ProbationVerdict; label: string; rule: 
  * ❷ 반대면 실형 권고
  * ❸ ❶❷에 해당해도 반대쪽 일반사유 차이가 주요사유 차이보다 크거나, ❶❷에 해당하지 않으면 종합 판단
  */
-export function decideProbation(c: ProbationCounts): ProbationResult {
+export function decideProbation(c: ProbationCounts, tx?: SentencingTx): ProbationResult {
+  const e = tx?.e ?? KO_E
   const pm = c.positiveMajor
   const nm = c.negativeMajor
   const pg = c.positiveGeneral
   const ng = c.negativeGeneral
-  const counts = `주요사유 긍정 ${pm}개·부정 ${nm}개, 일반사유 긍정 ${pg}개·부정 ${ng}개`
-  const res = (verdict: ProbationVerdict, rule: 1 | 2 | 3, reasons: string[]): ProbationResult => ({ verdict, label: PROBATION_LABEL[verdict], rule, reasons: [counts, ...reasons] })
+  const counts = fmt(e.probationCounts, { pm, nm, pg, ng })
+  const label = (v: ProbationVerdict) => (v === "suspend" ? e.probationSuspend : v === "prison" ? e.probationPrison : e.probationJudge)
+  const res = (verdict: ProbationVerdict, rule: 1 | 2 | 3, reasons: string[]): ProbationResult => ({ verdict, label: label(verdict), rule, reasons: [counts, ...reasons] })
 
   const major = pm - nm
   if (major >= 2) {
     const opp = ng - pg
-    if (opp > major)
-      return res("judge", 3, [
-        `주요긍정사유가 ${major}개 더 많지만, 일반부정사유가 일반긍정사유보다 ${opp}개 더 많아 그 차이가 더 큽니다. 이때는 법관이 사유 전체를 비교해 정합니다.`,
-      ])
-    return res("suspend", 1, [nm === 0 ? `주요긍정사유만 ${pm}개 있어 집행유예를 권고합니다.` : `주요긍정사유가 주요부정사유보다 ${major}개 많아 집행유예를 권고합니다.`])
+    if (opp > major) return res("judge", 3, [fmt(e.suspendOverruled, { major, opp })])
+    return res("suspend", 1, [nm === 0 ? fmt(e.suspendOnly, { n: pm }) : fmt(e.suspendMore, { n: major })])
   }
   if (major <= -2) {
     const opp = pg - ng
-    if (opp > -major)
-      return res("judge", 3, [
-        `주요부정사유가 ${-major}개 더 많지만, 일반긍정사유가 일반부정사유보다 ${opp}개 더 많아 그 차이가 더 큽니다. 이때는 법관이 사유 전체를 비교해 정합니다.`,
-      ])
-    return res("prison", 2, [pm === 0 ? `주요부정사유만 ${nm}개 있어 실형을 권고합니다.` : `주요부정사유가 주요긍정사유보다 ${-major}개 많아 실형을 권고합니다.`])
+    if (opp > -major) return res("judge", 3, [fmt(e.prisonOverruled, { major: -major, opp })])
+    return res("prison", 2, [pm === 0 ? fmt(e.prisonOnly, { n: nm }) : fmt(e.prisonMore, { n: -major })])
   }
-  return res("judge", 3, ["주요사유의 차이가 2개에 이르지 않아, 법관이 참작사유 전체를 비교해 정합니다. 이때도 주요사유를 일반사유보다 무겁게 봅니다."])
+  return res("judge", 3, [e.judgeMajor])
 }
 
 const squash = (x: string) => x.replace(/\s/g, "")
@@ -402,25 +454,23 @@ export function findType(crime: SentCrime, typeNo: string | undefined): SentType
   return typeNo === undefined ? undefined : crime.types.find((t) => t.no === typeNo)
 }
 
-export function evaluate(crime: SentCrime, typeNo: string, picks: Picks): Evaluation | null {
+export function evaluate(crime: SentCrime, typeNo: string, picks: Picks, tx?: SentencingTx): Evaluation | null {
   const type = findType(crime, typeNo)
   if (!type) return null
+  const e = tx?.e ?? KO_E
   const agg = tally(crime.special.aggravating, picks.aggravating, typeNo)
   const mit = tally(crime.special.mitigating, picks.mitigating, typeNo)
-  const decision = decideZone(agg, mit)
+  const decision = decideZone(agg, mit, tx)
   // 처벌불원 등을 행위인자로 보는 것은 "할 수 있다"(선택)라, 행위자/기타인자로 볼 때 결과가 다르면 알려 줌
   if (agg.actWeight + mit.actWeight > 0) {
     const asActor = (t: Tally): Tally => ({ ...t, act: t.act - t.actWeight, actor: t.actor + t.actWeight, actWeight: 0 })
-    const alt = decideZone(asActor(agg), asActor(mit))
-    if (alt.zone !== decision.zone)
-      decision.reasons.push(
-        `처벌불원 등을 행위인자와 같게 보는 것은 법관의 선택입니다. 행위자/기타인자로 보면 ${alt.zone ? ZONE_LABEL[alt.zone] : "법관의 종합 판단"}이 됩니다.`,
-      )
+    const alt = decideZone(asActor(agg), asActor(mit), tx)
+    if (alt.zone !== decision.zone) decision.reasons.push(fmt(e.altZone, { zone: alt.zone ? zoneLabel(alt.zone, tx) : e.altJudge }))
   }
   const outcomes = decision.candidates.map((zone): Outcome => {
     const range = type[zone]
     // 영역이 종합 판단으로 남은 경우에는 특별 조정이 자동으로 따라오지 않음
-    const adjust = decision.zone ? specialAdjust(zone, range, agg.total, mit.total) : null
+    const adjust = decision.zone ? specialAdjust(zone, range, agg.total, mit.total, tx) : null
     const final = adjust?.changed ? adjust.range : range
     return { zone, range, adjust, life: !final.life && lifeSelectable(final) }
   })

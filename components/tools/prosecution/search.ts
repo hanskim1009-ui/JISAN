@@ -76,3 +76,54 @@ export function searchCrimes(list: CrimeSummary[], query: string): CrimeSummary[
   })
   return scored.sort((a, b) => a.s - b.s || a.len - b.len || a.i - b.i).map((x) => x.c)
 }
+
+/* ---------- 외국어판 ---------- */
+
+/** 외국어 검색용 다듬기: 소문자, 악센트·성조 표시 빼기(lừa đảo → luadao), 띄어쓰기·문장부호 빼기 */
+export const normIntl = (s: string) =>
+  s
+    .normalize("NFKD")
+    .replace(/\p{M}/gu, "")
+    .replace(/[đĐ]/g, "d")
+    .toLowerCase()
+    .replace(/[\s\p{P}\p{S}]+/gu, "")
+
+type PreparedIntl = { c: CrimeSummary; name: string; aliases: string[]; ko: string; group: string; lawName: string; law: string }
+
+const prepIntlCache = new WeakMap<CrimeSummary[], PreparedIntl[]>()
+
+/**
+ * 외국어판 검색: 번역된 이름 → 다른 이름 → 한국어 이름 → 묶음·법률 이름 → 조문.
+ * label 은 묶음·법률 이름을 그 언어로 바꾸는 함수 (화면 사전).
+ */
+export function searchCrimesIntl(list: CrimeSummary[], query: string, label: { group: (g: string) => string; law: (l: string) => string }): CrimeSummary[] {
+  const q = normIntl(query)
+  if (!q) return list
+  let prepared = prepIntlCache.get(list)
+  if (!prepared) {
+    prepared = list.map((c) => ({
+      c,
+      name: normIntl(c.name),
+      aliases: (c.aliases ?? []).map(normIntl),
+      ko: norm(c.ko ?? ""),
+      group: normIntl(label.group(c.group)),
+      lawName: normIntl(label.law(c.lawName)),
+      law: normIntl(c.law),
+    }))
+    prepIntlCache.set(list, prepared)
+  }
+  const qk = norm(query)
+  const scored: { c: CrimeSummary; s: number; i: number; len: number }[] = []
+  prepared.forEach((p, i) => {
+    let s = -1
+    if (p.name === q) s = 0
+    else if (p.name.startsWith(q)) s = 1
+    else if (p.name.includes(q)) s = 2
+    else if (p.aliases.some((a) => a.includes(q))) s = 3
+    else if (p.ko && qk && matchNorm(p.ko, qk)) s = 4
+    else if (p.group.includes(q) || p.lawName.includes(q)) s = 6
+    else if (p.law.includes(q)) s = 7
+    if (s >= 0) scored.push({ c: p.c, s, i, len: p.name.length })
+  })
+  return scored.sort((a, b) => a.s - b.s || a.len - b.len || a.i - b.i).map((x) => x.c)
+}

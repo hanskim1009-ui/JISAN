@@ -83,8 +83,11 @@ type Loaded = { crimes: Crime[]; chunks: Map<string, Crime[]>; chunkOf: Map<stri
 
 let cache: Loaded | null = null
 
-/** 묶음 순서로 늘어놓고, 묶음 안에서는 법률 이름끼리 모아 CHUNK_BYTES 씩 자름. 조각 id 에 내용 해시를 붙여 배포가 바뀌면 주소도 바뀜 */
-function makeChunks(crimes: Crime[]) {
+/**
+ * 묶음 순서로 늘어놓고, 묶음 안에서는 법률 이름끼리 모아 CHUNK_BYTES 씩 자름. 조각 id 에 내용 해시를 붙여 배포가 바뀌면 주소도 바뀜.
+ * 외국어판(lib/tools/tool-data-i18n.ts)도 같은 방식으로 자름
+ */
+export function makeChunks(crimes: Crime[]) {
   const order = crimes
     .map((c, i) => ({ c, i }))
     .sort((a, b) => groupRank(a.c.group) - groupRank(b.c.group) || a.c.group.localeCompare(b.c.group, "ko") || (a.c.lawName ?? "").localeCompare(b.c.lawName ?? "", "ko") || a.i - b.i)

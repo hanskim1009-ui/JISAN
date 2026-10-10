@@ -1,12 +1,19 @@
 "use client"
 
 import { parseWon, wonInKorean } from "@/lib/tools/family/format"
+import { fmt } from "@/lib/i18n/fmt"
+import type { Lang } from "@/lib/langs"
+import { TOOL_LOCALE, type CommonText } from "@/lib/tools/i18n-format"
 import { fracOver, fracText, type Fraction } from "@/lib/tools/family/fraction"
+
+/** 언어별 금액칸·사람 수 칸 설정 */
+export const moneyOpts = (lang: Lang, c: CommonText) => ({ unit: c.units.wonUnit, locale: TOOL_LOCALE[lang], reading: lang === "ko" })
+export const stepperOpts = (c: CommonText) => ({ count: c.units.people, less: c.words.decrease, more: c.words.increase })
 
 export const inputCls =
   "w-full min-w-0 rounded-xl border border-[#D5DAE1] bg-white px-4 py-3 text-[0.9375rem] text-jisan-ink outline-none placeholder:text-jisan-ink/35 focus:border-jisan-ink"
 
-/** 금액 입력칸: 쉼표를 넣어 보여 주고, 아래에 "4억 2,500만 원"처럼 읽어 줌 */
+/** 금액 입력칸: 쉼표를 넣어 보여 주고, 한국어판은 아래에 "4억 2,500만 원"처럼 읽어 줌 (외국어판은 unit·locale 을 넘기고 reading 끔) */
 export function MoneyField({
   id,
   label,
@@ -14,6 +21,9 @@ export function MoneyField({
   value,
   onChange,
   placeholder = "0",
+  unit = "원",
+  locale = "ko-KR",
+  reading = true,
 }: {
   id: string
   label: string
@@ -21,6 +31,9 @@ export function MoneyField({
   value: number
   onChange: (n: number) => void
   placeholder?: string
+  unit?: string
+  locale?: string
+  reading?: boolean
 }) {
   const helpId = `${id}-help`
   return (
@@ -39,47 +52,50 @@ export function MoneyField({
           type="text"
           inputMode="numeric"
           autoComplete="off"
-          value={value ? value.toLocaleString("ko-KR") : ""}
+          value={value ? value.toLocaleString(locale) : ""}
           onChange={(e) => onChange(parseWon(e.target.value))}
           placeholder={placeholder}
           aria-describedby={help ? helpId : undefined}
           className={`${inputCls} text-right tabular-nums`}
         />
-        <span className="shrink-0 text-[0.9375rem] text-[#4A505A]">원</span>
+        <span className="shrink-0 text-[0.9375rem] text-[#4A505A]">{unit}</span>
       </div>
-      {value > 0 && <p className="mt-1 text-right text-xs text-[#8A9099]">{wonInKorean(value)}</p>}
+      {reading && value > 0 && <p className="mt-1 text-right text-xs text-[#8A9099]">{wonInKorean(value)}</p>}
     </div>
   )
 }
 
-/** − 숫자 + 로 사람 수를 고르는 칸 */
+/** − 숫자 + 로 사람 수를 고르는 칸. count·less·more 는 언어별 문구 템플릿 */
 export function Stepper({
   label,
   value,
   min = 0,
   max = 20,
   onChange,
-  unit = "명",
+  count = "{n}명",
+  less = "{label} 줄이기",
+  more = "{label} 늘리기",
 }: {
   label: string
   value: number
   min?: number
   max?: number
   onChange: (n: number) => void
-  unit?: string
+  count?: string
+  less?: string
+  more?: string
 }) {
   const btn =
     "flex h-9 w-9 items-center justify-center rounded-full border border-[#D5DAE1] bg-white text-lg leading-none text-jisan-ink hover:border-jisan-ink disabled:opacity-35 disabled:hover:border-[#D5DAE1]"
   return (
     <div className="flex items-center gap-2" role="group" aria-label={label}>
-      <button type="button" className={btn} onClick={() => onChange(Math.max(min, value - 1))} disabled={value <= min} aria-label={`${label} 줄이기`}>
+      <button type="button" className={btn} onClick={() => onChange(Math.max(min, value - 1))} disabled={value <= min} aria-label={fmt(less, { label })}>
         −
       </button>
       <span className="min-w-[3rem] text-center text-[0.9375rem] font-semibold tabular-nums text-jisan-ink" aria-live="polite">
-        {value}
-        {unit}
+        {fmt(count, { n: value })}
       </span>
-      <button type="button" className={btn} onClick={() => onChange(Math.min(max, value + 1))} disabled={value >= max} aria-label={`${label} 늘리기`}>
+      <button type="button" className={btn} onClick={() => onChange(Math.min(max, value + 1))} disabled={value >= max} aria-label={fmt(more, { label })}>
         +
       </button>
     </div>

@@ -1,51 +1,51 @@
 [
   {
-    "group": "민사·행정 소송",
+    "group": "civil",
     "items": [
-      { "id": "civil-appeal", "label": "항소", "days": 14, "period": "2주", "from": "판결서를 송달받은 날", "basis": "민사소송법 제396조 제1항 (행정소송은 행정소송법 제8조로 준용)", "fixed": true, "zeroHour": true },
-      { "id": "civil-final", "label": "상고", "days": 14, "period": "2주", "from": "항소심 판결서를 송달받은 날", "basis": "민사소송법 제425조, 제396조 제1항", "fixed": true, "zeroHour": true },
-      { "id": "civil-appeal-brief", "label": "항소이유서 제출", "days": 40, "period": "40일", "from": "항소기록 접수 통지를 받은 날", "basis": "민사소송법 제402조의2 제1항", "fixed": false, "zeroHour": true, "note": "법원 결정으로 한 번, 1개월까지 늘릴 수 있습니다(같은 조 제2항)." },
-      { "id": "civil-final-brief", "label": "상고이유서 제출", "days": 20, "period": "20일", "from": "상고기록 접수 통지를 받은 날", "basis": "민사소송법 제427조", "fixed": false, "zeroHour": true },
-      { "id": "civil-immediate", "label": "즉시항고", "days": 7, "period": "1주", "from": "결정·명령을 고지받은 날", "basis": "민사소송법 제444조", "fixed": true, "zeroHour": true },
-      { "id": "civil-special", "label": "특별항고", "days": 7, "period": "1주", "from": "결정·명령을 고지받은 날", "basis": "민사소송법 제449조 제2항", "fixed": true, "zeroHour": true },
-      { "id": "civil-reconcile", "label": "화해권고결정에 대한 이의신청", "days": 14, "period": "2주", "from": "결정서 정본을 송달받은 날", "basis": "민사소송법 제226조 제1항", "fixed": true, "zeroHour": true },
-      { "id": "civil-small", "label": "이행권고결정에 대한 이의신청", "days": 14, "period": "2주", "from": "이행권고결정서 등본을 송달받은 날", "basis": "소액사건심판법 제5조의4 제1항", "fixed": true, "zeroHour": true },
-      { "id": "civil-payment", "label": "지급명령에 대한 이의신청", "days": 14, "period": "2주", "from": "지급명령을 송달받은 날", "basis": "민사소송법 제470조 제1항", "fixed": true, "zeroHour": true },
-      { "id": "civil-mediation", "label": "조정을 갈음하는 결정에 대한 이의신청", "days": 14, "period": "2주", "from": "결정 조서 정본을 송달받은 날", "basis": "민사조정법 제34조 제1항", "fixed": true, "zeroHour": true },
-      { "id": "civil-answer", "label": "답변서 제출", "days": 30, "period": "30일", "from": "소장 부본을 송달받은 날", "basis": "민사소송법 제256조 제1항", "fixed": false, "zeroHour": true, "note": "불변기간은 아니지만, 넘기면 변론 없이 원고 승소 판결이 날 수 있습니다." }
+      { "id": "civil-appeal", "days": 14, "fixed": true, "zeroHour": true },
+      { "id": "civil-final", "days": 14, "fixed": true, "zeroHour": true },
+      { "id": "civil-appeal-brief", "days": 40, "fixed": false, "zeroHour": true },
+      { "id": "civil-final-brief", "days": 20, "fixed": false, "zeroHour": true },
+      { "id": "civil-immediate", "days": 7, "fixed": true, "zeroHour": true },
+      { "id": "civil-special", "days": 7, "fixed": true, "zeroHour": true },
+      { "id": "civil-reconcile", "days": 14, "fixed": true, "zeroHour": true },
+      { "id": "civil-small", "days": 14, "fixed": true, "zeroHour": true },
+      { "id": "civil-payment", "days": 14, "fixed": true, "zeroHour": true },
+      { "id": "civil-mediation", "days": 14, "fixed": true, "zeroHour": true },
+      { "id": "civil-answer", "days": 30, "fixed": false, "zeroHour": true }
     ]
   },
   {
-    "group": "민사집행",
+    "group": "exec",
     "items": [
-      { "id": "exec-immediate", "label": "집행법원 재판에 대한 즉시항고", "days": 7, "period": "1주", "from": "재판을 고지받은 날", "basis": "민사집행법 제15조 제2항", "fixed": true, "zeroHour": true },
-      { "id": "exec-brief", "label": "즉시항고이유서 제출", "days": 10, "period": "10일", "from": "항고장을 낸 날", "basis": "민사집행법 제15조 제3항", "fixed": false, "zeroHour": false }
+      { "id": "exec-immediate", "days": 7, "fixed": true, "zeroHour": true },
+      { "id": "exec-brief", "days": 10, "fixed": false, "zeroHour": false }
     ]
   },
   {
-    "group": "가사",
+    "group": "family",
     "items": [
-      { "id": "family-appeal", "label": "가사소송 항소", "days": 14, "period": "14일", "from": "판결정본을 송달받은 날", "basis": "가사소송법 제19조 제1항", "fixed": true, "zeroHour": true },
-      { "id": "family-immediate", "label": "가사비송 심판에 대한 즉시항고", "days": 14, "period": "14일", "from": "심판을 고지받은 날", "basis": "가사소송법 제43조 제5항", "fixed": true, "zeroHour": true, "note": "누가 항고하는지에 따라 기산일이 달라질 수 있습니다(가사소송규칙)." }
+      { "id": "family-appeal", "days": 14, "fixed": true, "zeroHour": true },
+      { "id": "family-immediate", "days": 14, "fixed": true, "zeroHour": true }
     ]
   },
   {
-    "group": "형사",
+    "group": "criminal",
     "items": [
-      { "id": "crim-appeal", "label": "형사 항소", "days": 7, "period": "7일", "from": "판결을 선고한 날", "basis": "형사소송법 제358조, 제343조 제2항", "fixed": true, "zeroHour": false },
-      { "id": "crim-final", "label": "형사 상고", "days": 7, "period": "7일", "from": "항소심 판결을 선고한 날", "basis": "형사소송법 제374조, 제343조 제2항", "fixed": true, "zeroHour": false },
-      { "id": "crim-appeal-brief", "label": "형사 항소이유서 제출", "days": 20, "period": "20일", "from": "소송기록 접수 통지를 받은 날", "basis": "형사소송법 제361조의3 제1항", "fixed": false, "zeroHour": false },
-      { "id": "crim-final-brief", "label": "형사 상고이유서 제출", "days": 20, "period": "20일", "from": "소송기록 접수 통지를 받은 날", "basis": "형사소송법 제379조 제1항", "fixed": false, "zeroHour": false },
-      { "id": "crim-summary", "label": "약식명령에 대한 정식재판 청구", "days": 7, "period": "7일", "from": "약식명령을 고지(송달)받은 날", "basis": "형사소송법 제453조 제1항", "fixed": true, "zeroHour": false },
-      { "id": "crim-immediate", "label": "형사 즉시항고", "days": 7, "period": "7일", "from": "결정을 고지한 날", "basis": "형사소송법 제405조, 제343조 제2항", "fixed": true, "zeroHour": false }
+      { "id": "crim-appeal", "days": 7, "fixed": true, "zeroHour": false },
+      { "id": "crim-final", "days": 7, "fixed": true, "zeroHour": false },
+      { "id": "crim-appeal-brief", "days": 20, "fixed": false, "zeroHour": false },
+      { "id": "crim-final-brief", "days": 20, "fixed": false, "zeroHour": false },
+      { "id": "crim-summary", "days": 7, "fixed": true, "zeroHour": false },
+      { "id": "crim-immediate", "days": 7, "fixed": true, "zeroHour": false }
     ]
   },
   {
-    "group": "행정·헌법",
+    "group": "admin",
     "items": [
-      { "id": "admin-trial", "label": "행정심판 청구", "days": 90, "period": "90일", "from": "처분이 있음을 안 날", "basis": "행정심판법 제27조 제1항", "fixed": true, "zeroHour": false, "note": "처분이 있었던 날부터 180일이 지나면 청구할 수 없습니다(같은 조 제3항)." },
-      { "id": "admin-suit", "label": "취소소송 제기", "days": 90, "period": "90일", "from": "처분이 있음을 안 날(행정심판을 거쳤다면 재결서 정본을 송달받은 날)", "basis": "행정소송법 제20조 제1항", "fixed": true, "zeroHour": false, "note": "처분이 있은 날(재결이 있은 날)부터 1년이 지나면 낼 수 없습니다(같은 조 제2항)." },
-      { "id": "const-complaint", "label": "헌법소원 심판 청구", "days": 90, "period": "90일", "from": "기본권 침해 사유가 있음을 안 날", "basis": "헌법재판소법 제69조 제1항", "fixed": false, "zeroHour": false, "note": "사유가 있은 날부터 1년도 함께 지켜야 합니다." }
+      { "id": "admin-trial", "days": 90, "fixed": true, "zeroHour": false },
+      { "id": "admin-suit", "days": 90, "fixed": true, "zeroHour": false },
+      { "id": "const-complaint", "days": 90, "fixed": false, "zeroHour": false }
     ]
   }
 ]

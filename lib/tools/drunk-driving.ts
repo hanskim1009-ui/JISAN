@@ -9,7 +9,10 @@
  * - 특정범죄 가중처벌 등에 관한 법률 [시행 2025. 7. 2.] 제5조의3, 제5조의11
  * - 교통사고처리 특례법 [시행 2025. 6. 4.] 제3조, 제4조
  * - 행정심판법 제27조
+ *
+ * 결과 문장은 직접 만들지 않고 사전 키(Msg)로 돌려줍니다. 문장은 content/tools/i18n/{언어}/drunk-driving.json 의 msg.
  */
+import { msg, type Msg } from "@/lib/tools/i18n-format"
 
 /** 측정 결과 */
 export type TestKind = "measured" | "refused" | "obstructed"
@@ -34,40 +37,40 @@ export type DdInput = {
 
 export type Penalty = {
   /** 무엇에 대한 법정형인지 */
-  label: string
+  label: Msg
   /** 법정형 문장 */
-  text: string
+  text: Msg
   /** 근거 조문 */
-  law: string
-  note?: string
+  law: Msg
+  note?: Msg
 }
 
 export type LicenseResult = {
   action: "none" | "suspend" | "revoke"
   /** 한 줄 요약 (예: "면허 취소") */
-  title: string
+  title: Msg
   /** 근거 */
-  law: string
+  law: Msg
   /** 이유·설명 */
-  lines: string[]
+  lines: Msg[]
   /** 결격기간 (취소일 때) */
-  disqualification?: { years: number; law: string; reason: string }
+  disqualification?: { years: number; law: Msg; reason: Msg }
   /** 음주운전 방지장치 조건부 운전면허 안내 */
-  conditional?: string
+  conditional?: Msg
   /** 생계형 감경 이의신청 안내 (대상이 될 수 있을 때만) */
-  reduction?: string
+  reduction?: Msg
 }
 
 export type DdResult = {
   /** 적용 구간 요약 */
-  tierLabel: string
+  tierLabel: Msg
   /** 음주운전·측정거부 자체에 대한 법정형. 0.03% 미만이면 null */
   main: Penalty | null
   /** 사고에 따라 함께 문제 되는 죄 */
   accident: Penalty[]
   license: LicenseResult
   /** 덧붙일 설명 */
-  notes: string[]
+  notes: Msg[]
 }
 
 /** 처벌 기준 (퍼센트) */
@@ -96,54 +99,44 @@ export function bacBand(bac: number): BacBand {
   return "high"
 }
 
-const BAND_LABEL: Record<BacBand, string> = {
-  under: "0.03% 미만",
-  low: "0.03% 이상 0.08% 미만",
-  mid: "0.08% 이상 0.2% 미만",
-  high: "0.2% 이상",
-}
-
-const TEST_LABEL: Record<Exclude<TestKind, "measured">, string> = {
-  refused: "측정 거부",
-  obstructed: "음주측정방해",
-}
+/** 문장 키 (content/tools/i18n/{언어}/drunk-driving.json 의 msg 아래) */
+const m = (k: string, v?: Msg["v"]) => msg(`msg.${k}`, v)
+const repeatOf = (base: Msg) => m("repeat", { base })
 
 /** 음주운전·측정거부 자체의 법정형 (도로교통법 제148조의2) */
 function mainPenalty(input: DdInput, band: BacBand | null): Penalty | null {
   const repeat = input.prior === "recent"
   if (input.test !== "measured") {
-    const what = input.test === "refused" ? "음주측정 거부" : "음주측정방해(운전 뒤 측정을 어렵게 하려고 술을 더 마시는 등)"
+    const what = m(input.test === "refused" ? "test.refusedLabel" : "test.obstructedLabel")
     if (repeat)
       return {
-        label: `${what} · 10년 안 재위반`,
-        text: "1년 이상 6년 이하 징역이나 500만원 이상 3천만원 이하 벌금",
-        law: "도로교통법 제148조의2 제1항 제1호",
+        label: repeatOf(what),
+        text: m("penalty.y1to6f500to3000"),
+        law: m("law.rta148_2_1_1"),
       }
     return {
       label: what,
-      text: "1년 이상 5년 이하 징역이나 500만원 이상 2천만원 이하 벌금",
-      law: `도로교통법 제148조의2 제2항 제${input.test === "refused" ? 1 : 2}호`,
+      text: m("penalty.y1to5f500to2000"),
+      law: m(input.test === "refused" ? "law.rta148_2_2_1" : "law.rta148_2_2_2"),
     }
   }
   if (!band || band === "under") return null
   if (repeat) {
     if (band === "high")
       return {
-        label: "0.2% 이상 · 10년 안 재위반",
-        text: "2년 이상 6년 이하 징역이나 1천만원 이상 3천만원 이하 벌금",
-        law: "도로교통법 제148조의2 제1항 제2호",
+        label: repeatOf(m("band.high")),
+        text: m("penalty.y2to6f1000to3000"),
+        law: m("law.rta148_2_1_2"),
       }
     return {
-      label: "0.03% 이상 0.2% 미만 · 10년 안 재위반",
-      text: "1년 이상 5년 이하 징역이나 500만원 이상 2천만원 이하 벌금",
-      law: "도로교통법 제148조의2 제1항 제3호",
+      label: repeatOf(m("band.lowMid")),
+      text: m("penalty.y1to5f500to2000"),
+      law: m("law.rta148_2_1_3"),
     }
   }
-  if (band === "high")
-    return { label: "0.2% 이상", text: "2년 이상 5년 이하 징역이나 1천만원 이상 2천만원 이하 벌금", law: "도로교통법 제148조의2 제3항 제1호" }
-  if (band === "mid")
-    return { label: "0.08% 이상 0.2% 미만", text: "1년 이상 2년 이하 징역이나 500만원 이상 1천만원 이하 벌금", law: "도로교통법 제148조의2 제3항 제2호" }
-  return { label: "0.03% 이상 0.08% 미만", text: "1년 이하 징역이나 500만원 이하 벌금", law: "도로교통법 제148조의2 제3항 제3호" }
+  if (band === "high") return { label: m("band.high"), text: m("penalty.y2to5f1000to2000"), law: m("law.rta148_2_3_1") }
+  if (band === "mid") return { label: m("band.mid"), text: m("penalty.y1to2f500to1000"), law: m("law.rta148_2_3_2") }
+  return { label: m("band.low"), text: m("penalty.y1f500"), law: m("law.rta148_2_3_3") }
 }
 
 /** 사고에 따라 함께 문제 되는 죄의 법정형 */
@@ -154,47 +147,43 @@ function accidentPenalties(input: DdInput, drunk: boolean): Penalty[] {
 
   if (accident === "property") {
     out.push({
-      label: "물건만 부순 사고 (업무상과실 재물손괴)",
-      text: "2년 이하 금고나 500만원 이하 벌금",
-      law: "도로교통법 제151조",
-      note: "물건 피해만 있으면 피해자가 처벌을 원하지 않거나 종합보험 등에 가입돼 있을 때 이 부분은 공소를 제기할 수 없습니다(교통사고처리 특례법 제3조 제2항 본문, 제4조). 음주운전 처벌은 이와 따로 갑니다.",
+      label: m("label.propertyDamage"),
+      text: m("penalty.propertyDamage"),
+      law: m("law.rta151"),
+      note: m("note.propertyDamage"),
     })
   } else {
     const death = accident === "death"
     if (drunk) {
       out.push({
-        label: death ? "위험운전치사" : "위험운전치상",
-        text: death ? "무기 또는 3년 이상 징역" : "1년 이상 15년 이하 징역 또는 1천만원 이상 3천만원 이하 벌금",
-        law: "특정범죄 가중처벌 등에 관한 법률 제5조의11 제1항",
-        note: "술 때문에 정상적인 운전이 곤란한 상태였다고 인정될 때 적용됩니다. 그 정도에 이르지 않았다고 보면 아래 교통사고처리 특례법이 적용됩니다.",
+        label: m(death ? "label.dangerDeath" : "label.dangerInjury"),
+        text: m(death ? "penalty.dangerDeath" : "penalty.dangerInjury"),
+        law: m("law.spca5_11"),
+        note: m("note.danger"),
       })
     }
     out.push({
-      label: death ? "교통사고 업무상과실치사" : "교통사고 업무상과실치상",
-      text: "5년 이하 금고 또는 2천만원 이하 벌금",
-      law: "교통사고처리 특례법 제3조 제1항",
-      note: death
-        ? undefined
-        : drunk || input.test !== "measured"
-          ? "음주운전이나 측정 거부·방해가 함께 있는 사고는 종합보험에 가입돼 있거나 피해자와 합의해도 공소를 제기할 수 있습니다(같은 법 제3조 제2항 단서, 제4조 제1항)."
-          : undefined,
+      label: m(death ? "label.negligenceDeath" : "label.negligenceInjury"),
+      text: m("penalty.negligence"),
+      law: m("law.tsa3_1"),
+      note: death ? undefined : drunk || input.test !== "measured" ? m("note.negligenceDrunk") : undefined,
     })
   }
 
   if (fled) {
     if (accident === "injury" || accident === "death") {
       out.push({
-        label: accident === "death" ? "도주치사 (구호 조치 없이 떠남)" : "도주치상 (구호 조치 없이 떠남)",
-        text: accident === "death" ? "무기 또는 5년 이상 징역" : "1년 이상 유기징역 또는 500만원 이상 3천만원 이하 벌금",
-        law: "특정범죄 가중처벌 등에 관한 법률 제5조의3 제1항",
-        note: "피해자를 사고 장소에서 옮겨 버려두고 달아났다면 더 무거운 제5조의3 제2항이 적용됩니다.",
+        label: m(accident === "death" ? "label.fledDeath" : "label.fledInjury"),
+        text: m(accident === "death" ? "penalty.fledDeath" : "penalty.fledInjury"),
+        law: m("law.spca5_3"),
+        note: m("note.fled"),
       })
     } else {
       out.push({
-        label: "사고 후 미조치 (물건 피해)",
-        text: "5년 이하 징역이나 1천500만원 이하 벌금",
-        law: "도로교통법 제148조, 제54조 제1항",
-        note: "주차·정차된 차만 부순 것이 분명한데 연락처만 남기지 않은 경우는 20만원 이하 벌금이나 구류 또는 과료입니다(같은 법 제156조 제10호).",
+        label: m("label.fledProperty"),
+        text: m("penalty.fledProperty"),
+        law: m("law.rta148_54"),
+        note: m("note.fledProperty"),
       })
     }
   }
@@ -212,12 +201,9 @@ function licenseResult(input: DdInput, band: BacBand | null): LicenseResult {
   if (measuredUnder) {
     return {
       action: "none",
-      title: "음주운전으로 인한 면허 처분 없음",
-      law: "도로교통법 제44조 제4항, 제93조 제1항",
-      lines: [
-        "혈중알코올농도 0.03% 미만은 술에 취한 상태의 기준에 못 미쳐 음주운전 면허 처분 대상이 아닙니다.",
-        ...(anyAccident ? ["사고를 냈다면 사고 결과와 조치 여부에 따른 벌점·처분은 따로 나올 수 있습니다(시행규칙 별표 28 제3호 나목)."] : []),
-      ],
+      title: m("lic.noneTitle"),
+      law: m("law.licNone"),
+      lines: [m("lic.noneUnder"), ...(anyAccident ? [m("lic.noneAccident")] : [])],
     }
   }
 
@@ -225,90 +211,53 @@ function licenseResult(input: DdInput, band: BacBand | null): LicenseResult {
   if (test === "measured" && band === "low" && !hasPrior && !injury) {
     return {
       action: "suspend",
-      title: "면허 정지 (벌점 100점)",
-      law: "도로교통법 제93조 제1항 제1호, 시행규칙 별표 28 제3호 가목",
-      lines: [
-        "혈중알코올농도 0.03% 이상 0.08% 미만은 벌점 100점입니다. 정지 기간은 원칙적으로 벌점 1점을 1일로 계산해 100일입니다(별표 28 제1호 다목).",
-        "정해진 특별교통안전교육을 마치면 정지 기간이 20일 줄고, 현장참여교육까지 마치면 30일이 더 줄 수 있습니다(별표 28 제1호 라목).",
-        ...(anyAccident
-          ? ["사고 결과나 사고 뒤 조치를 하지 않은 데 따른 벌점이 더해질 수 있고, 1년 동안 쌓인 벌점이 121점 이상이면 면허가 취소됩니다(별표 28 제1호 다목)."]
-          : []),
-      ],
+      title: m("lic.suspendTitle"),
+      law: m("law.licSuspend"),
+      lines: [m("lic.suspend100"), m("lic.suspendEdu"), ...(anyAccident ? [m("lic.suspendAccident")] : [])],
       reduction: reductionText(input, band, "suspend"),
     }
   }
 
   // 취소 사유
-  const reasons: string[] = []
-  let law = "도로교통법 제93조 제1항"
+  const reasons: Msg[] = []
+  let law = m("law.licBase")
   if (test === "refused") {
-    reasons.push("술에 취했다고 볼 상당한 이유가 있는데 측정에 응하지 않으면 면허를 반드시 취소합니다.")
-    law = "도로교통법 제93조 제1항 제3호, 시행규칙 별표 28 제2호"
+    reasons.push(m("lic.revokeRefused"))
+    law = m("law.licRefused")
   } else if (test === "obstructed") {
-    reasons.push("운전 뒤 음주측정방해행위를 하면 면허를 반드시 취소합니다.")
-    law = "도로교통법 제93조 제1항 제3호의2, 시행규칙 별표 28 제2호"
+    reasons.push(m("lic.revokeObstructed"))
+    law = m("law.licObstructed")
   } else {
-    if (hasPrior) reasons.push("예전에 음주운전·측정거부·측정방해를 한 사람이 다시 0.03% 이상으로 운전하면 기간과 관계없이 면허를 반드시 취소합니다.")
-    if (band === "mid" || band === "high") reasons.push("혈중알코올농도 0.08% 이상이면 취소 기준입니다.")
-    if (injury) reasons.push("0.03% 이상으로 운전하다 사람을 다치게 하거나 숨지게 하면 취소 기준입니다.")
-    law = hasPrior ? "도로교통법 제93조 제1항 제2호, 시행규칙 별표 28 제2호" : "도로교통법 제93조 제1항 제1호, 시행규칙 별표 28 제2호"
+    if (hasPrior) reasons.push(m("lic.revokePrior"))
+    if (band === "mid" || band === "high") reasons.push(m("lic.revokeHigh"))
+    if (injury) reasons.push(m("lic.revokeInjury"))
+    law = m(hasPrior ? "law.licPrior" : "law.licFirst")
   }
 
   return {
     action: "revoke",
-    title: "면허 취소",
+    title: m("lic.revokeTitle"),
     law,
-    lines: [
-      ...reasons,
-      "결격기간이 끝나도 특별교통안전 의무교육을 받아야 면허를 다시 받을 수 있습니다(도로교통법 제82조 제3항).",
-    ],
+    lines: [...reasons, m("lic.revokeEdu")],
     disqualification: disqualification(input),
-    conditional:
-      hasPrior && input.priorWithin5
-        ? "이전 위반일부터 5년 안에 다시 위반해 면허가 취소됐다면, 다시 운전하려면 음주운전 방지장치를 단 조건부 운전면허를 받아야 합니다. 장치는 결격기간이 끝난 다음 날부터 결격기간과 같은 기간 동안 붙입니다(도로교통법 제80조의2)."
-        : undefined,
+    conditional: hasPrior && input.priorWithin5 ? m("lic.conditional") : undefined,
     reduction: reductionText(input, band, "revoke"),
   }
 }
 
 /** 결격기간 (도로교통법 제82조 제2항). 면허가 있던 사람이 취소된 경우 기준 */
-function disqualification(input: DdInput): { years: number; law: string; reason: string } {
+function disqualification(input: DdInput): { years: number; law: Msg; reason: Msg } {
   const { test, prior, accident, fled, priorAccident } = input
   const hasPrior = prior !== "none"
   const injury = accident === "injury" || accident === "death"
   const obstructed = test === "obstructed"
 
-  if (injury && fled)
-    return {
-      years: 5,
-      law: obstructed ? "도로교통법 제82조 제2항 제3호 다목" : "도로교통법 제82조 제2항 제3호 가목",
-      reason: "술을 마시고 운전하다 사람을 다치게 하거나 숨지게 한 뒤 필요한 조치와 신고 없이 떠난 경우",
-    }
-  if (accident === "death")
-    return {
-      years: 5,
-      law: obstructed ? "도로교통법 제82조 제2항 제3호 라목" : "도로교통법 제82조 제2항 제3호 나목",
-      reason: "술을 마시고 운전하다 사람을 숨지게 한 경우",
-    }
-  if (accident !== "none" && hasPrior && priorAccident)
-    return {
-      years: 3,
-      law: "도로교통법 제82조 제2항 제5호",
-      reason: "음주운전(측정 거부·방해 포함) 중 교통사고를 2번 이상 낸 경우",
-    }
-  if (accident !== "none")
-    return {
-      years: 2,
-      law: obstructed ? "도로교통법 제82조 제2항 제6호 다목" : "도로교통법 제82조 제2항 제6호 나목",
-      reason: "음주운전(측정 거부·방해 포함) 중 교통사고를 낸 경우",
-    }
-  if (hasPrior)
-    return {
-      years: 2,
-      law: "도로교통법 제82조 제2항 제6호 가목",
-      reason: "음주운전·측정거부·측정방해를 2번 이상 한 경우",
-    }
-  return { years: 1, law: "도로교통법 제82조 제2항 제7호", reason: "그 밖의 사유로 면허가 취소된 경우" }
+  if (injury && fled) return { years: 5, law: m(obstructed ? "law.dq3c" : "law.dq3a"), reason: m("dq.fled") }
+  if (accident === "death") return { years: 5, law: m(obstructed ? "law.dq3d" : "law.dq3b"), reason: m("dq.death") }
+  if (accident !== "none" && hasPrior && priorAccident) return { years: 3, law: m("law.dq5"), reason: m("dq.twoAccidents") }
+  if (accident !== "none") return { years: 2, law: m(obstructed ? "law.dq6c" : "law.dq6b"), reason: m("dq.accident") }
+  if (hasPrior) return { years: 2, law: m("law.dq6a"), reason: m("dq.repeat") }
+  return { years: 1, law: m("law.dq7"), reason: m("dq.other") }
 }
 
 /**
@@ -316,15 +265,14 @@ function disqualification(input: DdInput): { years: number; law: string; reason:
  * 0.1% 초과, 인적피해 사고, 측정 불응·도주, 음주운전 전력(2001. 6. 30. 이후)이 있으면 대상이 아님.
  * 음주측정방해는 감경 사유 문언("음주운전으로 ... 처분을 받은 경우")에 맞는지 분명하지 않아 안내하지 않음.
  */
-function reductionText(input: DdInput, band: BacBand | null, action: "suspend" | "revoke"): string | undefined {
+function reductionText(input: DdInput, band: BacBand | null, action: "suspend" | "revoke"): Msg | undefined {
   if (input.test !== "measured" || input.bac === undefined) return undefined
   if (bp(input.bac) > 1000) return undefined
   if (input.accident === "injury" || input.accident === "death") return undefined
   if (input.fled) return undefined
   if (input.prior !== "none") return undefined
   if (band === "under") return undefined
-  const effect = action === "revoke" ? "취소 대신 벌점 110점의 정지 처분" : "정지 기간의 2분의 1 감경"
-  return `운전이 가족의 생계를 유지할 중요한 수단이라면 처분을 받은 날부터 60일 안에 주소지 시·도경찰청장에게 이의신청을 해 ${effect}을 구할 수 있습니다. 받아들일지는 운전면허행정처분 이의심의위원회가 정합니다(시행규칙 별표 28 제1호 바목).`
+  return m("lic.reduction", { effect: m(action === "revoke" ? "lic.reductionRevoke" : "lic.reductionSuspend") })
 }
 
 /** 계산 */
@@ -332,29 +280,24 @@ export function evaluateDrunkDriving(input: DdInput): DdResult {
   const band = input.test === "measured" && input.bac !== undefined ? bacBand(input.bac) : null
   const drunk = input.test === "measured" ? band !== null && band !== "under" : true
   const main = mainPenalty(input, band)
-  const notes: string[] = []
+  const notes: Msg[] = []
 
   const tierLabel =
     input.test === "measured"
       ? band
-        ? `${BAND_LABEL[band]}${band !== "under" && input.prior === "recent" ? " · 10년 안 재위반" : ""}`
-        : "혈중알코올농도 미입력"
-      : `${TEST_LABEL[input.test]}${input.prior === "recent" ? " · 10년 안 재위반" : ""}`
+        ? band !== "under" && input.prior === "recent"
+          ? repeatOf(m(`band.${band}`))
+          : m(`band.${band}`)
+        : m("noBac")
+      : input.prior === "recent"
+        ? repeatOf(m(`test.${input.test}`))
+        : m(`test.${input.test}`)
 
-  if (input.test === "measured" && band === "under") {
-    notes.push("혈중알코올농도 0.03% 미만은 술에 취한 상태의 기준에 못 미쳐 음주운전으로 처벌되지 않습니다(도로교통법 제44조 제4항). 다만 처벌 대상은 운전할 때의 수치여서, 측정 시각과 운전 시각 사이의 간격이 다투어질 수 있습니다.")
-  }
-  if (input.prior === "recent") {
-    notes.push("10년은 이전 사건에서 벌금 이상의 형이 확정된 날부터 계산하고, 그사이 형이 실효됐어도 포함합니다(도로교통법 제148조의2 제1항).")
-  } else if (input.prior === "old" && main) {
-    notes.push("전력이 10년 기준에 해당하지 않으면 법정형은 처음과 같지만, 실제 처분과 형을 정할 때는 동종 전력으로 고려됩니다.")
-  }
-  if (input.accident !== "none" && main) {
-    notes.push("음주운전과 사고 관련 죄는 함께 성립할 수 있고, 여러 죄를 함께 처벌하면 형의 범위가 넓어질 수 있습니다.")
-  }
-  if (input.test === "refused") {
-    notes.push("호흡측정 결과에 동의하지 않을 때는 동의를 받아 혈액 채취 등으로 다시 측정할 수 있습니다(도로교통법 제44조 제3항). 호흡측정 자체를 거부하면 측정 거부가 될 수 있습니다.")
-  }
+  if (input.test === "measured" && band === "under") notes.push(m("notes.under"))
+  if (input.prior === "recent") notes.push(m("notes.recent"))
+  else if (input.prior === "old" && main) notes.push(m("notes.old"))
+  if (input.accident !== "none" && main) notes.push(m("notes.concurrent"))
+  if (input.test === "refused") notes.push(m("notes.refused"))
 
   return {
     tierLabel,
@@ -366,5 +309,4 @@ export function evaluateDrunkDriving(input: DdInput): DdResult {
 }
 
 /** 면허 처분 불복 안내 (모든 결과 공통) */
-export const LICENSE_APPEAL =
-  "면허 정지·취소는 형사 절차와 따로 진행되는 행정처분입니다. 다투려면 처분이 있음을 안 날부터 90일 안에 행정심판을 청구해야 하고(행정심판법 제27조), 행정소송은 행정심판을 거친 뒤에 낼 수 있습니다(도로교통법 제142조). 형사 사건이 무죄로 확정되거나 혐의없음·죄가안됨으로 불송치·불기소되면 처분을 취소하고 벌점을 지웁니다(시행규칙 별표 28 제1호 마목). 벌금 미만의 형·선고유예·기소유예로 끝나면 결격기간 안이라도 면허를 다시 받을 수 있습니다(도로교통법 제82조 제2항 단서)."
+export const LICENSE_APPEAL: Msg = m("appeal")

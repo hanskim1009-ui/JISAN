@@ -1,0 +1,19 @@
+{
+  "_note": "금액·기간 표기 (구형·양형 계산기 공용). 한국어 화면은 이 파일을 쓰지 않고 지금 표기(150만원, 1년 6월)를 그대로 씁니다. 이 파일은 외국어판을 만들 때 본보기입니다. money.system 은 million(백만 단위: KRW 1.5 million) 또는 man(만·억 단위: 150万韩元). 기간은 언어의 복수형 규칙(one·few·many·other)에 맞춰 고릅니다. 번역 안내: ../TRANSLATE-crimes.md",
+  "locale": "ko-KR",
+  "decimal": ".",
+  "group": ",",
+  "money": {
+    "system": "man",
+    "small": "{n}원",
+    "man": "{n}만원",
+    "eok": "{n}억원",
+    "eokMan": "{eok}억 {man}만원"
+  },
+  "period": {
+    "year": { "other": "{n}년" },
+    "month": { "other": "{n}월" },
+    "day": { "other": "{n}일" },
+    "sep": " "
+  }
+}

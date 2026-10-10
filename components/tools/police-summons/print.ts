@@ -1,26 +1,29 @@
-import { STEPS, situationSummary, textOf, type Item, type Situation } from "@/lib/tools/police-summons"
+import type { Lang } from "@/lib/langs"
+import { HREFLANG } from "@/lib/langs"
+import { L } from "@/lib/i18n/fmt"
+import { STEP_NUMS, itemText, situationSummary, type Item, type PoliceSummonsText, type Situation } from "@/lib/tools/police-summons"
+import { dateText, fmt } from "@/lib/tools/i18n-format"
 import { siteConfig } from "@/lib/site-config"
 
 const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
 
 /** 인쇄용 문서 (사이트 머리·꼬리 없이 체크리스트만) */
-function printHtml(s: Situation, items: Item[], done: Set<string>) {
-  const today = new Date()
-  const date = `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()}.`
-  const sections = STEPS.slice(1)
-    .map((st) => {
+export function printHtml(lang: Lang, t: PoliceSummonsText, brand: string, s: Situation, items: Item[], done: Set<string>, today = new Date()) {
+  const iso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`
+  const date = dateText(lang, iso, false)
+  const sections = STEP_NUMS.slice(1)
+    .map((n) => {
       const rows = items
-        .filter((i) => i.step === st.n)
-        .map(
-          (i) => `<li><span class="box">${done.has(i.id) ? "☑" : "☐"}</span><div><b>${esc(textOf(i.title, s))}</b><p>${esc(textOf(i.desc, s))}</p>${
-            i.basis ? `<small>${esc(i.basis)}</small>` : ""
-          }</div></li>`,
-        )
+        .filter((i) => i.step === n)
+        .map((i) => {
+          const x = itemText(t, i, s)
+          return `<li><span class="box">${done.has(i.id) ? "☑" : "☐"}</span><div><b>${esc(x.title)}</b><p>${esc(x.desc)}</p>${x.basis ? `<small>${esc(x.basis)}</small>` : ""}</div></li>`
+        })
         .join("")
-      return `<h2>${st.n}. ${esc(st.title)}</h2><ul>${rows}</ul>`
+      return `<h2>${n}. ${esc(t.steps[String(n) as "2" | "3" | "4"])}</h2><ul>${rows}</ul>`
     })
     .join("")
-  return `<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>경찰 출석요구 체크리스트</title><style>
+  return `<!doctype html><html lang="${HREFLANG[lang]}"><head><meta charset="utf-8"><title>${esc(t.print.title)}</title><style>
 @page{margin:16mm 14mm}
 body{font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#111;font-size:10.5pt;line-height:1.5;margin:0}
 h1{font-size:16pt;margin:0 0 4px}
@@ -33,16 +36,16 @@ p{margin:2px 0 0}
 small{color:#666;font-size:8.5pt}
 .foot{margin-top:16px;color:#555;font-size:8.5pt}
 </style></head><body>
-<h1>경찰 출석요구 체크리스트</h1>
-<p class="meta">${esc(situationSummary(s))}</p>
-<p class="meta">출력일 ${date} · ${esc(siteConfig.name)} ${esc(siteConfig.siteUrl)}/tools/police-summons</p>
+<h1>${esc(t.print.title)}</h1>
+<p class="meta">${esc(situationSummary(t, s))}</p>
+<p class="meta">${esc(fmt(t.print.date, { date }))} · ${esc(brand)} ${esc(siteConfig.siteUrl)}${L(lang, "/tools/police-summons")}</p>
 ${sections}
-<p class="foot">일반적인 절차를 정리한 참고용 목록입니다. 사건마다 사정이 다르니 구체적인 대응은 변호사와 상의하세요. 근거: 형사소송법, 검사와 사법경찰관의 상호협력과 일반적 수사준칙에 관한 규정(수사준칙), 경찰수사규칙 (2026. 10. 2. 시행 기준).</p>
+<p class="foot">${esc(t.print.foot)}</p>
 </body></html>`
 }
 
 /** 숨긴 iframe 에 인쇄용 문서를 넣고 인쇄 창을 띄움 */
-export function printChecklist(s: Situation, items: Item[], done: Set<string>) {
+export function printChecklist(lang: Lang, t: PoliceSummonsText, brand: string, s: Situation, items: Item[], done: Set<string>) {
   const frame = document.createElement("iframe")
   frame.setAttribute("aria-hidden", "true")
   frame.style.cssText = "position:fixed;right:0;bottom:0;width:0;height:0;border:0"
@@ -55,7 +58,7 @@ export function printChecklist(s: Situation, items: Item[], done: Set<string>) {
     return
   }
   doc.open()
-  doc.write(printHtml(s, items, done))
+  doc.write(printHtml(lang, t, brand, s, items, done))
   doc.close()
   const cleanup = () => setTimeout(() => frame.remove(), 1000)
   win.addEventListener("afterprint", cleanup)

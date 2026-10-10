@@ -3,6 +3,7 @@
  * 민법 제1000조(순위)·제1001조(대습상속)·제1003조(배우자)·제1009조(배우자 5할 가산)·제1010조(대습상속분).
  */
 import { add, commonDenominator, frac, isZero, mul, percentOf, wonOf, type Fraction } from "./fraction"
+import { CalcError } from "./error"
 
 /** spouse 배우자 · descendant 자녀 등 직계비속 · ascendant 부모 등 직계존속 · sibling 형제자매 · collateral 4촌 이내 방계혈족 · substituted 대습상속인(먼저 사망한 사람의 자녀) · substitutedSpouse 먼저 사망한 사람의 배우자 */
 export type HeirRole = "spouse" | "descendant" | "ascendant" | "sibling" | "collateral" | "substituted" | "substitutedSpouse"
@@ -17,25 +18,8 @@ export type HeirInput = {
   group?: string
 }
 
+/** 상속 순위. 화면 이름은 사전 inheritance.json 의 ranks */
 export type Rank = "descendant" | "ascendant" | "spouseOnly" | "sibling" | "collateral"
-
-export const RANK_LABEL: Record<Rank, string> = {
-  descendant: "1순위: 자녀 등 직계비속 (배우자와 함께)",
-  ascendant: "2순위: 부모 등 직계존속 (배우자와 함께)",
-  spouseOnly: "배우자 단독",
-  sibling: "3순위: 형제자매",
-  collateral: "4순위: 4촌 이내 방계혈족",
-}
-
-export const ROLE_LABEL: Record<HeirRole, string> = {
-  spouse: "배우자",
-  descendant: "자녀",
-  ascendant: "직계존속",
-  sibling: "형제자매",
-  collateral: "방계혈족",
-  substituted: "대습상속인",
-  substitutedSpouse: "대습상속인(배우자)",
-}
 
 export type ShareRow = {
   id: string
@@ -65,7 +49,7 @@ const CAN_BE_SUBSTITUTED: HeirRole[] = ["descendant", "sibling"]
 
 export function inheritanceShares(heirs: HeirInput[], estate?: number): InheritanceResult {
   const spouses = heirs.filter((h) => h.role === "spouse")
-  if (spouses.length > 1) throw new Error("배우자는 한 명만 입력할 수 있습니다.")
+  if (spouses.length > 1) throw new CalcError("oneSpouse", "배우자는 한 명만 입력할 수 있습니다.")
 
   const subsOf = (p: HeirInput) =>
     CAN_BE_SUBSTITUTED.includes(p.role) ? heirs.filter((s) => (s.role === "substituted" || s.role === "substitutedSpouse") && s.group === p.id) : []
@@ -97,7 +81,7 @@ export function inheritanceShares(heirs: HeirInput[], estate?: number): Inherita
     rank = "collateral"
     primary = collaterals
   } else {
-    throw new Error("상속인을 한 명 이상 입력해 주세요.")
+    throw new CalcError("noHeir", "상속인을 한 명 이상 입력해 주세요.")
   }
 
   const total = primary.reduce((s, p) => s + weight(p.role), 0)
@@ -116,11 +100,11 @@ export function inheritanceShares(heirs: HeirInput[], estate?: number): Inherita
       rows.push({ id: p.id, name: p.name, role: p.role, share, percent: percentOf(share) })
     }
   }
-  if (!rows.length) throw new Error("상속인을 한 명 이상 입력해 주세요.")
+  if (!rows.length) throw new CalcError("noHeir", "상속인을 한 명 이상 입력해 주세요.")
 
   // 합이 1인지 확인 (계산 실수 방지)
   const sum = rows.reduce((s, r) => add(s, r.share), frac(0))
-  if (sum.n !== sum.d) throw new Error("상속분 합계가 1이 아닙니다.")
+  if (sum.n !== sum.d) throw new CalcError("sum", "상속분 합계가 1이 아닙니다.")
 
   const est = estate && estate > 0 ? Math.floor(estate) : undefined
   if (est !== undefined) for (const r of rows) r.amount = wonOf(est, r.share)

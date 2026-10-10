@@ -3,6 +3,7 @@
  * 표는 2021년 양육비 산정기준표(최신판)만 씁니다.
  */
 import table from "@/content/tools/child-support-2021.json"
+import { CalcError } from "./error"
 
 export type SupportRow = {
   age0: number
@@ -23,21 +24,15 @@ export const MAX_CHILD_AGE = 18
 export type StandardLookup = {
   age: number
   income: number
-  /** "6~8세" */
-  ageBand: string
-  /** "400만~499만 원" */
-  incomeBand: string
+  /** 표의 나이 칸 (6~8세 → 6, 8) */
+  age0: number
+  age1: number
+  /** 표의 소득 칸 (원). inc1 이 null 이면 상한 없음, inc0 이 0 이면 하한 없음 → 화면에서 "400만~499만 원" 처럼 표기 */
+  inc0: number
+  inc1: number | null
   rangeLo: number
   rangeHi: number | null
   standard: number
-}
-
-const man = (won: number) => `${Math.round(won / 10000).toLocaleString("ko-KR")}만`
-
-function incomeBandText(r: SupportRow): string {
-  if (r.inc1 === null) return `${man(r.inc0)} 원 이상`
-  if (r.inc0 === 0) return `${man(r.inc1)} 원 이하`
-  return `${man(r.inc0)}~${man(r.inc1)} 원`
 }
 
 /**
@@ -45,16 +40,18 @@ function incomeBandText(r: SupportRow): string {
  * 표의 소득 칸은 만 원 단위(199만·200만…)라 그 사이 금액(예: 1,995,000원)은 아랫칸에 넣습니다.
  */
 export function lookupStandard(age: number, income: number): StandardLookup {
-  if (!Number.isInteger(age) || age < 0 || age > MAX_CHILD_AGE) throw new Error("자녀 나이는 0세부터 18세까지 입력해 주세요.")
+  if (!Number.isInteger(age) || age < 0 || age > MAX_CHILD_AGE) throw new CalcError("badAge", "자녀 나이는 0세부터 18세까지 입력해 주세요.")
   const inc = Math.max(0, Math.floor(income))
   const band = SUPPORT_TABLE.rows.filter((r) => r.age0 <= age && age <= r.age1)
   const row = [...band].reverse().find((r) => r.inc0 <= inc)
-  if (!row) throw new Error("해당 나이·소득의 양육비 산정기준이 없습니다.")
+  if (!row) throw new CalcError("noRow", "해당 나이·소득의 양육비 산정기준이 없습니다.")
   return {
     age,
     income: inc,
-    ageBand: `${row.age0}~${row.age1}세`,
-    incomeBand: incomeBandText(row),
+    age0: row.age0,
+    age1: row.age1,
+    inc0: row.inc0,
+    inc1: row.inc1,
     rangeLo: row.lo,
     rangeHi: row.hi,
     standard: row.std,
@@ -129,7 +126,7 @@ export function childSupport(input: {
   carerIncome: number
   otherIncome: number
 }): ChildSupportResult {
-  if (input.children.length === 0) throw new Error("자녀를 한 명 이상 입력해 주세요.")
+  if (input.children.length === 0) throw new CalcError("noChild", "자녀를 한 명 이상 입력해 주세요.")
   const rows = input.children.map((c) =>
     childSupportOne({ age: c.age, adjustment: c.adjustment, carerIncome: input.carerIncome, otherIncome: input.otherIncome }),
   )

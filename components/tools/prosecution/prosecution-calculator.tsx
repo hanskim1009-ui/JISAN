@@ -2,9 +2,11 @@
 
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react"
 import type { Crime, Question } from "@/lib/tools/prosecution-types"
-import { evaluate, groupRank, isComplete, type Answers, type CrimeSummary } from "@/lib/tools/prosecution"
-import { searchCrimes } from "./search"
+import { PROSECUTION_UI_KO, evaluate, groupRank, isComplete, type Answers, type CrimeSummary, type ProsecutionIntl, type ProsecutionUI } from "@/lib/tools/prosecution"
+import { fmt } from "@/lib/i18n/fmt"
+import { searchCrimes, searchCrimesIntl } from "./search"
 import { RefCard, ConsultOnlyCard, ResultCard, StepGuide } from "./result-card"
+import { OtherCrimes } from "./other-crimes"
 
 /** 자주 찾는 죄명 (목록에 없는 id 는 건너뜀) */
 const POPULAR = [
@@ -25,20 +27,29 @@ const POPULAR = [
 /** 검색 결과 한 번에 보여 주는 개수 */
 const PAGE = 40
 
-/** 죄명 데이터 조각은 고를 때 정적 주소에서 한 번만 받아 둠 */
+/** 죄명 데이터 조각은 고를 때 정적 주소에서 한 번만 받아 둠 (외국어판은 언어별 주소) */
 const chunkCache = new Map<string, Promise<Crime[]>>()
 
-function fetchChunk(id: string): Promise<Crime[]> {
-  let p = chunkCache.get(id)
+function fetchChunk(id: string, base = "/tools/prosecution/data"): Promise<Crime[]> {
+  const url = `${base}/${encodeURIComponent(id)}`
+  let p = chunkCache.get(url)
   if (!p) {
-    p = fetch(`/tools/prosecution/data/${encodeURIComponent(id)}`).then((r) => {
+    p = fetch(url).then((r) => {
       if (!r.ok) throw new Error(String(r.status))
       return r.json() as Promise<Crime[]>
     })
-    p.catch(() => chunkCache.delete(id))
-    chunkCache.set(id, p)
+    p.catch(() => chunkCache.delete(url))
+    chunkCache.set(url, p)
   }
   return p
+}
+
+/** 묶음·법률 이름을 화면 언어로 (한국어 화면은 그대로) */
+function labelers(intl?: ProsecutionIntl) {
+  if (!intl) return { group: (g: string) => g, law: (l: string) => l }
+  const groups: Record<string, string> = intl.ui.groups
+  const laws: Record<string, string> = intl.ui.laws
+  return { group: (g: string) => groups[g] ?? g, law: (l: string) => laws[l] ?? l }
 }
 
 /** key 별로 묶기 (처음 나온 순서 유지) */
@@ -77,8 +88,10 @@ function toAnswers(crime: Crime, raw: Record<string, string>): Answers {
   return a
 }
 
-/** 구형 예상 계산기: 죄명 찾기 → 질문 → 결과 (답을 바꾸면 바로 다시 계산) */
-export function ProsecutionCalculator({ crimes }: { crimes: CrimeSummary[] }) {
+/** 구형 예상 계산기: 죄명 찾기 → 질문 → 결과 (답을 바꾸면 바로 다시 계산). intl 이 있으면 외국어판 */
+export function ProsecutionCalculator({ crimes, intl }: { crimes: CrimeSummary[]; intl?: ProsecutionIntl }) {
+  const u = intl?.ui ?? PROSECUTION_UI_KO
+  const lb = useMemo(() => labelers(intl), [intl])
   const [id, setId] = useState<string | null>(null)
   const [raw, setRaw] = useState<Record<string, string>>({})
   const [loaded, setLoaded] = useState<Crime | null>(null)
@@ -100,7 +113,7 @@ export function ProsecutionCalculator({ crimes }: { crimes: CrimeSummary[] }) {
     if (!summary) return
     let live = true
     setStatus("loading")
-    fetchChunk(summary.chunk)
+    fetchChunk(summary.chunk, intl?.dataBase)
       .then((list) => {
         if (!live) return
         const c = list.find((x) => x.id === summary.id)
@@ -112,7 +125,7 @@ export function ProsecutionCalculator({ crimes }: { crimes: CrimeSummary[] }) {
     return () => {
       live = false
     }
-  }, [summary, retry])
+  }, [summary, retry, intl?.dataBase])
 
   const pick = (next: string | null) => {
     setId(next)
@@ -127,22 +140,22 @@ export function ProsecutionCalculator({ crimes }: { crimes: CrimeSummary[] }) {
   const crime = loaded && loaded.id === id ? loaded : undefined
 
   if (crimes.length === 0) {
-    return <p className="rounded-xl bg-[#F4F5F7] px-5 py-4 text-[0.9375rem] text-[#4A505A]">죄명 목록을 준비하고 있습니다. 급한 일이면 상담 신청으로 먼저 물어보세요.</p>
+    return <p className="rounded-xl bg-[#F4F5F7] px-5 py-4 text-[0.9375rem] text-[#4A505A]">{u.browser.preparing}</p>
   }
 
   return (
     <div ref={top} className="min-w-0 scroll-mt-24">
       {/* 고르는 화면은 숨기기만 해서 돌아왔을 때 검색어·펼친 칸이 그대로 */}
       <div hidden={!!summary}>
-        <CrimeBrowser crimes={crimes} byId={byId} onPick={pick} />
+        <CrimeBrowser crimes={crimes} byId={byId} onPick={pick} intl={intl} />
       </div>
       {summary && (
         <div>
           <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#E9ECF0] pb-4">
             <div className="min-w-0">
               <p className="text-xs font-semibold text-[#6B717B] [overflow-wrap:anywhere]">
-                {summary.group}
-                {summary.lawName && summary.lawName !== "형법" ? ` · ${summary.lawName}` : ""}
+                {lb.group(summary.group)}
+                {summary.lawName && summary.lawName !== "형법" ? ` · ${lb.law(summary.lawName)}` : ""}
               </p>
               <h2 className="mt-0.5 text-xl font-bold text-jisan-ink [overflow-wrap:anywhere]">{summary.name}</h2>
               {summary.law && <p className="mt-0.5 text-xs text-[#8A9099] [overflow-wrap:anywhere]">{summary.law}</p>}
@@ -152,7 +165,7 @@ export function ProsecutionCalculator({ crimes }: { crimes: CrimeSummary[] }) {
               onClick={() => pick(null)}
               className="shrink-0 rounded-full border border-[#D5DAE1] px-4 py-2 text-sm text-[#4A505A] hover:border-jisan-ink hover:text-jisan-ink"
             >
-              다른 죄명 고르기
+              {u.form.pickOther}
             </button>
           </div>
 
@@ -160,29 +173,29 @@ export function ProsecutionCalculator({ crimes }: { crimes: CrimeSummary[] }) {
             <div aria-busy={status === "loading"} className="mt-6 rounded-2xl border border-dashed border-[#D5DAE1] px-5 py-8 text-center text-[0.9375rem] text-[#6B717B]">
               {status === "error" ? (
                 <>
-                  <p>죄명 정보를 불러오지 못했습니다. 다시 시도하거나 페이지를 새로고침해 주세요.</p>
+                  <p>{u.form.loadError}</p>
                   <button
                     type="button"
                     onClick={() => setRetry((n) => n + 1)}
                     className="mt-4 rounded-full border border-[#D5DAE1] bg-white px-4 py-2 text-sm text-jisan-ink hover:border-jisan-ink"
                   >
-                    다시 시도
+                    {u.form.retry}
                   </button>
                 </>
               ) : (
-                <p>질문을 불러오는 중입니다…</p>
+                <p>{u.form.loading}</p>
               )}
             </div>
           ) : crime.consultOnly ? (
             <div className="mt-6 max-w-2xl">
-              <ConsultOnlyCard crime={crime} />
+              <ConsultOnlyCard crime={crime} intl={intl} />
             </div>
           ) : crime.ref ? (
             <div className="mt-6 max-w-2xl">
-              <RefCard crime={crime} />
+              <RefCard crime={crime} intl={intl} />
             </div>
           ) : (
-            <CrimeForm crime={crime} raw={raw} setRaw={setRaw} />
+            <CrimeForm crime={crime} raw={raw} setRaw={setRaw} intl={intl} />
           )}
         </div>
       )}
@@ -191,35 +204,44 @@ export function ProsecutionCalculator({ crimes }: { crimes: CrimeSummary[] }) {
 }
 
 /** 질문 → 결과. 질문이 없는 죄명은 결과만 바로 */
-function CrimeForm({ crime, raw, setRaw }: { crime: Crime; raw: Record<string, string>; setRaw: React.Dispatch<React.SetStateAction<Record<string, string>>> }) {
+function CrimeForm({
+  crime,
+  raw,
+  setRaw,
+  intl,
+}: {
+  crime: Crime
+  raw: Record<string, string>
+  setRaw: React.Dispatch<React.SetStateAction<Record<string, string>>>
+  intl?: ProsecutionIntl
+}) {
+  const u = intl?.ui ?? PROSECUTION_UI_KO
   const answers = toAnswers(crime, raw)
   const done = isComplete(crime, answers)
-  const result = done ? evaluate(crime, answers) : null
+  const result = done ? evaluate(crime, answers, intl) : null
   const answered = crime.questions.filter((q) => answers[q.id] !== undefined).length
   const empty = (
     <div className="rounded-2xl border border-dashed border-[#D5DAE1] px-5 py-8 text-center text-[0.9375rem] text-[#6B717B]">
-      {done
-        ? "이 조합에 맞는 예상 결과가 없습니다. 상담으로 물어보세요."
-        : `질문 ${crime.questions.length}개에 모두 답하면 예상 결과가 바로 나옵니다. (${answered}/${crime.questions.length})`}
+      {done ? u.form.noResult : fmt(u.form.progress, { total: crime.questions.length, done: answered })}
     </div>
   )
 
   return (
     <>
       {crime.questions.length === 0 ? (
-        <div className="mt-6 max-w-2xl">{result ? <ResultCard crime={crime} result={result} /> : empty}</div>
+        <div className="mt-6 max-w-2xl">{result ? <ResultCard crime={crime} result={result} intl={intl} /> : empty}</div>
       ) : (
         <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <div className="min-w-0 space-y-6">
             {crime.questions.map((q) => (
-              <QuestionField key={q.id} q={q} value={raw[q.id] ?? ""} onChange={(v) => setRaw((r) => ({ ...r, [q.id]: v }))} />
+              <QuestionField key={q.id} q={q} u={u} value={raw[q.id] ?? ""} onChange={(v) => setRaw((r) => ({ ...r, [q.id]: v }))} />
             ))}
           </div>
-          <div className="min-w-0 lg:sticky lg:top-24 lg:self-start">{result ? <ResultCard crime={crime} result={result} /> : empty}</div>
+          <div className="min-w-0 lg:sticky lg:top-24 lg:self-start">{result ? <ResultCard crime={crime} result={result} intl={intl} /> : empty}</div>
         </div>
       )}
       <div className="mt-10">
-        <StepGuide current={result?.step} />
+        <StepGuide current={result?.step} intl={intl} />
       </div>
     </>
   )
@@ -229,14 +251,27 @@ const chip =
   "max-w-full rounded-full border border-[#D5DAE1] bg-white px-4 py-2 text-left text-sm text-jisan-ink transition-colors [overflow-wrap:anywhere] hover:border-jisan-ink"
 
 /** 죄명 고르기: 검색 → (검색어 없으면) 자주 찾는 죄명 + 묶음별·법률별 접힌 목록 */
-function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: Map<string, CrimeSummary>; onPick: (id: string) => void }) {
+function CrimeBrowser({
+  crimes,
+  byId,
+  onPick,
+  intl,
+}: {
+  crimes: CrimeSummary[]
+  byId: Map<string, CrimeSummary>
+  onPick: (id: string) => void
+  intl?: ProsecutionIntl
+}) {
+  const u = intl?.ui ?? PROSECUTION_UI_KO
+  const loc = intl?.num.locale ?? "ko-KR"
+  const lb = useMemo(() => labelers(intl), [intl])
   const [query, setQuery] = useState("")
   const q = useDeferredValue(query.trim())
   const [view, setView] = useState<"group" | "law">("group")
   const [open, setOpen] = useState<ReadonlySet<string>>(new Set())
   const [limit, setLimit] = useState(PAGE)
 
-  const hits = useMemo(() => (q ? searchCrimes(crimes, q) : []), [crimes, q])
+  const hits = useMemo(() => (q ? (intl ? searchCrimesIntl(crimes, q, lb) : searchCrimes(crimes, q)) : []), [crimes, q, intl, lb])
   const sections = useMemo(() => (view === "group" ? byGroup(crimes) : byLaw(crimes)), [crimes, view])
   const popular = useMemo(() => POPULAR.map((id) => byId.get(id)).filter((c): c is CrimeSummary => !!c), [byId])
 
@@ -251,7 +286,7 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
   return (
     <div>
       <label className="flex items-center gap-2 rounded-xl border border-[#D5DAE1] bg-white px-4 py-3 focus-within:border-jisan-ink">
-        <span className="sr-only">죄명 찾기</span>
+        <span className="sr-only">{u.browser.searchLabel}</span>
         <svg aria-hidden viewBox="0 0 20 20" className="h-4 w-4 shrink-0 text-jisan-ink/40" fill="none" stroke="currentColor" strokeWidth="2">
           <circle cx="9" cy="9" r="6" />
           <path d="m14 14 4 4" />
@@ -263,7 +298,7 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
             setQuery(e.target.value)
             setLimit(PAGE)
           }}
-          placeholder="죄명·법률·조문 찾기 (예: 사기)"
+          placeholder={u.browser.searchPlaceholder}
           className="w-full min-w-0 bg-transparent text-[0.9375rem] text-jisan-ink outline-none placeholder:text-jisan-ink/40"
         />
       </label>
@@ -271,7 +306,7 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
       {q ? (
         <div className="mt-6">
           <p className="text-sm text-[#6B717B]" aria-live="polite">
-            {hits.length > 0 ? `${hits.length.toLocaleString("ko-KR")}개 찾음` : "맞는 죄명이 없습니다. 다른 말로 찾아보시거나 상담 신청으로 물어보세요."}
+            {hits.length > 0 ? fmt(u.browser.found, { n: hits.length.toLocaleString(loc) }) : u.browser.noMatch}
           </p>
           {hits.length > 0 && (
             <ul className="mt-3 divide-y divide-[#E9ECF0] border-y border-[#E9ECF0]">
@@ -280,7 +315,7 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
                   <button type="button" onClick={() => onPick(c.id)} className="block w-full px-1 py-3 text-left hover:bg-[#F7F8FA]">
                     <span className="block text-[0.9375rem] font-semibold text-jisan-ink [overflow-wrap:anywhere]">{c.name}</span>
                     <span className="mt-0.5 block text-xs text-[#8A9099] [overflow-wrap:anywhere]">
-                      {c.group} · {c.law || c.lawName}
+                      {lb.group(c.group)} · {c.law || lb.law(c.lawName)}
                     </span>
                   </button>
                 </li>
@@ -293,7 +328,7 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
               onClick={() => setLimit((n) => n + PAGE)}
               className="mt-4 w-full rounded-xl border border-[#D5DAE1] bg-white px-4 py-3 text-sm text-[#4A505A] hover:border-jisan-ink hover:text-jisan-ink"
             >
-              더 보기 ({(hits.length - limit).toLocaleString("ko-KR")}개 남음)
+              {fmt(u.browser.more, { n: (hits.length - limit).toLocaleString(loc) })}
             </button>
           )}
         </div>
@@ -301,7 +336,7 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
         <div className="mt-6">
           {popular.length > 0 && (
             <section>
-              <h2 className="text-sm font-bold text-jisan-ink">자주 찾는 죄명</h2>
+              <h2 className="text-sm font-bold text-jisan-ink">{u.browser.popular}</h2>
               <ul className="mt-2.5 flex flex-wrap gap-2">
                 {popular.map((c) => (
                   <li key={c.id} className="min-w-0 max-w-full">
@@ -317,13 +352,13 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
           <section className="mt-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h2 className="text-sm font-bold text-jisan-ink">
-                전체 죄명 <span className="font-normal text-[#8A9099]">{crimes.length.toLocaleString("ko-KR")}</span>
+                {u.browser.all} <span className="font-normal text-[#8A9099]">{crimes.length.toLocaleString(loc)}</span>
               </h2>
-              <div role="group" aria-label="목록 나누는 방법" className="inline-flex rounded-full border border-[#D5DAE1] bg-white p-0.5 text-sm">
+              <div role="group" aria-label={u.browser.viewLabel} className="inline-flex rounded-full border border-[#D5DAE1] bg-white p-0.5 text-sm">
                 {(
                   [
-                    ["group", "묶음별"],
-                    ["law", "법률별"],
+                    ["group", u.browser.byGroup],
+                    ["law", u.browser.byLaw],
                   ] as const
                 ).map(([key, label]) => (
                   <button
@@ -354,7 +389,7 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
                       className="flex w-full items-center justify-between gap-3 px-1 py-3.5 text-left"
                     >
                       <span className="min-w-0 text-[0.9375rem] font-semibold text-jisan-ink [overflow-wrap:anywhere]">
-                        {name} <span className="font-normal text-[#8A9099]">{list.length}</span>
+                        {view === "group" ? lb.group(name) : lb.law(name)} <span className="font-normal text-[#8A9099]">{list.length}</span>
                       </span>
                       <svg aria-hidden viewBox="0 0 20 20" className={`h-4 w-4 shrink-0 text-[#8A9099] transition-transform ${on ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="m5 8 5 5 5-5" />
@@ -378,11 +413,12 @@ function CrimeBrowser({ crimes, byId, onPick }: { crimes: CrimeSummary[]; byId: 
           </section>
         </div>
       )}
+      {intl && <OtherCrimes text={u.intl.otherCrimes} link={u.intl.otherCrimesLink} href={intl.consultHref} />}
     </div>
   )
 }
 
-function QuestionField({ q, value, onChange }: { q: Question; value: string; onChange: (v: string) => void }) {
+function QuestionField({ q, u, value, onChange }: { q: Question; u: ProsecutionUI; value: string; onChange: (v: string) => void }) {
   const helpId = `q-${q.id}-help`
   if (q.type === "select") {
     // 보기가 많으면 펼침 목록, 적으면 누르는 버튼
@@ -400,7 +436,7 @@ function QuestionField({ q, value, onChange }: { q: Question; value: string; onC
             aria-describedby={q.help ? helpId : undefined}
             className="mt-2.5 w-full rounded-xl border border-[#D5DAE1] bg-white px-4 py-3 text-[0.9375rem] text-jisan-ink outline-none focus:border-jisan-ink"
           >
-            <option value="">고르세요</option>
+            <option value="">{u.form.choose}</option>
             {q.options.map((o) => (
               <option key={o.value} value={o.value}>
                 {o.label}
@@ -430,7 +466,7 @@ function QuestionField({ q, value, onChange }: { q: Question; value: string; onC
 
   const n = value === "" ? undefined : Number(value)
   const out = n !== undefined && (!Number.isFinite(n) || (q.min !== undefined && n < q.min) || (q.max !== undefined && n > q.max))
-  const range = q.min !== undefined && q.max !== undefined ? `${q.min}~${q.max}${q.unit}` : undefined
+  const range = q.min !== undefined && q.max !== undefined ? fmt(u.form.range, { min: q.min, max: q.max, unit: q.unit }) : undefined
   return (
     <div>
       <label htmlFor={`q-${q.id}`} className="block text-[0.9375rem] font-semibold text-jisan-ink">
@@ -453,7 +489,7 @@ function QuestionField({ q, value, onChange }: { q: Question; value: string; onC
         />
         <span className="text-[0.9375rem] text-[#4A505A]">{q.unit}</span>
       </div>
-      {out && <p className="mt-1.5 text-sm text-red-600">{range ? `${range} 사이로 넣어 주세요.` : "알맞은 숫자를 넣어 주세요."}</p>}
+      {out && <p className="mt-1.5 text-sm text-red-600">{range ? fmt(u.form.rangeError, { range }) : u.form.numberError}</p>}
     </div>
   )
 }
