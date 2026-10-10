@@ -1,0 +1,3586 @@
+[
+  {
+    "id": "new-stalking",
+    "name": "스토킹범죄",
+    "law": "스토킹범죄의 처벌 등에 관한 법률 제18조",
+    "group": "폭력",
+    "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금 (흉기 등 위험한 물건을 휴대·이용하면 5년 이하의 징역 또는 5천만원 이하의 벌금)",
+    "aliases": [
+      "스토킹",
+      "스토킹처벌법위반",
+      "흉기등휴대 스토킹",
+      "따라다니기",
+      "지속적 괴롭힘"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "흉기 등을 가지고 있었나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "general",
+            "label": "아니요 (일반 스토킹)"
+          },
+          {
+            "value": "weapon",
+            "label": "예 (흉기 등 위험한 물건을 휴대·이용)"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "weapon"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "weapon"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "weapon"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 이하 또는 벌금 300만원 ~ 2,000만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "general"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "general"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년 또는 벌금 500만원 ~ 2,000만원"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 4월 이하 또는 벌금 100만원 ~ 1,000만원"
+      }
+    ],
+    "notes": [
+      "상대방이 원하지 않는데 접근하거나 따라다니기, 집·직장 근처에서 기다리기, 전화·문자·메신저로 연락하기 등을 지속적·반복적으로 해서 불안감이나 공포심을 일으키면 스토킹범죄가 됩니다.",
+      "2023년 법 개정으로 피해자가 처벌을 원하지 않아도 처벌할 수 있게 되었습니다.",
+      "수사 중에 접근금지, 위치추적 전자장치 부착 같은 조치가 내려질 수 있고, 이를 어기면 따로 처벌됩니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "스토킹처벌법"
+  },
+  {
+    "id": "new-stalking-order-violation",
+    "name": "스토킹 잠정조치·긴급응급조치 위반",
+    "law": "스토킹범죄의 처벌 등에 관한 법률 제20조 제2항 제1호, 제3항",
+    "group": "폭력",
+    "statutory": "잠정조치 위반: 2년 이하의 징역 또는 2천만원 이하의 벌금 / 긴급응급조치 위반: 1년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "접근금지 위반",
+      "잠정조치 위반",
+      "긴급응급조치 위반",
+      "스토킹 접근금지명령 위반"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 조치를 어겼나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "emergency",
+            "label": "경찰의 긴급응급조치 (접근금지 등)"
+          },
+          {
+            "value": "interim",
+            "label": "법원의 잠정조치 (100m 이내 접근금지, 연락 금지)"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "interim"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 2년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "interim"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년 또는 벌금 300만원 ~ 1,500만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "interim"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 이하 또는 벌금 100만원 ~ 700만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "emergency"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 (법정형 상한) 또는 벌금 500만원 ~ 1,000만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "emergency"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 8월 ~ 1년 또는 벌금 200만원 ~ 600만원"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 이하 또는 벌금 100만원 ~ 300만원"
+      }
+    ],
+    "notes": [
+      "긴급응급조치는 급할 때 경찰이 직접 내리는 접근금지 등의 조치이고, 잠정조치는 검사의 청구로 법원이 내리는 조치입니다.",
+      "조치를 어기면 유치장이나 구치소에 가두는 더 강한 잠정조치가 내려질 수 있습니다.",
+      "스토킹범죄와 함께 처벌되는 경우가 많습니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "스토킹처벌법"
+  },
+  {
+    "id": "new-illegal-footage-possession",
+    "name": "불법촬영물 소지·구입·저장·시청",
+    "law": "성폭력범죄의 처벌 등에 관한 특례법 제14조 제4항",
+    "group": "성범죄",
+    "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": [
+      "불법촬영물 소지",
+      "불법촬영물 시청",
+      "불법촬영물 다운로드",
+      "몰카 소지",
+      "성폭력처벌법위반(카메라등이용촬영물소지등)"
+    ],
+    "questions": [
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 4월 이하"
+      }
+    ],
+    "notes": [
+      "2020년 법 개정으로 새로 처벌하게 된 행위입니다. 몰래 찍힌 영상이나 동의 없이 퍼진 영상인 줄 알면서 내려받거나 갖고 있거나 보기만 해도 해당합니다.",
+      "벌금형이라도 유죄가 확정되면 신상정보 등록 대상이 될 수 있습니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "성폭력처벌법"
+  },
+  {
+    "id": "new-deepfake",
+    "name": "허위영상물 편집·반포 (딥페이크)",
+    "law": "성폭력범죄의 처벌 등에 관한 특례법 제14조의2 제1항~제3항",
+    "group": "성범죄",
+    "statutory": "편집·합성·가공 또는 반포: 7년 이하의 징역 또는 5천만원 이하의 벌금 / 영리 목적 정보통신망 반포: 3년 이상의 유기징역 (상습이면 2분의 1까지 가중)",
+    "aliases": [
+      "딥페이크",
+      "허위영상물",
+      "합성 음란물",
+      "지인능욕",
+      "성폭력처벌법위반(허위영상물편집·반포등)"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 행위를 했나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "edit",
+            "label": "얼굴·몸·목소리를 성적으로 편집·합성"
+          },
+          {
+            "value": "spread",
+            "label": "그 합성물을 퍼뜨림 (전송·게시·판매 등)"
+          },
+          {
+            "value": "profit",
+            "label": "돈을 벌려고 인터넷으로 퍼뜨림"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "profit"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "profit"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "profit"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 8월 ~ 2년 8월"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "spread"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "spread"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "spread"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 이하"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "edit"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "edit"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 4월 이하"
+      }
+    ],
+    "notes": [
+      "2024년 법 개정으로 퍼뜨릴 목적이 없어도 만드는 것만으로 처벌되고, 법정형도 올랐습니다(종전 5년 이하 징역).",
+      "딥페이크 합성물인 줄 알면서 갖고 있거나 사거나 저장하거나 보기만 해도 3년 이하의 징역 또는 3천만원 이하의 벌금으로 처벌됩니다(2024년 신설).",
+      "대상이 아동·청소년이면 '아동·청소년성착취물' 항목이 적용되어 훨씬 무겁습니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "성폭력처벌법"
+  },
+  {
+    "id": "new-sexual-footage-threat",
+    "name": "촬영물·합성물 이용 협박·강요",
+    "law": "성폭력범죄의 처벌 등에 관한 특례법 제14조의3",
+    "group": "성범죄",
+    "statutory": "협박: 1년 이상의 유기징역 / 강요(협박으로 의무 없는 일을 하게 함): 3년 이상의 유기징역 (상습이면 2분의 1까지 가중)",
+    "aliases": [
+      "몸캠피싱",
+      "영상 유포 협박",
+      "성적 촬영물 협박",
+      "성폭력처벌법위반(촬영물등이용협박)",
+      "성폭력처벌법위반(촬영물등이용강요)"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어디까지 했나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "threat",
+            "label": "퍼뜨리겠다고 협박만 함"
+          },
+          {
+            "value": "coerce",
+            "label": "협박해서 돈·영상·만남 등을 요구해 받아 냄"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "coerce"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 10년 ~ 16년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "coerce"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 6년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "coerce"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "threat"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "threat"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 6월 ~ 3년"
+      }
+    ],
+    "notes": [
+      "성적인 사진·영상이나 딥페이크 합성물을 퍼뜨리겠다고 협박하면 해당합니다. 실제로 퍼뜨렸다면 유포죄도 함께 문제됩니다.",
+      "벌금형이 없는 범죄입니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "성폭력처벌법"
+  },
+  {
+    "id": "new-csam",
+    "name": "아동·청소년성착취물 제작·배포·소지",
+    "law": "아동ㆍ청소년의 성보호에 관한 법률 제11조",
+    "group": "성범죄",
+    "statutory": "제작·수입·수출: 무기 또는 5년 이상의 징역 / 영리 목적 판매 등: 5년 이상의 유기징역 / 배포·제공·전시 등: 3년 이상의 유기징역 / 제작자에게 아동·청소년 알선: 3년 이상의 유기징역 / 구입·소지·시청: 1년 이상의 유기징역",
+    "aliases": [
+      "아청법위반",
+      "아동 성착취물",
+      "아동음란물",
+      "아동·청소년이용음란물",
+      "아청물 소지",
+      "성착취물 시청"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 행위를 했나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "possess",
+            "label": "구입·소지·시청"
+          },
+          {
+            "value": "broker",
+            "label": "제작자에게 아동·청소년을 알선"
+          },
+          {
+            "value": "distribute",
+            "label": "배포·제공·전시"
+          },
+          {
+            "value": "sell",
+            "label": "돈을 벌려고 판매·대여·배포"
+          },
+          {
+            "value": "produce",
+            "label": "제작·수입·수출"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "produce"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 14년 ~ 26년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "produce"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 10년 ~ 18년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "produce"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "sell"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 12년 ~ 24년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "sell"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 16년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "sell"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "distribute"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 16년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "distribute"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "distribute"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "broker"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 16년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "broker"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "broker"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "possess"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "possess"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 4년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 ~ 2년 8월"
+      }
+    ],
+    "notes": [
+      "2020년 법 개정으로 이름이 '음란물'에서 '성착취물'로 바뀌고 법정형이 크게 올랐으며, 구입·시청도 처벌하게 되었습니다. 모든 유형에 벌금형이 없습니다.",
+      "아동·청소년으로 명백하게 인식될 수 있는 사람이나 표현물이 나오는 경우도 포함됩니다.",
+      "유죄가 확정되면 신상정보 등록, 아동·청소년 관련 기관 취업제한 등이 따를 수 있습니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "청소년성보호법"
+  },
+  {
+    "id": "new-child-abuse-murder",
+    "name": "아동학대살해",
+    "law": "아동학대범죄의 처벌 등에 관한 특례법 제4조 제1항",
+    "group": "폭력",
+    "statutory": "사형, 무기 또는 7년 이상의 징역",
+    "aliases": [
+      "아동학대살인",
+      "아동학대처벌법위반(아동학대살해)"
+    ],
+    "questions": [
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "무기징역 포함 검토"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 30년 또는 무기징역 검토"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 24년 ~ 30년 (무기징역 포함 검토)"
+      }
+    ],
+    "notes": [
+      "아동을 학대하던 사람이 아동을 살해한 경우로, 2021년 법 개정으로 새로 생긴 죄입니다. 일반 살인죄(5년 이상)보다 법정형 하한이 높습니다.",
+      "미수도 처벌됩니다(2024년 신설)."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "아동학대처벌법"
+  },
+  {
+    "id": "new-minor-under-16",
+    "name": "13세 이상 16세 미만 상대 간음·추행 (19세 이상)",
+    "law": "형법 제305조 제2항",
+    "group": "성범죄",
+    "statutory": "간음: 3년 이상의 유기징역 / 유사성교: 2년 이상의 유기징역 / 추행: 10년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": [
+      "미성년자의제강간",
+      "의제강간",
+      "의제강제추행",
+      "미성년자의제강제추행",
+      "16세 미만 성관계"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 행위였나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "touch",
+            "label": "추행"
+          },
+          {
+            "value": "oral",
+            "label": "유사성교"
+          },
+          {
+            "value": "intercourse",
+            "label": "성관계 (간음)"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "intercourse"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "intercourse"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "intercourse"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "oral"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 4월 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "oral"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 4월 ~ 6년 8월"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "oral"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 4년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "touch"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "touch"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 4년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 8월 이하"
+      }
+    ],
+    "notes": [
+      "2020년 법 개정으로 19세 이상인 사람이 13세 이상 16세 미만인 사람과 성관계를 하거나 추행하면 상대방이 동의했더라도 처벌됩니다.",
+      "상대가 13세 미만이면 나이와 관계없이 처벌되고 훨씬 무겁습니다.",
+      "유죄가 확정되면 신상정보 등록, 아동·청소년 관련 기관 취업제한 등이 따를 수 있습니다."
+    ],
+    "basis": "guideline-x2"
+  },
+  {
+    "id": "new-school-zone-accident",
+    "name": "어린이 보호구역 교통사고 (민식이법)",
+    "law": "특정범죄 가중처벌 등에 관한 법률 제5조의13",
+    "group": "교통",
+    "statutory": "어린이 상해: 1년 이상 15년 이하의 징역 또는 500만원 이상 3천만원 이하의 벌금 / 어린이 사망: 무기 또는 3년 이상의 징역",
+    "aliases": [
+      "민식이법",
+      "스쿨존 사고",
+      "어린이보호구역 치상",
+      "어린이보호구역 치사",
+      "특정범죄가중법위반(어린이보호구역치상)"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어린이 피해",
+        "type": "select",
+        "options": [
+          {
+            "value": "injury",
+            "label": "다침"
+          },
+          {
+            "value": "death",
+            "label": "숨짐"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "death"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 16년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "death"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "death"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "injury"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "injury"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 ~ 3년 또는 벌금 300만원 ~ 1,500만원"
+      }
+    ],
+    "notes": [
+      "어린이 보호구역에서 제한속도(시속 30km 이내 등)를 지키지 않거나 어린이 안전에 주의하지 않아 13세 미만 어린이를 다치게 하거나 숨지게 한 경우입니다.",
+      "종합보험에 가입했거나 합의했어도 처벌됩니다.",
+      "다친 정도가 가볍거나 피해자가 처벌을 원하지 않으면 벌금형이 선택될 수도 있습니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "특정범죄가중법"
+  },
+  {
+    "id": "new-insurance-fraud",
+    "name": "보험사기",
+    "law": "보험사기방지 특별법 제8조, 제11조",
+    "group": "재산",
+    "statutory": "10년 이하의 징역 또는 5천만원 이하의 벌금 / 보험금 5억원 이상 50억원 미만: 3년 이상의 유기징역 / 50억원 이상: 무기 또는 5년 이상의 징역",
+    "aliases": [
+      "보험사기방지특별법위반",
+      "보험금 사기",
+      "나이롱환자",
+      "고의사고",
+      "허위 입원"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "받았거나 받게 한 보험금",
+        "type": "select",
+        "options": [
+          {
+            "value": "u100m",
+            "label": "1억원 미만"
+          },
+          {
+            "value": "u500m",
+            "label": "1억원 이상 5억원 미만"
+          },
+          {
+            "value": "u5b",
+            "label": "5억원 이상 50억원 미만"
+          },
+          {
+            "value": "u30b",
+            "label": "50억원 이상 300억원 미만"
+          },
+          {
+            "value": "o30b",
+            "label": "300억원 이상"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "o30b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 16년 ~ 30년 (무기징역 포함 검토)"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "o30b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 12년 ~ 22년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "o30b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 10년 ~ 18년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u30b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 12년 ~ 22년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u30b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 10년 ~ 18년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u30b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 6년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u5b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 16년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u5b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 6년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u5b"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u500m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u500m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u500m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u100m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u100m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 2년 이하"
+      }
+    ],
+    "notes": [
+      "사고를 일부러 내거나 부풀려 보험회사를 속이고 보험금을 받거나 다른 사람이 받게 한 경우입니다. 미수도 처벌됩니다.",
+      "보험사기를 알선·권유하거나 광고한 사람도 같은 형으로 처벌됩니다.",
+      "받은 보험금을 돌려주는 것은 감경할 사정이 되지만, 그것만으로 처벌을 피하지는 못합니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "보험사기방지 특별법"
+  },
+  {
+    "id": "new-minimum-wage",
+    "name": "최저임금 미달 지급",
+    "law": "최저임금법 제28조 제1항, 제6조 제1항·제2항",
+    "group": "노동",
+    "statutory": "3년 이하의 징역 또는 2천만원 이하의 벌금 (함께 부과 가능)",
+    "aliases": [
+      "최저임금법위반",
+      "최저임금 미지급"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "덜 준 임금 합계 (근로자 전원)",
+        "type": "select",
+        "options": [
+          {
+            "value": "u50m",
+            "label": "5,000만원 미만"
+          },
+          {
+            "value": "u100m",
+            "label": "5,000만원 이상 1억원 미만"
+          },
+          {
+            "value": "o100m",
+            "label": "1억원 이상"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "o100m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 4월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "o100m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "o100m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u100m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u100m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u100m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 이하"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u50m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "u50m"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 8월 ~ 1년 4월"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 이하"
+      }
+    ],
+    "notes": [
+      "최저임금보다 적게 주었거나 최저임금을 이유로 기존 임금을 깎은 경우입니다.",
+      "덜 준 임금을 지급하면 감경할 사정이 됩니다. 임금 체불(근로기준법)과 함께 문제되는 경우가 많습니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "최저임금법"
+  },
+  {
+    "id": "new-pipeline-oil-theft",
+    "name": "송유관 석유 절취",
+    "law": "송유관 안전관리법 제13조의2 제1항",
+    "group": "재산",
+    "statutory": "2년 이상 10년 이하의 징역 또는 1억원 이하의 벌금 (미수 처벌)",
+    "aliases": [
+      "송유관 도유",
+      "송유관안전관리법위반",
+      "기름 절도"
+    ],
+    "questions": [
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 2년 ~ 5년"
+      }
+    ],
+    "notes": [
+      "송유관에 석유를 빼내는 시설을 설치해 석유를 훔친 경우입니다. 시설을 설치한 것만으로도 3년 이상 10년 이하의 징역 또는 1억5천만원 이하의 벌금으로 처벌됩니다.",
+      "훔친 석유인 줄 알면서 사거나 운반·보관한 사람도 1년 이상 10년 이하의 징역 또는 5천만원 이하의 벌금으로 처벌됩니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "송유관 안전관리법"
+  },
+  {
+    "id": "new-defense-tech-leak",
+    "name": "방위산업기술 유출·침해",
+    "law": "방위산업기술 보호법 제21조",
+    "group": "기타",
+    "statutory": "외국 사용 목적의 유출 등: 1년 이상의 유기징역과 20억원 이하의 벌금 / 유출·침해: 10년 이하의 징역 또는 10억원 이하의 벌금 (일부 유형은 5년 이하의 징역 또는 5억원 이하의 벌금) / 직무상 비밀 누설·도용: 7년 이하의 징역이나 10년 이하의 자격정지 또는 7천만원 이하의 벌금",
+    "aliases": [
+      "방산기술 유출",
+      "방위산업기술보호법위반"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 행위였나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "duty",
+            "label": "업무상 알게 된 비밀 누설·도용"
+          },
+          {
+            "value": "domestic",
+            "label": "기술을 빼내거나 침해 (국내)"
+          },
+          {
+            "value": "foreign",
+            "label": "외국에서 쓰려고 빼냄"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "foreign"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 20년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "foreign"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "foreign"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 7년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "domestic"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "domestic"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "domestic"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 4년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "duty"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 7년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "duty"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 4월 이하"
+      }
+    ],
+    "notes": [
+      "부정한 방법으로 방위산업기술을 얻거나 쓰거나 공개하는 행위, 비밀유지 의무를 어기고 빼내는 행위 등이 해당합니다.",
+      "범죄로 얻은 재산은 몰수·추징됩니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "방위산업기술 보호법"
+  },
+  {
+    "id": "new-strategic-tech-leak",
+    "name": "국가첨단전략기술 유출·침해",
+    "law": "국가첨단전략산업 경쟁력 강화 및 보호에 관한 특별조치법 제50조",
+    "group": "기타",
+    "statutory": "외국 사용 목적의 부정 취득·유출 등: 5년 이상의 유기징역과 20억원 이하의 벌금 / 외국 사용 목적의 무승인 수출 등: 20년 이하의 징역 또는 20억원 이하의 벌금 / 유출·침해: 15년 이하의 징역 또는 15억원 이하의 벌금 / 중과실 취득·목적 외 사용 등: 5년 이하의 징역 또는 5억원 이하의 벌금",
+    "aliases": [
+      "전략기술 유출",
+      "반도체 기술 유출",
+      "국가첨단전략산업법위반"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 행위였나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "domestic",
+            "label": "기술을 빼내거나 침해 (국내)"
+          },
+          {
+            "value": "export",
+            "label": "승인 없이 수출하는 등 외국 유출"
+          },
+          {
+            "value": "foreign",
+            "label": "외국에서 쓰려고 부정한 방법으로 취득·유출"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "foreign"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 10년 ~ 24년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "foreign"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 6년 ~ 14년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "foreign"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "export"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 20년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "export"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "export"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 7년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "domestic"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 12년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "domestic"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 4월 ~ 4년"
+      }
+    ],
+    "notes": [
+      "반도체·이차전지 등 국가첨단전략기술을 부정한 방법으로 얻거나 쓰거나 공개하는 행위, 승인 없이 수출하는 행위 등이 해당합니다(2022년 시행)."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "국가첨단전략산업법"
+  },
+  {
+    "id": "new-military-sex-crime",
+    "name": "군인 등 강간·유사강간·강제추행 (군형법)",
+    "law": "군형법 제92조, 제92조의2, 제92조의3, 제92조의4",
+    "group": "성범죄",
+    "statutory": "강간: 5년 이상의 유기징역 / 유사강간: 3년 이상의 유기징역 / 강제추행: 1년 이상의 유기징역 (준강간·준강제추행도 같음)",
+    "aliases": [
+      "군인등강간",
+      "군인등강제추행",
+      "군형법위반",
+      "군대 성범죄"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 행위였나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "touch",
+            "label": "강제추행·준강제추행"
+          },
+          {
+            "value": "oral",
+            "label": "유사강간·준유사강간"
+          },
+          {
+            "value": "rape",
+            "label": "강간·준강간"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "rape"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 12년 ~ 18년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "rape"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 14년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "rape"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "oral"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8년 ~ 14년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "oral"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "oral"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 3년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "touch"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 8년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "touch"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 ~ 2년 8월"
+      }
+    ],
+    "notes": [
+      "군인·군무원 등이 다른 군인 등을 상대로 저지른 성범죄입니다. 형법상 강제추행과 달리 벌금형이 없습니다.",
+      "2022년 7월부터 군인의 성범죄는 일반 법원에서 재판합니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "군형법"
+  },
+  {
+    "id": "new-election-vote-buying",
+    "name": "선거 매수·이해유도",
+    "law": "공직선거법 제230조~제233조, 제235조",
+    "group": "기타",
+    "statutory": "일반 매수: 5년 이하의 징역 또는 3천만원 이하의 벌금 / 후보자 등의 매수: 7년 이하의 징역 또는 5천만원 이하의 벌금 / 재산상 이익 목적·후보자 매수: 7년 이하의 징역 또는 벌금 / 당선인 매수: 1년 이상 10년 이하의 징역 / 당내경선 매수: 3년 이하의 징역 또는 1천만원 이하의 벌금 (매수를 시키거나 권유·알선한 사람은 더 무겁게 처벌)",
+    "aliases": [
+      "공직선거법위반(매수및이해유도)",
+      "금품 선거",
+      "돈 선거",
+      "돈봉투"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 매수였나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "primary",
+            "label": "당내경선 관련 매수"
+          },
+          {
+            "value": "general",
+            "label": "일반인의 매수 (선거인에게 금품 제공 등)"
+          },
+          {
+            "value": "candidate-side",
+            "label": "후보자·선거사무원 등이 한 매수"
+          },
+          {
+            "value": "profit",
+            "label": "재산상 이익 목적 매수, 후보자 사퇴 매수"
+          },
+          {
+            "value": "elected",
+            "label": "당선인에 대한 매수"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "elected"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 5년 ~ 10년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "elected"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "elected"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "profit"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 4년 ~ 7년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "profit"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "profit"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년 8월 또는 벌금 500만원 ~ 2,500만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "candidate-side"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "candidate-side"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 4년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "candidate-side"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 8월 ~ 2년 또는 벌금 150만원 ~ 2,000만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "general"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "general"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년 8월"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "general"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 이하 또는 벌금 100만원 ~ 1,500만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "primary"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "primary"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 8월 ~ 2년"
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 4월 이하 또는 벌금 50만원 ~ 500만원"
+      }
+    ],
+    "notes": [
+      "선거에서 표를 얻거나 후보자를 사퇴시키려고 돈·물건·향응이나 자리를 주거나 약속한 경우, 그리고 이를 받은 경우입니다.",
+      "당선인이 선거범죄로 징역형이나 100만원 이상의 벌금형을 받으면 당선이 무효가 됩니다.",
+      "선거범죄의 공소시효는 대부분 선거일 후 6개월로 짧습니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "공직선거법"
+  },
+  {
+    "id": "new-election-donation",
+    "name": "선거 관련 기부행위 위반",
+    "law": "공직선거법 제257조 제1항·제2항",
+    "group": "기타",
+    "statutory": "5년 이하의 징역 또는 1천만원 이하의 벌금 (기부를 받거나 요구한 사람 등: 3년 이하의 징역 또는 500만원 이하의 벌금)",
+    "aliases": [
+      "공직선거법위반(기부행위)",
+      "기부행위 제한 위반",
+      "선거 식사 제공"
+    ],
+    "questions": [
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 4년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 이하 또는 벌금 100만원 ~ 500만원"
+      },
+      {
+        "level": "trial-fine",
+        "when": [],
+        "sentence": "벌금 50만원 ~ 300만원"
+      }
+    ],
+    "notes": [
+      "후보자(되려는 사람 포함)나 그 가족, 관련 단체 등이 선거구 주민에게 돈·물건·식사 등을 주거나 주겠다고 한 경우입니다. 선거기간이 아니어도 해당할 수 있습니다.",
+      "당선인이 선거범죄로 징역형이나 100만원 이상의 벌금형을 받으면 당선이 무효가 됩니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "공직선거법"
+  },
+  {
+    "id": "new-election-false-statement",
+    "name": "선거 허위사실공표·후보자비방",
+    "law": "공직선거법 제250조, 제251조, 제252조",
+    "group": "기타",
+    "statutory": "당선 목적 허위사실공표: 5년 이하의 징역 또는 3천만원 이하의 벌금 / 낙선 목적 허위사실공표: 7년 이하의 징역 또는 500만원 이상 3천만원 이하의 벌금 / 후보자비방: 3년 이하의 징역 또는 500만원 이하의 벌금",
+    "aliases": [
+      "공직선거법위반(허위사실공표)",
+      "공직선거법위반(후보자비방)",
+      "낙선 목적 허위사실",
+      "선거 가짜뉴스"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 행위였나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "slander",
+            "label": "후보자 비방 (사실을 들어 비방)"
+          },
+          {
+            "value": "win",
+            "label": "당선되려고 허위사실 공표 (경력·학력 부풀리기 등)"
+          },
+          {
+            "value": "lose",
+            "label": "낙선시키려고 허위사실 공표"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "lose"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 6년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "lose"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 4년 또는 벌금 500만원 ~ 1,000만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "lose"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 이하 또는 벌금 300만원 ~ 600만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "win"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 4년 또는 벌금 500만원 ~ 1,000만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "win"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 이하 또는 벌금 200만원 ~ 800만원"
+      },
+      {
+        "level": "trial-fine",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "win"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "벌금 70만원 ~ 300만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "slander"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 ~ 2년 또는 벌금 250만원 ~ 400만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "slander"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 이하 또는 벌금 100만원 ~ 300만원"
+      },
+      {
+        "level": "trial-fine",
+        "when": [],
+        "sentence": "벌금 50만원 ~ 150만원"
+      }
+    ],
+    "notes": [
+      "선거에서 당선되거나 상대를 떨어뜨리려고 후보자나 그 가족에 관한 거짓을 알리거나, 사실을 들어 비방한 경우입니다. 인터넷 게시글도 포함됩니다.",
+      "당선인이 선거범죄로 징역형이나 100만원 이상의 벌금형을 받으면 당선이 무효가 됩니다.",
+      "선거범죄의 공소시효는 대부분 선거일 후 6개월로 짧습니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "공직선거법"
+  },
+  {
+    "id": "new-election-campaign",
+    "name": "사전선거운동·부정선거운동",
+    "law": "공직선거법 제254조, 제255조 제1항~제3항",
+    "group": "기타",
+    "statutory": "선거일 선거운동: 3년 이하의 징역 또는 600만원 이하의 벌금 / 선거운동기간 전 선거운동: 2년 이하의 징역 또는 400만원 이하의 벌금 / 금지된 방법의 선거운동: 3년 이하의 징역 또는 600만원 이하의 벌금 등 / 공무원의 지위 이용 선거운동: 5년 이하의 징역",
+    "aliases": [
+      "공직선거법위반(사전선거운동)",
+      "공직선거법위반(부정선거운동)",
+      "호별방문",
+      "공무원 선거운동"
+    ],
+    "questions": [
+      {
+        "id": "type",
+        "label": "어떤 행위였나요",
+        "type": "select",
+        "options": [
+          {
+            "value": "period",
+            "label": "선거운동기간 전이나 선거일에 한 선거운동"
+          },
+          {
+            "value": "method",
+            "label": "금지된 방법의 선거운동 (호별방문, 유사기관 설치 등)"
+          },
+          {
+            "value": "official",
+            "label": "공무원이 지위를 이용한 선거운동"
+          }
+        ]
+      },
+      {
+        "id": "circ",
+        "label": "사정",
+        "type": "select",
+        "options": [
+          {
+            "value": "mitigated",
+            "label": "감경할 사정이 더 많음"
+          },
+          {
+            "value": "basic",
+            "label": "비슷함"
+          },
+          {
+            "value": "aggravated",
+            "label": "무거운 사정이 더 많음"
+          }
+        ],
+        "help": "합의·처벌불원, 피해 회복, 깊은 반성, 초범 등은 감경할 사정이고 계획적 범행, 큰 피해, 같은 종류 전과 등은 무거운 사정입니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "official"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 ~ 5년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "official"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 ~ 3년"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "official"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 8월 이하"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "method"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 8월 ~ 2년 또는 벌금 100만원 ~ 400만원"
+      },
+      {
+        "level": "trial-fine",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "method"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "벌금 70만원 ~ 200만원"
+      },
+      {
+        "level": "trial-fine",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "method"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "mitigated"
+            }
+          ]
+        ],
+        "sentence": "벌금 50만원 ~ 90만원"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "period"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "aggravated"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 4월 이하 또는 벌금 100만원 ~ 300만원"
+      },
+      {
+        "level": "trial-fine",
+        "when": [
+          [
+            {
+              "q": "type",
+              "op": "eq",
+              "value": "period"
+            },
+            {
+              "q": "circ",
+              "op": "eq",
+              "value": "basic"
+            }
+          ]
+        ],
+        "sentence": "벌금 70만원 ~ 150만원"
+      },
+      {
+        "level": "trial-fine",
+        "when": [],
+        "sentence": "벌금 30만원 ~ 90만원"
+      }
+    ],
+    "notes": [
+      "법이 허용하는 방법 외의 방법으로 정해진 기간 전에 선거운동을 하거나, 호별방문 등 금지된 방법으로 선거운동을 한 경우입니다.",
+      "당선인이 선거범죄로 징역형이나 100만원 이상의 벌금형을 받으면 당선이 무효가 됩니다."
+    ],
+    "basis": "guideline-x2",
+    "lawName": "공직선거법"
+  }
+]
