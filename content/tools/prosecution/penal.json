@@ -1,0 +1,5859 @@
+[
+  {
+    "id": "injury",
+    "name": "상해",
+    "law": "형법 제257조 제1항",
+    "group": "폭력",
+    "statutory": "7년 이하의 징역, 10년 이하의 자격정지 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "폭행치상",
+      "상해죄",
+      "전치 진단"
+    ],
+    "questions": [
+      {
+        "id": "weeks",
+        "label": "상해 진단 기간",
+        "type": "number",
+        "unit": "주",
+        "min": 0,
+        "max": 52,
+        "step": 1,
+        "help": "병원 진단서에 적힌 치료 기간(전치 ○주)입니다."
+      },
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "fault",
+        "label": "다툼의 원인은 누구에게 더 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "victim",
+            "label": "피해자 잘못이 더 큼"
+          },
+          {
+            "value": "both",
+            "label": "양쪽이 비슷함"
+          },
+          {
+            "value": "none",
+            "label": "피해자에게 별 잘못 없음"
+          }
+        ]
+      },
+      {
+        "id": "violencePrior",
+        "label": "폭력 관련 전과 (벌금 이상)",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "없음"
+          },
+          {
+            "value": "some",
+            "label": "있지만 아래에 해당하지 않음"
+          },
+          {
+            "value": "ten4",
+            "label": "10년 안에 4회 이상"
+          },
+          {
+            "value": "three2",
+            "label": "3년 안에 2회 이상 (모두 벌금)"
+          },
+          {
+            "value": "three2s",
+            "label": "3년 안에 2회 이상 (집행유예 이상 포함)"
+          }
+        ],
+        "help": "상해·폭행·협박·손괴 등 폭력 범죄로 벌금 이상을 받은 횟수입니다. 기소유예는 세지 않습니다."
+      },
+      {
+        "id": "vulnerable",
+        "label": "노인·아동·여성·장애인 등 약자를 상대로, 술에 취해 특별한 이유 없이 한 일인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "weeks",
+              "op": "gte",
+              "value": 8
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "violencePrior",
+              "op": "eq",
+              "value": "three2s"
+            }
+          ],
+          [
+            {
+              "q": "vulnerable",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "weeks",
+              "op": "gte",
+              "value": 4
+            }
+          ]
+        ],
+        "note": "진단 8주 이상인데 합의가 안 되었거나, 폭력 전과가 많거나, 약자를 상대로 한 4주 이상 상해라면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "weeks",
+              "op": "gte",
+              "value": 8
+            }
+          ],
+          [
+            {
+              "q": "weeks",
+              "op": "gte",
+              "value": 4
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "violencePrior",
+              "op": "in",
+              "value": [
+                "three2",
+                "ten4"
+              ]
+            }
+          ]
+        ],
+        "note": "진단 4주 이상인데 합의가 안 되었거나 8주 이상이면, 벌금이 아니라 정식재판으로 가는 것이 일반적입니다. 합의하면 집행유예 등으로 가벼워질 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "none"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 2000000,
+          "perUnit": {
+            "q": "weeks",
+            "over": 2,
+            "amount": 1000000
+          },
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "피해자에게 별 잘못이 없으면 기본 200만원에 2주를 넘는 1주마다 100만원씩 더하는 것이 실무상 기준입니다. 합의하면 줄어들 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "both"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 1000000,
+          "perUnit": {
+            "q": "weeks",
+            "over": 2,
+            "amount": 500000
+          },
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "양쪽 잘못이 비슷하면 기본 100만원에 2주를 넘는 1주마다 50만원씩 더하는 것이 실무상 기준입니다. 합의하면 줄어들 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "victim"
+            },
+            {
+              "q": "weeks",
+              "op": "gt",
+              "value": 2
+            }
+          ]
+        ],
+        "fine": {
+          "base": 500000,
+          "perUnit": {
+            "q": "weeks",
+            "over": 2,
+            "amount": 300000
+          },
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "피해자 잘못이 더 크면 기본 50만원에 2주를 넘는 1주마다 30만원씩 더하는 것이 실무상 기준입니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "피해자 잘못이 더 크고 가벼운 다툼으로 2주 이하 상해라면 50만원 미만의 벌금이나 기소유예도 가능합니다."
+      }
+    ],
+    "notes": [
+      "흉기를 쓰거나 약자를 상대로 하거나 1년 안에 폭력 전과가 있으면 벌금이 더 무거워집니다.",
+      "예상하기 어려운 큰 상해가 생긴 경우에는 주 단위 계산을 그대로 쓰지 않고 따로 정합니다.",
+      "상대방이 먼저 공격해 막기만 했다면 정당방위로 처벌되지 않을 수도 있습니다."
+    ]
+  },
+  {
+    "id": "assault",
+    "name": "폭행",
+    "law": "형법 제260조 제1항",
+    "group": "폭력",
+    "statutory": "2년 이하의 징역, 500만원 이하의 벌금, 구류 또는 과료",
+    "aliases": [
+      "폭행죄",
+      "단순폭행",
+      "멱살"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "피해자가 처벌을 원하지 않는다고 했나요? (합의)",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "처벌을 원하지 않음 (합의)"
+          },
+          {
+            "value": "no",
+            "label": "처벌을 원함 (합의 못 함)"
+          }
+        ]
+      },
+      {
+        "id": "degree",
+        "label": "폭행의 정도",
+        "type": "select",
+        "options": [
+          {
+            "value": "minor",
+            "label": "가벼움 (밀치기 등)"
+          },
+          {
+            "value": "normal",
+            "label": "보통"
+          },
+          {
+            "value": "serious",
+            "label": "심함 (여러 번 때리기 등)"
+          }
+        ]
+      },
+      {
+        "id": "fault",
+        "label": "다툼의 원인은 누구에게 더 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "victim",
+            "label": "피해자 잘못이 더 큼"
+          },
+          {
+            "value": "both",
+            "label": "양쪽이 비슷함"
+          },
+          {
+            "value": "none",
+            "label": "피해자에게 별 잘못 없음"
+          }
+        ]
+      },
+      {
+        "id": "violencePrior",
+        "label": "폭력 관련 전과 (벌금 이상)",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "없음"
+          },
+          {
+            "value": "some",
+            "label": "있지만 아래에 해당하지 않음"
+          },
+          {
+            "value": "ten4",
+            "label": "10년 안에 4회 이상"
+          },
+          {
+            "value": "three2",
+            "label": "3년 안에 2회 이상 (모두 벌금)"
+          },
+          {
+            "value": "three2s",
+            "label": "3년 안에 2회 이상 (집행유예 이상 포함)"
+          }
+        ],
+        "help": "상해·폭행·협박·손괴 등 폭력 범죄로 벌금 이상을 받은 횟수입니다. 기소유예는 세지 않습니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "violencePrior",
+              "op": "eq",
+              "value": "three2s"
+            }
+          ]
+        ],
+        "note": "최근 3년 안에 집행유예 이상이 포함된 폭력 전과가 2번 이상이면, 실무상 다시 폭력을 쓴 경우 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "violencePrior",
+              "op": "in",
+              "value": [
+                "three2",
+                "ten4"
+              ]
+            }
+          ]
+        ],
+        "note": "폭력 전과가 여러 번(3년 안 2회 이상 또는 10년 안 4회 이상)이면 벌금으로 끝내지 않고 정식재판에 넘기는 것이 일반적인 처리 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "none"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "serious"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 3000000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "none"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "normal"
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "both"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "serious"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 2000000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "none"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "minor"
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "both"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "normal"
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "victim"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "serious"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 1000000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "both"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "minor"
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "victim"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "normal"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 500000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "폭행은 피해자가 처벌을 원하지 않으면 처벌할 수 없는 죄(반의사불벌죄)라, 합의하면 사건이 끝납니다. 피해자 잘못이 크고 가벼운 폭행이면 기소유예나 소액 벌금도 가능합니다."
+      }
+    ],
+    "notes": [
+      "남의 집에 들어가 때리는 등 죄질이 무거우면 정식재판으로 갈 수 있습니다.",
+      "위험한 물건을 쓰거나 약자를 상대로 했거나 1년 안에 폭력 전과가 있으면 벌금이 늘어납니다."
+    ]
+  },
+  {
+    "id": "special-injury",
+    "name": "특수상해",
+    "law": "형법 제258조의2 제1항",
+    "group": "폭력",
+    "statutory": "1년 이상 10년 이하의 징역",
+    "aliases": [
+      "흉기 상해",
+      "위험한 물건 상해"
+    ],
+    "questions": [
+      {
+        "id": "weeks",
+        "label": "상해 진단 기간",
+        "type": "number",
+        "unit": "주",
+        "min": 0,
+        "max": 52,
+        "step": 1
+      },
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "같은 종류(폭력) 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 2년 6월 이상",
+        "note": "위험한 물건으로 다치게 한 경우 구속 수사가 원칙처럼 검토되고, 동종 전과가 있으면 구형이 1~2년 더 무거워집니다."
+      },
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "weeks",
+              "op": "gt",
+              "value": 2
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 6월 이상",
+        "note": "위험한 물건으로 다치게 한 경우 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 1년 6월보다 낮게 구형 가능",
+        "note": "동종 전과가 없고 2주 이하 상해에 합의까지 했다면 구형이 낮아질 수 있습니다. 벌금형이 없는 죄라 기소되면 정식재판을 받습니다."
+      }
+    ],
+    "notes": [
+      "단체의 힘을 보이거나 위험한 물건(칼, 둔기, 깨진 병 등)을 들고 상해를 입힌 경우입니다."
+    ]
+  },
+  {
+    "id": "special-assault",
+    "name": "특수폭행",
+    "law": "형법 제261조",
+    "group": "폭력",
+    "statutory": "5년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "흉기 폭행",
+      "위험한 물건 폭행"
+    ],
+    "questions": [
+      {
+        "id": "degree",
+        "label": "폭행의 정도",
+        "type": "select",
+        "options": [
+          {
+            "value": "minor",
+            "label": "가벼움 (밀치기 등)"
+          },
+          {
+            "value": "normal",
+            "label": "보통"
+          },
+          {
+            "value": "serious",
+            "label": "심함 (여러 번 때리기 등)"
+          }
+        ]
+      },
+      {
+        "id": "fault",
+        "label": "다툼의 원인은 누구에게 더 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "victim",
+            "label": "피해자 잘못이 더 큼"
+          },
+          {
+            "value": "both",
+            "label": "양쪽이 비슷함"
+          },
+          {
+            "value": "none",
+            "label": "피해자에게 별 잘못 없음"
+          }
+        ]
+      },
+      {
+        "id": "violencePrior",
+        "label": "폭력 관련 전과 (벌금 이상)",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "없음"
+          },
+          {
+            "value": "some",
+            "label": "있지만 아래에 해당하지 않음"
+          },
+          {
+            "value": "ten4",
+            "label": "10년 안에 4회 이상"
+          },
+          {
+            "value": "three2",
+            "label": "3년 안에 2회 이상 (모두 벌금)"
+          },
+          {
+            "value": "three2s",
+            "label": "3년 안에 2회 이상 (집행유예 이상 포함)"
+          }
+        ],
+        "help": "상해·폭행·협박·손괴 등 폭력 범죄로 벌금 이상을 받은 횟수입니다. 기소유예는 세지 않습니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "violencePrior",
+              "op": "eq",
+              "value": "three2s"
+            }
+          ]
+        ],
+        "note": "최근 3년 안에 집행유예 이상이 포함된 폭력 전과가 2번 이상이면, 실무상 다시 폭력을 쓴 경우 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "violencePrior",
+              "op": "in",
+              "value": [
+                "three2",
+                "ten4"
+              ]
+            }
+          ]
+        ],
+        "note": "폭력 전과가 여러 번(3년 안 2회 이상 또는 10년 안 4회 이상)이면 벌금으로 끝내지 않고 정식재판에 넘기는 것이 일반적인 처리 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "none"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "serious"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 3000000,
+          "max": 10000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "none"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "normal"
+            }
+          ],
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "both"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "serious"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 2000000,
+          "max": 10000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "none"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "minor"
+            }
+          ],
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "both"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "normal"
+            }
+          ],
+          [
+            {
+              "q": "fault",
+              "op": "eq",
+              "value": "victim"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "serious"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 1000000,
+          "max": 10000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 500000,
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "위험한 물건을 썼다는 점 때문에 일반 폭행보다 벌금이 더 붙는 것이 보통입니다."
+      }
+    ],
+    "notes": [
+      "위 벌금은 일반 폭행 기준이며, 위험한 물건을 쓴 점 때문에 실제로는 더 무거워질 수 있습니다.",
+      "일반 폭행과 달리 합의해도 처벌될 수 있는 죄입니다. 다만 합의하면 벌금이 줄어들 수 있습니다."
+    ]
+  },
+  {
+    "id": "assault-on-parent",
+    "name": "존속폭행",
+    "law": "형법 제260조 제2항",
+    "group": "폭력",
+    "statutory": "5년 이하의 징역 또는 700만원 이하의 벌금",
+    "aliases": [
+      "부모 폭행",
+      "직계존속 폭행"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "부모님(피해자)이 처벌을 원하지 않는다고 했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "처벌을 원하지 않음 (합의)"
+          },
+          {
+            "value": "no",
+            "label": "처벌을 원함 (합의 못 함)"
+          }
+        ]
+      },
+      {
+        "id": "aggravated",
+        "label": "같은 전과가 있거나, 여러 번 반복했거나, 수법이 잔인했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "aggravated",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "동종 전과, 반복적인 폭행, 잔인한 수법 등이 있으면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "정식재판이 원칙이지만, 사정에 따라 벌금(100만원 이상)이나 가정법원 송치로 처리되기도 합니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "피해자가 처벌을 원하지 않으면 처벌할 수 없는 죄(반의사불벌죄)라 합의하면 사건이 끝납니다."
+      }
+    ],
+    "notes": [
+      "자기 또는 배우자의 부모·조부모 등을 때린 경우입니다. 가족 사이 폭력이라 가정보호사건(가정법원)으로 처리될 수도 있습니다."
+    ]
+  },
+  {
+    "id": "negligent-injury",
+    "name": "과실치상",
+    "law": "형법 제266조",
+    "group": "폭력",
+    "statutory": "500만원 이하의 벌금, 구류 또는 과료",
+    "aliases": [
+      "실수로 다치게 함"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "피해자가 처벌을 원하지 않는다고 했나요? (합의)",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "처벌을 원하지 않음 (합의)"
+          },
+          {
+            "value": "no",
+            "label": "처벌을 원함 (합의 못 함)"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 1000000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "피해자가 처벌을 원하지 않으면 처벌할 수 없는 죄(반의사불벌죄)라 합의하면 사건이 끝납니다."
+      }
+    ],
+    "notes": [
+      "업무 중 사고이거나 큰 부주의로 다치게 했다면 업무상과실·중과실치상으로 더 무겁게 처리됩니다."
+    ]
+  },
+  {
+    "id": "occupational-negligent-injury",
+    "name": "업무상과실치상",
+    "law": "형법 제268조",
+    "group": "폭력",
+    "statutory": "5년 이하의 금고 또는 2천만원 이하의 벌금",
+    "aliases": [
+      "중과실치상",
+      "업무상 과실",
+      "안전사고"
+    ],
+    "questions": [
+      {
+        "id": "weeks",
+        "label": "피해자 상해 진단 기간",
+        "type": "number",
+        "unit": "주",
+        "min": 0,
+        "max": 52,
+        "step": 1
+      },
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "result",
+        "label": "피해 정도",
+        "type": "select",
+        "options": [
+          {
+            "value": "normal",
+            "label": "일반 상해"
+          },
+          {
+            "value": "grave",
+            "label": "중한 상해 또는 영구 장애"
+          }
+        ]
+      },
+      {
+        "id": "negligence",
+        "label": "과실의 정도",
+        "type": "select",
+        "options": [
+          {
+            "value": "light",
+            "label": "가벼운 과실"
+          },
+          {
+            "value": "heavy",
+            "label": "중대한 과실이거나 여러 과실이 겹침"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "result",
+              "op": "eq",
+              "value": "grave"
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "negligence",
+              "op": "eq",
+              "value": "heavy"
+            }
+          ]
+        ],
+        "note": "합의가 안 되었고 큰 과실로 중한 상해를 입혔다면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "result",
+              "op": "eq",
+              "value": "grave"
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "negligence",
+              "op": "eq",
+              "value": "heavy"
+            }
+          ]
+        ],
+        "sentence": "금고 1년 이상",
+        "note": "중한 상해나 영구 장애가 남았다면 정식재판이 일반적입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "negligence",
+              "op": "eq",
+              "value": "heavy"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 2000000,
+          "perUnit": {
+            "q": "weeks",
+            "over": 4,
+            "amount": 500000
+          },
+          "max": 20000000,
+          "atLeast": true
+        },
+        "note": "중대한 과실이면 200만원 이상, 진단 1주당 50만원 정도로 정해집니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 1000000,
+          "perUnit": {
+            "q": "weeks",
+            "over": 2,
+            "amount": 500000
+          },
+          "max": 20000000,
+          "atLeast": true
+        },
+        "note": "과실이 가볍고 합의했다면 100만원 이상, 진단 1주당 50만원 정도로 정해집니다. 합의가 안 되면 더 무거워질 수 있습니다."
+      }
+    ],
+    "notes": [
+      "교통사고는 별도 법률(교통사고처리특례법)이 적용됩니다.",
+      "산업 현장 사고는 산업안전보건법 위반이 함께 문제될 수 있습니다."
+    ]
+  },
+  {
+    "id": "threat",
+    "name": "협박",
+    "law": "형법 제283조 제1항",
+    "group": "폭력",
+    "statutory": "3년 이하의 징역, 500만원 이하의 벌금, 구류 또는 과료",
+    "aliases": [
+      "협박죄",
+      "겁주기"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "피해자가 처벌을 원하지 않는다고 했나요? (합의)",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "처벌을 원하지 않음 (합의)"
+          },
+          {
+            "value": "no",
+            "label": "처벌을 원함 (합의 못 함)"
+          }
+        ]
+      },
+      {
+        "id": "degree",
+        "label": "협박의 정도",
+        "type": "select",
+        "options": [
+          {
+            "value": "minor",
+            "label": "가벼움 (실제로 할 가능성 낮음)"
+          },
+          {
+            "value": "normal",
+            "label": "보통"
+          },
+          {
+            "value": "serious",
+            "label": "심함 (실제로 할 가능성 높거나 여러 번)"
+          }
+        ]
+      },
+      {
+        "id": "mitigating",
+        "label": "피해자가 원인을 제공하는 등 사정을 참작할 만한 이유가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "gain",
+        "label": "협박으로 돈이나 이권을 얻으려 했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "violencePrior",
+        "label": "폭력 관련 전과 (벌금 이상)",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "없음"
+          },
+          {
+            "value": "some",
+            "label": "있지만 아래에 해당하지 않음"
+          },
+          {
+            "value": "ten4",
+            "label": "10년 안에 4회 이상"
+          },
+          {
+            "value": "three2",
+            "label": "3년 안에 2회 이상 (모두 벌금)"
+          },
+          {
+            "value": "three2s",
+            "label": "3년 안에 2회 이상 (집행유예 이상 포함)"
+          }
+        ],
+        "help": "상해·폭행·협박·손괴 등 폭력 범죄로 벌금 이상을 받은 횟수입니다. 기소유예는 세지 않습니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "violencePrior",
+              "op": "eq",
+              "value": "three2s"
+            }
+          ]
+        ],
+        "note": "최근 3년 안에 집행유예 이상이 포함된 폭력 전과가 2번 이상이면, 실무상 다시 폭력을 쓴 경우 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "violencePrior",
+              "op": "in",
+              "value": [
+                "three2",
+                "ten4"
+              ]
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "gain",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "폭력 전과가 여러 번이거나 협박으로 돈·이권을 얻으려 했다면 정식재판이 일반적입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "serious"
+            },
+            {
+              "q": "mitigating",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 3000000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "serious"
+            },
+            {
+              "q": "mitigating",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "normal"
+            },
+            {
+              "q": "mitigating",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 2000000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "normal"
+            },
+            {
+              "q": "mitigating",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 1000000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "minor"
+            },
+            {
+              "q": "mitigating",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 500000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "협박은 피해자가 처벌을 원하지 않으면 처벌할 수 없는 죄(반의사불벌죄)라 합의하면 사건이 끝납니다. 가벼운 협박에 참작 사유가 있으면 기소유예도 가능합니다."
+      }
+    ]
+  },
+  {
+    "id": "special-threat",
+    "name": "특수협박",
+    "law": "형법 제284조",
+    "group": "폭력",
+    "statutory": "7년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "흉기 협박"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "violencePrior",
+        "label": "폭력 관련 전과 (벌금 이상)",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "없음"
+          },
+          {
+            "value": "some",
+            "label": "있지만 아래에 해당하지 않음"
+          },
+          {
+            "value": "ten4",
+            "label": "10년 안에 4회 이상"
+          },
+          {
+            "value": "three2",
+            "label": "3년 안에 2회 이상 (모두 벌금)"
+          },
+          {
+            "value": "three2s",
+            "label": "3년 안에 2회 이상 (집행유예 이상 포함)"
+          }
+        ],
+        "help": "상해·폭행·협박·손괴 등 폭력 범죄로 벌금 이상을 받은 횟수입니다. 기소유예는 세지 않습니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "violencePrior",
+              "op": "in",
+              "value": [
+                "three2",
+                "three2s",
+                "ten4"
+              ]
+            }
+          ]
+        ],
+        "note": "위험한 물건을 들고 협박한 경우 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "note": "합의하는 등 사정이 있으면 불구속으로 재판을 받을 수 있지만, 벌금으로 끝나기보다는 정식재판이 원칙입니다."
+      }
+    ],
+    "notes": [
+      "일반 협박과 달리 합의해도 처벌될 수 있는 죄입니다."
+    ]
+  },
+  {
+    "id": "confinement",
+    "name": "체포·감금",
+    "law": "형법 제276조 제1항",
+    "group": "폭력",
+    "statutory": "5년 이하의 징역 또는 700만원 이하의 벌금",
+    "aliases": [
+      "감금",
+      "불법감금",
+      "가두기"
+    ],
+    "questions": [
+      {
+        "id": "nature",
+        "label": "어떤 상황이었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "planned",
+            "label": "다른 범죄를 위해서이거나 미리 계획함"
+          },
+          {
+            "value": "ordinary",
+            "label": "그 밖의 경우"
+          },
+          {
+            "value": "impulsive",
+            "label": "우발적이고 짧고 단순함"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "nature",
+              "op": "eq",
+              "value": "planned"
+            }
+          ]
+        ],
+        "note": "불법한 목적이나 계획적인 범행, 다른 범죄의 수단이었다면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "nature",
+              "op": "eq",
+              "value": "ordinary"
+            }
+          ]
+        ],
+        "note": "정식재판이 원칙입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 1000000,
+          "max": 7000000,
+          "atLeast": true
+        },
+        "note": "우발적이고 단순한 경우에는 벌금으로 처리되기도 합니다."
+      }
+    ]
+  },
+  {
+    "id": "coercion",
+    "name": "강요",
+    "law": "형법 제324조 제1항",
+    "group": "폭력",
+    "statutory": "5년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": [
+      "강요죄",
+      "억지로 시킴"
+    ],
+    "questions": [
+      {
+        "id": "harm",
+        "label": "피해가 크고 무거운가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "mitigating",
+        "label": "경위에 특별히 참작할 만한 사정이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "harm",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "피해 정도가 무거우면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "mitigating",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "harm",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 이상",
+        "note": "정식재판이 원칙입니다. 합의하면 가벼워질 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 2000000,
+          "max": 30000000,
+          "atLeast": true
+        },
+        "note": "특별히 참작할 사정이 있으면 벌금으로 처리되기도 합니다."
+      }
+    ],
+    "notes": [
+      "1년 안에 폭력 전과가 있거나 약자를 상대로 했다면 더 무거워집니다."
+    ]
+  },
+  {
+    "id": "trespass",
+    "name": "주거침입",
+    "law": "형법 제319조 제1항",
+    "group": "폭력",
+    "statutory": "3년 이하의 징역 또는 500만원 이하의 벌금",
+    "aliases": [
+      "주거침입죄",
+      "건조물침입",
+      "퇴거불응"
+    ],
+    "questions": [
+      {
+        "id": "linked",
+        "label": "폭행·절도 등 다른 범죄와 함께 했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "danger",
+        "label": "안에 있는 사람에게 해를 끼치려는 등 위험한 목적이 있었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "linked",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "폭력·재산 범죄와 연결된 침입이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "danger",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 10월 이상"
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 500000,
+          "max": 5000000,
+          "atLeast": true
+        },
+        "note": "한 번의 우발적인 침입이면 벌금으로 처리되는 것이 일반적입니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "한 번의 우발적인 일이고 합의했다면 기소유예도 검토될 수 있습니다."
+      }
+    ]
+  },
+  {
+    "id": "property-damage",
+    "name": "재물손괴",
+    "law": "형법 제366조",
+    "group": "폭력",
+    "statutory": "3년 이하의 징역 또는 700만원 이하의 벌금",
+    "aliases": [
+      "손괴",
+      "기물파손",
+      "물건 부숨"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "피해액",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10,
+        "help": "부서진 물건의 수리비나 값입니다."
+      },
+      {
+        "id": "agreement",
+        "label": "피해를 갚고 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "violencePrior",
+        "label": "폭력 관련 전과 (벌금 이상)",
+        "type": "select",
+        "options": [
+          {
+            "value": "none",
+            "label": "없음"
+          },
+          {
+            "value": "some",
+            "label": "있지만 아래에 해당하지 않음"
+          },
+          {
+            "value": "ten4",
+            "label": "10년 안에 4회 이상"
+          },
+          {
+            "value": "three2",
+            "label": "3년 안에 2회 이상 (모두 벌금)"
+          },
+          {
+            "value": "three2s",
+            "label": "3년 안에 2회 이상 (집행유예 이상 포함)"
+          }
+        ],
+        "help": "상해·폭행·협박·손괴 등 폭력 범죄로 벌금 이상을 받은 횟수입니다. 기소유예는 세지 않습니다."
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "violencePrior",
+              "op": "eq",
+              "value": "three2s"
+            }
+          ]
+        ],
+        "note": "최근 3년 안에 집행유예 이상이 포함된 폭력 전과가 2번 이상이면, 실무상 다시 폭력을 쓴 경우 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "violencePrior",
+              "op": "in",
+              "value": [
+                "three2",
+                "ten4"
+              ]
+            }
+          ]
+        ],
+        "sentence": "징역 8월 이상",
+        "note": "피해액 1,000만원 이상인데 합의가 안 되었다면 정식재판이 일반적입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 500000,
+          "max": 7000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "피해를 갚고 합의했다면 기소유예가 검토될 수 있습니다. 사정에 따라 벌금이 나올 수도 있습니다."
+      }
+    ]
+  },
+  {
+    "id": "indecent-assault",
+    "name": "강제추행",
+    "law": "형법 제298조",
+    "group": "성범죄",
+    "statutory": "10년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": [
+      "추행",
+      "성추행",
+      "강제추행죄"
+    ],
+    "questions": [
+      {
+        "id": "prior",
+        "label": "같은 종류(성범죄) 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "degree",
+        "label": "추행의 정도",
+        "type": "select",
+        "options": [
+          {
+            "value": "light",
+            "label": "비교적 가벼움 (옷 위로 잠깐 접촉 등)"
+          },
+          {
+            "value": "heavy",
+            "label": "무거움"
+          }
+        ]
+      },
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "youth",
+        "label": "가해자가 청소년(19세 미만)이고 깊이 반성하고 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "동종 전과가 있거나 수법이 나쁘거나 2차 피해를 일으켰다면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "heavy"
+            }
+          ]
+        ],
+        "note": "추행 정도가 무거우면 정식재판에서 징역형이 구형되는 것이 일반적입니다."
+      },
+      {
+        "level": "trial-fine",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "youth",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 5000000,
+          "max": 15000000,
+          "atLeast": true
+        },
+        "note": "추행 정도가 무겁지 않아도 정식재판에서 벌금형(500만원 이상)이 구형되는 것이 일반적입니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "동종 전과가 없고 가벼운 사안에서 합의했거나, 깊이 반성하는 청소년이라면 교육 이수 등을 조건으로 한 기소유예가 가능합니다."
+      }
+    ],
+    "notes": [
+      "2013년부터 친고죄가 아니어서, 합의해도 처벌될 수 있습니다. 다만 합의는 처분에 크게 반영됩니다.",
+      "피해자가 19세 미만이거나 13세 미만이면 특별법으로 훨씬 무겁게 처벌됩니다.",
+      "유죄가 확정되면 신상정보 등록 등 부수처분이 따를 수 있습니다."
+    ]
+  },
+  {
+    "id": "quasi-indecent-assault",
+    "name": "준강제추행",
+    "law": "형법 제299조",
+    "group": "성범죄",
+    "statutory": "10년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": [
+      "술 취한 사람 추행",
+      "잠든 사람 추행"
+    ],
+    "questions": [
+      {
+        "id": "prior",
+        "label": "같은 종류(성범죄) 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "degree",
+        "label": "추행의 정도",
+        "type": "select",
+        "options": [
+          {
+            "value": "light",
+            "label": "비교적 가벼움 (옷 위로 잠깐 접촉 등)"
+          },
+          {
+            "value": "heavy",
+            "label": "무거움"
+          }
+        ]
+      },
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "youth",
+        "label": "가해자가 청소년(19세 미만)이고 깊이 반성하고 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "동종 전과가 있거나 수법이 나쁘거나 2차 피해를 일으켰다면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "degree",
+              "op": "eq",
+              "value": "heavy"
+            }
+          ]
+        ],
+        "note": "추행 정도가 무거우면 정식재판에서 징역형이 구형되는 것이 일반적입니다."
+      },
+      {
+        "level": "trial-fine",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "youth",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 5000000,
+          "max": 15000000,
+          "atLeast": true
+        },
+        "note": "추행 정도가 무겁지 않아도 정식재판에서 벌금형(500만원 이상)이 구형되는 것이 일반적입니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "동종 전과가 없고 가벼운 사안에서 합의했거나, 깊이 반성하는 청소년이라면 교육 이수 등을 조건으로 한 기소유예가 가능합니다."
+      }
+    ],
+    "notes": [
+      "술에 취하거나 잠들어 저항할 수 없는 상태를 이용해 추행한 경우로, 강제추행과 같은 기준으로 처리됩니다.",
+      "2013년부터 친고죄가 아니어서, 합의해도 처벌될 수 있습니다. 다만 합의는 처분에 크게 반영됩니다.",
+      "피해자가 19세 미만이거나 13세 미만이면 특별법으로 훨씬 무겁게 처벌됩니다.",
+      "유죄가 확정되면 신상정보 등록 등 부수처분이 따를 수 있습니다."
+    ]
+  },
+  {
+    "id": "rape",
+    "name": "강간",
+    "law": "형법 제297조",
+    "group": "성범죄",
+    "statutory": "3년 이상의 유기징역",
+    "aliases": [
+      "강간죄",
+      "성폭행"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "injury",
+        "label": "피해자가 다쳤나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "injury",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "피해자가 다쳤다면 강간치상(무기 또는 5년 이상의 징역)으로 더 무겁게 처벌되고, 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "detention",
+        "when": [],
+        "note": "합의해도 처벌되는 죄이며 구속 수사가 원칙처럼 검토됩니다. 다만 합의는 처벌 수위에 반영됩니다."
+      }
+    ],
+    "notes": [
+      "벌금형이 없는 죄라 기소되면 정식재판을 받습니다.",
+      "피해자가 19세 미만이거나 13세 미만이면 특별법으로 훨씬 무겁게 처벌됩니다.",
+      "유죄가 확정되면 신상정보 등록 등 부수처분이 따를 수 있습니다."
+    ]
+  },
+  {
+    "id": "quasi-rape",
+    "name": "준강간",
+    "law": "형법 제299조",
+    "group": "성범죄",
+    "statutory": "3년 이상의 유기징역",
+    "aliases": [
+      "술 취한 사람 간음",
+      "준강간죄"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "injury",
+        "label": "피해자가 다쳤나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "injury",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "피해자가 다쳤다면 강간치상(무기 또는 5년 이상의 징역)으로 더 무겁게 처벌되고, 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "detention",
+        "when": [],
+        "note": "합의해도 처벌되는 죄이며 구속 수사가 원칙처럼 검토됩니다. 다만 합의는 처벌 수위에 반영됩니다."
+      }
+    ],
+    "notes": [
+      "술에 취하거나 잠들어 저항할 수 없는 상태를 이용한 경우로, 강간과 같은 기준으로 처리됩니다.",
+      "피해자가 19세 미만이거나 13세 미만이면 특별법으로 훨씬 무겁게 처벌됩니다.",
+      "유죄가 확정되면 신상정보 등록 등 부수처분이 따를 수 있습니다."
+    ]
+  },
+  {
+    "id": "public-indecency",
+    "name": "공연음란",
+    "law": "형법 제245조",
+    "group": "성범죄",
+    "statutory": "1년 이하의 징역, 500만원 이하의 벌금, 구류 또는 과료",
+    "aliases": [
+      "바바리맨",
+      "노출",
+      "음란행위"
+    ],
+    "questions": [
+      {
+        "id": "repeat",
+        "label": "여러 번 반복했거나 같은 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "serious",
+        "label": "음란한 정도가 심했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "repeat",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "serious",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 8월 이상"
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 3000000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      }
+    ]
+  },
+  {
+    "id": "defamation",
+    "name": "명예훼손 (사실 적시)",
+    "law": "형법 제307조 제1항",
+    "group": "명예",
+    "statutory": "2년 이하의 징역이나 금고 또는 500만원 이하의 벌금",
+    "aliases": [
+      "명예훼손",
+      "사실적시 명예훼손"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "피해자가 처벌을 원하지 않는다고 했나요? (합의)",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "처벌을 원하지 않음 (합의)"
+          },
+          {
+            "value": "no",
+            "label": "처벌을 원함 (합의 못 함)"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "명예훼손 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "minor",
+        "label": "말한 내용과 퍼진 범위가 객관적으로 가벼운가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "minor",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "sentence": "징역 6월 이상",
+        "note": "내용이나 퍼진 범위가 가볍지 않으면 정식재판이 원칙입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 700000,
+          "max": 5000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "피해자가 처벌을 원하지 않으면 처벌할 수 없는 죄(반의사불벌죄)라 합의하면 사건이 끝납니다."
+      }
+    ],
+    "notes": [
+      "인터넷·SNS에 올린 경우에는 다른 법률(정보통신망법)이 적용되어 더 무겁게 처벌됩니다.",
+      "진실한 사실을 오로지 공공의 이익을 위해 말했다면 처벌되지 않을 수 있습니다."
+    ]
+  },
+  {
+    "id": "false-defamation",
+    "name": "허위사실 명예훼손",
+    "law": "형법 제307조 제2항",
+    "group": "명예",
+    "statutory": "5년 이하의 징역, 10년 이하의 자격정지 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "허위사실 유포",
+      "거짓 소문"
+    ],
+    "questions": [
+      {
+        "id": "agreement",
+        "label": "피해자가 처벌을 원하지 않는다고 했나요? (합의)",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "처벌을 원하지 않음 (합의)"
+          },
+          {
+            "value": "no",
+            "label": "처벌을 원함 (합의 못 함)"
+          }
+        ]
+      },
+      {
+        "id": "malicious",
+        "label": "돈을 벌 목적이거나 조직적·지속적으로 퍼뜨렸나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "minor",
+        "label": "말한 내용과 퍼진 범위가 객관적으로 가벼운가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "malicious",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "영리 목적이나 조직적·악의적인 허위사실 유포로 명예가 크게 손상되었다면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "minor",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "sentence": "징역 10월 이상",
+        "note": "정식재판이 원칙입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 1000000,
+          "max": 10000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "피해자가 처벌을 원하지 않으면 처벌할 수 없는 죄(반의사불벌죄)라 합의하면 사건이 끝납니다."
+      }
+    ],
+    "notes": [
+      "인터넷·SNS에 올린 경우에는 다른 법률(정보통신망법)이 적용되어 더 무겁게 처벌됩니다."
+    ]
+  },
+  {
+    "id": "insult",
+    "name": "모욕",
+    "law": "형법 제311조",
+    "group": "명예",
+    "statutory": "1년 이하의 징역이나 금고 또는 200만원 이하의 벌금",
+    "aliases": [
+      "모욕죄",
+      "욕설",
+      "악플"
+    ],
+    "questions": [
+      {
+        "id": "complaint",
+        "label": "피해자의 고소는?",
+        "type": "select",
+        "options": [
+          {
+            "value": "kept",
+            "label": "고소를 유지함"
+          },
+          {
+            "value": "withdrawn",
+            "label": "고소를 취소함 (합의)"
+          }
+        ]
+      },
+      {
+        "id": "pattern",
+        "label": "어떤 경우인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "once",
+            "label": "한 번의 가벼운 모욕"
+          },
+          {
+            "value": "persistent",
+            "label": "같은 사람에게 계속 모욕함"
+          },
+          {
+            "value": "prior",
+            "label": "명예훼손·모욕 전과가 있음"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "complaint",
+              "op": "eq",
+              "value": "kept"
+            },
+            {
+              "q": "pattern",
+              "op": "in",
+              "value": [
+                "persistent",
+                "prior"
+              ]
+            }
+          ]
+        ],
+        "sentence": "징역 6월 이상"
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "complaint",
+              "op": "eq",
+              "value": "kept"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 500000,
+          "max": 2000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "고소가 있어야 처벌할 수 있는 죄(친고죄)라, 고소를 취소하면 사건이 끝납니다."
+      }
+    ],
+    "notes": [
+      "온라인 댓글도 여러 사람이 볼 수 있으면 모욕죄가 될 수 있습니다."
+    ]
+  },
+  {
+    "id": "obstruction-of-business",
+    "name": "업무방해",
+    "law": "형법 제314조 제1항",
+    "group": "기타",
+    "statutory": "5년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": [
+      "업무방해죄",
+      "영업방해",
+      "가게 행패"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "피해액 (추산)",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10,
+        "help": "정확히 모르면 대략적인 금액을, 금전 피해가 없으면 0을 넣으세요."
+      },
+      {
+        "id": "agreement",
+        "label": "피해자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 죄로 집행유예 이상을 받은 적이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 3000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 이상",
+        "note": "피해액 3,000만원 이상인데 합의가 안 되었거나, 최근 동종 전과가 있으면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "sentence": "징역 10월 이상"
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 700000,
+          "max": 15000000,
+          "atLeast": true
+        },
+        "note": "피해가 비교적 가볍거나 합의했다면 벌금으로 처리되는 것이 일반적입니다."
+      }
+    ]
+  },
+  {
+    "id": "obstruction-of-official-duty",
+    "name": "공무집행방해",
+    "law": "형법 제136조 제1항",
+    "group": "공무",
+    "statutory": "5년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "경찰 폭행",
+      "공무집행방해죄"
+    ],
+    "questions": [
+      {
+        "id": "target",
+        "label": "누구에게 어떻게 했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "uniform-force",
+            "label": "제복 입은 경찰·소방관·현장 복지공무원을 직접 때리거나 밀침"
+          },
+          {
+            "value": "uniform-other",
+            "label": "제복 입은 경찰·소방관 등에게 욕설·협박 등"
+          },
+          {
+            "value": "other",
+            "label": "그 밖의 공무원"
+          }
+        ]
+      },
+      {
+        "id": "aggravated",
+        "label": "흉기를 쓰거나, 2명 이상 함께 했거나, 3주 이상 다치게 했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "minor",
+        "label": "우발적이고 방해 정도가 가벼웠나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "aggravated",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "target",
+              "op": "eq",
+              "value": "uniform-force"
+            }
+          ]
+        ],
+        "note": "제복 입은 경찰관 등에게 직접 힘을 쓰거나, 흉기·여럿이 함께·최근 동종 전과가 있으면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial-fine",
+        "when": [
+          [
+            {
+              "q": "target",
+              "op": "eq",
+              "value": "uniform-other"
+            },
+            {
+              "q": "minor",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 2000000,
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "제복 입은 경찰관 등에 대한 방해는 정식재판이 원칙이지만, 가벼우면 벌금형이 구형되기도 합니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "target",
+              "op": "eq",
+              "value": "uniform-other"
+            }
+          ],
+          [
+            {
+              "q": "minor",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ]
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 2000000,
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "우발적이고 가벼우면 벌금으로 처리되는 것이 일반적입니다."
+      }
+    ],
+    "notes": [
+      "일행을 말리려다 생긴 일인지, 함께 방해한 것인지는 신중하게 가려집니다."
+    ]
+  },
+  {
+    "id": "perjury",
+    "name": "위증",
+    "law": "형법 제152조 제1항",
+    "group": "공무",
+    "statutory": "5년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "거짓 증언",
+      "위증죄"
+    ],
+    "questions": [
+      {
+        "id": "prior",
+        "label": "위증·무고 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "paid",
+        "label": "증언 대가로 돈 등을 받았거나 받기로 했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "impact",
+        "label": "거짓 증언이 재판 결과에 큰 영향을 줄 만한 내용인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "confessed",
+        "label": "거짓 증언을 스스로 바로잡거나 자백했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "paid",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "impact",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "confessed",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "동종 전과, 대가를 받은 증언, 재판에 큰 영향을 준 거짓 증언이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "impact",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "confessed",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ]
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 1000000,
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "재판 결과에 큰 영향이 없고 자백했다면 벌금으로 처리되는 것이 일반적입니다."
+      }
+    ],
+    "notes": [
+      "재판이 확정되기 전에 자백하면 형이 줄거나 면제됩니다."
+    ]
+  },
+  {
+    "id": "false-accusation",
+    "name": "무고",
+    "law": "형법 제156조",
+    "group": "공무",
+    "statutory": "10년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": [
+      "허위 고소",
+      "무고죄"
+    ],
+    "questions": [
+      {
+        "id": "prior",
+        "label": "위증·무고 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "pattern",
+        "label": "같은 사람을 반복해 고소했거나, 여러 사람을 허위로 고소했거나, 상대를 해칠 목적이었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "indicted",
+        "label": "허위 고소 때문에 상대방이 실제로 기소되었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "evade",
+        "label": "자기 책임(빚, 처벌 등)을 피하려고 고소했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "confessed",
+        "label": "자백하고 고소를 취소했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "pattern",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "동종 전과가 있거나 반복적·악의적인 허위 고소라면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "indicted",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "evade",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "confessed",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ]
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 2000000,
+          "max": 15000000,
+          "atLeast": true
+        },
+        "note": "사안이 무겁지 않고 자백하며 고소를 취소했다면 벌금으로 처리되기도 합니다."
+      }
+    ],
+    "notes": [
+      "재판이나 징계가 확정되기 전에 자백하면 형이 줄거나 면제됩니다.",
+      "남에게 허위 고소를 시킨 사람은 더 무겁게 봅니다."
+    ]
+  },
+  {
+    "id": "harboring-criminal",
+    "name": "범인도피",
+    "law": "형법 제151조 제1항",
+    "group": "공무",
+    "statutory": "3년 이하의 징역 또는 500만원 이하의 벌금",
+    "aliases": [
+      "범인은닉",
+      "대신 자수",
+      "운전자 바꿔치기"
+    ],
+    "questions": [
+      {
+        "id": "serious",
+        "label": "숨겨 준 사람이 무거운 범죄를 저질렀나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "paid",
+        "label": "대가를 받았거나 수사·재판에 큰 지장을 주었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "early",
+        "label": "수사 초기에 바로 드러나 방해가 가벼웠나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "serious",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "paid",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "중한 범인을 숨겼거나 대가를 받았거나 수사에 큰 지장을 주었다면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "early",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "sentence": "징역 8월 이상"
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 1000000,
+          "max": 5000000,
+          "atLeast": true
+        },
+        "note": "수사 초기에 드러나 방해가 가볍고 범인과의 관계에 참작할 사정이 있으면 벌금으로 처리되기도 합니다."
+      }
+    ],
+    "notes": [
+      "가족(친족)이나 함께 사는 가족이 본인을 위해 숨겨 준 경우는 처벌하지 않습니다.",
+      "자기 범죄를 숨기려고 남에게 대신 자수 등을 부탁하면, 부탁한 사람도 처벌될 수 있습니다."
+    ]
+  },
+  {
+    "id": "forgery-private-document",
+    "name": "사문서위조·행사",
+    "law": "형법 제231조, 제234조",
+    "group": "기타",
+    "statutory": "5년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "사문서위조",
+      "계약서 위조",
+      "서명 위조"
+    ],
+    "questions": [
+      {
+        "id": "severe",
+        "label": "피해가 크거나, 다른 범죄의 수단으로 쓰거나, 공공기관에 냈나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "planned",
+        "label": "수법이 직업적·계획적이었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "damage",
+        "label": "위조로 실제 경제적 피해가 생겼나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "severe",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "planned",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "피해가 크고 수법이 계획적이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "damage",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "severe",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ]
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 1000000,
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "실제 피해가 없거나 아주 작으면 벌금으로 처리되는 것이 일반적입니다."
+      }
+    ],
+    "notes": [
+      "위조한 문서를 실제로 쓰면 위조사문서행사죄가 함께 성립합니다."
+    ]
+  },
+  {
+    "id": "forgery-public-document",
+    "name": "공문서위조·행사",
+    "law": "형법 제225조, 제229조",
+    "group": "기타",
+    "statutory": "10년 이하의 징역",
+    "aliases": [
+      "공문서위조",
+      "신분증 위조",
+      "증명서 위조"
+    ],
+    "questions": [
+      {
+        "id": "otherCrime",
+        "label": "위조한 공문서로 다른 범죄를 저질렀나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "caught",
+        "label": "쓰려다 현장에서 바로 들켜 실제 피해가 없었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "otherCrime",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "caught",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "위조 공문서로 다른 범죄까지 저질렀다면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [],
+        "note": "벌금형이 없는 죄라 기소되면 정식재판을 받습니다. 판결문·여권 같은 중요한 문서이거나 조직적인 범행이면 더 무겁습니다."
+      }
+    ]
+  },
+  {
+    "id": "theft",
+    "name": "절도",
+    "law": "형법 제329조",
+    "group": "재산",
+    "statutory": "6년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "절도죄",
+      "도둑",
+      "물건 훔침",
+      "편의점 절도"
+    ],
+    "questions": [
+      {
+        "id": "aggravated",
+        "label": "2명 이상 함께 하거나, 남의 집에 들어가거나, 소매치기처럼 직업적이거나, 여러 번 반복했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "같은 종류(절도) 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "recovered",
+        "label": "훔친 물건을 돌려주었거나 피해를 갚았나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "youth",
+        "label": "가해자가 소년(19세 미만)이거나 학생인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "aggravated",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "여럿이 함께, 침입·흉기를 동반, 직업적·반복적인 절도는 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "동종 전과가 있거나 피해가 상당하면 정식재판이 일반적입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "recovered",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "youth",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 500000,
+          "max": 10000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "처음이고 피해품이 회수되었거나, 소년·학생이라면 기소유예가 가능합니다."
+      }
+    ],
+    "notes": [
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "night-burglary",
+    "name": "야간주거침입절도",
+    "law": "형법 제330조",
+    "group": "재산",
+    "statutory": "10년 이하의 징역",
+    "aliases": [
+      "빈집털이",
+      "야간 절도"
+    ],
+    "questions": [
+      {
+        "id": "aggravated",
+        "label": "2명 이상 함께 하거나, 흉기를 들었거나, 여러 번 반복했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "같은 종류(절도) 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "recovered",
+        "label": "훔친 물건을 돌려주었거나 피해를 갚았나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "youth",
+        "label": "가해자가 소년(19세 미만)이거나 학생인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "aggravated",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "여럿이 함께, 흉기를 동반, 반복적인 범행이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "recovered",
+              "op": "eq",
+              "value": "no"
+            },
+            {
+              "q": "youth",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "벌금형이 없는 죄라 기소되면 정식재판을 받습니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "처음이고 피해품이 회수되었거나, 소년·학생이라면 기소유예가 가능합니다."
+      }
+    ],
+    "notes": [
+      "밤에 남의 집·건물에 들어가 훔친 경우입니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "special-theft",
+    "name": "특수절도",
+    "law": "형법 제331조",
+    "group": "재산",
+    "statutory": "1년 이상 10년 이하의 징역",
+    "aliases": [
+      "합동절도",
+      "흉기 절도"
+    ],
+    "questions": [
+      {
+        "id": "repeat",
+        "label": "여러 번 반복했거나 직업적인 수법이었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "같은 종류(절도) 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "recovered",
+        "label": "훔친 물건을 돌려주었거나 피해를 갚았나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "youth",
+        "label": "가해자가 소년(19세 미만)이거나 학생인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "repeat",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "반복적·직업적인 범행이거나 동종 전과가 있으면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "recovered",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "youth",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "2명 이상 합동·흉기 휴대 자체가 무겁게 보는 사정이라 일반 절도보다 구속 가능성이 높습니다. 벌금형이 없는 죄라 기소되면 정식재판을 받습니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "처음이고 피해품이 회수된 소년·학생이라면 기소유예가 가능합니다."
+      }
+    ],
+    "notes": [
+      "2명 이상이 함께 하거나, 흉기를 들었거나, 밤에 문·담을 부수고 들어가 훔친 경우입니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "robbery",
+    "name": "강도",
+    "law": "형법 제333조",
+    "group": "재산",
+    "statutory": "3년 이상의 유기징역",
+    "aliases": [
+      "강도죄",
+      "강탈"
+    ],
+    "questions": [
+      {
+        "id": "special",
+        "label": "흉기를 들었거나, 2명 이상 함께 했거나, 밤에 집에 침입했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "injury",
+        "label": "피해자가 다쳤나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "injury",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "피해자가 다쳤다면 강도상해·치상(무기 또는 7년 이상의 징역)으로 매우 무겁게 처벌되고, 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "special",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "특수강도(무기 또는 5년 이상의 징역)에 해당할 수 있고, 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "detention",
+        "when": [],
+        "note": "구속 수사가 원칙처럼 검토됩니다. 벌금형이 없는 죄라 기소되면 정식재판을 받습니다."
+      }
+    ],
+    "notes": [
+      "물건을 훔친 뒤 붙잡히지 않으려고 폭행·협박하면 준강도로 강도와 같이 처벌됩니다."
+    ]
+  },
+  {
+    "id": "fraud",
+    "name": "사기",
+    "law": "형법 제347조",
+    "group": "재산",
+    "statutory": "20년 이하의 징역 또는 5천만원 이하의 벌금",
+    "aliases": [
+      "사기죄",
+      "차용금 사기",
+      "중고거래 사기",
+      "편취"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "피해액(속여서 받은 돈)",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10
+      },
+      {
+        "id": "agreement",
+        "label": "피해를 갚거나 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 죄로 집행유예 이상을 받은 적이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "planned",
+        "label": "처음부터 계획적·적극적으로 한 일인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 3000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "planned",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "피해액 3,000만원 이상인데 합의가 안 되었거나, 최근 동종 전과가 있거나, 수법이 계획적이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "피해액 1,000만원 이상인데 합의가 안 되었다면 정식재판이 일반적입니다. 재판 중 합의하면 집행유예가 구형될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 3000
+          },
+          "max": 50000000,
+          "atLeast": true
+        },
+        "note": "합의가 안 되면 피해액의 30% 이상이 벌금 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 1000
+          },
+          "max": 50000000,
+          "atLeast": true
+        },
+        "note": "합의했다면 피해액의 10% 이상이 벌금 기준입니다."
+      }
+    ],
+    "notes": [
+      "2026년 9월부터 법정형이 20년 이하의 징역 또는 5천만원 이하의 벌금으로 크게 올라, 실제 처리는 이보다 무거울 수 있습니다.",
+      "피해액이 5억원 이상이면 특별법(특정경제범죄법)으로 훨씬 무겁게 처벌됩니다.",
+      "소액이라도 피해 회복 가능성이 낮으면 피해액 전액에 가까운 벌금이 나올 수 있습니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "computer-fraud",
+    "name": "컴퓨터등사용사기",
+    "law": "형법 제347조의2",
+    "group": "재산",
+    "statutory": "20년 이하의 징역 또는 5천만원 이하의 벌금",
+    "aliases": [
+      "컴퓨터사기",
+      "무단 계좌이체",
+      "남의 카드 정보로 결제"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "피해액",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10
+      },
+      {
+        "id": "agreement",
+        "label": "피해를 갚거나 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 죄로 집행유예 이상을 받은 적이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "planned",
+        "label": "처음부터 계획적·적극적으로 한 일인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 3000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "planned",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "피해액 3,000만원 이상인데 합의가 안 되었거나, 최근 동종 전과가 있거나, 수법이 계획적이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "피해액 1,000만원 이상인데 합의가 안 되었다면 정식재판이 일반적입니다. 재판 중 합의하면 집행유예가 구형될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 3000
+          },
+          "max": 50000000,
+          "atLeast": true
+        },
+        "note": "합의가 안 되면 피해액의 30% 이상이 벌금 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 1000
+          },
+          "max": 50000000,
+          "atLeast": true
+        },
+        "note": "합의했다면 피해액의 10% 이상이 벌금 기준입니다."
+      }
+    ],
+    "notes": [
+      "컴퓨터·휴대폰 등에 허위 정보나 권한 없는 정보를 입력해 돈을 빼낸 경우입니다.",
+      "2026년 9월부터 법정형이 20년 이하의 징역 또는 5천만원 이하의 벌금으로 크게 올라, 실제 처리는 이보다 무거울 수 있습니다.",
+      "피해액이 5억원 이상이면 특별법(특정경제범죄법)으로 훨씬 무겁게 처벌됩니다.",
+      "소액이라도 피해 회복 가능성이 낮으면 피해액 전액에 가까운 벌금이 나올 수 있습니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "embezzlement",
+    "name": "횡령",
+    "law": "형법 제355조 제1항",
+    "group": "재산",
+    "statutory": "5년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": [
+      "횡령죄",
+      "맡긴 돈 써버림"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "횡령액",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10
+      },
+      {
+        "id": "agreement",
+        "label": "피해를 갚거나 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 죄로 집행유예 이상을 받은 적이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "planned",
+        "label": "처음부터 계획적·적극적으로 한 일인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 3000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "planned",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "횡령액 3,000만원 이상인데 합의가 안 되었거나, 최근 동종 전과가 있거나, 수법이 계획적이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "횡령액 1,000만원 이상인데 합의가 안 되었다면 정식재판이 일반적입니다. 재판 중 합의하면 집행유예가 구형될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 3000
+          },
+          "max": 15000000,
+          "atLeast": true
+        },
+        "note": "합의가 안 되면 횡령액의 30% 이상이 벌금 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 1000
+          },
+          "max": 15000000,
+          "atLeast": true
+        },
+        "note": "합의했다면 횡령액의 10% 이상이 벌금 기준입니다."
+      }
+    ],
+    "notes": [
+      "횡령·배임액이 5억원 이상이면 특별법(특정경제범죄법)으로 훨씬 무겁게 처벌됩니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "occupational-embezzlement",
+    "name": "업무상횡령",
+    "law": "형법 제356조",
+    "group": "재산",
+    "statutory": "10년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": [
+      "회사 돈 횡령",
+      "공금 횡령"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "횡령액",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10
+      },
+      {
+        "id": "agreement",
+        "label": "피해를 갚거나 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 죄로 집행유예 이상을 받은 적이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "planned",
+        "label": "처음부터 계획적·적극적으로 한 일인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 3000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "planned",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "횡령액 3,000만원 이상인데 합의가 안 되었거나, 최근 동종 전과가 있거나, 수법이 계획적이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "횡령액 1,000만원 이상인데 합의가 안 되었다면 정식재판이 일반적입니다. 재판 중 합의하면 집행유예가 구형될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 3000
+          },
+          "max": 30000000,
+          "atLeast": true
+        },
+        "note": "합의가 안 되면 횡령액의 30% 이상이 벌금 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 1000
+          },
+          "max": 30000000,
+          "atLeast": true
+        },
+        "note": "합의했다면 횡령액의 10% 이상이 벌금 기준입니다."
+      }
+    ],
+    "notes": [
+      "횡령·배임액이 5억원 이상이면 특별법(특정경제범죄법)으로 훨씬 무겁게 처벌됩니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "breach-of-trust",
+    "name": "배임",
+    "law": "형법 제355조 제2항",
+    "group": "재산",
+    "statutory": "5년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": [
+      "배임죄"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "배임액(손해액)",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10
+      },
+      {
+        "id": "agreement",
+        "label": "피해를 갚거나 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 죄로 집행유예 이상을 받은 적이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "planned",
+        "label": "처음부터 계획적·적극적으로 한 일인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 3000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "planned",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "배임액 3,000만원 이상인데 합의가 안 되었거나, 최근 동종 전과가 있거나, 수법이 계획적이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "배임액 1,000만원 이상인데 합의가 안 되었다면 정식재판이 일반적입니다. 재판 중 합의하면 집행유예가 구형될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 3000
+          },
+          "max": 15000000,
+          "atLeast": true
+        },
+        "note": "합의가 안 되면 배임액의 30% 이상이 벌금 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 1000
+          },
+          "max": 15000000,
+          "atLeast": true
+        },
+        "note": "합의했다면 배임액의 10% 이상이 벌금 기준입니다."
+      }
+    ],
+    "notes": [
+      "횡령·배임액이 5억원 이상이면 특별법(특정경제범죄법)으로 훨씬 무겁게 처벌됩니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "occupational-breach-of-trust",
+    "name": "업무상배임",
+    "law": "형법 제356조",
+    "group": "재산",
+    "statutory": "10년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": [
+      "회사 배임",
+      "업무상 배임죄"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "배임액(손해액)",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10
+      },
+      {
+        "id": "agreement",
+        "label": "피해를 갚거나 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 죄로 집행유예 이상을 받은 적이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "planned",
+        "label": "처음부터 계획적·적극적으로 한 일인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 3000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "planned",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "배임액 3,000만원 이상인데 합의가 안 되었거나, 최근 동종 전과가 있거나, 수법이 계획적이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "배임액 1,000만원 이상인데 합의가 안 되었다면 정식재판이 일반적입니다. 재판 중 합의하면 집행유예가 구형될 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 3000
+          },
+          "max": 30000000,
+          "atLeast": true
+        },
+        "note": "합의가 안 되면 배임액의 30% 이상이 벌금 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 0,
+          "perUnit": {
+            "q": "amount",
+            "over": 0,
+            "amount": 1000
+          },
+          "max": 30000000,
+          "atLeast": true
+        },
+        "note": "합의했다면 배임액의 10% 이상이 벌금 기준입니다."
+      }
+    ],
+    "notes": [
+      "횡령·배임액이 5억원 이상이면 특별법(특정경제범죄법)으로 훨씬 무겁게 처벌됩니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "extortion",
+    "name": "공갈",
+    "law": "형법 제350조",
+    "group": "재산",
+    "statutory": "10년 이하의 징역 또는 2천만원 이하의 벌금",
+    "aliases": [
+      "공갈죄",
+      "갈취",
+      "돈 뜯기"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "뜯어낸 돈 (모두 합쳐서)",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10
+      },
+      {
+        "id": "bad",
+        "label": "조직폭력배·사이비 기자처럼 죄질이 나쁜 경우인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "최근 5년 안에 같은 죄로 집행유예를 받은 적이 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "oneTime",
+        "label": "적은 돈을 한 번, 우발적으로 받은 경우인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 1000
+            }
+          ],
+          [
+            {
+              "q": "bad",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "뜯어낸 돈이 모두 1,000만원 이상이거나 죄질이 나쁘면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "oneTime",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "정식재판이 원칙입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 1000000,
+          "max": 20000000,
+          "atLeast": true
+        },
+        "note": "적은 돈을 한 번 우발적으로 받은 경우에는 벌금으로 처리되기도 합니다."
+      }
+    ],
+    "notes": [
+      "소년은 원칙적으로 불구속으로 소년부에 보내지만, 학교 주변에서 반복한 경우는 구속될 수도 있습니다.",
+      "가족(친족) 사이의 재산 범죄는 피해자의 고소가 있어야 처벌할 수 있습니다."
+    ]
+  },
+  {
+    "id": "stolen-goods",
+    "name": "장물취득",
+    "law": "형법 제362조",
+    "group": "재산",
+    "statutory": "7년 이하의 징역 또는 1천500만원 이하의 벌금",
+    "aliases": [
+      "장물",
+      "장물알선",
+      "장물보관"
+    ],
+    "questions": [
+      {
+        "id": "business",
+        "label": "장사처럼 반복했거나 같은 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "expensive",
+        "label": "물건값이 비싼가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "known",
+        "label": "훔친 사람과 원래 거래하거나 아는 사이인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "business",
+              "op": "eq",
+              "value": "yes"
+            },
+            {
+              "q": "expensive",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "고가의 장물을 영업적으로 다루거나 재범이면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "business",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "known",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 이상"
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 1000000,
+          "max": 15000000,
+          "atLeast": true
+        }
+      }
+    ],
+    "notes": [
+      "훔친 물건인 줄 알면서 사거나 맡거나 옮기거나 팔아 준 경우입니다."
+    ]
+  },
+  {
+    "id": "evasion-of-execution",
+    "name": "강제집행면탈",
+    "law": "형법 제327조",
+    "group": "재산",
+    "statutory": "3년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "재산 빼돌리기",
+      "허위양도",
+      "재산 은닉"
+    ],
+    "questions": [
+      {
+        "id": "amount",
+        "label": "빼돌린 재산 가액과 채권액 중 적은 쪽",
+        "type": "number",
+        "unit": "만원",
+        "min": 0,
+        "step": 10,
+        "help": "숨긴 재산 값과 갚아야 할 빚 가운데 더 적은 금액을 넣으세요."
+      },
+      {
+        "id": "agreement",
+        "label": "채권자와 합의했나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "합의함"
+          },
+          {
+            "value": "no",
+            "label": "합의 못 함"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 10000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "재산 가액과 채권액이 모두 1억원 이상인데 합의가 안 되었다면 구속 수사가 검토될 수 있습니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "amount",
+              "op": "gte",
+              "value": 2000
+            },
+            {
+              "q": "agreement",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "note": "재산 가액과 채권액이 모두 2,000만원 이상인데 합의가 안 되었다면 정식재판이 일반적입니다."
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 2000000,
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "합의했다면 벌금으로 처리되는 것이 일반적입니다."
+      }
+    ]
+  },
+  {
+    "id": "gambling",
+    "name": "도박",
+    "law": "형법 제246조 제1항",
+    "group": "기타",
+    "statutory": "1천만원 이하의 벌금",
+    "aliases": [
+      "도박죄",
+      "불법 도박",
+      "인터넷 도박"
+    ],
+    "questions": [
+      {
+        "id": "prior",
+        "label": "도박 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "casual",
+        "label": "고스톱처럼 판돈이 적어 일시 오락에 가까운가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 1000000,
+          "max": 10000000,
+          "atLeast": true
+        },
+        "note": "재범이면 100만원 이상이 기준입니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "casual",
+              "op": "eq",
+              "value": "no"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 500000,
+          "max": 10000000,
+          "atLeast": true
+        }
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "일시 오락에 가까우면 기소유예가 가능하고, 일시 오락 정도에 그치면 처벌하지 않습니다."
+      }
+    ],
+    "notes": [
+      "인터넷 도박은 전과와 건 돈의 규모를 보고 정합니다.",
+      "상습으로 하면 상습도박(3년 이하의 징역 또는 2천만원 이하의 벌금)으로 무겁게 처벌됩니다.",
+      "불법 스포츠 도박은 다른 법률(국민체육진흥법)이 함께 적용될 수 있습니다."
+    ]
+  },
+  {
+    "id": "gambling-place",
+    "name": "도박장소개설",
+    "law": "형법 제247조",
+    "group": "기타",
+    "statutory": "5년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": [
+      "도박장 개설",
+      "도박사이트 운영",
+      "하우스"
+    ],
+    "questions": [
+      {
+        "id": "role",
+        "label": "어떤 역할이었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "operator",
+            "label": "운영자·주범"
+          },
+          {
+            "value": "helper",
+            "label": "운영을 도움"
+          },
+          {
+            "value": "parttime",
+            "label": "단순 아르바이트·종업원"
+          }
+        ]
+      },
+      {
+        "id": "online",
+        "label": "인터넷 도박장(사이트)이었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "prior2",
+        "label": "같은 전과가 2회 이상 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "large",
+        "label": "판돈 규모가 크고 도박성이 강한 종목이었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "role",
+              "op": "neq",
+              "value": "parttime"
+            },
+            {
+              "q": "online",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "role",
+              "op": "neq",
+              "value": "parttime"
+            },
+            {
+              "q": "prior2",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "role",
+              "op": "neq",
+              "value": "parttime"
+            },
+            {
+              "q": "large",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "note": "인터넷 도박장, 동종 전과 2회 이상, 큰 판돈의 도박장 운영은 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "role",
+              "op": "eq",
+              "value": "operator"
+            }
+          ]
+        ],
+        "note": "정식재판이 원칙이며 벌금이 함께 붙을 수 있습니다."
+      },
+      {
+        "level": "summary",
+        "when": [
+          [
+            {
+              "q": "role",
+              "op": "eq",
+              "value": "helper"
+            }
+          ]
+        ],
+        "fine": {
+          "base": 3000000,
+          "max": 30000000,
+          "atLeast": true
+        },
+        "note": "도박 전과가 있으면 더 무거워집니다."
+      },
+      {
+        "level": "suspension",
+        "when": [],
+        "note": "단순 아르바이트처럼 가담 정도가 가벼우면 기소유예가 가능합니다."
+      }
+    ]
+  },
+  {
+    "id": "abuse",
+    "name": "학대",
+    "law": "형법 제273조 제1항",
+    "group": "폭력",
+    "statutory": "2년 이하의 징역 또는 500만원 이하의 벌금",
+    "aliases": [
+      "학대죄",
+      "보호자 학대",
+      "노인 학대"
+    ],
+    "questions": [
+      {
+        "id": "vulnerable",
+        "label": "피해자가 13세 미만이거나 장애인인가요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "prior",
+        "label": "같은 종류 전과가 있나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      },
+      {
+        "id": "profit",
+        "label": "학대로 이득을 얻었나요?",
+        "type": "select",
+        "options": [
+          {
+            "value": "yes",
+            "label": "예"
+          },
+          {
+            "value": "no",
+            "label": "아니오"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "vulnerable",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 이상",
+        "note": "피해자가 13세 미만이거나 장애인이면 구속 수사가 원칙처럼 검토됩니다."
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "prior",
+              "op": "eq",
+              "value": "yes"
+            }
+          ],
+          [
+            {
+              "q": "profit",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 이상"
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 2000000,
+          "max": 5000000,
+          "atLeast": true
+        },
+        "note": "피해자 나이, 학대 방법과 기간에 따라 달라집니다."
+      }
+    ],
+    "notes": [
+      "자기가 보호·감독하는 사람을 학대한 경우입니다.",
+      "피해자가 18세 미만 아동이면 아동학대 특별법이 적용되어 더 무겁게 처벌되거나 가정법원 아동보호사건으로 처리될 수 있습니다."
+    ]
+  }
+]
