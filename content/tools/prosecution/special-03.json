@@ -13999,5 +13999,278 @@
     "notes": [
       "양형기준 적용 대상입니다."
     ]
+  },
+  {
+    "id": "natural-heritage-unpermitted",
+    "name": "천연기념물 무허가 포획·채취·박제 제작 등",
+    "law": "자연유산의 보존 및 활용에 관한 법률 제66조 제1호·제2호",
+    "lawName": "자연유산의 보존 및 활용에 관한 법률",
+    "group": "환경",
+    "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+    "aliases": [
+      "천연기념물 박제",
+      "천연기념물 표본 제작",
+      "천연기념물 포획",
+      "수달 포획",
+      "보호구역 채취",
+      "자연유산법위반",
+      "문화재보호법위반"
+    ],
+    "questions": [
+      {
+        "id": "kind",
+        "label": "어떤 행위인가요",
+        "type": "select",
+        "options": [
+          {
+            "value": "specimen",
+            "label": "허가 없이 박제·표본 제작 등"
+          },
+          {
+            "value": "capture",
+            "label": "허가 없이 동물·식물·광물 포획·채취"
+          }
+        ]
+      },
+      {
+        "id": "serious",
+        "label": "전과·죄질·직업성·수익으로 볼 때 무거운 편인가요",
+        "type": "select",
+        "options": [
+          {
+            "value": "no",
+            "label": "아니오"
+          },
+          {
+            "value": "yes",
+            "label": "예"
+          }
+        ]
+      },
+      {
+        "id": "big",
+        "label": "포획·채취 규모가 큰가요",
+        "type": "select",
+        "options": [
+          {
+            "value": "no",
+            "label": "아니오"
+          },
+          {
+            "value": "yes",
+            "label": "예"
+          }
+        ]
+      }
+    ],
+    "tiers": [
+      {
+        "level": "detention",
+        "when": [
+          [
+            {
+              "q": "serious",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 이상"
+      },
+      {
+        "level": "trial",
+        "when": [
+          [
+            {
+              "q": "kind",
+              "op": "eq",
+              "value": "capture"
+            },
+            {
+              "q": "big",
+              "op": "eq",
+              "value": "yes"
+            }
+          ]
+        ],
+        "sentence": "징역 1년 이상"
+      },
+      {
+        "level": "summary",
+        "when": [],
+        "fine": {
+          "base": 5000000,
+          "atLeast": true,
+          "max": 50000000
+        }
+      }
+    ],
+    "notes": [
+      "2024년 문화재보호법에서 자연유산법으로 옮겨졌습니다."
+    ]
+  },
+  {
+    "id": "natural-heritage-habitat-pollution",
+    "name": "천연기념물 서식지·번식지에 해로운 물질 유입·살포",
+    "law": "자연유산의 보존 및 활용에 관한 법률 제67조 제2호",
+    "lawName": "자연유산의 보존 및 활용에 관한 법률",
+    "group": "환경",
+    "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금 (그 물건은 몰수)",
+    "aliases": [
+      "철새 도래지 독극물",
+      "서식지 농약 살포",
+      "자연유산법위반",
+      "문화재보호법위반"
+    ],
+    "questions": [],
+    "tiers": [
+      {
+        "level": "trial",
+        "when": [],
+        "sentence": "징역 10월 이상"
+      }
+    ],
+    "notes": [
+      "2024년 문화재보호법에서 자연유산법으로 옮겨졌습니다."
+    ]
+  },
+  {
+    "id": "forest-coop-political",
+    "name": "산림조합을 이용한 공직선거 관여",
+    "law": "산림조합법 제132조 제1항 제1호, 제7조 제2항",
+    "lawName": "산림조합법",
+    "group": "기타",
+    "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+    "aliases": [
+      "조합 정치 관여",
+      "산림조합법위반",
+      "조합 선거"
+    ],
+    "questions": [],
+    "tiers": [],
+    "consultOnly": true
+  },
+  {
+    "id": "forest-coop-vote-buying",
+    "name": "산림조합 임원 선거 금품 제공·기부행위",
+    "law": "산림조합법 제132조 제1항 제2호~제3호, 제40조 제1항·제9항, 제40조의2",
+    "lawName": "산림조합법",
+    "group": "기타",
+    "statutory": "2년 이하의 징역 또는 2천만원 이하의 벌금",
+    "aliases": [
+      "조합 선거 금품",
+      "조합 선거 기부행위",
+      "조합 임직원 선거운동",
+      "산림조합법위반",
+      "조합 선거"
+    ],
+    "questions": [],
+    "tiers": [],
+    "notes": [
+      "조합장 선거는 공공단체등 위탁선거에 관한 법률이 함께 적용될 수 있습니다."
+    ],
+    "consultOnly": true
+  },
+  {
+    "id": "forest-coop-campaign-rules",
+    "name": "산림조합 임원 선거 호별방문 등 선거운동 제한 위반",
+    "law": "산림조합법 제132조 제2항 제1호, 제40조 제2항·제4항~제8항",
+    "lawName": "산림조합법",
+    "group": "기타",
+    "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "호별방문",
+      "사전 선거운동",
+      "산림조합법위반",
+      "조합 선거"
+    ],
+    "questions": [],
+    "tiers": [],
+    "notes": [
+      "조합장 선거는 공공단체등 위탁선거에 관한 법률이 함께 적용될 수 있습니다."
+    ],
+    "consultOnly": true
+  },
+  {
+    "id": "forest-coop-false-statement",
+    "name": "산림조합 임원 선거 허위사실 공표·후보자 비방",
+    "law": "산림조합법 제132조 제3항, 제40조 제3항",
+    "lawName": "산림조합법",
+    "group": "기타",
+    "statutory": "500만원 이상 3천만원 이하의 벌금",
+    "aliases": [
+      "조합 선거 허위사실",
+      "후보자 비방",
+      "산림조합법위반",
+      "조합 선거"
+    ],
+    "questions": [],
+    "tiers": [],
+    "notes": [
+      "조합장 선거는 공공단체등 위탁선거에 관한 법률이 함께 적용될 수 있습니다."
+    ],
+    "consultOnly": true
+  },
+  {
+    "id": "osh-hazardous-substance",
+    "name": "유해물질 제조·사용 금지·허가 위반",
+    "law": "산업안전보건법 제168조 제1호, 제117조 제1항, 제118조 제1항",
+    "lawName": "산업안전보건법",
+    "group": "노동",
+    "statutory": "5년 이하의 징역 또는 5천만원 이하의 벌금",
+    "aliases": [
+      "산업안전보건법위반",
+      "석면 제조",
+      "제조금지물질"
+    ],
+    "questions": [],
+    "tiers": [],
+    "consultOnly": true
+  },
+  {
+    "id": "osh-certification-asbestos",
+    "name": "안전인증·유해위험 기계 사용 제한·석면 해체 기준 위반 등",
+    "law": "산업안전보건법 제169조 제1호 (제63조 제외)",
+    "lawName": "산업안전보건법",
+    "group": "노동",
+    "statutory": "3년 이하의 징역 또는 3천만원 이하의 벌금",
+    "aliases": [
+      "산업안전보건법위반",
+      "안전인증 미필",
+      "석면 해체 위반"
+    ],
+    "questions": [],
+    "tiers": [],
+    "consultOnly": true
+  },
+  {
+    "id": "osh-concealment-retaliation",
+    "name": "산업재해 은폐, 신고 근로자 불리한 처우, 방호조치 미이행 등",
+    "law": "산업안전보건법 제170조 제1호·제3호~제8호",
+    "lawName": "산업안전보건법",
+    "group": "노동",
+    "statutory": "1년 이하의 징역 또는 1천만원 이하의 벌금",
+    "aliases": [
+      "산업안전보건법위반",
+      "산재 은폐",
+      "산재 신고 보복 해고"
+    ],
+    "questions": [],
+    "tiers": [],
+    "consultOnly": true
+  },
+  {
+    "id": "osh-orders-reports",
+    "name": "작업환경측정·건강진단 후 조치 미이행, 명령 위반 등",
+    "law": "산업안전보건법 제171조",
+    "lawName": "산업안전보건법",
+    "group": "노동",
+    "statutory": "1천만원 이하의 벌금",
+    "aliases": [
+      "산업안전보건법위반"
+    ],
+    "questions": [],
+    "tiers": [],
+    "consultOnly": true
   }
 ]
