@@ -10,7 +10,6 @@ import { HEADER_KEYS, clientDict } from "@/lib/i18n/client-keys"
 import { centerText } from "@/lib/center-i18n"
 import { centerBase, centers, getCenter } from "@/lib/centers"
 import type { CenterLink } from "@/components/main/site-header"
-import { getVisaUi, visaList } from "@/lib/visa"
 
 /** 메인 사이트(법인 전체) 공통 틀. 한국어(/)와 외국어(/en 등)가 같은 틀을 씁니다. 글이 없는 메뉴는 숨깁니다 */
 export async function SiteLayout({ lang, children }: { lang: Lang; children: React.ReactNode }) {
@@ -34,12 +33,8 @@ export async function SiteLayout({ lang, children }: { lang: Lang; children: Rea
           const c = intl(k)
           return c ? [{ slug, name: c.name, href: centerBase(c) }] : []
         })
-  /** 추가 메뉴: 한국어는 계산기, 외국어는 (번역이 있으면) 체류자격 안내 */
-  const visaUi = lang !== "ko" && visaList(lang).length > 0 ? getVisaUi(lang) : undefined
-  const extraLinks = [
-    ...(lang === "ko" ? [{ label: "계산기", href: "/tools" }] : []),
-    ...(visaUi ? [{ label: visaUi.ui.listTitle, href: L(lang, "/visa") }] : []),
-  ]
+  /** 추가 메뉴: 한국어는 계산기 (외국어 체류자격 안내는 메뉴가 넘쳐서 바닥글에) */
+  const extraLinks = lang === "ko" ? [{ label: "계산기", href: "/tools" }] : []
   const body = (
     <>
       {lang !== "ko" && <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(HREFLANG[lang])}` }} />}

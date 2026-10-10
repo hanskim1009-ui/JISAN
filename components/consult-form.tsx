@@ -236,7 +236,7 @@ export function ConsultForm({
         concern: v("concern"),
         message: lang !== "ko" ? `[${F.lang}] ${v("message") ?? ""}` : v("message"),
         source: source ?? null,
-        page: typeof window !== "undefined" ? window.location.pathname : null,
+        page: typeof window !== "undefined" ? window.location.pathname + window.location.search : null,
       }),
     })
     return res.ok
@@ -267,7 +267,7 @@ export function ConsultForm({
         concern: v("concern"),
         message: v("message"),
         source: source ?? "",
-        page: typeof window !== "undefined" ? window.location.pathname : "",
+        page: typeof window !== "undefined" ? window.location.pathname + window.location.search : "",
       }),
     })
     return res.ok

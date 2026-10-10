@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { HREFLANG, type Lang } from "@/lib/langs"
 import Link from "next/link"
+import { getVisaUi, visaList } from "@/lib/visa"
 import { notFound } from "next/navigation"
 import { Check, MessageCircle, Phone, Plus } from "lucide-react"
 import { allCenters, centerBase, getCenter } from "@/lib/centers"
@@ -76,6 +77,10 @@ export default async function CenterPage({ params }: Props) {
   const L = centerText(center.lang)
   const P = PROFILE_TEXT[center.lang ?? "ko"]
   const foreign = Boolean(center.lang && center.lang !== "ko")
+  /** 외국인센터: 체류자격별 안내로 연결 (그 언어 번역이 있을 때) */
+  const centerLang = (center.lang ?? "ko") as Lang
+  const visaUi = center.slug.startsWith("foreigner") && visaList(centerLang).length > 0 ? getVisaUi(centerLang) : undefined
+  const visaHref = centerLang === "ko" ? "/visa" : `/${centerLang}/visa`
   const base = centerBase(center)
   // 업무사례·칼럼은 한국어만 있어 외국어판에서는 숨김
   const cases = foreign ? [] : await getCases({ center: center.slug })
@@ -253,6 +258,15 @@ export default async function CenterPage({ params }: Props) {
                 </li>
               ))}
             </ul>
+            {visaUi && (
+              <Link
+                href={visaHref}
+                className="card-lift mt-4 flex flex-col gap-1 rounded-2xl border border-[#E2E6ED] bg-white p-5 md:flex-row md:items-center md:justify-between md:p-6"
+              >
+                <span className="text-lg font-bold tracking-tight text-jisan-ink">{visaUi.ui.listTitle}</span>
+                <span className={`text-sm font-semibold ${t.accent}`}>E-9 · F-6 · D-2 · F-4 …&nbsp;→</span>
+              </Link>
+            )}
             {guideTotal > 3 && (
               <Link href={`${base}/guide`} className={`mt-6 inline-block text-sm font-semibold ${t.accent} ${guideTotal > 6 ? "" : "md:hidden"}`}>
                 {L.allGuidesN(guideTotal)}&nbsp;→

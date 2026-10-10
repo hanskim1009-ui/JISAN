@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { SectionHead } from "@/components/main/section-head"
 import { siteConfig } from "@/lib/site-config"
+import { ToolConsultLink } from "@/components/tools/consult-link"
 
 /**
  * 계산기·체크리스트 공통 틀 (한국어 메인 사이트 /tools/*).
@@ -40,12 +41,12 @@ export function ToolShell({
             <p className="text-lg font-bold">내 사건에 맞춰 다시 따져 보고 싶다면</p>
             <p className="mt-1 text-sm text-white/75">변호사가 사건 내용을 확인하고 연락드립니다. 전화 {siteConfig.phone} (24시간)</p>
           </div>
-          <Link
-            href={consultType ? `/consult?type=${encodeURIComponent(consultType)}` : "/consult"}
+          <ToolConsultLink
+            consultType={consultType}
             className="inline-flex shrink-0 items-center justify-center rounded-full bg-white px-6 py-3 text-[0.9375rem] font-semibold text-jisan-ink hover:bg-white/90"
           >
             상담 신청
-          </Link>
+          </ToolConsultLink>
         </div>
         {related && related.length > 0 && (
           <div className="mt-10">

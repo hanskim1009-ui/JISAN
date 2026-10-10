@@ -53,6 +53,31 @@ export type ConsultRow = {
   page: string | null
   status: "new" | "contacted" | "done"
   memo: string | null
+  handled_by: string | null
+  /** 처리 단계 (바꾸면 DB가 status를 맞추고 consultation_notes에 기록) */
+  progress: ConsultProgress
+  /** 담당자 (admins.user_id) */
+  assignee: string | null
+  /** 다음 연락일 YYYY-MM-DD */
+  next_contact_on: string | null
+  /** 수임한 사건 분야 */
+  retained_field: string | null
+  progress_at: string | null
+}
+
+export type ConsultProgress = "received" | "contacted" | "booked" | "consulted" | "retained" | "declined" | "unreachable"
+
+/** 상담 신청 메모·단계 기록 (consultation_notes) */
+export type ConsultNote = {
+  id: string
+  consultation_id: string
+  created_at: string
+  author: string | null
+  author_name: string
+  kind: "note" | "progress"
+  body: string
+  from_progress: ConsultProgress | null
+  to_progress: ConsultProgress | null
 }
 
 export const KIND_LABEL: Record<PostKind, string> = { column: "칼럼", diary: "감사일기", case: "업무사례" }

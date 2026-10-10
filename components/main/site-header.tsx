@@ -30,6 +30,8 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
   const megaRef = useRef<HTMLDivElement>(null)
   const t = makeT(dict)
   const ko = lang === "ko"
+  /** 메뉴 글자가 긴 언어(베트남어·몽골어)는 화면이 아주 넓을 때만 펼친 메뉴, 그 아래는 햄버거 메뉴 */
+  const longNav = lang === "vi" || lang === "mn"
 
   const nameOf = (slug: string) => {
     const l = lawyers.find((x) => x.slug === slug)
@@ -83,7 +85,7 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
               {ko ? siteConfig.name : siteConfig.nameEn}
             </Link>
 
-            <div className="hidden xl:flex items-center gap-7">
+            <div className={`${longNav ? "hidden 2xl:flex" : "hidden xl:flex"} items-center gap-7`}>
               {before.map((l) => (
                 <Link key={l.href} href={l.href} className={navLink}>
                   {l.label}
@@ -109,7 +111,7 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
               </Link>
             </div>
 
-            <div className="flex items-center gap-1 xl:hidden">
+            <div className={`flex items-center gap-1 ${longNav ? "2xl:hidden" : "xl:hidden"}`}>
               {!ko && <LangSwitch current={lang} />}
               {/* 외국어 사이트는 전화 대신 메신저 문의(상담 신청 페이지) */}
               <a href={ko ? siteConfig.phoneHref : L(lang, "/consult")} className="p-2 text-white" aria-label={t(ko ? "전화 상담" : "상담 신청")}>
@@ -128,7 +130,7 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
           </nav>
 
           {megaOpen && (
-            <div id="field-menu" className="hidden xl:block absolute left-0 right-0 top-full bg-white text-jisan-ink border-b border-[#E4E6E9] px-14 shadow-[0_12px_24px_rgba(20,25,31,0.06)]">
+            <div id="field-menu" className={`${longNav ? "hidden 2xl:block" : "hidden xl:block"} absolute left-0 right-0 top-full bg-white text-jisan-ink border-b border-[#E4E6E9] px-14 shadow-[0_12px_24px_rgba(20,25,31,0.06)]`}>
               <div className="max-w-7xl mx-auto grid grid-cols-6 gap-6 py-8">
                 {fields.map((f) => (
                   <div key={f.name}>
@@ -160,7 +162,7 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
         </div>
 
         {mobileOpen && (
-          <div className="xl:hidden border-t border-white/10 bg-white text-jisan-ink max-h-[calc(100dvh-4rem)] overflow-y-auto">
+          <div className={`${longNav ? "2xl:hidden" : "xl:hidden"} border-t border-white/10 bg-white text-jisan-ink max-h-[calc(100dvh-4rem)] overflow-y-auto`}>
             <div className="flex flex-col px-5 py-4">
               {[...before, ...after].map((l) => (
                 <Link key={l.href} href={l.href} onClick={close} className="border-b border-[#E4E6E9] py-3 text-base text-jisan-ink">

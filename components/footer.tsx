@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { regions, regionBase } from "@/lib/regions"
+import { getVisaUi, visaList } from "@/lib/visa"
 import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { LogoSvg } from "@/components/brand-logo"
 import type { Lang } from "@/lib/langs"
@@ -57,6 +58,13 @@ export function Footer({ lang = "ko" }: { lang?: Lang }) {
           </p>
         </div>
 
+        {!ko && visaList(lang).length > 0 && (
+          <nav className="mt-6 text-[0.8125rem] text-white/70">
+            <Link href={L(lang, "/visa")} className="hover:text-white">
+              {getVisaUi(lang)?.ui.listTitle}
+            </Link>
+          </nav>
+        )}
         {ko && (
           <nav aria-label="더 보기" className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-white/70">
             <Link href="/tools" className="hover:text-white">계산기·자가진단</Link>
