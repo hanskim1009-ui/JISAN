@@ -15,6 +15,7 @@
     "paper": "以纸质文件提交",
     "creditors": "债权人人数",
     "applicants": "申请人人数",
+    "plaintiffs": "原告（请求人）人数",
     "debtors": "债务人人数",
     "opponents": "对方当事人人数",
     "defendants": "被告（对方当事人）人数",
@@ -83,6 +84,7 @@
     "finalElec": "上告审（2倍）·电子诉讼减免"
   },
   "who": {
+    "parties": "当事人",
     "defendant": "被告",
     "appellee": "被上诉人",
     "finalAppellee": "被上告人",

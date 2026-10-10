@@ -162,16 +162,19 @@ export type Instance = 1 | 2 | 3
 
 /** 사건 종류 (이름은 사전 kinds) */
 export const CASE_KINDS: { value: CaseKind; hasInstance: boolean; needsSoga: boolean; parties: "opponent" | "both" }[] = [
-  { value: "civil", hasInstance: true, needsSoga: true, parties: "opponent" },
+  { value: "civil", hasInstance: true, needsSoga: true, parties: "both" },
   { value: "payment-order", hasInstance: false, needsSoga: true, parties: "both" },
   { value: "mediation", hasInstance: false, needsSoga: true, parties: "both" },
-  { value: "family-fixed", hasInstance: true, needsSoga: false, parties: "opponent" },
-  { value: "family-damages", hasInstance: true, needsSoga: true, parties: "opponent" },
-  { value: "family-division", hasInstance: true, needsSoga: true, parties: "opponent" },
+  { value: "family-fixed", hasInstance: true, needsSoga: false, parties: "both" },
+  { value: "family-damages", hasInstance: true, needsSoga: true, parties: "both" },
+  { value: "family-division", hasInstance: true, needsSoga: true, parties: "both" },
 ]
 
-/** 송달료를 낼 사람 구분 (사전 who 의 키): 피고, 피항소인, 피상고인, 채권자·채무자, 신청인·상대방, 상대방 */
-export type DeliveryWho = "defendant" | "appellee" | "finalAppellee" | "poParties" | "medParties" | "opponent"
+/**
+ * 송달료를 셀 사람 구분 (사전 who 의 키). 송달료는 원고·피고 등 당사자 모두의 수로 셈:
+ * 당사자, 채권자·채무자, 신청인·상대방 (defendant·appellee·finalAppellee·opponent 는 예전 키, 사전 호환용)
+ */
+export type DeliveryWho = "parties" | "defendant" | "appellee" | "finalAppellee" | "poParties" | "medParties" | "opponent"
 
 /**
  * 결과 제목의 사건 이름: key 가 사건 종류(CaseKind)면 사전 kinds, 아니면 사전 cases.
@@ -193,7 +196,7 @@ export type CourtFeeInput = {
   electronic: boolean
   /** 상대방(피고·피항소인·상대방·채무자) 수 */
   opponents: number
-  /** 신청인(원고·채권자) 수 — 지급명령·조정만 씀 */
+  /** 신청인(원고·채권자·청구인) 수 */
   applicants: number
 }
 
@@ -229,19 +232,19 @@ export function calcCourtFees(input: CourtFeeInput): CourtFeeResult {
         stamp = stampFirst(soga, electronic)
         if (soga <= SMALL_CLAIM_LIMIT) {
           caseName = { key: "civilSmall" }
-          dl = delivery(df, 10, "defendant")
+          dl = delivery(pl + df, 10, "parties")
         } else {
           caseName = { key: "civilFirst" }
-          dl = delivery(df, 15, "defendant")
+          dl = delivery(pl + df, 15, "parties")
         }
       } else if (instance === 2) {
         stamp = stampAppeal(soga, electronic)
         caseName = { key: "civilAppeal" }
-        dl = delivery(df, 12, "appellee")
+        dl = delivery(pl + df, 12, "parties")
       } else {
         stamp = stampFinal(soga, electronic)
         caseName = { key: "civilFinal" }
-        dl = delivery(df, 8, "finalAppellee")
+        dl = delivery(pl + df, 8, "parties")
       }
       break
     case "payment-order":
@@ -255,15 +258,14 @@ export function calcCourtFees(input: CourtFeeInput): CourtFeeResult {
     case "family-fixed":
     case "family-damages": {
       stamp = kind === "family-fixed" ? stampFamilyFixed(mul, electronic) : stampFamilyHalf(soga, mul, electronic)
-      const who: DeliveryWho = instance === 1 ? "defendant" : instance === 2 ? "appellee" : "finalAppellee"
-      dl = delivery(df, instance === 1 ? 15 : instance === 2 ? 12 : 8, who)
+      dl = delivery(pl + df, instance === 1 ? 15 : instance === 2 ? 12 : 8, "parties")
       caseName = { key: kind, instance }
       break
     }
     case "family-division":
       // 재산분할 항고는 1.5배, 재항고는 2배
       stamp = stampFamilyHalf(soga, mul, electronic)
-      dl = delivery(df, 12, "opponent")
+      dl = delivery(pl + df, 12, "parties")
       caseName = { key: kind, instance }
       break
   }

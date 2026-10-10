@@ -15,6 +15,7 @@
     "paper": "Nộp bằng hồ sơ giấy",
     "creditors": "Số người có quyền (chủ nợ)",
     "applicants": "Số người yêu cầu",
+    "plaintiffs": "Số nguyên đơn (người yêu cầu)",
     "debtors": "Số người có nghĩa vụ (con nợ)",
     "opponents": "Số người phía bên kia",
     "defendants": "Số bị đơn (phía bên kia)",
@@ -83,6 +84,7 @@
     "finalElec": "Tòa án Tối cao (gấp 2 lần) và giảm cho tố tụng điện tử"
   },
   "who": {
+    "parties": "đương sự",
     "defendant": "bị đơn",
     "appellee": "người bị kháng cáo",
     "finalAppellee": "người bị kháng cáo lên Tòa án Tối cao",

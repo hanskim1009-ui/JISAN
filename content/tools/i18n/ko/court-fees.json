@@ -15,6 +15,7 @@
     "paper": "종이 서류로 접수",
     "creditors": "채권자 수",
     "applicants": "신청인 수",
+    "plaintiffs": "원고(청구인) 수",
     "debtors": "채무자 수",
     "opponents": "상대방 수",
     "defendants": "피고(상대방) 수",
@@ -83,6 +84,7 @@
     "finalElec": "상고심(2배)·전자소송 할인"
   },
   "who": {
+    "parties": "당사자",
     "defendant": "피고",
     "appellee": "피항소인",
     "finalAppellee": "피상고인",

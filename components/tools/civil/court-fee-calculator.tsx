@@ -56,8 +56,8 @@ export function CourtFeeCalculator({ lang, t, c }: { lang: Lang; t: CourtFeesTex
     }
   }, [kind, soga, instance, electronic, opponents, applicants, meta, ui])
 
-  const opponentLabel =
-    kind === "payment-order" ? ui.debtors : kind === "mediation" ? ui.opponents : instance === "1" || !meta.hasInstance ? ui.defendants : ui.appellees
+  // 송달료는 원고·피고 모두의 수로 세므로 항소·상고에서도 원래 사건의 원고·피고 수를 받음
+  const opponentLabel = kind === "payment-order" ? ui.debtors : kind === "mediation" ? ui.opponents : ui.defendants
   const instanceNames = kind === "family-division" ? t.divisionInstances : t.instances
 
   return (
@@ -104,7 +104,7 @@ export function CourtFeeCalculator({ lang, t, c }: { lang: Lang; t: CourtFeesTex
           />
         </div>
         {meta.parties === "both" && (
-          <Field label={kind === "payment-order" ? ui.creditors : ui.applicants} htmlFor="fee-app">
+          <Field label={kind === "payment-order" ? ui.creditors : kind === "mediation" ? ui.applicants : ui.plaintiffs} htmlFor="fee-app">
             <NumberInput id="fee-app" value={applicants} onChange={setApplicants} suffix={ui.personUnit} />
           </Field>
         )}

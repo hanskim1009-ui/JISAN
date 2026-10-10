@@ -15,6 +15,7 @@
     "paper": "Filing on paper",
     "creditors": "Number of creditors",
     "applicants": "Number of applicants",
+    "plaintiffs": "Number of plaintiffs (petitioners)",
     "debtors": "Number of debtors",
     "opponents": "Number of opposing parties",
     "defendants": "Number of defendants (opposing parties)",
@@ -83,6 +84,7 @@
     "finalElec": "Final appeal (2 times) with e-litigation discount"
   },
   "who": {
+    "parties": "parties",
     "defendant": "defendant(s)",
     "appellee": "appellee(s)",
     "finalAppellee": "respondent(s) in the final appeal",

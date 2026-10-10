@@ -7,6 +7,7 @@ import { SectionHead } from "@/components/main/section-head"
 import { toolAlternates, toolAvailable, toolText } from "@/lib/tools/i18n"
 import { GROUP_KEY, TOOLS, TOOL_GROUPS } from "@/lib/tools/registry"
 import { crimeToolAvailable } from "@/lib/tools/tool-data-i18n"
+import { toolCopyright } from "@/lib/tools/copyright"
 
 /** 그 언어 목록에 보일 도구: 한국어는 전부, 외국어는 번역이 다 된 도구만 */
 export function toolsFor(lang: Lang) {
@@ -61,6 +62,7 @@ export function ToolsListPage({ lang }: { lang: Lang }) {
             </section>
           ))}
         </div>
+        <p className="mt-12 text-xs leading-relaxed text-[#8A9099]">{toolCopyright(lang)}</p>
       </div>
     </div>
   )
