@@ -1,0 +1,19 @@
+{
+  "_note": "金额·期间表记（求刑·量刑计算器共用）。中文按万·亿单位表记：150万韩元、1年6个月。",
+  "locale": "zh-CN",
+  "decimal": ".",
+  "group": ",",
+  "money": {
+    "system": "man",
+    "small": "{n}韩元",
+    "man": "{n}万韩元",
+    "eok": "{n}亿韩元",
+    "eokMan": "{eok}亿{man}万韩元"
+  },
+  "period": {
+    "year": { "other": "{n}年" },
+    "month": { "other": "{n}个月" },
+    "day": { "other": "{n}天" },
+    "sep": ""
+  }
+}
