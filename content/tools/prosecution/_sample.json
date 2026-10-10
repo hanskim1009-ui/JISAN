@@ -1,0 +1,81 @@
+[
+  {
+    "id": "sample-injury",
+    "name": "상해 (시험용)",
+    "law": "형법 제257조 제1항",
+    "group": "폭력",
+    "statutory": "7년 이하의 징역, 10년 이하의 자격정지 또는 1천만원 이하의 벌금",
+    "aliases": ["폭행치상", "시험상해"],
+    "questions": [
+      { "id": "weeks", "label": "상해 진단 기간", "type": "number", "unit": "주", "min": 0, "max": 52, "step": 1 },
+      {
+        "id": "settled",
+        "label": "피해자와 합의",
+        "type": "select",
+        "options": [
+          { "value": "yes", "label": "합의함" },
+          { "value": "no", "label": "합의 못 함" }
+        ]
+      },
+      { "id": "priors", "label": "같은 종류 전과", "type": "number", "unit": "회", "min": 0, "max": 20, "step": 1 }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "weeks", "op": "gte", "value": 12 }, { "q": "settled", "op": "eq", "value": "no" }], [{ "q": "priors", "op": "gte", "value": 3 }]], "sentence": "징역 2년 이상", "note": "진단이 길거나 전과가 많으면 구속 수사가 검토될 수 있습니다." },
+      { "level": "trial", "when": [[{ "q": "weeks", "op": "gte", "value": 8 }]], "sentence": "징역 8월 ~ 1년 6월" },
+      { "level": "trial-fine", "when": [[{ "q": "weeks", "op": "gt", "value": 4 }, { "q": "settled", "op": "neq", "value": "yes" }]], "fine": { "base": 5000000, "perUnit": { "q": "weeks", "over": 4, "amount": 1000000 }, "max": 10000000 } },
+      { "level": "suspension", "when": [[{ "q": "settled", "op": "eq", "value": "yes" }, { "q": "priors", "op": "lt", "value": 1 }]], "note": "초범이고 합의하면 재판에 넘기지 않을 수 있습니다." },
+      { "level": "summary", "when": [], "fine": { "base": 1500000, "perUnit": { "q": "weeks", "over": 2, "amount": 500000 }, "max": 10000000 } }
+    ],
+    "notes": ["합의 여부가 처분에 크게 영향을 줍니다."]
+  },
+  {
+    "id": "sample-drunk",
+    "name": "음주운전 (시험용)",
+    "law": "도로교통법 제148조의2",
+    "group": "교통",
+    "statutory": "혈중알코올농도에 따라 1년 이하 ~ 5년 이하의 징역 또는 벌금",
+    "aliases": ["음주", "술운전"],
+    "questions": [
+      { "id": "bac", "label": "혈중알코올농도", "type": "number", "unit": "%", "min": 0.03, "max": 0.5, "step": 0.001 },
+      { "id": "priors", "label": "음주운전 전과", "type": "number", "unit": "회", "min": 0, "max": 10, "step": 1 },
+      {
+        "id": "accident",
+        "label": "사고 여부",
+        "type": "select",
+        "options": [
+          { "value": "none", "label": "사고 없음" },
+          { "value": "property", "label": "물적 피해" },
+          { "value": "injury", "label": "사람이 다침" }
+        ]
+      }
+    ],
+    "tiers": [
+      { "level": "detention", "when": [[{ "q": "priors", "op": "gte", "value": 3 }], [{ "q": "bac", "op": "gte", "value": 0.2 }, { "q": "accident", "op": "eq", "value": "injury" }]], "sentence": "징역 2년 이상" },
+      { "level": "trial", "when": [[{ "q": "priors", "op": "gte", "value": 1 }], [{ "q": "accident", "op": "eq", "value": "injury" }]], "sentence": "징역 1년 ~ 2년" },
+      { "level": "trial-fine", "when": [[{ "q": "bac", "op": "gte", "value": 0.2 }]], "fine": { "base": 15000000, "atLeast": true } },
+      { "level": "summary", "when": [[{ "q": "accident", "op": "in", "value": ["none", "property"] }]], "fine": { "base": 4000000, "perUnit": { "q": "bac", "over": 0.03, "amount": 100000000 }, "max": 20000000 } }
+    ]
+  },
+  {
+    "id": "sample-domestic",
+    "name": "가정폭력 폭행 (시험용)",
+    "law": "형법 제260조",
+    "group": "폭력",
+    "statutory": "2년 이하의 징역, 500만원 이하의 벌금, 구류 또는 과료",
+    "questions": [
+      {
+        "id": "victim",
+        "label": "피해자가 처벌을 원하는지",
+        "type": "select",
+        "options": [
+          { "value": "no", "label": "원하지 않음" },
+          { "value": "yes", "label": "원함" }
+        ]
+      }
+    ],
+    "tiers": [
+      { "level": "family-court", "when": [[{ "q": "victim", "op": "eq", "value": "no" }]], "note": "가정보호사건으로 넘어갈 수 있습니다." },
+      { "level": "summary", "when": [], "fine": { "base": 3000000 } }
+    ]
+  }
+]
