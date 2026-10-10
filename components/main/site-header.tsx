@@ -30,8 +30,10 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
   const megaRef = useRef<HTMLDivElement>(null)
   const t = makeT(dict)
   const ko = lang === "ko"
-  /** 메뉴 글자가 긴 언어(베트남어·몽골어)는 화면이 아주 넓을 때만 펼친 메뉴, 그 아래는 햄버거 메뉴 */
-  const longNav = lang === "vi" || lang === "mn"
+  /** 메뉴 글자가 긴 언어(베트남어·몽골어·러시아어)는 화면이 아주 넓을 때만 펼친 메뉴, 그 아래는 햄버거 메뉴 */
+  const longNav = lang === "vi" || lang === "mn" || lang === "ru"
+  /** 외국어는 메뉴 글자가 길어 메뉴 사이 간격을 줄이고, 긴 언어는 넓은 화면에서 가로 폭을 더 씀 */
+  const menuGap = ko ? "gap-7" : longNav ? "gap-4" : "gap-5"
 
   const nameOf = (slug: string) => {
     const l = lawyers.find((x) => x.slug === slug)
@@ -79,13 +81,13 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
     <>
       <header className="sticky top-0 z-50 bg-brand text-white border-b border-white/10">
         <div ref={megaRef} className="relative px-5 md:px-12 lg:px-14">
-          <nav className="max-w-7xl mx-auto flex items-center gap-7 py-4" aria-label={t("주 메뉴")}>
+          <nav className={`${longNav ? "max-w-[96rem]" : "max-w-7xl"} mx-auto flex items-center gap-7 py-4`} aria-label={t("주 메뉴")}>
             <Link href={L(lang, "/")} className="mr-auto flex shrink-0 items-center gap-2.5 whitespace-nowrap text-[1.0625rem] font-bold tracking-tight text-white" onClick={close}>
               <LogoSvg variant="reverse" className="h-6 w-auto" />
               {ko ? siteConfig.name : siteConfig.nameEn}
             </Link>
 
-            <div className={`${longNav ? "hidden 2xl:flex" : "hidden xl:flex"} items-center gap-7`}>
+            <div className={`${longNav ? "hidden 2xl:flex" : "hidden xl:flex"} items-center ${menuGap}`}>
               {before.map((l) => (
                 <Link key={l.href} href={l.href} className={navLink}>
                   {l.label}
