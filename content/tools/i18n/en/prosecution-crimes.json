@@ -1,0 +1,4726 @@
+{
+  "_note": "English translation of ko/prosecution-crimes.json (2026-10-10). Not yet reviewed by a lawyer.",
+  "injury": {
+    "name": "Bodily injury",
+    "aliases": [
+      "injury",
+      "bodily harm",
+      "assault causing injury",
+      "hurting someone"
+    ],
+    "statutory": "Up to 7 years in prison, suspension of qualifications for up to 10 years, or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Article 257(1)",
+    "questions": {
+      "weeks": {
+        "label": "Length of the injury diagnosis",
+        "help": "The treatment period written on the medical certificate (e.g. 'needs ○ weeks of treatment').",
+        "unit": "weeks"
+      },
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "fault": {
+        "label": "Who was more to blame for the fight?",
+        "options": {
+          "victim": "The victim was more to blame",
+          "both": "Both sides about equally",
+          "none": "The victim was hardly to blame"
+        }
+      },
+      "violencePrior": {
+        "label": "Prior violence convictions (fine or heavier)",
+        "help": "The number of times you received a fine or a heavier sentence for a violent crime such as injury, assault, intimidation or property damage. A suspension of indictment does not count.",
+        "options": {
+          "none": "None",
+          "some": "Yes, but none of the cases below",
+          "ten4": "4 or more within 10 years",
+          "three2": "2 or more within 3 years (all fines)",
+          "three2s": "2 or more within 3 years (including a suspended sentence or heavier)"
+        }
+      },
+      "vulnerable": {
+        "label": "Was it done while drunk and for no particular reason against a vulnerable person, such as an elderly person, a child, a woman or a person with a disability?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the diagnosis is 8 weeks or more and there is no settlement, if there are many prior violence convictions, or if a vulnerable person suffered an injury of 4 weeks or more, investigation in detention may be considered."
+      },
+      {
+        "note": "If the diagnosis is 4 weeks or more with no settlement, or 8 weeks or more, the case usually goes to a formal trial rather than ending with a fine. A settlement may lighten the outcome, for example to a suspended sentence."
+      },
+      {
+        "note": "If the victim was hardly to blame, the usual practice is a base fine of KRW 2 million plus KRW 1 million for each week beyond 2 weeks. A settlement may reduce it."
+      },
+      {
+        "note": "If both sides were about equally to blame, the usual practice is a base fine of KRW 1 million plus KRW 500,000 for each week beyond 2 weeks. A settlement may reduce it."
+      },
+      {
+        "note": "If the victim was more to blame, the usual practice is a base fine of KRW 500,000 plus KRW 300,000 for each week beyond 2 weeks."
+      },
+      {
+        "note": "If the victim was more to blame and the injury of 2 weeks or less came from a minor quarrel, a fine below KRW 500,000 or a suspension of indictment is also possible."
+      }
+    ],
+    "notes": [
+      "The fine becomes heavier if a weapon was used, if the victim was a vulnerable person, or if there is a prior violence conviction within 1 year.",
+      "If an unexpectedly serious injury resulted, the amount is set separately instead of using the per-week calculation.",
+      "If you only defended yourself after the other person attacked first, it may count as self-defense and not be punished."
+    ]
+  },
+  "assault": {
+    "name": "Assault",
+    "aliases": [
+      "battery",
+      "hitting",
+      "fight",
+      "physical attack"
+    ],
+    "statutory": "Up to 2 years in prison, a fine of up to KRW 5 million, short-term detention, or a petty fine",
+    "law": "Criminal Act, Article 260(1)",
+    "questions": {
+      "agreement": {
+        "label": "Did the victim say they do not want you punished? (settlement)",
+        "options": {
+          "yes": "Does not want punishment (settled)",
+          "no": "Wants punishment (not settled)"
+        }
+      },
+      "degree": {
+        "label": "How serious was the assault?",
+        "options": {
+          "minor": "Minor (pushing, etc.)",
+          "normal": "Moderate",
+          "serious": "Serious (hitting several times, etc.)"
+        }
+      },
+      "fault": {
+        "label": "Who was more to blame for the fight?",
+        "options": {
+          "victim": "The victim was more to blame",
+          "both": "Both sides about equally",
+          "none": "The victim was hardly to blame"
+        }
+      },
+      "violencePrior": {
+        "label": "Prior violence convictions (fine or heavier)",
+        "help": "The number of times you received a fine or a heavier sentence for a violent crime such as injury, assault, intimidation or property damage. A suspension of indictment does not count.",
+        "options": {
+          "none": "None",
+          "some": "Yes, but none of the cases below",
+          "ten4": "4 or more within 10 years",
+          "three2": "2 or more within 3 years (all fines)",
+          "three2s": "2 or more within 3 years (including a suspended sentence or heavier)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is in practice treated almost as the rule when you use violence again."
+      },
+      {
+        "note": "With several prior violence convictions (2 or more within 3 years, or 4 or more within 10 years), the usual handling standard is to send the case to a formal trial instead of ending it with a fine."
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "Assault cannot be punished if the victim does not want punishment (an offense not punishable against the victim's wishes), so a settlement ends the case. If the victim was largely to blame and the assault was minor, a suspension of indictment or a small fine is also possible."
+      }
+    ],
+    "notes": [
+      "If the offense is serious, such as entering someone's home and hitting them, it may go to a formal trial.",
+      "The fine increases if a dangerous object was used, if the victim was a vulnerable person, or if there is a prior violence conviction within 1 year."
+    ]
+  },
+  "special-injury": {
+    "name": "Special bodily injury",
+    "aliases": [
+      "injury with a weapon",
+      "aggravated injury"
+    ],
+    "statutory": "1 to 10 years in prison",
+    "law": "Criminal Act, Article 258-2(1)",
+    "questions": {
+      "weeks": {
+        "label": "Length of the injury diagnosis",
+        "unit": "weeks"
+      },
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "prior": {
+        "label": "Do you have a prior conviction of the same type (violence)?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "2 years 6 months or more in prison",
+        "note": "When someone was injured with a dangerous object, investigation in detention is treated almost as the rule, and a prior conviction of the same type makes the requested sentence 1 to 2 years heavier."
+      },
+      {
+        "sentence": "1 year 6 months or more in prison",
+        "note": "When someone was injured with a dangerous object, investigation in detention is treated almost as the rule."
+      },
+      {
+        "sentence": "A request below 1 year 6 months in prison is possible",
+        "note": "With no prior conviction of the same type, an injury of 2 weeks or less and a settlement, the requested sentence may be lower. This crime has no fine option, so if charged, the case goes to a formal trial."
+      }
+    ],
+    "notes": [
+      "This is when someone causes an injury while showing the force of a group or carrying a dangerous object (a knife, a blunt object, a broken bottle, etc.)."
+    ]
+  },
+  "special-assault": {
+    "name": "Special assault",
+    "aliases": [
+      "assault with a weapon",
+      "aggravated assault"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Article 261",
+    "questions": {
+      "degree": {
+        "label": "How serious was the assault?",
+        "options": {
+          "minor": "Minor (pushing, etc.)",
+          "normal": "Moderate",
+          "serious": "Serious (hitting several times, etc.)"
+        }
+      },
+      "fault": {
+        "label": "Who was more to blame for the fight?",
+        "options": {
+          "victim": "The victim was more to blame",
+          "both": "Both sides about equally",
+          "none": "The victim was hardly to blame"
+        }
+      },
+      "violencePrior": {
+        "label": "Prior violence convictions (fine or heavier)",
+        "help": "The number of times you received a fine or a heavier sentence for a violent crime such as injury, assault, intimidation or property damage. A suspension of indictment does not count.",
+        "options": {
+          "none": "None",
+          "some": "Yes, but none of the cases below",
+          "ten4": "4 or more within 10 years",
+          "three2": "2 or more within 3 years (all fines)",
+          "three2s": "2 or more within 3 years (including a suspended sentence or heavier)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is in practice treated almost as the rule when you use violence again."
+      },
+      {
+        "note": "With several prior violence convictions (2 or more within 3 years, or 4 or more within 10 years), the usual handling standard is to send the case to a formal trial instead of ending it with a fine."
+      },
+      {},
+      {},
+      {},
+      {
+        "note": "Because a dangerous object was used, the fine is usually higher than for an ordinary assault."
+      }
+    ],
+    "notes": [
+      "The fines above follow the standard for ordinary assault; because a dangerous object was used, the actual result may be heavier.",
+      "Unlike ordinary assault, this crime can be punished even after a settlement. A settlement may still reduce the fine."
+    ]
+  },
+  "joint-assault": {
+    "name": "Joint assault",
+    "aliases": [
+      "group assault"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 7.5 million (the Criminal Act penalty for assault increased by up to 1/2)",
+    "law": "Punishment of Violences, etc. Act, Article 2(2)(1); Criminal Act, Article 260(1)",
+    "questions": {
+      "severity": {
+        "label": "How serious was the assault?",
+        "options": {
+          "minor": "Minor (pushing, etc.)",
+          "normal": "Moderate",
+          "severe": "Serious (hitting several times, etc.)"
+        }
+      },
+      "fault": {
+        "label": "Cause of the fight",
+        "options": {
+          "victim": "The other person was more to blame",
+          "both": "Both sides were to blame",
+          "none": "The other person was not to blame"
+        }
+      },
+      "record": {
+        "label": "Prior violence convictions",
+        "help": "Records of punishment for assault, injury, intimidation, trespass, property damage, etc.",
+        "options": {
+          "none": "None",
+          "once": "Yes (but neither of the two cases below)",
+          "fine2": "2 or more fines or heavier within the last 3 years",
+          "jy2": "2 or more within the last 3 years, including a suspended sentence or heavier"
+        }
+      },
+      "settled": {
+        "label": "Settlement with the victim",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is considered."
+      },
+      {
+        "note": "With a prior violence conviction, the usual handling standard is a formal trial."
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "If the other person was more to blame and the assault was minor, the circumstances may be taken into account."
+      }
+    ],
+    "notes": [
+      "Unlike simple assault, this can be punished even if the victim does not want punishment.",
+      "A settlement may reduce the fine; a prior conviction of the same type within 1 year or a vulnerable victim makes it heavier.",
+      "If the offense is serious, such as repeatedly hitting an elderly or frail person or entering someone's home to assault them, it may go to a formal trial."
+    ]
+  },
+  "joint-injury": {
+    "name": "Joint bodily injury",
+    "aliases": [
+      "group injury"
+    ],
+    "statutory": "Up to 10 years 6 months in prison, suspension of qualifications for up to 15 years, or a fine of up to KRW 15 million (the Criminal Act penalty for bodily injury increased by up to 1/2)",
+    "law": "Punishment of Violences, etc. Act, Article 2(2)(3); Criminal Act, Article 257(1)",
+    "questions": {
+      "weeks": {
+        "label": "Length of the injury diagnosis",
+        "help": "The treatment period written on the medical certificate.",
+        "unit": "weeks"
+      },
+      "fault": {
+        "label": "Cause of the fight",
+        "options": {
+          "victim": "The other person was more to blame",
+          "both": "Both sides were to blame",
+          "none": "The other person was not to blame"
+        }
+      },
+      "record": {
+        "label": "Prior violence convictions",
+        "help": "Records of punishment for assault, injury, intimidation, trespass, property damage, etc.",
+        "options": {
+          "none": "None",
+          "once": "Yes (but neither of the two cases below)",
+          "fine2": "2 or more fines or heavier within the last 3 years",
+          "jy2": "2 or more within the last 3 years, including a suspended sentence or heavier"
+        }
+      },
+      "settled": {
+        "label": "Settlement with the victim",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the diagnosis is 6 weeks or more with no settlement, or 8 weeks or more with a prior violence conviction, investigation in detention is considered."
+      },
+      {
+        "note": "If the diagnosis is 4 weeks or more with no settlement, or 8 weeks or more, a formal trial is the rule."
+      },
+      {
+        "note": "KRW 1 million is added for each week beyond 2 weeks."
+      },
+      {
+        "note": "KRW 500,000 is added for each week beyond 2 weeks."
+      },
+      {
+        "note": "KRW 300,000 is added for each week beyond 2 weeks."
+      }
+    ],
+    "notes": [
+      "A settlement may reduce it; a prior conviction of the same type within 1 year or a vulnerable victim makes it heavier.",
+      "If a vulnerable person was injured for 4 weeks or more by a drunk offender for no reason, detention is considered even for a first offense or after a settlement.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "threat": {
+    "name": "Intimidation (threat)",
+    "aliases": [
+      "threat",
+      "threatening",
+      "intimidation"
+    ],
+    "statutory": "Up to 3 years in prison, a fine of up to KRW 5 million, short-term detention, or a petty fine",
+    "law": "Criminal Act, Article 283(1)",
+    "questions": {
+      "agreement": {
+        "label": "Did the victim say they do not want you punished? (settlement)",
+        "options": {
+          "yes": "Does not want punishment (settled)",
+          "no": "Wants punishment (not settled)"
+        }
+      },
+      "degree": {
+        "label": "How serious was the threat?",
+        "options": {
+          "minor": "Minor (unlikely to be carried out)",
+          "normal": "Moderate",
+          "serious": "Serious (likely to be carried out, or repeated)"
+        }
+      },
+      "mitigating": {
+        "label": "Are there circumstances worth considering, such as the victim having provoked it?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "gain": {
+        "label": "Did you try to get money or some advantage through the threat?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "violencePrior": {
+        "label": "Prior violence convictions (fine or heavier)",
+        "help": "The number of times you received a fine or a heavier sentence for a violent crime such as injury, assault, intimidation or property damage. A suspension of indictment does not count.",
+        "options": {
+          "none": "None",
+          "some": "Yes, but none of the cases below",
+          "ten4": "4 or more within 10 years",
+          "three2": "2 or more within 3 years (all fines)",
+          "three2s": "2 or more within 3 years (including a suspended sentence or heavier)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is in practice treated almost as the rule when you use violence again."
+      },
+      {
+        "note": "With several prior violence convictions, or if the threat was used to get money or an advantage, a formal trial is usual."
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "Intimidation cannot be punished if the victim does not want punishment (an offense not punishable against the victim's wishes), so a settlement ends the case. For a minor threat with mitigating reasons, a suspension of indictment is also possible."
+      }
+    ]
+  },
+  "special-threat": {
+    "name": "Special intimidation",
+    "aliases": [
+      "threat with a weapon"
+    ],
+    "statutory": "Up to 7 years in prison or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Article 284",
+    "questions": {
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "violencePrior": {
+        "label": "Prior violence convictions (fine or heavier)",
+        "help": "The number of times you received a fine or a heavier sentence for a violent crime such as injury, assault, intimidation or property damage. A suspension of indictment does not count.",
+        "options": {
+          "none": "None",
+          "some": "Yes, but none of the cases below",
+          "ten4": "4 or more within 10 years",
+          "three2": "2 or more within 3 years (all fines)",
+          "three2s": "2 or more within 3 years (including a suspended sentence or heavier)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "When the threat was made while holding a dangerous object, investigation in detention is treated almost as the rule."
+      },
+      {
+        "note": "With circumstances such as a settlement, you may be tried without detention, but a formal trial is the rule rather than ending with a fine."
+      }
+    ],
+    "notes": [
+      "Unlike ordinary intimidation, this crime can be punished even after a settlement."
+    ]
+  },
+  "joint-intimidation": {
+    "name": "Joint intimidation",
+    "aliases": [
+      "group threat"
+    ],
+    "statutory": "Up to 4 years 6 months in prison or a fine of up to KRW 7.5 million (the Criminal Act penalty for intimidation increased by up to 1/2)",
+    "law": "Punishment of Violences, etc. Act, Article 2(2)(1); Criminal Act, Article 283(1)",
+    "questions": {
+      "severity": {
+        "label": "How serious was the threat?",
+        "options": {
+          "minor": "Minor (unlikely to be carried out)",
+          "normal": "Moderate",
+          "severe": "Serious (likely to be carried out, or repeated)"
+        }
+      },
+      "mitigating": {
+        "label": "Are there circumstances worth considering in how the threat came about?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      },
+      "wantsPunish": {
+        "label": "Does the victim want punishment?",
+        "options": {
+          "no": "Does not want it",
+          "yes": "Wants it"
+        }
+      },
+      "record": {
+        "label": "Prior violence convictions",
+        "help": "Records of punishment for assault, injury, intimidation, trespass, property damage, etc.",
+        "options": {
+          "none": "None",
+          "once": "Yes (but neither of the two cases below)",
+          "fine2": "2 or more fines or heavier within the last 3 years",
+          "jy2": "2 or more within the last 3 years, including a suspended sentence or heavier"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "note": "Unless the victim does not want punishment, a formal trial is the rule."
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "If the threat was minor and there are circumstances worth considering, it is handled according to those circumstances."
+      }
+    ],
+    "notes": [
+      "This crime can be punished even if the victim does not want punishment.",
+      "A settlement may reduce it."
+    ]
+  },
+  "confinement": {
+    "name": "Arrest and confinement",
+    "aliases": [
+      "false imprisonment",
+      "unlawful detention",
+      "kidnapping"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 7 million",
+    "law": "Criminal Act, Article 276(1)",
+    "questions": {
+      "nature": {
+        "label": "What was the situation?",
+        "options": {
+          "planned": "To commit another crime, or planned in advance",
+          "ordinary": "Other cases",
+          "impulsive": "Spontaneous, short and simple"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If there was an unlawful purpose, planning, or it was a means to another crime, investigation in detention may be considered."
+      },
+      {
+        "note": "A formal trial is the rule."
+      },
+      {
+        "note": "Spontaneous and simple cases are sometimes handled with a fine."
+      }
+    ]
+  },
+  "coercion": {
+    "name": "Coercion",
+    "aliases": [
+      "forcing someone",
+      "duress"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 30 million",
+    "law": "Criminal Act, Article 324(1)",
+    "questions": {
+      "harm": {
+        "label": "Was the harm large and serious?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "mitigating": {
+        "label": "Are there especially strong reasons to consider how it happened?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the harm is serious, investigation in detention may be considered."
+      },
+      {
+        "sentence": "1 year or more in prison",
+        "note": "A formal trial is the rule. A settlement may lighten it."
+      },
+      {
+        "note": "With especially strong mitigating circumstances, it is sometimes handled with a fine."
+      }
+    ],
+    "notes": [
+      "It becomes heavier if there is a prior violence conviction within 1 year or the victim was a vulnerable person."
+    ]
+  },
+  "trespass": {
+    "name": "Trespass (entering a home)",
+    "aliases": [
+      "housebreaking",
+      "breaking and entering",
+      "home invasion"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 5 million",
+    "law": "Criminal Act, Article 319(1)",
+    "questions": {
+      "linked": {
+        "label": "Was it done together with another crime, such as assault or theft?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "danger": {
+        "label": "Was there a dangerous purpose, such as intending to harm someone inside?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the entry was linked to a violent or property crime, investigation in detention may be considered."
+      },
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {
+        "note": "A single spontaneous entry is usually handled with a fine."
+      },
+      {
+        "note": "If it was a single spontaneous incident and you settled, a suspension of indictment may also be considered."
+      }
+    ]
+  },
+  "property-damage": {
+    "name": "Property damage",
+    "aliases": [
+      "vandalism",
+      "criminal damage",
+      "destruction of property"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 7 million",
+    "law": "Criminal Act, Article 366",
+    "questions": {
+      "amount": {
+        "label": "Amount of damage",
+        "help": "The repair cost or value of the damaged property.",
+        "unit": "× KRW 10,000"
+      },
+      "agreement": {
+        "label": "Did you pay for the damage and settle?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "violencePrior": {
+        "label": "Prior violence convictions (fine or heavier)",
+        "help": "The number of times you received a fine or a heavier sentence for a violent crime such as injury, assault, intimidation or property damage. A suspension of indictment does not count.",
+        "options": {
+          "none": "None",
+          "some": "Yes, but none of the cases below",
+          "ten4": "4 or more within 10 years",
+          "three2": "2 or more within 3 years (all fines)",
+          "three2s": "2 or more within 3 years (including a suspended sentence or heavier)"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If you have 2 or more violence convictions within the last 3 years, including a suspended sentence or heavier, investigation in detention is in practice treated almost as the rule when you use violence again."
+      },
+      {
+        "sentence": "8 months or more in prison",
+        "note": "If the damage is KRW 10,000,000 or more and there is no settlement, a formal trial is usual."
+      },
+      {},
+      {
+        "note": "If you paid for the damage and settled, a suspension of indictment may be considered. Depending on the circumstances, a fine may still be imposed."
+      }
+    ]
+  },
+  "joint-property-damage": {
+    "name": "Joint property damage",
+    "aliases": [
+      "group vandalism"
+    ],
+    "statutory": "Up to 4 years 6 months in prison or a fine of up to KRW 10.5 million (the Criminal Act penalty for property damage increased by up to 1/2)",
+    "law": "Punishment of Violences, etc. Act, Article 2(2)(1); Criminal Act, Article 366",
+    "questions": {
+      "damage": {
+        "label": "Amount of damage",
+        "unit": "× KRW 10,000"
+      },
+      "wantsPunish": {
+        "label": "Does the victim want punishment?",
+        "options": {
+          "no": "Does not want it",
+          "yes": "Wants it"
+        }
+      },
+      "mitigating": {
+        "label": "Was it spontaneous, or are there circumstances worth considering in how it happened?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      },
+      "record": {
+        "label": "Prior violence convictions",
+        "help": "Records of punishment for assault, injury, intimidation, trespass, property damage, etc.",
+        "options": {
+          "none": "None",
+          "once": "Yes (but neither of the two cases below)",
+          "fine2": "2 or more fines or heavier within the last 3 years",
+          "jy2": "2 or more within the last 3 years, including a suspended sentence or heavier"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "note": "Unless the victim does not want punishment, a formal trial is the rule, and if the damage was done violently, 1 year or more in prison may be requested."
+      },
+      {
+        "note": "At least 1/2 of the damage or KRW 1 million, whichever is larger."
+      },
+      {
+        "note": "At least 1/2 of the damage or KRW 500,000, whichever is larger."
+      }
+    ],
+    "notes": [
+      "Paying for the damage or settling may reduce it."
+    ]
+  },
+  "driver-assault": {
+    "name": "Assaulting a driver of a moving vehicle",
+    "aliases": [
+      "assaulting a taxi driver",
+      "assaulting a bus driver"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 20 million (3 years or more in prison for a fixed term if someone is injured; life imprisonment or 5 years or more in prison if someone dies)",
+    "law": "Act on the Aggravated Punishment of Specific Crimes, Article 5-10(1)",
+    "questions": {
+      "danger": {
+        "label": "Danger caused by the assault",
+        "options": {
+          "none": "No risk of an accident",
+          "accident": "A traffic accident happened or there was a concrete danger",
+          "others": "Passengers or others were injured, or the risk of an accident was very high"
+        }
+      },
+      "publicTransit": {
+        "label": "Was the driver operating public transportation carrying many people, such as a bus?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "record": {
+        "label": "Prior violence convictions",
+        "help": "Records of punishment for assault, injury, intimidation, trespass, property damage, etc.",
+        "options": {
+          "none": "None",
+          "once": "Yes (but neither of the two cases below)",
+          "fine2": "2 or more fines or heavier within the last 3 years",
+          "jy2": "2 or more within the last 3 years, including a suspended sentence or heavier"
+        }
+      },
+      "settled": {
+        "label": "Settlement with the victim",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {},
+      {},
+      {},
+      {
+        "note": "This is the standard for a first, spontaneous offense with no accident and a settlement."
+      }
+    ],
+    "notes": [
+      "'Moving' also includes a brief stop to let passengers on or off.",
+      "This can be punished even if the victim does not want punishment. If there were no other passengers, it may be reduced.",
+      "If the driver or someone else is injured, it becomes 'causing injury', which carries only imprisonment of 3 years or more and is much heavier."
+    ]
+  },
+  "domestic-violence": {
+    "name": "Domestic violence",
+    "aliases": [
+      "family violence",
+      "spousal abuse",
+      "DV"
+    ],
+    "statutory": "Follows the statutory penalty of the underlying crime (e.g. assault: up to 2 years in prison or a fine of up to KRW 5 million; bodily injury: up to 7 years in prison, suspension of qualifications for up to 10 years, or a fine of up to KRW 10 million)",
+    "law": "Act on Special Cases Concerning the Punishment of Domestic Violence Crimes (assault, bodily injury, intimidation, etc. under the Criminal Act)",
+    "questions": {
+      "weapon": {
+        "label": "Was a weapon or dangerous object held, or was it habitual?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "priors": {
+        "label": "Domestic violence history within the last 3 years",
+        "help": "Also count cases that ended without punishment (suspension of indictment, referral as a domestic protection case, or ended because the victim did not want punishment).",
+        "unit": "times"
+      },
+      "severity": {
+        "label": "How serious was the harm?",
+        "options": {
+          "minor": "Minor",
+          "serious": "Serious enough to break up the family, or a high risk of further harm"
+        }
+      },
+      "counsel": {
+        "label": "Do you agree to receive counseling or education?",
+        "options": {
+          "no": "Do not agree",
+          "yes": "Agree"
+        }
+      },
+      "victimAgrees": {
+        "label": "Does the victim want to keep the family together and not want punishment?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "With a weapon or habitual violence, 2 or more incidents within the last 3 years, or a risk of serious harm, investigation in detention is considered as a rule."
+      },
+      {
+        "note": "If the case is not serious and you agree to counseling or education, a suspension of indictment on the condition of counseling or education is considered first."
+      },
+      {
+        "note": "Taking into account how it happened and the victim's wishes, sending the case as a domestic protection case (protective disposition by the Family Court) is actively considered. If the harm is serious or the victim wants punishment, it may go to an ordinary criminal trial."
+      }
+    ],
+    "notes": [
+      "Even if the victim does not want punishment, the case may be sent as a domestic protection case if there is a risk of repeat offending.",
+      "If the victim wants to keep the family together and a fine would burden the household, avoiding a fine is considered.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "child-abuse": {
+    "name": "Child abuse (physical or emotional abuse, neglect)",
+    "aliases": [
+      "child neglect",
+      "child maltreatment"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 50 million",
+    "law": "Child Welfare Act, Articles 71(1)(2) and 17 / Act on Special Cases Concerning the Punishment of Child Abuse Crimes",
+    "questions": {
+      "severity": {
+        "label": "How serious was the abuse?",
+        "options": {
+          "minor": "Minor (a single instance of physical punishment or verbal abuse, etc.)",
+          "moderate": "Repeated, or the child was injured",
+          "serious": "Seriously injured, or repeated over a long time"
+        }
+      },
+      "weapon": {
+        "label": "Was a weapon or dangerous object used, or was it habitual?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "priors": {
+        "label": "Child abuse history within the last 3 years",
+        "help": "Also count cases that ended without punishment (suspension of indictment, referral as a child protection case, etc.).",
+        "unit": "times"
+      },
+      "counsel": {
+        "label": "Do you agree to receive counseling, education or treatment?",
+        "options": {
+          "no": "Do not agree",
+          "yes": "Agree"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the offense is serious, detention is considered even for a single incident."
+      },
+      {
+        "sentence": "1 year 6 months or more in prison",
+        "note": "Perpetrators of child abuse are, as a rule, sent to a formal trial."
+      },
+      {
+        "note": "If the case is not serious and you agree to counseling, education or treatment, a conditional suspension of indictment or referral as a child protection case (protective disposition by the Family Court) is considered."
+      }
+    ],
+    "notes": [
+      "After a 2016 amendment, the maximum fine rose from KRW 30 million to KRW 50 million.",
+      "For perpetrators of child abuse, an order to attend lectures or complete a program is requested together with the sentence.",
+      "If a person caring for children, such as at a daycare center or school, commits the abuse, the penalty is increased by up to 1/2.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "new-stalking": {
+    "name": "Stalking",
+    "aliases": [
+      "stalker",
+      "harassment",
+      "following someone"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 30 million (up to 5 years in prison or a fine of up to KRW 50 million if carrying or using a weapon or other dangerous object)",
+    "law": "Act on the Punishment of Stalking Crimes, Article 18",
+    "questions": {
+      "type": {
+        "label": "Were you carrying a weapon or similar object?",
+        "options": {
+          "general": "No (ordinary stalking)",
+          "weapon": "Yes (carried or used a weapon or other dangerous object)"
+        }
+      },
+      "circ": {
+        "label": "Circumstances",
+        "help": "Settlement or the victim not wanting punishment, compensation for the harm, sincere remorse and a first offense are mitigating; planning, serious harm and prior convictions of the same type are aggravating.",
+        "options": {
+          "mitigated": "More mitigating circumstances",
+          "basic": "About even",
+          "aggravated": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "2 to 5 years in prison"
+      },
+      {
+        "sentence": "1 year 4 months to 3 years in prison"
+      },
+      {
+        "sentence": "Up to 1 year 8 months in prison, or a fine of KRW 3 million to 20 million"
+      },
+      {
+        "sentence": "1 year 8 months to 3 years in prison"
+      },
+      {
+        "sentence": "1 to 2 years in prison, or a fine of KRW 5 million to 20 million"
+      },
+      {
+        "sentence": "Up to 1 year 4 months in prison, or a fine of KRW 1 million to 10 million"
+      }
+    ],
+    "notes": [
+      "Stalking is when someone, against the other person's wishes, keeps approaching or following them, waiting near their home or workplace, or contacting them through calls, texts or messenger apps, continuously or repeatedly, causing anxiety or fear.",
+      "Since a 2023 amendment, stalking can be punished even if the victim does not want punishment.",
+      "During the investigation, measures such as a no-contact order or an electronic location-tracking device may be imposed, and violating them is punished separately."
+    ]
+  },
+  "new-stalking-order-violation": {
+    "name": "Violating a stalking provisional measure or emergency measure",
+    "aliases": [
+      "restraining order violation",
+      "no-contact order violation"
+    ],
+    "statutory": "Violating a provisional measure: up to 2 years in prison or a fine of up to KRW 20 million / Violating an emergency measure: up to 1 year in prison or a fine of up to KRW 10 million",
+    "law": "Act on the Punishment of Stalking Crimes, Article 20(2) and (3)",
+    "questions": {
+      "type": {
+        "label": "Which measure did you violate?",
+        "options": {
+          "emergency": "An emergency measure by the police (no-contact order, etc.)",
+          "interim": "A provisional measure by the court (no approach within 100 m, no contact)"
+        }
+      },
+      "circ": {
+        "label": "Circumstances",
+        "help": "Settlement or the victim not wanting punishment, compensation for the harm, sincere remorse and a first offense are mitigating; planning, serious harm and prior convictions of the same type are aggravating.",
+        "options": {
+          "mitigated": "More mitigating circumstances",
+          "basic": "About even",
+          "aggravated": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "1 year 8 months to 2 years in prison"
+      },
+      {
+        "sentence": "1 to 2 years in prison, or a fine of KRW 3 million to 15 million"
+      },
+      {
+        "sentence": "Up to 1 year 4 months in prison, or a fine of KRW 1 million to 7 million"
+      },
+      {
+        "sentence": "1 year in prison (the statutory maximum), or a fine of KRW 5 million to 10 million"
+      },
+      {
+        "sentence": "8 months to 1 year in prison, or a fine of KRW 2 million to 6 million"
+      },
+      {
+        "sentence": "Up to 1 year in prison, or a fine of KRW 1 million to 3 million"
+      }
+    ],
+    "notes": [
+      "An emergency measure is an order, such as a no-contact order, that the police issue directly in urgent situations; a provisional measure is an order issued by the court at the prosecutor's request.",
+      "If you violate a measure, a stronger provisional measure, such as being held in a police cell or detention center, may be imposed.",
+      "It is often punished together with the stalking crime itself."
+    ]
+  },
+  "indecent-assault": {
+    "name": "Indecent assault (sexual molestation by force)",
+    "aliases": [
+      "sexual assault",
+      "molestation",
+      "groping",
+      "sexual harassment"
+    ],
+    "statutory": "Up to 10 years in prison or a fine of up to KRW 15 million",
+    "law": "Criminal Act, Article 298",
+    "questions": {
+      "prior": {
+        "label": "Do you have a prior conviction of the same type (sex crime)?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "degree": {
+        "label": "How serious was the touching?",
+        "options": {
+          "light": "Relatively minor (brief contact over clothing, etc.)",
+          "heavy": "Serious"
+        }
+      },
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "youth": {
+        "label": "Is the offender a juvenile (under 19) who is sincerely remorseful?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "With a prior conviction of the same type, a bad method, or secondary harm to the victim, investigation in detention may be considered."
+      },
+      {
+        "note": "If the touching was serious, a prison sentence is usually requested at a formal trial."
+      },
+      {
+        "note": "Even if the touching was not serious, a fine (KRW 5 million or more) is usually requested at a formal trial."
+      },
+      {
+        "note": "With no prior conviction of the same type, a minor case and a settlement, or a sincerely remorseful juvenile, a suspension of indictment on conditions such as completing an education program is possible."
+      }
+    ],
+    "notes": [
+      "Since 2013 it is no longer an offense requiring the victim's complaint, so it can be punished even after a settlement. A settlement is still given great weight in the decision.",
+      "If the victim is under 19 or under 13, special laws punish it much more heavily.",
+      "If convicted, additional measures such as registration of personal information may follow."
+    ]
+  },
+  "quasi-indecent-assault": {
+    "name": "Quasi-indecent assault",
+    "aliases": [
+      "molesting a drunk person",
+      "molesting a sleeping person"
+    ],
+    "statutory": "Up to 10 years in prison or a fine of up to KRW 15 million",
+    "law": "Criminal Act, Article 299",
+    "questions": {
+      "prior": {
+        "label": "Do you have a prior conviction of the same type (sex crime)?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "degree": {
+        "label": "How serious was the touching?",
+        "options": {
+          "light": "Relatively minor (brief contact over clothing, etc.)",
+          "heavy": "Serious"
+        }
+      },
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "youth": {
+        "label": "Is the offender a juvenile (under 19) who is sincerely remorseful?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "With a prior conviction of the same type, a bad method, or secondary harm to the victim, investigation in detention may be considered."
+      },
+      {
+        "note": "If the touching was serious, a prison sentence is usually requested at a formal trial."
+      },
+      {
+        "note": "Even if the touching was not serious, a fine (KRW 5 million or more) is usually requested at a formal trial."
+      },
+      {
+        "note": "With no prior conviction of the same type, a minor case and a settlement, or a sincerely remorseful juvenile, a suspension of indictment on conditions such as completing an education program is possible."
+      }
+    ],
+    "notes": [
+      "This is touching someone who could not resist because they were drunk or asleep; it is handled under the same standard as indecent assault.",
+      "Since 2013 it is no longer an offense requiring the victim's complaint, so it can be punished even after a settlement. A settlement is still given great weight in the decision.",
+      "If the victim is under 19 or under 13, special laws punish it much more heavily.",
+      "If convicted, additional measures such as registration of personal information may follow."
+    ]
+  },
+  "rape": {
+    "name": "Rape",
+    "aliases": [
+      "sexual assault"
+    ],
+    "statutory": "3 years or more in prison for a fixed term",
+    "law": "Criminal Act, Article 297",
+    "questions": {
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "injury": {
+        "label": "Was the victim injured?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the victim was injured, it is punished more heavily as rape causing injury (life imprisonment or 5 years or more in prison), and investigation in detention is treated almost as the rule."
+      },
+      {
+        "note": "Investigation in detention is treated almost as the rule."
+      },
+      {
+        "note": "This crime is punished even after a settlement, and investigation in detention is treated almost as the rule. A settlement is still reflected in the level of punishment."
+      }
+    ],
+    "notes": [
+      "This crime has no fine option, so if charged, the case goes to a formal trial.",
+      "If the victim is under 19 or under 13, special laws punish it much more heavily.",
+      "If convicted, additional measures such as registration of personal information may follow."
+    ]
+  },
+  "quasi-rape": {
+    "name": "Quasi-rape",
+    "aliases": [
+      "rape of an unconscious person",
+      "drug-facilitated rape"
+    ],
+    "statutory": "3 years or more in prison for a fixed term",
+    "law": "Criminal Act, Article 299",
+    "questions": {
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "injury": {
+        "label": "Was the victim injured?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the victim was injured, it is punished more heavily as rape causing injury (life imprisonment or 5 years or more in prison), and investigation in detention is treated almost as the rule."
+      },
+      {
+        "note": "Investigation in detention is treated almost as the rule."
+      },
+      {
+        "note": "This crime is punished even after a settlement, and investigation in detention is treated almost as the rule. A settlement is still reflected in the level of punishment."
+      }
+    ],
+    "notes": [
+      "This is taking advantage of someone who could not resist because they were drunk or asleep; it is handled under the same standard as rape.",
+      "If the victim is under 19 or under 13, special laws punish it much more heavily.",
+      "If convicted, additional measures such as registration of personal information may follow."
+    ]
+  },
+  "p2-similar-rape": {
+    "name": "Imitative rape / quasi-imitative rape",
+    "statutory": "2 years or more in prison for a fixed term",
+    "law": "Criminal Act, Articles 297-2 and 299",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Detention as a rule",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      }
+    ],
+    "notes": [
+      "This crime has no fine option, so if charged, the case goes to a formal trial.",
+      "If the victim is under 19 or under 13, special laws punish it much more heavily."
+    ]
+  },
+  "p2-rape-injury": {
+    "name": "Rape (or similar) causing injury",
+    "statutory": "Life imprisonment or 5 years or more in prison",
+    "law": "Criminal Act, Article 301",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Detention as a rule",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      }
+    ],
+    "notes": [
+      "This is causing an injury while committing rape, indecent assault, etc. Indecent assault causing injury is punished with the same penalty.",
+      "This crime has no fine option, so if charged, the case goes to a formal trial."
+    ]
+  },
+  "public-place-molestation": {
+    "name": "Molestation in a crowded public place",
+    "aliases": [
+      "subway groping",
+      "groping in a crowd"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 30 million",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 11",
+    "questions": {
+      "severity": {
+        "label": "How serious was the act?",
+        "options": {
+          "minor": "Relatively minor",
+          "normal": "Moderate",
+          "bad": "Repeated, or the act was serious"
+        }
+      },
+      "record": {
+        "label": "Sex crime history",
+        "options": {
+          "none": "None",
+          "minor": "Received a suspension of indictment or a fine for the same type before",
+          "serious": "Received a prison sentence for a sex crime, or was punished several times"
+        }
+      },
+      "settled": {
+        "label": "Settlement with the victim",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the offense is serious in light of repetition or the nature of the act, detention is considered."
+      },
+      {
+        "sentence": "8 months or more in prison"
+      },
+      {},
+      {},
+      {
+        "note": "With no record, a minor act and a settlement with the victim, a suspension of indictment on conditions such as an education program is possible."
+      }
+    ],
+    "notes": [
+      "After a 2020 amendment, the statutory penalty rose sharply, so the actual handling may be heavier than this estimate.",
+      "Even with a fine, a conviction may lead to registration of personal information."
+    ]
+  },
+  "workplace-sexual-coercion": {
+    "name": "Indecent act by abuse of occupational authority",
+    "aliases": [
+      "workplace sexual harassment",
+      "abuse of authority"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 15 million",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 10(1)",
+    "questions": {
+      "victims": {
+        "label": "Number of victims",
+        "unit": "people"
+      },
+      "repeated": {
+        "label": "Was it repeated several times?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If it was habitual or repeated, or there are 2 or more victims, detention is considered."
+      },
+      {
+        "sentence": "1 year or more in prison",
+        "note": "A formal trial is the rule for this crime."
+      }
+    ],
+    "notes": [
+      "This is touching a person who is under one's protection or supervision through work, employment or a similar relationship.",
+      "After a 2018 amendment, the statutory penalty rose (previously up to 2 years in prison or a fine of up to KRW 5 million).",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "spycam": {
+    "name": "Filming with a camera, etc. (illegal filming)",
+    "aliases": [
+      "hidden camera",
+      "upskirting",
+      "voyeurism",
+      "illegal filming",
+      "molka"
+    ],
+    "statutory": "Up to 7 years in prison or a fine of up to KRW 50 million (increased by up to 1/2 if habitual)",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 14(1)",
+    "questions": {
+      "body": {
+        "label": "Body part filmed",
+        "options": {
+          "mild": "Relatively less sensitive (clothed legs, etc.)",
+          "severe": "Parts causing great sexual humiliation (nudity, underwear, up-skirt, etc.)"
+        }
+      },
+      "identifiable": {
+        "label": "Can the victim be identified?",
+        "options": {
+          "no": "Cannot be identified",
+          "yes": "Can be identified"
+        }
+      },
+      "spread": {
+        "label": "Did you send the footage to anyone or post it?",
+        "options": {
+          "no": "Not spread",
+          "yes": "Spread"
+        }
+      },
+      "history": {
+        "label": "Repetition and record",
+        "options": {
+          "first": "First time",
+          "habitual": "Filmed repeatedly",
+          "record": "Punished with a fine or heavier for a sex crime within the last 3 years"
+        }
+      },
+      "settled": {
+        "label": "Settlement with the victim",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "2 years or more in prison"
+      },
+      {
+        "sentence": "1 year 6 months or more in prison"
+      },
+      {},
+      {},
+      {
+        "note": "A first offense filming a less sensitive body part where the victim cannot be identified or a settlement was reached is the type for which a suspension of indictment is possible, usually on conditions such as an education program. In practice a fine (KRW 3 million with a settlement, KRW 5 million or more without) is sometimes requested."
+      }
+    ],
+    "notes": [
+      "After a 2020 amendment, the statutory penalty rose sharply, so the actual handling may be heavier than this estimate.",
+      "The photos and videos are confiscated, and a conviction may lead to registration of personal information, etc.",
+      "For a juvenile's first offense with sincere remorse, a suspension of indictment may be considered."
+    ]
+  },
+  "intimate-image-distribution": {
+    "name": "Distributing intimate images (including images filmed with consent)",
+    "aliases": [
+      "revenge porn",
+      "sharing intimate images",
+      "non-consensual pornography"
+    ],
+    "statutory": "Up to 7 years in prison or a fine of up to KRW 50 million (3 years or more in prison for a fixed term if distributed online for profit)",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 14(2)",
+    "questions": {
+      "body": {
+        "label": "Content of the photos or videos spread",
+        "options": {
+          "mild": "Relatively less sensitive body parts",
+          "severe": "Content causing great sexual humiliation (nudity, sexual intercourse, etc.)"
+        }
+      },
+      "identifiable": {
+        "label": "Can the victim be identified?",
+        "options": {
+          "no": "Cannot be identified",
+          "yes": "Can be identified"
+        }
+      },
+      "history": {
+        "label": "Repetition and record",
+        "options": {
+          "first": "First time",
+          "habitual": "Filmed and spread several times",
+          "record": "Punished with a fine or heavier for a sex crime within the last 3 years"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "2 years or more in prison"
+      },
+      {
+        "sentence": "1 year or more in prison"
+      },
+      {}
+    ],
+    "notes": [
+      "Even if the person agreed to being filmed, spreading the images later without permission is punished. Spreading secretly filmed footage is treated much more heavily.",
+      "After the 2018 and 2020 amendments, the statutory penalty for this type rose sharply (previously up to 3 years in prison or a fine of up to KRW 5 million), so the actual handling may be heavier than this estimate."
+    ]
+  },
+  "new-illegal-footage-possession": {
+    "name": "Possessing, buying, storing or viewing illegally filmed footage",
+    "aliases": [
+      "possessing illegal videos",
+      "watching hidden camera videos"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 30 million",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 14(4)",
+    "questions": {
+      "circ": {
+        "label": "Circumstances",
+        "help": "Settlement or the victim not wanting punishment, compensation for the harm, sincere remorse and a first offense are mitigating; planning, serious harm and prior convictions of the same type are aggravating.",
+        "options": {
+          "mitigated": "More mitigating circumstances",
+          "basic": "About even",
+          "aggravated": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "1 year 8 months to 3 years in prison"
+      },
+      {
+        "sentence": "1 to 2 years in prison"
+      },
+      {
+        "sentence": "Up to 1 year 4 months in prison"
+      }
+    ],
+    "notes": [
+      "This act became punishable after a 2020 amendment. Downloading, keeping or even just watching footage while knowing it was secretly filmed or spread without consent is covered.",
+      "Even with a fine, a conviction may lead to registration of personal information."
+    ]
+  },
+  "new-deepfake": {
+    "name": "Editing or distributing fake sexual videos (deepfakes)",
+    "aliases": [
+      "deepfake",
+      "deepfake porn",
+      "AI fake images"
+    ],
+    "statutory": "Editing, synthesizing, processing or distributing: up to 7 years in prison or a fine of up to KRW 50 million / Distributing online for profit: 3 years or more in prison for a fixed term (increased by up to 1/2 if habitual)",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 14-2(1) to (3)",
+    "questions": {
+      "type": {
+        "label": "What did you do?",
+        "options": {
+          "edit": "Edited or synthesized a face, body or voice in a sexual way",
+          "spread": "Spread the synthesized material (sending, posting, selling, etc.)",
+          "profit": "Spread it online to make money"
+        }
+      },
+      "circ": {
+        "label": "Circumstances",
+        "help": "Settlement or the victim not wanting punishment, compensation for the harm, sincere remorse and a first offense are mitigating; planning, serious harm and prior convictions of the same type are aggravating.",
+        "options": {
+          "mitigated": "More mitigating circumstances",
+          "basic": "About even",
+          "aggravated": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "3 to 8 years in prison"
+      },
+      {
+        "sentence": "2 to 5 years in prison"
+      },
+      {
+        "sentence": "8 months to 2 years 8 months in prison"
+      },
+      {
+        "sentence": "1 year 8 months to 5 years in prison"
+      },
+      {
+        "sentence": "1 to 3 years in prison"
+      },
+      {
+        "sentence": "Up to 1 year 4 months in prison"
+      },
+      {
+        "sentence": "1 year 8 months to 5 years in prison"
+      },
+      {
+        "sentence": "1 to 3 years in prison"
+      },
+      {
+        "sentence": "Up to 1 year 4 months in prison"
+      }
+    ],
+    "notes": [
+      "After a 2024 amendment, merely making it is punished even without an intent to spread it, and the statutory penalty also rose (previously up to 5 years in prison).",
+      "Possessing, buying, storing or even just viewing material while knowing it is a deepfake is punished with up to 3 years in prison or a fine of up to KRW 30 million (added in 2024).",
+      "If the subject is a child or juvenile, the provisions on 'sexual exploitation material of children and juveniles' apply and the penalty is much heavier."
+    ]
+  },
+  "new-sexual-footage-threat": {
+    "name": "Threats or coercion using sexual footage or synthesized material",
+    "aliases": [
+      "sextortion",
+      "blackmail with intimate images"
+    ],
+    "statutory": "Threat: 1 year or more in prison for a fixed term / Coercion (making someone do something they have no duty to do by threat): 3 years or more in prison for a fixed term (increased by up to 1/2 if habitual)",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 14-3",
+    "questions": {
+      "type": {
+        "label": "How far did it go?",
+        "options": {
+          "threat": "Only threatened to spread it",
+          "coerce": "Threatened and demanded and obtained money, videos, meetings, etc."
+        }
+      },
+      "circ": {
+        "label": "Circumstances",
+        "help": "Settlement or the victim not wanting punishment, compensation for the harm, sincere remorse and a first offense are mitigating; planning, serious harm and prior convictions of the same type are aggravating.",
+        "options": {
+          "mitigated": "More mitigating circumstances",
+          "basic": "About even",
+          "aggravated": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "10 to 16 years in prison"
+      },
+      {
+        "sentence": "6 to 12 years in prison"
+      },
+      {
+        "sentence": "3 to 8 years in prison"
+      },
+      {
+        "sentence": "4 to 8 years in prison"
+      },
+      {
+        "sentence": "2 to 6 years in prison"
+      },
+      {
+        "sentence": "1 year 6 months to 3 years in prison"
+      }
+    ],
+    "notes": [
+      "This covers threatening to spread sexual photos, videos or deepfake material. If it was actually spread, the distribution offense is also at issue.",
+      "This crime has no fine option."
+    ]
+  },
+  "obscene-communication": {
+    "name": "Obscene acts using communication media",
+    "aliases": [
+      "sending obscene messages",
+      "sexting harassment",
+      "cyber flashing"
+    ],
+    "statutory": "Up to 2 years in prison or a fine of up to KRW 20 million",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 13",
+    "questions": {
+      "level": {
+        "label": "How obscene was the content?",
+        "options": {
+          "low": "Low",
+          "high": "High (explicit photos or videos, etc.)"
+        }
+      },
+      "frequency": {
+        "label": "Number of times sent",
+        "options": {
+          "once": "Once",
+          "many": "Several times"
+        }
+      },
+      "record": {
+        "label": "Sex crime history",
+        "options": {
+          "none": "None",
+          "minor": "Received a suspension of indictment or a fine for the same type before",
+          "serious": "Received a prison sentence for a sex crime, or was punished several times"
+        }
+      },
+      "settled": {
+        "label": "Settlement with the victim",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the offense is serious in light of repetition, the degree of obscenity, the victim's age, etc., detention is considered."
+      },
+      {
+        "sentence": "8 months or more in prison"
+      },
+      {},
+      {},
+      {
+        "note": "With no record, a single message or photo of low obscenity, or a minor case with a settlement, a suspension of indictment is possible, usually on conditions such as an education program."
+      }
+    ],
+    "notes": [
+      "After a 2020 amendment, the statutory penalty rose sharply, so the actual handling may be heavier than this estimate.",
+      "Even with a fine, a conviction may lead to registration of personal information."
+    ]
+  },
+  "public-indecency": {
+    "name": "Public indecency",
+    "aliases": [
+      "indecent exposure",
+      "flashing"
+    ],
+    "statutory": "Up to 1 year in prison, a fine of up to KRW 5 million, short-term detention, or a petty fine",
+    "law": "Criminal Act, Article 245",
+    "questions": {
+      "repeat": {
+        "label": "Was it repeated several times, or is there a prior conviction for the same?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "serious": {
+        "label": "Was it severely obscene?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "8 months or more in prison"
+      },
+      {}
+    ]
+  },
+  "p2-sexual-intrusion": {
+    "name": "Intrusion into a multi-use place for a sexual purpose",
+    "aliases": [
+      "entering a women's restroom",
+      "voyeurism in a changing room"
+    ],
+    "statutory": "Up to 1 year in prison or a fine of up to KRW 10 million",
+    "law": "Act on Special Cases Concerning the Punishment of Sexual Crimes, Article 12",
+    "questions": {
+      "bad": {
+        "label": "Was it repeated, or was the act serious?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "record": {
+        "label": "Sex crime history",
+        "options": {
+          "none": "None",
+          "minor": "Received a suspension of indictment or a fine for the same type before",
+          "serious": "Received a prison sentence for a sex crime, or was punished several times"
+        }
+      },
+      "lowRisk": {
+        "label": "Was the risk very low given the place, method and time, or did you settle with the victim?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "8 months or more in prison"
+      },
+      {},
+      {},
+      {
+        "note": "With no record and a low risk or a settlement, a suspension of indictment on conditions such as an education program is possible."
+      }
+    ],
+    "notes": [
+      "This is entering a toilet, bathhouse, changing room, breastfeeding room or similar place to satisfy sexual desire, or refusing to leave when asked.",
+      "The statutory penalty has risen (previously up to 1 year in prison or a fine of up to KRW 3 million)."
+    ]
+  },
+  "prostitution-purchase": {
+    "name": "Prostitution (buying sex)",
+    "aliases": [
+      "buying sex",
+      "solicitation",
+      "sex trade",
+      "john school"
+    ],
+    "statutory": "Up to 1 year in prison, a fine of up to KRW 3 million, short-term detention, or a petty fine",
+    "law": "Act on the Punishment of Arrangement of Commercial Sex Acts, Article 21(1)",
+    "questions": {
+      "record": {
+        "label": "Previous enforcement for buying sex",
+        "options": {
+          "none": "None",
+          "some": "1 to 2 times",
+          "many": "3 or more times"
+        }
+      },
+      "type": {
+        "label": "Type of prostitution",
+        "options": {
+          "normal": "Ordinary, in Korea",
+          "disabled": "With a person with a disability",
+          "overseas": "Abroad"
+        }
+      },
+      "education": {
+        "label": "Do you agree to attend the repeat-prevention program for sex buyers?",
+        "options": {
+          "no": "Do not agree",
+          "yes": "Agree"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "For buying sex abroad, a formal trial is considered if there are 3 or more prostitution records, including those in Korea."
+      },
+      {
+        "note": "For buying sex from a person with a disability, a suspension of indictment conditional on education is, as a rule, not given."
+      },
+      {
+        "note": "For buying sex abroad, a summary fine is the rule even for a first offense."
+      },
+      {},
+      {
+        "note": "For a first offense, a suspension of indictment conditional on completing the repeat-prevention program for sex buyers (the 'John School'), or referral as a prostitution protection case, is usual."
+      }
+    ],
+    "notes": [
+      "If you agree to the program but do not complete it, the investigation restarts and the case is handled with a fine or similar."
+    ]
+  },
+  "prostitution-brokering": {
+    "name": "Arranging prostitution (running an establishment, etc.)",
+    "aliases": [
+      "pimping",
+      "brothel",
+      "running a brothel"
+    ],
+    "statutory": "Arranging: up to 3 years in prison or a fine of up to KRW 30 million; arranging as a business: up to 7 years in prison or a fine of up to KRW 70 million",
+    "law": "Act on the Punishment of Arrangement of Commercial Sex Acts, Article 19",
+    "questions": {
+      "role": {
+        "label": "Role",
+        "options": {
+          "owner": "Owner (operator)",
+          "manager": "Manager or similar, involved in managing staff or operations",
+          "recruiter": "Recruited or introduced people for prostitution for payment, or leased the building",
+          "employee": "Ordinary employee",
+          "simple": "Simple arranging once or twice"
+        }
+      },
+      "staff": {
+        "label": "Number of female employees hired",
+        "help": "Leave it at 0 if you were not the owner.",
+        "unit": "people"
+      },
+      "months": {
+        "label": "Period of operation",
+        "unit": "months"
+      },
+      "priors": {
+        "label": "Prior punishment of the same type",
+        "unit": "times"
+      }
+    },
+    "tiers": [
+      {
+        "note": "With 5 or more employees, 1 year or more of operation (or criminal proceeds of KRW 100 million or more), 2 or more prior records of the same type, or while on a suspended sentence for the same crime, detention is the rule."
+      },
+      {},
+      {
+        "note": "Even a first offense of simple arranging may go to a formal trial if there is a risk of repeat offending."
+      },
+      {
+        "note": "An ordinary employee may be handled with a summary fine."
+      }
+    ],
+    "notes": [
+      "Unless the case is very minor, a fine is requested together with a prison sentence, and money earned from prostitution is confiscated or collected.",
+      "For arranging prostitution abroad, the request is, as a rule, increased by 1/2.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "child-prostitution-purchase": {
+    "name": "Buying sex from a child or juvenile",
+    "aliases": [
+      "buying sex from a minor",
+      "underage prostitution"
+    ],
+    "statutory": "1 to 10 years in prison or a fine of KRW 20 million to 50 million (increased by up to 1/2 if the victim is under 16)",
+    "law": "Act on the Protection of Children and Youth against Sex Offenses, Article 13(1)",
+    "questions": {
+      "under16": {
+        "label": "Was the other person under 16?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "record": {
+        "label": "Do you have a prior record of the same type?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      },
+      "bad": {
+        "label": "Are there circumstances that make the offense especially bad, such as perverse acts?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the other person was under 16, it is a repeat offense, or the offense is especially bad, detention is considered."
+      },
+      {
+        "note": "How it happened, how many times and the other person's age are considered, but as a rule the case goes to a formal trial."
+      }
+    ],
+    "notes": [
+      "To prevent repeat offending, an order to attend lectures or a sexual violence treatment program is requested together with the sentence.",
+      "A person is a child or juvenile until January 1 of the year in which they turn 19.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "adult-ent-prostitution": {
+    "name": "Arranging prostitution at an adult entertainment establishment",
+    "aliases": [
+      "karaoke prostitution",
+      "massage parlor"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 30 million",
+    "law": "Act on the Regulation of Amusement Businesses Affecting Public Morals, Article 10(1)",
+    "questions": {
+      "priors": {
+        "label": "Prior punishment of the same type",
+        "unit": "times"
+      },
+      "youth": {
+        "label": "Was a juvenile involved?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If it is a repeat offense and a juvenile was involved, detention is considered."
+      },
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {}
+    ],
+    "notes": [
+      "This is arranging prostitution at an adult entertainment establishment such as a karaoke room, entertainment bar or lodging business."
+    ]
+  },
+  "theft": {
+    "name": "Theft",
+    "aliases": [
+      "stealing",
+      "shoplifting",
+      "larceny"
+    ],
+    "statutory": "Up to 6 years in prison or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Article 329",
+    "questions": {
+      "aggravated": {
+        "label": "Was it done by 2 or more people together, by entering someone's home, professionally like pickpocketing, or repeatedly?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "prior": {
+        "label": "Do you have a prior conviction of the same type (theft)?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "recovered": {
+        "label": "Did you return the stolen goods or pay for the damage?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "youth": {
+        "label": "Is the offender a juvenile (under 19) or a student?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Theft by several people together, with entry into a home or a weapon, or done professionally or repeatedly, may lead to investigation in detention."
+      },
+      {
+        "note": "With a prior conviction of the same type or considerable damage, a formal trial is usual."
+      },
+      {},
+      {
+        "note": "For a first offense where the stolen goods were recovered, or for a juvenile or student, a suspension of indictment is possible."
+      }
+    ],
+    "notes": [
+      "Property crimes between family members (relatives) can be punished only if the victim files a complaint."
+    ]
+  },
+  "night-burglary": {
+    "name": "Night-time burglary (theft after entering a home at night)",
+    "aliases": [
+      "burglary"
+    ],
+    "statutory": "Up to 10 years in prison",
+    "law": "Criminal Act, Article 330",
+    "questions": {
+      "aggravated": {
+        "label": "Was it done by 2 or more people together, with a weapon, or repeatedly?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "prior": {
+        "label": "Do you have a prior conviction of the same type (theft)?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "recovered": {
+        "label": "Did you return the stolen goods or pay for the damage?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "youth": {
+        "label": "Is the offender a juvenile (under 19) or a student?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If it was done by several people together, with a weapon, or repeatedly, investigation in detention may be considered."
+      },
+      {
+        "note": "This crime has no fine option, so if charged, the case goes to a formal trial."
+      },
+      {
+        "note": "For a first offense where the stolen goods were recovered, or for a juvenile or student, a suspension of indictment is possible."
+      }
+    ],
+    "notes": [
+      "This is entering someone's home or building at night and stealing.",
+      "Property crimes between family members (relatives) can be punished only if the victim files a complaint."
+    ]
+  },
+  "special-theft": {
+    "name": "Special theft",
+    "aliases": [
+      "aggravated theft",
+      "group theft"
+    ],
+    "statutory": "1 to 10 years in prison",
+    "law": "Criminal Act, Article 331",
+    "questions": {
+      "repeat": {
+        "label": "Was it repeated several times, or done in a professional way?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "prior": {
+        "label": "Do you have a prior conviction of the same type (theft)?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "recovered": {
+        "label": "Did you return the stolen goods or pay for the damage?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "youth": {
+        "label": "Is the offender a juvenile (under 19) or a student?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If it was repeated or professional, or there is a prior conviction of the same type, investigation in detention may be considered."
+      },
+      {
+        "note": "Acting jointly with 2 or more people or carrying a weapon is itself treated as serious, so detention is more likely than for ordinary theft. This crime has no fine option, so if charged, the case goes to a formal trial."
+      },
+      {
+        "note": "For a juvenile or student's first offense where the stolen goods were recovered, a suspension of indictment is possible."
+      }
+    ],
+    "notes": [
+      "This is stealing with 2 or more people together, while carrying a weapon, or by breaking a door or wall at night to get in.",
+      "Property crimes between family members (relatives) can be punished only if the victim files a complaint."
+    ]
+  },
+  "p2-lost-property-embezzlement": {
+    "name": "Embezzlement of lost property",
+    "aliases": [
+      "keeping lost property",
+      "found wallet"
+    ],
+    "statutory": "Up to 1 year in prison, a fine of up to KRW 3 million, or a petty fine",
+    "law": "Criminal Act, Article 360",
+    "questions": {},
+    "tiers": [],
+    "notes": [
+      "This is picking up a lost item or something out of its owner's possession and keeping it instead of returning it."
+    ]
+  },
+  "stolen-goods": {
+    "name": "Acquiring stolen goods",
+    "aliases": [
+      "receiving stolen goods",
+      "handling stolen property"
+    ],
+    "statutory": "Up to 7 years in prison or a fine of up to KRW 15 million",
+    "law": "Criminal Act, Article 362",
+    "questions": {
+      "business": {
+        "label": "Was it repeated like a business, or is there a prior conviction for the same?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "expensive": {
+        "label": "Were the goods expensive?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "known": {
+        "label": "Did you already trade with or know the person who stole them?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Handling expensive stolen goods as a business, or a repeat offense, may lead to investigation in detention."
+      },
+      {
+        "sentence": "1 year or more in prison"
+      },
+      {}
+    ],
+    "notes": [
+      "This is buying, keeping, moving or selling goods while knowing they were stolen."
+    ]
+  },
+  "fraud": {
+    "name": "Fraud",
+    "aliases": [
+      "scam",
+      "cheating",
+      "deception",
+      "swindling"
+    ],
+    "statutory": "Up to 20 years in prison or a fine of up to KRW 50 million",
+    "law": "Criminal Act, Article 347",
+    "questions": {
+      "amount": {
+        "label": "Amount of damage (money obtained by deception)",
+        "unit": "× KRW 10,000"
+      },
+      "agreement": {
+        "label": "Did you repay the damage or settle?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "prior": {
+        "label": "Have you received a suspended sentence or heavier for the same crime within the last 5 years?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "planned": {
+        "label": "Was it planned and active from the start?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the damage is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
+      },
+      {
+        "note": "If the damage is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
+      },
+      {
+        "note": "Without a settlement, the standard fine is 30% or more of the damage."
+      },
+      {
+        "note": "With a settlement, the standard fine is 10% or more of the damage."
+      }
+    ],
+    "notes": [
+      "From September 2026 the statutory penalty rose sharply to up to 20 years in prison or a fine of up to KRW 50 million, so the actual handling may be heavier than this.",
+      "If the damage is KRW 500 million or more, a special law (the Specific Economic Crimes Act) punishes it much more heavily.",
+      "Even for a small amount, if repayment is unlikely, a fine close to the full damage may be imposed.",
+      "Property crimes between family members (relatives) can be punished only if the victim files a complaint."
+    ]
+  },
+  "computer-fraud": {
+    "name": "Computer fraud",
+    "aliases": [
+      "online fraud",
+      "unauthorized transfer"
+    ],
+    "statutory": "Up to 20 years in prison or a fine of up to KRW 50 million",
+    "law": "Criminal Act, Article 347-2",
+    "questions": {
+      "amount": {
+        "label": "Amount of damage",
+        "unit": "× KRW 10,000"
+      },
+      "agreement": {
+        "label": "Did you repay the damage or settle?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "prior": {
+        "label": "Have you received a suspended sentence or heavier for the same crime within the last 5 years?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "planned": {
+        "label": "Was it planned and active from the start?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the damage is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
+      },
+      {
+        "note": "If the damage is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
+      },
+      {
+        "note": "Without a settlement, the standard fine is 30% or more of the damage."
+      },
+      {
+        "note": "With a settlement, the standard fine is 10% or more of the damage."
+      }
+    ],
+    "notes": [
+      "This is taking money by entering false or unauthorized information into a computer, mobile phone, etc.",
+      "From September 2026 the statutory penalty rose sharply to up to 20 years in prison or a fine of up to KRW 50 million, so the actual handling may be heavier than this.",
+      "If the damage is KRW 500 million or more, a special law (the Specific Economic Crimes Act) punishes it much more heavily.",
+      "Even for a small amount, if repayment is unlikely, a fine close to the full damage may be imposed.",
+      "Property crimes between family members (relatives) can be punished only if the victim files a complaint."
+    ]
+  },
+  "voice-phishing-member": {
+    "name": "Taking part in voice phishing (fraud)",
+    "aliases": [
+      "voice phishing",
+      "phone scam",
+      "cash courier",
+      "money mule"
+    ],
+    "statutory": "Fraud: up to 20 years in prison or a fine of up to KRW 50 million (3 years or more in prison for a fixed term if the damage is KRW 500 million or more; life imprisonment or 5 years or more in prison if KRW 5 billion or more)",
+    "law": "Criminal Act, Article 347; Act on the Aggravated Punishment of Specific Economic Crimes, Article 3",
+    "questions": {
+      "role": {
+        "label": "Role",
+        "options": {
+          "boss": "Ringleader",
+          "mid": "Middle manager",
+          "member": "Other participation (collecting, withdrawing or delivering cash, recruiting bank accounts, call-center work, etc.)"
+        }
+      },
+      "amount": {
+        "label": "Total damage",
+        "unit": "× KRW 10,000"
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "15 years in prison"
+      },
+      {
+        "sentence": "12 years or more in prison"
+      },
+      {
+        "sentence": "10 years or more in prison"
+      },
+      {
+        "sentence": "7 years or more in prison",
+        "note": "Up to 15 years is requested depending on the damage and the role actually played."
+      },
+      {
+        "sentence": "5 years or more in prison",
+        "note": "This standard requests a heavy sentence even for a simple participant. It may be heavier depending on the damage and degree of involvement."
+      }
+    ],
+    "notes": [
+      "Voice phishing is classified as a crime for which an actual prison term is sought, and the request is increased.",
+      "The ringleader's '10 years or more' is the standard from when the maximum penalty for fraud was 10 years. A 2025 amendment raised the penalty for fraud to up to 20 years, so the actual request may be heavier.",
+      "Actual sentences are often lower than the request, and how you became involved, compensation for the damage and cooperation with the investigation are taken into account.",
+      "If you handed over a bank account or debit card, see the 'Lending or selling bank accounts (transferring access media)' item."
+    ]
+  },
+  "phone-scam-account": {
+    "name": "Lending or selling bank accounts (transferring or lending access media)",
+    "aliases": [
+      "selling a bank account",
+      "lending a bank account",
+      "renting a bank account",
+      "money mule"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 30 million",
+    "law": "Electronic Financial Transactions Act, Articles 49(4) and 6(3)",
+    "questions": {
+      "role": {
+        "label": "What you did",
+        "options": {
+          "seller": "Sold or lent a bank account or card",
+          "buyer": "Bought or collected them"
+        }
+      },
+      "count": {
+        "label": "Number of accounts handed over (or collected)",
+        "unit": "accounts"
+      },
+      "priors": {
+        "label": "Prior punishment of the same type",
+        "unit": "times"
+      },
+      "linked": {
+        "label": "Did you hand them directly to a voice phishing ring, or did the accounts cause damage of KRW 10 million or more?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {
+        "note": "Dealing in accounts used for voice phishing, as a rule, leads to a request for a prison sentence at a formal trial. For an especially minor first offense, a fine (around KRW 3 million for 1 to 10 accounts, KRW 5 million for 11 to 20) is sometimes requested."
+      }
+    ],
+    "notes": [
+      "If you knew the accounts were used for voice phishing, you may also be investigated for aiding fraud.",
+      "After a 2020 amendment, the statutory penalty rose (previously up to 3 years in prison or a fine of up to KRW 20 million)."
+    ]
+  },
+  "efin-access-forgery": {
+    "name": "Forging or altering access media",
+    "aliases": [
+      "fake bank card",
+      "forged OTP"
+    ],
+    "statutory": "Up to 7 years in prison or a fine of up to KRW 50 million (both may be imposed together)",
+    "law": "Electronic Financial Transactions Act, Article 49(2)(1)",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "1 year 6 months or more in prison",
+        "note": "For this crime, investigation in detention is considered as a rule and a prison sentence is requested at a formal trial. When a fine is requested, it is at the level of KRW 5 million or more."
+      }
+    ],
+    "notes": [
+      "Attempts are also punished."
+    ]
+  },
+  "card-misuse": {
+    "name": "Using a lost or stolen credit card",
+    "aliases": [
+      "credit card fraud",
+      "using a stolen card",
+      "using a found card"
+    ],
+    "statutory": "Up to 7 years in prison or a fine of up to KRW 50 million",
+    "law": "Credit Finance Business Act (여신전문금융업법), Article 70(1)(3) and (4)",
+    "questions": {
+      "source": {
+        "label": "How you got the card",
+        "options": {
+          "lost": "Picked up a lost card",
+          "stolen": "Stole it, took it by force or got it by deception"
+        }
+      },
+      "amount": {
+        "label": "Amount used",
+        "unit": "× KRW 10,000"
+      },
+      "settled": {
+        "label": "Did you repay the amount used, deposit it with the court, or settle?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "1 year 6 months or more in prison",
+        "note": "If punished together with theft, robbery, etc., 6 months to 1 year is added."
+      },
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {
+        "note": "A fine equal to the amount used."
+      },
+      {
+        "note": "Repaying or depositing the money may reduce it to about half of the amount used."
+      }
+    ],
+    "notes": [
+      "Stealing or picking up the card itself (theft or embezzlement of lost property) and buying goods with it (fraud) may also be at issue."
+    ]
+  },
+  "new-insurance-fraud": {
+    "name": "Insurance fraud",
+    "aliases": [
+      "staged accident",
+      "fake insurance claim"
+    ],
+    "statutory": "Up to 10 years in prison or a fine of up to KRW 50 million / insurance money of KRW 500 million or more but less than KRW 5 billion: 3 years or more in prison for a fixed term / KRW 5 billion or more: life imprisonment or 5 years or more in prison",
+    "law": "Special Act on the Prevention of Insurance Fraud, Articles 8 and 11",
+    "questions": {
+      "type": {
+        "label": "Insurance money you received or helped someone receive",
+        "options": {
+          "u100m": "Less than KRW 100 million",
+          "u500m": "KRW 100 million or more but less than KRW 500 million",
+          "u5b": "KRW 500 million or more but less than KRW 5 billion",
+          "u30b": "KRW 5 billion or more but less than KRW 30 billion",
+          "o30b": "KRW 30 billion or more"
+        }
+      },
+      "circ": {
+        "label": "Circumstances",
+        "help": "Settlement or the victim not wanting punishment, compensation for the harm, sincere remorse and a first offense are mitigating; planning, serious harm and prior convictions of the same type are aggravating.",
+        "options": {
+          "mitigated": "More mitigating circumstances",
+          "basic": "About even",
+          "aggravated": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "16 to 30 years in prison (life imprisonment may also be considered)"
+      },
+      {
+        "sentence": "12 to 22 years in prison"
+      },
+      {
+        "sentence": "10 to 18 years in prison"
+      },
+      {
+        "sentence": "12 to 22 years in prison"
+      },
+      {
+        "sentence": "10 to 18 years in prison"
+      },
+      {
+        "sentence": "6 to 12 years in prison"
+      },
+      {
+        "sentence": "8 to 16 years in prison"
+      },
+      {
+        "sentence": "6 to 12 years in prison"
+      },
+      {
+        "sentence": "3 to 8 years in prison"
+      },
+      {
+        "sentence": "5 to 10 years in prison"
+      },
+      {
+        "sentence": "2 to 8 years in prison"
+      },
+      {
+        "sentence": "1 year 8 months to 5 years in prison"
+      },
+      {
+        "sentence": "2 to 5 years in prison"
+      },
+      {
+        "sentence": "1 to 3 years in prison"
+      },
+      {
+        "sentence": "Up to 2 years in prison"
+      }
+    ],
+    "notes": [
+      "This is deliberately causing or exaggerating an accident to deceive an insurance company and receive insurance money, or have someone else receive it. Attempts are also punished.",
+      "People who arrange, encourage or advertise insurance fraud are punished with the same penalty.",
+      "Returning the insurance money is a mitigating factor, but it does not by itself avoid punishment."
+    ]
+  },
+  "aggravated-fraud-500m": {
+    "name": "Fraud, embezzlement or breach of trust under the Specific Economic Crimes Act (KRW 500 million or more)",
+    "aliases": [
+      "large-scale fraud",
+      "breach of trust"
+    ],
+    "statutory": "Gain of KRW 500 million or more but less than KRW 5 billion: 3 years or more in prison for a fixed term / KRW 5 billion or more: life imprisonment or 5 years or more in prison (a fine up to the amount of the gain may be imposed as well)",
+    "law": "Act on the Aggravated Punishment of Specific Economic Crimes, Article 3(1)",
+    "questions": {
+      "amount": {
+        "label": "Amount of damage (gain)",
+        "help": "The total obtained through fraud, extortion, embezzlement or breach of trust.",
+        "unit": "× KRW 100 million"
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "7 years or more in prison"
+      },
+      {
+        "sentence": "5 years or more in prison"
+      },
+      {
+        "sentence": "3 years or more in prison"
+      }
+    ],
+    "notes": [
+      "Investigation in detention and a formal trial are the rule.",
+      "How much of the damage has been made good (repayment or settlement) and how the crime happened weigh heavily in both the request and the sentence.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "embezzlement": {
+    "name": "Embezzlement",
+    "aliases": [
+      "misappropriation"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 15 million",
+    "law": "Criminal Act, Article 355(1)",
+    "questions": {
+      "amount": {
+        "label": "Amount embezzled",
+        "unit": "× KRW 10,000"
+      },
+      "agreement": {
+        "label": "Did you repay the damage or settle?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "prior": {
+        "label": "Have you received a suspended sentence or heavier for the same crime within the last 5 years?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "planned": {
+        "label": "Was it planned and active from the start?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the amount embezzled is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
+      },
+      {
+        "note": "If the amount embezzled is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
+      },
+      {
+        "note": "Without a settlement, the standard fine is 30% or more of the amount embezzled."
+      },
+      {
+        "note": "With a settlement, the standard fine is 10% or more of the amount embezzled."
+      }
+    ],
+    "notes": [
+      "If the amount of embezzlement or breach of trust is KRW 500 million or more, a special law (the Specific Economic Crimes Act) punishes it much more heavily.",
+      "Property crimes between family members (relatives) can be punished only if the victim files a complaint."
+    ]
+  },
+  "occupational-embezzlement": {
+    "name": "Occupational embezzlement",
+    "aliases": [
+      "employee embezzlement",
+      "misappropriating company funds"
+    ],
+    "statutory": "Up to 10 years in prison or a fine of up to KRW 30 million",
+    "law": "Criminal Act, Article 356",
+    "questions": {
+      "amount": {
+        "label": "Amount embezzled",
+        "unit": "× KRW 10,000"
+      },
+      "agreement": {
+        "label": "Did you repay the damage or settle?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "prior": {
+        "label": "Have you received a suspended sentence or heavier for the same crime within the last 5 years?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "planned": {
+        "label": "Was it planned and active from the start?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the amount embezzled is KRW 30,000,000 or more and there is no settlement, there is a recent prior conviction of the same type, or the method was planned, investigation in detention may be considered."
+      },
+      {
+        "note": "If the amount embezzled is KRW 10,000,000 or more and there is no settlement, a formal trial is usual. If you settle during the trial, a suspended sentence may be requested."
+      },
+      {
+        "note": "Without a settlement, the standard fine is 30% or more of the amount embezzled."
+      },
+      {
+        "note": "With a settlement, the standard fine is 10% or more of the amount embezzled."
+      }
+    ],
+    "notes": [
+      "If the amount of embezzlement or breach of trust is KRW 500 million or more, a special law (the Specific Economic Crimes Act) punishes it much more heavily.",
+      "Property crimes between family members (relatives) can be punished only if the victim files a complaint."
+    ]
+  },
+  "extortion": {
+    "name": "Extortion",
+    "aliases": [
+      "blackmail"
+    ],
+    "statutory": "Up to 10 years in prison or a fine of up to KRW 20 million",
+    "law": "Criminal Act, Article 350",
+    "questions": {
+      "amount": {
+        "label": "Money extorted (total)",
+        "unit": "× KRW 10,000"
+      },
+      "bad": {
+        "label": "Is it a bad case, such as by an organized gang member or a fake journalist?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "prior": {
+        "label": "Have you received a suspended sentence for the same crime within the last 5 years?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "oneTime": {
+        "label": "Was it a small amount received once, on impulse?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the total extorted is KRW 10,000,000 or more or the offense is bad, investigation in detention may be considered."
+      },
+      {
+        "note": "A formal trial is the rule."
+      },
+      {
+        "note": "A small amount received once on impulse is sometimes handled with a fine."
+      }
+    ],
+    "notes": [
+      "Juveniles are, as a rule, sent to the juvenile division without detention, but repeated offenses around a school may lead to detention.",
+      "Property crimes between family members (relatives) can be punished only if the victim files a complaint."
+    ]
+  },
+  "methamphetamine": {
+    "name": "Methamphetamine: use, possession or dealing",
+    "aliases": [
+      "meth",
+      "ice",
+      "crystal meth",
+      "drugs",
+      "philopon"
+    ],
+    "statutory": "Up to 10 years in prison or a fine of up to KRW 100 million (increased by up to 1/2 if habitual; life imprisonment or 5 years or more in prison if given or sold to a minor)",
+    "law": "Act on the Control of Narcotics, etc., Articles 60(1)(2) and 4(1)",
+    "questions": {
+      "act": {
+        "label": "What you did",
+        "options": {
+          "use": "Use or possession (for your own use)",
+          "sale": "Buying, selling, brokering or handing to others"
+        }
+      },
+      "priors": {
+        "label": "Prior drug-related punishment",
+        "unit": "times"
+      },
+      "rehab": {
+        "label": "Was it simple use, and are you willing to get treatment or rehabilitation?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Dealing or using methamphetamine leads, as a rule, to investigation in detention and a formal trial."
+      },
+      {
+        "note": "For a first offense of simple use with a willingness to rehabilitate, the usual handling standard is a suspension of indictment conditional on treatment (or education)."
+      }
+    ],
+    "notes": [
+      "More dangerous drugs such as LSD are treated more heavily, and medical drugs such as propofol or sleeping pills more lightly.",
+      "Bringing methamphetamine in from abroad or making it is much heavier (life imprisonment or 5 years or more in prison), and if the value is large, the Act on the Aggravated Punishment of Specific Crimes applies.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "cannabis": {
+    "name": "Cannabis: smoking, possession or dealing",
+    "aliases": [
+      "marijuana",
+      "weed",
+      "hemp",
+      "drugs"
+    ],
+    "statutory": "Smoking or possession: up to 5 years in prison or a fine of up to KRW 50 million / dealing or brokering: 1 year or more in prison for a fixed term",
+    "law": "Act on the Control of Narcotics, etc., Articles 61(1)(4) and (6) and 59(1)(7)",
+    "questions": {
+      "act": {
+        "label": "What you did",
+        "options": {
+          "smoke": "Smoking or possession (for your own use)",
+          "sale": "Buying, selling or brokering",
+          "grow": "Growing it to sell, or growing a large amount"
+        }
+      },
+      "priors": {
+        "label": "Prior drug-related punishment",
+        "unit": "times"
+      },
+      "rehab": {
+        "label": "Was it simple smoking, and are you willing to get treatment or rehabilitation?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Selling, growing a large amount, or a repeat offense leads to detention being considered."
+      },
+      {
+        "sentence": "1 year or more in prison",
+        "note": "The standard is to request 6 months to 1 year less than for dealing methamphetamine."
+      },
+      {
+        "note": "The request depends on how often and how much was smoked, prior records, etc."
+      },
+      {
+        "note": "For a first offense of simple smoking with a willingness to rehabilitate, the usual handling standard is a suspension of indictment conditional on treatment (or education)."
+      }
+    ],
+    "notes": [
+      "Giving it to a minor or smoking together with a minor is punished heavily with 1 year or more in prison.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "drug-narcotic-use": {
+    "name": "Narcotics (cocaine, etc.): use",
+    "aliases": [
+      "cocaine",
+      "drugs"
+    ],
+    "statutory": "Up to 10 years in prison or a fine of up to KRW 100 million",
+    "law": "Act on the Control of Narcotics, etc., Articles 60(1)(1) and 3(1)",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Detention as a rule",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      }
+    ],
+    "notes": [
+      "For simple use with a willingness to rehabilitate, a suspension of indictment conditional on treatment or education is sometimes given."
+    ]
+  },
+  "drug-narcotic-possession": {
+    "name": "Narcotics: possession or giving/receiving; heroin: possession or use",
+    "aliases": [
+      "heroin",
+      "drug possession"
+    ],
+    "statutory": "1 year or more in prison for a fixed term",
+    "law": "Act on the Control of Narcotics, etc., Article 59(1)(3) and (9)",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Detention as a rule",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      }
+    ],
+    "notes": [
+      "If the value of the narcotics is KRW 5 million or more, the Act on the Aggravated Punishment of Specific Crimes punishes it more heavily.",
+      "For simple use with a willingness to rehabilitate, a suspension of indictment conditional on treatment or education is sometimes given."
+    ]
+  },
+  "drug-narcotic-trade": {
+    "name": "Narcotics (cocaine, heroin, etc.): import/export, manufacture or dealing",
+    "aliases": [
+      "drug trafficking",
+      "drug smuggling"
+    ],
+    "statutory": "Life imprisonment or 5 years or more in prison",
+    "law": "Act on the Control of Narcotics, etc., Article 58(1)(1)",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Detention as a rule",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      }
+    ]
+  },
+  "drug-meth-import": {
+    "name": "Methamphetamine and other psychotropic drugs: manufacture or import/export",
+    "aliases": [
+      "meth smuggling",
+      "drug smuggling"
+    ],
+    "statutory": "Life imprisonment or 5 years or more in prison",
+    "law": "Act on the Control of Narcotics, etc., Articles 58(1)(6) and 4(1)",
+    "questions": {
+      "act": {
+        "label": "What you did",
+        "options": {
+          "import": "Import or export (smuggling)",
+          "make": "Manufacture, or possession for that purpose"
+        }
+      },
+      "grams": {
+        "label": "Amount",
+        "unit": "g"
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "10 years or more in prison",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      },
+      {
+        "sentence": "Detention as a rule",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      }
+    ],
+    "notes": [
+      "Depending on the value, the Act on the Aggravated Punishment of Specific Crimes may apply."
+    ]
+  },
+  "drug-cannabis-import": {
+    "name": "Cannabis: import or export",
+    "aliases": [
+      "cannabis smuggling",
+      "marijuana smuggling"
+    ],
+    "statutory": "Life imprisonment or 5 years or more in prison",
+    "law": "Act on the Control of Narcotics, etc., Articles 58(1)(5) and 3(7)",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Detention as a rule",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      }
+    ]
+  },
+  "drunk-driving": {
+    "name": "Drunk driving (DUI)",
+    "aliases": [
+      "DUI",
+      "DWI",
+      "drink driving",
+      "driving under the influence"
+    ],
+    "statutory": "Blood alcohol 0.03% or more but under 0.08%: up to 1 year in prison or a fine of up to KRW 5 million / 0.08% or more but under 0.2%: 1 to 2 years in prison or a fine of KRW 5 million to 10 million / 0.2% or more: 2 to 5 years in prison or a fine of KRW 10 million to 20 million. If repeated within 10 years: 1 to 5 years in prison (2 to 6 years for 0.2% or more) or a fine of KRW 5 million to 20 million (KRW 10 million to 30 million for 0.2% or more)",
+    "law": "Road Traffic Act, Articles 148-2(1) and (3) and 44(1)",
+    "questions": {
+      "bac": {
+        "label": "Blood alcohol concentration",
+        "help": "The figure written on the test result (e.g. 0.085).",
+        "unit": "%"
+      },
+      "priors": {
+        "label": "Number of times punished with a fine or heavier for drunk driving or test refusal within the last 10 years",
+        "unit": "times"
+      },
+      "recent": {
+        "label": "When were you last punished?",
+        "options": {
+          "none": "Never punished",
+          "y3": "Within 3 years",
+          "y5": "3 to 5 years ago",
+          "y10": "5 to 10 years ago"
+        }
+      },
+      "probation": {
+        "label": "Are you currently on a suspended sentence for drunk driving?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "unlicensed": {
+        "label": "Were you driving without a license (including while it was revoked or suspended)?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "1 year 6 months or more in prison",
+        "note": "If you are on a suspended sentence for drunk driving, or were punished several times recently and the reading is high, detention is considered."
+      },
+      {
+        "sentence": "1 year 6 months or more in prison"
+      },
+      {
+        "sentence": "1 year or more in prison",
+        "note": "Even at 0.3% or more, a fine is possible if there are circumstances worth considering, such as driving a short distance to park."
+      },
+      {},
+      {},
+      {
+        "note": "For a repeat drunk driving offense, the minimum fine is KRW 5 million."
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "notes": [
+      "If you caused an accident damaging property, drove recklessly, or repeated it within 5 years, the case is treated one level more heavily.",
+      "If someone was injured, see the 'Drunk driving accident (injury or death)' item. Driving without a license is punished separately.",
+      "If you drove drunk 4 or more times within the last 5 years, or caused a fatal accident with a prior record, confiscation of the vehicle may be requested.",
+      "A person who rode along and encouraged the drunk driver or handed over the car keys may also be punished as an accessory.",
+      "Personal mobility devices such as electric scooters are covered by separate rules, not this penalty provision."
+    ]
+  },
+  "drunk-driving-refusal": {
+    "name": "Refusing a breathalyzer test",
+    "aliases": [
+      "refusing a breath test",
+      "DUI refusal"
+    ],
+    "statutory": "1 to 5 years in prison or a fine of KRW 5 million to 20 million (if repeated within 10 years: 1 to 6 years in prison or a fine of KRW 5 million to 30 million)",
+    "law": "Road Traffic Act, Articles 148-2(2) and 44(2)",
+    "questions": {
+      "priors3": {
+        "label": "Number of times punished for drunk driving or test refusal within the last 3 years",
+        "unit": "times"
+      },
+      "accident": {
+        "label": "Did you cause a traffic accident?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "1 year 6 months or more in prison"
+      },
+      {
+        "sentence": "1 year or more in prison"
+      },
+      {
+        "note": "The minimum fine is KRW 5 million."
+      }
+    ],
+    "notes": [
+      "Refusing the test is punished as heavily as, or more heavily than, drunk driving with a high reading, even if the actual level was low."
+    ]
+  },
+  "drunk-driving-accident": {
+    "name": "Drunk driving accident (injury or death)",
+    "aliases": [
+      "DUI accident",
+      "drunk driving crash"
+    ],
+    "statutory": "Violation of the Act on Special Cases Concerning the Settlement of Traffic Accidents (death or injury: up to 5 years of imprisonment without labor or a fine of up to KRW 20 million) is punished together with drunk driving. If the driver could not drive normally because of alcohol: dangerous driving causing injury, 1 to 15 years in prison or a fine of KRW 10 million to 30 million; dangerous driving causing death, life imprisonment or 3 years or more in prison",
+    "law": "Act on Special Cases Concerning the Settlement of Traffic Accidents, Article 3; Act on the Aggravated Punishment of Specific Crimes, Article 5-11; Road Traffic Act, Article 148-2",
+    "questions": {
+      "harm": {
+        "label": "How serious was the harm?",
+        "help": "If several people were injured, use the most seriously injured person.",
+        "options": {
+          "0": "Injured (diagnosis under 4 weeks)",
+          "1": "Injured (4 to 7 weeks)",
+          "2": "Injured (8 to 11 weeks)",
+          "3": "Injured (12 weeks or more, or an incurable or hard-to-cure serious injury)",
+          "death": "A person died"
+        }
+      },
+      "bac": {
+        "label": "Blood alcohol concentration",
+        "unit": "%"
+      },
+      "priors": {
+        "label": "Prior punishment for drunk driving",
+        "help": "Count fines only within the last 5 years, and suspended sentences or heavier only within the last 10 years.",
+        "unit": "times"
+      },
+      "settle": {
+        "label": "Settlement and insurance",
+        "options": {
+          "0": "Settled (or the victim does not want punishment)",
+          "1": "Not settled, with comprehensive insurance",
+          "2": "Not settled, without comprehensive insurance"
+        }
+      },
+      "cause": {
+        "label": "How the accident happened",
+        "options": {
+          "0": "The victim was largely at fault (jaywalking, etc.)",
+          "1": "The victim was also slightly at fault",
+          "2": "The victim was not at fault",
+          "3": "Other serious negligence besides drinking, such as running a red light or crossing the center line"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "5 years or more in prison",
+        "note": "This corresponds to handling grade 13 or higher. Grade 9 or higher is the standard where an actual prison term must be sought (mandatory prison term), so a suspended sentence is not requested."
+      },
+      {
+        "sentence": "4 to 5 years in prison",
+        "note": "This corresponds to handling grade 11 or higher. Grade 9 or higher is the standard where an actual prison term must be sought (mandatory prison term), so a suspended sentence is not requested."
+      },
+      {
+        "sentence": "3 to 4 years in prison",
+        "note": "This corresponds to handling grade 9 or higher. Grade 9 or higher is the standard where an actual prison term must be sought (mandatory prison term), so a suspended sentence is not requested."
+      },
+      {
+        "sentence": "2 to 3 years in prison",
+        "note": "This corresponds to handling grade 7 or higher. Grade 6 or higher is the standard where investigation in detention is considered."
+      },
+      {
+        "sentence": "1 year 6 months to 2 years in prison",
+        "note": "This corresponds to handling grade 6 or higher. Grade 6 or higher is the standard where investigation in detention is considered."
+      },
+      {
+        "sentence": "1 year to 1 year 6 months in prison",
+        "note": "This corresponds to handling grade 5 or higher. Grade 4 or higher is the standard for sending the case to a formal trial."
+      },
+      {
+        "sentence": "9 months to 1 year in prison",
+        "note": "This corresponds to handling grade 4 or higher. Grade 4 or higher is the standard for sending the case to a formal trial."
+      },
+      {
+        "note": "Below the formal-trial standard (grade 4), so depending on the case it may be handled with a summary fine. At a formal trial, the level is 6 to 9 months in prison."
+      }
+    ],
+    "notes": [
+      "The grade starts from a base (grade 3 for an injury accident, grade 10 for a fatal accident) and is raised or lowered according to blood alcohol, severity of injury, drunk driving record, settlement and how the accident happened.",
+      "If the driver is found unable to drive normally because of alcohol (dangerous driving), injury accidents become 1 grade heavier and fatal accidents 2 grades heavier.",
+      "It becomes heavier if 3 or more people were injured or 2 or more died, and 1 grade heavier if the driver was operating public transportation such as a bus.",
+      "A court deposit, a passenger riding along as a favor, a first offense and self-surrender are mitigating; fleeing, reckless driving and hiding the crime are aggravating."
+    ]
+  },
+  "unlicensed-driving": {
+    "name": "Driving without a license",
+    "aliases": [
+      "driving without a license",
+      "unlicensed driver",
+      "driving while suspended"
+    ],
+    "statutory": "Up to 1 year in prison or a fine of up to KRW 3 million (for a motorized bicycle: a fine of up to KRW 300,000 or short-term detention)",
+    "law": "Road Traffic Act, Articles 152(1) and 43",
+    "questions": {
+      "priors": {
+        "label": "Number of times punished for unlicensed or drunk driving",
+        "unit": "times"
+      },
+      "probation": {
+        "label": "Are you currently on a suspended sentence for unlicensed or drunk driving?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "habitual": {
+        "label": "Have you been driving without a license many times over a period?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "6 months or more in prison"
+      },
+      {},
+      {
+        "note": "Around KRW 1 million to 1.5 million."
+      },
+      {
+        "note": "Around KRW 700,000 to 1 million."
+      }
+    ],
+    "notes": [
+      "If you were driving to make a living, that may be taken into account.",
+      "If combined with drunk driving, both crimes are punished together."
+    ]
+  },
+  "traffic-moped-unlicensed": {
+    "name": "Riding a motorized bicycle without a license",
+    "aliases": [
+      "scooter without a license",
+      "moped without a license"
+    ],
+    "statutory": "A fine of up to KRW 300,000 or short-term detention",
+    "law": "Road Traffic Act, Articles 154(2) and 43",
+    "questions": {
+      "repeat": {
+        "label": "Do you have a record of the same, or did you cause an accident?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "note": "For a first offense, a suspension of indictment is possible."
+      }
+    ],
+    "notes": [
+      "Personal mobility devices such as electric scooters are not covered by this provision but are subject to a traffic penalty fee."
+    ]
+  },
+  "hit-and-run-injury": {
+    "name": "Hit-and-run (fleeing after causing injury)",
+    "aliases": [
+      "hit and run",
+      "leaving the scene"
+    ],
+    "statutory": "1 year or more in prison for a fixed term or a fine of KRW 5 million to 30 million (life imprisonment or 5 years or more in prison if the victim dies and the driver flees)",
+    "law": "Act on the Aggravated Punishment of Specific Crimes, Article 5-3(1)(2)",
+    "questions": {
+      "weeks": {
+        "label": "Diagnosis period of the most seriously injured person",
+        "help": "If there are several victims, add half of the next person's weeks to the weeks of the most seriously injured person.",
+        "unit": "weeks"
+      },
+      "settled": {
+        "label": "Settlement with the victim",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "insured": {
+        "label": "Do you have comprehensive insurance (or mutual aid coverage)?",
+        "options": {
+          "no": "Not covered",
+          "yes": "Covered"
+        }
+      },
+      "mitigating": {
+        "label": "Was the victim largely at fault, and are there circumstances worth considering in why you left the scene?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the diagnosis is 4 weeks or more with no settlement, or 8 weeks or more regardless of settlement, detention is considered."
+      },
+      {
+        "note": "A formal trial is the rule, and with neither a settlement nor insurance, it is a formal trial regardless of how serious the injury is."
+      },
+      {
+        "note": "An exceptional case where a summary fine is possible. KRW 1 million to 2 million is added for each week beyond 3 weeks."
+      }
+    ],
+    "notes": [
+      "Depending on the ability to pay and the degree of fault, it may be reduced by up to half.",
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "p2-hit-and-run-death": {
+    "name": "Hit-and-run causing death",
+    "aliases": [
+      "fatal hit and run"
+    ],
+    "statutory": "Life imprisonment or 5 years or more in prison",
+    "law": "Act on the Aggravated Punishment of Specific Crimes, Article 5-3(1)(1)",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "Detention as a rule",
+        "note": "Because the offense is serious, investigation in detention is considered as a rule."
+      }
+    ],
+    "notes": [
+      "This crime has no fine option, so if charged, the case goes to a formal trial."
+    ]
+  },
+  "leaving-accident-scene": {
+    "name": "Failing to take action after an accident (property damage)",
+    "aliases": [
+      "leaving the scene",
+      "hit and run (property damage)"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 15 million",
+    "law": "Road Traffic Act, Articles 148 and 54(1)",
+    "questions": {
+      "severity": {
+        "label": "How serious was the accident?",
+        "options": {
+          "minor": "Minor",
+          "serious": "Serious, or the offense is bad"
+        }
+      },
+      "drunk": {
+        "label": "Is there a suspicion of drunk driving?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {
+        "note": "If drunk driving is suspected, the fine becomes heavier."
+      },
+      {}
+    ],
+    "notes": [
+      "If someone was injured and you fled, see the 'Hit-and-run (fleeing after causing injury)' item.",
+      "If it is clear that only a parked or stopped car was damaged, not leaving your contact details is not this crime but is subject to other sanctions such as an administrative fine."
+    ]
+  },
+  "traffic-accident-injury": {
+    "name": "Traffic accident causing injury (Act on Special Cases Concerning the Settlement of Traffic Accidents)",
+    "aliases": [
+      "car accident",
+      "traffic accident"
+    ],
+    "statutory": "Up to 5 years of imprisonment without labor or a fine of up to KRW 20 million",
+    "law": "Act on Special Cases Concerning the Settlement of Traffic Accidents, Articles 3(1) and (2) and 4",
+    "questions": {
+      "exception": {
+        "label": "Does it fall under the 12 types of serious negligence, such as running a red light, crossing the center line, speeding (more than 20 km/h over), a crosswalk or a children's protection zone?",
+        "help": "For drunk driving accidents, see the 'Drunk driving accident' item.",
+        "options": {
+          "no": "Does not apply",
+          "yes": "Applies"
+        }
+      },
+      "insured": {
+        "label": "Do you have comprehensive insurance (or mutual aid coverage)?",
+        "options": {
+          "no": "Not covered",
+          "yes": "Covered"
+        }
+      },
+      "settled": {
+        "label": "Settlement with the victim",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "weeks": {
+        "label": "Diagnosis period of the most seriously injured person",
+        "help": "If there are several victims, add half of the next person's weeks to the weeks of the most seriously injured person.",
+        "unit": "weeks"
+      },
+      "victimFault": {
+        "label": "Was the victim also at fault?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Even without a settlement, depositing a considerable amount with the court is treated similarly to a settlement."
+      },
+      {
+        "note": "Even if it goes to a formal trial, a fine may be requested."
+      },
+      {
+        "note": "The standard is KRW 500,000 per week of diagnosis (KRW 500,000 to 700,000 if 4 weeks or more)."
+      },
+      {
+        "note": "The standard is KRW 300,000 per week of diagnosis (KRW 300,000 to 500,000 if 4 weeks or more)."
+      },
+      {
+        "note": "The standard is KRW 500,000 per week of diagnosis. With only liability insurance, it is about KRW 300,000 per week."
+      },
+      {
+        "note": "If it is not one of the 12 types of serious negligence and you have comprehensive insurance or the victim does not want punishment, as a rule it is not punished (no right to prosecute). This may differ if the victim suffered a serious injury."
+      }
+    ],
+    "notes": [
+      "It may be reduced in light of how and why the accident happened, the deposit and the degree of fault."
+    ]
+  },
+  "traffic-accident-death": {
+    "name": "Traffic accident causing death (Act on Special Cases Concerning the Settlement of Traffic Accidents)",
+    "aliases": [
+      "fatal car accident",
+      "vehicular manslaughter"
+    ],
+    "statutory": "Up to 5 years of imprisonment without labor or a fine of up to KRW 20 million",
+    "law": "Act on Special Cases Concerning the Settlement of Traffic Accidents, Article 3(1)",
+    "questions": {
+      "exception": {
+        "label": "Does it fall under the 12 types of serious negligence, such as running a red light, crossing the center line, speeding or a crosswalk?",
+        "help": "For drunk driving accidents, see the 'Drunk driving accident' item.",
+        "options": {
+          "no": "Does not apply",
+          "yes": "Applies"
+        }
+      },
+      "deaths": {
+        "label": "Number of people who died",
+        "unit": "people"
+      },
+      "victimFault": {
+        "label": "Was the person who died largely at fault?",
+        "options": {
+          "no": "Not largely",
+          "yes": "Largely"
+        }
+      },
+      "settledOrInsured": {
+        "label": "Did you settle with the bereaved family, or do you have comprehensive insurance?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "1 year to 4 years 6 months in prison",
+        "note": "If 2 or more people died due to one of the 12 types of serious negligence, the request is raised two steps above the usual range."
+      },
+      {
+        "sentence": "1 to 3 years in prison",
+        "note": "For accidents involving one of the 12 types of serious negligence or 2 or more deaths, detention is actively considered regardless of a settlement or deposit, and a suspended sentence tends not to be requested."
+      },
+      {
+        "sentence": "8 months to 1 year 6 months in prison"
+      },
+      {
+        "note": "This is the standard when one person died, that person was largely at fault, and there is a settlement or comprehensive insurance. A formal trial may still be sought."
+      }
+    ],
+    "notes": [
+      "Detention requires a legal ground such as a risk of fleeing or destroying evidence, so many cases proceed without detention even when they meet this standard."
+    ]
+  },
+  "new-school-zone-accident": {
+    "name": "Traffic accident in a children's protection zone (Minsik's Law)",
+    "aliases": [
+      "school zone accident",
+      "Minsik Act"
+    ],
+    "statutory": "Injury to a child: 1 to 15 years in prison or a fine of KRW 5 million to 30 million / death of a child: life imprisonment or 3 years or more in prison",
+    "law": "Act on the Aggravated Punishment of Specific Crimes, Article 5-13",
+    "questions": {
+      "type": {
+        "label": "Harm to the child",
+        "options": {
+          "injury": "Injured",
+          "death": "Died"
+        }
+      },
+      "circ": {
+        "label": "Circumstances",
+        "help": "Settlement or the victim not wanting punishment, compensation for the harm, sincere remorse and a first offense are mitigating; planning, serious harm and prior convictions of the same type are aggravating.",
+        "options": {
+          "mitigated": "More mitigating circumstances",
+          "basic": "About even",
+          "aggravated": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "8 to 16 years in prison"
+      },
+      {
+        "sentence": "4 to 10 years in prison"
+      },
+      {
+        "sentence": "3 to 6 years in prison"
+      },
+      {
+        "sentence": "4 to 10 years in prison"
+      },
+      {
+        "sentence": "1 year 8 months to 5 years in prison"
+      },
+      {
+        "sentence": "1 to 3 years in prison, or a fine of KRW 3 million to 15 million"
+      }
+    ],
+    "notes": [
+      "This is injuring or killing a child under 13 in a children's protection zone by not keeping the speed limit (such as 30 km/h) or not paying attention to children's safety.",
+      "It is punished even with comprehensive insurance or a settlement.",
+      "If the injury is minor or the victim does not want punishment, a fine may be chosen."
+    ]
+  },
+  "illegal-alien-employment": {
+    "name": "Employing foreigners staying illegally",
+    "aliases": [
+      "hiring undocumented workers",
+      "hiring illegal immigrants",
+      "overstay"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 30 million",
+    "law": "Immigration Act, Articles 94(9) and 18(3)",
+    "questions": {
+      "count": {
+        "label": "Number of illegally staying foreigners employed",
+        "unit": "people"
+      },
+      "venue": {
+        "label": "Type of business",
+        "options": {
+          "normal": "Ordinary business or factory",
+          "illegal": "Illegal business such as adult entertainment, prostitution or massage"
+        }
+      },
+      "abuse": {
+        "label": "Did you treat them unfairly, such as not paying wages, or make a large profit?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "priors": {
+        "label": "Prior punishment of the same type",
+        "unit": "times"
+      }
+    },
+    "tiers": [
+      {
+        "note": "If more than 10 people were employed and treated unfairly, more than 20 were employed for a large profit, or there are 3 or more prior records of a formal trial or heavier, detention is considered."
+      },
+      {
+        "sentence": "8 months or more in prison"
+      },
+      {
+        "note": "The standard is KRW 2 million per person."
+      },
+      {
+        "note": "The standard is KRW 1.5 million per person."
+      }
+    ],
+    "notes": [
+      "It can be punished only if the immigration authorities file an accusation.",
+      "Short employment of 1 month or less in a business facing a labor shortage, such as manufacturing, may be taken into account.",
+      "The fine depends on the period of employment, the type of business and whether it is a repeat offense.",
+      "After a 2016 amendment, the maximum fine rose from KRW 20 million to KRW 30 million."
+    ]
+  },
+  "immig-employment-brokerage": {
+    "name": "Brokering employment of foreigners staying illegally",
+    "aliases": [
+      "job broker for undocumented workers"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 30 million",
+    "law": "Immigration Act, Articles 94(10) and 18(4)",
+    "questions": {
+      "organized": {
+        "label": "Was it large-scale or organized, or did you place more than 10 people in illegal businesses such as prostitution?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "repeat": {
+        "label": "Do you have prior punishment of the same type?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {
+        "note": "A fine is expected, and the amount depends on the circumstances."
+      }
+    ],
+    "notes": [
+      "It can be punished only if the immigration authorities file an accusation.",
+      "As a rule, the fine is at least the amount of the notice of administrative disposition, and it is set according to the type of business placed into and the period."
+    ]
+  },
+  "immig-false-invitation": {
+    "name": "False invitation of foreigners",
+    "aliases": [
+      "fake invitation",
+      "visa fraud"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 30 million",
+    "law": "Immigration Act, Articles 94(3) and 7-2",
+    "questions": {
+      "role": {
+        "label": "Who are you in this case?",
+        "options": {
+          "broker": "A broker, or the invited foreigner",
+          "host": "The Korean who sent the invitation"
+        }
+      },
+      "profit": {
+        "label": "Was it to make money, or done in collusion with a broker?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "count": {
+        "label": "Number of people falsely invited",
+        "unit": "people"
+      }
+    },
+    "tiers": [
+      {
+        "note": "The invited foreigner may be deported instead of detained."
+      },
+      {
+        "sentence": "1 year or more in prison"
+      },
+      {
+        "note": "The standard is KRW 2 million per person."
+      },
+      {}
+    ],
+    "notes": [
+      "It can be punished only if the immigration authorities file an accusation.",
+      "The maximum fine rose from KRW 20 million to KRW 30 million."
+    ]
+  },
+  "immig-smuggling-entry": {
+    "name": "Illegal entry (smuggling into Korea)",
+    "aliases": [
+      "illegal entry",
+      "human smuggling",
+      "stowaway"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 50 million",
+    "law": "Immigration Act, Articles 93-3(1) and 12",
+    "questions": {},
+    "tiers": [
+      {
+        "sentence": "1 year or more in prison",
+        "note": "Detention is considered for the smuggling broker, the person who provided a boat or other means, and the person who entered illegally."
+      }
+    ],
+    "notes": [
+      "A person who arranged illegal entry for profit is punished more heavily."
+    ]
+  },
+  "p2-fake-marriage": {
+    "name": "False entry in public electronic records (sham marriage, etc.)",
+    "aliases": [
+      "sham marriage",
+      "fake marriage",
+      "marriage fraud",
+      "visa marriage"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Articles 228(1) and 229",
+    "questions": {
+      "role": {
+        "label": "What was your role?",
+        "options": {
+          "broker": "Broker or recruiter",
+          "foreigner": "The foreigner who married",
+          "korean": "The Korean who married"
+        }
+      },
+      "bad": {
+        "label": "Did you commit another crime, such as brokering or illegal currency exchange, or receive payment while having a prior conviction for the same?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "paid": {
+        "label": "Money received in return",
+        "unit": "× KRW 10,000"
+      },
+      "harm": {
+        "label": "Was there social or economic harm?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {},
+      {
+        "note": "If you received payment, a fine larger than that amount is imposed."
+      },
+      {
+        "note": "For a first offense with a confession, a fine of KRW 3 million or more is usual. For a foreigner, a suspension of indictment is also possible if they are deported."
+      }
+    ],
+    "notes": [
+      "A foreigner or Korean who simply entered a sham marriage is usually investigated without detention."
+    ]
+  },
+  "foreignworker-intervention": {
+    "name": "Interfering in the selection or placement of foreign workers, failing to take return measures, receiving money, etc.",
+    "aliases": [
+      "EPS broker",
+      "foreign worker placement"
+    ],
+    "statutory": "Up to 1 year in prison or a fine of up to KRW 10 million",
+    "law": "Act on the Employment of Foreign Workers, Article 29",
+    "questions": {
+      "bad": {
+        "label": "Was it habitual or done in a professional way, with several victims?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "8 months or more in prison"
+      },
+      {}
+    ]
+  },
+  "passport-fraud-issue": {
+    "name": "Fraudulent passport issuance (false statements, etc.)",
+    "aliases": [
+      "passport fraud"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 30 million",
+    "law": "Passport Act, Articles 24(1) and 16(1)",
+    "questions": {
+      "linked": {
+        "label": "Was it done together with, or linked to, another crime such as helping a criminal escape?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "10 months or more in prison",
+        "note": "If it was done together with or linked to another crime, detention is considered and the case goes to a formal trial."
+      },
+      {}
+    ]
+  },
+  "passport-misuse-lend": {
+    "name": "Using another person's passport, or transferring or lending a passport",
+    "aliases": [
+      "using someone else's passport",
+      "lending a passport"
+    ],
+    "statutory": "Up to 2 years in prison or a fine of up to KRW 20 million",
+    "law": "Passport Act, Articles 25 and 16(2) and (3)",
+    "questions": {
+      "bad": {
+        "label": "Was it repeated, or did you lend it in an organized way or as a business?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "10 months or more in prison",
+        "note": "Repeat offenses, or lending in an organized way or as a business, lead to detention being considered."
+      },
+      {}
+    ]
+  },
+  "passport-borrow": {
+    "name": "Receiving or borrowing another person's passport",
+    "aliases": [
+      "borrowing a passport"
+    ],
+    "statutory": "Up to 1 year in prison or a fine of up to KRW 10 million",
+    "law": "Passport Act, Articles 26(1) and 16(4)",
+    "questions": {
+      "times": {
+        "label": "Number of times",
+        "options": {
+          "1": "Once",
+          "2": "2 or more times"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "6 months or more in prison"
+      },
+      {
+        "note": "As a rule, it ends with a fine (summary indictment)."
+      }
+    ]
+  },
+  "forgery-public-document": {
+    "name": "Forging and using a public document",
+    "aliases": [
+      "forged ID",
+      "fake ID",
+      "fake document",
+      "forged certificate"
+    ],
+    "statutory": "Up to 10 years in prison",
+    "law": "Criminal Act, Articles 225 and 229",
+    "questions": {
+      "otherCrime": {
+        "label": "Did you commit another crime with the forged public document?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "caught": {
+        "label": "Were you caught on the spot while trying to use it, so that there was no actual harm?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If another crime was committed with the forged public document, investigation in detention may be considered."
+      },
+      {
+        "note": "This crime has no fine option, so if charged, the case goes to a formal trial. It is heavier for important documents such as court judgments or passports, or for organized crime."
+      }
+    ]
+  },
+  "forgery-private-document": {
+    "name": "Forging and using a private document",
+    "aliases": [
+      "forged contract",
+      "forged signature",
+      "fake document"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Articles 231 and 234",
+    "questions": {
+      "severe": {
+        "label": "Was the harm large, was it used as a means of another crime, or was it submitted to a public institution?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "planned": {
+        "label": "Was the method professional or planned?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "damage": {
+        "label": "Did the forgery cause actual financial harm?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If the harm is large and the method was planned, investigation in detention may be considered."
+      },
+      {},
+      {
+        "note": "If there was no actual harm or very little, it is usually handled with a fine."
+      }
+    ],
+    "notes": [
+      "Actually using the forged document also constitutes the crime of using a forged private document."
+    ]
+  },
+  "defamation": {
+    "name": "Defamation (stating facts)",
+    "aliases": [
+      "libel",
+      "slander"
+    ],
+    "statutory": "Up to 2 years in prison or imprisonment without labor, or a fine of up to KRW 5 million",
+    "law": "Criminal Act, Article 307(1)",
+    "questions": {
+      "agreement": {
+        "label": "Did the victim say they do not want you punished? (settlement)",
+        "options": {
+          "yes": "Does not want punishment (settled)",
+          "no": "Wants punishment (not settled)"
+        }
+      },
+      "prior": {
+        "label": "Do you have a prior conviction for defamation?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "minor": {
+        "label": "Are the statement and how widely it spread objectively minor?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "6 months or more in prison",
+        "note": "If the content or how widely it spread is not minor, a formal trial is the rule."
+      },
+      {},
+      {
+        "note": "This crime cannot be punished if the victim does not want punishment (an offense not punishable against the victim's wishes), so a settlement ends the case."
+      }
+    ],
+    "notes": [
+      "If posted on the internet or social media, a different law (the Information and Communications Network Act) applies and the punishment is heavier.",
+      "If true facts were stated solely for the public interest, it may not be punished."
+    ]
+  },
+  "false-defamation": {
+    "name": "Defamation by false facts",
+    "aliases": [
+      "false rumors",
+      "libel",
+      "slander"
+    ],
+    "statutory": "Up to 5 years in prison, suspension of qualifications for up to 10 years, or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Article 307(2)",
+    "questions": {
+      "agreement": {
+        "label": "Did the victim say they do not want you punished? (settlement)",
+        "options": {
+          "yes": "Does not want punishment (settled)",
+          "no": "Wants punishment (not settled)"
+        }
+      },
+      "malicious": {
+        "label": "Was it spread to make money, or in an organized or continuous way?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "minor": {
+        "label": "Are the statement and how widely it spread objectively minor?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If spreading false facts for profit or in an organized, malicious way seriously damaged someone's reputation, investigation in detention may be considered."
+      },
+      {
+        "sentence": "10 months or more in prison",
+        "note": "A formal trial is the rule."
+      },
+      {},
+      {
+        "note": "This crime cannot be punished if the victim does not want punishment (an offense not punishable against the victim's wishes), so a settlement ends the case."
+      }
+    ],
+    "notes": [
+      "If posted on the internet or social media, a different law (the Information and Communications Network Act) applies and the punishment is heavier."
+    ]
+  },
+  "insult": {
+    "name": "Insult",
+    "aliases": [
+      "verbal abuse",
+      "swearing at someone"
+    ],
+    "statutory": "Up to 1 year in prison or imprisonment without labor, or a fine of up to KRW 2 million",
+    "law": "Criminal Act, Article 311",
+    "questions": {
+      "complaint": {
+        "label": "What about the victim's complaint?",
+        "options": {
+          "kept": "The complaint stands",
+          "withdrawn": "The complaint was withdrawn (settled)"
+        }
+      },
+      "pattern": {
+        "label": "Which case is it?",
+        "options": {
+          "once": "A single minor insult",
+          "persistent": "Kept insulting the same person",
+          "prior": "Have a prior conviction for defamation or insult"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "6 months or more in prison"
+      },
+      {},
+      {
+        "note": "This crime can be punished only if the victim files a complaint (an offense requiring a complaint), so withdrawing the complaint ends the case."
+      }
+    ],
+    "notes": [
+      "Online comments can also be insults if many people can see them."
+    ]
+  },
+  "online-defamation": {
+    "name": "Defamation through an information and communications network (online defamation)",
+    "aliases": [
+      "cyber defamation",
+      "online libel",
+      "malicious comments"
+    ],
+    "statutory": "Stating facts: up to 3 years in prison or a fine of up to KRW 30 million / false facts: up to 7 years in prison, suspension of qualifications for up to 10 years, or a fine of up to KRW 70 million",
+    "law": "Act on Promotion of Information and Communications Network Utilization and Information Protection (Information and Communications Network Act), Article 70",
+    "questions": {
+      "truth": {
+        "label": "What was posted",
+        "options": {
+          "fact": "Facts",
+          "false": "False facts"
+        }
+      },
+      "severity": {
+        "label": "Degree",
+        "options": {
+          "normal": "Ordinary case",
+          "repeat": "Posted repeatedly out of personal feelings",
+          "grave": "Maliciously made up and spread, or the harm is so great it is hard to repair"
+        }
+      },
+      "wantsPunish": {
+        "label": "Does the victim want punishment?",
+        "options": {
+          "no": "Does not want it",
+          "yes": "Wants it"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "1 year or more in prison",
+        "note": "Defamation by false facts goes, as a rule, to a formal trial. When a fine is requested, it is at the level of KRW 5 million or more."
+      },
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {},
+      {
+        "note": "It cannot be punished if the victim does not want punishment (no right to prosecute). Many cases end with a settlement during the investigation."
+      }
+    ],
+    "notes": [
+      "There must be an intent to disparage the person; if it was for the public interest, that intent may be denied.",
+      "A 2026 amendment raised the maximum fine for defamation by false facts to KRW 70 million."
+    ]
+  },
+  "online-repeated-fear": {
+    "name": "Repeatedly sending messages that cause fear or anxiety",
+    "aliases": [
+      "harassing texts",
+      "threatening messages",
+      "cyberbullying"
+    ],
+    "statutory": "Up to 1 year in prison or a fine of up to KRW 10 million",
+    "law": "Information and Communications Network Act, Articles 74(1)(3) and 44-7(1)(3)",
+    "questions": {
+      "long": {
+        "label": "Did you send them repeatedly over a considerable period?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "record": {
+        "label": "Do you have a prior conviction of the same type?",
+        "options": {
+          "no": "None",
+          "yes": "Yes"
+        }
+      },
+      "wantsPunish": {
+        "label": "Does the victim want punishment?",
+        "options": {
+          "no": "Does not want it",
+          "yes": "Wants it"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "8 months or more in prison"
+      },
+      {},
+      {
+        "note": "It cannot be punished if the victim does not want punishment (no right to prosecute)."
+      }
+    ],
+    "notes": [
+      "If there were other acts as well, such as visiting or watching the person, the heavier Stalking Punishment Act may apply; this calculator does not reflect that."
+    ]
+  },
+  "obstruction-of-business": {
+    "name": "Obstruction of business",
+    "aliases": [
+      "disrupting a business",
+      "causing a scene at a store"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 15 million",
+    "law": "Criminal Act, Article 314(1)",
+    "questions": {
+      "amount": {
+        "label": "Amount of damage (estimate)",
+        "help": "If you do not know exactly, enter a rough amount; if there was no financial damage, enter 0.",
+        "unit": "× KRW 10,000"
+      },
+      "agreement": {
+        "label": "Did you settle with the victim?",
+        "options": {
+          "yes": "Settled",
+          "no": "Not settled"
+        }
+      },
+      "prior": {
+        "label": "Have you received a suspended sentence or heavier for the same crime within the last 5 years?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "1 year or more in prison",
+        "note": "If the damage is KRW 30,000,000 or more and there is no settlement, or there is a recent prior conviction of the same type, investigation in detention may be considered."
+      },
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {
+        "note": "If the harm is relatively light or there is a settlement, it is usually handled with a fine."
+      }
+    ]
+  },
+  "obstruction-of-official-duty": {
+    "name": "Obstruction of the performance of official duties",
+    "aliases": [
+      "assaulting a police officer",
+      "resisting arrest"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Article 136(1)",
+    "questions": {
+      "target": {
+        "label": "Against whom, and what did you do?",
+        "options": {
+          "uniform-force": "Directly hit or pushed a uniformed police officer, firefighter or on-site welfare official",
+          "uniform-other": "Swore at or threatened a uniformed police officer, firefighter, etc.",
+          "other": "Other public officials"
+        }
+      },
+      "aggravated": {
+        "label": "Was a weapon used, were 2 or more people involved, or was someone injured for 3 weeks or more?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "prior": {
+        "label": "Do you have a prior conviction for the same within the last 5 years?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "minor": {
+        "label": "Was it spontaneous, with only minor obstruction?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Using direct force against a uniformed police officer or similar, or using a weapon, acting with others or having a recent prior conviction of the same type, may lead to investigation in detention."
+      },
+      {
+        "note": "Obstructing a uniformed police officer or similar goes, as a rule, to a formal trial, but if minor, a fine is sometimes requested."
+      },
+      {},
+      {
+        "note": "If spontaneous and minor, it is usually handled with a fine."
+      }
+    ],
+    "notes": [
+      "Whether it happened while trying to hold back a companion, or whether you obstructed together with them, is examined carefully."
+    ]
+  },
+  "p2-special-obstruction": {
+    "name": "Special obstruction of official duties, etc.",
+    "aliases": [
+      "obstructing police with a weapon"
+    ],
+    "statutory": "The penalty for each crime increased by up to 1/2",
+    "law": "Criminal Act, Article 144(1)",
+    "questions": {
+      "role": {
+        "label": "What was your role?",
+        "options": {
+          "leader": "Led it or actively took part",
+          "simple": "Simply went along"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Those who led or actively took part are, as a rule, investigated in detention."
+      },
+      {
+        "note": "A formal trial is the rule."
+      }
+    ],
+    "notes": [
+      "This is obstructing official duties or damaging public property while showing the force of a group or carrying a dangerous object."
+    ]
+  },
+  "perjury": {
+    "name": "Perjury",
+    "aliases": [
+      "false testimony",
+      "lying in court"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 10 million",
+    "law": "Criminal Act, Article 152(1)",
+    "questions": {
+      "prior": {
+        "label": "Do you have a prior conviction for perjury or false accusation?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "paid": {
+        "label": "Did you receive or agree to receive money or similar for the testimony?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "impact": {
+        "label": "Was the false testimony likely to greatly affect the outcome of the trial?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "confessed": {
+        "label": "Did you correct the false testimony yourself or confess?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "With a prior conviction of the same type, testimony given for payment, or false testimony that greatly affected the trial, investigation in detention may be considered."
+      },
+      {},
+      {
+        "note": "If it had little effect on the outcome of the trial and you confessed, it is usually handled with a fine."
+      }
+    ],
+    "notes": [
+      "Confessing before the judgment becomes final reduces or waives the penalty."
+    ]
+  },
+  "false-accusation": {
+    "name": "False accusation",
+    "aliases": [
+      "false report",
+      "false complaint",
+      "false police report"
+    ],
+    "statutory": "Up to 10 years in prison or a fine of up to KRW 15 million",
+    "law": "Criminal Act, Article 156",
+    "questions": {
+      "prior": {
+        "label": "Do you have a prior conviction for perjury or false accusation?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "pattern": {
+        "label": "Did you repeatedly accuse the same person, falsely accuse several people, or aim to harm the other person?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "indicted": {
+        "label": "Was the other person actually indicted because of the false complaint?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "evade": {
+        "label": "Did you file the complaint to avoid your own responsibility (a debt, punishment, etc.)?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "confessed": {
+        "label": "Did you confess and withdraw the complaint?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "With a prior conviction of the same type, or a repeated or malicious false complaint, investigation in detention may be considered."
+      },
+      {},
+      {
+        "note": "If the case is not serious and you confessed and withdrew the complaint, it is sometimes handled with a fine."
+      }
+    ],
+    "notes": [
+      "Confessing before the judgment or disciplinary decision becomes final reduces or waives the penalty.",
+      "A person who had someone else file a false complaint is viewed more seriously."
+    ]
+  },
+  "harboring-criminal": {
+    "name": "Harboring a criminal (helping a criminal escape)",
+    "aliases": [
+      "helping a criminal escape",
+      "hiding a criminal",
+      "taking the blame for someone"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 5 million",
+    "law": "Criminal Act, Article 151(1)",
+    "questions": {
+      "serious": {
+        "label": "Did the person you hid commit a serious crime?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "paid": {
+        "label": "Did you receive payment, or seriously hinder the investigation or trial?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "early": {
+        "label": "Was it discovered right at the start of the investigation, so the obstruction was minor?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "If you hid a serious offender, received payment or seriously hindered the investigation, investigation in detention may be considered."
+      },
+      {
+        "sentence": "8 months or more in prison"
+      },
+      {
+        "note": "If it was discovered early in the investigation, the obstruction was minor and your relationship with the offender gives reason for consideration, it is sometimes handled with a fine."
+      }
+    ],
+    "notes": [
+      "A relative or a family member living together who hid the offender for the offender's sake is not punished.",
+      "If you ask someone to turn themselves in on your behalf to hide your own crime, you may also be punished for asking."
+    ]
+  },
+  "gambling": {
+    "name": "Gambling",
+    "aliases": [
+      "betting",
+      "card games for money"
+    ],
+    "statutory": "A fine of up to KRW 10 million",
+    "law": "Criminal Act, Article 246(1)",
+    "questions": {
+      "prior": {
+        "label": "Do you have a prior gambling conviction?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "casual": {
+        "label": "Were the stakes small, close to a temporary pastime like a game of go-stop?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "For a repeat offense, the standard is KRW 1 million or more."
+      },
+      {},
+      {
+        "note": "If close to a temporary pastime, a suspension of indictment is possible, and if it was no more than a temporary pastime, it is not punished."
+      }
+    ],
+    "notes": [
+      "Online gambling is decided by looking at prior convictions and the scale of the money bet.",
+      "Habitual gambling is punished heavily as habitual gambling (up to 3 years in prison or a fine of up to KRW 20 million).",
+      "For illegal sports betting, another law (the National Sports Promotion Act) may also apply."
+    ]
+  },
+  "gambling-place": {
+    "name": "Opening a gambling place",
+    "aliases": [
+      "running a gambling den",
+      "illegal casino",
+      "gambling site"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 30 million",
+    "law": "Criminal Act, Article 247",
+    "questions": {
+      "role": {
+        "label": "What was your role?",
+        "options": {
+          "operator": "Operator or main offender",
+          "helper": "Helped run it",
+          "parttime": "Simple part-time worker or employee"
+        }
+      },
+      "online": {
+        "label": "Was it an online gambling site?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "prior2": {
+        "label": "Do you have 2 or more prior convictions for the same?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      },
+      "large": {
+        "label": "Were the stakes large and the game highly gambling-oriented?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "note": "Running an online gambling site, 2 or more prior convictions of the same type, or running a gambling place with large stakes leads to investigation in detention being treated almost as the rule."
+      },
+      {
+        "note": "A formal trial is the rule, and a fine may be added."
+      },
+      {
+        "note": "A prior gambling conviction makes it heavier."
+      },
+      {
+        "note": "If involvement was minor, such as simple part-time work, a suspension of indictment is possible."
+      }
+    ]
+  },
+  "illegal-sports-betting": {
+    "name": "Illegal sports betting (using unlicensed betting sites)",
+    "aliases": [
+      "sports betting",
+      "Toto",
+      "online betting"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 50 million",
+    "law": "National Sports Promotion Act, Articles 48(3) and 26(1)",
+    "questions": {
+      "amount": {
+        "label": "Total amount bet",
+        "help": "The total money actually bet.",
+        "unit": "× KRW 10,000"
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "10 months or more in prison"
+      },
+      {
+        "note": "This amount range may go to a formal trial."
+      },
+      {},
+      {},
+      {},
+      {
+        "note": "Some cases end with a suspension of indictment."
+      }
+    ],
+    "notes": [
+      "It is applied flexibly depending on prior records of the same type, the betting period, etc.",
+      "Running or promoting a gambling site is punished much more heavily."
+    ]
+  },
+  "labor-unpaid-wages": {
+    "name": "Unpaid wages (not paying wages, shutdown allowances or overtime pay)",
+    "aliases": [
+      "wage theft",
+      "unpaid wages",
+      "unpaid salary"
+    ],
+    "statutory": "Up to 5 years in prison or a fine of up to KRW 50 million",
+    "law": "Labor Standards Act, Articles 107(1), 36, 43, 46 and 56",
+    "questions": {
+      "type": {
+        "label": "Amount unpaid",
+        "options": {
+          "t1": "Unpaid amount less than KRW 50 million",
+          "t2": "Unpaid amount KRW 50 million or more but less than KRW 100 million",
+          "t3": "Unpaid amount KRW 100 million or more"
+        }
+      },
+      "circ": {
+        "label": "Circumstances",
+        "help": "Compare circumstances such as a settlement, remorse or a first offense with aggravating ones such as the scale of harm or prior convictions, and choose.",
+        "options": {
+          "mit": "More mitigating circumstances",
+          "same": "About even",
+          "agg": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "1 to 2 years in prison"
+      },
+      {
+        "sentence": "8 months to 1 year 4 months in prison"
+      },
+      {
+        "sentence": "Up to 1 year in prison"
+      },
+      {
+        "sentence": "1 year 4 months to 3 years in prison"
+      },
+      {
+        "sentence": "1 to 2 years in prison"
+      },
+      {
+        "sentence": "Up to 1 year 4 months in prison"
+      },
+      {
+        "sentence": "2 years 4 months to 5 years in prison"
+      },
+      {
+        "sentence": "1 year 4 months to 3 years in prison"
+      },
+      {
+        "sentence": "1 to 2 years in prison"
+      }
+    ],
+    "notes": [
+      "It cannot be punished if the workers do not want punishment (not punishable against their wishes). This does not apply, however, if an employer whose name was published for unpaid wages fails to pay again during the publication period.",
+      "Most cases end with a fine or no punishment once the unpaid amount is paid or a settlement is reached."
+    ]
+  },
+  "new-minimum-wage": {
+    "name": "Paying less than the minimum wage",
+    "aliases": [
+      "below minimum wage",
+      "underpayment"
+    ],
+    "statutory": "Up to 3 years in prison or a fine of up to KRW 20 million (both may be imposed)",
+    "law": "Minimum Wage Act, Articles 28(1) and 6(1) and (2)",
+    "questions": {
+      "type": {
+        "label": "Total wages underpaid (all workers)",
+        "options": {
+          "u50m": "Less than KRW 50 million",
+          "u100m": "KRW 50 million or more but less than KRW 100 million",
+          "o100m": "KRW 100 million or more"
+        }
+      },
+      "circ": {
+        "label": "Circumstances",
+        "help": "Settlement or the victim not wanting punishment, compensation for the harm, sincere remorse and a first offense are mitigating; planning, serious harm and prior convictions of the same type are aggravating.",
+        "options": {
+          "mitigated": "More mitigating circumstances",
+          "basic": "About even",
+          "aggravated": "More aggravating circumstances"
+        }
+      }
+    },
+    "tiers": [
+      {
+        "sentence": "2 years 4 months to 3 years in prison"
+      },
+      {
+        "sentence": "1 year 4 months to 3 years in prison"
+      },
+      {
+        "sentence": "1 to 2 years in prison"
+      },
+      {
+        "sentence": "1 year 4 months to 3 years in prison"
+      },
+      {
+        "sentence": "1 to 2 years in prison"
+      },
+      {
+        "sentence": "Up to 1 year 4 months in prison"
+      },
+      {
+        "sentence": "1 to 2 years in prison"
+      },
+      {
+        "sentence": "8 months to 1 year 4 months in prison"
+      },
+      {
+        "sentence": "Up to 1 year in prison"
+      }
+    ],
+    "notes": [
+      "This is paying less than the minimum wage, or cutting existing wages on the ground of the minimum wage.",
+      "Paying the underpaid wages is a mitigating factor. It is often at issue together with unpaid wages (Labor Standards Act)."
+    ]
+  },
+  "customs-smuggling-import": {
+    "name": "Smuggling imports (importing without declaration or declaring different goods)",
+    "aliases": [
+      "smuggling",
+      "customs violation"
+    ],
+    "statutory": "Up to 5 years in prison, or a fine up to 10 times the customs duty or the cost of the goods, whichever is higher",
+    "law": "Customs Act, Article 269(2)",
+    "questions": {
+      "cost": {
+        "label": "Cost of the goods",
+        "unit": "× KRW 10,000"
+      },
+      "multiple": {
+        "label": "Are there several counts (multiple offenses)?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "1 year or more in prison",
+        "note": "A fine equal to 10% of the market price of the smuggled goods is requested as well."
+      },
+      {
+        "note": "20% or more of the cost of the goods."
+      }
+    ],
+    "notes": [
+      "If the cost of the goods is KRW 200 million or more, the Act on the Aggravated Punishment of Specific Crimes applies.",
+      "Smuggled goods are always confiscated or their value collected, and customs usually files an accusation if the cost of the goods is KRW 20 million or more."
+    ]
+  },
+  "customs-contraband": {
+    "name": "Importing or exporting prohibited goods (smuggling)",
+    "aliases": [
+      "contraband",
+      "smuggling weapons"
+    ],
+    "statutory": "Up to 7 years in prison or a fine of up to KRW 70 million",
+    "law": "Customs Act, Articles 269(1) and 234",
+    "questions": {
+      "kind": {
+        "label": "Goods",
+        "options": {
+          "danger": "Goods harming public safety, such as weapons or counterfeit money",
+          "obscene": "Goods harming public morals, such as obscene material"
+        }
+      },
+      "big": {
+        "label": "Was it large-scale?",
+        "options": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "note": "Small-scale cases involving obscene material and the like may lead to a requested fine."
+      },
+      {
+        "sentence": "2 years or more in prison"
+      }
+    ],
+    "notes": [
+      "Smuggling drugs is punished more heavily under the Act on the Control of Narcotics, etc."
+    ]
+  },
+  "customs-smuggled-goods": {
+    "name": "Acquiring, transferring, transporting or storing smuggled goods",
+    "aliases": [
+      "buying smuggled goods"
+    ],
+    "statutory": "Up to 3 years in prison or a fine up to the cost of the goods",
+    "law": "Customs Act, Article 274(1)",
+    "questions": {
+      "cost": {
+        "label": "Cost of the goods",
+        "unit": "× KRW 10,000"
+      }
+    },
+    "tiers": [
+      {},
+      {
+        "sentence": "10 months or more in prison",
+        "note": "A fine equal to 10% of the market price of the smuggled goods is requested as well."
+      },
+      {
+        "note": "20% or more of the cost of the goods, and it may go up depending on the method."
+      }
+    ]
+  }
+}

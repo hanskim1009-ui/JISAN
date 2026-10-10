@@ -1,0 +1,106 @@
+{
+  "page": {
+    "title": "Inheritance Share Calculator",
+    "description": "Enter the heirs, such as the spouse, children, parents and siblings, to calculate each person's statutory inheritance share as a fraction and an amount, according to the order of heirs under the Civil Act and the rule that a spouse receives 1.5 times a share.",
+    "lead": "Calculates the shares set by law (statutory inheritance shares) when there is no will. Enter the heirs and the value of the estate to see each person's ratio and amount right away.",
+    "notice": "This is a reference calculation based on the ratios set by the Civil Act. A will, renunciation of inheritance, property received in advance (special benefits) and contribution shares can change what each person actually receives. Talk to a lawyer before making any decision."
+  },
+  "heirs": {
+    "title": "Heirs",
+    "desc": "Based on the person who died (the decedent), enter the family members who were alive on the date of death.",
+    "spouse": "Spouse",
+    "spouseHelp": "Only a legally registered spouse counts. A divorced spouse or a common-law (unregistered) spouse is not an heir.",
+    "children": "Children",
+    "childrenDesc": "Adopted children and children born outside marriage who have been acknowledged are treated the same. If a child died before the decedent, choose 'Died earlier' and enter that child's children and spouse.",
+    "child": "Child",
+    "childKids": "That child's children (grandchildren)",
+    "hasDescNote": "If there are children (or grandchildren inheriting in their place), parents and siblings do not become heirs.",
+    "ascendants": "Lineal ascendants (parents, grandparents)",
+    "ascendantsDesc": "They become heirs when there are no children. Only the closest degree counts: if even one parent is alive, enter only the parents; if neither is alive, enter the grandparents.",
+    "ascendantsCount": "Number of lineal ascendants",
+    "hasAscNote": "If there are parents (lineal ascendants), siblings do not become heirs.",
+    "spouseOnlyNote": "If there are no children and no parents, the spouse inherits alone. Siblings do not become heirs.",
+    "siblings": "Siblings",
+    "siblingsDesc": "They become heirs when there are no children, parents or spouse. If a sibling died earlier, that sibling's children (nephews and nieces) and spouse inherit in their place.",
+    "sibling": "Sibling",
+    "siblingKids": "That sibling's children (nephews and nieces)",
+    "collaterals": "Collateral blood relatives within the fourth degree",
+    "collateralsDesc": "They become heirs when none of the people above exist. Enter the number of people of the closest degree among relatives who branch from a common ancestor, such as uncles and aunts (third degree) and cousins (fourth degree).",
+    "collateralsCount": "Number of collateral blood relatives",
+    "item": "{label} {n}",
+    "state": "Status of {item}",
+    "alive": "Alive",
+    "deceased": "Died earlier",
+    "kidCount": "Number of children of {item}",
+    "theirSpouse": "That person's spouse",
+    "spouseOf": "Spouse of {item}",
+    "lost": "If there is no one to inherit in their place, this share goes to the other heirs.",
+    "add": "+ Add {label}"
+  },
+  "names": {
+    "spouse": "Spouse",
+    "child": "Child",
+    "sibling": "Sibling",
+    "ascendant": "Lineal ascendant",
+    "collateral": "Collateral relative",
+    "grandchild": "child",
+    "nephew": "child (nephew/niece)",
+    "item": "{label} {n}",
+    "spouseOf": "Spouse of {name}",
+    "kidOf": "{name}'s {kid} {n}"
+  },
+  "ranks": {
+    "descendant": "1st rank: children and other lineal descendants (with the spouse)",
+    "ascendant": "2nd rank: parents and other lineal ascendants (with the spouse)",
+    "spouseOnly": "Spouse alone",
+    "sibling": "3rd rank: siblings",
+    "collateral": "4th rank: collateral blood relatives within the fourth degree"
+  },
+  "ui": {
+    "estateTitle": "Estate (optional)",
+    "estateLabel": "Value of the property to divide",
+    "estateHelp": "If you enter it, we also show each person's amount. If there are debts, enter the amount after subtracting them.",
+    "result": "Statutory inheritance shares",
+    "colHeir": "Heir",
+    "colShare": "Share",
+    "colRatio": "Ratio",
+    "colAmount": "Amount",
+    "rounding": "Amounts are rounded to the nearest won, so the total may differ by a few won.",
+    "via": "Inherits the share of {name}, who died earlier (inheritance by representation)",
+    "stepRank": "Order of heirs: {rank}. If there are heirs of an earlier rank, later ranks receive nothing.",
+    "stepSpouse": "The spouse receives 1.5 times the share of each child (or parent) inheriting together. So the estate is divided in the ratio of 3 for the spouse and 2 for each of the others.",
+    "stepEqual": "Heirs of the same rank divide equally.",
+    "stepSubst": "The share of a person who died earlier goes to that person's children and spouse in their place (inheritance by representation), and within that share it is divided again 1.5 for the spouse to 1 for each child.",
+    "stepDen": "All shares are shown with the same denominator ({den}). The values in brackets are reduced fractions.",
+    "notIncluded": "Not included in this calculation"
+  },
+  "notIncluded": [
+    "If there is a will, the will comes first. However, if an heir receives less than the minimum share secured by law (the reserved share), they can claim it separately.",
+    "A person who renounced the inheritance is treated as never having been an heir. Remove that person and calculate again.",
+    "Property received in advance (special benefits) and the share for having cared for and supported the decedent for a long time (contribution share) are considered separately when the estate is actually divided.",
+    "Cases where a grandchild also died earlier (representation at a further level) and unborn children cannot be entered in this calculator."
+  ],
+  "terms": [
+    [
+      "Inheritance share",
+      "The ratio set by law in which each heir divides the estate."
+    ],
+    [
+      "Decedent",
+      "The person who died and left the property."
+    ],
+    [
+      "Lineal descendants · lineal ascendants",
+      "Blood relatives in the line below, such as children and grandchildren, and blood relatives in the line above, such as parents and grandparents."
+    ],
+    [
+      "Inheritance by representation",
+      "When a child or sibling who would have been an heir died earlier, that person's children and spouse inherit in their place."
+    ]
+  ],
+  "errors": {
+    "oneSpouse": "Only one spouse can be entered.",
+    "noHeir": "Please enter at least one heir.",
+    "sum": "The inheritance shares do not add up to 1."
+  }
+}

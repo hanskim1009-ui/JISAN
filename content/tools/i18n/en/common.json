@@ -1,0 +1,84 @@
+{
+  "shell": {
+    "crumb": "Calculators & Self-Checks",
+    "notice": "Results are for reference only and follow general standards. Real cases can differ greatly depending on the specific facts, so talk to a lawyer before making any decision.",
+    "ctaTitle": "Want to look at your own case more closely?",
+    "ctaLead": "Send us a message about your situation. A lawyer will review it and reply.",
+    "ctaButton": "Message us",
+    "related": "Related pages"
+  },
+  "list": {
+    "title": "Calculators & Self-Checks",
+    "lead": "Work out for yourself the things to check first in your case. Results are for reference only; for an accurate assessment, talk to a lawyer.",
+    "seoTitle": "Calculators & Self-Checks",
+    "seoDescription": "Simple tools to calculate and check for yourself the key points to look at first in a legal matter in Korea. Results are for reference only."
+  },
+  "groups": {
+    "criminal": "Criminal",
+    "family": "Family & Inheritance",
+    "civil": "Civil & Deadlines"
+  },
+  "tools": {
+    "prosecution": {
+      "title": "Prosecution Request Estimator",
+      "desc": "Choose a crime and the circumstances to see the likely handling step and the sentence or fine the prosecutor may request."
+    },
+    "sentencing": {
+      "title": "Sentence Estimator (Sentencing Guidelines)",
+      "desc": "Choose the crime, type and sentencing factors to see the recommended sentencing range and whether a suspended sentence is recommended under the 2026 Sentencing Guidelines."
+    },
+    "drunk-driving": {
+      "title": "Drunk Driving Penalty Checker",
+      "desc": "Statutory penalties, license measures and disqualification periods by blood alcohol level, prior record and accident."
+    },
+    "police-summons": {
+      "title": "Police Summons Checklist",
+      "desc": "What to prepare before you go, on the day of questioning and afterwards, step by step for your situation."
+    },
+    "child-support": {
+      "title": "Child Support Calculator",
+      "desc": "Standard child support and each parent's share under the 2021 Child Support Guidelines."
+    },
+    "inheritance": {
+      "title": "Inheritance Share Calculator",
+      "desc": "Each heir's statutory share based on the order of heirs and the rule that a spouse receives 1.5 times a share."
+    },
+    "reserved-share": {
+      "title": "Forced Heirship (Reserved Share) Calculator",
+      "desc": "The base estate for the reserved share and each heir's reserved share amount, reflecting the 2024 Constitutional Court decision."
+    },
+    "interest": {
+      "title": "Late Payment Interest Calculator",
+      "desc": "Interest by period and the total, at the statutory rate, the Litigation Promotion Act rate or an agreed rate."
+    },
+    "court-fees": {
+      "title": "Court Costs Calculator",
+      "desc": "Stamp fees and service fees by the amount in dispute, type of case and level of court."
+    },
+    "deadline": {
+      "title": "Legal Deadline Calculator",
+      "desc": "Deadlines for appeals, immediate appeals, final appeals and more, calculated with public holidays taken into account."
+    },
+    "interest-cap": {
+      "title": "Maximum Interest Rate Check",
+      "desc": "Whether the interest on a loan exceeds the legal maximum rate (20% a year), and by how much."
+    }
+  },
+  "units": {
+    "won": "KRW {n}",
+    "wonUnit": "KRW",
+    "percent": "{n}%",
+    "people": "{n}"
+  },
+  "words": {
+    "yes": "Yes",
+    "no": "No",
+    "have": "Yes",
+    "none": "None",
+    "remove": "Remove",
+    "howCalculated": "How we calculated this",
+    "calcFailed": "Unable to calculate.",
+    "decrease": "Decrease {label}",
+    "increase": "Increase {label}"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "_note": "English translation of ko/prosecution-ui.json (2026-10-10). Not yet reviewed by a lawyer.",
+  "meta": {
+    "title": "Prosecution Request Estimator",
+    "description": "Choose a crime and the circumstances of the case to see, based on how investigative agencies usually handle such cases, the likely handling step (suspension of indictment, summary fine, formal trial, detention) and the sentence or fine the prosecutor may request.",
+    "lead": "Choose a crime and answer a few questions to see the likely handling step and the requested sentence (the penalty the prosecutor asks the court to impose at trial) or fine.",
+    "notice": "This is only an estimate based on how investigative agencies usually handle cases. The actual decision and request depend on the facts of the case, such as a settlement, prior convictions and how the crime happened, and on the judgment of the prosecutor in charge; the final sentence is decided by the court. If you are about to be questioned, do not rely on this result alone and talk to a lawyer first.",
+    "relatedSentencing": "Sentence Estimator (Sentencing Guidelines)",
+    "relatedPoliceSummons": "Responding to a police summons",
+    "relatedCrimeCenter": "Criminal Defense Center"
+  },
+  "steps": {
+    "family-court": {
+      "short": "Family Court",
+      "label": "Referral to the Family Court possible",
+      "desc": "Domestic or juvenile protection case: instead of criminal punishment, the Family Court imposes protective dispositions such as counseling, a no-contact order or community service"
+    },
+    "suspension": {
+      "short": "Suspended indictment",
+      "label": "Suspension of indictment possible",
+      "desc": "Suspension of indictment (기소유예): the wrongdoing is recognized, but the prosecutor takes various circumstances into account and closes the case without sending it to trial"
+    },
+    "summary": {
+      "short": "Summary fine",
+      "label": "Summary fine",
+      "desc": "Summary indictment (약식기소): a procedure in which a fine is set on the documents, without a trial in a courtroom"
+    },
+    "trial": {
+      "short": "Formal trial",
+      "label": "Formal trial",
+      "desc": "Formal trial (구공판): the prosecutor asks the court for a trial, and you stand before a judge in a courtroom"
+    },
+    "detention": {
+      "short": "Detention",
+      "label": "Detention considered",
+      "desc": "Detention (구속): being held in custody during the investigation and trial under a court warrant when there is a risk of fleeing or destroying evidence"
+    }
+  },
+  "levels": {
+    "detention": "Detention considered",
+    "trial": "Formal trial (prison sentence requested)",
+    "trial-fine": "Formal trial (fine requested)",
+    "summary": "Summary fine",
+    "suspension": "Suspension of indictment possible",
+    "family-court": "Referral to the Family Court possible"
+  },
+  "browser": {
+    "preparing": "We are preparing the list of crimes. If it is urgent, send us a message first.",
+    "searchLabel": "Find a crime",
+    "searchPlaceholder": "Search crimes, laws or articles (e.g. fraud)",
+    "found": "{n} found",
+    "noMatch": "No matching crime. Try other words, or send us a message.",
+    "more": "Show more ({n} left)",
+    "popular": "Frequently searched crimes",
+    "all": "All crimes",
+    "viewLabel": "How to group the list",
+    "byGroup": "By category",
+    "byLaw": "By law"
+  },
+  "form": {
+    "pickOther": "Choose another crime",
+    "loadError": "We could not load the crime information. Please try again or refresh the page.",
+    "retry": "Try again",
+    "loading": "Loading the questions…",
+    "noResult": "There is no estimate for this combination. Please send us a message.",
+    "progress": "Answer all {total} questions and the estimate appears right away. ({done}/{total})",
+    "choose": "Choose",
+    "range": "{min}–{max} {unit}",
+    "rangeError": "Please enter a value within {range}.",
+    "numberError": "Please enter a valid number."
+  },
+  "result": {
+    "heading": "Likely handling",
+    "barLabel": "Step {n} of the five handling steps: {label}",
+    "light": "Lighter",
+    "heavy": "Heavier",
+    "sentence": "Likely requested sentence",
+    "rule": "Handling standard",
+    "fineSummary": "Likely fine",
+    "fineTrial": "Likely requested sentence (fine)",
+    "fineAtLeast": "{amount} or more",
+    "noPenaltySuspension": "The case may end without being sent to trial.",
+    "noPenaltyFamilyCourt": "The case may move to a Family Court procedure instead of a criminal trial.",
+    "statutory": "Statutory penalty",
+    "law": "Legal basis",
+    "disclaimer": "This is only an estimate based on how investigative agencies usually handle cases. The actual decision and request depend on the facts of the case and the judgment of the prosecutor in charge. The final sentence is decided by the court.",
+    "refLead": "There is no separate standard for estimating the prosecutor's request for this crime. Please check the Sentence Estimator.",
+    "consultOnlyLead": "There is no set standard for the prosecutor's request for this crime. Depending on the facts, not only the request but also the applicable statutory penalty may differ, so please ask a lawyer.",
+    "consultOnlyButton": "Ask a lawyer",
+    "stepGuide": "What the handling steps mean"
+  },
+  "intl": {
+    "otherCrimes": "The English version only covers crimes that often come up in cases involving foreign nationals. For crimes not listed here, please send us a message.",
+    "otherCrimesLink": "Send us a message"
+  },
+  "groups": {
+    "폭력": "Violence",
+    "성범죄": "Sex crimes",
+    "재산": "Property",
+    "금융": "Finance",
+    "마약": "Drugs",
+    "교통": "Traffic",
+    "기타": "Other",
+    "노동": "Labor",
+    "공무": "Public duties",
+    "명예": "Reputation",
+    "사이버": "Cyber"
+  },
+  "laws": {
+    "형법": "Criminal Act",
+    "폭력행위 등 처벌에 관한 법률": "Punishment of Violences, etc. Act",
+    "특정범죄 가중처벌 등에 관한 법률": "Act on the Aggravated Punishment of Specific Crimes",
+    "가정폭력범죄의 처벌 등에 관한 특례법": "Act on Special Cases Concerning the Punishment of Domestic Violence Crimes",
+    "아동복지법": "Child Welfare Act",
+    "스토킹처벌법": "Stalking Punishment Act",
+    "성폭력범죄의 처벌 등에 관한 특례법": "Act on Special Cases Concerning the Punishment of Sexual Crimes",
+    "성폭력처벌법": "Sexual Violence Punishment Act",
+    "성매매알선 등 행위의 처벌에 관한 법률": "Act on the Punishment of Arrangement of Commercial Sex Acts",
+    "아동·청소년의 성보호에 관한 법률": "Act on the Protection of Children and Youth against Sex Offenses",
+    "풍속영업의 규제에 관한 법률": "Act on the Regulation of Amusement Businesses Affecting Public Morals",
+    "전자금융거래법": "Electronic Financial Transactions Act",
+    "여신전문금융업법": "Credit Finance Business Act (여신전문금융업법)",
+    "보험사기방지 특별법": "Special Act on the Prevention of Insurance Fraud",
+    "특정경제범죄 가중처벌 등에 관한 법률": "Act on the Aggravated Punishment of Specific Economic Crimes",
+    "마약류 관리에 관한 법률": "Act on the Control of Narcotics, etc.",
+    "도로교통법": "Road Traffic Act",
+    "교통사고처리 특례법": "Act on Special Cases Concerning the Settlement of Traffic Accidents",
+    "특정범죄가중법": "Aggravated Punishment Act",
+    "출입국관리법": "Immigration Act",
+    "외국인근로자의 고용 등에 관한 법률": "Act on the Employment of Foreign Workers",
+    "여권법": "Passport Act",
+    "정보통신망 이용촉진 및 정보보호 등에 관한 법률": "Information and Communications Network Act",
+    "국민체육진흥법": "National Sports Promotion Act",
+    "근로기준법": "Labor Standards Act",
+    "최저임금법": "Minimum Wage Act",
+    "관세법": "Customs Act"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "_note": "Money and period formats for the prosecution and sentencing calculators (English). Translated 2026-10-10.",
+  "locale": "en",
+  "decimal": ".",
+  "group": ",",
+  "money": {
+    "system": "million",
+    "small": "KRW {n}",
+    "million": "KRW {n} million",
+    "billion": "KRW {n} billion"
+  },
+  "period": {
+    "year": { "one": "{n} year", "other": "{n} years" },
+    "month": { "one": "{n} month", "other": "{n} months" },
+    "day": { "one": "{n} day", "other": "{n} days" },
+    "sep": " "
+  }
+}

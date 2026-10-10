@@ -1,0 +1,237 @@
+{
+  "page": {
+    "title": "Legal Deadline Calculator",
+    "description": "Choose the date you were served with or notified of a judgment or decision (or the date it was pronounced) and the procedure (civil appeal 2 weeks, criminal appeal 7 days, immediate appeal, final appeal, objection, etc.) to calculate the deadline, taking public holidays and substitute holidays into account.",
+    "lead": "Calculates when a deadline set by law, such as for an appeal, a final appeal or an objection, ends. The first day is not counted, and if the last day falls on a weekend or public holiday, the deadline moves to the next day.",
+    "notice": "This date is for reference only and follows the general calculation method in the law. If you have the date of service wrong or a special rule applies, the deadline will be different. Once a deadline passes, it is hard to challenge the decision again, so if the deadline is close, talk to a lawyer right away."
+  },
+  "ui": {
+    "procedure": "Procedure",
+    "option": "{label} ({period})",
+    "otherGroup": "Other",
+    "custom": "Enter the period yourself",
+    "baseCustom": "Date the period starts",
+    "baseHint": "The date you were served with or notified of the judgment or decision",
+    "period": "Period: {period}",
+    "fixed": "Peremptory period",
+    "daysLabel": "Period (days)",
+    "daysUnit": "days",
+    "zeroHour": "Service took effect at 00:00 that day (for example, an e-litigation document deemed served because it was not opened for 1 week) — the first day is counted",
+    "dueOf": "Deadline for {label}",
+    "due": "Deadline",
+    "left": "{n} day(s) left from today.",
+    "today": "Today is the deadline.",
+    "passed": "The deadline passed {n} day(s) ago.",
+    "arrive": "Documents must reach the court by the deadline (for mail, what counts is the date it arrives, not the date it was sent).",
+    "colKind": "Item",
+    "colDate": "Date",
+    "baseDay": "Base date",
+    "firstZero": "First day (counted from that day because service took effect at 00:00)",
+    "firstNext": "First day (counting starts the next day)",
+    "nthDay": "Day {n}",
+    "skip": "{reason}, moved to next day",
+    "fixedNote": "A peremptory period is a period that even the court cannot extend. As a rule, missing it by even one day means losing the chance to challenge the decision, so file with time to spare.",
+    "outside": "Public holidays are only included from {from} to {to}. For dates outside this range only Saturdays and Sundays were taken into account, so please check public holidays on a calendar as well.",
+    "method": "How it is calculated: the first day of the period is not counted; counting starts the next day (Civil Act, Article 157; Criminal Procedure Act, Article 66(1)). If the last day is a Saturday, Sunday or public holiday, the period is extended to the following day (Civil Act, Article 161; Criminal Procedure Act, Article 66(3)). Public holidays are the public holidays and substitute holidays under the Regulations on Holidays of Government Offices.",
+    "error": "Please check what you entered.",
+    "badDate": "Please check the date.",
+    "badDays": "Please check the period."
+  },
+  "groups": {
+    "civil": "Civil and administrative litigation",
+    "exec": "Civil execution",
+    "family": "Family",
+    "criminal": "Criminal",
+    "admin": "Administrative and constitutional"
+  },
+  "procedures": {
+    "civil-appeal": {
+      "label": "Appeal",
+      "period": "2 weeks",
+      "from": "The date you were served with the written judgment",
+      "basis": "Civil Procedure Act, Article 396(1) (applied to administrative litigation under Administrative Litigation Act, Article 8)"
+    },
+    "civil-final": {
+      "label": "Final appeal to the Supreme Court",
+      "period": "2 weeks",
+      "from": "The date you were served with the appellate judgment",
+      "basis": "Civil Procedure Act, Articles 425 and 396(1)"
+    },
+    "civil-appeal-brief": {
+      "label": "Filing the statement of grounds for appeal",
+      "period": "40 days",
+      "from": "The date you received notice that the appeal record was received",
+      "basis": "Civil Procedure Act, Article 402-2(1)",
+      "note": "The court may extend it once, by up to 1 month (paragraph 2 of the same Article)."
+    },
+    "civil-final-brief": {
+      "label": "Filing the statement of grounds for final appeal",
+      "period": "20 days",
+      "from": "The date you received notice that the final appeal record was received",
+      "basis": "Civil Procedure Act, Article 427"
+    },
+    "civil-immediate": {
+      "label": "Immediate appeal",
+      "period": "1 week",
+      "from": "The date you were notified of the decision or order",
+      "basis": "Civil Procedure Act, Article 444"
+    },
+    "civil-special": {
+      "label": "Special appeal",
+      "period": "1 week",
+      "from": "The date you were notified of the decision or order",
+      "basis": "Civil Procedure Act, Article 449(2)"
+    },
+    "civil-reconcile": {
+      "label": "Objection to a decision recommending settlement",
+      "period": "2 weeks",
+      "from": "The date you were served with the original copy of the decision",
+      "basis": "Civil Procedure Act, Article 226(1)"
+    },
+    "civil-small": {
+      "label": "Objection to a decision recommending performance",
+      "period": "2 weeks",
+      "from": "The date you were served with a certified copy of the decision recommending performance",
+      "basis": "Small Claims Adjudication Act, Article 5-4(1)"
+    },
+    "civil-payment": {
+      "label": "Objection to a payment order",
+      "period": "2 weeks",
+      "from": "The date you were served with the payment order",
+      "basis": "Civil Procedure Act, Article 470(1)"
+    },
+    "civil-mediation": {
+      "label": "Objection to a decision in lieu of conciliation",
+      "period": "2 weeks",
+      "from": "The date you were served with the original copy of the decision record",
+      "basis": "Civil Conciliation Act, Article 34(1)"
+    },
+    "civil-answer": {
+      "label": "Filing an answer",
+      "period": "30 days",
+      "from": "The date you were served with a copy of the complaint",
+      "basis": "Civil Procedure Act, Article 256(1)",
+      "note": "This is not a peremptory period, but if you miss it, the court may rule for the plaintiff without a hearing."
+    },
+    "exec-immediate": {
+      "label": "Immediate appeal against a decision of the execution court",
+      "period": "1 week",
+      "from": "The date you were notified of the decision",
+      "basis": "Civil Execution Act, Article 15(2)"
+    },
+    "exec-brief": {
+      "label": "Filing the statement of grounds for immediate appeal",
+      "period": "10 days",
+      "from": "The date you filed the petition of appeal",
+      "basis": "Civil Execution Act, Article 15(3)"
+    },
+    "family-appeal": {
+      "label": "Appeal in a family litigation case",
+      "period": "14 days",
+      "from": "The date you were served with the original copy of the judgment",
+      "basis": "Family Litigation Act, Article 19(1)"
+    },
+    "family-immediate": {
+      "label": "Immediate appeal against a ruling in a family non-litigation case",
+      "period": "14 days",
+      "from": "The date you were notified of the ruling",
+      "basis": "Family Litigation Act, Article 43(5)",
+      "note": "The starting date may differ depending on who appeals (Family Litigation Rules)."
+    },
+    "crim-appeal": {
+      "label": "Criminal appeal",
+      "period": "7 days",
+      "from": "The date the judgment was pronounced",
+      "basis": "Criminal Procedure Act, Articles 358 and 343(2)"
+    },
+    "crim-final": {
+      "label": "Criminal final appeal to the Supreme Court",
+      "period": "7 days",
+      "from": "The date the appellate judgment was pronounced",
+      "basis": "Criminal Procedure Act, Articles 374 and 343(2)"
+    },
+    "crim-appeal-brief": {
+      "label": "Filing the statement of grounds for a criminal appeal",
+      "period": "20 days",
+      "from": "The date you received notice that the case record was received",
+      "basis": "Criminal Procedure Act, Article 361-3(1)"
+    },
+    "crim-final-brief": {
+      "label": "Filing the statement of grounds for a criminal final appeal",
+      "period": "20 days",
+      "from": "The date you received notice that the case record was received",
+      "basis": "Criminal Procedure Act, Article 379(1)"
+    },
+    "crim-summary": {
+      "label": "Request for a formal trial against a summary order",
+      "period": "7 days",
+      "from": "The date you were notified of (served with) the summary order",
+      "basis": "Criminal Procedure Act, Article 453(1)"
+    },
+    "crim-immediate": {
+      "label": "Criminal immediate appeal",
+      "period": "7 days",
+      "from": "The date the decision was announced",
+      "basis": "Criminal Procedure Act, Articles 405 and 343(2)"
+    },
+    "admin-trial": {
+      "label": "Filing an administrative appeal",
+      "period": "90 days",
+      "from": "The date you learned of the administrative disposition",
+      "basis": "Administrative Appeals Act, Article 27(1)",
+      "note": "You cannot file once 180 days have passed since the disposition was made (paragraph 3 of the same Article)."
+    },
+    "admin-suit": {
+      "label": "Filing a revocation lawsuit",
+      "period": "90 days",
+      "from": "The date you learned of the disposition (if you went through an administrative appeal, the date you were served with the original copy of the ruling)",
+      "basis": "Administrative Litigation Act, Article 20(1)",
+      "note": "You cannot file once 1 year has passed since the disposition (or the ruling) was made (paragraph 2 of the same Article)."
+    },
+    "const-complaint": {
+      "label": "Filing a constitutional complaint",
+      "period": "90 days",
+      "from": "The date you learned of the cause of the infringement of your basic rights",
+      "basis": "Constitutional Court Act, Article 69(1)",
+      "note": "You must also file within 1 year from the date the cause arose."
+    }
+  },
+  "weekdays": {
+    "sat": "Saturday",
+    "sun": "Sunday"
+  },
+  "holidays": {
+    "1월 1일": "New Year's Day (January 1)",
+    "임시공휴일": "Temporary public holiday",
+    "설날 전날": "Day before Seollal (Lunar New Year)",
+    "설날": "Seollal (Lunar New Year)",
+    "설날 다음 날": "Day after Seollal (Lunar New Year)",
+    "삼일절": "Independence Movement Day",
+    "삼일절 대체공휴일": "Substitute holiday for Independence Movement Day",
+    "어린이날 · 부처님 오신 날": "Children's Day · Buddha's Birthday",
+    "대체공휴일": "Substitute holiday",
+    "대통령 선거일(임시공휴일)": "Presidential election day (temporary public holiday)",
+    "현충일": "Memorial Day",
+    "광복절": "Liberation Day",
+    "개천절": "National Foundation Day",
+    "추석 전날": "Day before Chuseok",
+    "추석": "Chuseok",
+    "추석 다음 날": "Day after Chuseok",
+    "추석 대체공휴일": "Substitute holiday for Chuseok",
+    "한글날": "Hangeul Day",
+    "기독탄신일": "Christmas Day",
+    "노동절": "Labor Day",
+    "어린이날": "Children's Day",
+    "부처님 오신 날": "Buddha's Birthday",
+    "부처님 오신 날 대체공휴일": "Substitute holiday for Buddha's Birthday",
+    "지방선거일": "Local election day",
+    "제헌절": "Constitution Day",
+    "광복절 대체공휴일": "Substitute holiday for Liberation Day",
+    "개천절 대체공휴일": "Substitute holiday for National Foundation Day",
+    "설날 대체공휴일": "Substitute holiday for Seollal",
+    "노동절 대체공휴일": "Substitute holiday for Labor Day",
+    "제헌절 대체공휴일": "Substitute holiday for Constitution Day",
+    "한글날 대체공휴일": "Substitute holiday for Hangeul Day",
+    "기독탄신일 대체공휴일": "Substitute holiday for Christmas Day"
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "page": {
+    "title": "Police Summons Checklist",
+    "description": "If you received a call or text from the police asking you to come in, or a written summons, choose your situation and check off what to do before you go, on the day of questioning and afterwards. Covers asking for a new date, having a lawyer present, the right to remain silent, handing over your phone, and reading and correcting the record, based on the current Criminal Procedure Act and Investigation Rules.",
+    "keywords": [
+      "police summons Korea",
+      "police questioning Korea",
+      "written summons",
+      "postpone police interview",
+      "right to remain silent",
+      "lawyer at police interview",
+      "suspect interrogation record",
+      "witness interview"
+    ],
+    "lead": "Choose your current situation and the items to check will adjust. What you check is saved in this browser, and you can print the list to take with you to the questioning.",
+    "notice": "This is a reference list of general procedures and rights. It is based on the Criminal Procedure Act, the Regulation on Mutual Cooperation between Prosecutors and Judicial Police Officers and General Investigation Rules (Investigation Rules), and the Police Investigation Rules in force from October 2, 2026; questioning by other investigative agencies, such as the Serious Crimes Investigation Agency (중대범죄수사청), may follow different rules. Every case is different, so talk to a lawyer before you are questioned."
+  },
+  "ui": {
+    "checked": "Done",
+    "progressLabel": "Checklist progress",
+    "print": "Print",
+    "reset": "Start over",
+    "resetConfirm": "Clear all checked items and the situation you chose?",
+    "step1Intro": "The items below change as you choose. What you check is saved only in this browser.",
+    "urgent": "First"
+  },
+  "steps": {
+    "1": "Your situation",
+    "2": "Before you go",
+    "3": "On the day of questioning",
+    "4": "After questioning"
+  },
+  "questions": {
+    "role": {
+      "label": "Do you know in what capacity you are being called?",
+      "help": "A suspect (피의자) is a person under investigation on suspicion of a crime; a witness (참고인) is a person with no suspicion against them who goes to describe what they saw or heard.",
+      "options": {
+        "unknown": "Not sure",
+        "suspect": "Suspect",
+        "witness": "Witness",
+        "victim": "Victim or complainant"
+      }
+    },
+    "days": {
+      "label": "Days left until the appointment",
+      "options": {
+        "soon": "Today or tomorrow",
+        "week": "2–7 days",
+        "later": "8 days or more",
+        "unset": "No date set yet"
+      }
+    },
+    "via": {
+      "label": "How were you contacted?",
+      "options": {
+        "call": "Call or text",
+        "letter": "Written summons (by mail, etc.)"
+      }
+    },
+    "arrest": {
+      "label": "Are you worried about being arrested?",
+      "help": "If you have failed to appear several times, or you were told the matter is serious, choose 'Worried'.",
+      "options": {
+        "no": "No",
+        "yes": "Worried"
+      }
+    },
+    "counsel": {
+      "label": "Do you plan to go with a lawyer?",
+      "options": {
+        "no": "No / not sure yet",
+        "yes": "Yes"
+      }
+    },
+    "phone": {
+      "label": "Were you told to bring or hand over your mobile phone?",
+      "options": {
+        "no": "No",
+        "yes": "Yes"
+      }
+    }
+  },
+  "summary": {
+    "role": "Capacity: {v}",
+    "days": "Until appointment: {v}",
+    "via": "Contacted: {v}",
+    "arrest": "Worried about arrest: {v}",
+    "arrestYes": "Yes",
+    "arrestNo": "No",
+    "counsel": "Going with a lawyer: {v}",
+    "counselYes": "Yes",
+    "counselNo": "No / undecided",
+    "phone": "Asked to hand over phone: {v}",
+    "phoneYes": "Yes",
+    "phoneNo": "No"
+  },
+  "items": {
+    "verify-caller": {
+      "title": "Check that it really is the police station",
+      "desc": "If it was an unfamiliar number, call back on the police station's main number and check that the department and officer's name match. If someone asks you to send money, install an app, or give account details or passwords, it is not an investigative agency."
+    },
+    "case-info": {
+      "title": "Write down the case number and the investigator in charge",
+      "desc": "Keep the case number, department, investigator's name and contact details, and the date, time and place of the appointment in one place."
+    },
+    "ask-role": {
+      "title": "Ask whether you are a suspect or a witness",
+      "desc": "There are separate summons forms for suspects and for people who are not suspects. What you need to prepare depends on your capacity, so check this first.",
+      "basis": "Police Investigation Rules, Article 34"
+    },
+    "ask-charge": {
+      "title": "Ask what the case is about and what you are suspected of",
+      "desc": {
+        "call": "A summons should normally be made with a written summons that states the reason for appearing in detail, such as the gist of the alleged facts; a call or text is allowed only when urgent. If you were contacted over the phone, ask what you are suspected of and who filed the complaint.",
+        "letter": "A written summons must state the reason for appearing in detail, such as the gist of the alleged facts. Read it again and ask the investigator about anything you do not understand."
+      },
+      "basis": "Investigation Rules, Article 19(3)"
+    },
+    "ask-topic": {
+      "title": "Ask what they want to ask you",
+      "desc": {
+        "victim": "Asking which points they want to check further and whether you should bring any materials makes it easier to prepare.",
+        "witness": "Ask what the case is, who the suspect is, and which part of what you saw or heard they want to ask about."
+      }
+    },
+    "complaint-copy": {
+      "title": "If it is a complaint case, consider asking to read and copy the complaint",
+      "desc": "A suspect may, stating the reason it is needed, ask to read and copy the part of the complaint describing the alleged facts against them. Knowing what is being raised speeds up your preparation.",
+      "basis": "Investigation Rules, Article 69(3)"
+    },
+    "phone-brief": {
+      "title": "Do not explain the case at length over the phone",
+      "desc": "What you say on a call can also be recorded in an investigation report. It is fine to say you will explain in detail when you appear and only agree on a date."
+    },
+    "reschedule-now": {
+      "title": "If you are not ready, ask for a new date today",
+      "desc": "If a suspect asks to postpone the appointment, the rules say it should be adjusted unless there are special circumstances. Contact them before the date, give your reason and two or three possible dates, and get the new date confirmed by text. The same applies to people who are not suspects, such as witnesses.",
+      "basis": "Investigation Rules, Article 19(1)(3) and (6)"
+    },
+    "reschedule": {
+      "title": "If the date does not work, ask for a new one",
+      "desc": "A summons must leave enough time so as not to disrupt your work, and if you ask for a postponement it must be adjusted unless there are special circumstances. Get the new date confirmed by text once more.",
+      "basis": "Investigation Rules, Article 19(1)(3) and (6)"
+    },
+    "schedule-agree": {
+      "title": "Agree on the date, time and place of questioning",
+      "desc": {
+        "counsel": "The investigator must agree the date, time and place of questioning with you, and also with your lawyer if you have one. Once it is set, get it confirmed by text.",
+        "default": "The investigator must agree the date, time and place of questioning with you as the suspect. Once it is set, get it confirmed by text."
+      },
+      "basis": "Investigation Rules, Article 19(2) and (6)"
+    },
+    "alt-method": {
+      "title": "Ask whether you must appear in person, or whether there is another way",
+      "desc": "For a simple check of facts, they are supposed to first consider ways of replacing an appearance, such as a statement by mail, email or phone. If it is very hard for you to go to the police station, for example because of medical treatment, you may be questioned outside the station.",
+      "basis": "Investigation Rules, Article 19(1)(1) and (5)"
+    },
+    "no-show": {
+      "title": "Do not simply fail to appear without contacting them",
+      "desc": "If a suspect does not respond to a summons without a justifiable reason, or is likely not to respond, an arrest warrant may be requested. If you cannot go, always contact them first and set a new date.",
+      "basis": "Criminal Procedure Act, Article 200-2(1)"
+    },
+    "witness-voluntary": {
+      "title": "Know that a witness is not forced to appear",
+      "desc": "A person who is not a suspect may decide for themselves whether to appear and make a statement. However, if a person clearly recognized as knowing facts essential to the investigation refuses to appear or make a statement, the prosecutor may ask a judge to examine them as a witness before the first trial date.",
+      "basis": "Criminal Procedure Act, Articles 221(1) and 221-2"
+    },
+    "arrest-family": {
+      "title": "Tell your family about the situation and your lawyer's contact details",
+      "desc": "If you are arrested, the police must tell you the gist of the alleged facts, the reason for the arrest and that you may appoint a lawyer. Your spouse, lineal relatives and siblings may also appoint a lawyer for you, and you must be released if a detention warrant is not requested within 48 hours of the arrest.",
+      "basis": "Criminal Procedure Act, Articles 200-5, 30(2) and 200-2(5), etc."
+    },
+    "counsel-right": {
+      "title": "Know that you can be questioned with a lawyer present",
+      "desc": "If the suspect, their lawyer, legal representative, spouse, lineal relative or sibling asks, the police must let the lawyer take part in the questioning unless there is a justifiable reason not to.",
+      "basis": "Criminal Procedure Act, Article 243-2(1)"
+    },
+    "counsel-right-nonsuspect": {
+      "title": "Know that a lawyer can also be present when witnesses or victims are questioned",
+      "desc": "The principle that a lawyer may sit next to you, give advice and take notes also applies when questioning or interviewing people involved in a case, such as witnesses and victims.",
+      "basis": "Investigation Rules, Article 13(3)"
+    },
+    "counsel-papers": {
+      "title": "Submit the lawyer's appointment form and request to take part before questioning",
+      "desc": "For a lawyer to take part in questioning, a lawyer appointment form and a request for the lawyer's participation must be submitted before questioning. Usually the lawyer submits them and arranges the schedule with the investigator.",
+      "basis": "Police Investigation Rules, Article 12(2)"
+    },
+    "silence-right": {
+      "title": "Understand the right to remain silent and decide how much to say",
+      "desc": "You may refuse to answer all questions or only some, and you will not be disadvantaged for doing so. But anything you say instead of refusing can be used as evidence of guilt in court. Depending on the case it may be better to explain, so decide in advance.",
+      "basis": "Criminal Procedure Act, Article 244-3(1)"
+    },
+    "timeline": {
+      "title": "Write what you remember on one page in date order",
+      "desc": "Focus on dates and times, places, who was there and any money that changed hands. Mark separately the parts you do not remember clearly."
+    },
+    "evidence": {
+      "title": "Collect messages, call logs, transfer records and photos without deleting anything",
+      "desc": "It is better to save the whole chat using the export function than screenshots of only the favorable parts. CCTV at shops or parking lots is overwritten after a while, so if needed, ask quickly for it to be kept."
+    },
+    "no-contact": {
+      "title": "Do not coordinate your story with the other party or anyone involved",
+      "desc": "It can look like an attempt to destroy evidence. For the same reason, avoid changing your phone or leaving chat rooms."
+    },
+    "phone-submit": {
+      "title": {
+        "phone": "If asked to hand over your phone, first set the scope",
+        "default": "Be ready for a request to hand over your phone"
+      },
+      "desc": "If you are asked to hand it over without a warrant, it is a request for voluntary submission, and you may decide whether to do so. However, items you hand over voluntarily can be seized without a warrant, so if you do hand it over, make sure the documents clearly state which period and which data you are submitting, and talk to a lawyer first.",
+      "basis": "Criminal Procedure Act, Article 218"
+    },
+    "phone-forensic": {
+      "title": "If you handed over your phone, say you want to attend the forensic analysis",
+      "desc": "You and your lawyer may attend the whole process of copying, searching and printing the data, and any opinion you give while attending must be written in the record. On the form asking whether you will attend, mark that you wish to attend.",
+      "basis": "Investigation Rules, Article 42(4) and (5)"
+    },
+    "victim-trusted": {
+      "title": "If you feel anxious, ask to bring someone you trust",
+      "desc": "A victim may ask for a person who helps with emotional stability and communication, such as a family member, to sit in on the questioning.",
+      "basis": "Criminal Procedure Act, Article 221(3); Investigation Rules, Article 24"
+    },
+    "bring": {
+      "title": "Pack what you need",
+      "desc": "Bring your ID, the written summons or the text you received, your notes arranged by date, and copies of any materials you will submit. Keep the originals yourself."
+    },
+    "arrival-time": {
+      "title": "Note your arrival time and when questioning starts and ends",
+      "desc": "The police must record in the interrogation record or a separate document the time you arrived and the times questioning started and ended. Later, compare these with your own notes.",
+      "basis": "Criminal Procedure Act, Article 244-4; Investigation Rules, Article 26"
+    },
+    "rights-notice": {
+      "title": "Listen to the notice of your right to remain silent and right to a lawyer, and answer",
+      "desc": "You must be told these rights before questioning, and the question asking whether you will use them, together with your answer, is written in the record. Check that your answer was written down as you gave it.",
+      "basis": "Criminal Procedure Act, Article 244-3"
+    },
+    "role-change": {
+      "title": "If the questions turn to your own responsibility, ask about your capacity again",
+      "desc": "Even if you were called as a witness, you may become a suspect if suspicion arises during questioning and an investigation begins. At that point you must be told of your right to remain silent and right to a lawyer, and you may pause to say you want to consult a lawyer."
+    },
+    "counsel-seat": {
+      "title": "Your lawyer can sit next to you, advise you and take notes",
+      "desc": "The lawyer may sit where they can actually help you, give advice and take notes. They may object to improper questioning methods without permission, and the objection is written in the record.",
+      "basis": "Investigation Rules, Articles 13(1) and 14(3) and (4)"
+    },
+    "recording": {
+      "title": "Ask for your statement to be recorded if needed",
+      "desc": "If the suspect or their lawyer asks, the police must record the suspect's statement, whatever the session is called (questioning, interview, etc.). When the recording ends, the original is sealed, and you may listen to it if you ask.",
+      "basis": "Criminal Procedure Act, Article 244-6"
+    },
+    "trusted-suspect": {
+      "title": "If communication is hard because of disability, age or nationality, ask for someone to sit with you",
+      "desc": "In these situations, you may ask for a person in a relationship of trust with you, such as a family member, to sit in on the questioning.",
+      "basis": "Criminal Procedure Act, Article 244-5"
+    },
+    "time-limits": {
+      "title": "Know the limits on questioning time and that you can ask for breaks",
+      "desc": "As a rule, there is no questioning between 9 p.m. and 6 a.m. Total questioning time, including waiting, breaks and meals, must not exceed 12 hours, actual questioning time must not exceed 8 hours, and if it runs long you must be given a break of at least 10 minutes every 2 hours. If you are struggling, ask for a break.",
+      "basis": "Investigation Rules, Articles 21 to 23"
+    },
+    "dont-guess": {
+      "title": "If you do not remember something, say you do not remember",
+      "desc": "Separate what you saw yourself, what you heard from others and what you are guessing. Do not fill in dates or amounts with guesses."
+    },
+    "submit-materials": {
+      "title": "Submit any materials or opinions before questioning ends",
+      "desc": "Before finishing the questioning, the police must ask whether you wish to submit materials or opinions, and anything you submit is added to the investigation file.",
+      "basis": "Investigation Rules, Article 25"
+    },
+    "read-record": {
+      "title": "Read the whole record and ask for anything written incorrectly to be corrected",
+      "desc": "You sign the record after reading it or having it read to you. If something was not written as you said it or is not true, you may ask for it to be added to, deleted or changed, and the police must add this to the record. Pay special attention to dates, amounts, names, and expressions such as 'I knew'.",
+      "basis": "Criminal Procedure Act, Article 244(2)"
+    },
+    "read-time": {
+      "title": "Do not sign because you are pressed for time",
+      "desc": "Reading a record that has already been prepared can continue until midnight, and time spent reading the record at your written request is an exception to the 12-hour limit on total questioning time. Sign only after checking that your corrections have been made.",
+      "basis": "Investigation Rules, Article 21(1) proviso and Article 22(1)(1)"
+    },
+    "memo-after": {
+      "title": "Write down the questions you were asked and your answers right away",
+      "desc": "Write them down while your memory is fresh. Mark separately any questions you could not answer or answered vaguely."
+    },
+    "copy-record": {
+      "title": "Ask to read and copy the record of your statement",
+      "desc": "In a case under investigation, you may ask to read and copy the parts containing your own statement and the documents you submitted. The head of the police office must decide whether to disclose them within 10 days of receiving the request, and if you ask for your own record on the day of questioning, it must be reviewed without delay.",
+      "basis": "Investigation Rules, Article 69(1); Police Investigation Rules, Article 87"
+    },
+    "opinion": {
+      "title": "Submit any further explanation before the referral decision is made",
+      "desc": "Submit what you could not fully explain during questioning, or materials you found later, together with a written opinion. In complaint and accusation cases, the police must decide whether to refer the case within 3 months of accepting it, so prepare in good time.",
+      "basis": "Criminal Procedure Act, Article 238"
+    },
+    "result-notice": {
+      "title": "Keep the text or letter notifying you of the investigation result",
+      "desc": "When the police decide to refer or not refer the case, they must notify the complainant and others and the suspect, within 7 days of referring the case or sending the records. It shows the case number and where the case went, so do not delete it.",
+      "basis": "Investigation Rules, Article 53(1); Police Investigation Rules, Article 97(1)"
+    },
+    "after-referral": {
+      "title": "If the case is referred, prepare while the prosecutor at the Public Prosecution Service (Prosecutors' Office) decides",
+      "desc": "If the police find there is a case against you, they refer it to a prosecutor at the Public Prosecution Service (공소청, Prosecutors' Office). Until the prosecutor decides whether to indict, you may submit a written opinion, a settlement agreement and the like.",
+      "basis": "Criminal Procedure Act, Article 245-5(1)(1)"
+    },
+    "keep-after-nonreferral": {
+      "title": "Do not throw away your materials even if the case is not referred",
+      "desc": "Even after a decision not to refer, the case is sent to the prosecutor if the complainant files an objection. Keep your materials for the opinion you may need to submit then.",
+      "basis": "Criminal Procedure Act, Article 245-7"
+    },
+    "victim-progress": {
+      "title": "Get notices about the progress of the investigation",
+      "desc": "Complainants, victims and others must be told about the progress within 7 days of the start of the investigation, again once 3 months have passed, and every month after that. If you prefer a particular way of being notified, tell the investigator.",
+      "basis": "Police Investigation Rules, Article 11"
+    },
+    "victim-objection": {
+      "title": "If you are notified of non-referral, consider objecting within 3 months",
+      "desc": "If the police decide not to refer the case, they must send you in writing, within 7 days, the reasons, the decision and information on how to object. If you object within 3 months of receiving the notice, the case is sent to the prosecutor, and you may also ask to read and copy the investigation records in order to object.",
+      "basis": "Criminal Procedure Act, Articles 245-6, 245-7 and 245-12"
+    },
+    "phone-return": {
+      "title": "Get the list of data taken from your phone and a confirmation of deletion or return",
+      "desc": "When the analysis is finished, you should receive a list of the seized electronic information, and information not on the list must be deleted, destroyed or returned, with a confirmation given to you. You may ask for devices to be returned (return or provisional return) if there is no need to keep them seized or you need to keep using them.",
+      "basis": "Investigation Rules, Article 42(1) and (2); Criminal Procedure Act, Article 218-2"
+    }
+  },
+  "print": {
+    "title": "Police Summons Checklist",
+    "date": "Printed on {date}",
+    "foot": "This is a reference list of general procedures. Every case is different, so talk to a lawyer about how to respond in your case. Based on: Criminal Procedure Act; Regulation on Mutual Cooperation between Prosecutors and Judicial Police Officers and General Investigation Rules (Investigation Rules); Police Investigation Rules (as in force from October 2, 2026)."
+  }
+}

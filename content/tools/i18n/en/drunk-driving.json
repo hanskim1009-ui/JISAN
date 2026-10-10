@@ -1,0 +1,175 @@
+{
+  "page": {
+    "title": "Drunk Driving Penalty Checker",
+    "description": "Choose your blood alcohol level, any drunk driving record within 10 years, test refusal and whether there was an accident to see the statutory penalty under Article 148-2 of the current Road Traffic Act, the statutory penalties for related accident offenses such as dangerous driving causing injury, and license suspension or revocation and the disqualification period.",
+    "keywords": [
+      "drunk driving penalty Korea",
+      "DUI fine Korea",
+      "repeat drunk driving",
+      "breathalyzer refusal",
+      "license revocation disqualification period",
+      "dangerous driving causing injury",
+      "blood alcohol concentration"
+    ],
+    "lead": "Choose a few options to see the statutory penalty (the range of punishment set by law) and the standards for license measures. This does not predict the sentence you will actually receive.",
+    "notice": "This result is for reference only and is based on the Road Traffic Act (도로교통법) and Attached Table 28 of the Enforcement Rules of the Road Traffic Act, the Act on the Aggravated Punishment of Specific Crimes and the Act on Special Cases Concerning the Settlement of Traffic Accidents as in force in October 2026. The provisions and measures that actually apply depend on the specific facts, such as how the test was done, the date earlier convictions became final and what happened in the accident, so talk to a lawyer before making any decision."
+  },
+  "ui": {
+    "testQ": "What happened with the alcohol test?",
+    "testOpts": {
+      "measured": "Tested (breath or blood)",
+      "refused": "Refused the test",
+      "obstructed": "Obstructed the test"
+    },
+    "bacLabel": "Blood alcohol concentration",
+    "bacHelp": "The figure on the paper you were given at the stop. If it was measured again with a blood test, enter that figure.",
+    "bacBad": "Enter a number of 0 or more and less than 1, like 0.000.",
+    "refusedExplain": "Test refusal means not complying with a police breath test when there were reasonable grounds to believe you were drunk.",
+    "obstructedExplain": "Test obstruction means drinking more alcohol, or using medicine or other substances that affect blood alcohol, after driving in order to make testing difficult (Road Traffic Act, Article 44(5)).",
+    "priorQ": "Have you been caught before for drunk driving, test refusal or test obstruction?",
+    "priorHelp": "'Within 10 years' means you drove this time within 10 years of the date a fine or heavier sentence for that earlier case became final. This includes cases where the sentence has since lapsed. If more than 10 years have passed, or the earlier case ended with less than a fine, such as a suspension of indictment, choose 'Other cases'.",
+    "priorOpts": {
+      "none": "No",
+      "recent": "Yes · within 10 years",
+      "old": "Yes · other cases"
+    },
+    "within5Q": "Did you drive this time within 5 years of the date of the earlier violation?",
+    "priorAccidentQ": "Did you also cause a traffic accident in the earlier drunk driving case?",
+    "accidentQ": "Was there an accident this time?",
+    "accidentOpts": {
+      "none": "No accident",
+      "property": "Property damage only",
+      "injury": "Someone was injured",
+      "death": "Someone died"
+    },
+    "fledQ": "After the accident, did you leave the scene without helping the victim or giving your contact details?",
+    "vehicleNote": "This is based on driving a car, motorcycle (motorized bicycle) or construction machinery. Personal mobility devices such as electric scooters, and bicycles, are covered by different penalty rules — a fine of up to KRW 200,000, short-term detention or a petty fine (Road Traffic Act, Article 156(11)) — and if you drove without a license, the disqualification period rules are different.",
+    "tier": "Applicable band",
+    "criminal": "Criminal punishment (statutory penalty)",
+    "underLimit": "Below the level punished as drunk driving (0.03%).",
+    "accidentCrimes": "Offenses also at issue because of the accident",
+    "license": "Driver's license measures",
+    "disqualification": "Period during which you cannot get a new license (disqualification period): {years}",
+    "years": "{n} year(s)",
+    "notes": "Also good to know",
+    "lawFoot": "The statutory penalty is the range of punishment set by law; the sentence you actually receive is decided within this range, taking into account how the driving happened, compensation for harm, prior records and so on.",
+    "lawFootLink": "You can see the likely handling separately in the {link}.",
+    "empty": "Enter your blood alcohol concentration to see the statutory penalty and license measures right away."
+  },
+  "msg": {
+    "band": {
+      "under": "Under 0.03%",
+      "low": "0.03% or more, under 0.08%",
+      "mid": "0.08% or more, under 0.2%",
+      "high": "0.2% or more",
+      "lowMid": "0.03% or more, under 0.2%"
+    },
+    "test": {
+      "refused": "Test refusal",
+      "obstructed": "Test obstruction",
+      "refusedLabel": "Refusing an alcohol test",
+      "obstructedLabel": "Obstructing an alcohol test (such as drinking more after driving to make testing difficult)"
+    },
+    "repeat": "{base} · repeat violation within 10 years",
+    "noBac": "Blood alcohol not entered",
+    "penalty": {
+      "y1to6f500to3000": "1 to 6 years in prison, or a fine of KRW 5 million to 30 million",
+      "y1to5f500to2000": "1 to 5 years in prison, or a fine of KRW 5 million to 20 million",
+      "y2to6f1000to3000": "2 to 6 years in prison, or a fine of KRW 10 million to 30 million",
+      "y2to5f1000to2000": "2 to 5 years in prison, or a fine of KRW 10 million to 20 million",
+      "y1to2f500to1000": "1 to 2 years in prison, or a fine of KRW 5 million to 10 million",
+      "y1f500": "Up to 1 year in prison, or a fine of up to KRW 5 million",
+      "propertyDamage": "Up to 2 years of imprisonment without labor, or a fine of up to KRW 5 million",
+      "dangerDeath": "Life imprisonment or 3 years or more in prison",
+      "dangerInjury": "1 to 15 years in prison, or a fine of KRW 10 million to 30 million",
+      "negligence": "Up to 5 years of imprisonment without labor, or a fine of up to KRW 20 million",
+      "fledDeath": "Life imprisonment or 5 years or more in prison",
+      "fledInjury": "1 year or more in prison for a fixed term, or a fine of KRW 5 million to 30 million",
+      "fledProperty": "Up to 5 years in prison, or a fine of up to KRW 15 million"
+    },
+    "label": {
+      "propertyDamage": "Property damage only (property damage by occupational negligence)",
+      "dangerDeath": "Dangerous driving causing death",
+      "dangerInjury": "Dangerous driving causing injury",
+      "negligenceDeath": "Death by occupational negligence in a traffic accident",
+      "negligenceInjury": "Injury by occupational negligence in a traffic accident",
+      "fledDeath": "Hit-and-run causing death (left without helping the victim)",
+      "fledInjury": "Hit-and-run causing injury (left without helping the victim)",
+      "fledProperty": "Failure to take action after an accident (property damage)"
+    },
+    "law": {
+      "rta148_2_1_1": "Road Traffic Act, Article 148-2(1)(1)",
+      "rta148_2_1_2": "Road Traffic Act, Article 148-2(1)(2)",
+      "rta148_2_1_3": "Road Traffic Act, Article 148-2(1)(3)",
+      "rta148_2_2_1": "Road Traffic Act, Article 148-2(2)(1)",
+      "rta148_2_2_2": "Road Traffic Act, Article 148-2(2)(2)",
+      "rta148_2_3_1": "Road Traffic Act, Article 148-2(3)(1)",
+      "rta148_2_3_2": "Road Traffic Act, Article 148-2(3)(2)",
+      "rta148_2_3_3": "Road Traffic Act, Article 148-2(3)(3)",
+      "rta151": "Road Traffic Act, Article 151",
+      "spca5_11": "Act on the Aggravated Punishment of Specific Crimes, Article 5-11(1)",
+      "tsa3_1": "Act on Special Cases Concerning the Settlement of Traffic Accidents, Article 3(1)",
+      "spca5_3": "Act on the Aggravated Punishment of Specific Crimes, Article 5-3(1)",
+      "rta148_54": "Road Traffic Act, Articles 148 and 54(1)",
+      "licNone": "Road Traffic Act, Articles 44(4) and 93(1)",
+      "licSuspend": "Road Traffic Act, Article 93(1)(1); Enforcement Rules, Attached Table 28, item 3(a)",
+      "licBase": "Road Traffic Act, Article 93(1)",
+      "licRefused": "Road Traffic Act, Article 93(1)(3); Enforcement Rules, Attached Table 28, item 2",
+      "licObstructed": "Road Traffic Act, Article 93(1)(3-2); Enforcement Rules, Attached Table 28, item 2",
+      "licPrior": "Road Traffic Act, Article 93(1)(2); Enforcement Rules, Attached Table 28, item 2",
+      "licFirst": "Road Traffic Act, Article 93(1)(1); Enforcement Rules, Attached Table 28, item 2",
+      "dq3a": "Road Traffic Act, Article 82(2)(3)(a)",
+      "dq3b": "Road Traffic Act, Article 82(2)(3)(b)",
+      "dq3c": "Road Traffic Act, Article 82(2)(3)(c)",
+      "dq3d": "Road Traffic Act, Article 82(2)(3)(d)",
+      "dq5": "Road Traffic Act, Article 82(2)(5)",
+      "dq6a": "Road Traffic Act, Article 82(2)(6)(a)",
+      "dq6b": "Road Traffic Act, Article 82(2)(6)(b)",
+      "dq6c": "Road Traffic Act, Article 82(2)(6)(c)",
+      "dq7": "Road Traffic Act, Article 82(2)(7)"
+    },
+    "note": {
+      "propertyDamage": "If there is only property damage, this part cannot be prosecuted when the victim does not want punishment or you are covered by comprehensive insurance or similar (Act on Special Cases Concerning the Settlement of Traffic Accidents, Article 3(2) main text and Article 4). Punishment for drunk driving proceeds separately.",
+      "danger": "This applies when it is found that you were unable to drive normally because of alcohol. If it did not reach that level, the Act on Special Cases Concerning the Settlement of Traffic Accidents below applies.",
+      "negligenceDrunk": "An accident involving drunk driving, test refusal or test obstruction can be prosecuted even if you have comprehensive insurance or have settled with the victim (same Act, Article 3(2) proviso and Article 4(1)).",
+      "fled": "If you moved the victim from the scene, abandoned them and fled, the heavier Article 5-3(2) applies.",
+      "fledProperty": "If it is clear that only a parked or stopped car was damaged and you simply did not leave your contact details, the penalty is a fine of up to KRW 200,000, short-term detention or a petty fine (same Act, Article 156(10))."
+    },
+    "lic": {
+      "noneTitle": "No license measure for drunk driving",
+      "noneUnder": "A blood alcohol level under 0.03% does not reach the standard for being drunk, so it is not subject to a license measure for drunk driving.",
+      "noneAccident": "If you caused an accident, penalty points and measures based on the result of the accident and whether you took the required action may be imposed separately (Enforcement Rules, Attached Table 28, item 3(b)).",
+      "suspendTitle": "License suspension (100 penalty points)",
+      "suspend100": "A blood alcohol level of 0.03% or more but under 0.08% means 100 penalty points. As a rule, the suspension period is counted as 1 day per point, so 100 days (Attached Table 28, item 1(c)).",
+      "suspendEdu": "Completing the required special traffic safety education reduces the suspension by 20 days, and completing on-site participation education as well may reduce it by a further 30 days (Attached Table 28, item 1(d)).",
+      "suspendAccident": "Penalty points for the result of an accident or for failing to take action after it may be added, and if the points within 1 year reach 121 or more, the license is revoked (Attached Table 28, item 1(c)).",
+      "revokeTitle": "License revocation",
+      "revokeRefused": "If you do not comply with a test when there are reasonable grounds to believe you were drunk, the license must be revoked.",
+      "revokeObstructed": "If you obstruct an alcohol test after driving, the license must be revoked.",
+      "revokePrior": "If a person who has previously driven drunk, refused a test or obstructed a test drives again at 0.03% or more, the license must be revoked, however long ago the earlier case was.",
+      "revokeHigh": "A blood alcohol level of 0.08% or more meets the standard for revocation.",
+      "revokeInjury": "Injuring or killing someone while driving at 0.03% or more meets the standard for revocation.",
+      "revokeEdu": "Even after the disqualification period ends, you must complete mandatory special traffic safety education before you can get a license again (Road Traffic Act, Article 82(3)).",
+      "conditional": "If your license was revoked because you violated again within 5 years of the earlier violation, you must get a conditional driver's license with an alcohol ignition interlock device fitted in order to drive again. The device is fitted from the day after the disqualification period ends, for the same length of time as the disqualification period (Road Traffic Act, Article 80-2).",
+      "reduction": "If driving is an important means of supporting your family, you may file an objection with the commissioner of the provincial police agency for your address within 60 days of the measure, asking for {effect}. The Driver's License Administrative Measures Objection Review Committee decides whether to accept it (Enforcement Rules, Attached Table 28, item 1(f)).",
+      "reductionRevoke": "a suspension with 110 penalty points instead of revocation",
+      "reductionSuspend": "a reduction of the suspension period by 1/2"
+    },
+    "dq": {
+      "fled": "Injuring or killing someone while driving after drinking, then leaving without taking the required action or reporting",
+      "death": "Killing someone while driving after drinking",
+      "twoAccidents": "Causing 2 or more traffic accidents while driving drunk (including test refusal or obstruction)",
+      "accident": "Causing a traffic accident while driving drunk (including test refusal or obstruction)",
+      "repeat": "Driving drunk, refusing a test or obstructing a test 2 or more times",
+      "other": "License revoked for other reasons"
+    },
+    "notes": {
+      "under": "A blood alcohol level under 0.03% does not reach the standard for being drunk, so it is not punished as drunk driving (Road Traffic Act, Article 44(4)). However, what is punished is the level at the time of driving, so the gap between the time of the test and the time of driving may be disputed.",
+      "recent": "The 10 years are counted from the date a fine or heavier sentence in the earlier case became final, and this includes cases where the sentence has since lapsed (Road Traffic Act, Article 148-2(1)).",
+      "old": "If the earlier record does not fall within the 10-year rule, the statutory penalty is the same as for a first offense, but it is still considered as a record of the same type when the actual measure and sentence are decided.",
+      "concurrent": "Drunk driving and accident-related offenses can apply together, and when several offenses are punished together, the range of punishment can become wider.",
+      "refused": "If you do not accept the breath test result, you can be tested again, for example by taking a blood sample with your consent (Road Traffic Act, Article 44(3)). Refusing the breath test itself may count as test refusal."
+    },
+    "appeal": "License suspension and revocation are administrative measures that proceed separately from the criminal case. To challenge one, you must file an administrative appeal within 90 days of learning of the measure (Administrative Appeals Act, Article 27), and an administrative lawsuit can be filed only after going through the administrative appeal (Road Traffic Act, Article 142). If the criminal case ends in a final acquittal, or in non-referral or non-indictment for lack of suspicion or because it does not constitute a crime, the measure is cancelled and the penalty points are erased (Enforcement Rules, Attached Table 28, item 1(e)). If it ends with a sentence lighter than a fine, a suspension of sentence or a suspension of indictment, you may get a license again even within the disqualification period (Road Traffic Act, Article 82(2) proviso)."
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "page": {
+    "title": "Forced Heirship (Reserved Share) Calculator",
+    "description": "Enter the heirs, the estate, lifetime gifts and debts to calculate the base estate for the reserved share and each heir's reserved share ratio and amount. Following the 2024 Constitutional Court decision, siblings' reserved shares are not included.",
+    "lead": "The reserved share (유류분) is the minimum share the law secures for heirs even when there is a will or lifetime gifts. Enter the heirs and the property to calculate the amount secured for each person.",
+    "notice": "This is a reference calculation based on the ratios set by the Civil Act. Which gifts to include, how to value the property and how much of a shortfall can actually be recovered are decided differently in each case. The deadline for a claim is also short, so talk to a lawyer before making any decision."
+  },
+  "ui": {
+    "siblingTitle": "Siblings have no reserved share",
+    "siblingBody": "On April 25, 2024, the Constitutional Court held Article 1112(4) of the Civil Act, which gave siblings a reserved share, unconstitutional, and it lost effect from that day; the provision was deleted by an amendment to the Civil Act on September 20, 2024. Siblings (including nephews and nieces inheriting in place of a sibling who died earlier) therefore cannot claim a reserved share.",
+    "assets": "Property",
+    "assetsDesc": "Enter amounts as of the date of death. Real estate is valued at its market price on that date.",
+    "estate": "Property left behind (the estate)",
+    "estateHelp": "Property the decedent owned at death. Property given away by will (bequests) is also included here.",
+    "gifts": "Property given during lifetime (gifts)",
+    "giftsHelp": "Gifts received by heirs are included even if made long ago. Gifts received by non-heirs are included only if made within 1 year before death, but gifts made knowing they would harm the other heirs are included even if made more than 1 year before. The part given as compensation for special support, such as living with and caring for the decedent for a long time, or for increasing their property, may be excluded (Civil Act, Article 1008 proviso, as amended on March 17, 2026).",
+    "debts": "Debts (inherited debts)",
+    "debtsHelp": "All debts remaining at the time of death.",
+    "base": "Base estate for the reserved share",
+    "noBase": "The debts exceed the property, so there is no amount to receive as a reserved share.",
+    "collateralNone": "Collateral blood relatives within the fourth degree have no reserved share at all.",
+    "colRatio": "Reserved share ratio",
+    "colReserved": "Reserved share",
+    "total": "Total reserved shares",
+    "step1": "Base estate for the reserved share = property left behind + property given during lifetime − debts",
+    "step2": "Find the statutory inheritance shares according to the order of heirs ({rank}). You can see the detailed division in the {link}.",
+    "step3": "Multiply the statutory share by the reserved share ratio: 1/2 for children (grandchildren) and the spouse, and 1/3 for parents and other lineal ascendants (Civil Act, Article 1112).",
+    "step4": "Reserved share = base estate × statutory inheritance share × reserved share ratio",
+    "shortfallTitle": "Money you can actually recover (the shortfall)",
+    "shortfallBody": "The amounts above are the shares secured by law. The money you can actually claim is the shortfall left after subtracting the gifts and bequests the person already received and the share they receive by inheritance (minus the debts they bear). This requires examining the property each person received one by one, so it is not included in this calculator.",
+    "lawTitle": "The 2024 Constitutional Court decision and later changes in the law",
+    "limitation": "A reserved share claim can no longer be made 1 year after learning that the inheritance began and that there was a gift or bequest to be recovered, or 10 years after the inheritance began (Civil Act, Article 1117)."
+  },
+  "lawChanges": [
+    "Siblings' reserved shares have been abolished (unconstitutionality decision on April 25, 2024; Civil Act amendment on September 20, 2024).",
+    "An heir who seriously breached their duty to support the decedent, or committed a serious crime against or grossly mistreated the decedent, can lose the right to inherit through a Family Court declaration of loss of inheritance rights, and then also receives no reserved share (Civil Act, Article 1004-2).",
+    "Gifts and bequests received as compensation for special support or for increasing the decedent's property are not treated as shares received in advance, to the extent of that contribution (for inheritances that began on or after April 25, 2024).",
+    "For inheritances that began on or after March 17, 2026, a shortfall in the reserved share is, as a rule, recovered in money rather than in the property itself (Civil Act, Article 1115)."
+  ],
+  "terms": [
+    [
+      "Reserved share",
+      "The minimum share the law secures for heirs even when there is a will or gifts."
+    ],
+    [
+      "Base estate for the reserved share",
+      "The amount used as the basis for calculating the reserved share: the property left behind plus lifetime gifts, minus debts."
+    ],
+    [
+      "Bequest",
+      "Giving property by will."
+    ],
+    [
+      "Statutory inheritance share",
+      "The ratio set by law in which each heir divides the estate when there is no will."
+    ]
+  ]
+}

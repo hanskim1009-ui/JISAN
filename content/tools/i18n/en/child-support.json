@@ -1,0 +1,85 @@
+{
+  "page": {
+    "title": "Child Support Calculator",
+    "description": "Enter your children's ages and both parents' monthly income to calculate the standard child support under the 2021 Child Support Guidelines and the monthly amount the non-custodial parent pays, divided by the ratio of the parents' incomes.",
+    "lead": "Enter your children's ages and each parent's monthly income before tax to calculate, using the court's Child Support Guidelines table, how much the parent living apart should send each month.",
+    "notice": "This is a reference calculation based on the court's guidelines table. The actual amount may be set differently by the court depending on the child's standard of living, the parents' assets and debts, the custody arrangement and other circumstances. Talk to a lawyer before making any decision."
+  },
+  "ui": {
+    "signLabel": "Add or subtract {label}",
+    "plus": "Add (increase)",
+    "minus": "Subtract (decrease)",
+    "kidsHintOne": "With 1 child, the amount is often set a little above the table amount (an increase).",
+    "kidsHintMany": "With 3 or more children, the amount is often set a little below the table amount (a decrease).",
+    "kidsHintTwo": "The table is based on 2 children, so with 2 children there is usually no adjustment.",
+    "kidsTitle": "Children",
+    "kidsDesc": "Enter the age (in full years) of each child who will receive child support. Ages 0 to {max} are calculated (until the child becomes an adult at 19).",
+    "kid": "Child {n}",
+    "agePlaceholder": "Age",
+    "ageUnit": "years",
+    "badAge": "Enter a whole number from 0 to {max} for the age.",
+    "addKid": "+ Add a child",
+    "incomeTitle": "Parents' monthly income (before tax)",
+    "incomeDesc": "The monthly total before tax of salary, business income, rental income, interest, pensions and so on. Include government benefits.",
+    "carer": "Custodial parent (lives with the child)",
+    "other": "Non-custodial parent (lives apart from the child)",
+    "adjTitle": "Increases and decreases (optional)",
+    "expand": "Expand",
+    "adjDesc": "Standard child support is the amount per child for a household of two parents and two children. Depending on the family's circumstances, the court may raise (increase) or lower (decrease) the amount. If you know an amount, enter it as a monthly amount per child.",
+    "adjKids": "Adjustment for the number of children",
+    "adjOther": "Other adjustments",
+    "adjOtherHelp": "Circumstances such as where you live (city or rural area), the parents' assets, or whether a parent is in individual rehabilitation (debt restructuring).",
+    "emptyAge": "Enter your children's ages to calculate right away.",
+    "emptyIncome": "Enter the parents' incomes to calculate right away.",
+    "resultTitle": "Monthly child support paid by the non-custodial parent",
+    "resultTitleMany": "Monthly child support paid by the non-custodial parent (total for {n} children)",
+    "income": "Parents' combined income",
+    "bandNote": "({band} band)",
+    "ratio": "Non-custodial parent's share of income",
+    "total": "Total child support",
+    "totalAdj": "Total child support (with adjustments)",
+    "carerShare": "Custodial parent's share",
+    "colKid": "Child",
+    "colStandard": "Standard child support",
+    "colAdjusted": "After adjustments",
+    "colOther": "Non-custodial parent's share",
+    "ageRow": "Age {age} · column for {band}",
+    "ageBand": "ages {a}–{b}",
+    "range": "Range {lo} – {hi}",
+    "rangeOpen": "Range {lo} or more",
+    "bandRange": "KRW {lo}–{hi}",
+    "bandFrom": "KRW {lo} or more",
+    "bandTo": "KRW {hi} or less",
+    "step1": "The two parents' combined income of {income} falls in the {band} band of the table.",
+    "step2": "For each child, find the standard child support (the average monthly child support per child) in the column for the child's age, and add them up.",
+    "step2Adj": "For each child, find the standard child support (the average monthly child support per child) in the column for the child's age, and add them up. Then add or subtract the increase or decrease for each child.",
+    "step3": "Divide the total child support by the ratio of the two parents' incomes. Non-custodial parent's share = child support × non-custodial parent's income ÷ combined income ({pct}).",
+    "highIncome": "The band for combined income of KRW 12 million or more a month has no upper limit, so the court may look further at income, assets and standard of living and set an amount higher than the table.",
+    "tableHead": "The table this calculator uses",
+    "tableName": "2021 Child Support Guidelines (Seoul Family Court, published December 22, 2021)",
+    "tableBody": "{table}. These are average monthly child support amounts per child for a household of two parents and two children. The court uses this table as a starting point and sets the amount taking into account the child's standard of living, the parents' assets and debts, where they live, the custody arrangement and other circumstances."
+  },
+  "terms": [
+    [
+      "Custodial parent · non-custodial parent",
+      "After divorce, the parent who lives with and raises the child is the custodial parent, and the parent who lives apart is the non-custodial parent. Usually the non-custodial parent pays child support."
+    ],
+    [
+      "Standard child support",
+      "The average amount set in the court's Child Support Guidelines table according to the parents' income and the child's age."
+    ],
+    [
+      "Increase · decrease",
+      "Adding to or subtracting from the standard child support depending on the circumstances."
+    ],
+    [
+      "Income before tax",
+      "Income before taxes and the four social insurance contributions are deducted."
+    ]
+  ],
+  "errors": {
+    "badAge": "Please enter a child's age from 0 to 18.",
+    "noRow": "There is no child support standard for this age and income.",
+    "noChild": "Please enter at least one child."
+  }
+}
