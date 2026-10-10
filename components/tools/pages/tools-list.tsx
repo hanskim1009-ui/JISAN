@@ -6,12 +6,15 @@ import { L } from "@/lib/i18n/fmt"
 import { SectionHead } from "@/components/main/section-head"
 import { toolAlternates, toolAvailable, toolText } from "@/lib/tools/i18n"
 import { GROUP_KEY, TOOLS, TOOL_GROUPS } from "@/lib/tools/registry"
+import { crimeToolAvailable } from "@/lib/tools/tool-data-i18n"
 
 /** 그 언어 목록에 보일 도구: 한국어는 전부, 외국어는 번역이 다 된 도구만 */
 export function toolsFor(lang: Lang) {
   if (lang === "ko") return TOOLS
   if (!toolText(lang, "common")) return []
-  return TOOLS.filter((t) => t.i18nKey && toolAvailable(lang, t.i18nKey))
+  return TOOLS.filter((t) =>
+    t.id === "prosecution" || t.id === "sentencing" ? crimeToolAvailable(t.id, lang) : Boolean(t.i18nKey && toolAvailable(lang, t.i18nKey)),
+  )
 }
 
 /** 목록 페이지가 있는 언어 */

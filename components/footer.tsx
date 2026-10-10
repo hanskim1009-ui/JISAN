@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { regions, regionBase } from "@/lib/regions"
 import { getVisaUi, visaList } from "@/lib/visa"
+import { toolsFor } from "@/components/tools/pages/tools-list"
+import { toolText } from "@/lib/tools/i18n"
 import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { LogoSvg } from "@/components/brand-logo"
 import type { Lang } from "@/lib/langs"
@@ -58,11 +60,18 @@ export function Footer({ lang = "ko" }: { lang?: Lang }) {
           </p>
         </div>
 
-        {!ko && visaList(lang).length > 0 && (
-          <nav className="mt-6 text-[0.8125rem] text-white/70">
-            <Link href={L(lang, "/visa")} className="hover:text-white">
-              {getVisaUi(lang)?.ui.listTitle}
-            </Link>
+        {!ko && (visaList(lang).length > 0 || toolsFor(lang).length > 0) && (
+          <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-white/70">
+            {visaList(lang).length > 0 && (
+              <Link href={L(lang, "/visa")} className="hover:text-white">
+                {getVisaUi(lang)?.ui.listTitle}
+              </Link>
+            )}
+            {toolsFor(lang).length > 0 && (
+              <Link href={L(lang, "/tools")} className="hover:text-white">
+                {toolText(lang, "common")?.list.title}
+              </Link>
+            )}
           </nav>
         )}
         {ko && (

@@ -5,6 +5,7 @@ import { allCenters, centerBase, getCenter } from "@/lib/centers"
 import { getCases, getColumns } from "@/lib/content"
 import { allCenterPages } from "@/lib/center-pages"
 import { TOOLS } from "@/lib/tools/registry"
+import { toolsFor } from "@/components/tools/pages/tools-list"
 import { visaList } from "@/lib/visa"
 import { regions, regionBase } from "@/lib/regions"
 import { LANGS } from "@/lib/langs"
@@ -47,6 +48,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: url("/diary"), changeFrequency: "weekly", priority: 0.6 },
     { url: url("/tools"), changeFrequency: "monthly", priority: 0.7 },
     ...TOOLS.map((x) => ({ url: url(x.href), changeFrequency: "monthly" as const, priority: 0.7 })),
+    ...FOREIGN_LANGS.flatMap((l) => {
+      const list = toolsFor(l)
+      return list.length === 0
+        ? []
+        : [
+            { url: url(`/${l}/tools`), changeFrequency: "monthly" as const, priority: 0.6 },
+            ...list.map((x) => ({ url: url(`/${l}${x.href}`), changeFrequency: "monthly" as const, priority: 0.6 })),
+          ]
+    }),
     ...LANGS.flatMap((l) => {
       const list = visaList(l)
       const pre = l === "ko" ? "" : `/${l}`

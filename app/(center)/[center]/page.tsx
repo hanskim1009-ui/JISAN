@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { HREFLANG, type Lang } from "@/lib/langs"
 import Link from "next/link"
 import { getVisaUi, visaList } from "@/lib/visa"
+import { toolsFor } from "@/components/tools/pages/tools-list"
+import { toolText } from "@/lib/tools/i18n"
 import { notFound } from "next/navigation"
 import { Check, MessageCircle, Phone, Plus } from "lucide-react"
 import { allCenters, centerBase, getCenter } from "@/lib/centers"
@@ -81,6 +83,23 @@ export default async function CenterPage({ params }: Props) {
   const centerLang = (center.lang ?? "ko") as Lang
   const visaUi = center.slug.startsWith("foreigner") && visaList(centerLang).length > 0 ? getVisaUi(centerLang) : undefined
   const visaHref = centerLang === "ko" ? "/visa" : `/${centerLang}/visa`
+  /** 형사·외국인센터: 계산기 목록으로 연결 (그 언어로 계산기가 있을 때) */
+  const kindOf = center.slug.replace(/-[a-z]{2}$/, "")
+  const toolList = kindOf === "crime" || kindOf === "foreigner" ? toolsFor(centerLang) : []
+  const toolsCommon = toolText(centerLang, "common")
+  const toolsCard =
+    toolList.length > 0 && toolsCommon
+      ? {
+          href: centerLang === "ko" ? "/tools" : `/${centerLang}/tools`,
+          title: toolsCommon.list.title,
+          sub: toolList
+            .filter((x) => ["prosecution", "sentencing", "police-summons", "drunk-driving"].includes(x.id))
+            .map((x) => toolsCommon.tools[x.id]?.title ?? "")
+            .filter(Boolean)
+            .slice(0, 3)
+            .join(" · "),
+        }
+      : null
   const base = centerBase(center)
   // 업무사례·칼럼은 한국어만 있어 외국어판에서는 숨김
   const cases = foreign ? [] : await getCases({ center: center.slug })
@@ -258,6 +277,15 @@ export default async function CenterPage({ params }: Props) {
                 </li>
               ))}
             </ul>
+            {toolsCard && (
+              <Link
+                href={toolsCard.href}
+                className="card-lift mt-4 flex flex-col gap-1 rounded-2xl border border-[#E2E6ED] bg-white p-5 md:flex-row md:items-center md:justify-between md:p-6"
+              >
+                <span className="text-lg font-bold tracking-tight text-jisan-ink">{toolsCard.title}</span>
+                <span className={`text-sm font-semibold ${t.accent}`}>{toolsCard.sub}&nbsp;→</span>
+              </Link>
+            )}
             {visaUi && (
               <Link
                 href={visaHref}
