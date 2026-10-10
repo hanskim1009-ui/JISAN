@@ -23,7 +23,6 @@ export default function Page() {
       notice="2026년 10월 현행 도로교통법·시행규칙 별표 28, 특정범죄 가중처벌 등에 관한 법률, 교통사고처리 특례법을 바탕으로 한 참고용 결과입니다. 실제 적용 조항과 처분은 측정 경위, 전력의 확정일, 사고 내용 등 구체적인 사정에 따라 달라지니 결정을 내리기 전에 변호사와 상의하세요."
       related={[
         { href: "/tools/prosecution", label: "구형 예상 계산기" },
-        { href: "/tools/sentencing", label: "양형 계산기" },
         { href: "/crime/guide/drunk-driving-caught", label: "음주운전으로 단속됐을 때" },
         { href: "/crime/drunk-driving", label: "음주운전·교통사고" },
         { href: "/tools/police-summons", label: "경찰 출석요구 체크리스트" },

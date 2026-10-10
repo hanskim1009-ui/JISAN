@@ -189,10 +189,6 @@ export function DrunkDrivingCalculator() {
               <Link href="/tools/prosecution" className="underline underline-offset-2 hover:text-jisan-ink">
                 구형 예상 계산기
               </Link>
-              와{" "}
-              <Link href="/tools/sentencing" className="underline underline-offset-2 hover:text-jisan-ink">
-                양형 계산기
-              </Link>
               에서 따로 볼 수 있습니다.
             </p>
           </section>

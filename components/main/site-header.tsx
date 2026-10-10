@@ -12,10 +12,19 @@ import { LogoSvg } from "@/components/brand-logo"
 import { LangSwitch } from "@/components/intl/intl-header"
 
 export type CenterLink = { slug: string; name: string; href: string }
-export type HeaderFlags = { showCases: boolean; showDiary: boolean; showColumns: boolean; lang?: Lang; dict?: Dict; centerLinks?: CenterLink[] }
+export type HeaderFlags = {
+  showCases: boolean
+  showDiary: boolean
+  showColumns: boolean
+  lang?: Lang
+  dict?: Dict
+  centerLinks?: CenterLink[]
+  /** 서버에서 정해 넘기는 추가 메뉴 (계산기, 체류자격 안내 등) */
+  extraLinks?: { label: string; href: string }[]
+}
 
 /** 메인 사이트 헤더: 남색 바탕 + 흰 로고 + 메뉴 + '업무영역' 펼침 메뉴 (외국어 사이트도 같은 틀) */
-export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dict, centerLinks = [] }: HeaderFlags) {
+export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dict, centerLinks = [], extraLinks = [] }: HeaderFlags) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const megaRef = useRef<HTMLDivElement>(null)
@@ -55,6 +64,7 @@ export function SiteHeader({ showCases, showDiary, showColumns, lang = "ko", dic
     ...(showCases ? [{ label: t("업무사례"), href: L(lang, "/cases") }] : []),
     ...(showColumns ? [{ label: t("칼럼"), href: L(lang, "/column") }] : []),
     ...(showDiary ? [{ label: t("감사일기"), href: L(lang, "/diary") }] : []),
+    ...extraLinks,
     { label: t("오시는 길"), href: L(lang, "/#map") },
   ]
   const navLink = "text-[0.9375rem] text-white/75 hover:text-white transition-colors whitespace-nowrap"

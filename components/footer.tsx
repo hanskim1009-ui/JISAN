@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { regions, regionBase } from "@/lib/regions"
 import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { LogoSvg } from "@/components/brand-logo"
 import type { Lang } from "@/lib/langs"
@@ -55,6 +56,18 @@ export function Footer({ lang = "ko" }: { lang?: Lang }) {
             {t("사업자등록번호")} {siteConfig.businessRegistration} · {t("광고책임변호사")} {lawyerI18n("kim-hansol", lang)?.name ?? siteConfig.advertisingAttorney}
           </p>
         </div>
+
+        {ko && (
+          <nav aria-label="더 보기" className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[0.8125rem] text-white/70">
+            <Link href="/tools" className="hover:text-white">계산기·자가진단</Link>
+            <Link href="/visa" className="hover:text-white">외국인 체류자격별 안내</Link>
+            {regions.map((r) => (
+              <Link key={r.slug} href={regionBase(r)} className="hover:text-white">
+                {r.name} 지역 상담
+              </Link>
+            ))}
+          </nav>
+        )}
 
         <div className="mt-6 flex flex-col gap-3 text-[0.8125rem] md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap gap-x-5 gap-y-2">
