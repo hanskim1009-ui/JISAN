@@ -2,7 +2,7 @@
  * 메인 사이트 '업무영역' — 형사·가사·기업·의료·부동산·민사를 같은 무게로 보여 줍니다.
  * situations가 있는 분야만 첫 화면 '지금 어떤 상황이신가요?' 칸에 나옵니다.
  * centers: 이 분야의 센터 사이트(lib/centers.ts slug). 센터가 생기면 여기에 추가합니다.
- * lawyers: 담당 변호사(lib/lawyers.ts slug). 임시 배정이며 확정되면 고칩니다.
+ * lawyers: 담당 변호사(lib/lawyers.ts slug). 이 순서대로 보입니다.
  */
 export type Situation = {
   label: string
@@ -29,7 +29,7 @@ export const fields: Field[] = [
     desc: "경찰 조사부터 재판까지, 단계마다 의뢰인에게 가장 유리한 대응 방향을 준비합니다.",
     caseType: "형사",
     items: ["경찰 조사 동석, 체포·구속", "성범죄 · 마약", "사기·횡령·자본시장법", "학교폭력, 음주·교통"],
-    lawyers: ["kim-hansol", "kim-chunghyeon", "koo-bonwoo"],
+    lawyers: ["kim-hansol", "koo-bonwoo", "kim-chunghyeon"],
     centers: ["crime", "sex-crime", "drug", "school-violence"],
     situations: [
       { label: "경찰 출석 요구를 받았어요", center: "crime" },
@@ -43,7 +43,7 @@ export const fields: Field[] = [
     desc: "이혼, 상속, 양육 문제를 이혼 이후의 생활까지 생각하며 함께 정리합니다.",
     caseType: "가사",
     items: ["이혼, 재산분할", "상간 소송", "양육권·양육비", "상속, 유류분"],
-    lawyers: ["kim-miso", "park-jongjin"],
+    lawyers: ["kim-miso", "park-jongjin", "kim-hansol"],
     centers: ["divorce", "adultery", "inheritance"],
     situations: [
       { label: "이혼을 준비하고 있어요", center: "divorce" },
@@ -71,7 +71,7 @@ export const fields: Field[] = [
     desc: "의료사고, 현지조사와 행정처분, 의료법 위반 수사까지 병원과 의료인이 겪는 일을 함께 맡습니다.",
     caseType: "의료",
     items: ["의료사고 형사·민사", "현지조사·환수·행정처분", "사무장병원·리베이트 수사", "병원 개설·운영 자문"],
-    lawyers: ["kim-hansol", "kang-hyunwoo"],
+    lawyers: ["kang-hyunwoo", "kim-hansol"],
     centers: ["medical"],
     situations: [],
   },
@@ -80,7 +80,7 @@ export const fields: Field[] = [
     desc: "공사대금과 하자, 재개발·재건축, 분양과 보상금처럼 건물과 땅을 둘러싼 분쟁을 맡습니다.",
     caseType: "건설·부동산",
     items: ["공사대금, 하자", "재개발·재건축", "분양·지역주택조합", "토지수용·보상금"],
-    lawyers: ["park-hanmin", "kim-hansol", "park-jongjin"],
+    lawyers: ["park-hanmin", "park-jongjin", "kim-hansol"],
     centers: ["construction"],
     situations: [],
   },
@@ -89,7 +89,7 @@ export const fields: Field[] = [
     desc: "빌려준 돈, 보증금, 손해배상처럼 받아야 할 돈을 돌려받는 일과 회생·파산을 맡습니다.",
     caseType: "민사",
     items: ["대여금·투자금 반환", "임대차 보증금, 명도", "손해배상", "개인회생·파산"],
-    lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon", "park-hanmin", "kim-miso"],
+    lawyers: ["park-jongjin", "kim-miso", "kang-hyunwoo", "park-hanmin", "koo-bonwoo", "kim-chunghyeon"],
     centers: ["civil", "insolvency"],
     situations: [
       { label: "빌려준 돈을 못 받았어요", center: "civil" },
