@@ -39,11 +39,11 @@ export const fields: Field[] = [
     ],
   },
   {
-    name: "가사",
+    name: "가사 · 상속",
     desc: "이혼, 상속, 양육 문제를 이혼 이후의 생활까지 생각하며 함께 정리합니다.",
     caseType: "가사",
     items: ["이혼, 재산분할", "상간 소송", "양육권·양육비", "상속, 유류분"],
-    lawyers: ["kim-miso"],
+    lawyers: ["kim-miso", "park-jongjin"],
     centers: ["divorce", "adultery", "inheritance"],
     situations: [
       { label: "이혼을 준비하고 있어요", center: "divorce" },
@@ -80,7 +80,7 @@ export const fields: Field[] = [
     desc: "공사대금과 하자, 재개발·재건축, 분양과 보상금처럼 건물과 땅을 둘러싼 분쟁을 맡습니다.",
     caseType: "건설·부동산",
     items: ["공사대금, 하자", "재개발·재건축", "분양·지역주택조합", "토지수용·보상금"],
-    lawyers: ["park-hanmin"],
+    lawyers: ["park-hanmin", "kim-hansol", "park-jongjin"],
     centers: ["construction"],
     situations: [],
   },
@@ -89,7 +89,7 @@ export const fields: Field[] = [
     desc: "빌려준 돈, 보증금, 손해배상처럼 받아야 할 돈을 돌려받는 일과 회생·파산을 맡습니다.",
     caseType: "민사",
     items: ["대여금·투자금 반환", "임대차 보증금, 명도", "손해배상", "개인회생·파산"],
-    lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon", "park-hanmin"],
+    lawyers: ["park-jongjin", "kang-hyunwoo", "kim-chunghyeon", "park-hanmin", "kim-miso"],
     centers: ["civil", "insolvency"],
     situations: [
       { label: "빌려준 돈을 못 받았어요", center: "civil" },
