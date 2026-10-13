@@ -193,7 +193,7 @@ export const lawyers: Lawyer[] = [
   },
   {
     slug: "kim-miso",
-    field: "가사",
+    field: "가사 · 상속",
     name: "김미소",
     tagline: "다국적 기업 자문부터 민형사 송무까지, 법률가의 외연을 확장해 왔습니다.",
     title: "파트너 변호사",
