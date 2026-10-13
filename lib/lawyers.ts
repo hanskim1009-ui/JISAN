@@ -40,12 +40,11 @@ export const lawyers: Lawyer[] = [
     slug: "kim-hansol",
     field: "형사",
     name: "김한솔",
-    tagline: "수사기관이 무엇을 보는지 알고, 조사 전에 대응 방향부터 잡는 변호사",
+    tagline: "경찰 조사 전에 먼저 변호인과 이야기해야 합니다.",
     title: "대표 변호사",
     image: lawyerImages.kim,
     blogUrl: "https://blog.naver.com/lawyerpassingby",
-    summary:
-      "김한솔 변호사는 인천지방검찰청, 수원지방검찰청 안산지청, 대전지방검찰청 홍성지청에서 검사로 일했습니다. 검사 시절 대전고등검찰청 수범검사로 선정됐고, 일하던 검사실이 인천지검과 홍성지청에서 우수검사실로 뽑혔습니다.\n지금은 형사 사건을 주로 맡고 있습니다. 조사 전 준비부터 조사 동석, 의견서, 재판까지 직접 수행합니다.",
+    summary: "김한솔 변호사가 첫 상담부터 재판까지 직접 맡습니다.",
     career: [
       `현) ${siteConfig.name} 대표변호사`,
       "현) 서울특별시 선거관리위원회 위원 (2026. 8. ~)",
