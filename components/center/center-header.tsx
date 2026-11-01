@@ -45,7 +45,7 @@ export function CenterHeader({
         <a href={homeHref} className={`mr-auto min-w-0 leading-tight ${foreign ? "2xl:shrink-0" : "xl:shrink-0"}`} onClick={() => setOpen(false)}>
           {/* 센터 이름이 긴 언어(베트남어·러시아어·몽골어)는 좁은 화면에서 두 줄까지, 넓은 화면에서는 한 줄 */}
           <span className={`block tracking-tight ${foreign ? "text-[1rem] sm:text-lg md:text-xl 2xl:whitespace-nowrap" : "whitespace-nowrap text-lg md:text-xl"}`}>
-            {/* 외국어판 모바일은 아래 줄 JISAN LAW로 충분해 앞 글자를 숨김 (한 줄 유지) */}
+            {/* 외국어판 모바일은 아래 줄 JISAN & PARTNERS로 충분해 앞 글자를 숨김 (한 줄 유지) */}
             {foreign ? null : `${siteConfig.shortName} `}
             <b className="font-extrabold">{name}</b>
           </span>

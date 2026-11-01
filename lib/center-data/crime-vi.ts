@@ -21,7 +21,7 @@ export const crimeVi: Center = {
   "tone": "dark",
   "seo": {
     "title": "Luật sư hình sự Hàn Quốc | Cảnh sát lấy lời khai, tạm giam, xét xử hình sự | Trung tâm Hình sự Jisan",
-    "description": "Bị cảnh sát triệu tập, bị bắt hoặc tạm giam, bị đưa ra xét xử hình sự, hay muốn tố cáo. Tại Trung tâm Hình sự của Văn phòng Luật Jisan, luật sư điều hành trực tiếp tư vấn và đảm nhận việc luyện tập trước buổi lấy lời khai, đi cùng khi lấy lời khai và bản ý kiến của luật sư. Hãy nhắn tin cho chúng tôi qua khung chat trên trang này.",
+    "description": "Bị cảnh sát triệu tập, bị bắt hoặc tạm giam, bị đưa ra xét xử hình sự, hay muốn tố cáo. Tại Trung tâm Hình sự của Công ty Luật Jisan & Partners, luật sư điều hành trực tiếp tư vấn và đảm nhận việc luyện tập trước buổi lấy lời khai, đi cùng khi lấy lời khai và bản ý kiến của luật sư. Hãy nhắn tin cho chúng tôi qua khung chat trên trang này.",
     "keywords": [
       "luật sư hình sự Hàn Quốc",
       "luật sư khi bị cảnh sát lấy lời khai Hàn Quốc",
@@ -75,7 +75,7 @@ export const crimeVi: Center = {
   "intro": {
     "title": "Vụ án hình sự khó nói ra, Jisan đứng về phía bạn",
     "body": [
-      "Từ ngày nhận cuộc gọi của đồn cảnh sát, đầu óc bạn rối bời. Càng tìm trên mạng càng lo lắng, không biết phải làm gì trước mà ngày lấy lời khai cứ đến gần. Trung tâm Hình sự của Văn phòng Luật Jisan sắp xếp cho bạn những việc cần làm trước nhất vào lúc đó. Chúng tôi cùng bạn xem xét đó là cáo buộc gì, còn những tài liệu nào, phần nào cần tranh chấp và phần nào nên thừa nhận.",
+      "Từ ngày nhận cuộc gọi của đồn cảnh sát, đầu óc bạn rối bời. Càng tìm trên mạng càng lo lắng, không biết phải làm gì trước mà ngày lấy lời khai cứ đến gần. Trung tâm Hình sự của Công ty Luật Jisan & Partners sắp xếp cho bạn những việc cần làm trước nhất vào lúc đó. Chúng tôi cùng bạn xem xét đó là cáo buộc gì, còn những tài liệu nào, phần nào cần tranh chấp và phần nào nên thừa nhận.",
       "Jisan không đứng sau thư ký văn phòng hay luật sư cộng sự. Buổi tư vấn đầu tiên do luật sư điều hành trực tiếp thực hiện. Khi nhận vụ việc, chúng tôi luyện tập với các câu hỏi dự kiến, vào phòng lấy lời khai cùng bạn và nộp bản ý kiến của luật sư (변호인 의견서) sau khi lấy lời khai xong. Luật sư phụ trách trực tiếp thực hiện toàn bộ quá trình này.",
       "Chúng tôi tư vấn tại văn phòng chính ở Seoul và các văn phòng chi nhánh ở Incheon, Hongseong, Songpa. Bạn có thể nhắn tin cho chúng tôi qua khung chat trên trang này bất cứ lúc nào, kể cả cuối tuần và ngày lễ. Với những việc gấp như bị bắt, dù là ban đêm hay rạng sáng, hãy nhắn tin cho chúng tôi."
     ]

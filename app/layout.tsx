@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description,
-  keywords: ["형사변호사", "이혼변호사", "기업자문 변호사", "민사변호사", "법률사무소", siteConfig.name],
+  keywords: ["형사변호사", "이혼변호사", "기업자문 변호사", "민사변호사", "법무법인", siteConfig.name],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   openGraph: {
@@ -66,7 +66,8 @@ function JsonLdScript() {
         "@type": "LegalService",
         "@id": `${siteUrl}/#organization`,
         name: siteConfig.name,
-        alternateName: siteConfig.nameEn,
+        // 법인 전환 전 상호도 같이 적어 검색엔진이 같은 곳으로 알아보게
+        alternateName: siteConfig.incorporated ? [siteConfig.nameEn, "법률사무소 지산", "JISAN LAW"] : siteConfig.nameEn,
         url: siteUrl,
         image: `${siteUrl}/og.jpg`,
         telephone: siteConfig.phoneIntl,

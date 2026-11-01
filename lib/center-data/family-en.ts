@@ -20,8 +20,8 @@ export const familyEn: Center = {
   "summary": "Divorce, property division and custody; claims against a spouse's affair partner and defending against such claims; renouncing or accepting an inheritance with limited liability, dividing an estate, and forced heirship shares",
   "tone": "warm",
   "seo": {
-    "title": "Divorce, Affair and Inheritance Lawyers in Korea | Property Division, Custody, Compensation, Renunciation, Forced Heirship | Jisan Law Family Law Center",
-    "description": "Jisan Law's Family Law Center helps with divorce by agreement and divorce lawsuits in Korea, property division, custody and child support, a spouse's affair and claims against the affair partner, responding to an affair lawsuit, renouncing an inheritance or accepting it with limited liability, estate division and forced heirship shares. Message us through the chat on this page.",
+    "title": "Divorce, Affair and Inheritance Lawyers in Korea | Property Division, Custody, Compensation, Renunciation, Forced Heirship | Jisan & Partners Family Law Center",
+    "description": "Jisan & Partners' Family Law Center helps with divorce by agreement and divorce lawsuits in Korea, property division, custody and child support, a spouse's affair and claims against the affair partner, responding to an affair lawsuit, renouncing an inheritance or accepting it with limited liability, estate division and forced heirship shares. Message us through the chat on this page.",
     "keywords": [
       "divorce lawyer Korea",
       "international divorce Korea",
@@ -37,7 +37,7 @@ export const familyEn: Center = {
   },
   "hero": {
     "title": "Family legal problems—\nyou don't have to carry them alone",
-    "sub": "Divorce and property division, raising your children, a spouse's affair, and inheritance after a family member passes away. Jisan Law's Family Law Center stays with you through family matters handled by Korean courts, from the first consultation to after the judgment."
+    "sub": "Divorce and property division, raising your children, a spouse's affair, and inheritance after a family member passes away. Jisan & Partners' Family Law Center stays with you through family matters handled by Korean courts, from the first consultation to after the judgment."
   },
   "stageTitle": "What situation are you in right now?",
   "stages": [
@@ -81,7 +81,7 @@ export const familyEn: Center = {
   "intro": {
     "title": "Family matters—you don't have to face them alone",
     "body": [
-      "Problems with the people closest to you are hard to talk about with anyone. Even so, rather than leading with emotional arguments, you need to check the issues that must be settled: the grounds for divorce, how the assets were built up, and where the children will be raised. Jisan Law's Family Law Center does not push anyone toward divorce. We first listen to where you stand now and what you most want to protect, and then set a direction.",
+      "Problems with the people closest to you are hard to talk about with anyone. Even so, rather than leading with emotional arguments, you need to check the issues that must be settled: the grounds for divorce, how the assets were built up, and where the children will be raised. Jisan & Partners' Family Law Center does not push anyone toward divorce. We first listen to where you stand now and what you most want to protect, and then set a direction.",
       "Whether you have just learned of your spouse's affair or have been sued by your partner's spouse, the outcome often depends less on how strong your feelings are and more on what material you put before the court and how. After a family member dies, each procedure has a deadline, such as the 3 months for renouncing an inheritance (상속포기) or accepting it with limited liability (한정승인), so the first task is deciding what to do in what order.",
       "Divorce ties together property, children and emotions in several knots. If it can end by agreement, we put the terms clearly in writing to reduce the chance of another dispute. If a lawsuit is needed, we prove the legal grounds for divorce with evidence. Consultations are available at our main office in Seoul and our branch offices in Incheon, Hongseong and Songpa, and you can send us a message through the chat on this page at any time, including weekends and public holidays."
     ]
@@ -236,7 +236,7 @@ export const familyEn: Center = {
     "note": "A divorce on the ground in Item 1 cannot be claimed once 6 months have passed since you learned of the infidelity, or 2 years since it occurred (Civil Act Article 841). The ground in Item 6 is also limited to 6 months from learning of it and 2 years from when it occurred (Civil Act Article 842), but if the ground is still continuing, these periods do not apply. Where it is disputed whether something like incompatibility falls under Item 6, we judge it after reviewing the specific circumstances in a consultation."
   },
   "points": {
-    "title": "Principles Jisan Law's Family Law Center follows",
+    "title": "Principles Jisan & Partners' Family Law Center follows",
     "items": [
       {
         "title": "We listen to your story before reaching conclusions",

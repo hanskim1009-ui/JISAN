@@ -9,8 +9,8 @@ import type { ExtraLang } from "@/lib/i18n/extra-langs"
 export const extraContent: Record<ExtraLang, any> = {
   vi: {
     "intlHome": {
-      "seoTitle": "Jisan Law | Luật sư Hàn Quốc cho người nước ngoài, hình sự, gia đình, doanh nghiệp",
-      "seoDesc": "Jisan Law là văn phòng luật tại Hàn Quốc xử lý các vụ việc hình sự, gia đình, doanh nghiệp, y tế, bất động sản và dân sự, có Trung tâm Người nước ngoài cho các vấn đề visa, xuất nhập cảnh và nhiều vấn đề khác. Đường dây điện thoại mở 24/7, kể cả ban đêm và cuối tuần.",
+      "seoTitle": "Jisan & Partners | Luật sư Hàn Quốc cho người nước ngoài, hình sự, gia đình, doanh nghiệp",
+      "seoDesc": "Jisan & Partners là văn phòng luật tại Hàn Quốc xử lý các vụ việc hình sự, gia đình, doanh nghiệp, y tế, bất động sản và dân sự, có Trung tâm Người nước ngoài cho các vấn đề visa, xuất nhập cảnh và nhiều vấn đề khác. Đường dây điện thoại mở 24/7, kể cả ban đêm và cuối tuần.",
       "nav": {
         "about": "Giới thiệu",
         "lawyers": "Luật sư",
@@ -19,7 +19,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "offices": "Văn phòng",
         "contact": "Liên hệ",
       },
-      "firm": "JISAN LAW",
+      "firm": "JISAN & PARTNERS",
       "kicker": "Luật sư Hàn Quốc cho người nước ngoài",
       "heroTitle": ["Gặp rắc rối pháp lý tại Hàn Quốc?", "Chúng tôi xem xét cả vụ việc lẫn chuyện lưu trú của bạn"],
       "heroSub": "Visa và xuất nhập cảnh, bị cảnh sát điều tra, bị nợ lương, ly hôn. Bạn chưa cần quyết định gì cả. Trước hết chúng tôi giải thích bạn đang ở đâu và có thể làm gì. Đường dây điện thoại mở 24/7.",
@@ -103,7 +103,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "kicker": "Về chúng tôi",
         "title": ["Với bạn, đây có thể là", "vụ việc pháp lý đầu tiên và cũng là cuối cùng"],
         "letter": ["Với luật sư, đó có thể là chuyện gặp hằng tuần, nhưng với hầu hết khách hàng, đó là lần đầu tiên và có lẽ cũng là lần cuối cùng.", "Vì vậy chúng tôi không bao giờ yêu cầu bạn quyết định thuê luật sư ngay. Trước hết chúng tôi cho bạn biết điều gì làm được và điều gì khó, và khi nhận vụ việc, luật sư phụ trách sẽ trực tiếp giữ liên lạc với bạn."],
-        "sign": "Các luật sư của Jisan Law",
+        "sign": "Các luật sư của Jisan & Partners",
       },
       "steps": {
         "title": "Quy trình tư vấn",
@@ -186,7 +186,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "field": "Hình sự",
         "line": "Nguyên công tố viên (Incheon, Ansan, Hongseong)",
         "bio": "Luật sư Hansol Kim từng là công tố viên tại Viện Kiểm sát Địa phương Incheon, Chi nhánh Ansan của Viện Kiểm sát Địa phương Suwon và Chi nhánh Hongseong của Viện Kiểm sát Địa phương Daejeon. Hiện ông tập trung vào các vụ án hình sự, đảm nhận mọi việc từ chuẩn bị trước buổi lấy lời khai ở cảnh sát, đi cùng khi lấy lời khai, soạn bản ý kiến đến phiên tòa. Ông tốt nghiệp Đại học Toronto (Khoa học Sự sống, High Distinction) và Trường Luật Đại học Sungkyunkwan.",
-        "career": ["Luật sư điều hành, Jisan Law", "Nguyên Luật sư điều hành, Công ty Luật Ongang", "Nguyên Công tố viên, Viện Kiểm sát Địa phương Incheon (tội phạm y tế)", "Nguyên Công tố viên, Viện Kiểm sát Địa phương Suwon, Chi nhánh Ansan", "Nguyên Công tố viên, Viện Kiểm sát Địa phương Daejeon, Chi nhánh Hongseong", "Đại học Toronto, Khoa học Sự sống (High Distinction)", "Trường Luật Đại học Sungkyunkwan"],
+        "career": ["Luật sư điều hành, Jisan & Partners", "Nguyên Luật sư điều hành, Công ty Luật Ongang", "Nguyên Công tố viên, Viện Kiểm sát Địa phương Incheon (tội phạm y tế)", "Nguyên Công tố viên, Viện Kiểm sát Địa phương Suwon, Chi nhánh Ansan", "Nguyên Công tố viên, Viện Kiểm sát Địa phương Daejeon, Chi nhánh Hongseong", "Đại học Toronto, Khoa học Sự sống (High Distinction)", "Trường Luật Đại học Sungkyunkwan"],
       },
       "kim-miso": {
         "name": "Miso Kim",
@@ -194,7 +194,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "field": "Gia đình",
         "line": "Nguyên luật sư nội bộ của Wemade; tốt nghiệp ngành Biên phiên dịch tiếng Anh",
         "bio": "Luật sư Miso Kim đã làm việc từ tư vấn cho các công ty đa quốc gia đến tranh tụng các vụ việc dân sự và hình sự. Bà từng là luật sư nội bộ tại Ban Pháp chế của Wemade Co., Ltd., và là luật sư tại Công ty Luật Daehwan và Công ty Luật Oracle. Bà học ngành Biên phiên dịch tiếng Anh tại Đại học Ngoại ngữ Hankuk trước khi tốt nghiệp Trường Luật Đại học Sungkyunkwan.",
-        "career": ["Luật sư thành viên, Jisan Law", "Nguyên Luật sư, Công ty Luật Daehwan", "Nguyên Luật sư nội bộ, Ban Pháp chế, Wemade Co., Ltd.", "Nguyên Luật sư, Công ty Luật Oracle", "Hội viên, Hiệp hội Nữ Luật sư Hàn Quốc", "Thành viên Ban Giám đốc, Hiệp hội Luật sư Y tế Hàn Quốc", "Thành viên, Ủy ban Tranh luận Truyền hình Bầu cử quận Gwangjin", "Trường Luật Đại học Sungkyunkwan", "Đại học Ngoại ngữ Hankuk, ngành Biên phiên dịch tiếng Anh"],
+        "career": ["Luật sư thành viên, Jisan & Partners", "Nguyên Luật sư, Công ty Luật Daehwan", "Nguyên Luật sư nội bộ, Ban Pháp chế, Wemade Co., Ltd.", "Nguyên Luật sư, Công ty Luật Oracle", "Hội viên, Hiệp hội Nữ Luật sư Hàn Quốc", "Thành viên Ban Giám đốc, Hiệp hội Luật sư Y tế Hàn Quốc", "Thành viên, Ủy ban Tranh luận Truyền hình Bầu cử quận Gwangjin", "Trường Luật Đại học Sungkyunkwan", "Đại học Ngoại ngữ Hankuk, ngành Biên phiên dịch tiếng Anh"],
       },
       "koo-bonwoo": {
         "name": "Bonwoo Koo",
@@ -240,8 +240,8 @@ export const extraContent: Record<ExtraLang, any> = {
   },
   ru: {
     "intlHome": {
-      "seoTitle": "Jisan Law | Адвокат в Корее для иностранцев: визы, уголовные, семейные и корпоративные дела",
-      "seoDesc": "Юридическая фирма Jisan Law в Корее ведёт уголовные, семейные, корпоративные, медицинские, земельные и гражданские дела. В Центре для иностранцев — юрист по визам в Корее, депортация, иммиграционные и другие вопросы. Телефон работает 24/7, в том числе ночью и в выходные.",
+      "seoTitle": "Jisan & Partners | Адвокат в Корее для иностранцев: визы, уголовные, семейные и корпоративные дела",
+      "seoDesc": "Юридическая фирма Jisan & Partners & Partners в Корее ведёт уголовные, семейные, корпоративные, медицинские, земельные и гражданские дела. В Центре для иностранцев — юрист по визам в Корее, депортация, иммиграционные и другие вопросы. Телефон работает 24/7, в том числе ночью и в выходные.",
       "nav": {
         "about": "О нас",
         "lawyers": "Адвокаты",
@@ -250,7 +250,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "offices": "Офисы",
         "contact": "Связаться",
       },
-      "firm": "JISAN LAW",
+      "firm": "JISAN & PARTNERS",
       "kicker": "Корейские адвокаты для иностранцев",
       "heroTitle": ["Юридическая проблема в Корее?", "Смотрим и на дело, и на ваше пребывание"],
       "heroSub": "Визы и иммиграция, полицейское расследование, невыплаченная зарплата, развод. Ничего не нужно решать сразу. Сначала мы объясним, в каком вы положении и что можно сделать. Телефон работает 24/7.",
@@ -334,7 +334,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "kicker": "О нас",
         "title": ["Для вас это дело, возможно,", "первое и последнее в жизни"],
         "letter": ["Для адвоката это может быть дело, какое он видит каждую неделю, но для большинства клиентов это происходит впервые и, скорее всего, в последний раз.", "Поэтому мы никогда не просим сразу решать, нанимать ли нас. Сначала мы говорим, что можно сделать и что будет трудно, а когда берём дело, ответственный адвокат напрямую поддерживает с вами связь."],
-        "sign": "Адвокаты Jisan Law",
+        "sign": "Адвокаты Jisan & Partners",
       },
       "steps": {
         "title": "Как проходит консультация",
@@ -417,7 +417,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "field": "Уголовные дела",
         "line": "Бывший прокурор (Инчхон, Ансан, Хонсон)",
         "bio": "Hansol Kim работал прокурором в Прокуратуре округа Инчхон, Ансанском отделении Прокуратуры округа Сувон и Хонсонском отделении Прокуратуры округа Тэджон. Сейчас он занимается уголовными делами: от подготовки к допросу в полиции и присутствия на допросах до письменных позиций и суда. Окончил Университет Торонто (науки о жизни, с отличием — High Distinction) и Школу права Университета Сонгюнгван.",
-        "career": ["Управляющий партнёр, Jisan Law", "Бывший управляющий партнёр, юридическая фирма Ongang", "Бывший прокурор, Прокуратура округа Инчхон (медицинские преступления)", "Бывший прокурор, Прокуратура округа Сувон, Ансанское отделение", "Бывший прокурор, Прокуратура округа Тэджон, Хонсонское отделение", "Университет Торонто, науки о жизни (High Distinction)", "Школа права Университета Сонгюнгван"],
+        "career": ["Управляющий партнёр, Jisan & Partners", "Бывший управляющий партнёр, юридическая фирма Ongang", "Бывший прокурор, Прокуратура округа Инчхон (медицинские преступления)", "Бывший прокурор, Прокуратура округа Сувон, Ансанское отделение", "Бывший прокурор, Прокуратура округа Тэджон, Хонсонское отделение", "Университет Торонто, науки о жизни (High Distinction)", "Школа права Университета Сонгюнгван"],
       },
       "kim-miso": {
         "name": "Miso Kim",
@@ -425,7 +425,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "field": "Семейные дела",
         "line": "Бывший штатный юрист Wemade; выпускница отделения английского устного и письменного перевода",
         "bio": "Miso Kim работала как с консультированием международных компаний, так и с гражданскими и уголовными процессами. Она была штатным юристом в юридическом отделе Wemade Co., Ltd., а также юристом в юридических фирмах Daehwan и Oracle. Изучала английский устный и письменный перевод в Университете иностранных языков Хангук, затем окончила Школу права Университета Сонгюнгван.",
-        "career": ["Партнёр, Jisan Law", "Бывший юрист, юридическая фирма Daehwan", "Бывший штатный юрист, юридический отдел Wemade Co., Ltd.", "Бывший юрист, юридическая фирма Oracle", "Член Корейской ассоциации женщин-юристов", "Директор Корейской ассоциации медицинских юристов", "Член комиссии по предвыборным дебатам района Кванджин-гу", "Школа права Университета Сонгюнгван", "Университет иностранных языков Хангук, английский устный и письменный перевод"],
+        "career": ["Партнёр, Jisan & Partners", "Бывший юрист, юридическая фирма Daehwan", "Бывший штатный юрист, юридический отдел Wemade Co., Ltd.", "Бывший юрист, юридическая фирма Oracle", "Член Корейской ассоциации женщин-юристов", "Директор Корейской ассоциации медицинских юристов", "Член комиссии по предвыборным дебатам района Кванджин-гу", "Школа права Университета Сонгюнгван", "Университет иностранных языков Хангук, английский устный и письменный перевод"],
       },
       "koo-bonwoo": {
         "name": "Bonwoo Koo",
@@ -471,8 +471,8 @@ export const extraContent: Record<ExtraLang, any> = {
   },
   mn: {
     "intlHome": {
-      "seoTitle": "Jisan Law | Солонгос дахь хуульч: гадаадын иргэд, эрүүгийн, гэр бүл, бизнесийн хэрэг",
-      "seoDesc": "Jisan Law нь эрүүгийн, гэр бүл, компани, эрүүл мэнд, үл хөдлөх хөрөнгө, иргэний хэргийг хариуцдаг Солонгосын хуулийн фирм бөгөөд виз, цагаачлал болон бусад асуудлаар Гадаадын иргэдийн төвтэй. Утас 24/7, шөнө болон амралтын өдрүүдэд ч ажиллана.",
+      "seoTitle": "Jisan & Partners | Солонгос дахь хуульч: гадаадын иргэд, эрүүгийн, гэр бүл, бизнесийн хэрэг",
+      "seoDesc": "Jisan & Partners нь эрүүгийн, гэр бүл, компани, эрүүл мэнд, үл хөдлөх хөрөнгө, иргэний хэргийг хариуцдаг Солонгосын хуулийн фирм бөгөөд виз, цагаачлал болон бусад асуудлаар Гадаадын иргэдийн төвтэй. Утас 24/7, шөнө болон амралтын өдрүүдэд ч ажиллана.",
       "nav": {
         "about": "Бидний тухай",
         "lawyers": "Өмгөөлөгчид",
@@ -481,7 +481,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "offices": "Оффисууд",
         "contact": "Холбоо барих",
       },
-      "firm": "JISAN LAW",
+      "firm": "JISAN & PARTNERS",
       "kicker": "Солонгос дахь гадаадын иргэдэд зориулсан өмгөөлөгчид",
       "heroTitle": ["Солонгост хуулийн асуудал тулгарсан уу?", "Таны хэрэг болон оршин суух эрхийг хамтад нь харна"],
       "heroSub": "Виз, цагаачлалын асуудал, цагдаагийн мөрдөн байцаалт, олгоогүй цалин, гэр бүл цуцлалт. Одоохондоо юу ч шийдэх шаардлагагүй. Эхлээд таны байдал ямар байгаа, юу хийж болохыг тайлбарлана. Утас 24/7 ажиллана.",
@@ -565,7 +565,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "kicker": "Бидний тухай",
         "title": ["Таны хувьд энэ нь", "амьдралдаа ганцхан удаа тулгарах хэрэг байж магадгүй"],
         "letter": ["Өмгөөлөгчийн хувьд долоо хоног бүр харддаг асуудал байж болох ч ихэнх үйлчлүүлэгчийн хувьд энэ нь анхны бөгөөд ганцхан удаагийн тохиолдол юм.", "Тиймээс бид таныг шууд гэрээ байгуулахыг хэзээ ч шаардахгүй. Эхлээд юу хийж болох, юу хэцүү болохыг хэлж өгөөд, хэргийг тань хүлээн авсны дараа хариуцсан өмгөөлөгч тантай шууд холбоотой байна."],
-        "sign": "Jisan Law хуулийн фирмийн өмгөөлөгчид",
+        "sign": "Jisan & Partners хуулийн фирмийн өмгөөлөгчид",
       },
       "steps": {
         "title": "Зөвлөгөө хэрхэн явагддаг вэ",
@@ -648,7 +648,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "field": "Эрүүгийн хэрэг",
         "line": "Прокурор асан (Инчон, Ансан, Хонсон)",
         "bio": "Hansol Kim нь Инчоны дүүргийн прокурорын газар, Сувоны дүүргийн прокурорын газрын Ансан салбар, Тэжоны дүүргийн прокурорын газрын Хонсон салбарт прокуророор ажиллаж байсан. Одоо эрүүгийн хэрэгт төвлөрч, цагдаагийн байцаалтын өмнөх бэлтгэлээс эхлээд байцаалтад хамт орох, бичгээр тайлбар гаргах, шүүх хурал хүртэл бүгдийг хариуцдаг. Торонтогийн их сургуулийг (амьдралын шинжлэх ухаан, High Distinction) болон Сонгюнгваны их сургуулийн Хуулийн сургуулийг төгссөн.",
-        "career": ["Jisan Law хуулийн фирмийн Удирдах түнш өмгөөлөгч", "Ongang Law Firm-ийн Удирдах түнш өмгөөлөгч асан", "Инчоны дүүргийн прокурорын газрын прокурор асан (эрүүл мэндийн гэмт хэрэг)", "Сувоны дүүргийн прокурорын газрын Ансан салбарын прокурор асан", "Тэжоны дүүргийн прокурорын газрын Хонсон салбарын прокурор асан", "Торонтогийн их сургууль, амьдралын шинжлэх ухаан (High Distinction)", "Сонгюнгваны их сургуулийн Хуулийн сургууль"],
+        "career": ["Jisan & Partners хуулийн фирмийн Удирдах түнш өмгөөлөгч", "Ongang Law Firm-ийн Удирдах түнш өмгөөлөгч асан", "Инчоны дүүргийн прокурорын газрын прокурор асан (эрүүл мэндийн гэмт хэрэг)", "Сувоны дүүргийн прокурорын газрын Ансан салбарын прокурор асан", "Тэжоны дүүргийн прокурорын газрын Хонсон салбарын прокурор асан", "Торонтогийн их сургууль, амьдралын шинжлэх ухаан (High Distinction)", "Сонгюнгваны их сургуулийн Хуулийн сургууль"],
       },
       "kim-miso": {
         "name": "Miso Kim",
@@ -656,7 +656,7 @@ export const extraContent: Record<ExtraLang, any> = {
         "field": "Гэр бүл",
         "line": "Wemade компанийн дотоод хуульч асан; англи хэлний орчуулга, хэлмэрчийн ангийг төгссөн",
         "bio": "Miso Kim нь үндэстэн дамнасан компаниудад зөвлөгөө өгөхөөс эхлээд иргэний болон эрүүгийн хэргийн шүүх ажиллагаа хүртэл ажилласан. Wemade Co., Ltd. компанийн хуулийн хэлтэст дотоод хуульчаар, Daehwan Law Firm болон Oracle Law Firm-д өмгөөлөгчөөр ажиллаж байсан. Ханкук гадаад судлалын их сургуульд англи хэлний орчуулга, хэлмэрчээр суралцаж, дараа нь Сонгюнгваны их сургуулийн Хуулийн сургуулийг төгссөн.",
-        "career": ["Jisan Law хуулийн фирмийн Түнш өмгөөлөгч", "Daehwan Law Firm-ийн өмгөөлөгч асан", "Wemade Co., Ltd. компанийн хуулийн хэлтсийн дотоод хуульч асан", "Oracle Law Firm-ийн өмгөөлөгч асан", "Солонгосын эмэгтэй өмгөөлөгчдийн холбооны гишүүн", "Солонгосын эрүүл мэндийн эрх зүйн өмгөөлөгчдийн холбооны захирал", "Гванжин дүүргийн сонгуулийн нэвтрүүлгийн мэтгэлцээний хорооны гишүүн", "Сонгюнгваны их сургуулийн Хуулийн сургууль", "Ханкук гадаад судлалын их сургууль, англи хэлний орчуулга, хэлмэрч"],
+        "career": ["Jisan & Partners хуулийн фирмийн Түнш өмгөөлөгч", "Daehwan Law Firm-ийн өмгөөлөгч асан", "Wemade Co., Ltd. компанийн хуулийн хэлтсийн дотоод хуульч асан", "Oracle Law Firm-ийн өмгөөлөгч асан", "Солонгосын эмэгтэй өмгөөлөгчдийн холбооны гишүүн", "Солонгосын эрүүл мэндийн эрх зүйн өмгөөлөгчдийн холбооны захирал", "Гванжин дүүргийн сонгуулийн нэвтрүүлгийн мэтгэлцээний хорооны гишүүн", "Сонгюнгваны их сургуулийн Хуулийн сургууль", "Ханкук гадаад судлалын их сургууль, англи хэлний орчуулга, хэлмэрч"],
       },
       "koo-bonwoo": {
         "name": "Bonwoo Koo",

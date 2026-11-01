@@ -20,8 +20,8 @@ export const crimeEn: Center = {
   "summary": "Police questioning, arrest and detention, fraud and embezzlement, DUI and assault, filing criminal complaints",
   "tone": "dark",
   "seo": {
-    "title": "Criminal Lawyer in Korea | Police Questioning, Detention, Criminal Trials | Jisan Law Criminal Law Center",
-    "description": "Called in by the Korean police, arrested or detained, facing a criminal trial, or filing a complaint? At Jisan Law's Criminal Law Center, the managing partner consults with you in person, and we handle mock questioning, sitting in on questioning and defense written opinions. Message us through the chat on this page.",
+    "title": "Criminal Lawyer in Korea | Police Questioning, Detention, Criminal Trials | Jisan & Partners Criminal Law Center",
+    "description": "Called in by the Korean police, arrested or detained, facing a criminal trial, or filing a complaint? At Jisan & Partners' Criminal Law Center, the managing partner consults with you in person, and we handle mock questioning, sitting in on questioning and defense written opinions. Message us through the chat on this page.",
     "keywords": [
       "criminal lawyer Korea",
       "police questioning lawyer Korea",
@@ -34,7 +34,7 @@ export const crimeEn: Center = {
     ]
   },
   "hero": {
-    "title": "Don't face police questioning alone\nJisan Law stays with you from the start of the investigation to trial",
+    "title": "Don't face police questioning alone\nJisan & Partners stays with you from the start of the investigation to trial",
     "sub": "We don't hand you off to office managers or associate lawyers. The managing partner consults with you in person and handles mock questioning, sitting in on questioning and the defense written opinion."
   },
   "stageTitle": "What is your situation right now?",
@@ -73,10 +73,10 @@ export const crimeEn: Center = {
     }
   ],
   "intro": {
-    "title": "A criminal case is hard to talk about. Jisan Law is on your side",
+    "title": "A criminal case is hard to talk about. Jisan & Partners is on your side",
     "body": [
-      "From the day the police call, your mind starts racing. The more you search online, the more anxious you get, and the questioning date draws closer while you still don't know where to start. Jisan Law's Criminal Law Center sorts out what needs to be done first. Together we go over what you are accused of, what records exist, and which parts to dispute and which to admit.",
-      "At Jisan Law, we don't hand you off to office managers or associate lawyers. The managing partner handles your first consultation in person. Once we take the case, we run mock questioning with likely questions, go into the interview room with you, and submit a defense written opinion after questioning. The lawyer in charge does all of this personally.",
+      "From the day the police call, your mind starts racing. The more you search online, the more anxious you get, and the questioning date draws closer while you still don't know where to start. Jisan & Partners' Criminal Law Center sorts out what needs to be done first. Together we go over what you are accused of, what records exist, and which parts to dispute and which to admit.",
+      "At Jisan & Partners, we don't hand you off to office managers or associate lawyers. The managing partner handles your first consultation in person. Once we take the case, we run mock questioning with likely questions, go into the interview room with you, and submit a defense written opinion after questioning. The lawyer in charge does all of this personally.",
       "We offer consultations at our main office in Seoul and our branch offices in Incheon, Hongseong and Songpa. You can send us a message through the chat on this page at any time, including weekends and public holidays. If time is short, as with an arrest, message us at any hour of the night."
     ]
   },
@@ -321,7 +321,7 @@ export const crimeEn: Center = {
     },
     {
       "q": "If I settle with the victim, will I avoid punishment?",
-      "a": "It depends on the offense. For crimes that cannot be punished if the victim does not want punishment (반의사불벌죄), such as assault, threats and defamation, a settlement can end the case. For crimes such as injury, fraud and embezzlement, you can be punished even after a settlement, but it counts in your favor when the decision and sentence are set. The timing and method of the settlement also affect the outcome. If it is hard to contact the victim yourself, Jisan Law handles settlement contact on your behalf."
+      "a": "It depends on the offense. For crimes that cannot be punished if the victim does not want punishment (반의사불벌죄), such as assault, threats and defamation, a settlement can end the case. For crimes such as injury, fraud and embezzlement, you can be punished even after a settlement, but it counts in your favor when the decision and sentence are set. The timing and method of the settlement also affect the outcome. If it is hard to contact the victim yourself, Jisan & Partners handles settlement contact on your behalf."
     },
     {
       "q": "I'm worried that what I say in a consultation will get out.",

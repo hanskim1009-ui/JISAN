@@ -8,7 +8,7 @@
  * "법무법인 지산앤파트너스"로 바뀌고, 메인 첫 화면에 출범 문구가 나옵니다.
  * (사업자등록번호·광고책임변호사도 함께 확인)
  */
-const INCORPORATED = false
+const INCORPORATED = true
 
 export type Office = { name: string; address: string; phone: string; mapUrl: string; open: boolean }
 
