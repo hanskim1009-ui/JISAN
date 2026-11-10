@@ -25,20 +25,15 @@ export function ProsecutorSection({ center, bg }: { center: Center; bg: string }
             <p className="mt-4 text-lg font-bold text-jisan-ink">
               {l.name} <span className="text-sm font-medium text-jisan-ink/60">{l.title}</span>
             </p>
-            <p className="mt-1 text-[0.875rem] leading-relaxed text-jisan-ink/70">
-              검사 재직 {prosecutor.period}
-              <br />
-              수원지검 안산지청 · 인천지검 · 대전지검 홍성지청
-            </p>
-            <Link href={`${base}/lawyers/${l.slug}`} className="mt-3 inline-block text-sm font-semibold text-jisan-blue">
-              프로필 보기&nbsp;→
+            <Link href={`${base}/lawyers/${l.slug}#prosecutor`} className="mt-2 inline-block text-sm font-semibold text-jisan-blue">
+              근무한 곳과 프로필 보기&nbsp;→
             </Link>
           </div>
 
           <div className="min-w-0">
-            <h2 className="text-2xl font-bold leading-tight tracking-tight text-jisan-ink md:text-[2rem]">검사로 {prosecutor.years}년 일했습니다</h2>
-            <div className="mt-5 max-w-2xl space-y-4 text-[1.0625rem] leading-[1.9] text-[#2D323A]">
-              {[...prosecutor.letter.open, ...(prosecutor.letter.byCenter[center.slug] ?? []), ...prosecutor.letter.close].map((para) => (
+            <h2 className="text-2xl font-bold leading-tight tracking-tight text-jisan-ink md:text-[2rem]">검사로 일했습니다</h2>
+            <div className="mt-5 max-w-2xl space-y-5 whitespace-pre-line text-[1.0625rem] leading-[1.9] text-[#2D323A]">
+              {prosecutor.letter.map((para) => (
                 <p key={para}>{para}</p>
               ))}
             </div>
@@ -46,33 +41,15 @@ export function ProsecutorSection({ center, bg }: { center: Center; bg: string }
               {l.name} <span className="text-sm font-medium text-jisan-ink/60">{l.title}</span>
             </p>
 
-            {/* 근무지와 맡은 일 */}
-            <h3 className="mt-10 text-[0.9375rem] font-bold text-jisan-ink">근무한 곳</h3>
+            {/* 재직 중 받은 평가 (근무한 곳 목록은 상세 프로필에 있음) */}
+            <h3 className="mt-10 text-[0.9375rem] font-bold text-jisan-ink">검사 재직 중 받은 평가</h3>
             <ul className="mt-3 max-w-2xl border-t border-jisan-ink text-[0.9375rem]">
-              {prosecutor.posts.map((p) => (
-                <li key={p.period} className="grid grid-cols-1 gap-x-4 border-b border-[#E4E6E9] py-2.5 sm:grid-cols-[9.5rem_1fr]">
-                  <span className="text-[0.875rem] tabular-nums text-[#8A9099]">{p.period}</span>
-                  <span className="text-jisan-ink">
-                    {p.office} {p.dept}
-                    {p.work && <span className="text-[#4A505A]"> · {p.work}</span>}
-                  </span>
+              {prosecutor.awards.map((a) => (
+                <li key={a.text} className="border-b border-[#E4E6E9] py-2.5 leading-relaxed text-jisan-ink">
+                  {a.text}
                 </li>
               ))}
             </ul>
-            <details className="group max-w-2xl border-b border-[#E4E6E9]">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-3 text-[0.9375rem] font-semibold text-jisan-ink [&::-webkit-details-marker]:hidden">
-                재직 중 받은 평가 {prosecutor.awards.length}건
-                <span aria-hidden className="text-jisan-ink/50 transition-transform group-open:rotate-45">＋</span>
-              </summary>
-              <ul className="pb-3 text-[0.9375rem]">
-                {prosecutor.awards.map((a) => (
-                  <li key={a.date} className="grid grid-cols-[5.5rem_1fr] gap-x-4 py-1.5">
-                    <span className="text-[0.875rem] tabular-nums text-[#8A9099]">{a.date}</span>
-                    <span className="leading-relaxed text-jisan-ink">{a.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </details>
 
             <div className="mt-8 flex flex-wrap gap-2.5">
               <a href="#consult" className="rounded-full bg-jisan-navy px-6 py-3 text-[0.9375rem] font-semibold text-white hover:bg-jisan-navy/90">
