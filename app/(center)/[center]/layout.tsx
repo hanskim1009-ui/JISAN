@@ -33,17 +33,36 @@ export default async function CenterLayout({
   const base = centerBase(center)
   const hasGuides = (getCenterPages(center.slug)?.guides.length ?? 0) > 0
   // 상세 페이지에서도 센터 메인의 각 구역으로 가도록 주소에 센터 경로를 붙입니다
-  const nav: CenterNavItem[] = [
-    { label: L.navAreas, href: `${base}#areas` },
-    ...(center.table ? [{ label: center.table.nav ?? center.table.title, href: `${base}#table` }] : []),
-    { label: L.navProcess, href: `${base}#process` },
-    ...(hasGuides ? [{ label: L.guides, href: `${base}#guides` }] : []),
-    ...((await getCases({ center: center.slug })).length > 0 ? [{ label: L.navCases, href: `${base}#cases` }] : []),
-    { label: L.navLawyers, href: `${base}#lawyers` },
-    ...(hasBlog ? [{ label: L.navBlog, href: `${base}#blog` }] : []),
-    ...((await getColumns({ center: center.slug })).length > 0 ? [{ label: L.navColumn, href: `${base}#column` }] : []),
-    { label: L.faq, href: `${base}#faq` },
-  ]
+  const hasCases = (await getCases({ center: center.slug })).length > 0
+  const hasColumns = (await getColumns({ center: center.slug })).length > 0
+  const item = (label: string, id: string) => ({ label, href: `${base}#${id}` })
+  /** 묶음에 항목이 하나뿐이면 펼치지 않고 그 항목만 */
+  const group = (label: string, children: { label: string; href: string }[]): CenterNavItem[] =>
+    children.length > 1 ? [{ label, href: children[0].href, children }] : children
+  // 한국어: 누가 맡는지·사례·분야를 앞에 두고, 정보성 항목은 '사건 안내'와 '칼럼·질문'으로 묶음 (모두 5개)
+  // 외국어: 번역된 메뉴 이름 그대로 한 줄 (묶음 이름 번역이 없음)
+  const nav: CenterNavItem[] = foreign
+    ? [
+        item(L.navAreas, "areas"),
+        ...(center.table ? [item(center.table.nav ?? center.table.title, "table")] : []),
+        item(L.navProcess, "process"),
+        ...(hasGuides ? [item(L.guides, "guides")] : []),
+        item(L.navLawyers, "lawyers"),
+        ...(hasBlog ? [item(L.navBlog, "blog")] : []),
+        ...(hasColumns ? [item(L.navColumn, "column")] : []),
+        item(L.faq, "faq"),
+      ]
+    : [
+        item(L.navLawyers, "lawyers"),
+        ...(hasCases ? [item(L.navCases, "cases")] : []),
+        item(L.navAreas, "areas"),
+        ...group("사건 안내", [
+          ...(center.table ? [item(center.table.nav ?? center.table.title, "table")] : []),
+          item(L.navProcess, "process"),
+          ...(hasGuides ? [item(L.guides, "guides")] : []),
+        ]),
+        ...group("칼럼·질문", [...(hasColumns ? [item(L.navColumn, "column")] : []), ...(hasBlog ? [item(L.navBlog, "blog")] : []), item(L.faq, "faq")]),
+      ]
 
   return (
     <div lang={L.htmlLang} className={center.lang && NEEDS_NOTO.includes(center.lang) ? notoSans.className : undefined}>
