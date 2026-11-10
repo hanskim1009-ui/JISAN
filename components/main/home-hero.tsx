@@ -10,6 +10,7 @@ import { SkyPicker } from "@/components/look/sky-picker"
 import type { Lang } from "@/lib/langs"
 import { L, T, type TFn } from "@/lib/i18n/t"
 import { LANG_NOTE } from "@/lib/i18n/lang-notes"
+import { HeroCareer } from "@/components/main/hero-career"
 
 /**
  * 첫 화면. 시안 두 가지(lib/look.ts):
@@ -57,6 +58,11 @@ function HeroCopy({ look, lang }: { look: Look; lang: Lang }) {
         {t("아직 아무것도 정해진 게 없어도 괜찮습니다.")}
         <br className="hidden md:block" /> {t("지산 변호사가 상황에 맞춰 전부 해드리겠습니다. 밤과 주말이어도 괜찮습니다.")}
       </p>
+      {ko && (
+        <div {...rise(0.58)} className={`${dark ? "anim-rise " : ""}mt-3`}>
+          <HeroCareer dark={dark} />
+        </div>
+      )}
       {LANG_NOTE[lang] && (
         <p {...rise(0.6)} className={`${dark ? "anim-rise text-white" : "text-jisan-ink"} mt-3 text-[0.9375rem] font-semibold`}>
           {LANG_NOTE[lang]}
@@ -80,6 +86,16 @@ function HeroCopy({ look, lang }: { look: Look; lang: Lang }) {
         >
           <Phone className="h-4 w-4" /> {siteConfig.phone}
         </a>}
+        {/* 상담 전화는 24시간 받으므로 늘 켜 둠. 전화를 받지 않는 시간이 생기면 이 표시는 빼야 함 */}
+        {ko && (
+          <span className={`inline-flex items-center gap-2 self-center pl-1 text-[0.8125rem] font-medium ${dark ? "text-white/75" : "text-jisan-ink/75"}`}>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#34D399] opacity-60 motion-reduce:hidden" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#34D399]" />
+            </span>
+            지금 전화 상담 가능
+          </span>
+        )}
       </div>
     </div>
   )
