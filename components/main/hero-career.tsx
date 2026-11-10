@@ -5,11 +5,18 @@ import { lawyers } from "@/lib/lawyers"
 
 /**
  * 첫 화면 문구 아래 경력 한 줄. 구성원들의 이전 경력을 몇 초마다 무작위로 바꿔 보여 줍니다.
- * 경력은 lib/lawyers.ts 에 적힌 사실만 씁니다 (광고 규정상 '전관'·'출신' 같은 말은 붙이지 않음).
+ * 경력은 lib/lawyers.ts 에 적힌 사실만 쓰고, 다른 법무법인 이름이 들어간 줄은 뺍니다 (광고 규정상 '전관'·'출신' 같은 말은 붙이지 않음).
  */
+/** 다른 법무법인·법률사무소 이름이 들어간 경력은 보여 주지 않음 (그쪽을 찾아가게 만들 수 있어서) */
+const OTHER_FIRM = /법무법인|법률사무소|로펌/
+
 const LINES = lawyers.flatMap((l) => {
-  const past = l.career?.filter((c) => c.startsWith("전)")).map((c) => c.replace(/^전\)\s*/, "전 ")) ?? l.structuredResume?.career.map((c) => `전 ${c}`) ?? []
-  return past.slice(0, 3).map((c) => ({ who: `${l.name} ${l.title.replace(/\s/g, "")}`, what: c }))
+  const career = l.career?.map((c) => c.replace(/^전\)\s*/, "전 ").replace(/^현\)\s*/, "")) ?? l.structuredResume?.career.map((c) => `전 ${c}`) ?? []
+  const extra = l.resumeSections?.flatMap((s) => s.items.slice(0, 1)) ?? []
+  return [...career, ...extra]
+    .filter((c) => !OTHER_FIRM.test(c))
+    .slice(0, 3)
+    .map((c) => ({ who: `${l.name} ${l.title.replace(/\s/g, "")}`, what: c }))
 })
 
 export function HeroCareer({ dark, className = "" }: { dark: boolean; className?: string }) {

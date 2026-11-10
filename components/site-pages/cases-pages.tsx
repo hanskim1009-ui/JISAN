@@ -241,7 +241,7 @@ export async function CasePage({ lang, id }: { lang: Lang; id: string }) {
 
         {/* 담당 변호사 */}
         {people.map((l) => {
-          const career = (l.career ?? l.structuredResume?.career ?? []).filter((x) => !x.startsWith("현)")).slice(0, 2)
+          const career = (l.career ?? l.structuredResume?.career ?? []).filter((x) => !x.startsWith("현)") && !/법무법인|법률사무소/.test(x)).slice(0, 2)
           return (
             <aside key={l.slug} className="mt-12 grid grid-cols-[5.5rem_1fr] gap-5 border-y border-[#E4E6E9] py-6 sm:grid-cols-[7rem_1fr]">
               <div className="relative aspect-[3/4] overflow-hidden rounded-xl bg-[#C9CCD1]">
