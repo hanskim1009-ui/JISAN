@@ -113,7 +113,6 @@ export const lawyerImages = {
   kimMiso: "/images/lawyers/kim-miso.jpg",
   kimChungHyeon: "/images/lawyers/kim-chunghyeon.jpg",
   parkHanmin: "/images/lawyers/park-hanmin.jpg",
-  leeSihyeong: "/images/lawyers/lee-sihyeong.jpg",
 } as const
 
 /** 사이트에 보이는 사무소 (주사무소가 맨 앞) */
