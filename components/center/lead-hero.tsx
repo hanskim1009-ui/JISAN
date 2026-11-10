@@ -9,7 +9,7 @@ import { HeroPick } from "@/components/center/hero-pick"
 
 /**
  * 형사 계열 센터 첫 화면: 누가 맡는지를 첫 화면에서 보여 줍니다.
- * 두 가지가 들어올 때마다 무작위로 번갈아 나옵니다 (html[data-hero-pick], globals.css .hero-pick-*).
+ * 지금은 단체 사진(b)만 씁니다. 대표변호사 안(a)은 단체 사진이 없을 때만 (html[data-hero-pick], globals.css .hero-pick-*).
  *  a 대표변호사 한 명(배경 지운 사진) + 왼쪽에 글
  *  b 구성원 단체 사진을 화면 가득, 글은 사진 아래쪽에 꼭 필요한 것만
  * 산 그림은 쓰지 않습니다.
@@ -84,7 +84,7 @@ export function LeadHero({ center }: { center: Center }) {
       {/* 첫 그림이 그려지기 전에 둘 중 하나를 고름 (깜빡임 방지). 페이지 안 이동 때는 HeroPick 이 정함 */}
       <script
         dangerouslySetInnerHTML={{
-          __html: `try{var d=document.documentElement;d.setAttribute('data-hero-pick',Math.random()<0.5?'a':'b');d.setAttribute('data-hero-line',Math.floor(Math.random()*${lines.length}))}catch(e){}`,
+          __html: `var HERO_PICK='${siteConfig.photos.team ? "b" : "a"}';try{var d=document.documentElement;d.setAttribute('data-hero-pick',HERO_PICK);d.setAttribute('data-hero-line',Math.floor(Math.random()*${lines.length}))}catch(e){}`,
         }}
       />
       <HeroPick lines={lines.length} />
