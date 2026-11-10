@@ -95,7 +95,7 @@ export async function HomePage({ lang }: { lang: Lang }) {
               </p>
             )}
             <CasesTable items={cases} lang={lang} dict={clientDict(lang, CASES_TABLE_KEYS)} />
-            <p className="mt-4 text-[0.8125rem] text-[#8A9099]">{t("※ 업무사례는 의뢰인이 누구인지 알 수 없게 고쳐 싣습니다. 같은 결과를 약속하지 않습니다.")}</p>
+            <p className="mt-4 text-[0.8125rem] text-[#8A9099]">{t("※ 업무사례는 의뢰인이 누구인지 알 수 없게 고쳐 싣습니다.")}</p>
           </div>
         </section>
       )}

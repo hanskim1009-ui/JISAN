@@ -42,7 +42,7 @@ export function ProsecutorSection({ center, bg }: { center: Center; bg: string }
           <div className="min-w-0">
             {/* 보이는 제목은 두지 않음 (화면 읽기 프로그램용 제목만) */}
             <h2 className="sr-only">{prosecutor.caption.name}</h2>
-            <div className={`${pen.className} max-w-2xl space-y-5 whitespace-pre-line border-l-2 border-jisan-ink/70 pl-5 text-[1.625rem] leading-[1.6] text-jisan-ink md:pl-6 md:text-[2rem] md:leading-[1.55]`}>
+            <div className={`${pen.className} max-w-2xl space-y-5 whitespace-pre-line text-[1.625rem] leading-[1.6] text-jisan-ink md:text-[2rem] md:leading-[1.55]`}>
               {prosecutor.letter.map((para) => (
                 <p key={para}>{para}</p>
               ))}
