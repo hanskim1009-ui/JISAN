@@ -36,8 +36,9 @@ export function ProsecutorSection({ center, bg }: { center: Center; bg: string }
           </div>
 
           <div className="min-w-0">
-            <h2 className="text-2xl font-bold leading-tight tracking-tight text-jisan-ink md:text-[2rem]">검사로 일했습니다</h2>
-            <div className="mt-5 max-w-2xl space-y-5 whitespace-pre-line text-[1.0625rem] leading-[1.9] text-[#2D323A]">
+            {/* 보이는 제목은 두지 않음 (화면 읽기 프로그램용 제목만) */}
+            <h2 className="sr-only">{prosecutor.caption.name}</h2>
+            <div className="max-w-2xl space-y-5 whitespace-pre-line text-[1.125rem] leading-[1.9] text-[#2D323A]">
               {prosecutor.letter.map((para) => (
                 <p key={para}>{para}</p>
               ))}
