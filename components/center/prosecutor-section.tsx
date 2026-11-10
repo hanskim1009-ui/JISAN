@@ -22,8 +22,13 @@ export function ProsecutorSection({ center, bg }: { center: Center; bg: string }
             <div className="relative aspect-[5/4] overflow-hidden rounded-2xl bg-[#C9CCD1] lg:aspect-[4/5]">
               <Image src="/images/lawyers/kim-hansol-desk.jpg" alt={`${l.name} ${l.title}`} fill sizes="(min-width: 1024px) 20rem, 100vw" className="object-cover object-top" />
             </div>
-            <p className="mt-4 text-lg font-bold text-jisan-ink">
-              {l.name} <span className="text-sm font-medium text-jisan-ink/60">{l.title}</span>
+            <p className="mt-4 text-lg font-bold text-jisan-ink">{prosecutor.caption.name}</p>
+            <p className="mt-1.5 text-[0.875rem] leading-relaxed text-jisan-ink/75">
+              {prosecutor.caption.lines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </p>
             <Link href={`${base}/lawyers/${l.slug}#prosecutor`} className="mt-2 inline-block text-sm font-semibold text-jisan-blue">
               근무한 곳과 프로필 보기&nbsp;→
@@ -37,9 +42,6 @@ export function ProsecutorSection({ center, bg }: { center: Center; bg: string }
                 <p key={para}>{para}</p>
               ))}
             </div>
-            <p className="mt-5 text-[1.0625rem] font-bold text-jisan-ink">
-              {l.name} <span className="text-sm font-medium text-jisan-ink/60">{l.title}</span>
-            </p>
 
             {/* 재직 중 받은 평가 (근무한 곳 목록은 상세 프로필에 있음) */}
             <h3 className="mt-10 text-[0.9375rem] font-bold text-jisan-ink">검사 재직 중 받은 평가</h3>
