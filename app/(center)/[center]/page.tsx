@@ -23,6 +23,12 @@ import { AreaBrowser } from "@/components/center/area-browser"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { ConsultForm } from "@/components/consult-form"
 import { CasesTable } from "@/components/cases-table"
+import { Fragment } from "react"
+import { LeadHero } from "@/components/center/lead-hero"
+import { ProsecutorSection, TeamFigure } from "@/components/center/prosecutor-section"
+import { Fold } from "@/components/center/fold"
+import { usesProsecutorLayout } from "@/lib/prosecutor"
+import { stageGuideHref } from "@/lib/center-pages"
 import { BlogList } from "@/components/blog-list"
 import { getCases, getColumns, pickVaried } from "@/lib/content"
 import { ColumnRow } from "@/components/column-parts"
@@ -79,6 +85,8 @@ export default async function CenterPage({ params }: Props) {
   const L = centerText(center.lang)
   const P = PROFILE_TEXT[center.lang ?? "ko"]
   const foreign = Boolean(center.lang && center.lang !== "ko")
+  /** 형사 계열 센터: 대표변호사 첫 화면 + 검사 경력 구역 + 짧아진 순서 */
+  const lead = usesProsecutorLayout(center.slug)
   /** 외국인센터: 체류자격별 안내로 연결 (그 언어 번역이 있을 때) */
   const centerLang = (center.lang ?? "ko") as Lang
   const visaUi = center.slug.startsWith("foreigner") && visaList(centerLang).length > 0 ? getVisaUi(centerLang) : undefined
@@ -104,7 +112,7 @@ export default async function CenterPage({ params }: Props) {
   // 업무사례·칼럼은 한국어만 있어 외국어판에서는 숨김
   const centerCases = foreign ? [] : await getCases({ center: center.slug })
   // 형사센터처럼 여러 갈래가 모이는 곳은 갈래를 섞어서, 한 갈래뿐인 센터는 앞에서부터 8건
-  const cases = pickVaried(centerCases, 8)
+  const cases = pickVaried(centerCases, lead ? 6 : 8)
   const caseGroups = [...new Set(centerCases.map((c) => c.group).filter(Boolean))]
   // 외국어판: 그 언어로 옮긴 칼럼 중 센터 분야 글 (외국인센터는 전부)
   const colOpts = foreign
@@ -135,22 +143,33 @@ export default async function CenterPage({ params }: Props) {
   const guideTotal = guideCards(center.slug, nameOf).length
   const faqCount = pages?.moreFaqs.length ?? 0
 
+  /**
+   * 구역 순서. 형사 계열(lib/prosecutor.ts)은 누가 맡는지와 사례를 앞에, 긴 목록은 뒤에 접어 둡니다.
+   * 그 밖의 센터는 원래 순서 그대로.
+   */
+  const order = lead
+    ? ["hero", "stages", "prosecutor", "cases", "points", "process", "quick", "areas", "table", "guides", "lawyers", "intro", "blog", "column", "faq", "offices", "consult"]
+    : ["hero", "intro", "situations", "areas", "table", "points", "process", "guides", "cases", "lawyers", "blog", "column", "faq", "offices", "consult"]
   /** 섹션 바탕: 보이는 섹션 순서대로 흰색/옅은 색을 번갈아 */
-  const shown = [
-    center.intro && "intro",
-    center.situations && "situations",
-    "areas",
-    center.table && "table",
-    center.points && "points",
-    "process",
-    guides.length > 0 && "guides",
-    cases.length > 0 && "cases",
-    "lawyers",
-    columns.length > 0 && "column",
-    "faq",
-    "offices",
-  ].filter(Boolean) as string[]
+  const exists: Record<string, boolean> = {
+    intro: Boolean(center.intro),
+    situations: Boolean(center.situations),
+    areas: true,
+    table: Boolean(center.table),
+    points: Boolean(center.points),
+    process: true,
+    guides: guides.length > 0,
+    cases: cases.length > 0,
+    lawyers: true,
+    column: columns.length > 0,
+    faq: true,
+    offices: true,
+  }
+  const shown = order.filter((k) => exists[k])
   const bg = (id: string) => (shown.indexOf(id) % 2 === 0 ? "bg-white" : t.alt)
+  /** 형사 계열은 구역마다 화면 한 장을 채우지 않고 내용만큼만 (페이지 길이 줄이기) */
+  const pad = lead ? "px-6 md:px-12 lg:px-20 py-14 md:py-20 scroll-mt-20" : sectionPad
+  const areaTotal = areaGroups.reduce((n, g) => n + g.items.length, 0)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -173,26 +192,65 @@ export default async function CenterPage({ params }: Props) {
     ],
   }
 
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
-      {/* 첫 화면: 센터 소개 + 사건 단계 선택 */}
-      <CenterHero center={center} />
-
-      {/* 센터 소개 */}
-      {center.intro && (
-        <section id="intro" className={`${sectionPad} ${bg("intro")}`}>
+  /** 구역 조각. 아래 order 순서대로 그립니다 */
+  const S: Record<string, React.ReactNode> = {
+    hero: lead ? <LeadHero center={center} /> : <CenterHero center={center} />,
+    stages: lead && (
+        <section id="stages" className="border-b border-[#E4E6E9] bg-white px-6 py-10 md:px-12 md:py-12 lg:px-20">
+          <div className="mx-auto max-w-7xl">
+            <h2 className="text-lg font-bold text-jisan-ink">{center.stageTitle}</h2>
+            <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+              {center.stages.map((st) => {
+                const guide = stageGuideHref(center.slug, st.label)
+                return (
+                  <li key={st.label}>
+                    <a
+                      href={guide ?? st.href}
+                      className={`group flex h-full items-center justify-between gap-3 rounded-xl border px-4 py-3.5 text-[0.9375rem] font-semibold transition-colors ${
+                        st.urgent ? "border-[#E2620F] text-[#B4490A] hover:bg-[#E2620F]/5" : "border-[#E2E6ED] text-jisan-ink hover:border-jisan-blue"
+                      }`}
+                    >
+                      {st.label}
+                      <span aria-hidden className="shrink-0 opacity-50 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100">
+                        →
+                      </span>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </section>
+      ),
+    prosecutor: lead && <ProsecutorSection center={center} bg={t.alt} />,
+    quick: lead && (
+        <section id="quick" className={`scroll-mt-20 px-6 py-14 md:px-12 md:py-16 lg:px-20 ${t.band}`}>
+          <div data-reveal className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[1fr_26rem] lg:gap-16">
+            <div className="lg:pt-3">
+              <h2 className="text-2xl font-bold leading-tight tracking-tight md:text-[2rem]">연락처만 남기셔도 됩니다</h2>
+              <p className="mt-4 max-w-lg text-[1.0625rem] leading-[1.8] opacity-80">
+                사건 내용을 글로 정리하기 어려우면 이름과 연락처, 지금 단계만 남겨 주세요. 담당 변호사 쪽에서 먼저 연락드려 이야기를 듣겠습니다.
+              </p>
+              <a href={siteConfig.phoneHref} className="mt-6 inline-block text-xl font-bold tabular-nums">
+                {siteConfig.phone} <span className="text-sm font-normal opacity-70">24시간, 주말·공휴일 포함</span>
+              </a>
+            </div>
+            <div className="rounded-2xl bg-white p-6 text-foreground md:p-7">
+              <ConsultForm compact idPrefix={`${center.slug}-quick`} fixedCaseType={center.form.caseType} stageOptions={center.form.stageOptions} source={`${center.name} · 중간 상담`} />
+            </div>
+          </div>
+        </section>
+      ),
+    intro: center.intro && (
+        <section id="intro" className={`${pad} ${bg("intro")}`}>
           <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.6fr]">
             <h2 className={`${h2} whitespace-pre-line`}>{center.intro.title}</h2>
             <IntroParas paras={center.intro.body} moreLabel={L.showAll} />
           </div>
         </section>
-      )}
-
-      {/* 이런 분께 필요합니다 */}
-      {center.situations && (
-        <section id="situations" className={`${sectionPad} ${bg("situations")}`}>
+      ),
+    situations: center.situations && (
+        <section id="situations" className={`${pad} ${bg("situations")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.situations.title}</h2>
             <ul className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-2">
@@ -208,29 +266,37 @@ export default async function CenterPage({ params }: Props) {
             </ul>
           </div>
         </section>
-      )}
-
-      {/* 업무분야 */}
-      <section id="areas" className={`${sectionPad} ${bg("areas")}`}>
+      ),
+    areas: (
+<section id="areas" className={`${pad} ${bg("areas")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>{center.areasTitle}</h2>
-          <AreaBrowser groups={areaGroups} accent={t.accent} lang={center.lang} />
+          {lead ? (
+            <Fold height="31rem" label={`업무분야 ${areaTotal}개 모두 보기`}>
+              <AreaBrowser groups={areaGroups} accent={t.accent} lang={center.lang} />
+            </Fold>
+          ) : (
+            <AreaBrowser groups={areaGroups} accent={t.accent} lang={center.lang} />
+          )}
         </div>
       </section>
-
-      {/* 기준표 (처벌 기준, 처분 종류, 요건 비교 등) */}
-      {center.table && (
-        <section id="table" className={`${sectionPad} ${bg("table")}`}>
+      ),
+    table: center.table && (
+        <section id="table" className={`${pad} ${bg("table")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.table.title}</h2>
-            <DataTable table={center.table} className="mt-8" lang={center.lang} />
+            {lead ? (
+              <Fold height="19rem" label={`${center.table.title} 전체 보기`}>
+                <DataTable table={center.table} className="mt-8" lang={center.lang} />
+              </Fold>
+            ) : (
+              <DataTable table={center.table} className="mt-8" lang={center.lang} />
+            )}
           </div>
         </section>
-      )}
-
-      {/* 대응 원칙 · 중요한 이유 */}
-      {center.points && (
-        <section id="points" className={`${sectionPad} ${bg("points")}`}>
+      ),
+    points: center.points && (
+        <section id="points" className={`${pad} ${bg("points")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{center.points.title}</h2>
             <ol className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -244,27 +310,31 @@ export default async function CenterPage({ params }: Props) {
             </ol>
           </div>
         </section>
-      )}
-
-      {/* 대응 절차 */}
-      <section id="process" className={`${sectionPad} ${bg("process")}`}>
+      ),
+    process: (
+<section id="process" className={`${pad} ${bg("process")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>{L.processTitle}</h2>
           <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">{L.processLead(center.form.caseType)}</p>
           <div className="mt-8">
-            <ProcessTabs processes={pages?.processes ?? center.processes} accent={t.accent} lang={center.lang} />
+            {lead ? (
+              <Fold height="26rem" label="절차 전체 보기">
+                <ProcessTabs processes={pages?.processes ?? center.processes} accent={t.accent} lang={center.lang} />
+              </Fold>
+            ) : (
+              <ProcessTabs processes={pages?.processes ?? center.processes} accent={t.accent} lang={center.lang} />
+            )}
           </div>
         </div>
       </section>
-
-      {/* 상황별 안내 글 */}
-      {guides.length > 0 && (
-        <section id="guides" className={`${sectionPad} ${bg("guides")}`}>
+      ),
+    guides: guides.length > 0 && (
+        <section id="guides" className={`${pad} ${bg("guides")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{L.guides}</h2>
             <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">{L.guidesLead}</p>
             <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-              {guides.slice(0, 6).map((g, i) => (
+              {guides.slice(0, lead ? 4 : 6).map((g, i) => (
                 <li key={g.slug} className={i >= 3 ? "hidden md:block" : undefined}>
                   <Link
                     href={g.href}
@@ -305,11 +375,9 @@ export default async function CenterPage({ params }: Props) {
             )}
           </div>
         </section>
-      )}
-
-      {/* 업무사례 (이 센터로 지정된 것만) */}
-      {cases.length > 0 && (
-        <section id="cases" className={`${sectionPad} ${bg("cases")}`}>
+      ),
+    cases: cases.length > 0 && (
+        <section id="cases" className={`${pad} ${bg("cases")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{L.casesOf(center.name)}</h2>
             <p className="mt-2 mb-6 text-[0.9375rem] text-jisan-ink/70">{L.casesLead}</p>
@@ -323,11 +391,11 @@ export default async function CenterPage({ params }: Props) {
             <p className="mt-4 text-[0.8125rem] text-jisan-ink/55">{L.casesNote}</p>
           </div>
         </section>
-      )}
-
-      {/* 담당 변호사 */}
-      <section id="lawyers" className={`${sectionPad} ${bg("lawyers")}`}>
+      ),
+    lawyers: (
+<section id="lawyers" className={`${pad} ${bg("lawyers")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
+          {lead && <TeamFigure />}
           <h2 className={h2}>{L.lawyersOf(center.name)}</h2>
           <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">
             {L.lawyersLead(foreign ? siteConfig.nameEn : siteConfig.shortName, allLawyers.length, center.name)}
@@ -384,10 +452,9 @@ export default async function CenterPage({ params }: Props) {
           )}
         </div>
       </section>
-
-      {/* 담당 변호사 블로그 */}
-      {posts.length > 0 && center.blog && (
-        <section id="blog" className={`${sectionPad} ${t.band}`}>
+      ),
+    blog: posts.length > 0 && center.blog && (
+        <section id="blog" className={`${pad} ${t.band}`}>
           <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-14">
             <div>
               <h2 className="text-2xl md:text-[2rem] font-bold tracking-tight leading-tight">{center.blog.title}</h2>
@@ -403,17 +470,15 @@ export default async function CenterPage({ params }: Props) {
             <BlogList posts={posts} dark={center.tone === "dark"} />
           </div>
         </section>
-      )}
-
-      {/* 이 센터 칼럼 (홈페이지 안 글) */}
-      {columns.length > 0 && (
-        <section id="column" className={`${sectionPad} ${bg("column")}`}>
+      ),
+    column: columns.length > 0 && (
+        <section id="column" className={`${pad} ${bg("column")}`}>
           <div data-reveal className="max-w-7xl mx-auto">
             <h2 className={h2}>{foreign ? tt("칼럼") : `${center.name} 칼럼`}</h2>
             <SampleNote show={columns.some((c) => c.sample)} className="mt-3" />
             <div className="mt-6 border-t border-jisan-ink">
               {columns.map((c, i) => (
-                <div key={c.id} className={i >= 3 ? "hidden md:block" : undefined}>
+                <div key={c.id} className={i >= 3 ? (lead ? "hidden" : "hidden md:block") : undefined}>
                   <ColumnRow c={c} lang={center.lang} dict={colDict} />
                 </div>
               ))}
@@ -431,10 +496,9 @@ export default async function CenterPage({ params }: Props) {
             )}
           </div>
         </section>
-      )}
-
-      {/* 자주 묻는 질문 */}
-      <section id="faq" className={`${sectionPad} ${bg("faq")}`}>
+      ),
+    faq: (
+<section id="faq" className={`${pad} ${bg("faq")}`}>
         <div data-reveal className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-8 lg:gap-14">
           <div>
             <h2 className={h2}>{L.faq}</h2>
@@ -453,10 +517,9 @@ export default async function CenterPage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      {/* 상담 */}
-      {/* 사무소 안내 (주사무소 + 분사무소) */}
-      <section id="offices" className={`${sectionPad} ${bg("offices")}`}>
+      ),
+    offices: (
+<section id="offices" className={`${pad} ${bg("offices")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
           <h2 className={h2}>{L.offices}</h2>
           <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">
@@ -484,8 +547,16 @@ export default async function CenterPage({ params }: Props) {
           <p className="mt-4 text-[0.8125rem] text-jisan-ink/55">{L.officesNote}</p>
         </div>
       </section>
+      ),
+    consult: <ConsultBand center={center} />,
+  }
 
-      <ConsultBand center={center} />
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {order.map((k) => (
+        <Fragment key={k}>{S[k]}</Fragment>
+      ))}
     </>
   )
 }

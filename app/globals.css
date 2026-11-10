@@ -186,6 +186,14 @@ html[data-look="photo"] .look-ridge {
 
 /* ── 첫 화면 하늘: 밤낮·사계절 (lib/sky.ts, html[data-sky][data-season]) ── 위쪽은 늘 헤더와 같은 남색 */
 .hero-sky { background: #0C1E36; transition: background 0.8s ease; }
+/* 센터 첫 화면: 대표변호사(a) / 단체 사진(b) 중 하나만 (components/center/lead-hero.tsx) */
+html[data-hero-pick="b"] .hero-pick-a { display: none !important; }
+html:not([data-hero-pick="b"]) .hero-pick-b { display: none !important; }
+/* 배경 지운 인물 사진: 아래쪽이 바탕색으로 스며들게 */
+.hero-person {
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 99%);
+  mask-image: linear-gradient(180deg, #000 70%, transparent 99%);
+}
 html[data-sky="night"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #0F2441 55%, #152C4C 100%); }
 html[data-sky="dawn"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #22355A 42%, #4A4B6F 72%, #8A6C78 100%); }
 html[data-sky="day"] .hero-sky { background: linear-gradient(180deg, #0C1E36 0%, #1B3960 38%, #2D5482 72%, #48719F 100%); }
