@@ -3,7 +3,7 @@ import { MessageCircle, Phone } from "lucide-react"
 import type { Center } from "@/lib/centers"
 import { siteConfig } from "@/lib/site-config"
 import { getLawyer } from "@/lib/lawyers"
-import { prosecutor } from "@/lib/prosecutor"
+import { heroLines, prosecutor } from "@/lib/prosecutor"
 import { centerText } from "@/lib/center-i18n"
 import { HeroPick } from "@/components/center/hero-pick"
 
@@ -37,6 +37,28 @@ function Buttons({ L }: { L: ReturnType<typeof centerText> }) {
   )
 }
 
+/**
+ * 제목: 여러 문구 가운데 하나만 보임 (html[data-hero-line], globals.css .hero-line).
+ * 기본 문구만 h1 이고 나머지는 같은 모양의 문단입니다.
+ */
+function Headline({ lines, className }: { lines: string[]; className: string }) {
+  return (
+    <>
+      {lines.map((text, i) =>
+        i === 0 ? (
+          <h1 key={i} data-i={i} className={`hero-line ${className}`}>
+            {text}
+          </h1>
+        ) : (
+          <p key={i} data-i={i} role="heading" aria-level={1} className={`hero-line ${className}`}>
+            {text}
+          </p>
+        ),
+      )}
+    </>
+  )
+}
+
 /** 상담 전화는 24시간 받으므로 늘 켜 둠 */
 function OpenNow({ short = false }: { short?: boolean }) {
   return (
@@ -55,13 +77,17 @@ export function LeadHero({ center }: { center: Center }) {
   const lead = getLawyer(prosecutor.slug)!
   const group = siteConfig.photos.team
   const who = `${lead.name} ${lead.title.replace(/\s/g, "")}`
-  // 단체 사진 화면에는 제목 첫 줄만
-  const shortTitle = center.hero.title.split("\n")[0]
+  // 제목 문구 후보 (없으면 센터 제목 한 가지)
+  const lines = (heroLines[center.slug] ?? [center.hero.title.replace(/\n/g, " ")]).slice(0, 8)
   return (
     <section className="relative overflow-hidden bg-jisan-navy text-white">
       {/* 첫 그림이 그려지기 전에 둘 중 하나를 고름 (깜빡임 방지). 페이지 안 이동 때는 HeroPick 이 정함 */}
-      <script dangerouslySetInnerHTML={{ __html: `try{document.documentElement.setAttribute('data-hero-pick',Math.random()<0.5?'a':'b')}catch(e){}` }} />
-      <HeroPick />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `try{var d=document.documentElement;d.setAttribute('data-hero-pick',Math.random()<0.5?'a':'b');d.setAttribute('data-hero-line',Math.floor(Math.random()*${lines.length}))}catch(e){}`,
+        }}
+      />
+      <HeroPick lines={lines.length} />
 
       {/* ── a: 대표변호사 한 명 ── */}
       <div className={group ? "hero-pick-a" : undefined}>
@@ -79,7 +105,7 @@ export function LeadHero({ center }: { center: Center }) {
               <br />
               {prosecutor.tag}
             </p>
-            <h1 className="mt-5 whitespace-pre-line text-balance text-[2rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.875rem] md:leading-[1.2]">{center.hero.title}</h1>
+            <Headline lines={lines} className="mt-5 text-balance text-[2rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.875rem] md:leading-[1.2]" />
             <p className="mt-5 text-base leading-relaxed text-white/75 md:text-[1.0625rem]">{center.hero.sub}</p>
             <div className="mt-8">
               <Buttons L={L} />
@@ -116,7 +142,7 @@ export function LeadHero({ center }: { center: Center }) {
                 <p className="text-[0.8125rem] font-semibold text-white/80 md:text-[0.875rem]">
                   {siteConfig.shortName} {center.name} <span aria-hidden className="mx-1.5 opacity-50">|</span> {who} {prosecutor.tag}
                 </p>
-                <h1 className="mt-2 text-balance text-[1.75rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.5rem]">{shortTitle}</h1>
+                <Headline lines={lines} className="mt-2 text-balance text-[1.75rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.5rem]" />
               </div>
               <div className="anim-rise flex shrink-0 flex-col gap-3 lg:items-end" style={{ animationDelay: "0.6s" }}>
                 <Buttons L={L} />

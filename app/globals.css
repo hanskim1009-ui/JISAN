@@ -186,6 +186,17 @@ html[data-look="photo"] .look-ridge {
 
 /* ── 첫 화면 하늘: 밤낮·사계절 (lib/sky.ts, html[data-sky][data-season]) ── 위쪽은 늘 헤더와 같은 남색 */
 .hero-sky { background: #0C1E36; transition: background 0.8s ease; }
+/* 센터 첫 화면 제목: 여러 문구 중 하나만 (html[data-hero-line]=번호, 없으면 0번) */
+.hero-line { display: none; }
+html:not([data-hero-line]) .hero-line[data-i="0"] { display: block; }
+html[data-hero-line="0"] .hero-line[data-i="0"] { display: block; }
+html[data-hero-line="1"] .hero-line[data-i="1"] { display: block; }
+html[data-hero-line="2"] .hero-line[data-i="2"] { display: block; }
+html[data-hero-line="3"] .hero-line[data-i="3"] { display: block; }
+html[data-hero-line="4"] .hero-line[data-i="4"] { display: block; }
+html[data-hero-line="5"] .hero-line[data-i="5"] { display: block; }
+html[data-hero-line="6"] .hero-line[data-i="6"] { display: block; }
+html[data-hero-line="7"] .hero-line[data-i="7"] { display: block; }
 /* 센터 첫 화면: 대표변호사(a) / 단체 사진(b) 중 하나만 (components/center/lead-hero.tsx) */
 html[data-hero-pick="b"] .hero-pick-a { display: none !important; }
 html:not([data-hero-pick="b"]) .hero-pick-b { display: none !important; }
