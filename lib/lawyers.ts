@@ -247,6 +247,17 @@ export const lawyers: Lawyer[] = [
     ],
     highlights: ["성균관대학교 법학전문대학원", "연세대학교 경제학과"],
   },
+  // TODO: 이시형 변호사 정보 수령 후 분야·직함·소개·이력·학력 입력
+  {
+    slug: "lee-sihyeong",
+    field: "",
+    name: "이시형",
+    title: "변호사",
+    image: lawyerImages.leeSihyeong,
+    summary: "프로필을 준비하고 있습니다.",
+    career: [],
+    highlights: [],
+  },
 ]
 
 export function getLawyer(slug: string) {

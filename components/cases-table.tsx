@@ -9,7 +9,10 @@ import { L, makeT, type Dict } from "@/lib/i18n/fmt"
 
 const TABS: ("전체" | CaseField)[] = ["전체", "형사", "가사", "기업", "의료", "부동산", "민사"]
 
-/** 업무사례 표 (분야 탭). 메인·업무사례 페이지·센터에서 함께 씁니다 */
+/**
+ * 업무사례 짧은 표. 메인·센터에서 몇 건만 보여 줄 때 씁니다 (전체 목록은 components/cases-browser.tsx).
+ * 분야 탭은 사례가 두 분야 이상 있을 때만 보입니다.
+ */
 export function CasesTable({ items, tabs = true, lang = "ko", dict }: { items: CaseItem[]; tabs?: boolean; lang?: Lang; dict?: Dict }) {
   const t = makeT(dict)
   const name = (slug: string) => {
@@ -18,12 +21,14 @@ export function CasesTable({ items, tabs = true, lang = "ko", dict }: { items: C
   }
   const [tab, setTab] = useState<(typeof TABS)[number]>("전체")
   const shown = tab === "전체" ? items : items.filter((c) => c.field === tab)
+  const fieldsHere = new Set(items.map((c) => c.field))
+  const showTabs = tabs && fieldsHere.size > 1
 
   return (
     <div className="min-w-0">
-      {tabs && (
+      {showTabs && (
         <div className="mb-1 flex gap-5 text-sm" role="tablist" aria-label={t("분야")}>
-          {TABS.map((tab0) => (
+          {TABS.filter((x) => x === "전체" || fieldsHere.has(x)).map((tab0) => (
             <button
               key={tab0}
               type="button"
@@ -37,41 +42,19 @@ export function CasesTable({ items, tabs = true, lang = "ko", dict }: { items: C
           ))}
         </div>
       )}
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[40rem] text-left text-[0.9375rem]">
-          <thead>
-            <tr className="border-b border-jisan-ink text-xs text-[#8A9099]">
-              <th className="py-2 pr-3 font-medium">{t("시기")}</th>
-              <th className="py-2 pr-3 font-medium">{t("분야")}</th>
-              <th className="py-2 pr-3 font-medium">{t("의뢰인의 상황")}</th>
-              <th className="py-2 pr-3 font-medium">{t("결과")}</th>
-              <th className="py-2 font-medium">{t("담당")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {shown.map((c) => (
-              <tr key={c.id} className="border-b border-[#E4E6E9] align-top">
-                <td className="py-3 pr-3 text-[#8A9099] tabular-nums whitespace-nowrap">{c.decidedOn}</td>
-                <td className="py-3 pr-3 whitespace-nowrap">{t(c.field)}</td>
-                <td className="py-3 pr-3">
-                  <Link href={`${L(lang, "/cases")}/${c.id}`} className="text-jisan-ink hover:underline underline-offset-4">
-                    {c.situation}
-                  </Link>
-                </td>
-                <td className="py-3 pr-3 font-bold text-brand-accent whitespace-nowrap">{c.result}</td>
-                <td className="py-3 whitespace-nowrap">{c.lawyers.map(name).join(", ")}</td>
-              </tr>
-            ))}
-            {shown.length === 0 && (
-              <tr>
-                <td colSpan={5} className="py-6 text-sm text-[#8A9099]">
-                  {t("이 분야의 업무사례는 아직 정리 중입니다.")}
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+      <ul className="border-t border-jisan-ink text-[0.9375rem]">
+        {shown.map((c) => (
+          <li key={c.id} className="border-b border-[#E4E6E9]">
+            <Link href={`${L(lang, "/cases")}/${c.id}`} className="group grid grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-0.5 py-3 md:grid-cols-[11rem_1fr_auto_4.5rem]">
+              <span className="col-span-2 text-[0.8125rem] text-[#4A505A] md:col-span-1 md:text-[0.9375rem]">{c.caseType}</span>
+              <span className="text-jisan-ink underline-offset-4 group-hover:underline">{c.situation}</span>
+              <span className="text-right font-bold text-brand-accent md:whitespace-nowrap">{c.result}</span>
+              <span className="hidden text-right text-[#8A9099] md:block">{c.lawyers.map(name).join(", ")}</span>
+            </Link>
+          </li>
+        ))}
+        {shown.length === 0 && <li className="py-6 text-sm text-[#8A9099]">{t("이 분야의 업무사례는 아직 정리 중입니다.")}</li>}
+      </ul>
     </div>
   )
 }

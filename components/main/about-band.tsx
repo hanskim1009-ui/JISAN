@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Nanum_Pen_Script } from "next/font/google"
 import { siteConfig } from "@/lib/site-config"
@@ -19,7 +20,7 @@ export function AboutBand({ lang = "ko" }: { lang?: Lang }) {
       {/* 수묵 겹산: 넓은 화면은 오른쪽 전체, 좁은 화면은 글 아래쪽에 */}
       <InkMountains idPrefix="ink-m" crop="560 250 880 650" moon={false} className="pointer-events-none absolute inset-x-0 bottom-0 h-64 w-full md:hidden" />
       <InkMountains idPrefix="ink-d" className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" />
-      <div data-reveal className="relative max-w-7xl mx-auto">
+      <div data-reveal className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-[minmax(0,40rem)_minmax(0,1fr)] lg:items-center lg:gap-14">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold text-white/60">{t("법인 소개")}</p>
           <h2 className="mt-3 text-[2rem] font-bold leading-[1.3] tracking-[-0.035em] md:text-[2.5rem]">
@@ -38,6 +39,12 @@ export function AboutBand({ lang = "ko" }: { lang?: Lang }) {
             {t("법인 소개 더보기")}&nbsp;→
           </Link>
         </div>
+        {/* 인사말 옆 단체 사진: 편지에 끼운 사진처럼. 좁은 화면에서는 글 아래 */}
+        {siteConfig.photos.team && (
+          <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl shadow-[0_24px_60px_-24px_rgb(0_0_0/0.7)] ring-1 ring-white/15 lg:mt-0">
+            <Image src={siteConfig.photos.team} alt={t(siteConfig.name)} fill sizes="(max-width: 1024px) 100vw, 36rem" className="object-cover" />
+          </div>
+        )}
       </div>
     </section>
   )

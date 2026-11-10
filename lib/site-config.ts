@@ -96,8 +96,8 @@ export const siteConfig = {
   },
   /** 촬영 사진 경로. 비어 있으면 사진 자리 없이 배치됩니다 */
   photos: {
-    /** 메인 첫 화면 구성원 단체 사진 (가로) */
-    team: "",
+    /** 구성원 단체 사진 (가로 16:9). 법인 소개 페이지와 메인 인사말 옆에 들어갑니다 */
+    team: "/images/team/group.jpg",
   },
   /** Formspree form ID - 상담 폼 제출 시 사용 (https://formspree.io 에서 생성) */
   formspreeFormId: "mdawozrb",
@@ -105,14 +105,15 @@ export const siteConfig = {
 
 /** 변호사 프로필 이미지 - /public/images/lawyers/ 에 파일 추가 시 해당 경로 사용 */
 export const lawyerImages = {
-  kim: "/images/lawyers/kim.jpg",
-  koo: "/images/lawyers/koo.png",
-  park: "/images/lawyers/park.jpg",
-  kang: "/images/lawyers/kang.jpg",
-  /** 사진 파일을 넣은 뒤 경로 입력 (예: "/images/lawyers/kim-miso.jpg"). 비어 있으면 이니셜로 표시 */
+  /** 2026년 11월 촬영 프로필 (같은 배경·같은 자세, 세로 3:4로 잘라 둠) */
+  kim: "/images/lawyers/kim-hansol.jpg",
+  koo: "/images/lawyers/koo-bonwoo.jpg",
+  park: "/images/lawyers/park-jongjin.jpg",
+  kang: "/images/lawyers/kang-hyunwoo.jpg",
   kimMiso: "/images/lawyers/kim-miso.jpg",
-  kimChungHyeon: "",
+  kimChungHyeon: "/images/lawyers/kim-chunghyeon.jpg",
   parkHanmin: "/images/lawyers/park-hanmin.jpg",
+  leeSihyeong: "/images/lawyers/lee-sihyeong.jpg",
 } as const
 
 /** 사이트에 보이는 사무소 (주사무소가 맨 앞) */

@@ -24,7 +24,7 @@ import { LawyerPhoto } from "@/components/lawyer-photo"
 import { ConsultForm } from "@/components/consult-form"
 import { CasesTable } from "@/components/cases-table"
 import { BlogList } from "@/components/blog-list"
-import { getCases, getColumns } from "@/lib/content"
+import { getCases, getColumns, pickVaried } from "@/lib/content"
 import { ColumnRow } from "@/components/column-parts"
 import { getNaverBlogPosts } from "@/lib/feeds"
 import { SampleNote } from "@/components/sample-note"
@@ -102,7 +102,10 @@ export default async function CenterPage({ params }: Props) {
       : null
   const base = centerBase(center)
   // 업무사례·칼럼은 한국어만 있어 외국어판에서는 숨김
-  const cases = foreign ? [] : await getCases({ center: center.slug })
+  const centerCases = foreign ? [] : await getCases({ center: center.slug })
+  // 형사센터처럼 여러 갈래가 모이는 곳은 갈래를 섞어서, 한 갈래뿐인 센터는 앞에서부터 8건
+  const cases = pickVaried(centerCases, 8)
+  const caseGroups = [...new Set(centerCases.map((c) => c.group).filter(Boolean))]
   // 외국어판: 그 언어로 옮긴 칼럼 중 센터 분야 글 (외국인센터는 전부)
   const colOpts = foreign
     ? { lang: center.lang, ...(INTL_FIELD[center.slug.replace(/-[a-z]{2}$/, "")] ? { field: INTL_FIELD[center.slug.replace(/-[a-z]{2}$/, "")] } : {}) }
@@ -312,6 +315,11 @@ export default async function CenterPage({ params }: Props) {
             <p className="mt-2 mb-6 text-[0.9375rem] text-jisan-ink/70">{L.casesLead}</p>
             <SampleNote show={cases.some((c) => c.sample)} className="mb-4" />
             <CasesTable items={cases} tabs={false} />
+            {centerCases.length > cases.length && (
+              <Link href={caseGroups.length === 1 ? `/cases?group=${encodeURIComponent(caseGroups[0]!)}` : "/cases"} className={`mt-5 inline-block text-sm font-semibold ${t.accent}`}>
+                업무사례 {centerCases.length}건 전체 보기&nbsp;→
+              </Link>
+            )}
             <p className="mt-4 text-[0.8125rem] text-jisan-ink/55">{L.casesNote}</p>
           </div>
         </section>

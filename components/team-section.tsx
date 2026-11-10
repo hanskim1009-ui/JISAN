@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef, useLayoutEffect, type ReactNode } from "react"
+import Link from "next/link"
 import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { SectionHead } from "@/components/main/section-head"
@@ -156,7 +157,7 @@ function MobileFold({ children, t }: { children: ReactNode; t: TFn }) {
   )
 }
 
-function LawyerRow({ lawyer, index, t }: { lawyer: Lawyer; index: number; t: TFn }) {
+function LawyerRow({ lawyer, index, t, caseCount = 0 }: { lawyer: Lawyer; index: number; t: TFn; caseCount?: number }) {
   const { ref, isVisible } = useScrollReveal(0.1)
   const isEven = index % 2 === 0
 
@@ -258,6 +259,11 @@ function LawyerRow({ lawyer, index, t }: { lawyer: Lawyer; index: number; t: TFn
             </>
           )}
           </MobileFold>
+          {caseCount > 0 && (
+            <Link href="/cases" className="mt-7 self-start border-b border-foreground/50 pb-0.5 text-sm font-semibold text-foreground hover:border-foreground">
+              {lawyer.name} 변호사가 맡았던 사건 {caseCount}건 보기&nbsp;→
+            </Link>
+          )}
         </div>
       </div>
     </article>
@@ -265,7 +271,7 @@ function LawyerRow({ lawyer, index, t }: { lawyer: Lawyer; index: number; t: TFn
 }
 
 /** people: 서버에서 그 언어로 옮긴 변호사 소개 (없으면 한국어) */
-export function TeamSection({ people, dict }: { people?: Lawyer[]; dict?: Dict } = {}) {
+export function TeamSection({ people, dict, caseCounts }: { people?: Lawyer[]; dict?: Dict; caseCounts?: Record<string, number> } = {}) {
   const { ref, isVisible } = useScrollReveal(0.05)
   const t = makeT(dict)
   const lawyers = people ?? koLawyers
@@ -302,7 +308,7 @@ export function TeamSection({ people, dict }: { people?: Lawyer[]; dict?: Dict }
       {/* 변호사 목록 */}
       <div className="max-w-7xl mx-auto">
         {lawyers.map((lawyer, index) => (
-          <LawyerRow key={lawyer.slug} lawyer={lawyer} index={index} t={t} />
+          <LawyerRow key={lawyer.slug} lawyer={lawyer} index={index} t={t} caseCount={caseCounts?.[lawyer.slug]} />
         ))}
       </div>
     </section>

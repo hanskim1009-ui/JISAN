@@ -12,7 +12,7 @@ import { HowWeWork } from "@/components/main/how-we-work"
 import { HomeFaq } from "@/components/main/home-faq"
 import { MapSection } from "@/components/map-section"
 import { homeFaqs } from "@/lib/home-faq"
-import { getCases, getColumns, getDiary } from "@/lib/content"
+import { getCases, getColumns, getDiary, pickVaried } from "@/lib/content"
 import { getYoutubeVideos } from "@/lib/feeds"
 import { siteConfig } from "@/lib/site-config"
 import { SHOW_SAMPLES } from "@/lib/preview"
@@ -46,7 +46,8 @@ export function homeMetadata(lang: Lang): Metadata {
 export async function HomePage({ lang }: { lang: Lang }) {
   const t = T(lang)
   const ko = lang === "ko"
-  const cases = await getCases({ limit: 6, lang })
+  const allCases = await getCases({ lang })
+  const cases = pickVaried(allCases, 6)
   const columns = await getColumns({ limit: 6, lang })
   const allColumns = await getColumns({ lang })
   const columnCenters = ko
@@ -75,10 +76,10 @@ export async function HomePage({ lang }: { lang: Lang }) {
       {cases.length > 0 && (
         <section className="screen px-5 md:px-12 lg:px-14 py-14 md:py-20">
           <div data-reveal className="max-w-7xl mx-auto">
-            <SectionHead title={t("업무사례")} desc={t("나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.")} href={L(lang, "/cases")} linkLabel={t("더보기")} />
+            <SectionHead title={t("업무사례")} desc={t("나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.")} href={L(lang, "/cases")} linkLabel={allCases.length > cases.length ? t("{n}건 전체 보기", { n: allCases.length }) : t("더보기")} />
             <SampleNote show={cases.some((c) => c.sample)} className="mb-4" lang={lang} />
             <CasesTable items={cases} lang={lang} dict={clientDict(lang, CASES_TABLE_KEYS)} />
-            <p className="mt-4 text-[0.8125rem] text-[#8A9099]">{t("※ 지산의 업무사례는 의뢰인의 동의를 얻은 사건만, 누구인지 알 수 없게 고쳐 공개합니다.")}</p>
+            <p className="mt-4 text-[0.8125rem] text-[#8A9099]">{t("※ 업무사례는 의뢰인이 누구인지 알 수 없게 고쳐 싣습니다. 같은 결과를 약속하지 않습니다.")}</p>
           </div>
         </section>
       )}
