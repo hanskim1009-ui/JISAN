@@ -6,6 +6,8 @@ import { CASE_GROUPS, RESULT_GROUPS, getCase, getCases, getColumns, pickVaried, 
 import { lawyers } from "@/lib/lawyers"
 import { siteConfig } from "@/lib/site-config"
 import { centers } from "@/lib/centers"
+import { getAreaPage } from "@/lib/center-pages"
+import { areasForCase } from "@/lib/case-areas"
 import { CasesTable } from "@/components/cases-table"
 import { CasesBrowser, type CaseRow } from "@/components/cases-browser"
 import { LawyerPhoto } from "@/components/lawyer-photo"
@@ -118,6 +120,14 @@ export async function CasePage({ lang, id }: { lang: Lang; id: string }) {
   const more = related(c, all)
   const columns = ko && center ? await getColumns({ center: center.slug, limit: 3, lang }) : []
   const consultHref = `${L(lang, "/consult")}?type=${encodeURIComponent(c.field)}`
+  // 이 사건과 관련된 센터 업무분야 안내 (처벌 기준·절차를 설명한 페이지)
+  const guides = ko
+    ? areasForCase(c).flatMap((a) => {
+        const page = getAreaPage(a.center, a.area)
+        const ctr = centers.find((x) => x.slug === a.center)
+        return page && ctr ? [{ href: `/${a.center}/${a.area}`, name: page.areaName, center: ctr.name }] : []
+      })
+    : []
   const rows = [
     ["사건", c.caseType],
     ["의뢰인", c.clientRole],
@@ -213,6 +223,20 @@ export async function CasePage({ lang, id }: { lang: Lang; id: string }) {
             <h2 className="mt-8 text-lg font-bold text-jisan-ink">{t("결과")}</h2>
             <p className={para}>{c.outcome}</p>
           </>
+        )}
+
+        {guides.length > 0 && (
+          <p className="mt-8 rounded-xl bg-[#F3F5F8] px-5 py-4 text-[0.9375rem] leading-relaxed text-[#2D323A]">
+            <span className="mr-2 text-[#8A9099]">처벌 기준과 절차 안내</span>
+            {guides.map((g, i) => (
+              <span key={g.href}>
+                {i > 0 && <span className="mx-2 text-[#C2C6CC]">|</span>}
+                <Link href={g.href} className="font-semibold text-jisan-ink underline underline-offset-4">
+                  {g.name}
+                </Link>
+              </span>
+            ))}
+          </p>
         )}
 
         {/* 담당 변호사 */}

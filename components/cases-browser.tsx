@@ -47,7 +47,7 @@ function Chips({ label, options, counts, value, onChange }: { label: string; opt
 /**
  * 업무사례 전체 목록: 갈래(성범죄·음주·마약…)와 결과(무혐의·집행유예…)로 거르고 낱말로 찾습니다.
  * 모든 사례가 처음부터 HTML 에 들어 있고(검색엔진이 전부 읽음), 화면에는 30건씩 보여 줍니다.
- * /cases?group=성범죄 처럼 주소로 갈래를 정해 들어올 수 있습니다 (센터 페이지의 '전체 보기').
+ * /cases?group=성범죄 처럼 주소로 갈래를 정해 들어올 수 있습니다 (센터 페이지의 '전체 보기'). ?q= 는 찾는 말.
  */
 export function CasesBrowser({ items, groups, results }: { items: CaseRow[]; groups: string[]; results: string[] }) {
   const [group, setGroup] = useState(ALL)
@@ -61,6 +61,8 @@ export function CasesBrowser({ items, groups, results }: { items: CaseRow[]; gro
     const r = p.get("result")
     if (g && groups.includes(g)) setGroup(g)
     if (r && results.includes(r)) setResult(r)
+    const word0 = p.get("q")
+    if (word0) setQ(word0)
   }, [groups, results])
 
   const pick = (g: string, r: string) => {
