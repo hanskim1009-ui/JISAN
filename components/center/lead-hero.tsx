@@ -137,7 +137,7 @@ export function LeadHero({ center, lead: leadLawyer }: { center: Center; lead: L
             <div className="team-edge-fade absolute inset-0 overflow-hidden lg:inset-x-auto lg:left-1/2 lg:aspect-[16/9] lg:h-full lg:-translate-x-1/2">
               {/* 사진이 아주 천천히 다가옴 ('동작 줄이기' 설정이면 멈춤) */}
               <div className="anim-team-zoom absolute inset-0">
-                <Image src={group} alt={`${siteConfig.name} 변호사들`} fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover object-top" />
+                <Image src={group} alt={`${siteConfig.name} 변호사들`} fill quality={85} sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover object-top" />
               </div>
             </div>
             <div aria-hidden className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[color:var(--hero-bg)]/60 to-transparent" />

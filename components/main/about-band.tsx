@@ -42,7 +42,7 @@ export function AboutBand({ lang = "ko" }: { lang?: Lang }) {
         {/* 인사말 옆 단체 사진: 편지에 끼운 사진처럼. 좁은 화면에서는 글 아래 */}
         {siteConfig.photos.team && (
           <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl shadow-[0_24px_60px_-24px_rgb(0_0_0/0.7)] ring-1 ring-white/15 lg:mt-0">
-            <Image src={siteConfig.photos.team} alt={t(siteConfig.name)} fill sizes="(max-width: 1024px) 100vw, 36rem" className="object-cover" />
+            <Image src={siteConfig.photos.team} alt={t(siteConfig.name)} fill quality={85} sizes="(max-width: 1024px) 100vw, 36rem" className="object-cover" />
           </div>
         )}
       </div>
