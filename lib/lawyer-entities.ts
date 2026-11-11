@@ -15,17 +15,20 @@ export type LawyerEntity = {
   sameAs?: string[]
   alumniOf?: string[]
   knowsAbout?: string[]
+  /** 직접 상담하는 언어 (BCP 47). AI 통역으로 하는 언어는 넣지 않고 소개 문단에만 적음 */
+  languages?: string[]
 }
 
 export const lawyerEntities: Record<string, LawyerEntity> = {
   "kim-hansol": {
     about: {
-      ko: "김한솔 변호사는 인천지방검찰청, 수원지방검찰청 안산지청, 대전지방검찰청 홍성지청에서 검사로 일했고 의료, 마약, 도박사이트, 성폭력, 강력, 반부패 사건을 전담했습니다. 지금은 법무법인 지산앤파트너스 대표변호사로 강간·강제추행 같은 성범죄, 마약, 음주운전, 사기·횡령, 도박사이트, 학교폭력 등 형사 사건을 경찰 조사 전 상담부터 조사 동행, 재판까지 직접 맡습니다. 서울 서초 주사무소와 인천 분사무소에서 상담하며, 한국에 사는 외국인의 형사 사건도 맡습니다.",
-      en: "Hansol Kim is a criminal defense lawyer in Korea and the managing partner of JISAN & PARTNERS. He served as a prosecutor at the Incheon District Prosecutors' Office, the Ansan Branch of the Suwon District Prosecutors' Office and the Hongseong Branch of the Daejeon District Prosecutors' Office, where he handled medical, drug, illegal gambling site, sexual violence, violent crime and anti-corruption cases. He now personally handles criminal cases, including sexual offences, drugs, drink-driving and fraud, from advice before police questioning through trial, and regularly represents foreign nationals living in Korea. Offices in Seocho, Seoul and Incheon.",
+      ko: "김한솔 변호사는 인천지방검찰청, 수원지방검찰청 안산지청, 대전지방검찰청 홍성지청에서 검사로 일했고 의료, 마약, 도박사이트, 성폭력, 강력, 반부패 사건을 전담했습니다. 지금은 법무법인 지산앤파트너스 대표변호사로 강간·강제추행 같은 성범죄, 마약, 음주운전, 사기·횡령, 도박사이트, 학교폭력 등 형사 사건을 경찰 조사 전 상담부터 조사 동행, 재판까지 직접 맡습니다. 서울 서초 주사무소와 인천 분사무소에서 상담합니다. 한국에 사는 외국인의 형사 사건도 맡으며, 영어로 직접 상담하고 그 밖의 언어는 AI 통역을 함께 써서 상담합니다.",
+      en: "Hansol Kim is a criminal defense lawyer in Korea and the managing partner of JISAN & PARTNERS. He served as a prosecutor at the Incheon District Prosecutors' Office, the Ansan Branch of the Suwon District Prosecutors' Office and the Hongseong Branch of the Daejeon District Prosecutors' Office, where he handled medical, drug, illegal gambling site, sexual violence, violent crime and anti-corruption cases. He now personally handles criminal cases, including sexual offences, drugs, drink-driving and fraud, from advice before police questioning through trial, and regularly represents foreign nationals living in Korea. He consults directly in English and, with AI interpretation, in other languages such as Chinese, Vietnamese, Russian and Mongolian. Offices in Seocho, Seoul and Incheon.",
     },
     sameAs: ["https://www.lawtalk.co.kr/directory/profile/5696-%EA%B9%80%ED%95%9C%EC%86%94", "https://blog.naver.com/lawyerpassingby"],
     alumniOf: ["성균관대학교 법학전문대학원", "University of Toronto"],
     knowsAbout: ["형사", "성범죄", "강간", "강제추행", "마약", "음주운전", "사기", "횡령", "배임", "도박사이트", "학교폭력", "외국인 형사사건", "경찰 조사", "형사재판"],
+    languages: ["ko", "en"],
   },
   "kim-miso": {
     about: {

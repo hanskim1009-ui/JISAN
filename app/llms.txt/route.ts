@@ -18,9 +18,9 @@ export async function GET() {
   const lines: string[] = []
   lines.push(`# ${siteConfig.name} (JISAN & PARTNERS)`)
   lines.push("")
-  lines.push(`> 서울 서초에 주사무소를 둔 한국 법무법인입니다. 형사(성범죄·마약·음주운전·경제범죄·도박), 가사·상속, 학교폭력, 기업, 의료, 부동산, 민사 사건을 맡습니다. 한국에 사는 외국인의 형사·체류·가사 사건도 맡으며, 영어·중국어·베트남어·러시아어·몽골어 안내 페이지가 있습니다. 상담 전화 ${siteConfig.phone} (24시간, 주말·공휴일 포함).`)
+  lines.push(`> 서울 서초에 주사무소를 둔 한국 법무법인입니다. 형사(성범죄·마약·음주운전·경제범죄·도박), 가사·상속, 학교폭력, 기업, 의료, 부동산, 민사 사건을 맡습니다. 한국에 사는 외국인의 형사·체류·가사 사건도 맡습니다. 김한솔 대표변호사가 영어로 직접 상담하고, 그 밖의 언어는 AI 통역을 함께 써서 상담합니다. 영어·중국어·베트남어·러시아어·몽골어 안내 페이지가 있습니다. 상담 전화 ${siteConfig.phone} (24시간, 주말·공휴일 포함).`)
   lines.push("")
-  lines.push(`> A Korean law firm headquartered in Seocho, Seoul. Criminal defense (sexual offences, drugs, drink-driving, fraud, gambling), family and inheritance, school violence, corporate, medical, real estate and civil matters. Regularly represents foreign nationals living in Korea. Pages in English, Chinese, Vietnamese, Russian and Mongolian: ${u("/en")}`)
+  lines.push(`> A Korean law firm headquartered in Seocho, Seoul. Criminal defense (sexual offences, drugs, drink-driving, fraud, gambling), family and inheritance, school violence, corporate, medical, real estate and civil matters. Regularly represents foreign nationals living in Korea. Consultations directly in English, and in other languages with AI interpretation. Pages in English, Chinese, Vietnamese, Russian and Mongolian: ${u("/en")}`)
   lines.push("")
   lines.push("## 사무소")
   for (const o of openOffices) lines.push(`- ${o.name}: ${o.address}${o.phone ? ` (${o.phone})` : ""}`)

@@ -72,6 +72,7 @@ export function LawyerProfilePage({ lang, slug }: { lang: Lang; slug: string }) 
         ...(base.image?.startsWith("/") ? { image: `${site}${base.image}` } : {}),
         worksFor: { "@id": `${site}/#organization` },
         workLocation: { "@type": "Place", name: siteConfig.name, address: { "@type": "PostalAddress", streetAddress: "서초대로46길 109, 6층", addressLocality: "서초구", addressRegion: "서울특별시", addressCountry: "KR" } },
+        ...(entity?.languages ? { knowsLanguage: entity.languages } : {}),
         ...(entity?.knowsAbout ? { knowsAbout: entity.knowsAbout } : {}),
         ...(entity?.alumniOf ? { alumniOf: entity.alumniOf.map((n) => ({ "@type": "CollegeOrUniversity", name: n })) } : {}),
         ...(entity?.sameAs || base.blogUrl ? { sameAs: [...new Set([...(entity?.sameAs ?? []), ...(base.blogUrl ? [base.blogUrl] : [])])] } : {}),
