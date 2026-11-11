@@ -28,6 +28,8 @@ import { LeadHero } from "@/components/center/lead-hero"
 import { LeadSection, TeamFigure } from "@/components/center/prosecutor-section"
 import { Fold } from "@/components/center/fold"
 import { leadFor } from "@/lib/lead-lawyers"
+import { searchHints } from "@/lib/prosecutor"
+import { HeroSearch } from "@/components/main/hero-search"
 import { stageGuideHref } from "@/lib/center-pages"
 import { BlogList } from "@/components/blog-list"
 import { getCases, getColumns, pickVaried } from "@/lib/content"
@@ -199,6 +201,11 @@ export default async function CenterPage({ params }: Props) {
     stages: lead && (
         <section id="stages" className="border-b border-[#E4E6E9] bg-white px-6 py-10 md:px-12 md:py-12 lg:px-20">
           <div className="mx-auto max-w-7xl">
+            {searchHints[center.slug] && (
+              <div className="mb-8">
+                <HeroSearch light scope={[base, ...(pages?.includeCenters ?? []).map((s) => `/${s}`)]} placeholder={searchHints[center.slug]} source="center_search" />
+              </div>
+            )}
             <h2 className="text-lg font-bold text-jisan-ink">{center.stageTitle}</h2>
             <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
               {center.stages.map((st) => {

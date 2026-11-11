@@ -12,8 +12,10 @@ import { trackEvent } from "@/components/analytics"
  * 메인 첫 화면 검색: 겪고 있는 일을 치면 맞는 센터의 업무분야 안내로 보냅니다.
  * 업무분야 목록(/area-index.json)은 검색창을 처음 누를 때 한 번 받아 옵니다.
  * 맞는 분야가 없으면 업무사례 찾기와 전화를 안내합니다.
+ * scope: 센터에서 쓸 때 그 센터(와 묶어 보여 주는 센터) 주소들. 그 안에서 먼저 찾고, 없으면 사이트 전체에서 찾습니다.
+ * light: 흰 바탕 위에 놓을 때 (테두리를 둠)
  */
-export function HeroSearch() {
+export function HeroSearch({ scope, placeholder = "무슨 일이 있으신가요? 예: 음주운전, 보증금, 이혼", light = false, source = "hero_search" }: { scope?: string[]; placeholder?: string; light?: boolean; source?: string } = {}) {
   const router = useRouter()
   const [q, setQ] = useState("")
   const [index, setIndex] = useState<AreaHit[] | null>(null)
@@ -41,11 +43,15 @@ export function HeroSearch() {
   }, [])
 
   const word = q.trim()
-  const hits = index && word.length >= 2 ? searchAreas(index, word) : []
+  const inScope = (h: AreaHit) => !scope || scope.some((s) => h.h === s || h.h.startsWith(`${s}/`))
+  const scoped = index && word.length >= 2 && scope ? searchAreas(index.filter(inScope), word) : []
+  // 센터 안에서 못 찾으면 사이트 전체에서
+  const hits = scoped.length > 0 ? scoped : index && word.length >= 2 ? searchAreas(index, word) : []
+  const outside = Boolean(scope) && scoped.length === 0 && hits.length > 0
   const show = open && word.length >= 2
 
   const go = (h: AreaHit) => {
-    trackEvent("hero_search", { q: word, to: h.h })
+    trackEvent(source, { q: word, to: h.h })
     router.push(h.h)
   }
 
@@ -88,10 +94,10 @@ export function HeroSearch() {
               setActive((a) => (a + hits.length - 1) % hits.length)
             } else if (e.key === "Escape") setOpen(false)
           }}
-          placeholder="무슨 일이 있으신가요? 예: 음주운전, 보증금, 이혼"
+          placeholder={placeholder}
           aria-expanded={show}
           aria-controls="hero-search-list"
-          className="h-[3.2rem] w-full rounded-full bg-white pl-12 pr-24 text-[1rem] text-jisan-ink shadow-[0_20px_50px_-20px_rgb(0_0_0/0.6)] outline-none placeholder:text-[#8A9099] focus:ring-2 focus:ring-white/60 md:h-[3.5rem] md:pl-14 md:pr-28 md:text-[1.0625rem] [&::-webkit-search-cancel-button]:hidden"
+          className={`h-[3.2rem] w-full rounded-full bg-white pl-12 pr-24 text-[1rem] text-jisan-ink outline-none placeholder:text-[#8A9099] ${light ? "border border-[#C9CED6] focus:border-jisan-ink" : "shadow-[0_20px_50px_-20px_rgb(0_0_0/0.6)] focus:ring-2 focus:ring-white/60"} md:h-[3.5rem] md:pl-14 md:pr-28 md:text-[1.0625rem] [&::-webkit-search-cancel-button]:hidden`}
         />
         <button type="submit" className="absolute right-1.5 top-1.5 h-[2.45rem] rounded-full bg-brand px-4 text-sm font-semibold text-white hover:bg-brand-tone md:right-2 md:top-2 md:h-[2.5rem] md:px-5">
           찾기
@@ -103,13 +109,15 @@ export function HeroSearch() {
           {!index ? (
             <p className="px-5 py-4 text-sm text-[#4A505A]">찾는 중입니다…</p>
           ) : hits.length > 0 ? (
+            <>
+            {outside && <p className="border-b border-[#EEF0F2] px-5 py-2.5 text-xs text-[#8A9099]">이 센터에서는 찾지 못해 다른 센터의 분야를 보여 드립니다.</p>}
             <ul role="listbox">
               {hits.map((h, i) => (
                 <li key={h.h} role="option" aria-selected={i === active}>
                   <Link
                     href={h.h}
                     onMouseEnter={() => setActive(i)}
-                    onClick={() => trackEvent("hero_search", { q: word, to: h.h })}
+                    onClick={() => trackEvent(source, { q: word, to: h.h })}
                     className={`grid grid-cols-[1fr_auto] items-baseline gap-x-4 border-b border-[#EEF0F2] px-5 py-3 last:border-b-0 ${i === active ? "bg-[#F3F5F8]" : ""}`}
                   >
                     <span className="font-semibold">{h.n}</span>
@@ -119,6 +127,7 @@ export function HeroSearch() {
                 </li>
               ))}
             </ul>
+            </>
           ) : (
             <div className="px-5 py-4 text-sm leading-relaxed text-[#4A505A]">
               <p>맞는 업무분야를 찾지 못했습니다. 다른 말로 찾아보시거나 전화로 물어보셔도 됩니다.</p>
