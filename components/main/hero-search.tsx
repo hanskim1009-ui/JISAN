@@ -98,7 +98,7 @@ export function HeroSearch({ scope, placeholder = "무슨 일이 있으신가요
           placeholder={placeholder}
           aria-expanded={show}
           aria-controls="hero-search-list"
-          className={`w-full bg-white text-jisan-ink outline-none placeholder:text-[#8A9099] [&::-webkit-search-cancel-button]:hidden ${field ? "h-[3.25rem] rounded-xl border border-[#E2E6ED] pl-11 pr-20 text-[0.9375rem] font-medium transition-colors hover:border-[#C9CED6] focus:border-jisan-ink" : `h-[3.2rem] rounded-full pl-12 pr-24 text-[1rem] md:h-[3.5rem] md:pl-14 md:pr-28 md:text-[1.0625rem] ${light ? "border border-[#C9CED6] focus:border-jisan-ink" : "shadow-[0_20px_50px_-20px_rgb(0_0_0/0.6)] focus:ring-2 focus:ring-white/60"}`}`}
+          className={`w-full bg-white text-jisan-ink outline-none placeholder:text-[#8A9099] [&::-webkit-search-cancel-button]:hidden ${field ? `h-[3.25rem] rounded-xl pl-11 pr-20 text-[0.9375rem] font-medium ${light ? "border border-[#E2E6ED] transition-colors hover:border-[#C9CED6] focus:border-jisan-ink" : "focus:ring-2 focus:ring-white/50"}` : `h-[3.2rem] rounded-full pl-12 pr-24 text-[1rem] md:h-[3.5rem] md:pl-14 md:pr-28 md:text-[1.0625rem] ${light ? "border border-[#C9CED6] focus:border-jisan-ink" : "shadow-[0_20px_50px_-20px_rgb(0_0_0/0.6)] focus:ring-2 focus:ring-white/60"}`}`}
         />
         <button
           type="submit"

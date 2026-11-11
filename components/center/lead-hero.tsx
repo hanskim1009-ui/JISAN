@@ -75,7 +75,7 @@ function OpenNow({ short = false }: { short?: boolean }) {
 }
 
 /** 센터 분위기별 첫 화면 바탕색 (사진 아래쪽이 이 색으로 스며듦) */
-const HERO_BG = { dark: "#141C33", warm: "#2F3A34" } as const
+export const HERO_BG = { dark: "#141C33", warm: "#2F3A34" } as const
 
 export function LeadHero({ center, lead: leadLawyer }: { center: Center; lead: LeadLawyer }) {
   const L = centerText(center.lang)

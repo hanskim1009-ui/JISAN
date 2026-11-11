@@ -24,7 +24,7 @@ import { LawyerPhoto } from "@/components/lawyer-photo"
 import { ConsultForm } from "@/components/consult-form"
 import { CasesTable } from "@/components/cases-table"
 import { Fragment } from "react"
-import { LeadHero } from "@/components/center/lead-hero"
+import { HERO_BG, LeadHero } from "@/components/center/lead-hero"
 import { LeadSection, TeamFigure } from "@/components/center/prosecutor-section"
 import { Fold } from "@/components/center/fold"
 import { leadFor } from "@/lib/lead-lawyers"
@@ -198,17 +198,18 @@ export default async function CenterPage({ params }: Props) {
   /** 구역 조각. 아래 order 순서대로 그립니다 */
   const S: Record<string, React.ReactNode> = {
     hero: leadLawyer ? <LeadHero center={center} lead={leadLawyer} /> : <CenterHero center={center} />,
+    // 첫 화면 사진 아래쪽 색을 그대로 이어 받음 (사진 → 찾기 → 상황 버튼이 한 화면처럼)
     stages: lead && (
-        <section id="stages" className="border-b border-[#E4E6E9] bg-white px-6 py-10 md:px-12 md:py-12 lg:px-20">
+        <section id="stages" className="px-6 pb-12 pt-4 text-white md:px-12 md:pb-14 md:pt-6 lg:px-20" style={{ backgroundColor: HERO_BG[center.tone] }}>
           <div className="mx-auto max-w-7xl">
-            <h2 className="text-lg font-bold text-jisan-ink">{center.stageTitle}</h2>
+            <h2 className="text-lg font-bold text-white">{center.stageTitle}</h2>
             {/* 찾기 상자는 아래 상황 버튼과 같은 모양·같은 폭으로 (lib/prosecutor.ts searchHints 가 있는 센터만) */}
             {searchHints[center.slug] && (
               <>
                 <div className="mt-4">
-                  <HeroSearch light field scope={[base, ...(pages?.includeCenters ?? []).map((s) => `/${s}`)]} placeholder={searchHints[center.slug]} source="center_search" />
+                  <HeroSearch field scope={[base, ...(pages?.includeCenters ?? []).map((s) => `/${s}`)]} placeholder={searchHints[center.slug]} source="center_search" />
                 </div>
-                <p className="mt-6 text-[0.8125rem] font-medium text-[#8A9099]">자주 찾는 상황</p>
+                <p className="mt-6 text-[0.8125rem] font-medium text-white/55">자주 찾는 상황</p>
               </>
             )}
             <ul className={`${searchHints[center.slug] ? "mt-2.5" : "mt-4"} grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3`}>
@@ -219,7 +220,7 @@ export default async function CenterPage({ params }: Props) {
                     <a
                       href={guide ?? st.href}
                       className={`group flex h-full items-center justify-between gap-3 rounded-xl border px-4 py-3.5 text-[0.9375rem] font-semibold transition-colors ${
-                        st.urgent ? "border-[#E2620F] text-[#B4490A] hover:bg-[#E2620F]/5" : "border-[#E2E6ED] text-jisan-ink hover:border-jisan-blue"
+                        st.urgent ? "border-[#F08A4B]/70 bg-[#F08A4B]/[0.08] text-[#FFB27D] hover:bg-[#F08A4B]/15" : "border-white/15 bg-white/[0.05] text-white hover:border-white/35 hover:bg-white/10"
                       }`}
                     >
                       {st.label}
