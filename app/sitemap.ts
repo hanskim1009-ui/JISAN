@@ -48,7 +48,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: url("/cases"), changeFrequency: "weekly", priority: 0.8 },
     ...(await getCases()).map((c) => ({ url: url(`/cases/${c.id}`), changeFrequency: "yearly" as const, priority: 0.6 })),
     { url: url("/column"), changeFrequency: "weekly", priority: 0.8 },
-    ...(await getColumns()).map((c) => ({ url: url(`/column/${c.id}`), lastModified: c.date, changeFrequency: "yearly" as const, priority: 0.7 })),
+    // 변호사가 검토한 칼럼만 (검토 전 글은 검색 노출 보류)
+    ...(await getColumns()).filter((c) => c.reviewed).map((c) => ({ url: url(`/column/${c.id}`), lastModified: c.reviewed?.at ?? c.date, changeFrequency: "yearly" as const, priority: 0.7 })),
     { url: url("/diary"), changeFrequency: "weekly", priority: 0.6 },
     { url: url("/tools"), changeFrequency: "monthly", priority: 0.7 },
     ...TOOLS.map((x) => ({ url: url(x.href), changeFrequency: "monthly" as const, priority: 0.7 })),

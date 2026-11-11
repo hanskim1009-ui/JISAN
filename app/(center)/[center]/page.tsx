@@ -28,6 +28,7 @@ import { HERO_BG, LeadHero } from "@/components/center/lead-hero"
 import { LeadSection, TeamFigure } from "@/components/center/prosecutor-section"
 import { Fold } from "@/components/center/fold"
 import { leadsFor } from "@/lib/lead-lawyers"
+import { serviceSchema } from "@/lib/service-schema"
 import { searchHints } from "@/lib/prosecutor"
 import { HeroSearch } from "@/components/main/hero-search"
 import { stageGuideHref } from "@/lib/center-pages"
@@ -185,6 +186,7 @@ export default async function CenterPage({ params }: Props) {
           { "@type": "ListItem", position: 2, name: center.name, item: `${siteConfig.siteUrl}${base}` },
         ],
       },
+      serviceSchema(center, { name: center.name, description: center.seo.description, path: base, keywords: center.seo.keywords }),
       {
         "@type": "FAQPage",
         mainEntity: center.faqs.map((f) => ({

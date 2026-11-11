@@ -21,6 +21,7 @@ import { SHOW_SAMPLES } from "@/lib/preview"
 import { getPublishedPosts, parseBody, type DbPost } from "@/lib/posts-db"
 import { sampleCases, sampleColumns, sampleDiary } from "@/lib/samples"
 import crimeColumns from "@/content/columns/crime.json"
+import columnReviews from "@/content/column-reviews.json"
 import sexCrimeColumns from "@/content/columns/sex-crime.json"
 import drugColumns from "@/content/columns/drug.json"
 import divorceColumns from "@/content/columns/divorce.json"
@@ -121,6 +122,11 @@ export type ColumnItem = {
   author: string
   /** 같은 글을 네이버 블로그에 요약해 올렸다면 그 주소 */
   blogPost?: string
+  /**
+   * 변호사가 직접 검토한 글 (content/column-reviews.json, 관리 화면에서 올린 글은 쓴 변호사가 검토한 것으로 봄).
+   * 검토 전 한국어 칼럼은 검색 노출을 보류합니다 (화면에서는 그대로 읽을 수 있음).
+   */
+  reviewed?: { by: string; at: string }
 }
 
 /** 외국어 사이트 칼럼: 한국어 칼럼 중 골라 옮긴 것 (content/columns-i18n/{언어}.json, 같은 id) */
@@ -202,7 +208,9 @@ function interleave<T>(lists: T[][]): T[] {
   return out
 }
 
-const columns: ColumnItem[] = interleave(columnFiles)
+/** 검토 기록: { "칼럼 id": { "by": "kim-hansol", "at": "2026-11-11" } } */
+const REVIEWS = columnReviews as Record<string, { by: string; at: string }>
+const columns: ColumnItem[] = interleave(columnFiles).map((c) => (REVIEWS[c.id] ? { ...c, reviewed: REVIEWS[c.id] } : c))
 
 const str = (v: unknown) => (typeof v === "string" ? v : "")
 const strs = (v: unknown) => (Array.isArray(v) ? v.filter((x): x is string => typeof x === "string") : [])
@@ -218,6 +226,8 @@ function toColumn(p: DbPost): ColumnItem {
     body: parseBody(str(p.data.body)),
     author: str(p.data.author),
     blogPost: str(p.data.blogPost) || undefined,
+    // 관리 화면에서 변호사가 직접 올린 글
+    reviewed: { by: str(p.data.author), at: p.date },
   }
 }
 

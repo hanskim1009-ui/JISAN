@@ -35,7 +35,7 @@ export const crimeEn: Center = {
   },
   "hero": {
     "title": "Don't face police questioning alone\nJisan & Partners stays with you from the start of the investigation to trial",
-    "sub": "We don't hand you off to office managers or associate lawyers. The managing partner consults with you in person and handles mock questioning, sitting in on questioning and the defense written opinion."
+    "sub": "We don't hand you off to office managers or associate lawyers. Managing partner Hansol Kim, a former Korean prosecutor, consults with you in person in English and handles mock questioning, sitting in on questioning and the defense written opinion."
   },
   "stageTitle": "What is your situation right now?",
   "stages": [

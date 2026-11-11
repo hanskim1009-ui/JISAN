@@ -5,6 +5,7 @@ import { centerBase, getCenter } from "@/lib/centers"
 import { centerText } from "@/lib/center-i18n"
 import { allCenterPages, getAreaPage, getCenterPages, subPageAlternates } from "@/lib/center-pages"
 import { siteConfig } from "@/lib/site-config"
+import { serviceSchema } from "@/lib/service-schema"
 import { AreaArticle, RelatedAreas, SideNav, SubHero } from "@/components/center/sub-page"
 import { ConsultBand } from "@/components/center/consult-band"
 import Link from "next/link"
@@ -70,6 +71,7 @@ export default async function AreaPage({ params }: Props) {
           { "@type": "ListItem", position: 2, name: page.title, item: `${siteConfig.siteUrl}${base}/${area}` },
         ],
       },
+      serviceSchema(center, { name: page.areaName, description: page.seo.description, path: `${base}/${area}`, keywords: page.seo.keywords }),
       ...(page.faqs && page.faqs.length > 0
         ? [
             {
