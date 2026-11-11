@@ -57,7 +57,7 @@ export const leadLawyers: LeadLawyer[] = [
     profileLabel: "프로필 보기",
     teamText:
       "이혼과 상속에 재산 문제, 회사 지분, 형사 고소가 함께 걸려 있으면 그 분야를 맡아 온 변호사가 같이 봅니다. 기업 자문, 부동산, 형사를 맡는 변호사가 한 사무실에서 일합니다.",
-    centers: ["divorce", "adultery", "inheritance"],
+    centers: ["family", "divorce", "adultery", "inheritance"],
   },
 ]
 

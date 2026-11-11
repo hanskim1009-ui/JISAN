@@ -44,7 +44,7 @@ export const fields: Field[] = [
     caseType: "가사",
     items: ["이혼, 재산분할", "상간 소송", "양육권·양육비", "상속, 유류분"],
     lawyers: ["kim-miso", "park-jongjin", "kim-hansol"],
-    centers: ["divorce", "adultery", "inheritance"],
+    centers: ["family", "divorce", "adultery", "inheritance"],
     situations: [
       { label: "이혼을 준비하고 있어요", center: "divorce" },
       { label: "상간 소장을 받았어요", center: "adultery" },

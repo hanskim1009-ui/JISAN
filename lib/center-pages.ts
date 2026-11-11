@@ -12,6 +12,7 @@ import economicCrimePages from "@/content/center-pages/economic-crime.json"
 import gamblingPages from "@/content/center-pages/gambling.json"
 import unfairCompetitionPages from "@/content/center-pages/unfair-competition.json"
 import divorce from "@/content/center-pages/divorce.json"
+import familyPages from "@/content/center-pages/family.json"
 import adultery from "@/content/center-pages/adultery.json"
 import corporate from "@/content/center-pages/corporate.json"
 import civil from "@/content/center-pages/civil.json"
@@ -85,7 +86,7 @@ export type CenterPages = {
   sources?: string[]
 }
 
-const all = [crime, sexCrime, drug, duiPages, economicCrimePages, gamblingPages, unfairCompetitionPages, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner, foreignerEn, foreignerZh, foreignerVi, foreignerRu, foreignerMn, ...intlCenterPages] as unknown as CenterPages[]
+const all = [crime, sexCrime, drug, duiPages, economicCrimePages, gamblingPages, unfairCompetitionPages, familyPages, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner, foreignerEn, foreignerZh, foreignerVi, foreignerRu, foreignerMn, ...intlCenterPages] as unknown as CenterPages[]
 
 /** 센터 주소 앞부분 (외국어판은 /en/foreigner 처럼) */
 const pathOf = (slug: string) => {
