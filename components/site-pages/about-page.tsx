@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { officeAddress, openOffices, siteConfig } from "@/lib/site-config"
 import { lawyers } from "@/lib/lawyers"
@@ -42,6 +43,11 @@ export function AboutPage({ lang }: { lang: Lang }) {
             <br />
             {t("{name}입니다.", { name })}
           </p>
+          {siteConfig.photos.team && (
+            <div className="relative mt-7 aspect-[16/9] max-w-2xl overflow-hidden rounded-2xl bg-[#E4E5E7]">
+              <Image src={siteConfig.photos.team} alt={name} fill priority sizes="(max-width: 768px) 100vw, 42rem" className="object-cover" />
+            </div>
+          )}
           <div className="mt-6 max-w-2xl space-y-5 text-[1.0625rem] leading-[1.85] text-[#2D323A]">
             <p>{t("{topic} 변호사 {n}명이 형사, 가사, 기업, 의료, 부동산, 민사 사건을 맡고 있는 사무소입니다.", { topic: ko ? siteConfig.nameTopic : name, n: lawyers.length })}</p>
             <p>

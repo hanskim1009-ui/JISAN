@@ -27,7 +27,8 @@ export function FloatingCTA({ consultHref = "/#contact", lang = "ko", chatLabel 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  if (!visible) return null
+  // 모바일 하단 바는 첫 화면부터 보이고, PC 오른쪽 아래 버튼만 조금 내려간 뒤에 나타남
+  const pc = visible ? "md:flex" : ""
 
   // 외국어 센터: 전화 없이 메신저 문의 버튼 하나 (누르면 페이지 아래 메신저 목록으로)
   if (chatLabel)
@@ -41,7 +42,7 @@ export function FloatingCTA({ consultHref = "/#contact", lang = "ko", chatLabel 
             </a>
           </div>
         </div>
-        <div className="hidden md:flex fixed bottom-8 right-8 z-40">
+        <div className={`hidden ${pc} fixed bottom-8 right-8 z-40`}>
           <a
             href={consultHref}
             className="flex h-14 w-14 items-center justify-center rounded-full bg-jisan-blue text-white shadow-lg hover:bg-jisan-blue/90 transition-colors"
@@ -85,7 +86,7 @@ export function FloatingCTA({ consultHref = "/#contact", lang = "ko", chatLabel 
       </div>
 
       {/* PC: 우측 하단 세로 버튼 */}
-      <div className="hidden md:flex fixed bottom-8 right-8 z-40 flex-col gap-3">
+      <div className={`hidden ${pc} fixed bottom-8 right-8 z-40 flex-col gap-3`}>
         <a
           href={siteConfig.phoneHref}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-jisan-blue text-white shadow-lg hover:bg-jisan-blue/90 transition-colors"

@@ -9,6 +9,7 @@ import { T } from "@/lib/i18n/t"
 import { translateLawyer } from "@/lib/i18n/translate-lawyer"
 import { PROFILE_TEXT } from "@/lib/center-profile-text"
 import { siteConfig } from "@/lib/site-config"
+import { prosecutor } from "@/lib/prosecutor"
 import { centerText } from "@/lib/center-i18n"
 import { centerTones } from "@/components/center/tone"
 import { SubHero } from "@/components/center/sub-page"
@@ -189,6 +190,30 @@ export default async function CenterLawyerPage({ params }: Props) {
             <div className="mt-10">
               <Resume lawyer={lawyer} lang={lang} />
             </div>
+            {/* 검사로 근무한 곳과 맡은 일 (센터 첫 페이지의 검사 경력 구역에서 이어짐) */}
+            {lang === "ko" && lawyer.slug === prosecutor.slug && (
+              <div id="prosecutor" className="mt-10 scroll-mt-24 border-t border-border pt-6">
+                <p className="mb-2 text-xs font-semibold text-foreground/90">검사로 근무한 곳</p>
+                <ul className="text-sm leading-relaxed">
+                  {prosecutor.posts.map((po, i) => (
+                    <li key={i} className="grid grid-cols-1 gap-x-4 border-b border-[#E4E6E9] py-2.5 sm:grid-cols-[15rem_1fr]">
+                      <span className="text-foreground/85">
+                        {po.office} {po.dept}
+                      </span>
+                      <span className="text-foreground/65">{po.work}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mb-2 mt-8 text-xs font-semibold text-foreground/90">검사 재직 중 받은 평가</p>
+                <ul className="text-sm leading-relaxed text-foreground/75">
+                  {prosecutor.awards.map((aw) => (
+                    <li key={aw.text} className="border-b border-[#E4E6E9] py-2.5">
+                      {aw.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <Link href={base} className={`mt-12 inline-flex items-center gap-1.5 text-sm font-semibold ${tone.accent}`}>
               <ArrowLeft className="h-4 w-4" aria-hidden /> {P.back(center.name)}
             </Link>

@@ -60,7 +60,7 @@ const ko = {
   allGuidesN: (n: number) => `안내 글 ${n}편 모두 보기`,
   casesOf: (name: string) => `${name} 업무사례`,
   casesLead: "나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.",
-  casesNote: "※ 의뢰인의 동의를 얻은 사건만, 누구인지 알 수 없게 고쳐 공개합니다.",
+  casesNote: "※ 의뢰인이 누구인지 알 수 없게 고쳐 싣습니다.",
   lawyersOf: (name: string) => `${name} 변호사`,
   lawyersLead: (short: string, n: number, name: string) =>
     `${short} 변호사는 ${n}명입니다. ${name} 사건은 주력 변호사가 맡고, 민사·가사 문제가 겹치면 해당 분야 변호사가 같이 봅니다.`,

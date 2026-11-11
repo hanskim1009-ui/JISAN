@@ -6,7 +6,7 @@
  * 목록이 비어 있으면 메인의 해당 섹션과 메뉴가 숨겨집니다.
  * 단, 개발 미리보기에서는 예시 글(lib/samples.ts)로 채워 보여 줍니다 (lib/preview.ts).
  *
- * 광고 규정: 의뢰인 동의를 받은 것만, 누구인지 알 수 없게 고쳐서 싣습니다.
+ * 광고 규정: 의뢰인이 누구인지 알 수 없게 고쳐서 싣습니다 (관리 화면 글은 의뢰인 동의를 받은 것만).
  * 결과는 처분·판결명만 적고 비율·누적 건수·결과 보장 표현은 쓰지 않습니다.
  */
 
@@ -32,6 +32,7 @@ import civilColumns from "@/content/columns/civil.json"
 import constructionColumns from "@/content/columns/construction.json"
 import insolvencyColumns from "@/content/columns/insolvency.json"
 import schoolViolenceColumns from "@/content/columns/school-violence.json"
+import kimHansolCases from "@/content/cases/kim-hansol.json"
 
 export type CaseField = "형사" | "가사" | "기업" | "의료" | "부동산" | "민사"
 
@@ -43,7 +44,7 @@ export type CaseItem = {
   field: CaseField
   /** 센터 사이트에도 보이게 할 센터 slug (예: "crime", "sex-crime") */
   centers?: string[]
-  /** 처분·판결 시기 "2025.12" */
+  /** 처분·판결 시기 "2025.12". 모르면 빈 문자열 (화면에서 시기 칸을 숨김) */
   decidedOn: string
   /** 의뢰인의 상황 한 줄 — 목록 제목 */
   situation: string
@@ -61,7 +62,27 @@ export type CaseItem = {
   work: string
   /** lib/lawyers.ts slug */
   lawyers: string[]
+  /** 형사 사건 갈래 (CASE_GROUPS). 업무사례 목록의 분류 */
+  group?: string
+  /** 결과 갈래 (RESULT_GROUPS). 업무사례 목록의 분류 */
+  resultGroup?: string
+  /** 결과를 낸 기관 (예: "서울남부지방법원"). 모르면 없음 */
+  agency?: string
+  /** 두 문장 요약: 목록과 검색 결과 설명에 쓰임 */
+  summary?: string
+  /** 상세: 사건 경위 */
+  facts?: string
+  /** 상세: 변호인이 한 일 (항목별). 있으면 work 대신 목록으로 보여 줌 */
+  workItems?: string[]
+  /** 상세: 결과 한두 문장 */
+  outcome?: string
+  /** 이 사이트에 실은 날 "2026-11-10" */
+  publishedOn?: string
 }
+
+/** 형사 업무사례 갈래. 로톡 태그가 아니라 사건 내용으로 나눈 것 */
+export const CASE_GROUPS = ["성범죄", "음주·교통", "마약", "사기·재산범죄", "폭행·협박", "소년·아동", "기타"] as const
+export const RESULT_GROUPS = ["무죄·무혐의", "기소유예·선고유예", "집행유예", "벌금", "구속 면함", "보호처분", "피해자 대리", "기타"] as const
 
 export type DiaryEntry = {
   sample?: boolean
@@ -105,7 +126,63 @@ export type ColumnItem = {
 /** 외국어 사이트 칼럼: 한국어 칼럼 중 골라 옮긴 것 (content/columns-i18n/{언어}.json, 같은 id) */
 const COLUMNS_I18N = { en: colEn, zh: colZh, vi: colVi, ru: colRu, mn: colMn } as unknown as Record<ForeignLang, ColumnItem[]>
 
-const cases: CaseItem[] = []
+/**
+ * 파일로 싣는 업무사례: content/cases/{변호사}.json
+ * 담당 변호사가 직접 맡았던 사건을 다시 정리한 것 (이전 소속 사무소에서 맡은 사건 포함).
+ * 주소는 /cases/{갈래}-{번호}. 번호는 원래 글 번호라 바뀌지 않습니다.
+ */
+type FileCase = {
+  n: number
+  group: string
+  caseType: string
+  clientRole: string
+  stage: string
+  agency: string
+  result: string
+  resultGroup: string
+  title: string
+  summary: string
+  facts: string
+  issue: string
+  work: string[]
+  outcome: string
+}
+
+const GROUP_SLUG: Record<string, string> = {
+  성범죄: "sex-crime", "음주·교통": "traffic", 마약: "drug", "사기·재산범죄": "property", "폭행·협박": "violence", "소년·아동": "juvenile", 기타: "etc",
+}
+/** 갈래별로 함께 보여 줄 센터 */
+const GROUP_CENTER: Record<string, string> = { 성범죄: "sex-crime", 마약: "drug", "음주·교통": "dui", "사기·재산범죄": "economic-crime" }
+
+/** 파일 업무사례를 이 사이트에 실은 날 */
+const FILE_CASES_PUBLISHED = "2026-11-10"
+
+function fromFile(c: FileCase, lawyer: string): CaseItem {
+  return {
+    id: `${GROUP_SLUG[c.group] ?? "etc"}-${c.n}`,
+    field: "형사",
+    centers: GROUP_CENTER[c.group] ? [GROUP_CENTER[c.group], "crime"] : ["crime"],
+    decidedOn: "",
+    situation: c.title,
+    caseType: c.caseType,
+    clientRole: c.clientRole,
+    stage: c.stage,
+    result: c.result,
+    issue: c.issue,
+    work: c.work.join(" "),
+    lawyers: [lawyer],
+    group: c.group,
+    resultGroup: c.resultGroup,
+    agency: c.agency || undefined,
+    summary: c.summary,
+    facts: c.facts,
+    workItems: c.work,
+    outcome: c.outcome,
+    publishedOn: FILE_CASES_PUBLISHED,
+  }
+}
+
+const cases: CaseItem[] = (kimHansolCases as FileCase[]).map((c) => fromFile(c, "kim-hansol"))
 
 const diary: DiaryEntry[] = []
 
@@ -196,6 +273,20 @@ export async function getCases(opts: { field?: CaseField; center?: string; limit
   if (opts.field) list = list.filter((c) => c.field === opts.field)
   if (opts.center) list = list.filter((c) => c.centers?.includes(opts.center!))
   return opts.limit ? list.slice(0, opts.limit) : list
+}
+
+/** 갈래가 한쪽으로 몰리지 않게 n건 고르기 (메인·센터의 짧은 목록용): 갈래를 돌아가며 하나씩 */
+export function pickVaried(list: CaseItem[], n: number) {
+  const buckets = new Map<string, CaseItem[]>()
+  // 갈래가 하나뿐이면(성범죄센터 등) 결과가 한쪽으로 몰리지 않게 결과별로 돌림
+  const oneGroup = new Set(list.map((c) => c.group ?? c.field)).size === 1
+  for (const c of list) {
+    const k = oneGroup ? (c.resultGroup ?? c.result) : (c.group ?? c.field)
+    buckets.set(k, [...(buckets.get(k) ?? []), c])
+  }
+  const out: CaseItem[] = []
+  for (let i = 0; out.length < n && i < list.length; i++) for (const b of buckets.values()) if (b[i] && out.length < n) out.push(b[i])
+  return out
 }
 
 export async function getCase(id: string, lang: Lang = "ko") {

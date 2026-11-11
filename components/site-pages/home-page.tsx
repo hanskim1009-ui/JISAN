@@ -9,10 +9,12 @@ import { LegalInfoSection } from "@/components/main/legal-info-section"
 import { DiaryGrid } from "@/components/diary-entries"
 import { AboutBand } from "@/components/main/about-band"
 import { HowWeWork } from "@/components/main/how-we-work"
+import { QuickConsult } from "@/components/main/quick-consult"
+import Link from "next/link"
 import { HomeFaq } from "@/components/main/home-faq"
 import { MapSection } from "@/components/map-section"
 import { homeFaqs } from "@/lib/home-faq"
-import { getCases, getColumns, getDiary } from "@/lib/content"
+import { getCases, getColumns, getDiary, pickVaried } from "@/lib/content"
 import { getYoutubeVideos } from "@/lib/feeds"
 import { siteConfig } from "@/lib/site-config"
 import { SHOW_SAMPLES } from "@/lib/preview"
@@ -39,14 +41,19 @@ export function homeMetadata(lang: Lang): Metadata {
 }
 
 /**
- * 메인 순서: 첫 화면 → 구성원 → 업무영역 → 업무사례 → 분야별 센터 → 칼럼·유튜브 → 감사일기
+ * 메인 순서: 첫 화면 → 구성원 → 업무영역 → 업무사례 → 짧은 상담 신청 → 분야별 센터 → 칼럼·유튜브 → 감사일기
  * → 법인 개요 → 상담 안내 → 자주 묻는 질문 → 오시는 길. 글이 없는 칸은 숨깁니다.
  * 외국어 사이트도 같은 순서·같은 내용(번역)이고, 분야별 센터는 번역된 외국인센터만 보입니다.
  */
 export async function HomePage({ lang }: { lang: Lang }) {
   const t = T(lang)
   const ko = lang === "ko"
-  const cases = await getCases({ limit: 6, lang })
+  const allCases = await getCases({ lang })
+  const cases = pickVaried(allCases, 6)
+  // 결과 갈래별 건수 (많은 순 다섯 개): 업무사례 표 위 바로 가기
+  const byResult = new Map<string, number>()
+  for (const c of allCases) if (c.resultGroup && c.resultGroup !== "기타") byResult.set(c.resultGroup, (byResult.get(c.resultGroup) ?? 0) + 1)
+  const resultLinks = ko ? [...byResult.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5) : []
   const columns = await getColumns({ limit: 6, lang })
   const allColumns = await getColumns({ lang })
   const columnCenters = ko
@@ -75,13 +82,24 @@ export async function HomePage({ lang }: { lang: Lang }) {
       {cases.length > 0 && (
         <section className="screen px-5 md:px-12 lg:px-14 py-14 md:py-20">
           <div data-reveal className="max-w-7xl mx-auto">
-            <SectionHead title={t("업무사례")} desc={t("나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.")} href={L(lang, "/cases")} linkLabel={t("더보기")} />
+            <SectionHead title={t("업무사례")} desc={t("나와 비슷한 사건을 어떻게 해결했는지 확인해 보세요.")} href={L(lang, "/cases")} linkLabel={allCases.length > cases.length ? t("{n}건 전체 보기", { n: allCases.length }) : t("더보기")} />
             <SampleNote show={cases.some((c) => c.sample)} className="mb-4" lang={lang} />
+            {resultLinks.length > 0 && (
+              <p className="mb-4 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-[0.875rem]">
+                <span className="mr-1 text-[#8A9099]">결과별로 보기</span>
+                {resultLinks.map(([g, n]) => (
+                  <Link key={g} href={`/cases?result=${encodeURIComponent(g)}`} className="rounded-full border border-[#D5D8DD] px-3 py-1 text-[#2D323A] hover:border-jisan-ink">
+                    {g} <span className="tabular-nums text-[#8A9099]">{n}</span>
+                  </Link>
+                ))}
+              </p>
+            )}
             <CasesTable items={cases} lang={lang} dict={clientDict(lang, CASES_TABLE_KEYS)} />
-            <p className="mt-4 text-[0.8125rem] text-[#8A9099]">{t("※ 지산의 업무사례는 의뢰인의 동의를 얻은 사건만, 누구인지 알 수 없게 고쳐 공개합니다.")}</p>
+            <p className="mt-4 text-[0.8125rem] text-[#8A9099]">{t("※ 업무사례는 의뢰인이 누구인지 알 수 없게 고쳐 싣습니다.")}</p>
           </div>
         </section>
       )}
+      {ko && <QuickConsult />}
       <CentersBand lang={lang} />
       <LegalInfoSection
         columns={columns}

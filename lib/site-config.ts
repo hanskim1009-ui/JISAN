@@ -74,7 +74,7 @@ export const siteConfig = {
   kakaoMapUrl: "https://map.kakao.com/?q=서울시%20서초구%20서초대로46길%20109%20지산빌딩",
   /**
    * 사무소 목록. 주사무소 + 분사무소(인천·홍성·송파).
-   * open이 true인 사무소는 맨 아래·오시는 길·법인 소개·상담 페이지에 보입니다. 주소가 비어 있으면 '주소 추후 안내'로 표시됩니다.
+   * open이 true이고 주소가 있는 사무소만 맨 아래·오시는 길·법인 소개·상담 페이지에 보입니다. 주소를 넣으면 나타납니다.
    * 문구에서는 특정 지역(서초동)을 내세우지 않고, 주소는 사무소 안내에서만 씁니다.
    */
   offices: [
@@ -96,8 +96,8 @@ export const siteConfig = {
   },
   /** 촬영 사진 경로. 비어 있으면 사진 자리 없이 배치됩니다 */
   photos: {
-    /** 메인 첫 화면 구성원 단체 사진 (가로) */
-    team: "",
+    /** 구성원 단체 사진 (가로 16:9). 법인 소개 페이지와 메인 인사말 옆에 들어갑니다 */
+    team: "/images/team/group.jpg",
   },
   /** Formspree form ID - 상담 폼 제출 시 사용 (https://formspree.io 에서 생성) */
   formspreeFormId: "mdawozrb",
@@ -105,18 +105,18 @@ export const siteConfig = {
 
 /** 변호사 프로필 이미지 - /public/images/lawyers/ 에 파일 추가 시 해당 경로 사용 */
 export const lawyerImages = {
-  kim: "/images/lawyers/kim.jpg",
-  koo: "/images/lawyers/koo.png",
-  park: "/images/lawyers/park.jpg",
-  kang: "/images/lawyers/kang.jpg",
-  /** 사진 파일을 넣은 뒤 경로 입력 (예: "/images/lawyers/kim-miso.jpg"). 비어 있으면 이니셜로 표시 */
+  /** 2026년 11월 촬영 프로필 (같은 배경·같은 자세, 세로 3:4로 잘라 둠) */
+  kim: "/images/lawyers/kim-hansol.jpg",
+  koo: "/images/lawyers/koo-bonwoo.jpg",
+  park: "/images/lawyers/park-jongjin.jpg",
+  kang: "/images/lawyers/kang-hyunwoo.jpg",
   kimMiso: "/images/lawyers/kim-miso.jpg",
-  kimChungHyeon: "",
+  kimChungHyeon: "/images/lawyers/kim-chunghyeon.jpg",
   parkHanmin: "/images/lawyers/park-hanmin.jpg",
 } as const
 
 /** 사이트에 보이는 사무소 (주사무소가 맨 앞) */
-export const openOffices = siteConfig.offices.filter((o) => o.open)
+export const openOffices = siteConfig.offices.filter((o) => o.open && o.address)
 
 /** 주소가 아직 없으면 보여 줄 문구 */
 export const officeAddress = (o: Office) => o.address || "주소 추후 안내"

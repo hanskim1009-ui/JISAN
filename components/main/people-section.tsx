@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { lawyers, type Lawyer } from "@/lib/lawyers"
 import { siteConfig } from "@/lib/site-config"
+import { fields } from "@/lib/practice"
 import { LawyerPhoto } from "@/components/lawyer-photo"
 import { SectionHead } from "@/components/main/section-head"
 import { KeywordMarquee } from "@/components/main/keyword-marquee"
@@ -14,6 +15,12 @@ function careerLines(l: Lawyer) {
   return all.filter((c) => !c.includes(siteConfig.name)).slice(0, 1)
 }
 
+/** 상담 신청으로: 그 변호사가 맨 앞에 있는(없으면 포함된) 업무영역을 미리 골라 둠 */
+function consultHref(slug: string) {
+  const type = (fields.find((f) => f.lawyers[0] === slug) ?? fields.find((f) => f.lawyers.includes(slug)))?.caseType
+  return type ? `/consult?type=${encodeURIComponent(type)}` : "/consult"
+}
+
 /** 구성원: 모두 같은 크기·같은 형식. 이름 위에 분야, 아래에 한 줄 소개와 경력 한 줄 */
 export function PeopleSection({ lang = "ko" }: { lang?: Lang }) {
   const t = T(lang)
@@ -23,8 +30,8 @@ export function PeopleSection({ lang = "ko" }: { lang?: Lang }) {
         <SectionHead title={t("구성원 소개")} desc={t("내 사건을 누가 맡는지 궁금해 하지 않아도 됩니다. 상담한 변호사가 끝까지 함께합니다.")} href={L(lang, "/lawyers")} linkLabel={t("프로필 보기")} />
         <ul className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-5 px-5 pb-1 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-x-5 sm:gap-y-8 sm:overflow-visible sm:px-0 lg:grid-cols-4 xl:grid-cols-7">
           {lawyers.map((l) => (
-            <li key={l.slug} className="w-[62%] shrink-0 snap-start sm:w-auto sm:min-w-0">
-              <Link href={`${L(lang, "/lawyers")}#${l.slug}`} className="group block">
+            <li key={l.slug} className="flex w-[62%] shrink-0 snap-start flex-col sm:w-auto sm:min-w-0">
+              <Link href={`${L(lang, "/lawyers")}#${l.slug}`} className="group block flex-1">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#C9CCD1] sm:aspect-[3/4] transition-transform duration-500 [&_img]:transition-transform [&_img]:duration-700 group-hover:[&_img]:scale-[1.04]">
                   <LawyerPhoto
                     src={l.image}
@@ -45,6 +52,14 @@ export function PeopleSection({ lang = "ko" }: { lang?: Lang }) {
                   </ul>
                 )}
               </Link>
+              {lang === "ko" && (
+                <Link
+                  href={consultHref(l.slug)}
+                  className="mt-3 self-start rounded-full border border-jisan-ink/30 px-3 py-1 text-[0.8125rem] font-semibold text-jisan-ink hover:border-jisan-ink"
+                >
+                  이 변호사에게 상담
+                </Link>
+              )}
             </li>
           ))}
         </ul>
