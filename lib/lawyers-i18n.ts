@@ -90,7 +90,7 @@ const data: Record<string, Entry> = {
   "koo-bonwoo": {
     en: {
       name: "Bonwoo Koo",
-      title: MP.en,
+      title: P.en,
       field: "Corporate & Finance",
       line: "Former IBK Industrial Bank, Hana Securities, Smilegate Investment",
       bio: "Bonwoo Koo worked at IBK Industrial Bank of Korea, Hana Securities, Smilegate Investment (compliance officer), Sigong Law Firm and Ihan Law Firm. He focuses on management disputes at listed companies, investment agreements and capital markets cases.",
@@ -98,7 +98,7 @@ const data: Record<string, Entry> = {
     },
     zh: {
       name: "Bonwoo Koo",
-      title: MP.zh,
+      title: P.zh,
       field: "企业·金融",
       line: "前 IBK企业银行、韩亚证券、Smilegate Investment",
       bio: "Bonwoo Koo 律师曾任职于 IBK 企业银行、韩亚证券、Smilegate Investment（合规负责人）以及 Sigong、Ihan 律师事务所，主要办理上市公司经营权纠纷、投资合同和资本市场案件。",
