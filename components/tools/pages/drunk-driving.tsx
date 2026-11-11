@@ -10,8 +10,8 @@ import { relatedLinks, toolMetadata, type RelatedDef } from "./shared"
 const RELATED: RelatedDef[] = [
   { tool: "prosecution" },
   { tool: "sentencing" },
-  { href: "/crime/guide/drunk-driving-caught", label: "음주운전으로 단속됐을 때", center: "crime", guide: "drunk-driving-caught" },
-  { href: "/crime/drunk-driving", label: "음주운전·교통사고", center: "crime" },
+  { href: "/dui/guide/drunk-driving-caught", label: "음주운전으로 단속됐을 때", center: "crime", guide: "drunk-driving-caught" },
+  { href: "/dui/drunk-driving", label: "음주운전·교통사고", center: "crime" },
   { tool: "police-summons" },
 ]
 

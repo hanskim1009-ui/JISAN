@@ -7,6 +7,10 @@ import crime from "@/content/center-pages/crime.json"
 import { centerBase, getCenter } from "@/lib/centers"
 import sexCrime from "@/content/center-pages/sex-crime.json"
 import drug from "@/content/center-pages/drug.json"
+import duiPages from "@/content/center-pages/dui.json"
+import economicCrimePages from "@/content/center-pages/economic-crime.json"
+import gamblingPages from "@/content/center-pages/gambling.json"
+import unfairCompetitionPages from "@/content/center-pages/unfair-competition.json"
 import divorce from "@/content/center-pages/divorce.json"
 import adultery from "@/content/center-pages/adultery.json"
 import corporate from "@/content/center-pages/corporate.json"
@@ -81,7 +85,7 @@ export type CenterPages = {
   sources?: string[]
 }
 
-const all = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner, foreignerEn, foreignerZh, foreignerVi, foreignerRu, foreignerMn, ...intlCenterPages] as unknown as CenterPages[]
+const all = [crime, sexCrime, drug, duiPages, economicCrimePages, gamblingPages, unfairCompetitionPages, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner, foreignerEn, foreignerZh, foreignerVi, foreignerRu, foreignerMn, ...intlCenterPages] as unknown as CenterPages[]
 
 /** 센터 주소 앞부분 (외국어판은 /en/foreigner 처럼) */
 const pathOf = (slug: string) => {

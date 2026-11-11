@@ -67,6 +67,10 @@ import type { Lang } from "@/lib/center-i18n"
 import { crime } from "@/lib/center-data/crime"
 import { sexCrime } from "@/lib/center-data/sex-crime"
 import { drug } from "@/lib/center-data/drug"
+import { dui } from "@/lib/center-data/dui"
+import { economicCrime } from "@/lib/center-data/economic-crime"
+import { gambling } from "@/lib/center-data/gambling"
+import { unfairCompetition } from "@/lib/center-data/unfair-competition"
 import { divorce } from "@/lib/center-data/divorce"
 import { adultery } from "@/lib/center-data/adultery"
 import { corporate } from "@/lib/center-data/corporate"
@@ -94,7 +98,7 @@ function withIntl(c: Center): Center {
 }
 
 /** 메인 사이트에 보이는 (한국어) 센터 */
-export const centers: Center[] = [crime, sexCrime, drug, divorce, adultery, inheritance, corporate, medical, civil, construction, insolvency, schoolViolence, foreigner].map(withIntl)
+export const centers: Center[] = [crime, sexCrime, drug, dui, economicCrime, gambling, divorce, adultery, inheritance, corporate, unfairCompetition, medical, civil, construction, insolvency, schoolViolence, foreigner].map(withIntl)
 
 /** 외국어판 센터: 메인 사이트 목록에는 없고, 주소(basePath)와 언어 전환으로만 들어옵니다 */
 export const foreignCenters: Center[] = [foreignerEn, foreignerZh, foreignerVi, foreignerRu, foreignerMn, ...intlCenters]

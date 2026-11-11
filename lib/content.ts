@@ -152,7 +152,7 @@ const GROUP_SLUG: Record<string, string> = {
   성범죄: "sex-crime", "음주·교통": "traffic", 마약: "drug", "사기·재산범죄": "property", "폭행·협박": "violence", "소년·아동": "juvenile", 기타: "etc",
 }
 /** 갈래별로 함께 보여 줄 센터 */
-const GROUP_CENTER: Record<string, string> = { 성범죄: "sex-crime", 마약: "drug" }
+const GROUP_CENTER: Record<string, string> = { 성범죄: "sex-crime", 마약: "drug", "음주·교통": "dui", "사기·재산범죄": "economic-crime" }
 
 /** 파일 업무사례를 이 사이트에 실은 날 */
 const FILE_CASES_PUBLISHED = "2026-11-10"
@@ -161,7 +161,7 @@ function fromFile(c: FileCase, lawyer: string): CaseItem {
   return {
     id: `${GROUP_SLUG[c.group] ?? "etc"}-${c.n}`,
     field: "형사",
-    centers: [GROUP_CENTER[c.group] ?? "crime"],
+    centers: GROUP_CENTER[c.group] ? [GROUP_CENTER[c.group], "crime"] : ["crime"],
     decidedOn: "",
     situation: c.title,
     caseType: c.caseType,

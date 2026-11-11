@@ -30,7 +30,7 @@ export const fields: Field[] = [
     caseType: "형사",
     items: ["경찰 조사 동석, 체포·구속", "성범죄 · 마약", "사기·횡령·자본시장법", "학교폭력, 음주·교통"],
     lawyers: ["kim-hansol", "koo-bonwoo", "kim-chunghyeon"],
-    centers: ["crime", "sex-crime", "drug", "school-violence"],
+    centers: ["crime", "sex-crime", "drug", "dui", "economic-crime", "gambling", "school-violence"],
     situations: [
       { label: "경찰 출석 요구를 받았어요", center: "crime" },
       { label: "가족이 체포됐어요", center: "crime" },
@@ -58,7 +58,7 @@ export const fields: Field[] = [
     caseType: "기업",
     items: ["투자계약, 주주간계약", "주주총회·이사회", "경영권 분쟁", "정기 자문, 노무·중대재해"],
     lawyers: ["koo-bonwoo", "kang-hyunwoo", "park-jongjin"],
-    centers: ["corporate"],
+    centers: ["corporate", "unfair-competition"],
     situations: [
       { label: "투자계약을 검토해야 해요", center: "corporate" },
       { label: "주주 간 분쟁이 생겼어요", center: "corporate" },
