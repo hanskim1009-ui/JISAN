@@ -35,7 +35,7 @@ export const foreignerEn: Center = {
   },
   "hero": {
     "title": "Legal trouble in Korea?\nWe handle it with your visa status in mind",
-    "sub": "Refused stay extensions, departure and deportation orders, police questioning, unpaid wages, divorce and deposit disputes. We look at how one case can affect your stay in Korea, and you can consult with us in English."
+    "sub": "Refused stay extensions, departure and deportation orders, police questioning, unpaid wages, divorce and deposit disputes. We look at how one case can affect your stay in Korea, and you can consult with us directly in English, or in your own language with AI interpretation."
   },
   "stageTitle": "What is your situation right now?",
   "stages": [
