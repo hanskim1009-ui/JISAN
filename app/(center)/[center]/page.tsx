@@ -27,7 +27,7 @@ import { Fragment } from "react"
 import { HERO_BG, LeadHero } from "@/components/center/lead-hero"
 import { LeadSection, TeamFigure } from "@/components/center/prosecutor-section"
 import { Fold } from "@/components/center/fold"
-import { leadFor } from "@/lib/lead-lawyers"
+import { leadsFor } from "@/lib/lead-lawyers"
 import { searchHints } from "@/lib/prosecutor"
 import { HeroSearch } from "@/components/main/hero-search"
 import { stageGuideHref } from "@/lib/center-pages"
@@ -88,7 +88,8 @@ export default async function CenterPage({ params }: Props) {
   const P = PROFILE_TEXT[center.lang ?? "ko"]
   const foreign = Boolean(center.lang && center.lang !== "ko")
   /** 형사 계열 센터: 대표변호사 첫 화면 + 검사 경력 구역 + 짧아진 순서 */
-  const leadLawyer = foreign ? undefined : leadFor(center.slug)
+  const leadList = foreign ? [] : leadsFor(center.slug)
+  const leadLawyer = leadList[0]
   const lead = Boolean(leadLawyer)
   /** 외국인센터: 체류자격별 안내로 연결 (그 언어 번역이 있을 때) */
   const centerLang = (center.lang ?? "ko") as Lang
@@ -197,7 +198,7 @@ export default async function CenterPage({ params }: Props) {
 
   /** 구역 조각. 아래 order 순서대로 그립니다 */
   const S: Record<string, React.ReactNode> = {
-    hero: leadLawyer ? <LeadHero center={center} lead={leadLawyer} /> : <CenterHero center={center} />,
+    hero: leadLawyer ? <LeadHero center={center} lead={leadLawyer} others={leadList.slice(1)} /> : <CenterHero center={center} />,
     // 첫 화면 사진 아래쪽 색을 그대로 이어 받음 (사진 → 찾기 → 상황 버튼이 한 화면처럼)
     stages: lead && (
         <section id="stages" className="px-6 pb-12 pt-4 text-white md:px-12 md:pb-14 md:pt-6 lg:px-20" style={{ backgroundColor: HERO_BG[center.tone] }}>
@@ -235,7 +236,13 @@ export default async function CenterPage({ params }: Props) {
           </div>
         </section>
       ),
-    lead: leadLawyer && <LeadSection center={center} lead={leadLawyer} bg={t.alt} />,
+    lead: leadLawyer && (
+      <>
+        {leadList.map((l, i) => (
+          <LeadSection key={l.slug} center={center} lead={l} bg={i % 2 === 0 ? t.alt : "bg-white"} id={i === 0 ? "lead" : `lead-${i + 1}`} />
+        ))}
+      </>
+    ),
     quick: lead && (
         <section id="quick" className={`scroll-mt-20 px-6 py-14 md:px-12 md:py-16 lg:px-20 ${t.band}`}>
           <div data-reveal className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[1fr_26rem] lg:gap-16">

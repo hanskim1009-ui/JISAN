@@ -15,12 +15,12 @@ const pen = Nanum_Pen_Script({ weight: "400", subsets: ["latin"], display: "swap
  * 센터 앞 변호사 구역: 사진과 이름표, 본인 이름으로 나가는 글(손글씨), 평가·활동 목록, 상담 단추.
  * 내용은 lib/lead-lawyers.ts. 경력 사실만 적고 '전관'·영향력·결과 예측 표현은 쓰지 않습니다.
  */
-export function LeadSection({ center, lead, bg }: { center: Center; lead: LeadLawyer; bg: string }) {
+export function LeadSection({ center, lead, bg, id = "lead" }: { center: Center; lead: LeadLawyer; bg: string; id?: string }) {
   const l = getLawyer(lead.slug)!
   const t = centerTones[center.tone]
   const base = centerBase(center)
   return (
-    <section id="lead" className={`scroll-mt-20 px-6 py-14 md:px-12 md:py-20 lg:px-20 ${bg}`}>
+    <section id={id} className={`scroll-mt-20 px-6 py-14 md:px-12 md:py-20 lg:px-20 ${bg}`}>
       <div data-reveal className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[20rem_1fr] lg:gap-16">
           {/* 사진과 한마디 */}

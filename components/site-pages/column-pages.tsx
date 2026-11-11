@@ -96,7 +96,7 @@ export async function ColumnPage({ lang, id }: { lang: Lang; id: string }) {
         description: c.summary,
         datePublished: c.date,
         inLanguage: lang,
-        author: author ? { "@type": "Person", name: authorName, jobTitle: t(author.title), url: `${site}${L(lang, "/lawyers")}#${author.slug}` } : undefined,
+        author: author ? { "@type": "Person", name: authorName, jobTitle: t(author.title), url: `${site}${L(lang, "/lawyers")}/${author.slug}` } : undefined,
         publisher: { "@type": "LegalService", name: ko ? siteConfig.name : siteConfig.nameEn, url: site },
         mainEntityOfPage: `${site}${L(lang, "/column")}/${c.id}`,
       },

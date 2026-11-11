@@ -77,13 +77,19 @@ function OpenNow({ short = false }: { short?: boolean }) {
 /** 센터 분위기별 첫 화면 바탕색 (사진 아래쪽이 이 색으로 스며듦) */
 export const HERO_BG = { dark: "#141C33", warm: "#2F3A34" } as const
 
-export function LeadHero({ center, lead: leadLawyer }: { center: Center; lead: LeadLawyer }) {
+export function LeadHero({ center, lead: leadLawyer, others = [] }: { center: Center; lead: LeadLawyer; others?: LeadLawyer[] }) {
   const L = centerText(center.lang)
   const lead = getLawyer(leadLawyer.slug)!
   const person = PERSON[leadLawyer.slug]
   const group = siteConfig.photos.team
   const heroBg = HERO_BG[center.tone]
-  const who = `${lead.name} ${lead.title.replace(/\s/g, "")}`
+  const nameOf = (slug: string) => {
+    const l = getLawyer(slug)!
+    return `${l.name} ${l.title.replace(/\s/g, "")}`
+  }
+  const who = nameOf(leadLawyer.slug)
+  // 둘이 함께 맡는 센터는 꼬리표 대신 두 사람 이름을 나란히
+  const whoLine = others.length > 0 ? [leadLawyer, ...others].map((l) => nameOf(l.slug)).join(" · ") : `${who} ${leadLawyer.tag}`
   // 제목 문구 후보 (없으면 센터 제목 한 가지)
   const lines = (heroLines[center.slug] ?? [center.hero.title.replace(/\n/g, " ")]).slice(0, 8)
   return (
@@ -147,7 +153,7 @@ export function LeadHero({ center, lead: leadLawyer }: { center: Center; lead: L
             <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 pb-10 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:px-20 lg:pb-12">
               <div className="anim-rise min-w-0" style={{ animationDelay: "0.35s" }}>
                 <p className="text-[0.8125rem] font-semibold text-white/80 md:text-[0.875rem]">
-                  {siteConfig.shortName} {center.name} <span aria-hidden className="mx-1.5 opacity-50">|</span> {who} {leadLawyer.tag}
+                  {siteConfig.shortName} {center.name} <span aria-hidden className="mx-1.5 opacity-50">|</span> {whoLine}
                 </p>
                 <Headline lines={lines} className="mt-2 text-balance text-[1.75rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.5rem]" />
               </div>

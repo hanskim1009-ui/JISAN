@@ -148,7 +148,7 @@ export async function CasePage({ lang, id }: { lang: Lang; id: string }) {
         inLanguage: lang,
         mainEntityOfPage: url,
         articleSection: c.group ?? c.field,
-        author: people.map((l) => ({ "@type": "Person", name: lawyerName(l, lang), jobTitle: t(l.title), url: `${site}${L(lang, "/lawyers")}#${l.slug}` })),
+        author: people.map((l) => ({ "@type": "Person", name: lawyerName(l, lang), jobTitle: t(l.title), url: `${site}${L(lang, "/lawyers")}/${l.slug}` })),
         publisher: { "@type": "LegalService", name: ko ? siteConfig.name : siteConfig.nameEn, url: site },
       },
       {

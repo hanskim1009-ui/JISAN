@@ -3,18 +3,18 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
 import { allCenters, centerBase, getCenter, type Center } from "@/lib/centers"
-import { getLawyer, lawyers as allLawyers, type Lawyer } from "@/lib/lawyers"
-import { HREFLANG, type Lang } from "@/lib/langs"
-import { T } from "@/lib/i18n/t"
+import { getLawyer, lawyers as allLawyers } from "@/lib/lawyers"
+import type { Lang } from "@/lib/langs"
 import { translateLawyer } from "@/lib/i18n/translate-lawyer"
 import { PROFILE_TEXT } from "@/lib/center-profile-text"
 import { siteConfig } from "@/lib/site-config"
-import { prosecutor } from "@/lib/prosecutor"
 import { centerText } from "@/lib/center-i18n"
 import { centerTones } from "@/components/center/tone"
 import { SubHero } from "@/components/center/sub-page"
 import { ConsultBand } from "@/components/center/consult-band"
 import { LawyerPhoto } from "@/components/lawyer-photo"
+import { ProsecutorBlock, Resume } from "@/components/lawyer-profile"
+import { lawyerProfilePath } from "@/lib/lawyer-entities"
 
 type Props = { params: Promise<{ center: string; lawyer: string }> }
 
@@ -37,83 +37,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const d = load(p.center, p.lawyer)
   if (!d) return {}
   const { center, lang, lawyer } = d
-  const url = `${centerBase(center)}/lawyers/${lawyer.slug}`
+  // 같은 변호사 소개가 센터마다 있으므로, 검색엔진에는 변호사 대표 페이지를 원본으로 알림 (화면 이동은 없음)
   return {
     title: { absolute: PROFILE_TEXT[lang].title(lawyer.name, lawyer.title, center.name) },
     description: lawyer.summary.replace(/\n/g, " ").slice(0, 160),
-    alternates: {
-      canonical: url,
-      ...(center.alternates
-        ? { languages: Object.fromEntries(Object.entries(center.alternates).map(([l, h]) => [HREFLANG[l as Lang], `${h}/lawyers/${lawyer.slug}`])) }
-        : {}),
-    },
+    alternates: { canonical: lawyerProfilePath(lang, lawyer.slug) },
   }
-}
-
-function List({ items }: { items: string[] }) {
-  return (
-    <ul className="space-y-2.5">
-      {items.map((item) => (
-        <li key={item} className="flex items-start gap-3 text-[0.9375rem] leading-relaxed text-jisan-ink/80">
-          <span className="mt-[0.7rem] h-px w-4 shrink-0 bg-jisan-ink/40" />
-          {item}
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-function Block({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <section className="border-t border-[#E2E6ED] pt-7">
-      <h2 className="mb-4 text-lg font-bold text-jisan-ink">{title}</h2>
-      {children}
-    </section>
-  )
-}
-
-/** 이력 묶음: 자격·경력·학력이 나뉜 변호사는 그대로, 아니면 경력 + 주요 이력 (+ 분야별 블록) */
-function Resume({ lawyer, lang }: { lawyer: Lawyer; lang: Lang }) {
-  const t = T(lang)
-  const P = PROFILE_TEXT[lang]
-  const r = lawyer.structuredResume
-  return (
-    <div className="space-y-9">
-      {r ? (
-        <>
-          {r.qualifications.length > 0 && <Block title={t("자격")}><List items={r.qualifications} /></Block>}
-          {r.career.length > 0 && <Block title={t("경력")}><List items={r.career} /></Block>}
-          {r.education.length > 0 && <Block title={t("학력")}><List items={r.education} /></Block>}
-        </>
-      ) : (
-        <>
-          {lawyer.career && lawyer.career.length > 0 && <Block title={lawyer.resumeSections?.length ? t("이력") : t("경력")}><List items={lawyer.career} /></Block>}
-          {lawyer.resumeSections?.map((s) => (
-            <Block key={s.heading} title={s.heading}>
-              <List items={s.items} />
-            </Block>
-          ))}
-          {lawyer.highlights.length > 0 && <Block title={lawyer.resumeSections?.length ? t("학력") : P.highlights}><List items={lawyer.highlights} /></Block>}
-        </>
-      )}
-      {lawyer.workCaseSections && lawyer.workCaseSections.length > 0 && (
-        <Block title={t("주요 업무 사례")}>
-          <div className="space-y-6">
-            {lawyer.workCaseSections.map((s) => (
-              <div key={s.heading}>
-                <p className="mb-2 text-[0.9375rem] font-semibold text-jisan-ink">{s.heading}</p>
-                <ul className="list-disc space-y-1.5 pl-5 text-[0.9375rem] leading-relaxed text-jisan-ink/80">
-                  {s.items.map((it) => (
-                    <li key={it}>{it}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </Block>
-      )}
-    </div>
-  )
 }
 
 /** 같은 센터의 다른 변호사: 주력 변호사 먼저, 한국어 센터는 나머지 구성원도 */
@@ -145,7 +74,7 @@ export default async function CenterLawyerPage({ params }: Props) {
         name: lawyer.name,
         jobTitle: lawyer.title,
         description: lawyer.summary.replace(/\n/g, " "),
-        url: `${siteConfig.siteUrl}${base}/lawyers/${lawyer.slug}`,
+        url: `${siteConfig.siteUrl}${lawyerProfilePath(lang, lawyer.slug)}`,
         ...(lawyer.image?.startsWith("/") ? { image: `${siteConfig.siteUrl}${lawyer.image}` } : {}),
         worksFor: { "@id": `${siteConfig.siteUrl}/#organization` },
       },
@@ -190,30 +119,7 @@ export default async function CenterLawyerPage({ params }: Props) {
             <div className="mt-10">
               <Resume lawyer={lawyer} lang={lang} />
             </div>
-            {/* 검사로 근무한 곳과 맡은 일 (센터 첫 페이지의 검사 경력 구역에서 이어짐) */}
-            {lang === "ko" && lawyer.slug === prosecutor.slug && (
-              <div id="prosecutor" className="mt-10 scroll-mt-24 border-t border-border pt-6">
-                <p className="mb-2 text-xs font-semibold text-foreground/90">검사로 근무한 곳</p>
-                <ul className="text-sm leading-relaxed">
-                  {prosecutor.posts.map((po, i) => (
-                    <li key={i} className="grid grid-cols-1 gap-x-4 border-b border-[#E4E6E9] py-2.5 sm:grid-cols-[15rem_1fr]">
-                      <span className="text-foreground/85">
-                        {po.office} {po.dept}
-                      </span>
-                      <span className="text-foreground/65">{po.work}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mb-2 mt-8 text-xs font-semibold text-foreground/90">검사 재직 중 받은 평가</p>
-                <ul className="text-sm leading-relaxed text-foreground/75">
-                  {prosecutor.awards.map((aw) => (
-                    <li key={aw.text} className="border-b border-[#E4E6E9] py-2.5">
-                      {aw.text}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <ProsecutorBlock lawyer={lawyer} lang={lang} />
             <Link href={base} className={`mt-12 inline-flex items-center gap-1.5 text-sm font-semibold ${tone.accent}`}>
               <ArrowLeft className="h-4 w-4" aria-hidden /> {P.back(center.name)}
             </Link>

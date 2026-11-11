@@ -39,7 +39,7 @@ export const leadLawyers: LeadLawyer[] = [
     profileAnchor: "prosecutor",
     teamText:
       "형사 사건에 돈 문제, 회사 문제, 가족 문제가 함께 걸려 있으면 그 분야를 맡아 온 변호사가 같이 봅니다. 금융회사와 기업 자문, 의료, 부동산, 가사를 맡는 변호사가 한 사무실에서 일합니다.",
-    centers: ["crime", "sex-crime", "drug", "dui", "economic-crime", "gambling", "unfair-competition"],
+    centers: ["crime", "sex-crime", "drug", "dui", "economic-crime", "gambling", "unfair-competition", "school-violence"],
   },
   {
     slug: "kim-miso",
@@ -57,9 +57,12 @@ export const leadLawyers: LeadLawyer[] = [
     profileLabel: "프로필 보기",
     teamText:
       "이혼과 상속에 재산 문제, 회사 지분, 형사 고소가 함께 걸려 있으면 그 분야를 맡아 온 변호사가 같이 봅니다. 기업 자문, 부동산, 형사를 맡는 변호사가 한 사무실에서 일합니다.",
-    centers: ["family", "divorce", "adultery", "inheritance"],
+    centers: ["family", "divorce", "adultery", "inheritance", "school-violence"],
   },
 ]
 
 /** 그 센터 앞에 세우는 변호사 (없으면 원래 구성) */
 export const leadFor = (centerSlug: string) => leadLawyers.find((l) => l.centers.includes(centerSlug))
+
+/** 그 센터 앞에 세우는 변호사 모두 (학교폭력센터처럼 둘이 함께 맡는 곳은 둘 다) */
+export const leadsFor = (centerSlug: string) => leadLawyers.filter((l) => l.centers.includes(centerSlug))

@@ -10,6 +10,8 @@ import { visaList } from "@/lib/visa"
 import { crimePageIds, crimePageLangs } from "@/lib/tools/prosecution-page"
 import { regions, regionBase } from "@/lib/regions"
 import { LANGS } from "@/lib/langs"
+import { lawyers } from "@/lib/lawyers"
+import { lawyerProfilePath } from "@/lib/lawyer-entities"
 
 /** /sitemap.xml - 센터를 추가하면 자동으로 포함됩니다. 네이버 서치어드바이저·구글 서치콘솔에 제출 */
 export const revalidate = 3600
@@ -20,7 +22,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: url("/"), changeFrequency: "weekly", priority: 1 },
     ...FOREIGN_LANGS.map((l) => ({ url: url(`/${l}`), changeFrequency: "monthly" as const, priority: 0.8 })),
     ...allCenters.map((c) => ({ url: url(centerBase(c)), changeFrequency: "weekly" as const, priority: 0.9 })),
-    ...allCenters.flatMap((c) => c.lawyers.map((l) => ({ url: url(`${centerBase(c)}/lawyers/${l.slug}`), changeFrequency: "monthly" as const, priority: 0.6 }))),
+    // 변호사 대표 페이지 (센터 안 변호사 소개는 이 페이지를 원본으로 가리키므로 사이트맵에서 뺌)
+    ...LANGS.flatMap((lg) => lawyers.map((l) => ({ url: url(lawyerProfilePath(lg, l.slug)), changeFrequency: "monthly" as const, priority: lg === "ko" ? 0.8 : 0.6 }))),
     ...(
       await Promise.all(
         FOREIGN_LANGS.map(async (l) => [
