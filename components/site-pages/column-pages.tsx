@@ -72,7 +72,8 @@ export async function columnMetadata(lang: Lang, id: string): Promise<Metadata> 
     // 외국어 칼럼은 한국어 칼럼을 옮긴 글이라 검색 노출에서 뺌 (새 도메인이 '대량 생성 페이지'로 낮게 평가되지 않도록).
     // 화면·주소는 그대로이고 사이트 안 링크로는 계속 읽을 수 있음. 다시 노출하려면 이 두 줄을 되돌리면 됨
     alternates: { canonical: L(lang, `/column/${c.id}`) },
-    ...(lang === "ko" ? {} : { robots: { index: false, follow: true } }),
+    // 한국어 칼럼도 변호사가 검토한 글만 검색에 노출 (lib/content.ts reviewed)
+    ...(lang === "ko" && c.reviewed ? {} : { robots: { index: false, follow: true } }),
     openGraph: { type: "article", title: c.title, description: c.summary, publishedTime: c.date, authors: author ? [lawyerName(author, lang)] : undefined },
   }
 }
@@ -98,6 +99,7 @@ export async function ColumnPage({ lang, id }: { lang: Lang; id: string }) {
         headline: c.title,
         description: c.summary,
         datePublished: c.date,
+        ...(c.reviewed ? { dateModified: c.reviewed.at } : {}),
         inLanguage: lang,
         author: author ? { "@type": "Person", name: authorName, jobTitle: t(author.title), url: `${site}${L(lang, "/lawyers")}/${author.slug}` } : undefined,
         publisher: { "@type": "LegalService", name: ko ? siteConfig.name : siteConfig.nameEn, url: site },
@@ -130,6 +132,12 @@ export async function ColumnPage({ lang, id }: { lang: Lang; id: string }) {
         </h1>
         <div className="mt-5 border-y border-[#E4E6E9] py-4">
           <ColumnByline slug={c.author} date={c.date} size="md" dict={dict} />
+          {/* 변호사가 검토한 글만: 검토한 변호사와 날짜 (관리 화면 글은 쓴 변호사가 곧 검토자라 따로 적지 않음) */}
+          {ko && c.reviewed && c.reviewed.at !== c.date && (
+            <p className="mt-2 text-[0.8125rem] text-[#6B717A]">
+              {getLawyer(c.reviewed.by)?.name ?? ""} 변호사 검토 · {c.reviewed.at.replace(/^(\d{4})-(\d{2})-(\d{2})$/, (_, y, m, d) => `${y}. ${Number(m)}. ${Number(d)}.`)}
+            </p>
+          )}
         </div>
         <div className="mt-8">
           <ColumnBody blocks={c.body} />
