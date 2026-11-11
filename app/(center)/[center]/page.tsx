@@ -201,13 +201,17 @@ export default async function CenterPage({ params }: Props) {
     stages: lead && (
         <section id="stages" className="border-b border-[#E4E6E9] bg-white px-6 py-10 md:px-12 md:py-12 lg:px-20">
           <div className="mx-auto max-w-7xl">
-            {searchHints[center.slug] && (
-              <div className="mb-8">
-                <HeroSearch light scope={[base, ...(pages?.includeCenters ?? []).map((s) => `/${s}`)]} placeholder={searchHints[center.slug]} source="center_search" />
-              </div>
-            )}
             <h2 className="text-lg font-bold text-jisan-ink">{center.stageTitle}</h2>
-            <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+            {/* 찾기 상자는 아래 상황 버튼과 같은 모양·같은 폭으로 (lib/prosecutor.ts searchHints 가 있는 센터만) */}
+            {searchHints[center.slug] && (
+              <>
+                <div className="mt-4">
+                  <HeroSearch light field scope={[base, ...(pages?.includeCenters ?? []).map((s) => `/${s}`)]} placeholder={searchHints[center.slug]} source="center_search" />
+                </div>
+                <p className="mt-6 text-[0.8125rem] font-medium text-[#8A9099]">자주 찾는 상황</p>
+              </>
+            )}
+            <ul className={`${searchHints[center.slug] ? "mt-2.5" : "mt-4"} grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3`}>
               {center.stages.map((st) => {
                 const guide = stageGuideHref(center.slug, st.label)
                 return (

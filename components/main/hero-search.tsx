@@ -14,8 +14,9 @@ import { trackEvent } from "@/components/analytics"
  * 맞는 분야가 없으면 업무사례 찾기와 전화를 안내합니다.
  * scope: 센터에서 쓸 때 그 센터(와 묶어 보여 주는 센터) 주소들. 그 안에서 먼저 찾고, 없으면 사이트 전체에서 찾습니다.
  * light: 흰 바탕 위에 놓을 때 (테두리를 둠)
+ * field: 센터의 상황 버튼과 같은 모양(모서리·테두리·높이)으로, 폭 가득·찾기 단추는 글자만
  */
-export function HeroSearch({ scope, placeholder = "무슨 일이 있으신가요? 예: 음주운전, 보증금, 이혼", light = false, source = "hero_search" }: { scope?: string[]; placeholder?: string; light?: boolean; source?: string } = {}) {
+export function HeroSearch({ scope, placeholder = "무슨 일이 있으신가요? 예: 음주운전, 보증금, 이혼", light = false, field = false, source = "hero_search" }: { scope?: string[]; placeholder?: string; light?: boolean; field?: boolean; source?: string } = {}) {
   const router = useRouter()
   const [q, setQ] = useState("")
   const [index, setIndex] = useState<AreaHit[] | null>(null)
@@ -56,7 +57,7 @@ export function HeroSearch({ scope, placeholder = "무슨 일이 있으신가요
   }
 
   return (
-    <div ref={box} className="relative w-full max-w-2xl text-left">
+    <div ref={box} className={`relative w-full text-left ${field ? "" : "max-w-2xl"}`}>
       <form
         role="search"
         onSubmit={(e) => {
@@ -68,7 +69,7 @@ export function HeroSearch({ scope, placeholder = "무슨 일이 있으신가요
         <label htmlFor="hero-search" className="sr-only">
           겪고 있는 일로 찾기
         </label>
-        <Search aria-hidden className="pointer-events-none absolute left-5 top-[1.6rem] h-5 w-5 -translate-y-1/2 text-[#8A9099] md:left-6 md:top-[1.75rem]" />
+        <Search aria-hidden className={`pointer-events-none absolute -translate-y-1/2 text-[#8A9099] ${field ? "left-4 top-[1.625rem] h-[1.125rem] w-[1.125rem]" : "left-5 top-[1.6rem] h-5 w-5 md:left-6 md:top-[1.75rem]"}`} />
         <input
           id="hero-search"
           type="search"
@@ -97,9 +98,16 @@ export function HeroSearch({ scope, placeholder = "무슨 일이 있으신가요
           placeholder={placeholder}
           aria-expanded={show}
           aria-controls="hero-search-list"
-          className={`h-[3.2rem] w-full rounded-full bg-white pl-12 pr-24 text-[1rem] text-jisan-ink outline-none placeholder:text-[#8A9099] ${light ? "border border-[#C9CED6] focus:border-jisan-ink" : "shadow-[0_20px_50px_-20px_rgb(0_0_0/0.6)] focus:ring-2 focus:ring-white/60"} md:h-[3.5rem] md:pl-14 md:pr-28 md:text-[1.0625rem] [&::-webkit-search-cancel-button]:hidden`}
+          className={`w-full bg-white text-jisan-ink outline-none placeholder:text-[#8A9099] [&::-webkit-search-cancel-button]:hidden ${field ? "h-[3.25rem] rounded-xl border border-[#E2E6ED] pl-11 pr-20 text-[0.9375rem] font-medium transition-colors hover:border-[#C9CED6] focus:border-jisan-ink" : `h-[3.2rem] rounded-full pl-12 pr-24 text-[1rem] md:h-[3.5rem] md:pl-14 md:pr-28 md:text-[1.0625rem] ${light ? "border border-[#C9CED6] focus:border-jisan-ink" : "shadow-[0_20px_50px_-20px_rgb(0_0_0/0.6)] focus:ring-2 focus:ring-white/60"}`}`}
         />
-        <button type="submit" className="absolute right-1.5 top-1.5 h-[2.45rem] rounded-full bg-brand px-4 text-sm font-semibold text-white hover:bg-brand-tone md:right-2 md:top-2 md:h-[2.5rem] md:px-5">
+        <button
+          type="submit"
+          className={
+            field
+              ? "absolute right-1.5 top-1.5 h-[2.5rem] rounded-lg px-4 text-[0.9375rem] font-semibold text-jisan-blue hover:bg-[#F3F5F8]"
+              : "absolute right-1.5 top-1.5 h-[2.45rem] rounded-full bg-brand px-4 text-sm font-semibold text-white hover:bg-brand-tone md:right-2 md:top-2 md:h-[2.5rem] md:px-5"
+          }
+        >
           찾기
         </button>
       </form>
