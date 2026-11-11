@@ -34,6 +34,8 @@ const nextConfig = {
     )]
   },
   images: {
+    // 단체 사진처럼 큰 사진은 85로 (기본 75는 화질이 떨어져 보임)
+    qualities: [75, 85],
     remotePatterns: [
       {
         protocol: "https",

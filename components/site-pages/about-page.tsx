@@ -45,7 +45,7 @@ export function AboutPage({ lang }: { lang: Lang }) {
           </p>
           {siteConfig.photos.team && (
             <div className="relative mt-7 aspect-[16/9] max-w-2xl overflow-hidden rounded-2xl bg-[#E4E5E7]">
-              <Image src={siteConfig.photos.team} alt={name} fill priority sizes="(max-width: 768px) 100vw, 42rem" className="object-cover" />
+              <Image src={siteConfig.photos.team} alt={name} fill priority quality={85} sizes="(max-width: 768px) 100vw, 42rem" className="object-cover" />
             </div>
           )}
           <div className="mt-6 max-w-2xl space-y-5 text-[1.0625rem] leading-[1.85] text-[#2D323A]">

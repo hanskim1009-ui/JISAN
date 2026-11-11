@@ -87,7 +87,7 @@ export function TeamFigure({ text }: { text: string }) {
     <>
           <figure className="mb-12 grid grid-cols-1 items-center gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
             <div className="relative aspect-[16/8] overflow-hidden rounded-2xl bg-[#DADBDD]">
-              <Image src={siteConfig.photos.team} alt={`${siteConfig.name} 변호사들`} fill sizes="(min-width: 1024px) 44rem, 100vw" className="object-cover object-[center_22%]" />
+              <Image src={siteConfig.photos.team} alt={`${siteConfig.name} 변호사들`} fill quality={85} sizes="(min-width: 1024px) 44rem, 100vw" className="object-cover object-[center_22%]" />
             </div>
             <figcaption>
               <p className="text-xl font-bold leading-snug tracking-tight text-jisan-ink">사건은 혼자 보지 않습니다</p>
