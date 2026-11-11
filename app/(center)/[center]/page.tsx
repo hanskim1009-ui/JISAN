@@ -25,9 +25,9 @@ import { ConsultForm } from "@/components/consult-form"
 import { CasesTable } from "@/components/cases-table"
 import { Fragment } from "react"
 import { LeadHero } from "@/components/center/lead-hero"
-import { ProsecutorSection, TeamFigure } from "@/components/center/prosecutor-section"
+import { LeadSection, TeamFigure } from "@/components/center/prosecutor-section"
 import { Fold } from "@/components/center/fold"
-import { usesProsecutorLayout } from "@/lib/prosecutor"
+import { leadFor } from "@/lib/lead-lawyers"
 import { stageGuideHref } from "@/lib/center-pages"
 import { BlogList } from "@/components/blog-list"
 import { getCases, getColumns, pickVaried } from "@/lib/content"
@@ -86,7 +86,8 @@ export default async function CenterPage({ params }: Props) {
   const P = PROFILE_TEXT[center.lang ?? "ko"]
   const foreign = Boolean(center.lang && center.lang !== "ko")
   /** 형사 계열 센터: 대표변호사 첫 화면 + 검사 경력 구역 + 짧아진 순서 */
-  const lead = usesProsecutorLayout(center.slug)
+  const leadLawyer = foreign ? undefined : leadFor(center.slug)
+  const lead = Boolean(leadLawyer)
   /** 외국인센터: 체류자격별 안내로 연결 (그 언어 번역이 있을 때) */
   const centerLang = (center.lang ?? "ko") as Lang
   const visaUi = center.slug.startsWith("foreigner") && visaList(centerLang).length > 0 ? getVisaUi(centerLang) : undefined
@@ -144,11 +145,11 @@ export default async function CenterPage({ params }: Props) {
   const faqCount = pages?.moreFaqs.length ?? 0
 
   /**
-   * 구역 순서. 형사 계열(lib/prosecutor.ts)은 누가 맡는지와 사례를 앞에, 긴 목록은 뒤에 접어 둡니다.
+   * 구역 순서. 앞 변호사가 정해진 센터(lib/lead-lawyers.ts)는 누가 맡는지와 사례를 앞에, 긴 목록은 뒤에 접어 둡니다.
    * 그 밖의 센터는 원래 순서 그대로.
    */
   const order = lead
-    ? ["hero", "stages", "prosecutor", "cases", "points", "process", "quick", "areas", "table", "guides", "lawyers", "intro", "blog", "column", "faq", "offices", "consult"]
+    ? ["hero", "stages", "lead", "cases", "points", "process", "quick", "areas", "table", "guides", "lawyers", "intro", "blog", "column", "faq", "offices", "consult"]
     : ["hero", "intro", "situations", "areas", "table", "points", "process", "guides", "cases", "lawyers", "blog", "column", "faq", "offices", "consult"]
   /** 섹션 바탕: 보이는 섹션 순서대로 흰색/옅은 색을 번갈아 */
   const exists: Record<string, boolean> = {
@@ -194,7 +195,7 @@ export default async function CenterPage({ params }: Props) {
 
   /** 구역 조각. 아래 order 순서대로 그립니다 */
   const S: Record<string, React.ReactNode> = {
-    hero: lead ? <LeadHero center={center} /> : <CenterHero center={center} />,
+    hero: leadLawyer ? <LeadHero center={center} lead={leadLawyer} /> : <CenterHero center={center} />,
     stages: lead && (
         <section id="stages" className="border-b border-[#E4E6E9] bg-white px-6 py-10 md:px-12 md:py-12 lg:px-20">
           <div className="mx-auto max-w-7xl">
@@ -222,7 +223,7 @@ export default async function CenterPage({ params }: Props) {
           </div>
         </section>
       ),
-    prosecutor: lead && <ProsecutorSection center={center} bg={t.alt} />,
+    lead: leadLawyer && <LeadSection center={center} lead={leadLawyer} bg={t.alt} />,
     quick: lead && (
         <section id="quick" className={`scroll-mt-20 px-6 py-14 md:px-12 md:py-16 lg:px-20 ${t.band}`}>
           <div data-reveal className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-[1fr_26rem] lg:gap-16">
@@ -395,7 +396,7 @@ export default async function CenterPage({ params }: Props) {
     lawyers: (
 <section id="lawyers" className={`${pad} ${bg("lawyers")}`}>
         <div data-reveal className="max-w-7xl mx-auto">
-          {lead && <TeamFigure />}
+          {leadLawyer && <TeamFigure text={leadLawyer.teamText} />}
           <h2 className={h2}>{L.lawyersOf(center.name)}</h2>
           <p className="mt-2 text-[0.9375rem] text-jisan-ink/70">
             {L.lawyersLead(foreign ? siteConfig.nameEn : siteConfig.shortName, allLawyers.length, center.name)}

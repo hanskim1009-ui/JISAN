@@ -3,7 +3,8 @@ import { MessageCircle, Phone } from "lucide-react"
 import type { Center } from "@/lib/centers"
 import { siteConfig } from "@/lib/site-config"
 import { getLawyer } from "@/lib/lawyers"
-import { heroLines, prosecutor } from "@/lib/prosecutor"
+import { heroLines } from "@/lib/prosecutor"
+import type { LeadLawyer } from "@/lib/lead-lawyers"
 import { centerText } from "@/lib/center-i18n"
 import { HeroPick } from "@/components/center/hero-pick"
 
@@ -14,12 +15,13 @@ import { HeroPick } from "@/components/center/hero-pick"
  *  b 구성원 단체 사진을 화면 가득, 글은 사진 아래쪽에 꼭 필요한 것만
  * 산 그림은 쓰지 않습니다.
  */
-const PERSON = "/images/team/hero-kim-hansol.webp"
+/** 대표변호사 한 명 안(a)에 쓰는 배경 지운 사진. 지금은 김한솔 변호사만 있어 다른 센터는 단체 사진만 */
+const PERSON: Record<string, string> = { "kim-hansol": "/images/team/hero-kim-hansol.webp" }
 
 function Buttons({ L }: { L: ReturnType<typeof centerText> }) {
   return (
     <div className="flex flex-wrap items-center gap-2.5">
-      <a href="#consult" className="rounded-full bg-white px-6 py-3 text-[0.9375rem] font-semibold text-jisan-navy hover:bg-white/90">
+      <a href="#consult" className="rounded-full bg-white px-6 py-3 text-[0.9375rem] font-semibold text-[color:var(--hero-bg)] hover:bg-white/90">
         {L.consult}
       </a>
       <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 text-[0.9375rem] font-semibold tabular-nums hover:bg-white/10">
@@ -72,19 +74,24 @@ function OpenNow({ short = false }: { short?: boolean }) {
   )
 }
 
-export function LeadHero({ center }: { center: Center }) {
+/** 센터 분위기별 첫 화면 바탕색 (사진 아래쪽이 이 색으로 스며듦) */
+const HERO_BG = { dark: "#141C33", warm: "#2F3A34" } as const
+
+export function LeadHero({ center, lead: leadLawyer }: { center: Center; lead: LeadLawyer }) {
   const L = centerText(center.lang)
-  const lead = getLawyer(prosecutor.slug)!
+  const lead = getLawyer(leadLawyer.slug)!
+  const person = PERSON[leadLawyer.slug]
   const group = siteConfig.photos.team
+  const heroBg = HERO_BG[center.tone]
   const who = `${lead.name} ${lead.title.replace(/\s/g, "")}`
   // 제목 문구 후보 (없으면 센터 제목 한 가지)
   const lines = (heroLines[center.slug] ?? [center.hero.title.replace(/\n/g, " ")]).slice(0, 8)
   return (
-    <section className="relative overflow-hidden bg-jisan-navy text-white">
+    <section className="relative overflow-hidden bg-[var(--hero-bg)] text-white" style={{ ["--hero-bg" as string]: heroBg }}>
       {/* 첫 그림이 그려지기 전에 둘 중 하나를 고름 (깜빡임 방지). 페이지 안 이동 때는 HeroPick 이 정함 */}
       <script
         dangerouslySetInnerHTML={{
-          __html: `var HERO_PICK='${siteConfig.photos.team ? "b" : "a"}';try{var d=document.documentElement;d.setAttribute('data-hero-pick',HERO_PICK);d.setAttribute('data-hero-line',Math.floor(Math.random()*${lines.length}))}catch(e){}`,
+          __html: `var HERO_PICK='${group || !person ? "b" : "a"}';try{var d=document.documentElement;d.setAttribute('data-hero-pick',HERO_PICK);d.setAttribute('data-hero-line',Math.floor(Math.random()*${lines.length}))}catch(e){}`,
         }}
       />
       <HeroPick lines={lines.length} />
@@ -94,7 +101,7 @@ export function LeadHero({ center }: { center: Center }) {
         <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
           <div className="absolute right-0 top-0 h-full w-[55%] bg-[radial-gradient(60%_70%_at_62%_45%,rgb(255_255_255/0.10),transparent_70%)]" />
           <div className="relative mx-auto h-full max-w-7xl">
-            <Image src={PERSON} alt="" width={900} height={1167} priority sizes="34rem" className="hero-person anim-person-in absolute bottom-0 right-[5%] h-[96%] w-auto" />
+            {person && <Image src={person} alt="" width={900} height={1167} priority sizes="34rem" className="hero-person anim-person-in absolute bottom-0 right-[5%] h-[96%] w-auto" />}
           </div>
         </div>
         <div className="relative mx-auto max-w-7xl px-6 pb-12 pt-12 md:px-12 md:pb-20 md:pt-20 lg:min-h-[36rem] lg:px-20">
@@ -103,7 +110,7 @@ export function LeadHero({ center }: { center: Center }) {
             <p className="mt-5 border-l-2 border-white/60 pl-3 text-[0.875rem] leading-snug text-white/85 md:text-[0.9375rem]">
               <b className="font-bold text-white">{who}</b>
               <br />
-              {prosecutor.tag}
+              {leadLawyer.tag}
             </p>
             <Headline lines={lines} className="mt-5 text-balance text-[2rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.875rem] md:leading-[1.2]" />
             <p className="mt-5 text-base leading-relaxed text-white/75 md:text-[1.0625rem]">{center.hero.sub}</p>
@@ -117,7 +124,7 @@ export function LeadHero({ center }: { center: Center }) {
         </div>
         {/* 좁은 화면: 글 아래에 사진 */}
         <div aria-hidden className="relative -mt-2 flex justify-center lg:hidden">
-          <Image src={PERSON} alt="" width={900} height={1167} sizes="70vw" className="hero-person h-[19rem] w-auto" />
+          {person && <Image src={person} alt="" width={900} height={1167} sizes="70vw" className="hero-person h-[19rem] w-auto" />}
         </div>
       </div>
 
@@ -133,14 +140,14 @@ export function LeadHero({ center }: { center: Center }) {
                 <Image src={group} alt={`${siteConfig.name} 변호사들`} fill sizes="(min-width: 1024px) 72rem, 100vw" className="object-cover object-top" />
               </div>
             </div>
-            <div aria-hidden className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-jisan-navy/60 to-transparent" />
-            <div aria-hidden className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-jisan-navy from-15% via-jisan-navy/75 via-50% to-transparent" />
+            <div aria-hidden className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[color:var(--hero-bg)]/60 to-transparent" />
+            <div aria-hidden className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-[color:var(--hero-bg)] from-15% via-[color:var(--hero-bg)]/75 via-50% to-transparent" />
           </div>
           <div className="relative -mt-14 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0">
             <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 pb-10 md:px-12 lg:flex-row lg:items-end lg:justify-between lg:gap-10 lg:px-20 lg:pb-12">
               <div className="anim-rise min-w-0" style={{ animationDelay: "0.35s" }}>
                 <p className="text-[0.8125rem] font-semibold text-white/80 md:text-[0.875rem]">
-                  {siteConfig.shortName} {center.name} <span aria-hidden className="mx-1.5 opacity-50">|</span> {who} {prosecutor.tag}
+                  {siteConfig.shortName} {center.name} <span aria-hidden className="mx-1.5 opacity-50">|</span> {who} {leadLawyer.tag}
                 </p>
                 <Headline lines={lines} className="mt-2 text-balance text-[1.75rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.5rem]" />
               </div>
