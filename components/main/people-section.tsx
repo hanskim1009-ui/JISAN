@@ -43,7 +43,7 @@ export function PeopleSection({ lang = "ko" }: { lang?: Lang }) {
                 <p className="mt-2.5 text-xs font-bold text-brand-accent">{l.field ? t(l.field) : "\u00a0"}</p>
                 <p className="text-lg font-bold text-jisan-ink group-hover:underline underline-offset-4 sm:text-base">{lawyerName(l, lang)}</p>
                 <p className="text-[0.8125rem] text-[#8A9099]">{t(l.title)}</p>
-                {l.tagline && <p className="mt-2 text-[0.8125rem] leading-snug text-jisan-ink">{t(l.tagline)}</p>}
+                {l.tagline && <p className="mt-2 whitespace-pre-line text-[0.8125rem] leading-snug text-jisan-ink">{t(l.tagline)}</p>}
                 {careerLines(l).length > 0 && (
                   <ul className="mt-2 space-y-0.5 border-t border-[#D9D4CA] pt-2 text-[0.8125rem] leading-snug text-[#4A505A]">
                     {careerLines(l).map((c) => (

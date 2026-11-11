@@ -201,7 +201,7 @@ function LawyerRow({ lawyer, index, t, caseCount = 0 }: { lawyer: Lawyer; index:
             </p>
           </div>
 
-          {lawyer.tagline && <p className="-mt-4 mb-6 text-[1.0625rem] font-semibold leading-snug text-jisan-ink">{lawyer.tagline}</p>}
+          {lawyer.tagline && <p className="-mt-4 mb-6 whitespace-pre-line text-[1.0625rem] font-semibold leading-snug text-jisan-ink">{lawyer.tagline}</p>}
 
           {/* 소개 텍스트 (줄바꿈은 \n + whitespace-pre-line) */}
           <p className="text-base leading-[1.9] text-foreground/80 mb-8 whitespace-pre-line">
