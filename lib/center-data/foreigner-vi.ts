@@ -21,7 +21,7 @@ export const foreignerVi: Center = {
   "tone": "warm",
   "seo": {
     "title": "Luật sư Hàn Quốc cho người nước ngoài | Từ chối gia hạn visa, trục xuất, vụ án hình sự | Jisan & Partners",
-    "description": "Bị từ chối gia hạn lưu trú hoặc thay đổi tư cách lưu trú, bị hủy giấy phép lưu trú, nhận lệnh xuất cảnh hay lệnh trục xuất, bị tạm giữ tại trung tâm tạm giữ người nước ngoài, bị cảnh sát triệu tập, bị nợ lương, chuyển nơi làm việc, ly hôn có yếu tố nước ngoài. Chúng tôi tính thời hạn trước tiên và tranh chấp bằng khiếu nại hành chính, kiện hành chính. Hãy nhắn tin cho chúng tôi qua khung chat trên trang này.",
+    "description": "Bị từ chối gia hạn lưu trú hoặc thay đổi tư cách lưu trú, bị hủy giấy phép lưu trú, nhận lệnh xuất cảnh hay lệnh trục xuất, bị tạm giữ tại trung tâm tạm giữ người nước ngoài, bị cảnh sát triệu tập, bị nợ lương, chuyển nơi làm việc, ly hôn có yếu tố nước ngoài. Chúng tôi tính thời hạn trước tiên và tranh chấp bằng khiếu nại hành chính, kiện hành chính. Tư vấn trực tiếp bằng tiếng Anh; tiếng Việt và các ngôn ngữ khác có phiên dịch AI hỗ trợ. Hãy nhắn tin cho chúng tôi qua khung chat trên trang này.",
     "keywords": [
       "luật sư Hàn Quốc",
       "luật sư visa Hàn Quốc",

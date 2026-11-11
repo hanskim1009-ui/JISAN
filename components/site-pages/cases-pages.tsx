@@ -253,7 +253,7 @@ export async function CasePage({ lang, id }: { lang: Lang; id: string }) {
                   {lawyerName(l, lang)} <span className="text-sm font-normal text-[#4A505A]">{t(l.title)}</span>
                 </p>
                 {career.length > 0 && <p className="mt-1.5 text-[0.875rem] leading-relaxed text-[#4A505A]">{career.map((x) => t(x)).join(" · ")}</p>}
-                <Link href={`${L(lang, "/lawyers")}#${l.slug}`} className="mt-2 inline-block text-sm font-semibold text-jisan-ink underline underline-offset-4">
+                <Link href={`${L(lang, "/lawyers")}/${l.slug}`} className="mt-2 inline-block text-sm font-semibold text-jisan-ink underline underline-offset-4">
                   {t("프로필 보기")}
                 </Link>
               </div>

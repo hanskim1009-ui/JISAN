@@ -7,7 +7,7 @@ import { allCenterPages } from "@/lib/center-pages"
 import { TOOLS } from "@/lib/tools/registry"
 import { toolsFor } from "@/components/tools/pages/tools-list"
 import { visaList } from "@/lib/visa"
-import { crimePageIds, crimePageLangs } from "@/lib/tools/prosecution-page"
+import { crimePageLangs } from "@/lib/tools/prosecution-page"
 import { regions, regionBase } from "@/lib/regions"
 import { LANGS } from "@/lib/langs"
 import { lawyers } from "@/lib/lawyers"
@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       await Promise.all(
         FOREIGN_LANGS.map(async (l) => [
           ...["/about", "/lawyers", "/consult", "/column"].map((p) => ({ url: url(`/${l}${p}`), changeFrequency: "monthly" as const, priority: 0.6 })),
-          ...(await getColumns({ lang: l })).map((c) => ({ url: url(`/${l}/column/${c.id}`), changeFrequency: "yearly" as const, priority: 0.5 })),
+          // 외국어 칼럼은 검색 노출에서 뺐으므로 사이트맵에도 넣지 않음 (components/site-pages/column-pages.tsx)
         ]),
       )
     ).flat(),
@@ -66,7 +66,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const pre = l === "ko" ? "" : `/${l}`
       return [
         { url: url(`${pre}/tools/prosecution/crimes`), changeFrequency: "monthly" as const, priority: 0.6 },
-        ...crimePageIds(l).map((id) => ({ url: url(`${pre}/tools/prosecution/${id}`), changeFrequency: "monthly" as const, priority: 0.5 })),
+        // 죄명별 안내 페이지는 검색 노출에서 뺐으므로 사이트맵에도 넣지 않음 (components/tools/prosecution/crime-page.tsx)
       ]
     }),
     ...LANGS.flatMap((l) => {

@@ -20,7 +20,7 @@ export const SITE_CHAT: Record<"en" | "zh" | "vi" | "ru" | "mn", Record<string, 
     "지금 고민되는 것을 편하게 적어 주세요. 체포나 다음 날 조사처럼 급한 일은 전화가 빠릅니다. 전화는 24시간 받습니다.":
       "Write to us about whatever is worrying you. Our staff replies in the chat first and passes your case to the lawyer in charge.",
     "형사·가사·기업·의료·부동산·민사 사건을 담당 변호사가 상담부터 재판까지 직접 맡습니다. 상담 전화 24시간, 주말·공휴일 포함.":
-      "The lawyer in charge personally handles criminal, family, corporate, medical, real estate and civil cases from consultation to trial. Contact us through the messenger chat.",
+      "The lawyer in charge personally handles criminal, family, corporate, medical, real estate and civil cases from consultation to trial. Criminal cases are led by a former Korean prosecutor. Consultations in English, and in other languages with AI interpretation. Contact us through the messenger chat.",
   },
   zh: {
     "{name} 상담 신청. 변호사가 내용을 확인하고 연락드립니다. 전화는 24시간, 주말·공휴일에도 받습니다.": "{name} 咨询。请通过聊天软件给我们发消息。工作人员会先回复，再把案件转交给负责律师。",

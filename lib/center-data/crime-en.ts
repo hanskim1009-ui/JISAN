@@ -20,8 +20,8 @@ export const crimeEn: Center = {
   "summary": "Police questioning, arrest and detention, fraud and embezzlement, DUI and assault, filing criminal complaints",
   "tone": "dark",
   "seo": {
-    "title": "Criminal Lawyer in Korea | Police Questioning, Detention, Criminal Trials | Jisan & Partners Criminal Law Center",
-    "description": "Called in by the Korean police, arrested or detained, facing a criminal trial, or filing a complaint? At Jisan & Partners' Criminal Law Center, the managing partner consults with you in person, and we handle mock questioning, sitting in on questioning and defense written opinions. Message us through the chat on this page.",
+    "title": "English-Speaking Criminal Lawyer in Korea | Former Prosecutor | Police Questioning, Detention, Trials | Jisan & Partners",
+    "description": "Called in by the Korean police, arrested or detained, facing a criminal trial, or filing a complaint? At Jisan & Partners' Criminal Law Center, managing partner Hansol Kim, a former Korean prosecutor, consults with you in person in English (other languages with AI interpretation), and we handle mock questioning, sitting in on questioning and defense written opinions. Message us through the chat on this page.",
     "keywords": [
       "criminal lawyer Korea",
       "police questioning lawyer Korea",

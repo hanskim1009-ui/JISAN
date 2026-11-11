@@ -20,8 +20,8 @@ export const foreignerEn: Center = {
   "summary": "Refused stay extensions and status changes, departure, deportation and detention orders, immigration violation reviews, criminal cases involving foreigners, unpaid wages and workplace changes, international divorce, deposit and fraud losses",
   "tone": "warm",
   "seo": {
-    "title": "Visa Lawyer Korea | Visa Refusal, Deportation, Foreigner Criminal Cases | Jisan & Partners Foreigner Center",
-    "description": "Refused visa extension or change of status, cancelled stay permit, departure and deportation orders, immigration detention, police questioning of foreigners, unpaid wages, workplace changes and international divorce. We start by counting your deadlines and challenge decisions through administrative appeals and lawsuits. Consultations in English. Message us through the chat on this page.",
+    "title": "English-Speaking Lawyer in Korea for Foreigners | Visa Lawyer | Visa Refusal, Deportation, Foreigner Criminal Cases | Jisan & Partners Foreigner Center",
+    "description": "Refused visa extension or change of status, cancelled stay permit, departure and deportation orders, immigration detention, police questioning of foreigners, unpaid wages, workplace changes and international divorce. We start by counting your deadlines and challenge decisions through administrative appeals and lawsuits. Consultations directly in English, and in other languages with AI interpretation. Message us through the chat on this page.",
     "keywords": [
       "visa lawyer Korea",
       "visa extension refused Korea",

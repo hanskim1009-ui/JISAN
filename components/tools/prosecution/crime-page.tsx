@@ -61,6 +61,9 @@ export function crimePageMetadata(lang: Lang, id: string): Metadata {
     title,
     description,
     alternates: toolAlternates(lang, crimePath(id), crimePageLangsFor(id)),
+    // 죄명별 안내는 같은 틀로 만든 페이지가 1,700개가 넘어 검색 노출에서 뺌 (계산기 첫 화면·죄명 모음은 노출).
+    // 화면·주소는 그대로. 다시 노출하려면 이 줄을 지우고 사이트맵(app/sitemap.ts)에 되돌리면 됨
+    robots: { index: false, follow: true },
     openGraph: { title, description, url: L(lang, crimePath(id)), type: "article", ...(lang !== "ko" ? { locale: OG_LOCALE[lang] } : {}) },
   }
 }
