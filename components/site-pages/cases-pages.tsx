@@ -90,8 +90,12 @@ export async function caseMetadata(lang: Lang, id: string): Promise<Metadata> {
   const t = T(lang)
   const c = await getCase(id, lang)
   if (!c) return {}
+  // 검색 제목은 60자 안쪽으로 (구글이 뒤를 자름): 죄명·결과 + 상황 → 길면 죄명·결과만 → 그래도 길면 줄임
+  const head = caseHeadline(c)
+  const full = `${head}: ${c.situation}`
+  const searchTitle = full.length <= 60 ? full : head.length <= 60 ? head : `${head.slice(0, 58).trimEnd()}…`
   return {
-    title: `${caseHeadline(c)}: ${c.situation}`,
+    title: searchTitle,
     description: c.summary ?? `${c.situation} · ${c.stage} · ${c.result}. ${t("{name} 업무사례.", { name: t(siteConfig.name) })}`,
     alternates: foreignAlternates(lang, `/cases/${c.id}`),
     openGraph: { type: "article", title: `${caseHeadline(c)}: ${c.situation}`, description: c.summary },

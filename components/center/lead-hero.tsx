@@ -43,7 +43,18 @@ function Buttons({ L }: { L: ReturnType<typeof centerText> }) {
  * 제목: 여러 문구 가운데 하나만 보임 (html[data-hero-line], globals.css .hero-line).
  * 기본 문구만 h1 이고 나머지는 같은 모양의 문단입니다.
  */
-function Headline({ lines, className }: { lines: string[]; className: string }) {
+/** main=false: 화면에 안 쓰이는 다른 안(a/b)의 제목. 페이지 대표 제목(h1)이 두 개가 되지 않게 글자만 둠 */
+function Headline({ lines, className, main = true }: { lines: string[]; className: string; main?: boolean }) {
+  if (!main)
+    return (
+      <>
+        {lines.map((text, i) => (
+          <p key={i} data-i={i} className={`hero-line ${className}`}>
+            {text}
+          </p>
+        ))}
+      </>
+    )
   return (
     <>
       {lines.map((text, i) =>
@@ -118,7 +129,7 @@ export function LeadHero({ center, lead: leadLawyer, others = [] }: { center: Ce
               <br />
               {leadLawyer.tag}
             </p>
-            <Headline lines={lines} className="mt-5 text-balance text-[2rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.875rem] md:leading-[1.2]" />
+            <Headline main={!group} lines={lines} className="mt-5 text-balance text-[2rem] font-extrabold leading-[1.25] tracking-tight md:text-[2.875rem] md:leading-[1.2]" />
             <p className="mt-5 text-base leading-relaxed text-white/75 md:text-[1.0625rem]">{center.hero.sub}</p>
             <div className="mt-8">
               <Buttons L={L} />

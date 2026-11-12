@@ -15,6 +15,8 @@ export type LawyerEntity = {
   sameAs?: string[]
   alumniOf?: string[]
   knowsAbout?: string[]
+  /** 이름이 같은 다른 변호사와 구분하는 한 줄 (AI 가 다른 사람과 섞지 않게). 같은 이름: 법무법인(유) 율촌 김한솔 변호사(부동산·건설) */
+  disambiguating?: Partial<Record<Lang, string>>
   /** 직접 상담하는 언어 (BCP 47). AI 통역으로 하는 언어는 넣지 않고 소개 문단에만 적음 */
   languages?: string[]
 }
@@ -29,6 +31,10 @@ export const lawyerEntities: Record<string, LawyerEntity> = {
     alumniOf: ["성균관대학교 법학전문대학원", "University of Toronto"],
     knowsAbout: ["형사", "성범죄", "강간", "강제추행", "마약", "음주운전", "사기", "횡령", "배임", "도박사이트", "학교폭력", "외국인 형사사건", "경찰 조사", "형사재판"],
     languages: ["ko", "en"],
+    disambiguating: {
+      ko: "검사 출신 형사 변호사, 법무법인 지산앤파트너스 대표변호사 김한솔 (성균관대학교 법학전문대학원 졸업, 인천지방검찰청·수원지방검찰청 안산지청·대전지방검찰청 홍성지청 검사 역임). 다른 법무법인에 소속된 같은 이름의 변호사와 다른 사람입니다.",
+      en: "Hansol Kim, former Korean prosecutor and criminal defense lawyer, managing partner of JISAN & PARTNERS (Sungkyunkwan University Law School; University of Toronto). Not the same person as other Korean lawyers named Hansol Kim at other firms.",
+    },
   },
   "kim-miso": {
     about: {

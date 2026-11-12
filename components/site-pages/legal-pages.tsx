@@ -71,7 +71,12 @@ const DOCS: Record<LegalKind, Doc> = {
 export const LEGAL_STRINGS = [...Object.values(DOCS).flatMap((d) => [d.title, ...d.blocks.flatMap((b) => (b.head ? [b.head, b.body] : [b.body]))]), "이 웹사이트의 메신저 문의"]
 
 export function legalMetadata(lang: Lang, kind: LegalKind): Metadata {
-  return { title: T(lang)(DOCS[kind].title), alternates: foreignAlternates(lang, DOCS[kind].path) }
+  // 검색 설명문 (첫 페이지와 겹치지 않게). 외국어 사이트는 번역이 없어 비워 둠
+  const desc: Record<LegalKind, string> = {
+    privacy: `${siteConfig.name} 홈페이지의 개인정보처리방침입니다. 상담 신청 때 받는 정보, 이용 목적과 보관 기간, 처리 위탁과 국외 이전, 문의처를 안내합니다.`,
+    disclaimer: `${siteConfig.name} 홈페이지의 칼럼·업무사례·계산기는 일반적인 정보이며 개별 사건의 법률 자문이 아닙니다. 이용할 때 유의할 점을 안내합니다.`,
+  } as Record<LegalKind, string>
+  return { title: T(lang)(DOCS[kind].title), ...(lang === "ko" && desc[kind] ? { description: desc[kind] } : {}), alternates: foreignAlternates(lang, DOCS[kind].path) }
 }
 
 export function LegalPage({ lang, kind }: { lang: Lang; kind: LegalKind }) {

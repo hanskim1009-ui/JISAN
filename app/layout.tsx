@@ -1,5 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from "next"
+import { lawyerEntity } from "@/lib/lawyer-entities"
 import { siteConfig } from "@/lib/site-config"
 import { lawyers } from "@/lib/lawyers"
 
@@ -97,6 +98,8 @@ function JsonLdScript() {
         jobTitle: l.title,
         url: `${siteUrl}/lawyers/${l.slug}`,
         "@id": `${siteUrl}/lawyers/${l.slug}#person`,
+        ...(lawyerEntity(l.slug)?.disambiguating?.ko ? { disambiguatingDescription: lawyerEntity(l.slug)?.disambiguating?.ko } : {}),
+        ...(lawyerEntity(l.slug)?.sameAs ? { sameAs: lawyerEntity(l.slug)?.sameAs } : {}),
         worksFor: { "@id": `${siteUrl}/#organization` },
       })),
     ],
