@@ -68,6 +68,7 @@ export function LawyerProfilePage({ lang, slug }: { lang: Lang; slug: string }) 
         ...(lang === "ko" && enName ? { alternateName: enName } : lang !== "ko" ? { alternateName: base.name } : {}),
         jobTitle: lawyer.title,
         description: aboutText(lang, slug, lawyer.summary),
+        ...(entity?.disambiguating ? { disambiguatingDescription: entity.disambiguating[lang] ?? entity.disambiguating.en ?? entity.disambiguating.ko } : {}),
         url: `${site}${lawyerProfilePath(lang, slug)}`,
         ...(base.image?.startsWith("/") ? { image: `${site}${base.image}` } : {}),
         worksFor: { "@id": `${site}/#organization` },

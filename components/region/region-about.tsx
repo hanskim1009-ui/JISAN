@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { lawyerEntity } from "@/lib/lawyer-entities"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { REGION_LAWYER, getRegion, regionBase, regionLabel, type RegionSlug } from "@/lib/regions"
@@ -13,7 +14,8 @@ export function regionAboutMetadata(slug: RegionSlug): Metadata {
   const url = `${regionBase(r)}/about`
   return {
     title: { absolute: `${l.name} ${l.title} | ${siteConfig.name} ${r.name}` },
-    description: l.summary.replace(/\n/g, " ").slice(0, 160),
+    // 지역마다 다른 설명문 (지역명 + 변호사 소개 문단)
+    description: `${r.name} 사건 상담: ${lawyerEntity(l.slug)?.about.ko ?? l.summary.replace(/\n/g, " ")}`.slice(0, 160),
     alternates: { canonical: url },
   }
 }

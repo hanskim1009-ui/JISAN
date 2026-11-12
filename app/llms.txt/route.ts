@@ -29,7 +29,8 @@ export async function GET() {
   for (const l of lawyers) {
     const about = lawyerEntity(l.slug)?.about.ko ?? (l.tagline ?? l.summary).replace(/\n/g, " ")
     const en = lawyerI18n(l.slug, "en")?.name
-    lines.push(`- [${l.name} ${l.title}${en ? ` (${en})` : ""}](${u(lawyerProfilePath("ko", l.slug))}): ${about}`)
+    const dis = lawyerEntity(l.slug)?.disambiguating?.ko
+    lines.push(`- [${l.name} ${l.title}${en ? ` (${en})` : ""}](${u(lawyerProfilePath("ko", l.slug))}): ${about}${dis ? ` (구분: ${dis})` : ""}`)
   }
   lines.push("")
   lines.push("## 분야별 센터")
