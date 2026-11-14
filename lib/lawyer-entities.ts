@@ -41,6 +41,7 @@ export const lawyerEntities: Record<string, LawyerEntity> = {
       ko: "김미소 변호사는 법무법인 지산앤파트너스 파트너변호사로 이혼, 상간 위자료, 상속, 가사 사건과 학교폭력 사건을 맡습니다. 주식회사 위메이드 법무팀 사내변호사로 일했고, 한국여성변호사회 정회원이며 한국의료변호사협회 이사입니다.",
     },
     knowsAbout: ["이혼", "재산분할", "양육권", "상간 위자료", "상속", "유류분", "가사", "학교폭력"],
+    sameAs: ["https://www.lawtalk.co.kr/directory/profile/9174-%EA%B9%80%EB%AF%B8%EC%86%8C"],
   },
 }
 
