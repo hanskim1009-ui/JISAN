@@ -69,11 +69,9 @@ export async function columnMetadata(lang: Lang, id: string): Promise<Metadata> 
   return {
     title: c.title,
     description: c.summary,
-    // 외국어 칼럼은 한국어 칼럼을 옮긴 글이라 검색 노출에서 뺌 (새 도메인이 '대량 생성 페이지'로 낮게 평가되지 않도록).
-    // 화면·주소는 그대로이고 사이트 안 링크로는 계속 읽을 수 있음. 다시 노출하려면 이 두 줄을 되돌리면 됨
-    alternates: { canonical: L(lang, `/column/${c.id}`) },
-    // 한국어 칼럼도 변호사가 검토한 글만 검색에 노출 (lib/content.ts reviewed)
-    ...(lang === "ko" && c.reviewed ? {} : { robots: { index: false, follow: true } }),
+    alternates: foreignAlternates(lang, `/column/${c.id}`),
+    // 한국어 칼럼은 변호사가 검토한 글만 검색에 노출 (lib/content.ts reviewed). 외국어 칼럼은 모두 노출
+    ...(lang === "ko" && !c.reviewed ? { robots: { index: false, follow: true } } : {}),
     openGraph: { type: "article", title: c.title, description: c.summary, publishedTime: c.date, authors: author ? [lawyerName(author, lang)] : undefined },
   }
 }
